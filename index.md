@@ -22,7 +22,7 @@ programs is easy to encode, human languages provide an interesting
 challenge, both in terms of its analysis and the learning of language
 from observations.
 
-Instructors
+Instructor
 : [Anoop Sarkar](http://www.cs.sfu.edu/~anoop/) 
 
 Course Assistant
