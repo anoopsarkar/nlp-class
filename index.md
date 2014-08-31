@@ -32,7 +32,9 @@ Discussion Forum
 : [Coursys](https://courses.cs.sfu.ca/)
 
 Time and place
-: Tuesdays 2:30-4:20 Thursdays 2:30-3:20, AQ 3150
+: * Tuesdays 2:30-4:20 
+  * Thursdays 2:30-3:20
+  * AQ 3150
 
 Office hours
 : TBD
