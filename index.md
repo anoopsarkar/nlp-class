@@ -43,7 +43,7 @@ Textbook
 Grading
 : Check your grades on [Coursys](https://courses.cs.sfu.ca)
 
-* One setup assignment (2%)
+* Programming setup assignment (2%)
 * Five programming assignments (10% each)
 * In class midterm (18%)
 * Final project (30%)
