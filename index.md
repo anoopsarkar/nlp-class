@@ -25,7 +25,7 @@ from observations.
 Instructor
 : [Anoop Sarkar](http://www.cs.sfu.edu/~anoop/) 
 
-Course Assistant
+Teaching Assistant
 : Maryam Siahbani
 
 Discussion Forum
