@@ -1,7 +1,7 @@
 ---
 layout: default
-img: exam
-img_link: http://www.flickr.com/photos/nationaalarchief/3198249977/
+img: apple-1984
+img_link: http://en.wikipedia.org/wiki/1984_(advertisement)
 title: FAQ
 active_tab: FAQ
 ---
