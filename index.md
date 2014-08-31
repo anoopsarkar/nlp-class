@@ -26,7 +26,7 @@ Instructor
 : [Anoop Sarkar](http://www.cs.sfu.ca/~anoop/) 
 
 Teaching Assistant
-: Maryam Siahbani
+: [Maryam Siahbani](http://www.cs.sfu.ca/~msiahban/personal/)
 
 Discussion Board
 : [Coursys](https://courses.cs.sfu.ca/)
