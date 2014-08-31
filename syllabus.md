@@ -1,7 +1,8 @@
 ---
 layout: default
-img: do_not_want
-img_link: http://winterson.com/2005/06/episode-iii-backstroke-of-west.html
+img: artsrouni
+img_link: http://www.hutchinsweb.me.uk/IJT-2004.pdf
+caption: "Georges Artsrouni's mechanical brain, a translation device patented in 1933 in France."
 title: Syllabus
 active_tab: syllabus
 ---

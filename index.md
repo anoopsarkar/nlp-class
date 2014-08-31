@@ -1,8 +1,8 @@
 ---
 layout: default
-img: artsrouni
-img_link: http://www.hutchinsweb.me.uk/IJT-2004.pdf
-caption: Georges Artsrouni's mechanical brain, a translation device patented in 1933 in France.
+img: hal9k
+img_link: http://en.wikipedia.org/wiki/HAL_9000
+caption: "HAL 9000 is a fictional character in Arthur C. Clarke's Space Odyssey series."
 title: Course Information
 active_tab: main_page 
 ---
