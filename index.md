@@ -11,7 +11,7 @@ Imagine a world where you can pick up a phone and talk in English,
 while at the other end of the line your words are spoken in Chinese.
 Imagine a computer animated representation of yourself speaking
 fluently what you have written in an email. Imagine automatically
-uncovering protein/drug interactions in terabytes of medical
+uncovering protein/drug interactions in petabytes of medical
 abstracts. Imagine feeding a computer an ancient script that no
 living person can read, then listening as the computer reads aloud
 in this dead language. Natural Language Processing is the automatic
