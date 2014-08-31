@@ -8,19 +8,22 @@ active_tab: main_page
 ---
 
 Imagine a world where you can pick up a phone and talk in English,
-while at the other end of the line your words are spoken in Chinese.
-Imagine a computer animated representation of yourself speaking
-fluently what you have written in an email. Imagine automatically
-uncovering protein/drug interactions in petabytes of medical
-abstracts. Imagine feeding a computer an ancient script that no
-living person can read, then listening as the computer reads aloud
-in this dead language. Natural Language Processing is the automatic
-analysis of human languages such as English, Korean, and thousands
-of others analyzed by computer algorithms. Unlike artificially
-created programming languages where the structure and meaning of
-programs is easy to encode, human languages provide an interesting
-challenge, both in terms of its analysis and the learning of language
-from observations.
+while at the other end of the line your words are [spoken in
+Chinese](https://www.youtube.com/watch?v=Nu-nlQqFCKg).  Imagine a
+[computer animated representation of
+yourself](http://mitpress.mit.edu/books/embodied-conversational-agents)
+speaking fluently what you have written in an email. Imagine
+automatically uncovering protein/drug interactions in [petabytes
+of medical abstracts](http://fable.chop.edu/). Imagine feeding a
+computer an ancient script that no living person can read, then
+listening as [the computer reads aloud in this dead
+language](http://aclanthology.info/papers/a-computational-approach-to-deciphering-unknown-scripts).
+Natural Language Processing is the automatic analysis of human
+languages such as English, Korean, and thousands of others analyzed
+by computer algorithms. Unlike artificially created programming
+languages where the structure and meaning of programs is easy to
+encode, human languages provide an interesting challenge, both in
+terms of its analysis and the learning of language from observations.
 
 Instructor
 : [Anoop Sarkar](http://www.cs.sfu.ca/~anoop/) 
