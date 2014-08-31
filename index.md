@@ -28,7 +28,7 @@ Instructor
 Teaching Assistant
 : Maryam Siahbani
 
-Discussion Forum
+Discussion Board
 : [Coursys](https://courses.cs.sfu.ca/)
 
 Time and place
@@ -41,7 +41,7 @@ Textbook
 : No required textbook. Online readings provided in Syllabus.
 
 Grading
-: Grades are reported on [Coursys](https://courses.cs.sfu.ca)
+: Check your grades on [Coursys](https://courses.cs.sfu.ca)
 
 * One setup assignment (2%)
 * Five programming assignments (10% each)
