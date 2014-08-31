@@ -23,7 +23,7 @@ challenge, both in terms of its analysis and the learning of language
 from observations.
 
 Instructor
-: [Anoop Sarkar](http://www.cs.sfu.edu/~anoop/) 
+: [Anoop Sarkar](http://www.cs.sfu.ca/~anoop/) 
 
 Teaching Assistant
 : Maryam Siahbani
