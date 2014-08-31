@@ -19,13 +19,14 @@ computer an ancient script that no living person can read, then
 listening as [the computer reads aloud in this dead
 language](http://aclanthology.info/papers/a-computational-approach-to-deciphering-unknown-scripts).
 Imagine a computer that can [do better than humans at answering
-questions](https://www.youtube.com/watch?v=lI-M7O_bRNg).  Natural
-Language Processing is the automatic analysis of human languages
-such as English, Korean, and thousands of others analyzed by computer
-algorithms. Unlike artificially created programming languages where
-the structure and meaning of programs is easy to encode, human
-languages provide an interesting challenge, both in terms of its
-analysis and the learning of language from observations.
+questions](https://www.youtube.com/watch?v=lI-M7O_bRNg).  
+
+Natural Language Processing is the automatic analysis of human
+languages such as English, Korean, and thousands of others analyzed
+by computer algorithms. Unlike artificially created programming
+languages where the structure and meaning of programs is easy to
+encode, human languages provide an interesting challenge, both in
+terms of its analysis and the learning of language from observations.
 
 Instructor
 : [Anoop Sarkar](http://www.cs.sfu.ca/~anoop/) 
