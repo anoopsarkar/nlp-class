@@ -18,6 +18,9 @@ of your choosing.
 
 You should follow the steps in this document to make sure that everything is working for you.
 
+0. Join a group. The maximum group size is four. Decide on a group name. Make it memorable. Register
+yourself as a group on [Coursys](https://courses.cs.sfu.ca)
+
 1. Visit the course submission page at [sfu-nlp-class.appspot.com](http://sfu-nlp-class.appspot.com). You
 will need a Google account, if you don't already have one; use it to sign in.
 
