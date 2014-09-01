@@ -3,7 +3,7 @@ layout: default
 img: things-to-come
 img_link: http://en.wikipedia.org/wiki/Things_to_Come
 caption: "The Shape of Things to Come"
-title: Final Project
+title: "Final Project"
 active_tab: project
 ---
 
