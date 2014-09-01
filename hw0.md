@@ -2,7 +2,7 @@
 layout: default
 img: vk 
 img_link: http://en.wikipedia.org/wiki/Blade_Runner
-caption: "In Blade Runner, the Voight-Kampff test tells replicants from humans based on their emotional response to questions."
+caption: "In Blade Runner, a conversation distinguishes androids from humans."
 title: Homework | Setup
 active_tab: homework
 ---
@@ -27,7 +27,7 @@ will need a Google account, if you don't already have one; use it to sign in.
 
 2. This system is used to upload all homework assignments. You should use your group name
 as the handle when you submit your assignment. By default it will keep your Google nickname
-which cannot be used to give you a grade.
+which cannot be used to assign your group a grade. 
 
 3. Homework 0 (this one) has been activated. Use the file submission
 dialog to upload your submissions. 
