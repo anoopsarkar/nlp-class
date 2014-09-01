@@ -2,7 +2,7 @@
 layout: default
 img: hal9k
 img_link: http://en.wikipedia.org/wiki/HAL_9000
-caption: "HAL 9000 speaks in a soft, calm voice and a conversational manner in constrast to the humans."
+caption: "In 2001 A Space Odyssey, HAL 9000 speaks in a calm voice and conversational manner in constrast to the humans."
 title: FAQ
 active_tab: faq
 ---

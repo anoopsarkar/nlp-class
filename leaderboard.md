@@ -1,7 +1,8 @@
 ---
 layout: default
-img: race
-img_link: http://www.flickr.com/photos/nationaalarchief/3198249977/
+img: embedding
+img_link: http://en.wikipedia.org/wiki/Center_embedding
+caption: "The Embedding introduces a strange form of language whose grammar can be 'self-embedded' by computers."
 title: Leaderboard
 active_tab: leaderboard
 jquery: true
