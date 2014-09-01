@@ -2,7 +2,7 @@
 layout: default
 img: hal9k
 img_link: http://en.wikipedia.org/wiki/HAL_9000
-caption: "HAL 9000 is a fictional character in Arthur C. Clarke's Space Odyssey series."
+caption: "HAL 9000 speaks in a soft, calm voice and a conversational manner in constrast to the humans."
 title: Course Information
 active_tab: main_page 
 ---
