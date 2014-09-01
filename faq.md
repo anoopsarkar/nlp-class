@@ -1,9 +1,123 @@
 ---
 layout: default
 img: C-3PO
-img_link: http://en.wikipedia.org/wiki/Languages_in_Star_Wars
+img_link: "http://en.wikipedia.org/wiki/Languages_in_Star_Wars"
 caption: "In Star Wars, the character C-3PO is a translator fluent in over six million forms of communication."
 title: FAQ
-active_tab: FAQ
+active_tab: faq
 ---
 
+## Files and Subversion
+    
+* The directory `~anoop/cmpt413/hw1` and the directories for later homeworks are available on `fraser.sfu.ca`.
+* Use Subversion (svn) for your homeworks.  
+    * For CMPT 413: <script src="https://gist.github.com/4486112.js"></script> 
+    * For CMPT 825: <script src="https://gist.github.com/anoopsarkar/8292114.js"></script>
+* To continue working at a later date: 
+    * For CMPT 413: <script src="https://gist.github.com/4486519.js"></script> 
+    * For CMPT 825: <script src="https://gist.github.com/anoopsarkar/8292131.js"></script> 
+* There are strict requirements on the filenames for your programs. The filenames to be used is provided in `readme.txt` file. These steps will enable us to consistently test all the submissions using the same method. 
+    
+## Programming
+    
+<!--- * We will be using the Python-based <a href="http://nltk.org/">NLTK: Natural Language Toolkit</a> for most of the homeworks in this course (version 2.0.4 is installed and should be used for the homeworks).  -->
+* Run `python` and then type in `import nltk`. If you get an error then something went wrong. Email `csilop@cs.sfu.ca` with the details.
+* It is expected that your program will compile and run using the standard runtime environment on the Linux CSIL lab machines.</span> If you are developing on a Linux or Windows machine at home, you have to ensure that the code will run on the CSIL machines before you submit the assignment. Please either visit the CSIL lab machines or you can use `ssh` to login to the CSIL Linux machines and also use `scp` to copy over and test your programs on the CSIL Linux machines before you submit them. Check the [CSIL Layout Map](http://www.cs.sfu.ca/content/dam/sfu/computing/csil/csil_layout_burnaby.pdf) for the machine names.
+* [Remote access to CSIL](http://www.cs.sfu.ca/about/school-facilities/csil/how-to-remote-access-to-csil.html) is allowed.
+* [Linux terminal server](http://www.cs.sfu.ca/about/school-facilities/csil/unix/how-to-use-csil-linux-terminal-server.html) is currently in beta.
+* CSIL computers accept SSH connections on port 24 (rather than the usual port 22). They can only be accessed from within the SFU network. If you are outside it, you need to go through a directly accessable computer, most likely fraser.sfu.ca. Here are some examples using the usual command line `ssh` and `scp` (from OpenSSH). Below $ is the command line shell on your home computer running Linux/MacosX/Cygwin. What follows is a recipe that will connect you remotely to a CSIL Linux machine: <script src="https://gist.github.com/4486532.js"></script> 
+* If your local machine (e.g your laptop) has a different username from your SFU username (your username can be found by examining your SFU email address: username`sfu.ca), then prefix the SFU username to the ssh or scp command. `ssh (username)@fraser.sfu.ca` and `scp -r (username)@fraser.sfu.ca:~anoop/cmpt413/hw1`.
+* CSIL uses a seperate home directory from the rest of SFU, so you also have to copy files through fraser. However, it looks like it now has a separate home for each machine, so you probably want to just keep your files in your SFU home. <script src="https://gist.github.com/4486537.js"></script> 
+* You may want to refer to a quick Unix tutorial. There are several on the web. The following one covers most of what you need to use the Linux shell effectively: [Quick Unix Tutorial](http://unlser1.unl.csi.cuny.edu/tutorials/QuickUnixTutorial.html).
+*  On some CSIL Linux machines, in some rare cases, you might have to extend your CPU time limit for a process. If you are using tcsh then run the command "limit cputime 1800" to extend CPU time to 1800 secs or 30 mins. If you are using bash then use the command "ulimit -t 1800".
+    
+## Homework Submission
+    
+<!--- * Your homework will be submitted electronically using the department-provided submission server. Connect to the submission server by going to the URL: <a href="https://courses.cs.sfu.ca/">https://courses.cs.sfu.ca/</a> (your grades for the homeworks will also be tracked on the same web page) -->
+* All homeworks are due by 11:45 PM on the homework due date.
+    
+## Groups
+    
+* The homework assignments will be solved in groups. Maximum group size is four. All groups must be formed before Homework #0 is due.
+* Each group will create a single submission and upload it before the due date.
+* Each member of the group must include a `README.username` file for each username in the group. This file will contain the self-assessment of your contribution to the submission.
+* Each group member will be graded primarily based on the svn commit logs. We will count the activity of each group member. If the TA or the instructor perceives there is a problem with collaboration in a group, certain group members can get zero marks. If you are pair programming, take turns in switching the user doing the commits to the svn repository.
+* __Effective group collaboration__: We are looking to see effective collaboration to solve the homework assignment. People can play different roles and sometimes more than one role in the same homework:
+            * Designer: creates a plan for implementation and coordinates activities of the group. Should create design docs (text files or markdown or equivalent only). Put these documents in the directory `answer/docs` and mention the files in your `README.username` file.
+            * Code reviews: write a critical view of the implementation by the group. Points out what is missing, inelegant code, etc. and produces a code review document (text files or markdown or equivalent only). Put these documents in the directory `answer/docs` and mention the files in your `README.username` file.
+            * Development: write the code. This can be done in collaboration. Usually there should be multiple developers especially for more complex questions in the homework. 
+            * Testcases: write new testcases to anticipate any secret testcases. These testcases should follow the same format and conventions of the provided testcases and you should be able to use the python check program on these testcases. Put these documents in the directory `answer/testcases` and mention the files in your `README.username` file.
+* In general, late submissions will be per group since each group uploads a single solution to each homework. However, in the case when the `README.username` file is missing in the submission for only one group member, and if that file is received late, then only that group member will be considered late for that homework.
+* The reason for having a group is to collaborate on solving _each_ question in the assignment. Do not simply split up the questions in each homework and submit as a group without looking at each others code. This will result in a grade for each group member equivalent to the questions actually solved by each person in the group.
+    
+## Email policy
+    
+* We will be using the discussion board on courses.cs.sfu.ca for all discussions. For homeworks, exams, or other clarification emails do not email me (the instructor) or the TA directly.
+* If you email the instructor or TA directly then use your SFU email address to send the email (do not use any other provider), and use `cmpt413:` as the prefix in your subject line.
+    
+## Exams
+    
+*  If you must miss an exam because of a medical problem, you should make an attempt to contact me prior to the exam either by email or a message in my mailbox. 
+* To request an extension of the due date due to a medical problem, you must submit the <a href="http://students.sfu.ca/forms.html">offical SFU Health Care Provider statement</a>. 
+* If you miss an exam due to valid medical reasons you will be graded on your performance on the rest of the course. 
+* Make up exams will not be given under any circumstances. 
+    
+## Disclaimers about this web page
+  
+* All course information on this web page is tentative and could be in error. It can also change at any time. Confirm crucial dates or information with me in person during class. Double check with SFU calendar or schedule information for official class times and final exams time and location. 
+* Students are expected to attend all classes: announcements about assigned readings, homeworks and exams will be made available at the start of each class. Such announcements may not be made on this web page, so don't rely on information here instead of attending class. 
+* Lecture notes or other materials put up on this web page are only additional material and not an alternative to the readings assigned. Only reading the lecture notes will not be enough to prepare for the homeworks or the exams.
+  
+## Academic Honesty 
+ 
+* Some examples of unacceptable behaviour:
+     *  Handing in assignments that are not 100% your own work (in design, implementation, wording, etc.), without proper citation. There must be a README file in your submission with citations to any external code used. 
+     *  Using any unpermitted resources during an exam. 
+     *  Looking at, or attempting to look at, another student's paper during an exam. 
+     *  Submitting work that has been submitted before, for any course at any institution. 
+* If you are unclear on what academic honesty is, see <abbr title="Simon Fraser University" class="obvious">SFU</abbr>'s [Policy S10-01](http://www.sfu.ca/policies/Students/index.html) and the [University code of academic honesty](http://www.sfu.ca/policies/teaching/index.htm).
+* All instances of academic dishonesty will be dealt with very severely. 
+* In general, minimum requested penalties will be as follows:
+     * For assignments: a mark of -100% on the assignment.  So, academic dishonesty on an assignment worth 5% of your final mark will result in a zero on the assignment, and a penalty of 5% from your final grade. 
+     * For exams: an F in the course. 
+     * Please note that these are minimum penalties.  At the instructor's option, more severe penalties may be given/requested. __All__ instances of academic dishonesty will be noted on your University record. 
+*  The instructor may use, or require students to submit assignments to, an automated service that will check for plagiarism. 
+ 
+## Exams and Tests 
+ 
+* Midterms may be in different rooms than the lectures.  You will be notified by email. 
+* Exams may be written in either pen or pencil.  Calculators or other aids are not allowed unless explicitly stated. 
+* Midterm exams and other tests may or may not be returned, depending on the course.  If they are returned, you can get them from the instructor's office hours.  You can not dispute the marking of your exam after you have taken it out of the instructor's office.  
+* Final exams are not returned to students by University policy; they are kept by the instructor. 
+* If you miss a test or exam, you must present a note from a doctor to get a mark other than zero.  Arrangements to make up the lost marks will be made on a case-by-case basis by the instructor.  Make-up exams may be given as an oral examination. 
+* You must get a pass on the weighted average of the exams to pass the course. 
+ 
+## Mark Appeals 
+
+Except for final grades, this is how you can go about getting your mark changed:
+
+* Requests for a change in your mark must come to the course instructor.  TAs will not change your mark, except for errors in addition or data entry. 
+* Requests should come in the same form as you received your marks: if you got marks by email, forward that email to the instructor; if you had paper handed back, return that. 
+* You should give a brief explanation of why you want your mark reevaluated.
+* The instructor will remark the entire assignment/test.  This will be your mark, whether it is higher or lower than the original. 
+* Appeals may be made up to two weeks after the mark is returned or until the final exam date, whichever is _first_.  After that deadline, you must make a formal mark appeal for any changes. 
+* For exams in particular, these are _not_ reasons to get more marks:
+    * I knew what I was saying here, but didn't write it. 
+    * This is the correct answer for some question other than the one asked, but I didn't get any marks for it. 
+    * I didn't understand the question. 
+ 
+## Final Exam and Final Marks Appeals 
+
+If you're concerned about your mark at the end of the course, you can see the instructor.  Here are some guidelines:
+ 
+* You can come to the instructor's office at designated times to review your final exam. 
+* Like assignments, you can ask the instructor to reevaluate your final exam marking. 
+* The following are not good reasons to get a higher final mark:
+    * I want it. 
+    * I think I deserve it. 
+    * I need it. 
+    * I'm close to the next grade cutoff. 
+* This is a good reason:
+    * There's a marking irregularity on my final or some other piece of work. 
+*  The marking scheme is fixed.  If you did badly on a midterm, you can't weight the final more heavily. 
+ 
