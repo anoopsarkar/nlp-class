@@ -1,7 +1,8 @@
 ---
 layout: default
-img: placeholder 
-caption: 
+img: vk 
+img_link: http://en.wikipedia.org/wiki/Blade_Runner
+caption: "In Blade Runner, the Voight-Kampff test tells replicants from humans based on their emotional response to questions."
 title: Homework | Setup
 active_tab: homework
 ---
