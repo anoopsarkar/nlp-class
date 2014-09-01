@@ -8,7 +8,7 @@ active_tab: leaderboard
 jquery: true
 ---
 
-Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will be updated immediately.
+Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will be updated in a few minutes.
 
 <script type="text/javascript" src="http://sfu-nlp-class.appspot.com/leaderboard.js"></script>
 
