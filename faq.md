@@ -1,8 +1,8 @@
 ---
 layout: default
-img: C-3PO
-img_link: "http://en.wikipedia.org/wiki/Languages_in_Star_Wars"
-caption: "In Star Wars, the character C-3PO is a translator fluent in over six million forms of communication."
+img: hal9k
+img_link: http://en.wikipedia.org/wiki/HAL_9000
+caption: "HAL 9000 speaks in a soft, calm voice and a conversational manner in constrast to the humans."
 title: FAQ
 active_tab: faq
 ---
