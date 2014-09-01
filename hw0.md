@@ -21,15 +21,15 @@ You should follow the steps in this document to make sure that everything is wor
 1. Visit the course submission page at [sfu-nlp-class.appspot.com](http://sfu-nlp-class.appspot.com). You
 will need a Google account, if you don't already have one; use it to sign in.
 
-2. This system is used to upload all homework assignments, but participation in the leaderboard is
-optional. To remove yourself from the leaderboard, uncheck the checkbox and click
-"Update". Otherwise, choose a handle, or keep the default (your Google nickname).
+2. This system is used to upload all homework assignments. You should use your group name
+as the handle when you submit your assignment. By default it will keep your Google nickname
+which cannot be used to give you a grade.
 
-3. Assignment 0 (this one) has been activated. Use the file submission
+3. Homework 0 (this one) has been activated. Use the file submission
 dialog to upload your submissions. 
 
-## Assignment 0
+## Homework 0
 
-Assignment 0 expects a file containing a single number. The leaderboard displays a simple
+Homework 0 expects a file containing a single number. The leaderboard displays a simple
 nonmonotonic function of this number, and sorts the entries according to the highest value.
 
