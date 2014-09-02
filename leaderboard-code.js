@@ -1,8 +1,8 @@
 // The current assignment number (0-indexed)
-var assignment_number = 4;
+var assignment_number = 0;
 
 // The maximum assignment number (0-indexed)
-var max_assignment_number = 5;
+var max_assignment_number = 0;
 
 var rows = "";
 var scoreranks = new Array();
@@ -21,13 +21,15 @@ for (i = 0; i < data.length; i++) {
 
     var rank = scoreranks[score];
 
-    if (hidden_users[user])
-      // rows += "<td><i><strike>" + user + "</strike></i>";
-    else
-      rows += '<td>' + user
-    // if (names[user])
-        // rows += ' (' + names[user] + ')';
-    rows = rows + '</td>';
+    if (hidden_users[user]) {
+      rows += "<td><i><strike>" + user + "</strike></i>";
+      rows = rows + '</td>';
+    } else {
+      rows += '<td>' + user;
+      // if (names[user])
+          // rows += ' (' + names[user] + ')';
+      rows = rows + '</td>';
+    }
     for (j = 1; j < data[i].length; j++)
         rows = rows + '<td class="score">' + data[i][j] + '</td>';
     for (j = data[i].length; j < max_assignment_number + 2; j++)
