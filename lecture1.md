@@ -12,3 +12,13 @@ active_tab: Syllabus
 * watson video, https://www.youtube.com/watch?v=lI-M7O_bRNg, start to 4:34
 * pbs video, http://video.pbs.org/video/1923247005/, start to 5:07
 * munro slides on crisis NLP 
+* wikihistory slides
+* curriculum and website
+    * are there people on the waitlist?
+    * website walkthrough
+    * homeworks
+    * hw0
+    * grace days policy
+    * svn versus git
+    * forming groups
+    
