@@ -22,11 +22,11 @@ for (i = 0; i < data.length; i++) {
     var rank = scoreranks[score];
 
     if (hidden_users[user])
-      rows += "<td><i><strike>" + user + "</strike></i>";
+      // rows += "<td><i><strike>" + user + "</strike></i>";
     else
       rows += '<td>' + user
-//    if (names[user])
- //     rows += ' (' + names[user] + ')';
+    // if (names[user])
+        // rows += ' (' + names[user] + ')';
     rows = rows + '</td>';
     for (j = 1; j < data[i].length; j++)
         rows = rows + '<td class="score">' + data[i][j] + '</td>';
