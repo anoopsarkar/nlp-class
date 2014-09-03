@@ -49,15 +49,7 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
 
 <script type="text/javascript" src="leaderboard-code.js"></script>
 
-<div class="panel panel-default"> 
-<div class="panel-heading">Legend</div> 
-<div class="panel-body"> <p>A value of -1 indicates that the
-assignment file was found but contained invalid content.</p>
-<p>The <span class="text-success">oracle (best possible)</span>,
-<span class="text-danger">default</span> and <span
-class="text-warning">baseline (minimum performance for a B)</span>
-lines are highlighted. </div>
-</div>
+<div class="panel panel-default"> <div class="panel-heading">Legend</div> <div class="panel-body"> <p>A value of -1 indicates that the assignment file was found but contained invalid content.</p> <p>The <span class="text-success">oracle (best possible)</span>, <span class="text-danger">default</span> and <span class="text-warning">baseline (minimum performance for a B)</span> lines are highlighted. </div> </div>
 
 ### Acknowledgements
 
