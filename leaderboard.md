@@ -52,18 +52,17 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
 <div class="panel panel-default">
     <div class="panel-heading">Legend</div>
     <div class="panel-body">
-
    <p>A value of -1 indicates that the assignment file was found but
    contained invalid content.</p>
 
    <p>The <span class="text-success">oracle (best possible)</span>, <span
    class="text-danger">default</span> and 
-   <span class="text-warning">baseline (minimum performance for a B)</span> lines are
-   highlighted.
+   <span class="text-warning">baseline (minimum performance for a B)</span> lines are highlighted.
   </div>
+</div>
 </div>
 
 <div class="bs-callout bs-callout-info">
     <h4>Acknowledgements</h4>
     <p>The original leaderboard code for Google App Engine was developed by [Matt Post](https://github.com/mjpost) and [Adam Lopez](https://github.com/alopez).</p>
-  </div>
+</div>
