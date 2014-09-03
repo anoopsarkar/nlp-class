@@ -49,10 +49,6 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
 
 <script type="text/javascript" src="leaderboard-code.js"></script>
 
-### Acknowledgements
-
-The original leaderboard code for Google App Engine was developed by [Matt Post](https://github.com/mjpost) and [Adam Lopez](https://github.com/alopez).
-
 <div class="panel panel-default"> 
 <div class="panel-heading">Legend</div> 
 <div class="panel-body"> <p>A value of -1 indicates that the
@@ -62,4 +58,8 @@ assignment file was found but contained invalid content.</p>
 class="text-warning">baseline (minimum performance for a B)</span>
 lines are highlighted. </div>
 </div>
+
+### Acknowledgements
+
+The original leaderboard code for Google App Engine was developed by [Matt Post](https://github.com/mjpost) and [Adam Lopez](https://github.com/alopez).
 
