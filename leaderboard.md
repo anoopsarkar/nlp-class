@@ -63,6 +63,7 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
   </div>
 </div>
 
-### Acknowledgements
-
-The original leaderboard code for Google App Engine was developed by [Matt Post](https://github.com/mjpost) and [Adam Lopez](https://github.com/alopez).
+<div class="bs-callout bs-callout-info">
+    <h4>Acknowledgements</h4>
+    <p>The original leaderboard code for Google App Engine was developed by [Matt Post](https://github.com/mjpost) and [Adam Lopez](https://github.com/alopez).</p>
+  </div>
