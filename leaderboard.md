@@ -49,6 +49,11 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
 
 <script type="text/javascript" src="leaderboard-code.js"></script>
 
+<div class="bs-callout bs-callout-info">
+    <h4>Acknowledgements</h4>
+    <p>The original leaderboard code for Google App Engine was developed by [Matt Post](https://github.com/mjpost) and [Adam Lopez](https://github.com/alopez).</p>
+</div>
+
 <div class="panel panel-default">
    <div class="panel-heading">Legend</div>
    <div class="panel-body">
@@ -61,7 +66,3 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
    </div> 
 </div>
 
-<div class="bs-callout bs-callout-info">
-    <h4>Acknowledgements</h4>
-    <p>The original leaderboard code for Google App Engine was developed by [Matt Post](https://github.com/mjpost) and [Adam Lopez](https://github.com/alopez).</p>
-</div>
