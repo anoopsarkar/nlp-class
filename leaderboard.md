@@ -57,10 +57,7 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
 
    <p>The <span class="text-success">oracle (best possible)</span>, <span
    class="text-danger">default</span> and 
-   <span class="text-warning">baseline (minimum performance for a B)</span> lines are highlighted.
-  </div>
-</div>
-</div>
+   <span class="text-warning">baseline (minimum performance for a B)</span> lines are highlighted.  </div> </div>
 
 <div class="bs-callout bs-callout-info">
     <h4>Acknowledgements</h4>
