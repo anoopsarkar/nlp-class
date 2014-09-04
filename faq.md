@@ -21,7 +21,7 @@ active_tab: faq
 ## Programming
     
 <!--- * We will be using the Python-based <a href="http://nltk.org/">NLTK: Natural Language Toolkit</a> for most of the homeworks in this course (version 2.0.4 is installed and should be used for the homeworks).  -->
-* Run `python` and then type in `import nltk`. If you get an error then something went wrong. Email `csilop@cs.sfu.ca` with the details.
+<!--- * Run `python` and then type in `import nltk`. If you get an error then something went wrong. Email `csilop@cs.sfu.ca` with the details. -->
 * It is expected that your program will compile and run using the standard runtime environment on the Linux CSIL lab machines.</span> If you are developing on a Linux or Windows machine at home, you have to ensure that the code will run on the CSIL machines before you submit the assignment. Please either visit the CSIL lab machines or you can use `ssh` to login to the CSIL Linux machines and also use `scp` to copy over and test your programs on the CSIL Linux machines before you submit them. Check the [CSIL Layout Map](http://www.cs.sfu.ca/content/dam/sfu/computing/csil/csil_layout_burnaby.pdf) for the machine names.
 * [Remote access to CSIL](http://www.cs.sfu.ca/about/school-facilities/csil/how-to-remote-access-to-csil.html) is allowed.
 * [Linux terminal server](http://www.cs.sfu.ca/about/school-facilities/csil/unix/how-to-use-csil-linux-terminal-server.html) is currently in beta.
@@ -35,6 +35,8 @@ active_tab: faq
     
 <!--- * Your homework will be submitted electronically using the department-provided submission server. Connect to the submission server by going to the URL: <a href="https://courses.cs.sfu.ca/">https://courses.cs.sfu.ca/</a> (your grades for the homeworks will also be tracked on the same web page) -->
 * All homeworks are due by 11:45 PM on the homework due date.
+* Each homework comes with 2 grace days. However the grace days only apply to those who have a valid submission (no -1 or -inf) on the due date. e.g. if your homework deadline is Tuesday night 11:45pm and you do submit your homework then you have until Thursday night 11:45pm to modify your homework submission.
+* You must submit your source code to courses.cs.sfu.ca as well as upload your data output to the homework upload website.
     
 ## Groups
     
