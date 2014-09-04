@@ -1,8 +1,15 @@
 past:
-  -
+  - 
     date: 2014-09-02
-    title: Introduction
-    lecturer: All
+    title: Course introduction
+    reading:
+      - author: Rick Rashid
+        title: "Speech Recognition Breakthrough for the Spoken, Translated Word"
+        url: https://www.youtube.com/watch?v=Nu-nlQqFCKg
+        optional: false
+  -
+    date: 2014-09-04
+    title: Introduction to NLP
     slides: "assets/slides/introduction.pdf"
     reading:
       - author: Lillian Lee
