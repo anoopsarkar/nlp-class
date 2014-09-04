@@ -5,6 +5,15 @@ past:
     lecturer: All
     slides: "assets/slides/introduction.pdf"
     reading:
-      -
-        author: Collins 
-        title: chapter 1
+      - author: Lillian Lee
+        title: "I'm sorry Dave, I'm afraid I can't do that: Linguistics, Statistics, and Natural Language Processing circa 2001"
+        url: http://www.cs.cornell.edu/home/llee/papers/cstb.pdf
+        optional: true
+      - author: Steven Abney
+        title: "Statistical Methods and Linguistics"
+        url: http://www.vinartus.net/spa/95c.pdf
+        optional: true
+      - author: Anoop Sarkar
+        title: "NLP and Text Visualization"
+        url: "assets/slides/wikihistory.pdf"
+        optional: true
