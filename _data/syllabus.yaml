@@ -3,7 +3,7 @@ past:
     date: 2014-09-02
     title: Introduction
     lecturer: All
-    slides: 404.html
+    slides: "assets/slides/introduction.pdf"
     reading:
       -
         author: Collins 
