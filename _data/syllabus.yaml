@@ -6,7 +6,7 @@ past:
     slides: "assets/slides/introduction.pdf"
     reading:
       - author: Lillian Lee
-        title: "I'm sorry Dave, I'm afraid I can't do that: Linguistics, Statistics, and Natural Language Processing circa 2001"
+        title: "I'm sorry Dave, I'm afraid I can't do that."
         url: http://www.cs.cornell.edu/home/llee/papers/cstb.pdf
         optional: true
       - author: Steven Abney
