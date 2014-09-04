@@ -12,7 +12,7 @@ active_tab: syllabus
     <tr>
       <th>Date</th>
       <th>Topic</th>
-      <th>Readings (starred=graduate level)</th>
+      <th>Readings (starred=optional reading)</th>
     </tr>
     {% for lecture in site.data.syllabus.past %}
     <tr>
