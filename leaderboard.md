@@ -10,7 +10,7 @@ jquery: true
 
 Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will be updated in a few minutes.
 
-<script type="text/javascript" src="http://sfu-nlp-class.appspot.com/leaderboard.js"></script>
+<script type="text/javascript" src="//sfu-nlp-class.appspot.com/leaderboard.js"></script>
 
 <table class="table table-hover table-condensed">
   <thead>
@@ -49,16 +49,24 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
 
 <script type="text/javascript" src="leaderboard-code.js"></script>
 
-<div class="panel panel-default">
-    <div class="panel-heading">Legend</div>
-    <div class="panel-body">
+<div class="panel panel-default"> 
+<div class="panel-heading">Legend</div> 
 
-   <p>A value of -1 indicates that the assignment file was found but
-   contained invalid content.</p>
+<div class="panel-body"> 
 
-   <p>The <span class="text-success">oracle (best possible)</span>, <span
-   class="text-danger">default</span> and 
-   <span class="text-warning">baseline (minimum performance for a B)</span> lines are
-   highlighted.
-  </div>
+<p>A value of -1 indicates that the assignment file was found but
+contained invalid content.</p>
+
+<p>The <span class="text-success">oracle (best possible)</span>,
+<span class="text-danger">default</span> and <span
+class="text-warning">baseline (minimum performance for a B)</span>
+lines are highlighted. </p>
+
 </div>
+
+</div>
+
+### Acknowledgements
+
+The original leaderboard code for Google App Engine was developed by [Matt Post](https://github.com/mjpost) and [Adam Lopez](https://github.com/alopez).
+

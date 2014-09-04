@@ -12,7 +12,7 @@ active_tab: syllabus
     <tr>
       <th>Date</th>
       <th>Topic</th>
-      <th>Readings (starred=graduate level)</th>
+      <th>Readings (starred=optional reading)</th>
     </tr>
     {% for lecture in site.data.syllabus.past %}
     <tr>
@@ -25,8 +25,8 @@ active_tab: syllabus
           <p><a href="{{ link.url }}">{{ link.text }}</a></p>
         {% endfor %}
       {% endif %}
-  {% if lecture.language %}
-	<br/><a href="lin10.html">Language in 10</a>: <a href="{{ lecture.language_slides }}">{{ lecture.language }}</a>
+        {% if lecture.language %}
+        <br/><a href="lin10.html">Language in 10</a>: <a href="{{ lecture.language_slides }}">{{ lecture.language }}</a>
         {% endif %}
       </td>
       <td>

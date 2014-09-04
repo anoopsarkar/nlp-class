@@ -1,10 +1,26 @@
 past:
-  -
+  - 
     date: 2014-09-02
-    title: Introduction
-    lecturer: All
-    slides: 404.html
+    title: Course introduction
     reading:
-      -
-        author: Collins 
-        title: chapter 1
+      - author: Rick Rashid
+        title: "Speech Recognition Breakthrough for the Spoken, Translated Word"
+        url: https://www.youtube.com/watch?v=Nu-nlQqFCKg
+        optional: false
+  -
+    date: 2014-09-04
+    title: Introduction to NLP
+    slides: "assets/slides/introduction.pdf"
+    reading:
+      - author: Lillian Lee
+        title: "I'm sorry Dave, I'm afraid I can't do that."
+        url: http://www.cs.cornell.edu/home/llee/papers/cstb.pdf
+        optional: true
+      - author: Steven Abney
+        title: "Statistical Methods and Linguistics"
+        url: http://www.vinartus.net/spa/95c.pdf
+        optional: true
+      - author: Anoop Sarkar
+        title: "NLP and Text Visualization"
+        url: "assets/slides/wikihistory.pdf"
+        optional: true
