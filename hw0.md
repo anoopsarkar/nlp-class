@@ -51,7 +51,8 @@ To get full marks, you must do the following:
 
 * Upload and _Submit_ your file on the upload page. There will be a dialog
 that says this is the final submission (you can no longer upload after you
-_Submit_ your final answer.
+_Submit_ your final answer. Only one person per group should submit
+for the group.
 
 * You must use a valid group name that is verifiable on
 [Coursys](https://courses.cs.sfu.ca) 
