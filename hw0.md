@@ -34,13 +34,33 @@ assignment. By default the leaderboard will use your Google nickname
 which cannot be used to assign your group a grade.
 
 3. Homework 0 (this one) has been activated. Use the file submission
-dialog to upload your submissions. 
+dialog to upload your submissions. Check your status on the [leaderboard](leaderboard.html)
+
+4. Upload a tar.gz or zip file as the HW0 submission on
+[Coursys](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/+hw0/).  In
+future assignments you will be uploading your source code and
+documentation as your submission.
 
 ## Homework 0
 
 Homework 0 expects a file containing a single number. The leaderboard
 displays a simple nonmonotonic function of this number, and sorts
-the entries according to the highest value. Obtain a score above
-the default score using a valid group name (verifiable from
-courses.cs.sfu.ca) to get full marks.
+the entries according to the highest value. 
+
+To get full marks, you must do the following:
+
+* Upload and _Submit_ your file on the upload page. There will be a dialog
+that says this is the final submission (you can no longer upload after you
+_Submit_ your final answer.
+
+* You must use a valid group name that is verifiable on
+[Coursys](https://courses.cs.sfu.ca) 
+
+* You must upload your file as a tar.gz or zip file as the HW0
+submission on [Coursys](https://courses.cs.sfu.ca) to get full
+marks.
+
+In future homeworks, you will submit your output files to the [upload
+page on Google](http://sfu-nlp-class.appspot.com) and submit your
+source code to the submission page on [Coursys](https://courses.cs.sfu.ca).
 
