@@ -57,8 +57,7 @@ _Submit_ your final answer.
 [Coursys](https://courses.cs.sfu.ca) 
 
 * You must upload your file as a tar.gz or zip file as the HW0
-submission on [Coursys](https://courses.cs.sfu.ca) to get full
-marks.
+submission on [Coursys](https://courses.cs.sfu.ca).
 
 In future homeworks, you will submit your output files to the [upload
 page on Google](http://sfu-nlp-class.appspot.com) and submit your
