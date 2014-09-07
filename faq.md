@@ -7,22 +7,44 @@ title: FAQ
 active_tab: faq
 ---
 
-## Files and Subversion
+## Email policy
     
-* The directory `~anoop/cmpt413/hw1` and the directories for later homeworks are available on `fraser.sfu.ca`.
-* Use Subversion (svn) for your homeworks.  
-    * For CMPT 413: <script src="https://gist.github.com/4486112.js"></script> 
-    * For CMPT 825: <script src="https://gist.github.com/anoopsarkar/8292114.js"></script>
-* To continue working at a later date: 
-    * For CMPT 413: <script src="https://gist.github.com/4486519.js"></script> 
-    * For CMPT 825: <script src="https://gist.github.com/anoopsarkar/8292131.js"></script> 
-* There are strict requirements on the filenames for your programs. The filenames to be used is provided in `readme.txt` file. These steps will enable us to consistently test all the submissions using the same method. 
+* We will be using [the discussion board on courses.cs.sfu.ca](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/discussion/) instead of email.
+* Before starting a new topic please check if the topic is already under discussion and check to see if your question has already been answered.
+* If you must email the instructor or TA directly then use your SFU email address to send the email (do not use any other provider), and use `cmpt413:` as the prefix in your subject line.
+    
+## Homework Submission and Grace Days
+    
+* Your group has to submit two deliverables for each homework:
+    * Source code for your homework will be submitted electronically on [courses.cs.sfu.ca](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/).
+    * The output on the provided data has to be uploaded to the leaderboard server on [Google App Engine](http://sfu-nlp-class.appspot.com/).
+* Only one member of the group should upload to the leaderboard and use the valid group name.
+* Check your scores on the leaderboard and check that your group appears only once in the leaderboard.
+* All homeworks are due by 11:59PM on the homework due date.
+* Each homework comes with 2 grace days. However the grace days only apply to those who have a valid submission on the due date (a submission that scores -1 or -inf is invalid). For example, if your homework deadline is Tuesday 11:59PM and you submit a valid solution then you have until Thursday night 11:59PM to modify your homework submission.
+    
+## Groups
+    
+* The homework assignments will be solved in groups. Maximum group size is four. All groups must be formed before Homework 0 is due.
+* Each group will create a single submission and upload it before the due date.
+* Each member of the group must include a `README.username` file for each username in the group. This file will contain the self-assessment of your contribution to the submission.
+* Each group member will be graded on their self report and any commit logs that are submitted. If the TA or the instructor perceives there is a problem with collaboration in a group, certain group members can get zero marks. If you are pair programming, take turns in switching the user doing the commits to the svn repository.
+* __Effective group collaboration__: We are looking to see effective collaboration to solve the homework assignment. People can play different roles and sometimes more than one role in the same homework:
+    * Designer: creates a plan for implementation and coordinates activities of the group. Should create design docs (text files or markdown or equivalent only). Put these documents in the directory `answer/docs` and mention the files in your `README.username` file.
+    * Code reviews: write a critical view of the implementation by the group. Points out what is missing, inelegant code, etc. and produces a code review document (text files or markdown or equivalent only). Put these documents in the directory `answer/docs` and mention the files in your `README.username` file.
+    * Development: write the code. This can be done in collaboration. 
+    * Testcases: write testcases to stress test the code. Provide the testcases in your submission.
+
+<!--- 
+* In general, penalities for late submissions will be per group since each group uploads a single solution to each homework. However, in the case when the `README.username` file is missing in the submission for only one group member, and if that file is received late, then only that group member will be considered late for that homework.
+* The reason for having a group is to collaborate on solving _each_ question in the assignment. Do not simply split up the questions in each homework and submit as a group without looking at each others code. This will result in a grade for each group member equivalent to the questions actually solved by each person in the group. 
+-->
     
 ## Programming
     
 <!--- * We will be using the Python-based <a href="http://nltk.org/">NLTK: Natural Language Toolkit</a> for most of the homeworks in this course (version 2.0.4 is installed and should be used for the homeworks).  -->
 <!--- * Run `python` and then type in `import nltk`. If you get an error then something went wrong. Email `csilop@cs.sfu.ca` with the details. -->
-* It is expected that your program will compile and run using the standard runtime environment on the Linux CSIL lab machines.</span> If you are developing on a Linux or Windows machine at home, you have to ensure that the code will run on the CSIL machines before you submit the assignment. Please either visit the CSIL lab machines or you can use `ssh` to login to the CSIL Linux machines and also use `scp` to copy over and test your programs on the CSIL Linux machines before you submit them. Check the [CSIL Layout Map](http://www.cs.sfu.ca/content/dam/sfu/computing/csil/csil_layout_burnaby.pdf) for the machine names.
+* It is expected that your program will compile and run using the standard runtime environment on the Linux CSIL lab machines. If you are developing on a Linux, Apple or Microsoft operating system at home, you have to ensure that the code will run on the CSIL machines before you submit the assignment. Please either visit the CSIL lab machines or you can use `ssh` to login to the CSIL Linux machines and also use `scp` to copy over and test your programs on the CSIL Linux machines before you submit them. Check the [CSIL Layout Map](http://www.cs.sfu.ca/content/dam/sfu/computing/csil/csil_layout_burnaby.pdf) for the machine names.
 * [Remote access to CSIL](http://www.cs.sfu.ca/about/school-facilities/csil/how-to-remote-access-to-csil.html) is allowed.
 * [Linux terminal server](http://www.cs.sfu.ca/about/school-facilities/csil/unix/how-to-use-csil-linux-terminal-server.html) is currently in beta.
 * CSIL computers accept SSH connections on port 24 (rather than the usual port 22). They can only be accessed from within the SFU network. If you are outside it, you need to go through a directly accessable computer, most likely fraser.sfu.ca. Here are some examples using the usual command line `ssh` and `scp` (from OpenSSH). Below $ is the command line shell on your home computer running Linux/MacosX/Cygwin. What follows is a recipe that will connect you remotely to a CSIL Linux machine: <script src="https://gist.github.com/4486532.js"></script> 
@@ -31,31 +53,18 @@ active_tab: faq
 * You may want to refer to a quick Unix tutorial. There are several on the web. The following one covers most of what you need to use the Linux shell effectively: [Quick Unix Tutorial](http://unlser1.unl.csi.cuny.edu/tutorials/QuickUnixTutorial.html).
 *  On some CSIL Linux machines, in some rare cases, you might have to extend your CPU time limit for a process. If you are using tcsh then run the command "limit cputime 1800" to extend CPU time to 1800 secs or 30 mins. If you are using bash then use the command "ulimit -t 1800".
     
-## Homework Submission
+## Files and Subversion
     
-<!--- * Your homework will be submitted electronically using the department-provided submission server. Connect to the submission server by going to the URL: <a href="https://courses.cs.sfu.ca/">https://courses.cs.sfu.ca/</a> (your grades for the homeworks will also be tracked on the same web page) -->
-* All homeworks are due by 11:45 PM on the homework due date.
-* Each homework comes with 2 grace days. However the grace days only apply to those who have a valid submission (no -1 or -inf) on the due date. e.g. if your homework deadline is Tuesday night 11:45pm and you do submit your homework then you have until Thursday night 11:45pm to modify your homework submission.
-* You must submit your source code to courses.cs.sfu.ca as well as upload your data output to the homework upload website.
-    
-## Groups
-    
-* The homework assignments will be solved in groups. Maximum group size is four. All groups must be formed before Homework #0 is due.
-* Each group will create a single submission and upload it before the due date.
-* Each member of the group must include a `README.username` file for each username in the group. This file will contain the self-assessment of your contribution to the submission.
-* Each group member will be graded primarily based on the svn commit logs. We will count the activity of each group member. If the TA or the instructor perceives there is a problem with collaboration in a group, certain group members can get zero marks. If you are pair programming, take turns in switching the user doing the commits to the svn repository.
-* __Effective group collaboration__: We are looking to see effective collaboration to solve the homework assignment. People can play different roles and sometimes more than one role in the same homework:
-            * Designer: creates a plan for implementation and coordinates activities of the group. Should create design docs (text files or markdown or equivalent only). Put these documents in the directory `answer/docs` and mention the files in your `README.username` file.
-            * Code reviews: write a critical view of the implementation by the group. Points out what is missing, inelegant code, etc. and produces a code review document (text files or markdown or equivalent only). Put these documents in the directory `answer/docs` and mention the files in your `README.username` file.
-            * Development: write the code. This can be done in collaboration. Usually there should be multiple developers especially for more complex questions in the homework. 
-            * Testcases: write new testcases to anticipate any secret testcases. These testcases should follow the same format and conventions of the provided testcases and you should be able to use the python check program on these testcases. Put these documents in the directory `answer/testcases` and mention the files in your `README.username` file.
-* In general, late submissions will be per group since each group uploads a single solution to each homework. However, in the case when the `README.username` file is missing in the submission for only one group member, and if that file is received late, then only that group member will be considered late for that homework.
-* The reason for having a group is to collaborate on solving _each_ question in the assignment. Do not simply split up the questions in each homework and submit as a group without looking at each others code. This will result in a grade for each group member equivalent to the questions actually solved by each person in the group.
-    
-## Email policy
-    
-* We will be using the discussion board on courses.cs.sfu.ca for all discussions. For homeworks, exams, or other clarification emails do not email me (the instructor) or the TA directly.
-* If you email the instructor or TA directly then use your SFU email address to send the email (do not use any other provider), and use `cmpt413:` as the prefix in your subject line.
+* The directory `~anoop/cmpt413/hw1` and the directories for later homeworks are available on `fraser.sfu.ca`.
+* For effective group collaboration use a version control system such as `svn` or `git`.
+* A svn repository for each group has been automatically set up for you. See the svn repo link for your group on [courses.cs.sfu.ca](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/groups/).
+* Tips on using Subversion (svn) for your homeworks.  
+    * For CMPT 413: <script src="https://gist.github.com/4486112.js"></script> 
+    * For CMPT 825: <script src="https://gist.github.com/anoopsarkar/8292114.js"></script>
+* To continue working at a later date: 
+    * For CMPT 413: <script src="https://gist.github.com/4486519.js"></script> 
+    * For CMPT 825: <script src="https://gist.github.com/anoopsarkar/8292131.js"></script> 
+* There are strict requirements on the filenames for your programs. The filenames to be used is provided in `readme.txt` file. These steps will enable us to consistently test all the submissions using the same method. 
     
 ## Exams
     
@@ -64,12 +73,6 @@ active_tab: faq
 * If you miss an exam due to valid medical reasons you will be graded on your performance on the rest of the course. 
 * Make up exams will not be given under any circumstances. 
     
-## Disclaimers about this web page
-  
-* All course information on this web page is tentative and could be in error. It can also change at any time. Confirm crucial dates or information with me in person during class. Double check with SFU calendar or schedule information for official class times and final exams time and location. 
-* Students are expected to attend all classes: announcements about assigned readings, homeworks and exams will be made available at the start of each class. Such announcements may not be made on this web page, so don't rely on information here instead of attending class. 
-* Lecture notes or other materials put up on this web page are only additional material and not an alternative to the readings assigned. Only reading the lecture notes will not be enough to prepare for the homeworks or the exams.
-  
 ## Academic Honesty 
  
 * Some examples of unacceptable behaviour:
@@ -123,3 +126,9 @@ If you're concerned about your mark at the end of the course, you can see the in
     * There's a marking irregularity on my final or some other piece of work. 
 *  The marking scheme is fixed.  If you did badly on a midterm, you can't weight the final more heavily. 
  
+## Disclaimers about this web page
+  
+* All course information on this web page is tentative and could be in error. It can also change at any time. Confirm crucial dates or information with me in person during class. Double check with SFU calendar or schedule information for official class times and final exams time and location. 
+* Students are expected to attend all classes: announcements about assigned readings, homeworks and exams will be made available at the start of each class. Such announcements may not be made on this web page, so don't rely on information here instead of attending class. 
+* Lecture notes or other materials put up on this web page are only additional material and not an alternative to the readings assigned. Only reading the lecture notes will not be enough to prepare for the homeworks or the exams.
+  
