@@ -8,6 +8,9 @@ var rows = "";
 var scoreranks = new Array();
 for (i = 0; i < data.length; i++) {
     var user = data[i][0];
+    if (hidden_users[user]) {
+        continue;
+    }
 
     rows += '<tr id="' + user + '">';
     var prevscore = (i == 0) ? -1 : data[i-1][1+assignment_number];
@@ -22,8 +25,8 @@ for (i = 0; i < data.length; i++) {
     var rank = scoreranks[score];
 
     if (hidden_users[user]) {
-      //rows += "<td><i><strike>" + user + "</strike></i>";
-      //rows = rows + '</td>';
+      rows += "<td><i><strike>" + user + "</strike></i>";
+      rows = rows + '</td>';
     } else {
       rows += '<td>' + user;
       // if (names[user])
