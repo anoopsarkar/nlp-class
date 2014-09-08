@@ -35,7 +35,7 @@ Teaching Assistant
 : [Maryam Siahbani](http://www.cs.sfu.ca/~msiahban/personal/)
 
 Discussion Board
-: [Coursys](https://courses.cs.sfu.ca/)
+: [on Coursys](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/discussion/)
 
 Time and place
 : Tuesdays 2:30-4:20, Thursdays 2:30-3:20, AQ 3150
@@ -47,7 +47,7 @@ Textbook
 : No required textbook. Online readings provided in Syllabus.
 
 Grading
-: Check your grades on [Coursys](https://courses.cs.sfu.ca)
+: Submit homework source code and check your grades on [Coursys](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/)
 
 * Programming setup homework (2%)
 * Five programming homeworks (10% each)
