@@ -59,8 +59,9 @@ should submit for the group.
 * You must use a valid group name that is verifiable on
 [Coursys](https://courses.cs.sfu.ca) 
 
-* You must upload your file as a tar.gz or zip file as the HW0
-submission on [Coursys](https://courses.cs.sfu.ca).
+* Your group must upload your file as a tar.gz or zip file as the HW0
+submission on [Coursys](https://courses.cs.sfu.ca). Only one person
+per group needs to submit here as well.
 
 In future homeworks, you will submit your output files to the [upload
 page on Google](http://sfu-nlp-class.appspot.com) and submit your
