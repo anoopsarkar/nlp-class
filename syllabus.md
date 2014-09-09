@@ -12,7 +12,7 @@ active_tab: syllabus
     <tr>
       <th>Date</th>
       <th>Topic</th>
-      <th>Readings/Videos (<i class="fa-li fa fa-star"> </i>=optional)</th>
+      <th>Readings/Videos (<i class="fa fa-star"></i>=optional)</th>
     </tr>
     {% for lecture in site.data.syllabus.past %}
     <tr>
