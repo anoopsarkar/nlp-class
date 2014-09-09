@@ -20,6 +20,15 @@ past:
         title: "Statistical Methods and Linguistics"
         url: http://www.vinartus.net/spa/95c.pdf
         optional: true
+  -
+    date: 2014-09-09
+    title: Probability models
+    slides: "404.html"
+    reading:
+      - author: Anoop Sarkar
+        title: "Python tidbits for NLP"
+        url: http://nbviewer.ipython.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb
+        optional: false
       - author: Anoop Sarkar
         title: "NLP and Text Visualization"
         url: "assets/slides/wikihistory.pdf"
