@@ -20,6 +20,7 @@ active_tab: syllabus
       <td>
         {% if lecture.slides %}<a href="{{ lecture.slides }}">{{ lecture.title }}</a>
         {% else %}{{ lecture.title }}{% endif %}
+        {% if reading.download %} <span class="glyphicon glyphicon-search"> {{ reading.download }} </span> {% endif %}
       {% if lecture.links %}
         {% for link in lecture.links %}
           <p><a href="{{ link.url }}">{{ link.text }}</a></p>

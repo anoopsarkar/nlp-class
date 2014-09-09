@@ -31,6 +31,7 @@ past:
     date: 2014-09-09
     title: Probability Models for NLP
     slides: http://nbviewer.ipython.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb
+    download: http://github.com/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb
     reading:
       - author: Anoop Sarkar
         title: "Python tidbits for NLP"
