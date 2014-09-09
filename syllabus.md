@@ -36,7 +36,7 @@ active_tab: syllabus
             <li>
             {% if reading.optional %}<i class="fa-li fa fa-star"> </i>
             {% else %}<i class="fa-li fa"> </i> {% endif %}
-            {{ reading.author }},
+            {% if reading.author %} {{ reading.author }}, {% endif %}
             {% if reading.url %}
             <a href="{{ reading.url }}">{{ reading.title }}</a>
             {% else %}
