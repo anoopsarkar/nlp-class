@@ -29,7 +29,7 @@ past:
         optional: true
   -
     date: 2014-09-09
-    title: Introduction to Probability for NLP
+    title: Probability Models for NLP
     slides: http://nbviewer.ipython.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb
     reading:
       - author: Anoop Sarkar
