@@ -36,4 +36,5 @@ past:
       - author: Anoop Sarkar
         title: "Python tidbits for NLP"
         url: http://nbviewer.ipython.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb
+        download: http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/python-tidbits.ipynb
         optional: false

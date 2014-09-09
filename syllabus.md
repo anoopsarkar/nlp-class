@@ -43,6 +43,7 @@ active_tab: syllabus
             {% else %}
             {{ reading.title }} 
             {% endif %}
+            {% if reading.download %} <a href="{{ reading.download }}"><span class="glyphicon glyphicon-save"> </span></a> {% endif %}
             </li>
           {% endfor %}
           </ul>
