@@ -57,10 +57,8 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
 <p>A value of -1 indicates that the assignment file was found but
 contained invalid content.</p>
 
-<p>The <span class="text-success">oracle (best possible)</span>,
-<span class="text-danger">default</span> and <span
-class="text-warning">baseline (minimum performance for a B)</span>
-lines are highlighted. </p>
+<p>The highlighted lines are <span class="text-success">oracle (best possible)</span>,
+<span class="text-danger">default (performance of code provided to you; no marks)</span> and <span class="text-warning">baseline (minimum performance for 74 marks out of 100)</span>. In between <span class="text-danger">default</span> and <span class="text-danger">baseline</span> you can earn upto 54 marks out of 100.</p>
 
 </div>
 
