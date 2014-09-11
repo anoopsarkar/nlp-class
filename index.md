@@ -40,8 +40,11 @@ Discussion Board
 Time and place
 : Tuesdays 2:30-4:20, Thursdays 2:30-3:20, AQ 3150
 
-Office hours
-: TBD
+Calendar
+: [Subscribe](https://courses.cs.sfu.ca/calendar/7239eedd1545d3fe8a32c7c9dddd5b86/anoop)
+
+Instructor office hours
+: Mondays 9am-11am TASC1 9427
 
 Textbook
 : No required textbook. Online readings provided in Syllabus.
