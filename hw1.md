@@ -87,16 +87,43 @@ a word that spans from character $$i$$ to character $$j$$. So
 one possible word sequence is $$w_0^3 w_4^{10} w_{11}^n$$. We
 can score this sequence using unigram probabilities.
 
-<p>$$\argmax_{w_0^i, w_{i+1}^j, \ldots, w_{n-k}^n} P_w(w_0^i) * P_w(w_{i+1}^j) * \ldots * P_w(w_{n-k}^n)$$</p>
+<p>$$\arg\max_{w_0^i, w_{i+1}^j, \ldots, w_{n-k}^n} P_w(w_0^i) * P_w(w_{i+1}^j) * \ldots * P_w(w_{n-k}^n)$$</p>
 
 The unigram probability $$P_w$$ can be constructed using the
 data in `count_1w.txt`. The model is simple, an unigram model,
 but the search is over all possible ways to form word sequences
 for the input sequence of characters. The argmax over all
-such sequences will give you the baseline system.
+such sequences will give you the baseline system. This can be
+done elegantly using recursion. However, it is much faster
+to do this iteratively. The following pseudo-code illustrates
+how to find the argmax iteratively.
 
-Developing a simple segmenter that uses unigram probabilities is
-enough to get close to the baseline system. But getting closer to the oracle
+* _input_: the input sequence of characters
+* _chart_: the dynamic programming table to store the local argmax solutions
+* _entry_: each entry has four components: _word_, _start-position_, _log-probability_, _backpointer_
+* _heap_: a priority queue containing the entries to be expanded
+* the _backpointer_ in each _entry_ links it to a previous entry that it extends
+* Initialize the _heap_:
+    * for each _word_ that matches _input_ at position 0
+        * insert entry(word, 0, $$\log P_w$$(_word_), $$\emptyset$$) into _heap_
+* while _heap_ is nonempty:
+    * _entry_ = top entry in the _heap_
+    * get the _endindex_ based on the length of the word in _entry_
+    * if _chart_[_endindex_] has a previous entry, _preventry_
+        * if _entry_ has a higher probability than _preventry_:
+            * _chart_[_endindex_] = _entry_
+    * else 
+        * _chart_[_endindex_] = _entry_
+    * for each _newword_ that matches _input_ at position _endindex_+1
+        * _newentry_ = entry(_newword_, _endindex_+1, entry._log-probability_ + $$P_w$$(_newword_), _entry_)
+        * if _newentry_ does not exist in _heap_:
+            * insert _newentry_ into _heap_
+* _finalindex_ is the length of _input_
+* _finalentry_ = _chart_[_finalindex_] 
+* Build _output_ by following the backpointer from _finalentry_ until you reach _chart_[0]
+
+Developing a segmenter using the above pseudo-code that uses unigram probabilities is
+good enough to get close to the baseline system. But getting closer to the oracle
 score will be a more interesting challenge. To get full credit you
 **must** experiment with at least one additional model of your
 choice and document your work. Here are some ideas:
