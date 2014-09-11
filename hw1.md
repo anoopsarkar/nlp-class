@@ -76,6 +76,25 @@ this the `data` directory in `segmenter` contains two files:
     count_1w.txt : unigram counts of Chinese words
     count_2w.txt : bigram counts of Chinese word pairs
 
+## Simple Baseline
+
+A simple baseline uses a unigram language model over Chinese words.
+The input is a sequence of Chinese characters (without word
+boundaries): $c_0, \ldots, c_n$.
+
+Let us define a word as a sequence of characters: $w_i^j$ is
+a word that spans from character $i$ to character $j$. So
+one possible word sequence is $w_0^3 w_4^10 w_11^n$. We
+can score this sequence using unigram probabilities.
+
+$$\argmax_{w_0^i, w_{i+1}^j, \ldots, w_{n-k}^n} P_w(w_0^i) * P_w(w_{i+1}^j) * \ldots * P_w(w_{n-k}^n)$$
+
+The unigram probability $P_w$ can be constructed using the
+data in `count_1w.txt`. The model is simple, an unigram model,
+but the search is over all possible ways to form word sequences
+for the input sequence of characters. The argmax over all
+such sequences will give you the baseline system.
+
 Developing a simple segmenter that uses unigram probabilities is
 enough to beat the baseline system. But getting closer to the oracle
 score will be an interesting challenge. To get full credit you
