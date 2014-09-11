@@ -29,7 +29,7 @@ leads to a particular meaning (indicated by the English translation below):
     北京 大学生 比赛
     Beijing student competition
 
-A different segmentation leads to a different meaning:
+A different segmentation leads to a different meaning (and translation):
 
     北京大学 生 比赛
     Peking University Health Competition
