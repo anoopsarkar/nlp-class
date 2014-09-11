@@ -38,3 +38,14 @@ past:
         url: http://nbviewer.ipython.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb
         download: http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/python-tidbits.ipynb
         optional: false
+  -
+    date: 2014-09-11
+    title: Probability Models for NLP
+    slides: http://nbviewer.ipython.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb
+    download: http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb
+    reading:
+      - author: Peter Norvig
+        title: "Natural Language Corpus Data: Beautiful Data"
+        url: http://norvig.com/ngrams/
+        download: http://norvig.com/ngrams/ngrams.zip
+        optional: false
