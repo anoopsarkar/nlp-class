@@ -122,6 +122,9 @@ how to find the argmax iteratively.
 * _finalentry_ = _chart_[_finalindex_] 
 * Build _output_ by following the backpointer from _finalentry_ until you reach _chart_[0]
 
+It might help to examine [an example run](https://gist.github.com/anoopsarkar/da67c6566a7268bb53b7) of 
+the above pseudo-code on an input Chinese character sequence.
+
 Developing a segmenter using the above pseudo-code that uses unigram probabilities is
 good enough to get close to the baseline system. But getting closer to the oracle
 score will be a more interesting challenge. To get full credit you
