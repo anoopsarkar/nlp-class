@@ -25,7 +25,7 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
         <a href="hw0.html">#0</a><br/><span class="small text-muted">Scalar (% N)</span>
       </th>
       <th class="text-right">
-        <a href="hw1.html">#1</a><br/><span class="small text-muted">Segment (F-measure)</span>
+        <a href="hw1.html">#1</a><br/><span class="small text-muted">Segment</span>
       </th>
 <!---
       <th class="text-right">
