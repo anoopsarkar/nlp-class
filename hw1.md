@@ -50,18 +50,18 @@ Once you've confirmed this, run this command:
     git clone https://github.com/anoopsarkar/nlp-class-hw.git
 
 In the `segmenter` directory you will find a python program called
-`baseline.py`, which contains a complete but very simple segmentation algorithm.
+`default.py`, which contains a complete but very simple segmentation algorithm.
 It simply inserts word boundaries between each Chinese character in the
 input. It is a terrible segmenter but it does read the input and produce
 a valid output that can be scored.
 
-You can see how well `baseline.py` does by running the following:
+You can see how well `default.py` does by running the following:
 
-    python baseline.py | python score-segments.py
+    python default.py | python score-segments.py
 
 Alternatively, you can run:
 
-    python baseline.py > output
+    python default.py > output
     python score-segments.py -t output
 
 The score reported is [F-measure](http://en.wikipedia.org/wiki/F1_score) which combines 
@@ -97,7 +97,7 @@ Ground Rules
      as you like, up until the assignment deadline. Do _not_ press Submit unless you are finished with your development. 
 The output will be evaluated using a secret metric, but the `score-segments.py` program will give you a good
      idea of how well you're doing.
-  1. Your code. Each group should assign one member to upload the source code to [Coursys](https://courses.cs.sfu.ca) as the submission for Homework 1. The code should be self-contained, self-documenting, and easy to use. It should use the same input and output assumptions of `baseline.py`.
+  1. Your code. Each group should assign one member to upload the source code to [Coursys](https://courses.cs.sfu.ca) as the submission for Homework 1. The code should be self-contained, self-documenting, and easy to use. It should use the same input and output assumptions of `default.py`.
   1. A clear, mathematical description of your algorithm and its motivation
      written in scientific style. This needn't be long, but it should be
      clear enough that one of your fellow students could re-implement it 
