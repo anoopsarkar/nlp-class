@@ -96,8 +96,8 @@ for the input sequence of characters. The argmax over all
 such sequences will give you the baseline system.
 
 Developing a simple segmenter that uses unigram probabilities is
-enough to beat the baseline system. But getting closer to the oracle
-score will be an interesting challenge. To get full credit you
+enough to get close to the baseline system. But getting closer to the oracle
+score will be a more interesting challenge. To get full credit you
 **must** experiment with at least one additional model of your
 choice and document your work. Here are some ideas:
 
