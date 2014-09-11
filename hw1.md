@@ -84,7 +84,7 @@ boundaries): $$c_0, \ldots, c_n$$.
 
 Let us define a word as a sequence of characters: $$w_i^j$$ is
 a word that spans from character $$i$$ to character $$j$$. So
-one possible word sequence is $$w_0^3 w_4^10 w_11^n$$. We
+one possible word sequence is $$w_0^3 w_4^{10} w_{11}^n$$. We
 can score this sequence using unigram probabilities.
 
 <p>$$\argmax_{w_0^i, w_{i+1}^j, \ldots, w_{n-k}^n} P_w(w_0^i) * P_w(w_{i+1}^j) * \ldots * P_w(w_{n-k}^n)$$</p>
