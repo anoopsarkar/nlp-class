@@ -76,7 +76,7 @@ this the `data` directory in `segmenter` contains two files:
     count_1w.txt : unigram counts of Chinese words
     count_2w.txt : bigram counts of Chinese word pairs
 
-## Simple Baseline
+### The Baseline
 
 A simple baseline uses a unigram language model over Chinese words.
 The input is a sequence of Chinese characters (without word
