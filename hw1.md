@@ -36,9 +36,9 @@ A different segmentation leads to a different meaning:
 
 We will be using _training data_ collected from Chinese
 sentences that have been segmented by human experts.
-We will run the model that we train on data that was
-previously unseen in the training data to see how
-well we can segment new Chinese sentences.
+We will run the word segmentation program that you
+will write for this homework on _test data_ that will
+be automatically evaluated against a human reference.
 
 Getting Started
 ---------------
