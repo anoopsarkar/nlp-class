@@ -87,7 +87,7 @@ a word that spans from character $$i$$ to character $$j$$. So
 one possible word sequence is $$w_0^3 w_4^{10} w_{11}^n$$. We
 can score this sequence using unigram probabilities.
 
-<p>$$\arg\max_{w_0^i, w_{i+1}^j, \ldots, w_{n-k}^n} P_w(w_0^i) * P_w(w_{i+1}^j) * \ldots * P_w(w_{n-k}^n)$$</p>
+<p>$$\arg\max_{i, j, \ldots, n-k} P_w(w_0^i) * P_w(w_{i+1}^j) * \ldots * P_w(w_{n-k}^n)$$</p>
 
 The unigram probability $$P_w$$ can be constructed using the
 data in `count_1w.txt`. The model is simple, an unigram model,
