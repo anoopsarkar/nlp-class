@@ -80,16 +80,16 @@ this the `data` directory in `segmenter` contains two files:
 
 A simple baseline uses a unigram language model over Chinese words.
 The input is a sequence of Chinese characters (without word
-boundaries): $c_0, \ldots, c_n$.
+boundaries): $$c_0, \ldots, c_n$$.
 
-Let us define a word as a sequence of characters: $w_i^j$ is
-a word that spans from character $i$ to character $j$. So
-one possible word sequence is $w_0^3 w_4^10 w_11^n$. We
+Let us define a word as a sequence of characters: $$w_i^j$$ is
+a word that spans from character $$i$$ to character $$j$$. So
+one possible word sequence is $$w_0^3 w_4^10 w_11^n$$. We
 can score this sequence using unigram probabilities.
 
-$$\argmax_{w_0^i, w_{i+1}^j, \ldots, w_{n-k}^n} P_w(w_0^i) * P_w(w_{i+1}^j) * \ldots * P_w(w_{n-k}^n)$$
+<p>$$\argmax_{w_0^i, w_{i+1}^j, \ldots, w_{n-k}^n} P_w(w_0^i) * P_w(w_{i+1}^j) * \ldots * P_w(w_{n-k}^n)$$</p>
 
-The unigram probability $P_w$ can be constructed using the
+The unigram probability $$P_w$$ can be constructed using the
 data in `count_1w.txt`. The model is simple, an unigram model,
 but the search is over all possible ways to form word sequences
 for the input sequence of characters. The argmax over all
