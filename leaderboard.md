@@ -22,7 +22,7 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
         Handle
       </th>
       <th class="text-right">
-        <a href="hw0.html">#0</a><br/><span class="small text-muted">Scalar (% N)</span>
+        <a href="hw0.html">#0</a><br/><span class="small text-muted">Setup</span>
       </th>
       <th class="text-right">
         <a href="hw1.html">#1</a><br/><span class="small text-muted">Segment</span>
