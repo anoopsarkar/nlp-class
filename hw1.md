@@ -101,7 +101,7 @@ how to find the argmax iteratively.
 * _input_: the input sequence of characters
 * _chart_: the dynamic programming table to store the local argmax solutions
 * _entry_: each entry has four components: _word_, _start-position_, _log-probability_, _backpointer_
-* _heap_: a priority queue containing the entries to be expanded
+* _heap_: a priority queue containing the entries to be expanded (can be sorted on _log-probability_ or _start-position_) 
 * the _backpointer_ in each _entry_ links it to a previous entry that it extends
 * Initialize the _heap_:
     * for each _word_ that matches _input_ at position 0
