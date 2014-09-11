@@ -38,7 +38,8 @@ We will be using _training data_ collected from Chinese
 sentences that have been segmented by human experts.
 We will run the word segmentation program that you
 will write for this homework on _test data_ that will
-be automatically evaluated against a human reference.
+be automatically evaluated against a reference
+segmentation.
 
 Getting Started
 ---------------
