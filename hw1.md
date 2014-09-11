@@ -1,56 +1,45 @@
 ---
 layout: default
-img: rosetta
-img_url: http://www.flickr.com/photos/calotype46/6683293633/
-caption: Rosetta stone (credit&#59; calotype46)
-title: Homework 1 | Alignment
+img: mayhem
+img_url: http://en.wikipedia.org/wiki/Text_segmentation
+caption: Segmentation is harder than it seems.
+title: Homework 1 | Segmentation
 active_tab: homework
 ---
 
-Alignment <span class="text-muted">Challenge Problem 1</span>
+Word Segmentation <span class="text-muted">Homework 1</span>
 =============================================================
 
-Aligning words is a key task in machine translation. We start with
-a large _parallel corpus_ of aligned sentences. For example, we might
-have the following sentence pair from the proceedings of the bilingual 
-Canadian parliament:
+Word segmentation is the task of restoring missing word
+boundaries. For example, in some cases word boundaries
+are lost as in web page URLs like _choosespain.com_ which
+could be either _chooses pain_ or _choose spain_ and you 
+might visit such an URL looking for one or the other.
 
-*le droit de permis passe donc de $ 25 à $ 500*.
+This homework is on Chinese word segmentation, a language
+in which word boundaries are not usually provided. For
+instance here is an example Chinese sentence without word
+boundaries:
 
-*we see the licence fee going up from $ 25 to $ 500*.
+    北京大学生比赛
 
-Getting documents aligned at the _sentence_ level like this is
-relatively easy: we can use paragraph boundaries and cues
-like the length and order of each sentence. But to learn a translation
-model we need alignments at the _word_ level. That's where you come
-in. **Your challenge is to write a program that aligns words 
-automatically.** For example, given the sentence above, your program
-would ideally output these pairs:
+This can be segmented a few different ways and one segmentation
+leads to a particular meaning (indicated by the English translation below):
 
-*le -- the,
-droit -- fee,
-permis -- license,
-passe -- going,
-passe -- up,
-donc -- from,
-$ -- $,
-25 -- 25,
-à -- to,
-$ -- $,
-50 -- 50*
+    北京 大学生 比赛
+    Beijing student competition
 
-Your program can leave words unaligned (e.g. *we* and *see*) or 
-multiply aligned (e.g. *passe* aligned to *going up*). It will be
-faced with difficult choices. Suppose it sees this sentence pair:
+A different segmentation leads to a different meaning (and translation):
 
-*I want to make it clear that we have to let this issue come to a vote today*.
+    北京大学 生 比赛
+    Peking University Health Competition
 
-*il est donc essentiel que cette question fasse le objet de un vote aujourd' hui .*
-
-Your program must make a choice about how to align the words of the non-literal
-translations *I want to make it clear* and *il est donc essentiel*. Even
-experienced bilinguals will disagree on examples like this. So word alignment
-does not capture every nuance, but it is still very useful.
+We will be using _training data_ collected from Chinese
+sentences that have been segmented by human experts.
+We will run the word segmentation program that you
+will write for this homework on _test data_ that will
+be automatically evaluated against a reference
+segmentation.
 
 Getting Started
 ---------------
@@ -58,92 +47,89 @@ Getting Started
 You must have git and python (2.7) on your system to run the assignments.
 Once you've confirmed this, run this command:
 
-    git clone https://github.com/alopez/en600.468.git
+    git clone https://github.com/anoopsarkar/nlp-class-hw.git
 
-In the `aligner` directory you will find a python program called
-`align`, which contains a complete but very simple alignment algorithm.
-For every word, it computes the set of sentences that the word appears in. 
-Intuititvely, word pairs that appear in similar sets of sentences are likely
-to be translations. Our aligner first computes the similarity of these sets  with
-[Dice's coefficient](http://en.wikipedia.org/wiki/Dice's_coefficient/). Given
-sets $$X$$ and $$Y$$, Dice's coefficient is:
+In the `segmenter` directory you will find a python program called
+`default.py`, which contains a complete but very simple segmentation algorithm.
+It simply inserts word boundaries between each Chinese character in the
+input. It is a terrible segmenter but it does read the input and produce
+a valid output that can be scored.
 
-<p>$$\delta(X,Y) = \frac{2 \times |X \cap Y|}{|X| + |Y|}$$</p>
+You can see how well `default.py` does by running the following:
 
-For any two sets $$X$$ and $$Y$$, $$\delta(X,Y)$$ will be a number between
-0 and 1. The baseline aligner will align any word pair with a 
-coefficient over 0.5. Run it on 1000 sentences:
+    python default.py | python score-segments.py
 
-    python align -n 1000 > dice.a
+Alternatively, you can run:
 
-This command stores the output in `dice.a`. To compute accuracy, run:
+    python default.py > output
+    python score-segments.py -t output
 
-    python score-alignments < dice.a
-
-This compares the alignments against human-produced alignments, computing 
-[alignment error rate](http://aclweb.org/anthology-new/P/P00/P00-1056.pdf), 
-which balances precision and recall. It will also show you the comparison 
-in a grid. Look at the terrible output of this heuristic method -- it's 
-better than chance, but not any good. Try training on 10,000 sentences:
-
-    python align -n 10000 | python score-alignments 
-
-Performance should improve, but only slightly! Try changing the
-threshold for alignment. How does this affect alignment error rate?
+The score reported is [F-measure](http://en.wikipedia.org/wiki/F1_score) which combines 
+[precision and recall](http://en.wikipedia.org/wiki/Precision_and_recall) into a single score.
 
 The Challenge
 -------------
 
-Your task is to _improve the
-alignment error rate as much as possible_. It shouldn't be hard: you've 
-probably noticed that thresholding a Dice coefficient is a bad idea because 
-alignments don't compete against one another. A good way to correct this is 
-with a probabilistic model like IBM Model 1. It forces all of the English 
-words in a sentence to compete as the explanation for each foreign word.
+Your task is to _improve the F-measure as much as possible_. To help you do
+this the `data` directory in `segmenter` contains two files:
 
-Formally, IBM Model 1 is a probabilistic model that generates each word of 
-the foreign sentence $${\bf f}$$ independently, conditioned on some word 
-in the English sentence $${\bf e}$$. Given $${\bf f}$$, the joint probability of 
-an alignment $${\bf a}$$ and translation $${\bf e}$$ factors across words: 
-$$P({\bf f}, {\bf a} | {\bf e}) = \prod_i P(a_i = j | |{\bf e}|) \times P(f_i | e_j)$$. In 
-Model 1, we fix $$P(a_i = j | |{\bf e}|)$$ to be uniform 
-(i.e. equal to $$\frac{1}{|{\bf e}|}$$), so this probability
-depends only on the word translation parameters $$P(f | e)$$. But where do
-thes parameters come from? You will first learn them from the data using
-expectation maximization (EM), and then use them to align. EM attempts to
-maximize the *observed* data likelihood $$P({\bf e}|{\bf f})$$, which does not contain
-alignments. To do this, we marginalize over the alignment variable:
+    count_1w.txt : unigram counts of Chinese words
+    count_2w.txt : bigram counts of Chinese word pairs
 
-<p>$$P({\bf e}|{\bf f}) = \prod_i \sum_j P(a_i = j | |{\bf e}|)$$</p>
+### The Baseline
 
-This problem can't be solved in closed form, but we can iteratively
-hill-climb on the likelihood by first fixing some parameters, computing
-expectations under those parameters, and maximizing the likelihood as
-treating expected counts as observed. To compute the iterative update, for 
-every pair of an English word type $$e$$ and a French word type $$f$$, 
-count up the expected number of times $$f$$ aligns to 
-$$e$$ and normalize over values of $$e$$. That will give you a new
-estimate of the translation probabilities $$P (f |e)$$, which leads 
-to new expectations, and so on. For more detail, read 
-[this note](http://www.cs.jhu.edu/~alopez/papers/model1-note.pdf). We
-recommend developing on a small data set (1000 sentences) with a few 
-iterations of EM. When you see improvements on this small set, try it out on
-the complete data.
+A simple baseline uses a unigram language model over Chinese words.
+The input is a sequence of Chinese characters (without word
+boundaries): $$c_0, \ldots, c_n$$.
 
-Developing a Model 1 aligner should be enough to beat our baseline system
-and earn a passing grade. But alignment isn't a solved problem, and the goal of
-this assignment isn't for you to just implement a well-known algorithm. To 
-get full credit you **must** experiment with at least one additional
-model of your choice and document your work. Here are some ideas:
+Let us define a word as a sequence of characters: $$w_i^j$$ is
+a word that spans from character $$i$$ to character $$j$$. So
+one possible word sequence is $$w_0^3 w_4^{10} w_{11}^n$$. We
+can score this sequence using unigram probabilities.
 
-* Implement [a model that prefers to align words close to the diagonal](http://aclweb.org/anthology/N/N13/N13-1073.pdf).
-* Implement an [HMM alignment model](http://aclweb.org/anthology-new/C/C96/C96-2141.pdf).
-* Implement [a morphologically-aware alignment model](http://aclweb.org/anthology/N/N13/N13-1140.pdf).
-* [Use *maximum a posteriori* inference under a Bayesian prior](http://aclweb.org/anthology/P/P11/P11-2032.pdf).
-* Train a French-English model and an English-French model and [combine their predictions](http://aclweb.org/anthology-new/N/N06/N06-1014.pdf).
-* Train a [supervised discriminative alignment model](http://aclweb.org/anthology-new/P/P06/P06-1009.pdf) on the annotated development set.
-* Train an [unsupervised discriminative alignment model](http://aclweb.org/anthology-new/P/P11/P11-1042.pdf).
-* Seek out additional [inspiration](http://scholar.google.com/scholar?q=word+alignment).
+<p>$$\arg\max_{w_0^i, w_{i+1}^j, \ldots, w_{n-k}^n} P_w(w_0^i) * P_w(w_{i+1}^j) * \ldots * P_w(w_{n-k}^n)$$</p>
+
+The unigram probability $$P_w$$ can be constructed using the
+data in `count_1w.txt`. The model is simple, an unigram model,
+but the search is over all possible ways to form word sequences
+for the input sequence of characters. The argmax over all
+such sequences will give you the baseline system. This can be
+done elegantly using recursion. However, it is much faster
+to do this iteratively. The following pseudo-code illustrates
+how to find the argmax iteratively.
+
+* _input_: the input sequence of characters
+* _chart_: the dynamic programming table to store the local argmax solutions
+* _entry_: each entry has four components: _word_, _start-position_, _log-probability_, _backpointer_
+* _heap_: a priority queue containing the entries to be expanded (can be sorted on _log-probability_ or _start-position_) 
+* the _backpointer_ in each _entry_ links it to a previous entry that it extends
+* Initialize the _heap_:
+    * for each _word_ that matches _input_ at position 0
+        * insert entry(word, 0, $$\log P_w$$(_word_), $$\emptyset$$) into _heap_
+* while _heap_ is nonempty:
+    * _entry_ = top entry in the _heap_
+    * get the _endindex_ based on the length of the word in _entry_
+    * if _chart_[_endindex_] has a previous entry, _preventry_
+        * if _entry_ has a higher probability than _preventry_:
+            * _chart_[_endindex_] = _entry_
+    * else 
+        * _chart_[_endindex_] = _entry_
+    * for each _newword_ that matches _input_ at position _endindex_+1
+        * _newentry_ = entry(_newword_, _endindex_+1, entry._log-probability_ + $$\log P_w$$(_newword_), _entry_)
+        * if _newentry_ does not exist in _heap_:
+            * insert _newentry_ into _heap_
+* _finalindex_ is the length of _input_
+* _finalentry_ = _chart_[_finalindex_] 
+* Build _output_ by following the backpointer from _finalentry_ until you reach _chart_[0]
+
+Developing a segmenter using the above pseudo-code that uses unigram probabilities is
+good enough to get close to the baseline system. But getting closer to the oracle
+score will be a more interesting challenge. To get full credit you
+**must** experiment with at least one additional model of your
+choice and document your work. Here are some ideas:
+
+* Use the bigram model to score word segmentation candidates.
+* Do better _smoothing_ of the unigram and bigram probability models.
 
 But the sky's the limit! You are welcome to design your own model, as long 
 as you follow the ground rules:
@@ -151,53 +137,22 @@ as you follow the ground rules:
 Ground Rules
 ------------
 
-* You can work in independently or in groups of up to three, under these 
-  conditions: 
-  1. You must announce the group publicly on piazza.
-  1. You agree that everyone in the group will receive the same grade on the assignment. 
-  1. You can add people or merge groups at any time before the assignment is
-     due. **You cannot drop people from your group once you've added them.**
-  We encourage collaboration, but we will not adjudicate Rashomon-style 
-  stories about who did or did not contribute.
+* Each group should submit using one person as the designated uploader.
 * You must turn in three things:
-  1. An alignment of the entire dataset, uploaded to the [leaderboard submission site](http://jhumtclass.appspot.com) according to <a href="assignment0.html">the Assignment 0 instructions</a>. You can upload new output as often
-     as you like, up until the assignment deadline. The output will be evaluated 
-     using a secret metric, but the `grade` program will give you a good
-     idea of how well you're doing, and you can use the `check` program
-     to see whether your output is formatted correctly. Whoever has
-     the highest score at the deadline will receive the most bonus points.
-
-     *Note*. The upload site will reject files larger than 1 MB, so please reduce your file to only the first 1,000 lines before uploading, e.g.,
-
-          python align | head -n1000 > output.txt
-
-  1. Your code. Send us a URL from which we can get the code and git revision
-     history (a link to a tarball will suffice, but you're free to send us a 
-     github link if you don't mind making your code public). This is due at the
-     deadline: when you upload your final answer, send us the code.
-     You are free to extend the code we provide or roll your own in whatever
-     langugage you like, but the code should be self-contained, 
-     self-documenting, and easy to use. 
+  1. A segmentation of the entire dataset which is in `segmenter/input` uploaded to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to <a href="hw0.html">the Homework 0 instructions</a>. You can upload new output as often
+     as you like, up until the assignment deadline. Do _not_ press Submit unless you are finished with your development. 
+The output will be evaluated using a secret metric, but the `score-segments.py` program will give you a good
+     idea of how well you're doing.
+  1. Your code. Each group should assign one member to upload the source code to [Coursys](https://courses.cs.sfu.ca) as the submission for Homework 1. The code should be self-contained, self-documenting, and easy to use. It should use the same input and output assumptions of `default.py`.
   1. A clear, mathematical description of your algorithm and its motivation
      written in scientific style. This needn't be long, but it should be
      clear enough that one of your fellow students could re-implement it 
-     exactly. [We will review examples in class before the due date](hw-writing-exercise.html).
-* You may only use data or code resources other than the ones we
-  provide _with advance permission_. We will ask you to make 
-  your resources available to everyone. If you have a cool idea 
-  using the Berkeley parser, or a French-English dictionary, that's 
-  great. But we want everyone to have access to the same resources, 
-  so we'll ask you to share the parses. This kind of 
-  constrained data condition is common in real-world evaluations of AI 
-  systems, to make evaluations fair. A few things are off-limits:
-  Giza++, the Berkeley Aligner, or anything else that
-  already does the alignment for you. You must write your
-  own code. If you want to do system combination, join
-  forces with your classmates.
+     exactly. 
+* You cannot use data or code resources outside of what is provided
+to you. You can use NLTK but not the NLTK tokenizer class. You can
+use plain ASCII but for math equations it is better to use either
+[latex](http://www.latex-project.org/) or [kramdown](https://github.com/gettalong/kramdown).
+Do __not__ use any proprietary or binary file formats such as Microsoft Word.
 
 If you have any questions or you're confused about anything, just ask.
 
-*Credits: This assignment is adapted from one originally developed by 
-[Philipp Koehn](http://homepages.inf.ed.ac.uk/pkoehn/)
-and later modified by [John DeNero](http://www.denero.org/). It
-incorporates some ideas from [Chris Dyer](http://www.cs.cmu.edu/~cdyer).*
