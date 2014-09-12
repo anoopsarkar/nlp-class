@@ -100,12 +100,12 @@ how to find the argmax iteratively.
 
 * _input_: the input sequence of characters
 * _chart_: the dynamic programming table to store the local argmax solutions
-* _entry_: each entry has four components: _word_, _start-position_, _log-probability_, _backpointer_
+* _Entry_: each entry in the _chart_ has four components: Entry(_word_, _start-position_, _log-probability_, _backpointer_)
 * _heap_: a priority queue containing the entries to be expanded (can be sorted on _log-probability_ or _start-position_) 
 * the _backpointer_ in each _entry_ links it to a previous entry that it extends
 * Initialize the _heap_:
     * for each _word_ that matches _input_ at position 0
-        * insert entry(word, 0, $$\log P_w$$(_word_), $$\emptyset$$) into _heap_
+        * insert Entry(word, 0, $$\log P_w$$(_word_), $$\emptyset$$) into _heap_
 * while _heap_ is nonempty:
     * _entry_ = top entry in the _heap_
     * get the _endindex_ based on the length of the word in _entry_
@@ -115,7 +115,7 @@ how to find the argmax iteratively.
     * else 
         * _chart_[_endindex_] = _entry_
     * for each _newword_ that matches _input_ at position _endindex_+1
-        * _newentry_ = entry(_newword_, _endindex_+1, entry._log-probability_ + $$\log P_w$$(_newword_), _entry_)
+        * _newentry_ = Entry(_newword_, _endindex_+1, _entry_._log-probability_ + $$\log P_w$$(_newword_), _entry_)
         * if _newentry_ does not exist in _heap_:
             * insert _newentry_ into _heap_
 * _finalindex_ is the length of _input_
