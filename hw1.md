@@ -142,7 +142,7 @@ Ground Rules
 
 * Each group should submit using one person as the designated uploader.
 * You must turn in three things:
-  1. A segmentation of the entire dataset which is in `segmenter/input` uploaded to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to <a href="hw0.html">the Homework 0 instructions</a>. You can upload new output as often
+  1. A segmentation of the entire dataset which is in `segmenter/data/input` uploaded to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html). You can upload new output as often
      as you like, up until the assignment deadline. Do _not_ press Submit unless you are finished with your development. 
 The output will be evaluated using a secret metric, but the `score-segments.py` program will give you a good
      idea of how well you're doing.
@@ -150,7 +150,8 @@ The output will be evaluated using a secret metric, but the `score-segments.py` 
   1. A clear, mathematical description of your algorithm and its motivation
      written in scientific style. This needn't be long, but it should be
      clear enough that one of your fellow students could re-implement it 
-     exactly. 
+     exactly. Include the file for this writeup as part of the tarball or zip file you
+     will upload to [Coursys](https://courses.cs.sfu.ca).
 * You cannot use data or code resources outside of what is provided
 to you. You can use NLTK but not the NLTK tokenizer class. You can
 use plain ASCII but for math equations it is better to use either
