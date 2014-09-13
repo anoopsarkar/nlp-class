@@ -93,9 +93,14 @@ The unigram probability $$P_w$$ can be constructed using the
 data in `count_1w.txt`. The model is simple, an unigram model,
 but the search is over all possible ways to form word sequences
 for the input sequence of characters. The argmax over all
-such sequences will give you the baseline system. This can be
-done elegantly using recursion. However, it is much faster
-to do this iteratively. The following pseudo-code illustrates
+such sequences will give you the baseline system. The $$\arg\max$$ can be
+computed elegantly using recursion:
+
+$$ segment(text) = \arg\max_{\forall i: w_0^i, w_{i+1}^n P_w(w_0^i) * segment(w_{i+1}^n) $$
+
+One can [memoize](http://en.wikipedia.org/wiki/Memoization) $$segment$$ in order
+to avoid the slow exploration of the exponentially many segmentations.
+An alternative is to do this iteratively. The following pseudo-code illustrates
 how to find the argmax iteratively.
 
 * _input_: the input sequence of characters
