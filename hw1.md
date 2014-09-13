@@ -105,7 +105,7 @@ where $$L = min(maxlen, j)$$ in order to avoid considering segmentations
 of very long words which are going to be very unlikely.
 $$segment(\emptyset)$$ is the base case of the recursion: an input
 of length zero, which results in a segmentation of length zero with
-probability $$1.0$.
+probability $$1.0$$.
 
 One can [memoize](http://en.wikipedia.org/wiki/Memoization) $$segment$$ in order
 to avoid the slow exploration of the exponentially many segmentations.
