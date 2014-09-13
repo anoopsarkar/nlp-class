@@ -96,8 +96,10 @@ input sequence of characters. The argmax over all such sequences
 will give you the baseline system. The $$\arg\max$$ above can be computed
 using the following recursive search over $$segment(c_0, \ldots, c_n)$$:
 
-<p>$$segment(c_i, \ldots, c_j) = \arg\max_{\forall k <= L} P_w(w_i^k) * segment(w_{k+1}^j)$$</p>
-<p>$$segment(\emptyset) = 1.0$$</p>
+<p>$$\begin{eqnarray}
+segment(c_i, \ldots, c_j) &=& \arg\max_{\forall k <= L} P_w(w_i^k) * segment(w_{k+1}^j) \\
+segment(\emptyset) &=& 1.0
+\end{eqnarray}$$</p>
 
 where $$L = min(maxlen, j)$$ in order to avoid considering segmentations
 of very long words which are going to be very unlikely.
