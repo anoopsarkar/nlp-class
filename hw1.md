@@ -89,14 +89,14 @@ can score this sequence using unigram probabilities.
 
 <p>$$\arg\max_{w_0^i, w_{i+1}^j, \ldots, w_{n-k}^n} P_w(w_0^i) * P_w(w_{i+1}^j) * \ldots * P_w(w_{n-k}^n)$$</p>
 
-The unigram probability $$P_w$$ can be constructed using the
-data in `count_1w.txt`. The model is simple, an unigram model,
-but the search is over all possible ways to form word sequences
-for the input sequence of characters. The argmax over all
-such sequences will give you the baseline system. The $$\arg\max$$ can be
-computed elegantly using recursion:
+The unigram probability $$P_w$$ can be constructed using the data
+in `count_1w.txt`. The model is simple, an unigram model, but the
+search is over all possible ways to form word sequences for the
+input sequence of characters. The argmax over all such sequences
+will give you the baseline system. The $$\arg\max$$ above can be computed
+using the following recursive search:
 
-<p>$$ segment(text) = \arg\max_{\forall i: w_0^i, w_{i+1}^n P_w(w_0^i) * segment(w_{i+1}^n) $$</p>
+<p>$$segment(text) = \arg\max_{\forall i: w_0^i, w_{i+1}^n P_w(w_0^i) * segment(w_{i+1}^n)$$</p>
 
 One can [memoize](http://en.wikipedia.org/wiki/Memoization) $$segment$$ in order
 to avoid the slow exploration of the exponentially many segmentations.
