@@ -96,7 +96,7 @@ for the input sequence of characters. The argmax over all
 such sequences will give you the baseline system. The $$\arg\max$$ can be
 computed elegantly using recursion:
 
-$$ segment(text) = \arg\max_{\forall i: w_0^i, w_{i+1}^n P_w(w_0^i) * segment(w_{i+1}^n) $$
+<p>$$ segment(text) = \arg\max_{\forall i: w_0^i, w_{i+1}^n P_w(w_0^i) * segment(w_{i+1}^n) $$</p>
 
 One can [memoize](http://en.wikipedia.org/wiki/Memoization) $$segment$$ in order
 to avoid the slow exploration of the exponentially many segmentations.
