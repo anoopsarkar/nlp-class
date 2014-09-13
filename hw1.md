@@ -97,7 +97,7 @@ will give you the baseline system. The $$\arg\max$$ above can be computed
 using the following recursive search over $$segment(c_0, \ldots, c_n)$$:
 
 <p>$$\begin{eqnarray}
-segment(c_i, \ldots, c_j) &=& \arg\max_{\forall k <= L} P_w(w_i^k) * segment(w_{k+1}^j) \\
+segment(c_i, \ldots, c_j) &=& \arg\max_{\forall k <= L} P_w(w_i^k) * segment(c_{k+1}, \ldots, c_j) \\
 segment(\emptyset) &=& 1.0
 \end{eqnarray}$$</p>
 
