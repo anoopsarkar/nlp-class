@@ -114,7 +114,7 @@ how to find the argmax iteratively.
             * _chart_[_endindex_] = _entry_
     * else 
         * _chart_[_endindex_] = _entry_
-    * for each _newword_ that matches _input_ at position _endindex_+1
+    * for each _newword_ that matches _input_ starting at position _endindex_+1
         * _newentry_ = Entry(_newword_, _endindex_+1, _entry_._log-probability_ + $$\log P_w$$(_newword_), _entry_)
         * if _newentry_ does not exist in _heap_:
             * insert _newentry_ into _heap_
