@@ -116,9 +116,9 @@ how to find the argmax iteratively.
 
 * `input`: the input sequence of characters
 * `chart`: the dynamic programming table to store the local argmax solutions
-* `Entry`: each entry in the `chart` has four components: Entry(`word`, `start-position`, `log-probability`, `backpointer`)
+* `Entry`: each entry in the `chart` has four components: Entry(`word`, `start-position`, `log-probability`, `back-pointer`)
 * `heap`: a list or priority queue containing the entries to be expanded, sorted on `start-position` or `log-probability`
-* The `backpointer` in each `entry` links it to a previous entry that it extends
+* The `back-pointer` in each `entry` links it to a previous entry that it extends
 * for each `word` that matches `input` at position 0    **## Initialize the `heap` ##**
     * insert Entry(`word`, 0, $$\log P_w$$(`word`), $$\emptyset$$) into `heap`
 * while `heap` is nonempty:
@@ -137,7 +137,7 @@ how to find the argmax iteratively.
             * insert `newentry` into `heap`
 * `finalindex` is the length of `input`
 * `finalentry` = `chart`[`finalindex`] 
-* Print out the $$\arg\max$$ `output` by following the backpointer from `finalentry` until you reach the first word
+* Print out the $$\arg\max$$ `output` by following the back-pointer from `finalentry` until you reach the first word
 
 It might help to examine [an example run](https://gist.github.com/anoopsarkar/da67c6566a7268bb53b7) of 
 the above pseudo-code on an input Chinese character sequence.
