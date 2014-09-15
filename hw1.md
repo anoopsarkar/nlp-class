@@ -114,13 +114,33 @@ how to find the argmax iteratively.
 
 #### Algorithm: Iterative segmenter
 
-* `input`: the input sequence of characters
-* `chart`: the dynamic programming table to store the local argmax solutions
-* `Entry`: each entry in the `chart` has four components: Entry(`word`, `start-position`, `log-probability`, `back-pointer`)
-* `heap`: a list or priority queue containing the entries to be expanded, sorted on `start-position` or `log-probability`
-* The `back-pointer` in each `entry` links it to a previous entry that it extends
-* for each `word` that matches `input` at position 0    **## Initialize the `heap` ##**
+---
+**## Data Structures ##**
+
+`input`
+: the input sequence of characters
+
+`chart`
+: the dynamic programming table to store the argmax for every prefix of `input`
+: indexed by character position in `input`
+
+`Entry`
+: each entry in the `chart` has four components: Entry(`word`, `start-position`, `log-probability`, `back-pointer`)
+: the `back-pointer` in each `entry` links it to a previous entry that it extends
+
+`heap`
+: a list or priority queue containing the entries to be expanded, sorted on `start-position` or `log-probability`
+{: .dl-horizontal}
+
+---
+**## Initialize the `heap` ##**
+
+* for each `word` that matches `input` at position 0    
     * insert Entry(`word`, 0, $$\log P_w$$(`word`), $$\emptyset$$) into `heap`
+{: .list-unstyled}
+
+**## Iteratively fill in `chart[i]` for all `i` ##**
+
 * while `heap` is nonempty:
     * `entry` = top entry in the `heap`
     * get the `endindex` based on the length of the word in `entry`
@@ -135,9 +155,15 @@ how to find the argmax iteratively.
         * `newentry` = Entry(`newword`, `endindex`+1, `entry`.`log-probability` + $$\log P_w$$(`newword`), `entry`)
         * if `newentry` does not exist in `heap`:
             * insert `newentry` into `heap`
+{: .list-unstyled}
+
+**## Get the best segmentation ##**
+
 * `finalindex` is the length of `input`
 * `finalentry` = `chart`[`finalindex`] 
-* Print out the $$\arg\max$$ `output` by following the back-pointer from `finalentry` until you reach the first word
+* Construct the best segmentation in reverse starting from `finalentry` and following the back-pointer until you reach the first word
+{: .list-unstyled}
+---
 
 It might help to examine [an example run](https://gist.github.com/anoopsarkar/da67c6566a7268bb53b7) of 
 the above pseudo-code on an input Chinese character sequence.
