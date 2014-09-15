@@ -112,31 +112,30 @@ to avoid the slow exploration of the exponentially many segmentations.
 An alternative is to do this iteratively. The following pseudo-code illustrates
 how to find the argmax iteratively.
 
-* _input_: the input sequence of characters
-* _chart_: the dynamic programming table to store the local argmax solutions
-* _Entry_: each entry in the _chart_ has four components: Entry(_word_, _start-position_, _log-probability_, _backpointer_)
-* _heap_: a priority queue containing the entries to be expanded, sorted on _start-position_ or _log-probability_
-* The _backpointer_ in each _entry_ links it to a previous entry that it extends
-* Initialize the _heap_:
-    * for each _word_ that matches _input_ at position 0
-        * insert Entry(word, 0, $$\log P_w$$(_word_), $$\emptyset$$) into _heap_
-* while _heap_ is nonempty:
-    * _entry_ = top entry in the _heap_
-    * get the _endindex_ based on the length of the word in _entry_
-    * if _chart_[_endindex_] has a previous entry, _preventry_
-        * if _entry_ has a higher probability than _preventry_:
-            * _chart_[_endindex_] = _entry_
-        * if _entry_ has a lower or equal probability than _preventry_:
-            * continue // we have already found a good segmentation until _endindex_
+* `input`: the input sequence of characters
+* `chart`: the dynamic programming table to store the local argmax solutions
+* `Entry`: each entry in the `chart` has four components: Entry(`word`, `start-position`, `log-probability`, `backpointer`)
+* `heap`: a list or priority queue containing the entries to be expanded, sorted on `start-position` or `log-probability`
+* The `backpointer` in each `entry` links it to a previous entry that it extends
+* for each `word` that matches `input` at position 0    **## Initialize the `heap` ##**
+    * insert Entry(`word`, 0, $$\log P_w$$(`word`), $$\emptyset$$) into `heap`
+* while `heap` is nonempty:
+    * `entry` = top entry in the `heap`
+    * get the `endindex` based on the length of the word in `entry`
+    * if `chart`[`endindex`] has a previous entry, `preventry`
+        * if `entry` has a higher probability than `preventry`:
+            * `chart`[`endindex`] = `entry`
+        * if `entry` has a lower or equal probability than `preventry`:
+            * continue  **## we have already found a good segmentation until `endindex` ##**
     * else 
-        * _chart_[_endindex_] = _entry_
-    * for each _newword_ that matches _input_ starting at position _endindex_+1
-        * _newentry_ = Entry(_newword_, _endindex_+1, _entry_._log-probability_ + $$\log P_w$$(_newword_), _entry_)
-        * if _newentry_ does not exist in _heap_:
-            * insert _newentry_ into _heap_
-* _finalindex_ is the length of _input_
-* _finalentry_ = _chart_[_finalindex_] 
-* Print out the $$\arg\max$$ _output_ by following the backpointer from _finalentry_ until you reach the first word
+        * `chart`[`endindex`] = `entry`
+    * for each `newword` that matches `input` starting at position `endindex`+1
+        * `newentry` = Entry(`newword`, `endindex`+1, `entry`.`log-probability` + $$\log P_w$$(`newword`), `entry`)
+        * if `newentry` does not exist in `heap`:
+            * insert `newentry` into `heap`
+* `finalindex` is the length of `input`
+* `finalentry` = `chart`[`finalindex`] 
+* Print out the $$\arg\max$$ `output` by following the backpointer from `finalentry` until you reach the first word
 
 It might help to examine [an example run](https://gist.github.com/anoopsarkar/da67c6566a7268bb53b7) of 
 the above pseudo-code on an input Chinese character sequence.
