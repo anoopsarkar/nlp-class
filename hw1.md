@@ -198,8 +198,8 @@ The output will be evaluated using a secret metric, but the `score-segments.py` 
      exactly. Include the file for this writeup as part of the tarball or zip file you
      will upload to [Coursys](https://courses.cs.sfu.ca).
 * You cannot use data or code resources outside of what is provided
-to you. For the written description of your algorithm, you can use
-NLTK but not the NLTK tokenizer class. You can use plain ASCII but
+to you. You can use NLTK but not the NLTK tokenizer class. For the
+written description of your algorithm, you can use plain ASCII but
 for math equations it is better to use either
 [latex](http://www.latex-project.org/) or
 [kramdown](https://github.com/gettalong/kramdown).  Do __not__ use
