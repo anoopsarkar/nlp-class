@@ -112,6 +112,8 @@ to avoid the slow exploration of the exponentially many segmentations.
 An alternative is to do this iteratively. The following pseudo-code illustrates
 how to find the argmax iteratively.
 
+#### Algorithm: Iterative segmenter
+
 * `input`: the input sequence of characters
 * `chart`: the dynamic programming table to store the local argmax solutions
 * `Entry`: each entry in the `chart` has four components: Entry(`word`, `start-position`, `log-probability`, `backpointer`)
@@ -139,6 +141,8 @@ how to find the argmax iteratively.
 
 It might help to examine [an example run](https://gist.github.com/anoopsarkar/da67c6566a7268bb53b7) of 
 the above pseudo-code on an input Chinese character sequence.
+
+### Your Task
 
 Developing a segmenter using the above pseudo-code that uses unigram probabilities is
 good enough to get close to the baseline system. But getting closer to the oracle
