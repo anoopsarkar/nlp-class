@@ -10,6 +10,8 @@ active_tab: homework
 Word Segmentation <span class="text-muted">Homework 1</span>
 =============================================================
 
+## Due on Tuesday, September 23, 2014
+
 Word segmentation is the task of restoring missing word
 boundaries. For example, in some cases word boundaries
 are lost as in web page URLs like _choosespain.com_ which
