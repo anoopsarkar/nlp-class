@@ -41,7 +41,7 @@ past:
   -
     date: 2014-09-11
     title: Homework 1
-    download: hw1.html
+    slides: hw1.html
     reading:
       - author: Peter Norvig
         title: "Natural Language Corpus Data: Beautiful Data"
