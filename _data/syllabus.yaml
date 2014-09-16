@@ -40,9 +40,8 @@ past:
         optional: false
   -
     date: 2014-09-11
-    title: Probability Models for NLP
-    slides: http://nbviewer.ipython.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb
-    download: http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb
+    title: Homework 1
+    download: hw1.html
     reading:
       - author: Peter Norvig
         title: "Natural Language Corpus Data: Beautiful Data"
