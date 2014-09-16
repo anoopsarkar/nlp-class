@@ -40,7 +40,7 @@ past:
         optional: false
   -
     date: 2014-09-11
-    title: Homework 1
+    title: Homework 1 release
     slides: hw1.html
     reading:
       - author: Peter Norvig
