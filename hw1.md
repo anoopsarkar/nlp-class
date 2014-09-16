@@ -163,12 +163,17 @@ how to find the argmax iteratively.
 
 * `finalindex` is the length of `input`
 * `finalentry` = `chart`[`finalindex`] 
-* Construct the best segmentation in reverse starting from `finalentry` and following the back-pointer until you reach the first word
+* The best segmentation starts from `finalentry` and follows the `back-pointer` recursively until the first word
 {: .list-unstyled}
 ---
 
-It might help to examine [an example run](https://gist.github.com/anoopsarkar/da67c6566a7268bb53b7) of 
-the above pseudo-code on an input Chinese character sequence.
+It might help to examine [an example
+run](https://gist.github.com/anoopsarkar/da67c6566a7268bb53b7) of
+the above pseudo-code on a particular input. To keep the example
+short, the segmenter in the example assumes that unknown words can
+only be on length one. You will get a better F-score if you allow
+unknown words of arbitrary length (with the appropriate smoothed
+probability score).
 
 ### Your Task
 
