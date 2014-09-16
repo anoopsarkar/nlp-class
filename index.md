@@ -30,9 +30,11 @@ terms of its analysis and the learning of language from observations.
 
 Instructor
 : [Anoop Sarkar](http://www.cs.sfu.ca/~anoop/) 
+: Office Hours: Mondays 9am-11am TASC1 9427
 
 Teaching Assistant
 : [Maryam Siahbani](http://www.cs.sfu.ca/~msiahban/personal/)
+: Office Hours: Wednesdays 2pm-3pm TASC1 9408
 
 Discussion Board
 : [on Coursys](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/discussion/)
@@ -42,9 +44,6 @@ Time and place
 
 Calendar
 : [Subscribe](https://courses.cs.sfu.ca/calendar/7239eedd1545d3fe8a32c7c9dddd5b86/anoop)
-
-Instructor office hours
-: Mondays 9am-11am TASC1 9427
 
 Textbook
 : No required textbook. Online readings provided in Syllabus.
