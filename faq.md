@@ -12,6 +12,7 @@ active_tab: faq
 * There is no official textbook for the course, but if you would like to read further about NLP, here are some good reference books:
     * [Speech and Language Processing](http://www.cs.colorado.edu/~martin/slp.html) by [Daniel Jurafsky](http://www.stanford.edu/~jurafsky) and [James Martin](http://www.cs.colorado.edu/~martin).
     * [Foundations of Statistical Natural Language Processing](http://nlp.stanford.edu/fsnlp/) by [Chris Manning](http://nlp.stanford.edu/~manning/) and [Hinrich Schütze](http://www.cis.uni-muenchen.de/schuetze/).
+    * [Statistical Machine Translation](http://www.statmt.org/book/) by [Philipp Koehn](http://www.cs.jhu.edu/faculty/philipp-koehn/).
     * [Natural Language Processing with Python](http://www.nltk.org/book_1ed/) by [Steven Bird](http://estive.net/) and [Ewan Klein](http://homepages.inf.ed.ac.uk/ewan/) and [Edward Loper](http://ed.loper.org/).
 
 ## Email policy
