@@ -1,74 +1,151 @@
 \input{beamerpreamble.tex}
 \begin{document}
+\input{titlepage.tex}
 
-\section{Smoothing $n$-gram Models}
+\lecture{Probability models of Language}{}
+\section{Language models}
+
+\begin{frame}
+\frametitle{The Language Modeling problem}
+\begin{block}{Setup}
+\begin{itemize}[<+->]
+\item Assume a (finite) vocabulary of words:
+\[ {\cal V} = \{ killer, crazy, clown \} \]
+\item Use ${\cal V}$ to construct an infinite set of \textit{sentences} 
+\begin{eqnarray*} 
+{\cal V}^+ = & \{ & \\
+&& \mbox{clown, killer clown, crazy clown, } \\
+&& \mbox{crazy killer clown, killer crazy clown}, \\
+&& \ldots \\
+& \} &
+\end{eqnarray*}
+\item A \textit{sentence} is \textbf{defined} as each $x \in {\cal V}^+$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Language Modeling problem}
+\begin{block}{Data}
+Given a training data set of example sentences $s \in {\cal V}^+$
+\end{block}
+\pause
+\begin{columns}
+\column{0.5\linewidth}
+    \begin{block}{Language Modeling problem}
+    Estimate a probability model:
+    \[ \sum_{s \in {\cal V}^+} p(s) = 1.0 \]
+    \end{block}
+\column{0.5\linewidth}
+    \begin{block}{}
+    \begin{itemize}
+    \item p(clown) = 1e-5
+    \item p(killer) = 1e-6
+    \item {\small p(killer clown) = 1e-12}
+    \item {\footnotesize p(crazy killer clown) = 1e-21}
+    \item {\tiny p(crazy killer clown killer) = 1e-110}
+    \item {\tiny p(crazy clown killer killer) = 1e-127}
+    \end{itemize}
+    \end{block}
+\end{columns}
+\begin{alertblock}{Why do we want to do this?}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Scoring Hypotheses in Speech Recognition}
+\centering
+\begin{block}{From acoustic signal to candidate transcriptions}
+\begin{tabular}{ll}
+\rowcolor{MidnightBlue!50}
+Hypothesis & Score \\
+\hline
+the station signs are in deep in english & -14732 \\
+the stations signs are in deep in english & -14735 \\
+the station signs are in deep into english & -14739 \\
+the station 's signs are in deep in english & -14740 \\
+the station signs are in deep in the english & -14741 \\
+the station signs are indeed in english & -14757 \\
+the station 's signs are indeed in english & -14760 \\ 
+the station signs are indians in english & -14790 \\
+the station signs are indian in english & -14799 \\
+the stations signs are indians in english & -14807 \\
+the stations signs are indians and english & -14815 
+\end{tabular}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Scoring Hypotheses in Machine Translation}
+\centering
+\begin{block}{From source language to target language candidates}
+\begin{tabular}{ll}
+\rowcolor{MidnightBlue!50}
+Hypothesis & Score \\
+\hline
+we must also discuss a vision . & -29.63 \\
+we must also discuss on a vision . & -31.58 \\
+it is also discuss a vision . & -31.96 \\
+we must discuss on greater vision . & -36.09 \\
+\vdots & \vdots \\
+\end{tabular}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Scoring Hypotheses in Decryption}
+\centering
+\begin{block}{Character substitutions on ciphertext to plaintext candidates}
+\begin{tabular}{ll}
+\rowcolor{MidnightBlue!50}
+Hypothesis & Score \\
+\hline
+Heopaj, zk ukq swjp pk gjks w oaynap? & -93\\
+Urbcnw, mx hxd fjwc cx twxf j bnlanc? & -92\\
+Wtdepy, oz jzf hlye ez vyzh l dpncpe? & -91\\
+Mjtufo, ep zpv xbou up lopx b tfdsfu? & -89\\
+Nkuvgp, fq aqw ycpv vq mpqy c ugetgv? & -87\\
+Gdnozi, yj tjp rvio oj fijr v nzxmzo? & -86\\
+Czjkve, uf pfl nrek kf befn r jvtivk? & -85\\
+Yvfgra, qb lbh jnag gb xabj n frperg? & -84\\
+Zwghsb, rc mci kobh hc ybck o gsqfsh? & -83\\
+Byijud, te oek mqdj je adem q iushuj? & -77\\
+Jgqrcl, bm wms uylr rm ilmu y qcapcr? & -76\\
+Listen, do you want to know a secret? & -25\\
+\end{tabular}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Scoring Hypotheses in Spelling Correction}
+\centering
+\begin{block}{Substitute spelling variants to generate hypotheses}
+\begin{tabular}{p{8cm}l}
+\rowcolor{MidnightBlue!50}
+Hypothesis & Score \\
+\hline
+... stellar and versatile {\color{MidnightBlue}\textbf{acress}} whose combination of sass and glamour has defined her ... & -18920 \\
+... stellar and versatile {\color{MidnightBlue}\textbf{acres}} whose combination of sass and glamour has defined her ... & -10209 \\
+... stellar and versatile {\color{MidnightBlue}\textbf{actress}} whose combination of sass and glamour has defined her ... & -9801
+\end{tabular}
+\end{block}
+\end{frame}
+
+\lecture{$n$-grams for Language Modeling}{}
+\section{$n$-gram for Language Modeling}
 \frame{\tableofcontents[currentsection]}
 
-\subsection{Event Space for $n$-gram Models}
-
 \begin{frame}
-\frametitle{Trigram Models}
-\begin{itemize}[<+->]
-\item The trigram model:\\
-$P(w_1, w_2, \ldots, w_n) = P(w_1) \times P(w_2~\mid~w_1) \times 
-P(w_3~\mid~w_1, w_2) \times P(w_4~\mid~w_2, w_3) 
-\times \ldots P(w_i~\mid~w_{i-2}, w_{i-1}) \ldots 
-\times P(w_n~\mid~w_{n-2}, \ldots, w_{n-1}) $
-\item Notice that the length of the sentence $n$ is variable
-\item What is the event space?
-\end{itemize}
+\frametitle{Bigram Models}
+\centering
+\begin{block}{Google $n$-gram viewer}
+\includegraphics[scale=0.45]{figures/killer-ngrams.png}
+\end{block}
 \end{frame}
 
-\newcommand{\lmstop}{\mbox{\texttt stop}}
-
-\begin{frame}
-\frametitle{The {\tt stop} symbol}
-\begin{itemize}[<+->]
-\item Let ${\cal V} = \{ a, b \}$ and the language $L$ be ${\cal V}^\ast$
-\item Consider a unigram model: $P(a) = P(b) = 0.5$
-\item So strings in this language $L$ are:
-\begin{eqnarray*}
-a\ \lmstop & 0.5 \\
-b\ \lmstop & 0.5 \\
-aa\ \lmstop & 0.5^2 \\
-bb\ \lmstop & 0.5^2 \\
-\vdots
-\end{eqnarray*}
-\item The sum over all strings in $L$ should be equal to 1:
-\[ \sum_{w \in L} P(w) = 1 \]
-\item But $P(a) + P(b) + P(aa) + P(bb) = 1.5$ !! 
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{The {\tt stop} symbol}
-\begin{itemize}[<+->]
-\item What went wrong? \\
-We need to model variable length sequences
-\item Add an explicit probability for the \lmstop symbol: 
-\[ P(a) = P(b) = 0.25  \]
-\[ P(\lmstop) = 0.5 \]
-\item $P(\lmstop) = 0.5$, $P(a\ \lmstop) = P(b\ \lmstop) = 0.25 \times 0.5 = 0.125$, 
-$P(aa\ \lmstop) = 0.25^2 \times 0.5 = 0.03125$ (now the sum is no longer greater than one)
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{The {\tt stop} symbol}
-\begin{itemize}[<+->]
-\item With this new {\tt stop} symbol we can show that $\sum_w P(w) = 1$ \\
-Notice that the probability of any sequence of length $n$ is $0.25^n \times 0.5$ \\
-Also there are $2^n$ sequences of length $n$
-\end{itemize}
-\begin{eqnarray}
-\lefteqn{\sum_w P(w) = } \nonumber \\
-&& \sum_{n=0}^{\infty} 2^n \times 0.25^n \times 0.5 \nonumber \\
-&& \sum_{n=0}^{\infty} 0.5^n \times 0.5 = \sum_{n=0}^{\infty} 0.5^{n+1} \nonumber \\
-&& \sum_{n=1}^{\infty} 0.5^n = 1 \nonumber
-\end{eqnarray}
-\end{frame}
-
+\lecture{Smoothing Probability Models}{}
+\section{Smoothing $n$-gram Models}
+\frame{\tableofcontents[currentsection]}
 \subsection{Smoothing Counts}
 
 \begin{frame}
@@ -469,5 +546,72 @@ corresponds to the number bits required to encode that data
 \item On various real life datasets, typical perplexity values yielded by $n$-gram models on English text range from about 50 to almost 1000 (corresponding to cross entropies from about 6 to 10 bits/word)
 \end{itemize}
 \end{frame}
+
+\lecture{Event space in Language Models}{}
+\section*{Event Space for $n$-gram Models}
+
+\begin{frame}
+\frametitle{Trigram Models}
+\begin{itemize}[<+->]
+\item The trigram model:\\
+$P(w_1, w_2, \ldots, w_n) = P(w_1) \times P(w_2~\mid~w_1) \times 
+P(w_3~\mid~w_1, w_2) \times P(w_4~\mid~w_2, w_3) 
+\times \ldots P(w_i~\mid~w_{i-2}, w_{i-1}) \ldots 
+\times P(w_n~\mid~w_{n-2}, \ldots, w_{n-1}) $
+\item Notice that the length of the sentence $n$ is variable
+\item What is the event space?
+\end{itemize}
+\end{frame}
+
+\newcommand{\lmstop}{\mbox{\texttt stop}}
+
+\begin{frame}
+\frametitle{The {\tt stop} symbol}
+\begin{itemize}[<+->]
+\item Let ${\cal V} = \{ a, b \}$ and the language $L$ be ${\cal V}^\ast$
+\item Consider a unigram model: $P(a) = P(b) = 0.5$
+\item So strings in this language $L$ are:
+\begin{eqnarray*}
+a\ \lmstop & 0.5 \\
+b\ \lmstop & 0.5 \\
+aa\ \lmstop & 0.5^2 \\
+bb\ \lmstop & 0.5^2 \\
+\vdots
+\end{eqnarray*}
+\item The sum over all strings in $L$ should be equal to 1:
+\[ \sum_{w \in L} P(w) = 1 \]
+\item But $P(a) + P(b) + P(aa) + P(bb) = 1.5$ !! 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{The {\tt stop} symbol}
+\begin{itemize}[<+->]
+\item What went wrong? \\
+We need to model variable length sequences
+\item Add an explicit probability for the \lmstop symbol: 
+\[ P(a) = P(b) = 0.25  \]
+\[ P(\lmstop) = 0.5 \]
+\item $P(\lmstop) = 0.5$, $P(a\ \lmstop) = P(b\ \lmstop) = 0.25 \times 0.5 = 0.125$, 
+$P(aa\ \lmstop) = 0.25^2 \times 0.5 = 0.03125$ (now the sum is no longer greater than one)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{The {\tt stop} symbol}
+\begin{itemize}[<+->]
+\item With this new {\tt stop} symbol we can show that $\sum_w P(w) = 1$ \\
+Notice that the probability of any sequence of length $n$ is $0.25^n \times 0.5$ \\
+Also there are $2^n$ sequences of length $n$
+\end{itemize}
+\begin{eqnarray}
+\lefteqn{\sum_w P(w) = } \nonumber \\
+&& \sum_{n=0}^{\infty} 2^n \times 0.25^n \times 0.5 \nonumber \\
+&& \sum_{n=0}^{\infty} 0.5^n \times 0.5 = \sum_{n=0}^{\infty} 0.5^{n+1} \nonumber \\
+&& \sum_{n=1}^{\infty} 0.5^n = 1 \nonumber
+\end{eqnarray}
+\end{frame}
+
+\input{acknowledgements.tex}
 
 \end{document}
