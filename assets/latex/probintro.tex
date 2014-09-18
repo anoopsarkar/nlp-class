@@ -8,16 +8,8 @@
   \DeclareGraphicsRule{*}{mps}{*}{}
 \fi
 
-%%\documentclass[landscape]{slides}
-%\AtBeginDocument{%
-%  \pdfpageheight = \paperheight
-%  \pdfpagewidth = \paperwidth
-%}
-
-%%\usepackage{times}
 \usepackage{color}
 \usepackage{latexsym}
-%\usepackage{graphicx}
 
 \raggedright
 
@@ -29,11 +21,65 @@
 
 \input{titlepage.tex}
 
-%\section*{Outline}
-%\frame{
-%\frametitle{Outline}
-%\tableofcontents
-%}
+\section{Probability and Language}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{Probability and Language}
+\centering
+\begin{block}{Assign a probability to an input sequence}
+\par Given a URL: \texttt{choosespain.com}. What is this website about?
+
+\pause
+\smallskip
+\begin{tabular}{ll}
+Input & Scoring function \\
+\hline
+choose spain & -8.35 \\
+chooses pain & -9.88 \\
+\vdots & \vdots
+\end{tabular}
+\end{block}
+
+\pause
+\begin{block}{The Goal}
+\par Find a good \textbf{scoring function} for input sequences.
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Scoring Hypotheses}
+\centering
+\begin{block}{Acoustically Scored Hypotheses}
+
+\begin{tabular}{ll}
+Hypothesis & Score \\
+\hline
+the station signs are in deep in english & -14732 \\
+the stations signs are in deep in english & -14735 \\
+the station signs are in deep into english & -14739 \\
+the station 's signs are in deep in english & -14740 \\
+the station signs are in deep in the english & -14741 \\
+the station signs are indeed in english & -14757 \\
+the station 's signs are indeed in english & -14760 \\ 
+the station signs are indians in english & -14790 \\
+the station signs are indian in english & -14799 \\
+the stations signs are indians in english & -14807 \\
+the stations signs are indians and english & -14815 
+\end{tabular}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The Goal}
+\begin{itemize}[<+->]
+\item Write down a \textbf{model} over sequences of words or letters.
+\item \textbf{Learn} the parameters of the model from data.
+\item Use the model to \textbf{predict} the probability of new sequences.
+\end{itemize}
+\end{frame}
 
 \section{Quick Guide to Probability Theory}
 \frame{\tableofcontents[currentsection]}
@@ -41,104 +87,78 @@
 \begin{frame}
 \frametitle{Quick guide to probability theory}
 \begin{itemize}[<+->]
-\item P(X) means probability that X is true
+\item P(X): probability of random variable X having a certain value.
 \begin{itemize}[<+->]
-\item P(baby is a girl) $= 0.5$ \\
-percentage of total number of babies that are girls
-\item P(baby girl is named Kiki) $= 0.001$ \\
-percentage of total number of babies that are named Kiki
+\item P(X = \textit{spain}) $= 5.03 * 10^{-5}$
+\item P(X = \textit{pain}) $= 4.11 * 10^{-5}$
 \end{itemize}
 \end{itemize}
-\includegraphics[scale=.8]{figures/prob-fig1}
 \end{frame}
-
-%\begin{frame}
-%\frametitle{Probability: What does it really
-%  mean?}
-%\begin{itemize}[<+->]
-%\item P(GC drinks and drives $\mid$ GC is in Hawaii) $= 0.9$
-
-%\begin{itemize}[<+->]
-%\item GC drove drunk 90\% of the time when in Hawaii -- {\color{blue} Frequentist}
-%\item If GC visited Hawaii infinitely many times $\ldots$ -- {\color{blue} Estimation}
-%\item I would bet at 90 to 1 odds that GC drinks and drives when in Hawaii (degree of belief) -- {\color{blue} Bayesian}
-%\end{itemize}
-%\end{itemize}
-%\end{frame}
 
 \begin{frame}
 \frametitle{Joint probability}
 \begin{itemize}[<+->]
-\item P(X,Y) means probability that X and Y are both true
+\item P(X,Y) means probability that X and Y each have a certain value.
 \begin{itemize}[<+->]
-\item P(baby girl, blue eyes)
-percentage of total number of babies that are girls and have blue eyes
+\item Let Y stand for choice of a word
+\item Let X stand for the choice of a word that occurs before Y
+\item P(X = \textit{choose}, Y = \textit{spain}) $= 2.43 * 10^{-10}$
+\item P(X = \textit{chooses}, Y = \textit{pain}) $= 4.87 * 10^{-11}$
+\item P(X = \textit{choose}, Y = \textit{spain}) == P(Y = \textit{spain}, X = \textit{choose})
 \end{itemize}
 \end{itemize}
-\includegraphics[scale=.8]{figures/prob-fig2}
-
 \end{frame}
 
 \begin{frame}
 \frametitle{Conditional probability}
 \begin{itemize}[<+->]
-\item P(X $\mid$ Y) means probability that X is true when we already know
-  that Y is true
+\item P(X $\mid$ Y) means probability that X has a certain value after fixing value of Y.
 \begin{itemize}[<+->]
-\item P(baby is named Kiki $\mid$ baby is a girl) $= 0.002$
-\item P(baby is a girl $\mid$ baby is named Kiki) $= 1$
+\item P(Y= \textit{pain} $\mid$ X = \textit{chooses}) $= 8.78 * 10^{-5}$
+\item P(Y= \textit{spain} $\mid$ X = \textit{choose}) $= 3.15 * 10^{-6}$
 \end{itemize}
 \end{itemize}
-\includegraphics[scale=.8]{figures/prob-fig1}
-
 \end{frame}
 
-\begin{frame}
-\frametitle{Conditional probability}
-\begin{itemize}[<+->]
-\item Conditional and joint probabilities are related:
-\[ P(X \mid Y) = \frac{P(X,Y)}{P(Y)} \]
-
-\begin{itemize}[<+->]
-\item $P(\mbox{baby is named Kiki} \mid \mbox{baby is a girl}) =
-  \frac{P(\mbox{baby is a girl}, \mbox{baby is named Kiki})}{P(\mbox{baby is
-    a girl})} = \frac{0.001}{0.5} = 0.002 $
-\end{itemize}
-\end{itemize}
-\includegraphics[scale=.8]{figures/prob-fig1}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Bayes rule}
-\begin{itemize}[<+->]
-\item Conditional probability re-written as likelihood times prior:
-\[ P(X \mid Y) = \frac{P(Y \mid X) \times P(X)}{P(Y)} \]
-
-\begin{itemize}[<+->]
-\item $P(\mbox{named Kiki} \mid \mbox{girl}) =
-  \frac{P(\mbox{girl} \mid \mbox{named Kiki}) \times P(\mbox{named
-  Kiki})}{P(\mbox{girl})} = \frac{1.0 \times 0.001}{0.5} = 0.002$
-\end{itemize}
-\end{itemize}
-\includegraphics[scale=.8]{figures/prob-fig1}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Bayes Rule}
-\begin{center}
-\begin{eqnarray}
-P(X \mid Y) &= &\frac{P(X,Y)}{P(Y)} \\
-P(Y \mid X) &= &\frac{P(Y,X)}{P(X)} \\
-P(X,Y) &= &P(Y,X) \\
-P(X \mid Y) \times P(Y) &= &P(Y \mid X) \times P(X) \\
-P(X \mid Y) &= &\frac{P(Y \mid X) \times P(X)}{P(Y)} \\
-P(X \mid Y) &= &P(Y \mid X) \times P(X)
-\end{eqnarray}
-\end{center}   
-
-\end{frame}
+%\begin{frame}
+%\frametitle{Conditional probability}
+%\begin{itemize}[<+->]
+%\item Conditional and joint probabilities are related:
+%\[ P(X \mid Y) = \frac{P(X,Y)}{P(Y)} \]
+%
+%%\[ P(Y = \mbox{spain} \mid X = \mbox{choose}) &=& \frac{P(X = \mbox{choose}, Y = \mbox{spain})}{P(\mbox{spain})} \]
+%%\[ = \frac{2.43 * 10^{-10}}{5.03 * 10^{-5}} \]
+%%\[ = 8.78 * 10^{-5} \]
+%\end{eqnarray*}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Bayes rule}
+%\begin{itemize}[<+->]
+%\item Conditional probability re-written as likelihood times prior:
+%\[ P(X \mid Y) = \frac{P(Y \mid X) \times P(X)}{P(Y)} \]
+%
+%\begin{itemize}[<+->]
+%\item $P(\mbox{choose} \mid \mbox{spain}) =
+%  \frac{P(\mbox{choose} \mid \mbox{spain}) \times P(\mbox{choose})}{P(\mbox{spain})} = \frac{1.0 \times 0.001}{0.5} = 0.002$
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Chain Rule}
+%\begin{center}
+%\begin{eqnarray}
+%P(X \mid Y) &= &\frac{P(X,Y)}{P(Y)} \\
+%P(Y \mid X) &= &\frac{P(Y,X)}{P(X)} \\
+%P(X,Y) &= &P(Y,X) \\
+%P(X \mid Y) \times P(Y) &= &P(Y \mid X) \times P(X) \\
+%P(X \mid Y) &= &\frac{P(Y \mid X) \times P(X)}{P(Y)} \\
+%P(X \mid Y) &= &P(Y \mid X) \times P(X)
+%\end{eqnarray}
+%\end{center}   
+%
+%\end{frame}
 
 \begin{frame}
 \frametitle{Basic Terms}
@@ -573,6 +593,8 @@ D(q \| p) & = & H_{q}(p) & - & H(q) \\
 \end{itemize}
 
 \end{frame}
+
+\input{acknowledgements.tex}
 
 \end{document}
 
