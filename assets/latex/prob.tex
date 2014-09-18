@@ -103,7 +103,16 @@ Listen, do you want to know a secret? & -25\\
 \end{itemize}
 \end{frame}
 
-\section{Quick Guide to Probability Theory}
+\begin{frame}
+\frametitle{Probability: The Basics}
+\begin{itemize}[<+->]
+\item Sample space
+\item Event space
+\item Random variable
+\end{itemize}
+\end{frame}
+
+\section{Probability of an event}
 \frame{\tableofcontents[currentsection]}
 
 \begin{frame}
@@ -111,49 +120,72 @@ Listen, do you want to know a secret? & -25\\
 \begin{itemize}[<+->]
 \item P(X): probability of random variable X having a certain value.
 \begin{itemize}[<+->]
-\item P(X = \textit{spain}) $= 5.03e-5$
-\item P(X = \textit{pain}) $= 4.11e-5$
-\item P(X = \textit{choose}) $= 8.78e-5$
-\item P(X = \textit{chooses}) $= 3.15e-6$
+\item P(X = killer) = 1.05e-05 
+\item P(X = app) = 1.19e-05
 \end{itemize}
 \end{itemize}
 \end{frame}
 
+
 \begin{frame}
 \frametitle{Joint probability}
 \begin{itemize}[<+->]
-\item P(X,Y) means probability that X and Y each have a certain value.
+\item P(X,Y): probability that X and Y each have a certain value.
 \begin{itemize}[<+->]
 \item Let Y stand for choice of a word
 \item Let X stand for the choice of a word that occurs before Y
-\item P(X = \textit{choose}, Y = \textit{spain}) $= 7.71e-9$
-\item P(X = \textit{chooses}, Y = \textit{pain}) $= 9.98e-12$
+\item P(X = killer, Y = app) = 1.24e-10
 \end{itemize}
 \end{itemize}
 \pause
 \begin{alertblock}{Joint Probability: P(X=value AND Y=value)}
 \begin{itemize}
 \item Since X=value AND Y=value, the order does not matter
-\item {\color{blue} P(X = \textit{choose}, Y = \textit{spain})} $\Leftrightarrow$ {\color{red} P(Y = \textit{spain}, X = \textit{choose})}
-\item But in both cases it is P(X,Y) = P(Y,X) = P(\textit{choose spain})
+\item {\color{blue} P(X = killer, Y = app)} $\Leftrightarrow$ {\color{red} P(Y = app, X = killer)}
+\item In both cases it is P(X,Y) = P(Y,X) = P('killer app')
+\item In NLP, we often use numerical indices to express this: \\
+P($W_{i-1}$ = killer, $W_{i}$ = app)
 \end{itemize}
 \end{alertblock}
 \end{frame}
 
 \begin{frame}
+\frametitle{Joint probability}
+\centering
+\begin{block}{Joint probability table}
+\begin{tabular}{lll}
+\rowcolor{MidnightBlue!50}
+$W_{i-1}$ & $W_i$ & P($W_{i-1}$,$W_{i}$) \\
+$\langle S \rangle$ & app & 1.16e-19 \\
+an & app & 1.76e-08 \\
+killer & app & 1.24e-10 \\
+the & app & 2.68e-07 \\
+this & app & 3.74e-08 \\
+your & app &  2.39e-08
+\end{tabular}
+\end{block}
+\begin{block}{Get P($W_i$) from P($W_{i-1}$,$W_{i}$)}
+\[ P(W_i=\textsf{app}) = \sum_{x} P(W_{i-1}=x,W_i=\textsf{app}) = 1.19e-05 \]
+\end{block}
+\end{frame}
+
+\begin{frame}
 \frametitle{Conditional probability}
 \begin{itemize}[<+->]
-\item P(Y $\mid$ X) means probability that Y has a certain value after fixing value of X.
-\begin{itemize}[<+->]
-\item P(Y= \textit{spain} $\mid$ X = \textit{choose}) $= 8.78e-5$
-\item P(Y= \textit{pain} $\mid$ X = \textit{chooses}) $= 3.15e-6$
-\end{itemize}
+\item P($W_{i} \mid W_{i-1}$): probability that $W_{i}$ has a certain value after fixing value of $W_{i-1}$.
+\item P($W_{i} = \textsf{app} \mid W_{i-1} = \textsf{killer}$)
+\item P($W_{i} = \textsf{app} \mid W_{i-1} = \textsf{the}$)
 \end{itemize}
 \pause
 \begin{block}{Conditional probability from Joint probability}
+\[ P(W_{i} \mid W_{i-1}) = \frac{P(W_{i-1}, W_i)}{P(W_{i-1})} \]
 \begin{itemize}
-\item P(Y $\mid$ X) = $\frac{\mbox{P(X, Y)}}{\mbox{P(X)}}$
+\item P(killer) = 1.05e-05
+\item P(killer, app) = 1.24e-10
+\item P(app $\mid$ killer) = 0.0096
+\item P(the $\mid$ killer) = 1.82e-05
 \end{itemize}
+
 \end{block}
 \end{frame}
 
