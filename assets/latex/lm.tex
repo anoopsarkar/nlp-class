@@ -1,33 +1,5 @@
-\documentclass[handout]{beamer}
-\setbeamertemplate{footline}[frame number]
-
-\ifx\pdfoutput\undefined
-%  \usepackage{graphicx}
-\else
-%  \usepackage[pdftex]{graphicx}
-  \DeclareGraphicsRule{*}{mps}{*}{}
-\fi
-
-%%\documentclass[landscape]{slides}
-%\AtBeginDocument{%
-%  \pdfpageheight = \paperheight
-%  \pdfpagewidth = \paperwidth
-%}
-
-%%\usepackage{times}
-\usepackage{color}
-\usepackage{latexsym}
-%\usepackage{graphicx}
-
-\raggedright
-
-\definecolor{bgblue}{rgb}{0.04,0.39,0.53}
-
-%\newcommand{\argmax}[1]{\begin{array}{c}\mbox{arg max}\\#1\end{array}}
-
+\input{beamerpreamble.tex}
 \begin{document}
-
-\input{titlepage.tex}
 
 \section{Smoothing $n$-gram Models}
 \frame{\tableofcontents[currentsection]}

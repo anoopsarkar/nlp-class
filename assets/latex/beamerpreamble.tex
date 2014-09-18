@@ -1,0 +1,21 @@
+\documentclass[xcolor=pdftex,dvipsnames,table]{beamer}
+\mode<presentation>
+\usetheme{boxes}
+\setbeamertemplate{navigation symbols}{}
+% http://www.latex-community.org/forum/viewtopic.php?f=4&t=6694
+\setbeamertemplate{navigation symbols}{\raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber\vspace{1ex}}}}}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{blocks}[shadow=false]
+\setbeamercolor*{block title}{fg=structure,bg=RoyalBlue!10}
+\setbeamercolor*{block title example}{fg=BrickRed,bg=Goldenrod!10}
+\setbeamercolor*{block title alerted}{fg=white,bg=black}
+\addtobeamertemplate{block begin}{\pgfsetfillopacity{0.8}}{\pgfsetfillopacity{1}}
+\rowcolors{1}{RoyalBlue!20}{RoyalBlue!5}
+
+%\DeclareGraphicsRule{*}{mps}{*}{}
+
+\usepackage{latexsym}
+\usepackage{hyperref}
+\usepackage{listings}
+
+\raggedright

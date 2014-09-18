@@ -1,24 +1,5 @@
-\documentclass[handout]{beamer}
-\setbeamertemplate{footline}[frame number]
-
-\ifx\pdfoutput\undefined
-%  \usepackage{graphicx}
-\else
-%  \usepackage[pdftex]{graphicx}
-  \DeclareGraphicsRule{*}{mps}{*}{}
-\fi
-
-\usepackage{color}
-\usepackage{latexsym}
-
-\raggedright
-
-\definecolor{bgblue}{rgb}{0.04,0.39,0.53}
-
-\newcommand{\argmax}[1]{\begin{array}{c}\mbox{arg max}\\#1\end{array}}
-
+\input{beamerpreamble.tex}
 \begin{document}
-
 \input{titlepage.tex}
 
 \section{Probability and Language}
@@ -33,6 +14,7 @@
 \pause
 \smallskip
 \begin{tabular}{ll}
+\rowcolor{MidnightBlue!50}
 Input & Scoring function \\
 \hline
 choose spain & -8.35 \\
@@ -42,18 +24,18 @@ chooses pain & -9.88 \\
 \end{block}
 
 \pause
-\begin{block}{The Goal}
+\begin{alertblock}{The Goal}
 \par Find a good \textbf{scoring function} for input sequences.
-\end{block}
+\end{alertblock}
 
 \end{frame}
 
 \begin{frame}
-\frametitle{Scoring Hypotheses}
+\frametitle{Scoring Hypotheses in Speech Recognition}
 \centering
-\begin{block}{Acoustically Scored Hypotheses}
-
+\begin{block}{From acoustic signal to candidate transcriptions}
 \begin{tabular}{ll}
+\rowcolor{MidnightBlue!50}
 Hypothesis & Score \\
 \hline
 the station signs are in deep in english & -14732 \\
@@ -71,6 +53,46 @@ the stations signs are indians and english & -14815
 \end{block}
 \end{frame}
 
+\begin{frame}
+\frametitle{Scoring Hypotheses in Machine Translation}
+\centering
+\begin{block}{From source language to target language candidates}
+\begin{tabular}{ll}
+\rowcolor{MidnightBlue!50}
+Hypothesis & Score \\
+\hline
+we must also discuss a vision . & -29.63 \\
+we must also discuss on a vision . & -31.58 \\
+it is also discuss a vision . & -31.96 \\
+we must discuss on greater vision . & -36.09 \\
+\vdots & \vdots \\
+\end{tabular}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Scoring Hypotheses in Decryption}
+\centering
+\begin{block}{Character substitutions on ciphertext to plaintext candidates}
+\begin{tabular}{ll}
+\rowcolor{MidnightBlue!50}
+Hypothesis & Score \\
+\hline
+Heopaj, zk ukq swjp pk gjks w oaynap? & -93\\
+Urbcnw, mx hxd fjwc cx twxf j bnlanc? & -92\\
+Wtdepy, oz jzf hlye ez vyzh l dpncpe? & -91\\
+Mjtufo, ep zpv xbou up lopx b tfdsfu? & -89\\
+Nkuvgp, fq aqw ycpv vq mpqy c ugetgv? & -87\\
+Gdnozi, yj tjp rvio oj fijr v nzxmzo? & -86\\
+Czjkve, uf pfl nrek kf befn r jvtivk? & -85\\
+Yvfgra, qb lbh jnag gb xabj n frperg? & -84\\
+Zwghsb, rc mci kobh hc ybck o gsqfsh? & -83\\
+Byijud, te oek mqdj je adem q iushuj? & -77\\
+Jgqrcl, bm wms uylr rm ilmu y qcapcr? & -76\\
+Listen, do you want to know a secret? & -25\\
+\end{tabular}
+\end{block}
+\end{frame}
 
 \begin{frame}
 \frametitle{The Goal}
@@ -89,8 +111,10 @@ the stations signs are indians and english & -14815
 \begin{itemize}[<+->]
 \item P(X): probability of random variable X having a certain value.
 \begin{itemize}[<+->]
-\item P(X = \textit{spain}) $= 5.03 * 10^{-5}$
-\item P(X = \textit{pain}) $= 4.11 * 10^{-5}$
+\item P(X = \textit{spain}) $= 5.03e-5$
+\item P(X = \textit{pain}) $= 4.11e-5$
+\item P(X = \textit{choose}) $= 8.78e-5$
+\item P(X = \textit{chooses}) $= 3.15e-6$
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -102,22 +126,35 @@ the stations signs are indians and english & -14815
 \begin{itemize}[<+->]
 \item Let Y stand for choice of a word
 \item Let X stand for the choice of a word that occurs before Y
-\item P(X = \textit{choose}, Y = \textit{spain}) $= 2.43 * 10^{-10}$
-\item P(X = \textit{chooses}, Y = \textit{pain}) $= 4.87 * 10^{-11}$
-\item P(X = \textit{choose}, Y = \textit{spain}) == P(Y = \textit{spain}, X = \textit{choose})
+\item P(X = \textit{choose}, Y = \textit{spain}) $= 7.71e-9$
+\item P(X = \textit{chooses}, Y = \textit{pain}) $= 9.98e-12$
 \end{itemize}
 \end{itemize}
+\pause
+\begin{alertblock}{Joint Probability: P(X=value AND Y=value)}
+\begin{itemize}
+\item Since X=value AND Y=value, the order does not matter
+\item {\color{blue} P(X = \textit{choose}, Y = \textit{spain})} $\Leftrightarrow$ {\color{red} P(Y = \textit{spain}, X = \textit{choose})}
+\item But in both cases it is P(X,Y) = P(Y,X) = P(\textit{choose spain})
+\end{itemize}
+\end{alertblock}
 \end{frame}
 
 \begin{frame}
 \frametitle{Conditional probability}
 \begin{itemize}[<+->]
-\item P(X $\mid$ Y) means probability that X has a certain value after fixing value of Y.
+\item P(Y $\mid$ X) means probability that Y has a certain value after fixing value of X.
 \begin{itemize}[<+->]
-\item P(Y= \textit{pain} $\mid$ X = \textit{chooses}) $= 8.78 * 10^{-5}$
-\item P(Y= \textit{spain} $\mid$ X = \textit{choose}) $= 3.15 * 10^{-6}$
+\item P(Y= \textit{spain} $\mid$ X = \textit{choose}) $= 8.78e-5$
+\item P(Y= \textit{pain} $\mid$ X = \textit{chooses}) $= 3.15e-6$
 \end{itemize}
 \end{itemize}
+\pause
+\begin{block}{Conditional probability from Joint probability}
+\begin{itemize}
+\item P(Y $\mid$ X) = $\frac{\mbox{P(X, Y)}}{\mbox{P(X)}}$
+\end{itemize}
+\end{block}
 \end{frame}
 
 %\begin{frame}
@@ -199,14 +236,7 @@ the stations signs are indians and english & -14815
 \item $P(\mbox{all events}) = 1$
 \item $P(X) \leq P(Y)$ for any $X \subseteq Y$
 \item $P(X) + P(Y) = P(X \cup Y)$ provided that $X \cap Y = \emptyset$
-\begin{itemize}
-\item $P$(Kiki is a girl) + $P$(Kiki is fictional) = \\
-$P$(Kiki is a fictional girl), \\
-provided there are no real girls called Kiki or persons/objects that are fictional Kiki's.
 \end{itemize}
-
-\end{itemize}
-
 \end{frame}
 
 \begin{frame}
@@ -269,7 +299,7 @@ $P(d \mid e) \cdot P(c \mid d,e) \cdot P(b \mid c,d,e) \cdot P(a \mid b,c,d,e)$
   follows:
 \[ P(y) = \sum_{x \in {\cal E}} P(x,y) \]
 \item Finding the value that maximizes the probability value:
-\[ \hat{x} = \argmax{x \in {\cal E}} P(x) \]
+\[ \hat{x} = \arg\max_{x \in {\cal E}} P(x) \]
 \end{itemize}
 
 \end{frame}
@@ -297,7 +327,7 @@ $P(d \mid e) \cdot P(c \mid d,e) \cdot P(b \mid c,d,e) \cdot P(a \mid b,c,d,e)$
 \frametitle{Log Probability Arithmetic}
 \begin{center}
 \begin{tabular}{|c|c|}
-\hline
+\rowcolor{MidnightBlue!50}
 $p$ & $\log(p)$ \\
 \hline
 $0.0$ & $- \infty$ \\
