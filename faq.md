@@ -22,12 +22,12 @@ active_tab: faq
 * Check your scores on the leaderboard and check that your group appears only once in the leaderboard.
 * All homeworks are due by 11:59PM on the homework due date.
 * Each homework comes with 2 grace days. However the grace days only apply to those who have a valid submission on the due date (a submission that scores -1 or -inf is invalid). For example, if your homework deadline is Tuesday 11:59PM and you submit a valid solution then you have until Thursday night 11:59PM to modify your homework submission.
-    
+* We will make every attempt to release grades for each homework the day after it is due. However, this means that after we review the source code we might have to lower your official grade. If you cheated in some way, such as copying your submission or you have violated the ground rules for each homework, your grades will be decreased from the initial value.
+
 ## Groups
     
 * The homework assignments will be solved in groups. Maximum group size is four. All groups must be formed before Homework 0 is due.
 * Each group will create a single submission and upload it before the due date.
-* Each member of the group must include a `README.username` file for each username in the group. This file will contain the self-assessment of your contribution to the submission.
 * Each group member will be graded on their self report and any commit logs that are submitted. If the TA or the instructor perceives there is a problem with collaboration in a group, certain group members can get zero marks. If you are pair programming, take turns in switching the user doing the commits to the svn repository.
 * __Effective group collaboration__: We are looking to see effective collaboration to solve the homework assignment. People can play different roles and sometimes more than one role in the same homework:
     * Designer: creates a plan for implementation and coordinates activities of the group. Should create design docs (text files or markdown or equivalent only). Put these documents in the directory `answer/docs` and mention the files in your `README.username` file.
@@ -35,15 +35,10 @@ active_tab: faq
     * Development: write the code. This can be done in collaboration. 
     * Testcases: write testcases to stress test the code. Provide the testcases in your submission.
 
-<!--- 
-* In general, penalities for late submissions will be per group since each group uploads a single solution to each homework. However, in the case when the `README.username` file is missing in the submission for only one group member, and if that file is received late, then only that group member will be considered late for that homework.
-* The reason for having a group is to collaborate on solving _each_ question in the assignment. Do not simply split up the questions in each homework and submit as a group without looking at each others code. This will result in a grade for each group member equivalent to the questions actually solved by each person in the group. 
--->
-    
 ## Programming
     
-<!--- * We will be using the Python-based <a href="http://nltk.org/">NLTK: Natural Language Toolkit</a> for most of the homeworks in this course (version 2.0.4 is installed and should be used for the homeworks).  -->
-<!--- * Run `python` and then type in `import nltk`. If you get an error then something went wrong. Email `csilop@cs.sfu.ca` with the details. -->
+* We will be using the Python-based <a href="http://nltk.org/">NLTK: Natural Language Toolkit</a> and Python 2.7.x for programming.
+* The easiest way to install Python with NLTK on your machine is to download [Anaconda Python distribution](https://store.continuum.io/cshop/anaconda/)
 * It is expected that your program will compile and run using the standard runtime environment on the Linux CSIL lab machines. If you are developing on a Linux, Apple or Microsoft operating system at home, you have to ensure that the code will run on the CSIL machines before you submit the assignment. Please either visit the CSIL lab machines or you can use `ssh` to login to the CSIL Linux machines and also use `scp` to copy over and test your programs on the CSIL Linux machines before you submit them. Check the [CSIL Layout Map](http://www.cs.sfu.ca/content/dam/sfu/computing/csil/csil_layout_burnaby.pdf) for the machine names.
 * [Remote access to CSIL](http://www.cs.sfu.ca/about/school-facilities/csil/how-to-remote-access-to-csil.html) is allowed.
 * [Linux terminal server](http://www.cs.sfu.ca/about/school-facilities/csil/unix/how-to-use-csil-linux-terminal-server.html) is currently in beta.
