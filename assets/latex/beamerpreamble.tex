@@ -18,3 +18,20 @@
 \usepackage{hyperref}
 
 \raggedright
+
+\newcount\lecturecount
+\lecturecount=0
+\AtBeginLecture{%
+    \advance\lecturecount by 1
+    \date{}
+    \begin{frame}
+    \begin{center}
+    \titlepage
+    \ifnum\lecturecount=1
+    Part \the\lecturecount: \insertlecture
+    \else
+    Part \the\lecturecount: \insertlecture
+    \fi
+    \end{center}
+    \end{frame}
+}

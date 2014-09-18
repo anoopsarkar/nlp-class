@@ -2,6 +2,8 @@
 \begin{document}
 \input{titlepage.tex}
 
+\lecture{Probability and Language}{Part 1}
+
 \section{Probability and Language}
 \frame{\tableofcontents[currentsection]}
 
@@ -27,7 +29,6 @@ chooses pain & -9.88 \\
 \begin{alertblock}{The Goal}
 \par Find a good \textbf{scoring function} for input sequences.
 \end{alertblock}
-
 \end{frame}
 
 \begin{frame}
@@ -103,6 +104,11 @@ Listen, do you want to know a secret? & -25\\
 \end{itemize}
 \end{frame}
 
+\lecture{Quick guide to probability theory}{Part 2}
+
+\section{Quick guide to probability theory}
+\frame{\tableofcontents[currentsection]}
+
 \begin{frame}
 \frametitle{Probability: The Basics}
 \begin{itemize}[<+->]
@@ -112,11 +118,8 @@ Listen, do you want to know a secret? & -25\\
 \end{itemize}
 \end{frame}
 
-\section{Probability of an event}
-\frame{\tableofcontents[currentsection]}
-
 \begin{frame}
-\frametitle{Quick guide to probability theory}
+\frametitle{Probability distributions}
 \begin{itemize}[<+->]
 \item P(X): probability of random variable X having a certain value.
 \begin{itemize}[<+->]
@@ -155,7 +158,7 @@ P($W_{i-1}$ = killer, $W_{i}$ = app)
 \begin{block}{Joint probability table}
 \begin{tabular}{lll}
 \rowcolor{MidnightBlue!50}
-$W_{i-1}$ & $W_i$ & P($W_{i-1}$,$W_{i}$) \\
+$W_{i-1}$ & $W_i$ = app & P($W_{i-1}$,$W_{i}$) \\
 $\langle S \rangle$ & app & 1.16e-19 \\
 an & app & 1.76e-08 \\
 killer & app & 1.24e-10 \\
@@ -163,6 +166,9 @@ the & app & 2.68e-07 \\
 this & app & 3.74e-08 \\
 your & app &  2.39e-08
 \end{tabular}
+
+\smallskip
+There will be a similar table for each choice of $W_i$.
 \end{block}
 \begin{block}{Get P($W_i$) from P($W_{i-1}$,$W_{i}$)}
 \[ P(W_i=\textsf{app}) = \sum_{x} P(W_{i-1}=x,W_i=\textsf{app}) = 1.19e-05 \]
@@ -336,9 +342,6 @@ $P(d \mid e) \cdot P(c \mid d,e) \cdot P(b \mid c,d,e) \cdot P(a \mid b,c,d,e)$
 
 \end{frame}
 
-\section{Log Probability}
-\frame{\tableofcontents[currentsection]}
-
 \begin{frame}
 \frametitle{Log Probability Arithmetic}
 \begin{itemize}[<+->]
@@ -391,49 +394,9 @@ $1.0$ & $0.00$ \\
 
 \end{frame}
 
-\begin{frame}
-\frametitle{Log Probability Arithmetic}
-\begin{itemize}[<+->]
-\item Adding probabilities is expensive to compute: $logadd(x,y) = \log(\exp(x) + \exp(y))$
-\item A more efficient soln, let $big$ be a large constant e.g. $10^{30}$:
-\begin{tabbing}
-\=123\=568\=901\=23\=\kill \\
-\textsf{function } $logadd(x,y):$ {\color{red} \# returns $\log(\exp(x) + \exp(y))$} \\
-\>  \textsf{if } $(y - x) > \log(big)$ \color{blue} \textsf{return } $y$ \\
-\>  \textsf{elsif  } $(x - y) > \log(big)$ \color{blue} \textsf{return } $x$ \\
-\>  \textsf{else } \color{blue} \textsf{return } \\
-\>\>\> \color{blue} $min(x, y) + \log(\exp(x - min(x,y)) + \exp(y -
-min(x,y)))$ \\
-\>  \textsf{endif }
-\end{tabbing}
-\item There is a more efficient way of computing $\log(\exp(x - 
-min(x,y)) + \exp(y - min(x,y)))$
-\end{itemize}
+\lecture{Entropy and Information Theory}{Part 3}
 
-\end{frame}
-
-\begin{frame}
-\frametitle{Log Probability Arithmetic}
-\begin{center}
-\begin{tabbing}
-123\=123\=568\=901\=23\=\kill \\
-\textsf{function } $logadd(x,y):$ \\
-\>  \textsf{if } $(y - x) > \log(big)$ \textsf{return } $y$ \\
-\>  \textsf{elsif  } $(x - y) > \log(big)$ \textsf{return } $x$ \\
-\>  \textsf{elsif ($x \geq y$)} \color{blue} return $x + \log(1 + \exp(y-x))$ \\
-\>\> \color{red} \# {\small note that $max(x,y) = x$ and $y-x \leq 0$} \\
-\> else \color{blue} return $y + \log(\exp(x-y) + 1)$ \\
-\>\> \color{red} \# {\small note that $max(x,y) = y$ and $x-y \leq 0$} \\
-\>  \textsf{endif } \\
-\color{red} {\small Also, in ANSI C, {\tt log1p} efficiently computes $\log(1+x)$} \\
-\color{red} {\footnotesize\tt http://www.ling.ohio-state.edu/\~{}jansche/src/logadd.c} \\
-{\small In Python, numpy.logaddexp2(x1,x2) for base 2} 
-\end{tabbing}
-\end{center}
-
-\end{frame}
-
-\section{Basics of Information Theory}
+\section{Entropy and Information Theory}
 \frame{\tableofcontents[currentsection]}
 
 \begin{frame}
@@ -653,6 +616,50 @@ D(q \| p) & = & H_{q}(p) & - & H(q) \\
 \[ I(X;Y) = D(p(x,y) \| p(x)p(y)) = \sum_x \sum_y p(x,y) \log_2
 \frac{p(x,y)}{p(x)p(y)} \]
 \end{itemize}
+
+\end{frame}
+
+\section*{Appendix: Computing with Log Probability}
+
+\begin{frame}
+\frametitle{Log Probability Arithmetic}
+\begin{itemize}[<+->]
+\item Adding probabilities is expensive to compute: $logadd(x,y) = \log(\exp(x) + \exp(y))$
+\item A more efficient soln, let $big$ be a large constant e.g. $10^{30}$:
+\begin{tabbing}
+\=123\=568\=901\=23\=\kill \\
+\textsf{function } $logadd(x,y):$ {\color{red} \# returns $\log(\exp(x) + \exp(y))$} \\
+\>  \textsf{if } $(y - x) > \log(big)$ \color{blue} \textsf{return } $y$ \\
+\>  \textsf{elsif  } $(x - y) > \log(big)$ \color{blue} \textsf{return } $x$ \\
+\>  \textsf{else } \color{blue} \textsf{return } \\
+\>\>\> \color{blue} $min(x, y) + \log(\exp(x - min(x,y)) + \exp(y -
+min(x,y)))$ \\
+\>  \textsf{endif }
+\end{tabbing}
+\item There is a more efficient way of computing $\log(\exp(x - 
+min(x,y)) + \exp(y - min(x,y)))$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Log Probability Arithmetic}
+\begin{center}
+\begin{tabbing}
+123\=123\=568\=901\=23\=\kill \\
+\textsf{function } $logadd(x,y):$ \\
+\>  \textsf{if } $(y - x) > \log(big)$ \textsf{return } $y$ \\
+\>  \textsf{elsif  } $(x - y) > \log(big)$ \textsf{return } $x$ \\
+\>  \textsf{elsif ($x \geq y$)} \color{blue} return $x + \log(1 + \exp(y-x))$ \\
+\>\> \color{red} \# {\small note that $max(x,y) = x$ and $y-x \leq 0$} \\
+\> else \color{blue} return $y + \log(\exp(x-y) + 1)$ \\
+\>\> \color{red} \# {\small note that $max(x,y) = y$ and $x-y \leq 0$} \\
+\>  \textsf{endif } \\
+\color{red} {\small Also, in ANSI C, {\tt log1p} efficiently computes $\log(1+x)$} \\
+\color{red} {\footnotesize\tt http://www.ling.ohio-state.edu/\~{}jansche/src/logadd.c} \\
+{\small In Python, numpy.logaddexp2(x1,x2) for base 2} 
+\end{tabbing}
+\end{center}
 
 \end{frame}
 

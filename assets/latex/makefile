@@ -10,8 +10,10 @@ all: $(TARGETS)
 ifeq ($(handout),yes)
 %.pdf: %.tex
 		pdflatex "\PassOptionsToClass{handout}{beamer}\input{$<}"
+		pdflatex "\PassOptionsToClass{handout}{beamer}\input{$<}"
 else
 %.pdf: %.tex
+		pdflatex $<
 		pdflatex $<
 endif
 
