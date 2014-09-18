@@ -48,3 +48,11 @@ past:
         url: http://norvig.com/ngrams/
         download: http://norvig.com/ngrams/ngrams.zip
         optional: false
+  -
+    date: 2014-09-16
+    title: Probability models and language
+    slides: assets/slides/prob.pdf
+  -
+    date: 2014-09-18
+    title: Language models
+    slides: assets/slides/lm.pdf
