@@ -19,7 +19,7 @@
 && \ldots \\
 & \} &
 \end{eqnarray*}
-\item A \textit{sentence} is \textbf{defined} as each $x \in {\cal V}^+$
+\item A \textit{sentence} is \textbf{defined} as each $s \in {\cal V}^+$
 \end{itemize}
 \end{block}
 \end{frame}
@@ -131,15 +131,89 @@ Hypothesis & Score \\
 \end{block}
 \end{frame}
 
+\begin{frame}
+\frametitle{Probability models of language}
+\centering
+\begin{alertblock}{Question}
+\begin{itemize}[<+->]
+\item Given a finite vocabulary set ${\cal V}$
+\item We want to build a probability model $P(s)$ for all $s \in {\cal V}^+$
+\item \textbf{But} we want to consider sentences $s$ of each length $\ell$ separately.
+\item Write down a new model over ${\cal V}^+$ such that $P(s \mid \ell)$ is in the model 
+\item \textbf{And} the model should be equal to $\sum_{s \in {\cal V}^+} P(s)$.
+\item Write down the model
+\[ \sum_{s \in {\cal V}^+} P(s) = \ldots \]
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
 \lecture{$n$-grams for Language Modeling}{}
-\section{$n$-gram for Language Modeling}
+\section{$n$-grams for Language Modeling}
 \frame{\tableofcontents[currentsection]}
 
 \begin{frame}
-\frametitle{Bigram Models}
+\frametitle{$n$-gram Models}
 \centering
 \begin{block}{Google $n$-gram viewer}
 \includegraphics[scale=0.45]{figures/killer-ngrams.png}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Learning Language Models}
+\begin{itemize}[<+->]
+\item Directly count using a training data set of sentences: $w_1, \ldots, w_n$:
+\[ p(w_1, \ldots, w_n) = \frac{n(w_1, \ldots, w_n)}{N} \]
+\item $n$ is a function that counts how many times each sentence occurs
+\item $N$ is the sum over all possible $n(\cdot)$ values
+\item Problem: does not generalize to new sentences unseen in the training data.
+\item What are the chances you will see a sentence: \texttt{crazy killer clown crazy killer}?
+\item In NLP applications we often need to assign non-zero probability to previously unseen sentences.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Learning Language Models}
+\begin{block}{Apply the Chain Rule: the unigram model}
+\begin{eqnarray*}
+p(w_1, \ldots, w_n) &\approx& p(w_1) p(w_2) \ldots p(w_n) \\
+&=& \prod_i p(w_i)
+\end{eqnarray*}
+\end{block}
+\pause
+\begin{block}{Big problem with a unigram language model}
+\[ p(\textsf{the the the the the the the}) > p(\textsf{we must also discuss a vision .}) \]
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Learning Language Models}
+\begin{block}{Apply the Chain Rule: the bigram model}
+\begin{eqnarray*}
+p(w_1, \ldots, w_n) &\approx& p(w_1) p(w_2 \mid w_1) \ldots p(w_n \mid w_{n-1}) \\
+&=& p(w_1) \prod_{i=2}^n p(w_i \mid w_{i-1})
+\end{eqnarray*}
+\end{block}
+\pause
+\begin{block}{Better than unigram}
+\[ p(\textsf{the the the the the the the}) < p(\textsf{we must also discuss a vision .}) \]
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Learning Language Models}
+\begin{block}{Apply the Chain Rule: the trigram model}
+\begin{eqnarray*}
+\lefteqn{p(w_1, \ldots, w_n) \approx} \\
+&& p(w_1) p(w_2 \mid w_1) p(w_3 \mid w_1, w_2) \ldots p(w_n \mid w_{n-2}, w_{n-1}) \\
+&& p(w_1) p(w_2 \mid w_1) \prod_{i=3}^n p(w_i \mid w_{i-2}, w_{i-1})
+\end{eqnarray*}
+\end{block}
+\pause
+\begin{block}{Better than bigram, but $\ldots$}
+p(\textsf{we must also discuss a vision .}) might be zero because we have not seen p(discuss $\mid$ must also)
 \end{block}
 \end{frame}
 
@@ -610,6 +684,34 @@ Also there are $2^n$ sequences of length $n$
 && \sum_{n=0}^{\infty} 0.5^n \times 0.5 = \sum_{n=0}^{\infty} 0.5^{n+1} \nonumber \\
 && \sum_{n=1}^{\infty} 0.5^n = 1 \nonumber
 \end{eqnarray}
+\end{frame}
+
+\begin{frame}
+\frametitle{The {\tt stop} symbol}
+\begin{itemize}[<+->]
+\item With this new {\tt stop} symbol we can show that $\sum_w P(w) = 1$ \\
+Using $p_s = P(\texttt{stop})$ the probability of any sequence of length $n$ is $p(n) = p(w_1, \ldots, w_{n-1}) \times p_s(w_n)$ \\
+\end{itemize}
+\begin{eqnarray*}
+\sum_w P(w) &=& \sum_{n=0}^{\infty} p(n) \sum_{w_1, \ldots, w_n} p(w_1, \ldots, w_n) \\
+&=& \sum_{n=0}^{\infty} p(n) \sum_{w_1, \ldots, w_n} \prod_{i=1}^n p(w_i)
+\end{eqnarray*}
+\begin{eqnarray*}
+\lefteqn{\sum_{w_1, \ldots, w_n} \prod_i p(w_i) = } \\
+&& \sum_{w_1} \sum_{w_2} \ldots \sum_{w_n} p(w_1) p(w_2) \ldots p(w_n) = 1
+\end{eqnarray*}
+\end{frame}
+
+\begin{frame}
+\frametitle{The {\tt stop} symbol}
+\begin{eqnarray*}
+\sum_{w_1} \sum_{w_2} \ldots \sum_{w_n} p(w_1) p(w_2) \ldots p(w_n) &=& 1
+\end{eqnarray*}
+\begin{eqnarray*}
+\sum_{n=0}^\infty p(n) &=& \sum_{n=0}^\infty p_s(1 - p_s)^n \\
+&=& p_s \sum_{n=0}^\infty (1 - p_s)^n \\
+&=& p_s \frac{1}{1-(1-p_s)} = p_s \frac{1}{p_s} = 1
+\end{eqnarray*}
 \end{frame}
 
 \input{acknowledgements.tex}
