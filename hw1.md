@@ -195,7 +195,7 @@ Ground Rules
 * Each group should submit using one person as the designated uploader.
 * You must turn in three things:
   1. A segmentation of the entire dataset which is in `segmenter/data/input` uploaded to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html). You can upload new output as often
-     as you like, up until the assignment deadline. Do _not_ press Submit unless you are finished with your development. 
+     as you like, up until the assignment deadline. Your score on the leaderboard is the score on the development data set which shown to you immediately after you upload your output file. The **Submit** button in unavailable until after the homework deadline has passed, and when pressed it will show you the test data set score.
 The output will be evaluated using a secret metric, but the `score-segments.py` program will give you a good
      idea of how well you're doing.
   1. Your code. Each group should assign one member to upload the source code to [Coursys](https://courses.cs.sfu.ca) as the submission for Homework 1. The code should be self-contained, self-documenting, and easy to use. It should use the same input and output assumptions of `default.py`.
