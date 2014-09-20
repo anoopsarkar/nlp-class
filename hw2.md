@@ -1,8 +1,8 @@
 ---
 layout: default
 img: bratconll2k
-img_url: http://weaver.nlplab.org/~brat/demo/latest/#/not-editable/CoNLL-00-Chunking/
-caption: Explore the phrasal chunking data interactively using Brat
+img_link: "http://weaver.nlplab.org/~brat/demo/latest/#/not-editable/CoNLL-00-Chunking/train.txt-doc-1"
+caption: Explore phrasal chunking interactively using Brat
 title: Homework 2 | Chunking
 active_tab: homework
 ---
