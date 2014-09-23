@@ -52,7 +52,22 @@ past:
     date: 2014-09-16
     title: Probability models and language
     slides: assets/slides/prob.pdf
+    reading:
+      - author: Claude Shannon
+        title: "A Mathematical Theory of Communication"
+        url: http://en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication
+        optional: true
+      - author: Claude Shannon
+        title: "Prediction and Entropy of Printed English"
+        url: http://languagelog.ldc.upenn.edu/myl/Shannon1950.pdf
+        optional: true
   -
     date: 2014-09-18
     title: Language models
     slides: assets/slides/lm.pdf
+    reading:
+      - author: Michael Collins
+        title: "Language models"
+        url: http://www.cs.columbia.edu/~mcollins/lm-spring2013.pdf
+        download: assets/mcollins-notes/lm-spring2013.pdf
+        optional: false

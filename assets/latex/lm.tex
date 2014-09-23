@@ -217,6 +217,64 @@ p(\textsf{we must also discuss a vision .}) might be zero because we have not se
 \end{block}
 \end{frame}
 
+\begin{frame}
+\frametitle{Number of Parameters}
+\begin{block}{How many probabilities in each $n$-gram model}
+\begin{itemize}
+\item Assume ${\cal V} = \{ \textit{killer}, \textit{crazy}, \textit{clown}, \textit{UNK} \}$
+\end{itemize}
+\end{block}
+\pause
+\begin{alertblock}{Question}
+\callouts{blue}{4}{How many unigram probabilities: $P(x)$ for $x \in {\cal V}$?}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Number of Parameters}
+\begin{block}{How many probabilities in each $n$-gram model}
+\begin{itemize}
+\item Assume ${\cal V} = \{ \textit{killer}, \textit{crazy}, \textit{clown}, \textit{UNK} \}$
+\end{itemize}
+\end{block}
+\pause
+\begin{alertblock}{Question}
+\callouts{blue}{$4^2=16$}{How many bigram probabilities: $P(y|x)$ for $x,y \in {\cal V}$?}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Number of Parameters}
+\begin{block}{How many probabilities in each $n$-gram model}
+\begin{itemize}
+\item Assume ${\cal V} = \{ \textit{killer}, \textit{crazy}, \textit{clown}, \textit{UNK} \}$
+\end{itemize}
+\end{block}
+\pause
+\begin{alertblock}{Question}
+\callouts{blue}{$4^3=64$}{How many trigram probabilities: $P(z|x,y)$ for $x,y,z \in {\cal V}$?}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Number of Parameters}
+\begin{alertblock}{Question}
+\begin{itemize}
+\item Assume $\mid {\cal V} \mid$ = 15,000
+\item What is the minimum size of training data in tokens?
+\begin{itemize}
+\item If you wanted to observe all unigrams at least once.
+\item \callouts{blue}{3,375,000,000,000 (3.3Ttokens)}{If you wanted to observe all trigrams at least once.}
+\end{itemize}
+\end{itemize}
+\end{alertblock}
+\bigskip
+\begin{block}{}
+Some trigrams should be zero since they do not occur in the language, $P(the \mid the, the)$. \\
+But others are simply unobserved in the training data, $P(idea \mid colourless, green)$.
+\end{block}
+\end{frame}
+
 \lecture{Smoothing Probability Models}{}
 \section{Smoothing $n$-gram Models}
 \frame{\tableofcontents[currentsection]}
@@ -473,7 +531,6 @@ For missing unigrams: $P_{JM}(w_i) = \lambda P_{ML}(w_i) + (1 - \lambda) \frac{\
 compute $\lambda$ values to minimize cross-entropy on {\bf held-out} data which is \alert{deleted} from the initial set of training data
 \item Improved JM smoothing, a separate $\lambda$ for each $w_{i-1}$: 
 \[ P_{JM}(w_i \mid w_{i-1}) = {\color{blue} \lambda(w_{i-1})} P_{ML}(w_i \mid w_{i-1}) + {\color{blue} (1 - \lambda(w_{i-1}))} P_{ML}(w_i) \]
-\[ \textsf{where } \sum_i \lambda(w_i) = 1 \textsf{ \alert{because} } \sum_{w_i} P(w_i \mid w_{i-1}) = 1 \]
 \end{itemize}
 \end{frame}
 
@@ -543,6 +600,7 @@ compute $\alpha(x)$ as was done in Katz smoothing
 \end{itemize}
 \end{frame}
 
+\begin{comment}
 \begin{frame}
 \frametitle{Backoff Smoothing with Discounting}
 \begin{itemize}[<+->]
@@ -565,6 +623,9 @@ $P(\textsf{Francisco}~\mid~\textsf{eggplant}) > P(\textsf{stew}~\mid~\textsf{egg
 %\item Finding $\lambda$: use Generalized line search (Powell search) or the Expectation-Maximization algorithm
 %\end{itemize}
 %\end{frame}
+
+\end{comment}
+
 
 \section{Cross-Entropy and Perplexity}
 \frame{\tableofcontents[currentsection]}

@@ -17,6 +17,18 @@
 
 \usepackage{latexsym}
 \usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes.callouts,shapes.arrows}
+\usepackage{solution}
+
+\newcounter{mycallout}
+
+\newcommand{\callouts}[3]{%
+  \stepcounter{mycallout}
+  \tikz[remember picture,baseline]{\node[anchor=base,inner sep=0,outer sep=0]%
+    (\themycallout) {\colorbox{#1!20}{#3}};\pause\node[overlay,rectangle callout,%
+    callout relative pointer={(0cm,0.5cm)},fill=#1!20] at ($(\themycallout.south)+(-0cm,-0.7cm)$){#2};}%
+    }%
 
 \raggedright
 
