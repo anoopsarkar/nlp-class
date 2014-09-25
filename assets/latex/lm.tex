@@ -217,6 +217,79 @@ p(\textsf{we must also discuss a vision .}) might be zero because we have not se
 \end{block}
 \end{frame}
 
+\begin{frame}
+\frametitle{Maximum Likelihood Estimate}
+\begin{block}{Using training data to learn a trigram model}
+\begin{itemize}[<+->]
+\item Let $c(u,v,w)$ be the count of the trigram $u,v,w$, e.g. $c(crazy,killer,clown)$
+\item Let $c(u,v)$ be the count of the bigram $u,v$, e.g. $c(crazy,killer)$
+\item For any $u,v,w$ we can compute the conditional probability of generating $w$ given $u,v$:
+\[ p(w \mid u,v) = \frac{c(u,v,w)}{c(u,v)} \]
+\item For example:
+\[ p(clown \mid crazy, killer) = \frac{c(crazy, killer, clown)}{c(crazy, killer)} \]
+\end{itemize}
+
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Number of Parameters}
+\begin{block}{How many probabilities in each $n$-gram model}
+\begin{itemize}
+\item Assume ${\cal V} = \{ \textit{killer}, \textit{crazy}, \textit{clown}, \textit{UNK} \}$
+\end{itemize}
+\end{block}
+\pause
+\begin{alertblock}{Question}
+\callouts{blue}{4}{How many unigram probabilities: $P(x)$ for $x \in {\cal V}$?}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Number of Parameters}
+\begin{block}{How many probabilities in each $n$-gram model}
+\begin{itemize}
+\item Assume ${\cal V} = \{ \textit{killer}, \textit{crazy}, \textit{clown}, \textit{UNK} \}$
+\end{itemize}
+\end{block}
+\pause
+\begin{alertblock}{Question}
+\callouts{blue}{$4^2=16$}{How many bigram probabilities: $P(y|x)$ for $x,y \in {\cal V}$?}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Number of Parameters}
+\begin{block}{How many probabilities in each $n$-gram model}
+\begin{itemize}
+\item Assume ${\cal V} = \{ \textit{killer}, \textit{crazy}, \textit{clown}, \textit{UNK} \}$
+\end{itemize}
+\end{block}
+\pause
+\begin{alertblock}{Question}
+\callouts{blue}{$4^3=64$}{How many trigram probabilities: $P(z|x,y)$ for $x,y,z \in {\cal V}$?}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Number of Parameters}
+\begin{alertblock}{Question}
+\begin{itemize}
+\item Assume $\mid {\cal V} \mid$ = 50,000 (a realistic vocabulary size for English)
+\item What is the minimum size of training data in tokens?
+\begin{itemize}
+\item If you wanted to observe all unigrams at least once.
+\item \callouts{blue}{125,000,000,000,000 (125 Ttokens)}{If you wanted to observe all trigrams at least once.}
+\end{itemize}
+\end{itemize}
+\end{alertblock}
+\bigskip
+\begin{block}{}
+Some trigrams should be zero since they do not occur in the language, $P(the \mid the, the)$. \\
+But others are simply unobserved in the training data, $P(idea \mid colourless, green)$.
+\end{block}
+\end{frame}
+
 \lecture{Smoothing Probability Models}{}
 \section{Smoothing $n$-gram Models}
 \frame{\tableofcontents[currentsection]}
@@ -473,7 +546,6 @@ For missing unigrams: $P_{JM}(w_i) = \lambda P_{ML}(w_i) + (1 - \lambda) \frac{\
 compute $\lambda$ values to minimize cross-entropy on {\bf held-out} data which is \alert{deleted} from the initial set of training data
 \item Improved JM smoothing, a separate $\lambda$ for each $w_{i-1}$: 
 \[ P_{JM}(w_i \mid w_{i-1}) = {\color{blue} \lambda(w_{i-1})} P_{ML}(w_i \mid w_{i-1}) + {\color{blue} (1 - \lambda(w_{i-1}))} P_{ML}(w_i) \]
-\[ \textsf{where } \sum_i \lambda(w_i) = 1 \textsf{ \alert{because} } \sum_{w_i} P(w_i \mid w_{i-1}) = 1 \]
 \end{itemize}
 \end{frame}
 
@@ -543,6 +615,7 @@ compute $\alpha(x)$ as was done in Katz smoothing
 \end{itemize}
 \end{frame}
 
+\begin{comment}
 \begin{frame}
 \frametitle{Backoff Smoothing with Discounting}
 \begin{itemize}[<+->]
@@ -557,68 +630,85 @@ $P(\textsf{Francisco}~\mid~\textsf{eggplant}) > P(\textsf{stew}~\mid~\textsf{egg
 \end{itemize}
 \end{frame}
 
-%\begin{frame}
-%\frametitle{Backoff Smoothing with Discounting}
-%\begin{itemize}[<+->]
-%\item Modified Kneser-Ney smoothing (Chen and Goodman) \\
-%multiple discounts for one count, two counts and three or more counts
-%\item Finding $\lambda$: use Generalized line search (Powell search) or the Expectation-Maximization algorithm
-%\end{itemize}
-%\end{frame}
+\end{comment}
 
-\section{Cross-Entropy and Perplexity}
+
+\section{Evaluating Language Models}
 \frame{\tableofcontents[currentsection]}
 
 \begin{frame}
-\frametitle{How good is a model}
+\frametitle{Evaluating Language Models}
 \begin{itemize}[<+->]
 \item So far we've seen the probability of a sentence: $P(w_0, \ldots, w_n)$
-\item What is the probability of a collection of sentences, that is what is the probability of a corpus
-\item Let $T = s_0, \ldots, s_m$ be a text corpus with sentences $s_0$ through $s_m$
-\item What is $P(T)$? \\
-Let us assume that we trained $P(\cdot)$ on some {\em training data}, and $T$ is the {\em test data}
+\item What is the probability of a collection of sentences, that is what is the probability of an unseen test corpus $T$
+\item Let $T = s_0, \ldots, s_m$ be a test corpus with sentences $s_i$
+\item $T$ is assumed to be separate from the training data used to train our language model $P(s)$
+\item What is $P(T)$?
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{How good is a model}
+\frametitle{Evaluating Language Models: Independence assumption}
 \begin{itemize}[<+->]
 \item $T = s_0, \ldots, s_m$ is the text corpus with sentences $s_0$ through $s_m$
 \item $P(T) = P(s_0, s_1, s_2, \ldots, s_m)$ -- but each sentence is independent from the other sentences
 \item $P(T) = P(s_0) \cdot P(s_1) \cdot P(s_2) \cdot \ldots \cdot P(s_m) = \prod_{i=0}^m P(s_i)$ 
-\item $P(s_i) = P(w_0^i, \ldots, w_n^i)$ 
-\item Let $W_T$ be the length of the text $T$ measured in words
-\item Then for the unigram model, $P(T) = \prod_{w \in T} P(w)$
-\item A problem: we want to compare two different models $P_1$ and $P_2$ on $T$
-\item To do this we use the {\em per word} perplexity of the model:
-\[ \textit{PP}_P(T) = P(T)^{- \frac{1}{W_T}} = \sqrt[W_T]{\frac{1}{P(T)}} \]
+\item $P(s_i) = P(w_0^i, \ldots, w_n^i)$ -- which can be any $n$-gram language model
+\item A language model is better if the value of $P(T)$ is higher for unseen sentences $T$, we want to maximize:
+\[ P(T) = \prod_{i=0}^m P(s_i) \]
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{How good is a model}
+\frametitle{Evaluating Language Models: Computing the Average}
 \begin{itemize}[<+->]
-\item The {\em per word} perplexity of the model is:
-\[ \textit{PP}_P(T) = P(T)^{- \frac{1}{W_T}} \]
-
-\item Recall that $\textit{PP}_P(T) = 2^{H_P(T)}$ where $H_P(T)$ is the cross-entropy of $P$ for text $T$.
-
-\item Therefore, $H_P(T) = \textsf{log}_2 \textit{PP}_P(T) = - \frac{1}{W_T} \textsf{log}_2 P(T)$
-
-\item Above we use a unigram model $P(w)$, but the same derivation holds for bigram, trigram, \dots
+\item However, $T$ can be any arbitrary size
+\item $P(T)$ will be lower if $T$ is larger.
+\item Instead of the probability for a given $T$ we can compute the {\em average} probability.
+\item $M$ is the total number of tokens in the test corpus $T$:
+\[ M = \sum_{i=1}^m \textsf{length}(s_i) \]
+\item The average {\em log} probability of the test corpus $T$ is:
+\[ \frac{1}{M} \log_2 \prod_{i=1}^m P(s_i) = \frac{1}{M} \sum_{i=1}^m \log_2 P(s_i) \]
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{How good is a model}
+\frametitle{Evaluating Language Models: Perplexity}
 \begin{itemize}[<+->]
-\item Lower cross entropy values and perplexity values are better \\
-Lower values mean that the model is {\em better} \\
-Correlation with performance of the language model in various applications
-\item Performance of a language model is its cross-entropy or perplexity on {\em test data} (unseen data) \\
-corresponds to the number bits required to encode that data
-\item On various real life datasets, typical perplexity values yielded by $n$-gram models on English text range from about 50 to almost 1000 (corresponding to cross entropies from about 6 to 10 bits/word)
+\item The average {\em log} probability of the test corpus $T$ is:
+\[ \ell = \frac{1}{M} \sum_{i=1}^m \log_2 P(s_i) \]
+\item Note that $\ell$ is a negative number
+\item We evaluate a language model using {\em Perplexity} which is $2^{-\ell}$
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluating Language Models}
+\begin{alertblock}{Question}
+Show that:
+\[ 2^{- \frac{1}{M} \log_2 \prod_{i=1}^m P(s_i)} = \frac{1}{\sqrt[M]{\prod_{i=1}^m P(s_i)}} \]
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluating Language Models}
+\begin{alertblock}{Question}
+What happens to $2^{- \ell}$ if any $n$-gram probability for computing $P(T)$ is zero?
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluating Language Models: Typical Perplexity Values}
+\begin{block}{From 'A Bit of Progress in Language Modeling' by Chen and Goodman}
+\centering
+\begin{tabular}{ll}
+Model & Perplexity \\
+\hline
+unigram & 955 \\
+bigram & 137 \\
+trigram & 74 
+\end{tabular}
+\end{block}
 \end{frame}
 
 \lecture{Event space in Language Models}{}

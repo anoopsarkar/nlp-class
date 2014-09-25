@@ -52,7 +52,35 @@ past:
     date: 2014-09-16
     title: Probability models and language
     slides: assets/slides/prob.pdf
+    reading:
+      - author: Claude Shannon
+        title: "A Mathematical Theory of Communication"
+        url: http://en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication
+        optional: true
+      - author: Claude Shannon
+        title: "Prediction and Entropy of Printed English"
+        url: http://languagelog.ldc.upenn.edu/myl/Shannon1950.pdf
+        optional: true
   -
     date: 2014-09-18
-    title: Language models
+    title: Language models (part one)
     slides: assets/slides/lm.pdf
+    reading:
+      - author: Michael Collins
+        title: "Language models"
+        url: http://www.cs.columbia.edu/~mcollins/lm-spring2013.pdf
+        download: assets/mcollins-notes/lm-spring2013.pdf
+        optional: false
+  -
+    date: 2014-09-23
+    title: Language models (part two and three)
+    slides: assets/slides/lm.pdf
+    reading:
+      - author: Stanley Chen and Joshua Goodman
+        title: "A Bit of Progress in Language Modeling"
+        url: http://ptrckprry.com/course/ssd/Good01.pdf
+        optional: true
+      - author: Ciprian Chelba, Tomas Mikolov, Mike Schuster, Qi Ge, and Thorsten Brants
+        title: "One Billion Word Benchmark for Measuring Progress in Statistical Language Modeling"
+        url: http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/41880.pdf
+        optional: true
