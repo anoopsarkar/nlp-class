@@ -258,7 +258,7 @@ $$\Phi$$
     <p>$$ z_{[1:n]} = \arg\max_{u_{[1:n]} \in {\cal T}^n_i} \sum_s w_s \Phi_s(w_{[1:n_i]}^{(i)}, u_{[1:n_i]}) $$</p>
     * $${\cal T}^{n_i}$$ is the set of all tag sequences of length $$n_i$$.
     * If $$z_{[1:n]} \neq t_{[1:n]}^{(i)}$$ then update the weight vector:
-        * w_s = w_s + \Phi_s(w_{[1:n_i]}^{(i)}, t_{[1:n_i]}^{(i)}) - \Phi_s(w_{[1:n_i]}^{(i)}, z_{[1:n_i]})
+        <p>$$w_s = w_s + \Phi_s(w_{[1:n_i]}^{(i)}, t_{[1:n_i]}^{(i)}) - \Phi_s(w_{[1:n_i]}^{(i)}, z_{[1:n_i]})$$</p>
 * return **w**
 {: .list-unstyled}
 
