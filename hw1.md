@@ -1,7 +1,7 @@
 ---
 layout: default
 img: mayhem
-img_url: http://en.wikipedia.org/wiki/Text_segmentation
+img_link: http://en.wikipedia.org/wiki/Text_segmentation
 caption: Segmentation is harder than it seems.
 title: Homework 1 | Segmentation
 active_tab: homework
