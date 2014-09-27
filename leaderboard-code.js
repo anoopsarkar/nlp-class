@@ -11,7 +11,7 @@ for (i = 0; i < data.length; i++) {
     if (hidden_users[user]) {
         continue;
     }
-    if (user != 'default' && data[i][3] == "-inf") {
+    if (user != 'default' && data[i][2] == "-inf") {
         continue;
     }
 
