@@ -266,6 +266,7 @@ $$\Phi$$
         <p>$$w_s = w_s + \Phi_s(w_{[1:n_i]}^{(i)}, t_{[1:n_i]}^{(i)}) - \Phi_s(w_{[1:n_i]}^{(i)}, z_{[1:n_i]})$$</p>
 * return **w**
 {: .list-unstyled}
+---
 
 The weight vector update step rewards the features that occur in
 the reference and penalizes any features that appear in the
