@@ -203,7 +203,7 @@ This problem of assigning $$t_{[1:n]}$$ to the input $$w_{[1:n]}$$
 is decomposed into a sequence of decisions in a left-to-right
 fashion. At each point there is a *history* which is the context
 in which the output label is assigned to a particular word $$w_i$$.
-A history is a four-tuple: $$h = (t_{-1}, w_{[1:n]}, i)$$, where
+A history is a three-tuple: $$h = (t_{-1}, w_{[1:n]}, i)$$, where
 $$t_{-1}$$ is the output label for $$w_{-1}$$. For each output
 label $$t$$, we can write a feature vector representation
 of history-tag pairs. Each component of the feature vector
