@@ -278,7 +278,17 @@ the output label is `B-VP`, will tend to get negative weights, and
 features that are observed in the reference will tend to get positive
 weights.
 
-The algorithm is described in much greater detail in the following paper:
+In the above pseudo-code, when $$z_{[1:n]} \neq t_{[1:n]}^{(j)}$$
+this is counted as a mistake made by the perceptron. The theory
+behind the algorithm states that the number of mistakes is 
+bounded by a factor called the *margin* of the dataset. In practice,
+you should check that the number of mistakes in for an epoch t is smaller
+than epoch t-1. We stop before the number of mistakes is zero
+because there might be examples in the training data that can
+never be correctly predicted.
+
+The algorithm and the theory behind it is described in much greater
+detail in the following paper:
 
 > Michael Collins. [Discriminative Training Methods for Hidden
 > Markov Models: Theory and Experiments with Perceptron
