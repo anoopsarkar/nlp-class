@@ -219,6 +219,11 @@ Another feature function might look at the previous output label:
 > If $$t_{-1}$$ is the label `B-NP` and $$t$$ is `I-NP` return 1
 > else return 0
 
+For this homework the feature functions have been provided to you
+and their values have been pre-computed in the `data/*.feats.gz`
+files. Details of the feature vector representation for this chunking
+task is provided in the Appendix below.
+
 From these local feature vectors we can create a feature vector
 for the entire sentence:
 
@@ -227,16 +232,13 @@ for the entire sentence:
 The feature vector for the sentence $$\Phi$$ has the same dimensionality
 as the feature vector for each tagging decision, $$\phi$$.
 
-Details of the feature vector representation for this chunking task
-is provided in the Appendix below.
-
 #### Algorithm: Perceptron algorithm for HMMs
 
 ---
 **## Data Structures ##**
 
 `train`
-: sentences with output labels: $$(w_{[1:n_i]}^{(i)}, t_{[1:n_i]}^{(i)})$$ 
+: sentences with output labels: $$(w_{[1:n_j]}^{(j)}, t_{[1:n_j]}^{(j)})$$ 
 
 `T`
 : number of iterations over the training set. `opts.n` in `default.py`
@@ -258,12 +260,12 @@ $$\Phi$$
 
 **## Main Loop ##**
 
-* for t = 1, ..., T, for i = 1, ..., n
+* for t = 1, ..., T, for j = 1, ..., n
     * Use the Viterbi algorithm to find the output of the model on the $$i$$-th training sentence (the function `perc_test` in `perc.py` implements the Viterbi algorithm)
-    <p>$$ z_{[1:n]} = \arg\max_{u_{[1:n]} \in {\cal T}^{n_i}} \sum_s w_s \Phi_s(w_{[1:n_i]}^{(i)}, u_{[1:n_i]}) $$</p>
-    * $${\cal T}^{n_i}$$ is the set of all tag sequences of length $$n_i$$.
-    * If $$z_{[1:n]} \neq t_{[1:n]}^{(i)}$$ then update the weight vector:
-        <p>$$w_s = w_s + \Phi_s(w_{[1:n_i]}^{(i)}, t_{[1:n_i]}^{(i)}) - \Phi_s(w_{[1:n_i]}^{(i)}, z_{[1:n_i]})$$</p>
+    <p>$$ z_{[1:n]} = \arg\max_{u_{[1:n]} \in {\cal T}^{n_j}} \sum_s w_s \Phi_s(w_{[1:n_j]}^{(j)}, u_{[1:n_j]}) $$</p>
+    * $${\cal T}^{n_j}$$ is the set of all tag sequences of length $$n_j$$.
+    * If $$z_{[1:n]} \neq t_{[1:n]}^{(j)}$$ then update the weight vector:
+        <p>$$w_s = w_s + \Phi_s(w_{[1:n_j]}^{(j)}, t_{[1:n_j]}^{(j)}) - \Phi_s(w_{[1:n_j]}^{(j)}, z_{[1:n_j]})$$</p>
 * return **w**
 {: .list-unstyled}
 ---
