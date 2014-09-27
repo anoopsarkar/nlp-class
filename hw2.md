@@ -267,9 +267,20 @@ $$\Phi$$
 * return **w**
 {: .list-unstyled}
 
+The weight vector update step rewards the features that occur in
+the reference and penalizes any features that appear in the
+$$\arg\max$$ that do not appear in the reference. Features that
+lead to incorrect output labels, e.g. $$w_i$$ is the word `the` and
+the output label is `B-VP`, will tend to get negative weights, and
+features that are observed in the reference will tend to get positive
+weights.
+
 The algorithm is described in much greater detail in the following paper:
 
-> Michael Collins. [Discriminative Training Methods for Hidden Markov Models: Theory and Experiments with Perceptron Algorithms](http://www.cs.columbia.edu/~mcollins/papers/tagperc.pdf). EMNLP 2002. 
+> Michael Collins. [Discriminative Training Methods for Hidden
+> Markov Models: Theory and Experiments with Perceptron
+> Algorithms](http://www.cs.columbia.edu/~mcollins/papers/tagperc.pdf). EMNLP
+> 2002.
 
 ---
 
