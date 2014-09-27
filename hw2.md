@@ -64,7 +64,8 @@ for noun phrase words and I-VP for verb phrase words.  Most chunk
 types have two types of chunk tags, B-CHUNK for the first word of
 the chunk and I-CHUNK for each other word in the chunk. See the
 Appendix below for a detailed description of the part-of-speech
-tags and the chunk tags in this data set.
+tags and the chunk tags in this data set. The full set of tags
+for this task is in the file `data/tagset.txt`.
 
 The sequence of labels, `B-NP`, ..., `I-NP` represents a single
 phrasal chunk. For instance, the following sequence of labels:
@@ -287,6 +288,15 @@ than epoch t-1. We stop before the number of mistakes is zero
 because there might be examples in the training data that can
 never be correctly predicted.
 
+The $$\arg\max$$ computation above explores all $$S^{n_j}$$ output
+label sequences in the set $${\cal T}^{n_j}$$, where $$S$$ is the
+total number of output labels (provided in `data/tagset.txt`).  If
+this $$\arg\max$$ search is done naively it will take exponential
+time. However, the Viterbi algorithm, which is given to you as the
+function `perc_test` in `perc.py`, is a dynamic programming algorithm
+that computes the $$\arg\max$$ in $${\cal O}(S^2 n_j)$$ time (for
+bigram features on output labels).
+
 The algorithm and the theory behind it is described in much greater
 detail in the following paper:
 
@@ -294,6 +304,21 @@ detail in the following paper:
 > Markov Models: Theory and Experiments with Perceptron
 > Algorithms](http://www.aclweb.org/anthology/W/W02/W02-1001.pdf). EMNLP
 > 2002.
+
+You will find that training using the perceptron can be very
+compute intensive and time consuming. To help with speedier
+development, you can reduce the value of `T` to 1. Also,
+the following files contain the sentences and features
+for a small training data set:
+
+    data/train.dev
+    data/train.feats.dev
+
+Also, when testing your model you can run on a smaller
+subset of the input test data:
+
+    data/small.test
+    data/small.test.feats
 
 ---
 
