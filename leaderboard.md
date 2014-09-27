@@ -27,10 +27,10 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
       <th class="text-right">
         <a href="hw1.html">#1</a><br/><span class="small text-muted">Segment</span>
       </th>
-<!---
       <th class="text-right">
-        <a href="hw2.html">#2</a><br/><span class="small text-muted">Model score</span>
+        <a href="hw2.html">#2</a><br/><span class="small text-muted">Chunk</span>
       </th>
+<!---
       <th class="text-right">
         <a href="hw3.html">#3</a><br/><span class="small text-muted">Accuracy</span>
       </th>

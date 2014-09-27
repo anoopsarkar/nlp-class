@@ -1,8 +1,8 @@
 // The current assignment number (0-indexed)
-var assignment_number = 1;
+var assignment_number = 2;
 
 // The maximum assignment number (0-indexed)
-var max_assignment_number = 1;
+var max_assignment_number = 2;
 
 var rows = "";
 var scoreranks = new Array();
@@ -11,7 +11,7 @@ for (i = 0; i < data.length; i++) {
     if (hidden_users[user]) {
         continue;
     }
-    if (user != 'default' && data[i][2] == "-inf") {
+    if (user != 'default' && data[i][3] == "-inf") {
         continue;
     }
 
