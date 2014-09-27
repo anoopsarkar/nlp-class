@@ -18,7 +18,7 @@ non-recursive syntactic groups of words. For example, the sentence:
 
 > He reckons the current account deficit will narrow to only # 1.8 billion in September .
 
-can be divided into phrasal chunks as follows:
+can be divided into phrasal chunks as follows[^1]:
 
 > [NP <span style="color: DarkBlue">He</span>] 
 [VP <span style="color: BlueViolet">reckons</span>] 
@@ -28,6 +28,8 @@ can be divided into phrasal chunks as follows:
 [NP <span style="color: DarkBlue">only # 1.8 billion</span>] 
 [PP <span style="color: red">in</span>] 
 [NP <span style="color: DarkBlue">September</span>] .
+
+[^1]: *Caveat*: If you have a linguistic background, you might find the verb phrases `VP` and prepositional phrases `PP` are different from what you might be used to. In this task, the `VP` is a verb and verb modifiers like auxiliaries (`were`) or modals (`might`), and the `PP` simply contains the preposition. This difference is because of the fact that the chunks are non-recursive (cannot contain other phrases) -- we need trees for full syntax.
 
 Data set
 --------
@@ -82,8 +84,9 @@ gives us the NP phrase:
 The O chunk tag is used for tokens which are not part of any chunk.
 
 The data set comes from the Conference on Natural Language Learning:
-[CoNLL 2000 shared task](http://www.cnts.ua.ac.be/conll2000/chunking/)
-(see Appendix for more details).
+[CoNLL 2000 shared task](http://www.cnts.ua.ac.be/conll2000/chunking/)[^2].
+
+[^2]: [Introduction to the CoNLL-2000 Shared Task: Chunking](http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf)
 
 Getting Started 
 ---------------
@@ -490,8 +493,4 @@ bigram `B` feature: `B-NP/I-NP` which is a feature that the trainer
 should penalize because it is incorrect.  The trainer should also
 reward the correct bigram feature `B-VP/B-NP`.
 
-### Data Set
-
-Official Description
-: [Introduction to the CoNLL-2000 Shared Task: Chunking](http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf)
 
