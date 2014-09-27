@@ -296,7 +296,9 @@ challenge. To get full credit you **must** experiment with at least
 one additional model of your choice and document your work. Here
 are some ideas:
 
-* Use the averaged perceptron algorithm. Read [Collins 2002](http://www.aclweb.org/anthology/W/W02/W02-1001.pdf) and for more detailed pseudo-code see [Sarkar 2011](http://www.cs.sfu.ca/~anoop/papers/pdf/syntax-parsing-survey-2011.pdf) (page 36 and the more efficient version in page 38).
+* Use the averaged perceptron algorithm. 
+    * First read [Collins 2002](http://www.aclweb.org/anthology/W/W02/W02-1001.pdf).
+    * For more detailed pseudo-code see [Sarkar 2011](http://www.cs.sfu.ca/~anoop/papers/pdf/syntax-parsing-survey-2011.pdf) (page 36 and the more efficient version in page 38).
 * Use [different data representations](http://www.cs.sfu.ca/~anoop/papers/pdf/ai05.pdf) for chunking.
 * Use [a Margin Infused perceptron algorithm](http://jmlr.csail.mit.edu/papers/v7/crammer06a.html).
 * Use a [Conditional Random Field](http://aclweb.org/anthology/N/N03/N03-1028.pdf) aka CRF.
