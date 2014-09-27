@@ -211,8 +211,13 @@ is called a feature function: $$\phi_s(h, t)$$ where there
 are $$d$$ feature functions, $$s = 1, \ldots, d$$. 
 For instance, one such feature function might be:
 
-> If $$w_i$$ is the word `the` and $$t$$ is `DT` return 0
-> else return 1
+> If $$w_i$$ is the word `the` and $$t$$ is `B-NP` return 1
+> else return 0
+
+Another feature function might look at the previous output label:
+
+> If $$t_{-1}$$ is the label `B-NP` and $$t$$ is `I-NP` return 1
+> else return 0
 
 From these local feature vectors we can create a feature vector
 for the entire sentence:
