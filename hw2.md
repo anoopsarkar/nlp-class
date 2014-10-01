@@ -245,7 +245,7 @@ as the feature vector for each tagging decision, $$\phi$$.
 : sentences with output labels: $$(w_{[1:n_j]}^{(j)}, t_{[1:n_j]}^{(j)})$$ 
 
 `T`
-: number of iterations over the training set. `opts.n` in `default.py`
+: number of epochs; in each epoch we iterate over all examples in the training set. `opts.numepochs` in `default.py`
 
 $$\phi$$
 : function that maps history/output-label pairs to $$d$$-dimensional feature vectors. $$\phi$$ for each history is provided in `data/train.feats.gz`
