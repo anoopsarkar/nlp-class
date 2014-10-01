@@ -2,7 +2,7 @@
 # make handout=yes TARGET
 
 .PHONY: all clean
-TARGETS=prob.pdf lm.pdf
+TARGETS=prob.pdf lm.pdf hmm.pdf
 handout=yes
 
 all: $(TARGETS)
