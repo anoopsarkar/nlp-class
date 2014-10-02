@@ -281,15 +281,6 @@ the output label is `B-VP`, will tend to get negative weights, and
 features that are observed in the reference will tend to get positive
 weights.
 
-Try to write the following difference:
-
-<p>$$\Phi_s(w_{[1:n_j]}^{(j)}, t_{[1:n_j]}^{(j)}) - \Phi_s(w_{[1:n_j]}^{(j)}, z_{[1:n_j]})$$</p>
-
-in terms of the sum over $$\sum_{i=1}^{n_j} \phi_s(h_i, t_i)$$ and notice that
-depending on the differences in output labels between $$t_{[1:n_j]}^{(j)}$$ and $$z_{[1:n_j]}$$
-different $$s$$ dimensions in the weight vector will updated for the $$\arg\max$$ labels 
-versus the truth labels.
-
 An [example feature vector update](https://gist.github.com/anoopsarkar/0b8d0d6ab2f9e257afb8)
 might be helpful to check how the update happens for each sentence in the training data set.
 
