@@ -253,7 +253,7 @@ The task: for a given observation sequence find the most likely state sequence.
 \item For input of length $T$: $o_1, \ldots, o_T$, we want to find the sequence of states $s_1, \ldots, s_T$
 \item Each $s_t$ in this sequence is one of the states in the HMM.
 \item So the task is to find the most likely sequence of states:
-\[ \argmax_{s_1, \ldots, s_T} P(o_1, \ldots, o_T, s_1, \ldots, s_T) \]
+\[ \arg\max_{s_1, \ldots, s_T} P(o_1, \ldots, o_T, s_1, \ldots, s_T) \]
 \item The Viterbi algorithm solves this by creating a table $V[s,t]$ where $s$ is one of the states, and $t$ is an index between $1, \ldots, T$.
 \end{itemize}
 \end{frame}
@@ -266,9 +266,9 @@ The task: for a given observation sequence find the most likely state sequence.
 \begin{itemize}[<+->]
 \item Consider the input {\it killer crazy clown problem}
 \item So the task is to find the most likely sequence of states:
-\[ \argmax_{s_1, s_2, s_3, s_4} P(\textit{killer crazy clown problem}, s_1, s_2, s_3, s_4) \]
+\[ \arg\max_{s_1, s_2, s_3, s_4} P(\textit{killer crazy clown problem}, s_1, s_2, s_3, s_4) \]
 \item A sub-problem is to find the most likely sequence of states for {\it killer crazy clown}:
-\[ \argmax_{s_1, s_2, s_3} P(\textit{killer crazy clown}, s_1, s_2, s_3) \]
+\[ \arg\max_{s_1, s_2, s_3} P(\textit{killer crazy clown}, s_1, s_2, s_3) \]
 \end{itemize}
 \end{frame}
 
@@ -1076,7 +1076,7 @@ x4: crazy clown
 \item Unlike the fully observed case there is no simple solution to finding $\theta$ to maximize $L(\theta)$
 \item We instead initialize $\theta$ to some values, and then iteratively find better values of $\theta$: $\theta^0, \theta^1, \ldots$ using the following formula:
 \begin{eqnarray*}
-\theta^t &=& \argmax_\theta Q(\theta, \theta^{t-1})\\
+\theta^t &=& \arg\max_\theta Q(\theta, \theta^{t-1})\\
 &=& \sum_{\ell=1}^m \sum_y P(y \mid x_\ell, \theta^{t-1}) \cdot \log P(x_\ell, y \mid \theta) 
 \end{eqnarray*}
 \end{itemize}
@@ -1085,7 +1085,7 @@ x4: crazy clown
 \begin{frame}
 \frametitle{Learning from Unlabeled Data}
 \begin{eqnarray*}
-\theta^t &=& \argmax_\theta Q(\theta, \theta^{t-1})\\
+\theta^t &=& \arg\max_\theta Q(\theta, \theta^{t-1})\\
 Q(\theta, \theta^{t-1}) &=& \sum_{\ell=1}^m \sum_y P(y \mid x_\ell, \theta^{t-1}) \cdot {\color{blue} \log P(x_\ell, y \mid \theta)} \\
 &=& \sum_{\ell=1}^m \sum_y P(y \mid x_\ell, \theta^{t-1}) \cdot \\
 && \left( {\color{blue}  \sum_i f(i, x_\ell, y) \cdot \log \pi_i } \right. \\
@@ -1102,7 +1102,7 @@ g(i,j,x_\ell) &=& \sum_y P(y \mid x_\ell, \theta^{t-1}) \cdot f(i, j, x_\ell, y)
 g(i,o,x_\ell) &=& \sum_y P(y \mid x_\ell, \theta^{t-1}) \cdot f(i, o, x_\ell, y)
 \end{eqnarray*}
 \begin{eqnarray*}
-\theta^t & = & \argmax_{\pi,a,b} \sum_{\ell=1}^m \sum_i g(i,x_\ell) \cdot \log \pi_i \\
+\theta^t & = & \arg\max_{\pi,a,b} \sum_{\ell=1}^m \sum_i g(i,x_\ell) \cdot \log \pi_i \\
 && + \sum_{i,j} g(i,j,x_\ell) \cdot \log a_{i,j} \\
 && + \sum_{i,o} g(i,o,x_\ell) \cdot \log b_j(o)
 \end{eqnarray*}
@@ -1130,7 +1130,7 @@ b_i(o) & = & \frac{\sum_\ell g(i,o,x_\ell)}{\sum_\ell \sum_{o' \in V} g(i,o',x_\
 \item The EM Algorithm:
 \begin{itemize}[<+->]
 \item E-step: compute expected values of $y$, $P(y \mid x, \theta)$ and calculate $g(i,x), g(i,j,x), g(i,o,x)$
-\item M-step: compute $\theta^{t} = \argmax_\theta Q(\theta, \theta^{t-1})$
+\item M-step: compute $\theta^{t} = \arg\max_\theta Q(\theta, \theta^{t-1})$
 \item Stop if $L(\theta^t)$ did not change much since last iteration. Else continue.
 \end{itemize}
 \item The above algorithm is guaranteed to improve likelihood of the unlabeled data.

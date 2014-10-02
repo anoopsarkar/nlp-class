@@ -84,3 +84,22 @@ past:
         title: "One Billion Word Benchmark for Measuring Progress in Statistical Language Modeling"
         url: http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/41880.pdf
         optional: true
+  -
+    date: 2014-09-25
+    title: Homework 2 release
+    slides: hw2.html
+    reading:
+      - author: Erik F. Tjong Kim Sang and Sabine Buchholz
+        title: "Introduction to the CoNLL-2000 Shared Task: Chunking"
+        url: http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf
+        optional: false
+  -
+    date: 2014-09-30
+    title: Hidden Markov Models (parts one to three)
+    slides: assets/slides/hmm.pdf
+    reading:
+      - author: Michael Collins
+        title: "Hidden Markov Models"
+        url: http://www.cs.columbia.edu/~mcollins/hmms-spring2013.pdf
+        download: assets/mcollins-notes/hmms-spring2013.pdf
+        optional: false
