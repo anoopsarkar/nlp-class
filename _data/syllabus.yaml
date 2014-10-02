@@ -5,10 +5,10 @@ past:
     reading:
       - author: Rick Rashid
         title: "Speech Recognition Breakthrough for the Spoken, Translated Word"
-        url: https://www.youtube.com/watch?v=Nu-nlQqFCKg
+        video: https://www.youtube.com/watch?v=Nu-nlQqFCKg
         optional: false
       - title: "IBM Watson competes in Jeopardy!"
-        url: https://www.youtube.com/watch?v=lI-M7O_bRNg
+        video: https://www.youtube.com/watch?v=lI-M7O_bRNg
         optional: true
   -
     date: 2014-09-04

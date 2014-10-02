@@ -37,7 +37,6 @@ active_tab: syllabus
             <li>
             {% if reading.optional %}<i class="fa-li fa fa-star"> </i>
             {% else %}<i class="fa-li fa"> </i> {% endif %}
-            {% if reading.author %} {{ reading.author }}, {% endif %}
             {% if reading.url %}
             <a href="{{ reading.url }}">{{ reading.title }}</a>
             {% elsif reading.video %}
@@ -45,6 +44,7 @@ active_tab: syllabus
             {% else %}
             {{ reading.title }} 
             {% endif %}
+            {% if reading.author %} ({{ reading.author }}) {% endif %}
             {% if reading.download %} 
             <a href="{{ reading.download }}"><span class="glyphicon glyphicon-save"> </span></a> 
             {% endif %}
