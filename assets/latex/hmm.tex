@@ -118,6 +118,7 @@ $\vdots$ & & 7 labels
 \[ p(x,y) = p(x) p(y \mid x) \]
 \end{itemize}
 \end{block}
+\pause
 \begin{block}{Bayes Rule:}
 \[ p(y \mid x) = \frac{ p(y) p(x \mid y) }{ p(x) } \]
 \end{block}
@@ -444,6 +445,49 @@ N & \hspace{0pt}\uncover<3>{0.225} & \hspace{0pt}\uncover<5>{0} & \hspace{0pt}\u
 }
 \end{frame}
 
+\begin{frame}
+\frametitle{Probability models of language}
+\centering
+\begin{alertblock}{Question}
+\begin{columns}[c]
+\column{0.5in}
+\[ \pi = \begin{array}{|l|l|}
+\hline
+V & 0.25 \\ \hline
+N & 0.75 \\ \hline
+\end{array}
+\]
+\column{0.65in}
+\[ a = \begin{array}{|l|l|l|}
+\hline
+a_{i,j} & V & N \\ \hline
+V & 0.5 & 0.5 \\ \hline
+N & 0.5 & 0.5 \\ \hline
+\end{array}
+\]
+\end{columns}
+\begin{columns}[c]
+\column{3in}
+\[ b = \begin{array}{|l|l|l|l|}
+\hline
+b_i(o) & time & flies & can \\ \hline
+V & 0.1 & 0.1 & 0.8 \\ \hline
+N & 0.5 & 0.4 & 0.1 \\ \hline
+\end{array}
+\]
+\end{columns}
+\end{alertblock}
+\begin{block}{}
+What is the best sequence of tags for each string below:
+\begin{enumerate}
+\item \textit{time}
+\item \textit{time flies}
+\item \textit{time flies can}
+\end{enumerate}
+
+\end{block}
+
+\end{frame}
 
 \lecture{HMM as a Language Model}{}
 
