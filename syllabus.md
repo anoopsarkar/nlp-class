@@ -40,10 +40,14 @@ active_tab: syllabus
             {% if reading.author %} {{ reading.author }}, {% endif %}
             {% if reading.url %}
             <a href="{{ reading.url }}">{{ reading.title }}</a>
+            {% elsif reading.video %}
+            <span class="glyphicon glyphicon-film"> </span> <a href="{{ reading.video }}">{{ reading.title }}</a>
             {% else %}
             {{ reading.title }} 
             {% endif %}
-            {% if reading.download %} <a href="{{ reading.download }}"><span class="glyphicon glyphicon-save"> </span></a> {% endif %}
+            {% if reading.download %} 
+            <a href="{{ reading.download }}"><span class="glyphicon glyphicon-save"> </span></a> 
+            {% endif %}
             </li>
           {% endfor %}
           </ul>
