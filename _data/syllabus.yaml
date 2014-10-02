@@ -103,3 +103,36 @@ past:
         url: http://www.cs.columbia.edu/~mcollins/hmms-spring2013.pdf
         download: assets/mcollins-notes/hmms-spring2013.pdf
         optional: false
+      - author: Anoop Sarkar
+        title: "Introduction to Hidden Markov Models"
+        url: http://youtu.be/D9TvSfkcN-8 
+        optional: true
+      - author: Anoop Sarkar
+        title: "N-grams versus HMMs"
+        url: http://youtu.be/sxziC8Zh8Kw
+        optional: true
+      - author: Anoop Sarkar
+        title: "Parsing with HMMs"
+        url: http://youtu.be/0OQIBTWqjFY
+        optional: true
+      - author: Anoop Sarkar
+        title: "Viterbi algorithm for HMMs"
+        url: http://youtu.be/TymbVHmJWQ8
+        optional: true
+  -
+    date: 2014-10-02
+    title: Hidden Markov Models (parts three to five)
+    slides: assets/slides/hmm.pdf
+    reading:
+      - author: Anoop Sarkar
+        title: "Language models and HMMs"
+        url: http://youtu.be/dxEQeUd4JBs
+        optional: true
+      - author: Anoop Sarkar
+        title: "Supervised learning of HMMs"
+        url: http://youtu.be/0dp3Digvfcw
+        optional: true
+      - author: Anoop Sarkar
+        title: "Lagrange multipliers for HMM parameter updates"
+        url: http://youtu.be/ZUcb_UJK1UM
+        optional: true
