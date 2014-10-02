@@ -106,19 +106,19 @@ past:
       - author: Anoop Sarkar
         title: "Introduction to Hidden Markov Models"
         video: http://youtu.be/D9TvSfkcN-8 
-        optional: true
+        optional: false
       - author: Anoop Sarkar
         title: "N-grams versus HMMs"
         video: http://youtu.be/sxziC8Zh8Kw
-        optional: true
+        optional: false
       - author: Anoop Sarkar
         title: "Parsing with HMMs"
         video: http://youtu.be/0OQIBTWqjFY
-        optional: true
+        optional: false
       - author: Anoop Sarkar
         title: "Viterbi algorithm for HMMs"
         video: http://youtu.be/TymbVHmJWQ8
-        optional: true
+        optional: false
   -
     date: 2014-10-02
     title: Hidden Markov Models (parts three to five)
@@ -127,12 +127,12 @@ past:
       - author: Anoop Sarkar
         title: "Language models and HMMs"
         video: http://youtu.be/dxEQeUd4JBs
-        optional: true
+        optional: false
       - author: Anoop Sarkar
         title: "Supervised learning of HMMs"
         video: http://youtu.be/0dp3Digvfcw
-        optional: true
+        optional: false
       - author: Anoop Sarkar
         title: "Lagrange multipliers for HMM parameter updates"
         video: http://youtu.be/ZUcb_UJK1UM
-        optional: true
+        optional: false
