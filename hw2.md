@@ -437,11 +437,11 @@ This section explains the format of data in the `*.feats.gz` files.
 
 Consider a fragment of the example sentence from the introduction:
 
-    He PRP B-NP
+    He      PRP B-NP
     reckons VBZ B-VP
-    the DT B-NP
-    current JJ I-NP
-    account NN I-NP
+    the     DT  B-NP
+    current JJ  I-NP
+    account NN  I-NP
 
 Let us consider generating features for the 3rd word in this sentence, `the DT B-NP`.
 This word is assigned an index of `0`. The word before, `reckons` is assigned a relative 
@@ -484,6 +484,23 @@ by a slash `/`. For instance, `%x[i,j]/%x[i,j]` is a bigram feature schema.
 | B | %y[-1]/%y[0] | `FEAT B` |
 {: .table}
 
+To construct a feature function we have to combine the feature,
+e.g. `U02:the` with the output label. For example, for the above
+fragment let us add a new column for the $$\arg\max$$ output.
+
+    He      PRP B-NP B-PP
+    reckons VBZ B-VP B-NP
+    the     DT  B-NP I-NP
+    current JJ  I-NP B-NP
+    account NN  I-NP I-NP
+
+The feature function for `U02:the` for the output label `I-NP` is
+`(U02:the, I-NP)` and for the true label `B-NP` the feature function
+is `(U02:the, B-NP)`. The perceptron will add one to the weight
+vector for the feature function `(U02:the, B-NP)` and delete one
+for the feature function `(U02:the, I-NP)`. In cases were the output
+label matches the truth the update to the weight is zero.
+
 The last feature `B` which stands for the bigram feature over output
 labels is not spelled out in the `.feats.gz` files because this
 feature has all pairs of output labels and the computation of the
@@ -491,11 +508,12 @@ $$\arg\max$$ is needed to tell us which `B` feature obtained the
 highest score and if it was different from the pair of output labels
 in the reference chunks.
 
-For example, the Viterbi algorithm in `perc.py` could produce the
-output label `I-NP` for the word `the` and the output label `B-NP`
-for the previous word `reckons`. Thus, the decoder has produced a
-bigram `B` feature: `B-NP/I-NP` which is a feature that the trainer
-should penalize because it is incorrect.  The trainer should also
-reward the correct bigram feature `B-VP/B-NP`.
+For example, the Viterbi algorithm in `perc.py` in the above example
+produced the output label `I-NP` for the word `the` and the output
+label `B-NP` for the previous word `reckons`. Thus, the decoder has
+produced a bigram `B` feature function: `(B-NP, I-NP)` which is a
+feature that the trainer should penalize because it is incorrect.
+The trainer should also reward the correct bigram feature `(B-VP,
+B-NP)`.
 
 
