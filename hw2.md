@@ -513,7 +513,7 @@ produced the output label `I-NP` for the word `the` and the output
 label `B-NP` for the previous word `reckons`. Thus, the decoder has
 produced a bigram `B` feature function: `(B-NP, I-NP)` which is a
 feature that the trainer should penalize because it is incorrect.
-The trainer should also reward the correct bigram feature `(B-VP,
-B-NP)`.
+The trainer should also reward the correct bigram feature function
+`(B-VP, B-NP)`.
 
 
