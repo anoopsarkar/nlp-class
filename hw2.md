@@ -498,7 +498,7 @@ The feature function for `U02:the` for the output label `I-NP` is
 `(U02:the, I-NP)` and for the true label `B-NP` the feature function
 is `(U02:the, B-NP)`. The perceptron will add one to the weight
 vector for the feature function `(U02:the, B-NP)` and delete one
-for the feature function `(U02:the, I-NP)`. In cases were the output
+for the feature function `(U02:the, I-NP)`. In cases where the output
 label matches the truth the update to the weight is zero.
 
 The last feature `B` which stands for the bigram feature over output
