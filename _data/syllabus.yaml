@@ -136,3 +136,13 @@ past:
         title: "Lagrange multipliers for HMM parameter updates"
         video: http://youtu.be/ZUcb_UJK1UM
         optional: false
+  -
+    date: 2014-10-07
+    title: Linear models (parts one and two)
+    slides: assets/slides/linearmodels.pdf
+    reading:
+      - author: Michael Collins
+        title: "Log-linear models, MEMMs and CRFs"
+        url: http://www.cs.columbia.edu/~mcollins/crf.pdf
+        download: assets/mcollins-notes/crf.pdf
+        optional: false
