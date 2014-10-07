@@ -2,7 +2,7 @@
 \begin{document}
 \input{titlepage.tex}
 
-\lecture{Linear models for Classification and Tagging}{}
+\lecture{Classification tasks in NLP}{}
 
 \section{Classification tasks in NLP}
 \frame{\tableofcontents[currentsection]}
@@ -382,5 +382,62 @@ For \= each iteration $t$ \\
 %\item $\beta_j = \textrm{log} \alpha_j$, $f_0(1,b) = 1$ and $f_j(1,b) = x_j$
 %\end{itemize} 
 %\end{frame} 
+
+\lecture{Linear models for Tagging}{}
+
+\section{Tagging tasks in NLP}
+\frame{\tableofcontents[currentsection]}
+\newcommand{\postag}[1]{{\color{red}/#1}}
+\newcommand{\nertag}[1]{{\color{blue}/#1}}
+
+\begin{frame}
+\frametitle{Tagging Tasks}
+\begin{block}{Tagged Sequences}
+a b e e a f h j $\Rightarrow$ a\postag{Y} b\postag{Z} e\postag{Y} e\postag{Y} a\postag{Z} f\postag{X} h\postag{Z} j\postag{Y}
+\end{block}
+\pause
+\begin{alertblock}{Example 1: Part-of-speech tagging}
+Profits\postag{N} soared\postag{V} at\postag{P} Boeing\postag{N} Co.\postag{N} ,\postag{,} easily\postag{ADV} topping\postag{V} forecasts\postag{N} on\postag{P} Wall\postag{N} Street\postag{N} ,\postag{,} as\postag{P} their\postag{POSS} CEO\postag{N} Alan\postag{N} Mulally\postag{N} announced\postag{V} first\postag{ADJ} quarter\postag{N} results\postags{N} .\postag{.}
+\end{alertblock}
+\pause
+\begin{alertblock}{Example 2: Named Entity Recognition}
+Profits\postag{O} soared\postag{O} at\postag{O} Boeing\nertag{B-CO} Co.\nertag{I-CO} ,\postag{O} easily\postag{O} topping\postag{O} forecasts\postag{O} on\postag{O} Wall\nertag{B-LOC} Street\nertag{I-LOC} ,\postag{O} as\postag{O} their\postag{O} CEO\postag{O} Alan\nertag{B-PER} Mulally\nertag{I-PER} announced\postag{O} first\postag{O} quarter\postag{O} results\postags{O} .\postag{O}
+\end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Notation for Tagging Tasks}
+\begin{itemize}[<+->]
+\item Set of possible input words: ${\cal V}$
+\item Set of possible tags: ${\cal T}$
+\item Tag sequence: $t_{[1:n]} = [t_1, \ldots, t_n]$
+\item Training data is $N$ tagged sentences, the $i^{th}$ sentence has length $n_i$:
+\[ (w_{[1:n]}^{(i)}, t_{[1:n]}^{(i)}) \textrm{ for } i = 1, \ldots, n \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Independence Assumptions for Tagging}
+\begin{block}{Chain Rule}
+\[ P( t_{[1:n]} \mid w_{[1:n]}) = \pause \prod_{j=1}^n P(t_j \mid t_{j-1}, \ldots, t_1, w_{[1:n]}, j) \]
+\end{block}
+\pause
+\begin{block}{Make independence assumptions}
+\[ P( t_{[1:n]} \mid w_{[1:n]}) \approx \pause \prod_{j=1}^n P(t_j \mid t_{j-1}, w_{[1:n]}, j) \]
+\centering {\small $j$ is the word being tagged}
+\end{block}
+\pause
+\begin{block}{Questions}
+\begin{itemize}
+\item Split up $P(t_j \mid t_{j-1}, w_{[1:n]}, j)$ into parameters?
+\item How to find $\arg\max_{t_{[1:n]}} P( t_{[1:n]} \mid w_{[1:n]})$?
+\end{itemize}
+
+\end{block}
+
+\end{frame}
+
+\input{acknowledgements.tex}
 
 \end{document}
