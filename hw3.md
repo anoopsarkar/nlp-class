@@ -89,13 +89,6 @@ coefficient for each pair of words $$e_i, f_j$$ is:
 The default aligner will align any word pair $$e_i, f_j$$ with a coefficient $$\delta(i,j)$$ over 0.5. 
 You can experiment with different thresholds using `-t`.
 
-Just like `default.py` your code should implement at least the following command line arguments:
-
-    -p DIR/PREFIX   prefix for parallel data, Defaults: DIR=data PREFIX=hansards
-    -f suffix       suffix of the source language data, Default: fr (French)
-    -e suffix       suffix of the target language data, Default: en (English)
-    -n NUMBER       number of training examples to use, Default: n = sys.maxint (use all training examples)
-
 The Challenge
 -------------
 
@@ -113,9 +106,12 @@ N$$ sentence pairs that are known to be translation pairs:
 <p>$${\cal D} = \{ (\textbf{f}^{(1)}, \textbf{e}^{(1)}), \ldots,
 (\textbf{f}^{(N)}, \textbf{e}^{(N)}) \}$$</p>
 
-    python your-trainer.py -m model
-    python perc.py -m model > output
-    python score-chunks.py -t output
+Just like `default.py` your code should implement at least the following command line arguments:
+
+    -p DIR/PREFIX   prefix for parallel data, Defaults: DIR=data PREFIX=hansards
+    -f suffix       suffix of the source language data, Default: fr (French)
+    -e suffix       suffix of the target language data, Default: en (English)
+    -n NUMBER       number of training examples to use, Default: n = sys.maxint (use all training examples)
 
 You will upload the file `output` to the leaderboard submission
 site at [sfu-nlp-class.appspot.com](http://sfu-nlp-class.appspot.com/).
@@ -182,11 +178,17 @@ for each French word $$f_i$$ and English word $$e_j$$ as follows:
 <p>$$t_k(f_i \mid e_j) = \sum_{s=1}^N \sum_{(f_i, e_j) \in (\textbf{f}^{(s)}, \textbf{e}^{(s)})} \frac{ \textrm{count}(f_i, e_j, \textbf{f}^{(s)}, \textbf{e}^{(s)}) }{ \textrm{count}(e_j, \textbf{f}^{(s)}) }$$</p>
 
 These counts are *expected counts* over all possible alignments,
-and each alignment has a probability computed using $$t_{k-1}$$:
+and each alignment has a probability computed using $$t_{k-1}$$.
+Using maximum likelihood, each alignment between $$f_i$$ and $$e_j$$
+is the number of times we observe an alignment between $$f_i$$ and
+$$e_j$$ times the probability of that alignment divided by the total
+of all other alignments to other French words observed for $$e_j$$
+times the probability of each of those alignments.
 
 <p>$$
 \begin{eqnarray*}
 \textrm{count}(f_i, e_j, \textbf{f}, \textbf{e}) & = & \frac{ t_{k-1}(f_i \mid e_j) }{ \Pr(\textbf{f} \mid \textbf{e}, t_{k-1}) } \\
+& = & \frac{ t_{k-1}(f_i \mid e_j) }{ \sum_{a_i=1}^J t_{k-1}(f_i \mid e_{a_i}) } \\
 \textrm{count}(e_j, \textbf{f}) & = & \sum_{f \in \textbf{f}} \textrm{count}(f, e_j)
 \end{eqnarray*}
 $$</p>
@@ -228,10 +230,10 @@ most practitioners simply iterate over the training data for 3 to
 {: .list-unstyled}
 ---
 
-Initializing uniformly means that every English word is equally
-likely for every French word: for all $${e,f}$$ we initialize $$t_0(e
-\mid f) = \frac{1}{V_f}$$ where $$V_f$$ is the French vocabulary
-size. 
+Initializing uniformly means that every French word is equally
+likely for every English word: for all $${e,f}$$ we initialize
+$$t_0(f \mid e) = \frac{1}{V_e}$$ where $$V_e$$ is the English
+vocabulary size.
 
 #### Decoding: compute the $$\arg\max$$ word alignment
 
