@@ -149,7 +149,7 @@ alignment to be:
 In this simple model, we allow any alignment function that maps any
 word in the source sentence to any word in the target sentence (no
 matter how far apart they are). The alignments are not provided to
-us, so we remove the alignments by summing over them:
+us, so we remove the alignments by summing over them[^2]:
 
 <p>$$
 \begin{eqnarray*}
@@ -157,9 +157,11 @@ us, so we remove the alignments by summing over them:
 & = & \sum_{a_0=1}^J \cdots \sum_{a_I=1}^J  \prod_{i=1}^I t(f_i \mid e_{a_i}) \\
 && \textrm{(this computes all possible alignments)} \\
 & = & \prod_{j=1}^J \sum_{i=1}^I t(f_i \mid e_j) \\
-&& \textrm{(after conversion of $I^J$ terms into $I \cdot J$ terms)}
+&& \textrm{(after conversion of $J^I$ terms into $I \cdot J$ terms)}
 \end{eqnarray*}
 $$</p>
+
+[^2]: For each assignment of $$a_i$$ which is a sum over $$J$$ terms we have to do $$I$$ multiplications, so the total number of terms is $$J^I$$. However, if you allow assignment of $$a_i$$ to $$0$$ (alignment to *null*) then the number of terms is $$(J+1)^I$$.
 
 We wish to learn the parameters $$t(\cdot \mid \cdot)$$ that maximize
 the log-likelihood of the training data:
