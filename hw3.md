@@ -227,8 +227,8 @@ is given below.
 
 Initializing uniformly means that every French word is equally
 likely for every English word: for all $${e,f}$$ we initialize
-$$t_0(f \mid e) = \frac{1}{V_e}$$ where $$V_e$$ is the English
-vocabulary size.
+$$t_0(f \mid e) = \frac{1}{V_f}$$ where $$V_f$$ is the French
+vocabulary size. This ensures that $$\sum_f t(f \mid e) = 1$$.
 
 #### Convergence
 
