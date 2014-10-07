@@ -18,8 +18,8 @@ corpus. For example, we might have the following sentence pair
 from the Canadian Hansards (the published proceedings of the
 Canadian parliament):
 
-    le droit de permis passe donc de $ 25 à $ 500 .
-    we see the licence fee going up from $ 25 to $ 500 .
+    monsieur le Orateur , ma question se adresse à le ministre chargé de les transports .
+    Mr. Speaker , my question is directed to the Minister of Transport .
 
 Your task is to find the alignments between the words between
 the two languages. For example, given the sentence pair
@@ -27,29 +27,25 @@ above, your program should output a word alignment in the
 following format that uses the word indices from the two
 languages:
 
-<!--
-% 0 le 1 droit 2 de 3 permis 4 passe 5 donc 6 de 7 \$ 8 25 9 \`a 10 \$ 11 500 12 . \\
-% 0 we 1 see 2 the 3 licence 4 fee 5 going 6 up 7 from 8 \$ 9 25 10 to 11 \$ 12 500 13 .
--->
-
-    0-2 1-4 3-3 4-5 4-6 5-7 7-8 8-9 9-10 10-11 11-12 12-13
+    0-0 2-1 3-2 4-3 5-4 6-5 7-6 8-7 9-8 10-9 12-10 14-11 15-12
 
 This corresponds to an alignment of the words shown in the following table:
 
-| 0 `le` | 2 `the` |
-| 1 `droit` | 4 `fee` |
-| 2 `de` | |
-| 3 `permis` | 3 `license` |
-| 4 `passe` | 5 `going` |
-| 4 `passe` | 6 `up` |
-| 5 `donc` | 7 `from` |
-| 6 `de` | |
-| 7 `$` | 8 `$` |
-| 8 `25` | 9 `25` |
-| 9 `à` | 10 `to` |
-| 10 `$` | 11 `$` |
-| 11 `500` | 12 `500` |
-| 12 `.` | 13 `.` |
+| 0 `monsieur`    | 0 `Mr.` |
+| 1 `le`          | |
+| 2 `Orateur`     | 1 `Speaker` |
+| 3 `,`           | 2 `,` |
+| 4 `ma`          | 3 `my` |
+| 5 `question`    | 4 `question` |
+| 6 `se`          | 5 `is` |
+| 7 `adresse`     | 6 `directed` |
+| 8 `à`           | 7 `to` |
+| 9 `le`          | 8 `the` |
+| 10 `ministre`   | 9 `Minister` |
+| 11 `chargé`     | |
+| 12 `de`         | 10 `of` |
+| 14 `transports` | 11 `Transport` |
+| 15 `.`          | 12 `.` |
 {: .table}
 
 Getting Started 
@@ -339,4 +335,33 @@ Lopez](http://cs.jhu.edu/~alopez/) based on an original homework
 developed by [Philipp Koehn](http://homepages.inf.ed.ac.uk/pkoehn/)
 and later modified by [John DeNero](http://www.denero.org/). It
 incorporates some ideas from [Chris Dyer](http://www.cs.cmu.edu/~cdyer).
+
+<!--
+    le droit de permis passe donc de $ 25 à $ 500 .
+    we see the licence fee going up from $ 25 to $ 500 .
+-->
+
+<!--
+% 0 le 1 droit 2 de 3 permis 4 passe 5 donc 6 de 7 \$ 8 25 9 \`a 10 \$ 11 500 12 . \\
+% 0 we 1 see 2 the 3 licence 4 fee 5 going 6 up 7 from 8 \$ 9 25 10 to 11 \$ 12 500 13 .
+    0-2 1-4 3-3 4-5 4-6 5-7 7-8 8-9 9-10 10-11 11-12 12-13
+-->
+
+<!--
+| 0 `le` | 2 `the` |
+| 1 `droit` | 4 `fee` |
+| 2 `de` | |
+| 3 `permis` | 3 `license` |
+| 4 `passe` | 5 `going` |
+| 4 `passe` | 6 `up` |
+| 5 `donc` | 7 `from` |
+| 6 `de` | |
+| 7 `$` | 8 `$` |
+| 8 `25` | 9 `25` |
+| 9 `à` | 10 `to` |
+| 10 `$` | 11 `$` |
+| 11 `500` | 12 `500` |
+| 12 `.` | 13 `.` |
+{: .table}
+-->
 
