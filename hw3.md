@@ -118,7 +118,7 @@ site at [sfu-nlp-class.appspot.com](http://sfu-nlp-class.appspot.com/).
 
 ### The Baseline
 
-#### Training the word alignment model
+#### The word alignment model
 
 The baseline model is a simple model that uses a *word-to-word* or
 *lexical* translation model. It has only one set of parameters: a
@@ -170,6 +170,8 @@ the log-likelihood of the training data:
 <p>$$ L(t) = \arg\max_{t} \sum_s \log \Pr(\mathbf{f}^{(s)} \mid
 \mathbf{e}^{(s)}, t) $$</p>
 
+#### Training the model
+
 In order to estimate the parameters $$t(\cdot \mid \cdot)$$
 we start with an initial estimate $$t_0$$ and modify it iteratively
 to get $$t_1, t_2, \ldots$$. The parameter updates are derived
@@ -193,7 +195,43 @@ times the probability of each of those alignments.
 \end{eqnarray*}
 $$</p>
 
-Pseudo-code for training the above model is given below.
+The description of the training algorithm is very compressed here.
+You will have to work through the background reading below in order
+to fully understand the steps. Pseudo-code for the training algorithm
+is given below.
+
+##### Algorithm: Training a lexical word alignment model
+
+---
+
+* $$k$$ = 0
+* Initialize $$t_0$$ **## Easy choice: initialize uniformly ##**
+* repeat
+    * $$k$$ += 1
+    * Initialize all counts to zero
+    * for each $$(\textbf{f}, \textbf{e})$$ in $${\cal D}$$
+        * for each $$f_i$$ in $$\textbf{f}$$
+            * $$Z$$ = 0 **## Z commonly denotes a normalization term ##**
+            * for each $$e_j$$ in $$\textbf{e}$$
+                * $$Z$$ += $$t_{k-1}(f_i \mid e_j)$$
+            * for each $$e_j$$ in $$\textbf{e}$$
+                * `c` = $$ t_{k-1}(f_i \mid e_j) / Z $$
+                * count($$f_i$$, $$e_j$$) += `c`
+                * count($$e_j$$) += `c`
+    * for each ($$f$$, $$e$$) in count
+        * Set new parameters: $$t_k(f \mid e)$$ =  count($$f,e$$) / count($$e$$)
+* until convergence **## See below for convergence tests ##**
+{: .list-unstyled}
+---
+
+#### Initialization
+
+Initializing uniformly means that every French word is equally
+likely for every English word: for all $${e,f}$$ we initialize
+$$t_0(f \mid e) = \frac{1}{V_e}$$ where $$V_e$$ is the English
+vocabulary size.
+
+#### Convergence
 
 The theory behind this algorithm states that the iterative updates
 have the following property:
@@ -205,35 +243,6 @@ does not change much from the previous iteration (difference from
 previous iteration is less than $$10^{-4}$$, for example). However,
 most practitioners simply iterate over the training data for 3 to
 5 iterations.
-
-##### Algorithm: Training a lexical word alignment model
-
----
-
-* $$k$$ = 0
-* Initialize $$t_0$$ **## A common choice is to initialize uniformly ##**
-* repeat
-    * $$k$$ += 1
-    * Initialize all counts to zero
-    * for each $$(\textbf{f}, \textbf{e})$$ in $${\cal D}$$
-        * for each $$f_i$$ in $$\textbf{f}$$
-            * $$Z$$ = 0 **## Z is commonly used to denote the normalization term ##**
-            * for each $$e_j$$ in $$\textbf{e}$$
-                * $$Z$$ += $$t_{k-1}(f_i \mid e_j)$$
-            * for each $$e_j$$ in $$\textbf{e}$$
-                * `c` = $$ t_{k-1}(f_i \mid e_j) / Z $$
-                * count($$f_i$$, $$e_j$$) += `c`
-                * count($$e_j$$) += `c`
-    * for each ($$f$$, $$e$$) in count
-        * Set new parameters: $$t_k(f \mid e)$$ =  count($$f,e$$) / count($$e$$)
-* until convergence **## see above for convergence tests ##**
-{: .list-unstyled}
----
-
-Initializing uniformly means that every French word is equally
-likely for every English word: for all $${e,f}$$ we initialize
-$$t_0(f \mid e) = \frac{1}{V_e}$$ where $$V_e$$ is the English
-vocabulary size.
 
 #### Decoding: compute the $$\arg\max$$ word alignment
 
@@ -293,21 +302,21 @@ workbook:
 
 Developing an aligner using the simple alignment algorithms (described
 in the above pseudo-code) is good enough to get an alignment error
-rate (AER) that is close to the performance of the baseline system on the
-leaderboard.  But getting closer to the best known accuracy on this
-task, which is approximately AER of 18.6 using the data provided to you
-is a more interesting
-challenge. To get full credit you **must** experiment with at least
-one additional model of your choice and document your work. Here
-are some ideas:
+rate (AER) that is close to the performance of the baseline system
+on the leaderboard.  But getting closer to the best known accuracy
+on this task[^1] is a more interesting challenge. To get full credit
+you **must** experiment with at least one extension of the baseline
+and document your work. Here are some ideas:
 
-* There are [better ways to initialize the parameters](http://aclweb.org/anthology/P/P04/P04-1066.pdf) that lead to better alignments especially if you run only for 5 iterations.
+[^1]: The best known alignment error rate on this task using the data provided to you for French-English is around 19 and for German-English the best error rate is approximately 12.5 according to this [comparison of different alignment models](http://aclweb.org/anthology/P/P04/P04-1023.pdf).
+
 * There are better ways to find the best alignment:
     * Align using $$\Pr(\textbf{f} \mid \textbf{e})$$ and also align using $$\Pr(\textbf{e} \mid \textbf{f})$$, then decode the best alignment using each model independently and then report the alignments that are the intersection of these two alignment sets.
     * [Use the posterior probability to decode](http://aclweb.org/anthology/N/N06/N06-1014.pdf): $$\hat{a_i} = \arg\max_{a_i} \Pr(a_i \mid \textbf{f}, \textbf{e})$$
+* There are [better ways to initialize the parameters](http://aclweb.org/anthology/P/P04/P04-1066.pdf) that lead to better alignments especially if you run only for 5 iterations.
 
-But the sky's the limit! You are welcome to design your own model, as long 
-as you follow the ground rules:
+But the sky's the limit! You are welcome to design your own model,
+as long as you follow the ground rules:
 
 Ground Rules
 ------------
