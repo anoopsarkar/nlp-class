@@ -27,7 +27,7 @@ above, your program should output a word alignment in the
 following format that uses the word indices from the two
 languages:
 
-    0-0 2-1 3-2 4-3 5-4 6-5 7-6 8-7 9-8 10-9 12-10 14-11 15-12
+    0-0 2-1 3-2 4-3 5-4 7-6 8-7 9-8 10-9 12-10 14-11 15-12
 
 This corresponds to an alignment of the words shown in the following table:
 
@@ -37,7 +37,8 @@ This corresponds to an alignment of the words shown in the following table:
 | 3 `,`           | 2 `,` |
 | 4 `ma`          | 3 `my` |
 | 5 `question`    | 4 `question` |
-| 6 `se`          | 5 `is` |
+| 6 `se`          | |
+|                 | 5 `is` |
 | 7 `adresse`     | 6 `directed` |
 | 8 `à`           | 7 `to` |
 | 9 `le`          | 8 `the` |
