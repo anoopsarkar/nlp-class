@@ -52,7 +52,8 @@ This corresponds to an alignment of the words shown in the following table:
 Getting Started 
 ---------------
 
-You must have git and python (2.7) on your system to run the assignments.
+You must have git and python (2.7) on your system to run the
+assignments.
 
 If you have already cloned the `nlp-class-hw` repository,
 then do the following to get the files for Homework 3:
@@ -61,14 +62,17 @@ then do the following to get the files for Homework 3:
     cd nlp-class-hw
     git pull
 
-Or you can create a new directory that does a fresh clone of the repository:
+Or you can create a new directory that does a fresh clone of the
+repository:
 
     git clone https://github.com/anoopsarkar/nlp-class-hw.git
 
-In the `aligner` directory you will find several python programs that you will
-use for this assignment.
+In the `aligner` directory you will find several python programs
+and data sets that you will use for this assignment.  *Warning*:
+the size of the `aligner` directory is 51MB.
 
-`default.py` contains a default training algorithm for the alignment task. 
+`default.py` contains a default training algorithm for the alignment
+task.
 
     python default.py -m default.model
 
@@ -83,8 +87,9 @@ coefficient for each pair of words $$e_i, f_j$$ is:
 
 <p>$$ \delta(i,j) = \frac{2 \times C(e_i, f_j)}{C(e_i) +C(f_j)} $$</p>
 
-The default aligner will align any word pair $$e_i, f_j$$ with a coefficient $$\delta(i,j)$$ over 0.5. 
-You can experiment with different thresholds using `-t`.
+The default aligner will align any word pair $$e_i, f_j$$ with a
+coefficient $$\delta(i,j)$$ over 0.5.  You can experiment with
+different thresholds using `-t`.
 
 The Challenge
 -------------
@@ -103,15 +108,68 @@ N$$ sentence pairs that are known to be translation pairs:
 <p>$${\cal D} = \{ (\textbf{f}^{(1)}, \textbf{e}^{(1)}), \ldots,
 (\textbf{f}^{(N)}, \textbf{e}^{(N)}) \}$$</p>
 
-Just like `default.py` your code should implement at least the following command line arguments:
+There are two data sets provided to you. You will develop your
+aligner using French-English sentence pairs:
 
-    -p DIR/PREFIX   prefix for parallel data, Defaults: DIR=data PREFIX=hansards
-    -f suffix       suffix of the source language data, Default: fr (French)
-    -e suffix       suffix of the target language data, Default: en (English)
-    -n NUMBER       number of training examples to use, Default: n = sys.maxint (use all training examples)
+    data/hansards.fr
+    data/hansards.en
 
-You will upload the file `output` to the leaderboard submission
-site at [sfu-nlp-class.appspot.com](http://sfu-nlp-class.appspot.com/).
+Use the default Dice alignment to align the first 10,000 lines of
+the training data.
+
+    python default.py -n 10000 > dice.a
+
+You can check the validity of your alignment file:
+
+    python check-alignments.py -i dice.a
+
+Ignore the following warning:
+
+    WARNING:root:WARNING (check-alignments.py): bitext is longer than alignment
+
+Evaluate the output alignments against the reference French-English
+alignments:
+
+    python score-alignments.py -i dice.a
+
+You will see the precision, recall and the alignment error rate
+(AER) scores of your alignments. For precision and recall, the higher
+the better. For AER the lower the better.
+
+You can also do it all at once:
+
+    python default.py -n 10000 | python check-alignments.py | python score-alignments.py
+
+### The Leaderboard
+
+**Important: You need upload the alignments on German-English data
+to the leaderboard**
+
+In this homework, you will be developing your aligner on French-English
+data, but you will be uploading your alignment file for the provided
+German-English data. The German-English sentence pairs are in the
+files:
+
+    data/europarl.de
+    data/europarl.en
+
+To upload the alignment using `default.py`:
+
+    python default.py -p europarl -f de -n 10000 > output.a
+    head -1000 output.a > upload.a
+
+There is a size limit to your uploads to the leaderboard. Make sure
+you upload only the first 1000 lines of the alignment file to the 
+leaderboard.
+
+When you develop your own aligner called `your-aligner.py` you have
+to make sure you use the same command line arguments as `default.py`:
+
+    python your-aligner.py -p europarl -f de -n 10000 > output.a
+    head -1000 output.a > upload.a
+
+Then upload the file `upload.a` to the leaderboard for Homework 3
+on [sfu-nlp-class.appspot.com](https://sfu-nlp-class.appspot.com)
 
 ### The Baseline
 
@@ -322,10 +380,10 @@ Ground Rules
 
 * Each group should submit using one person as the designated uploader.
 * You must turn in three things:
-  1. Chunking output of the test dataset which is in `chunker/data/input.txt.gz` (this is the default input to `perc.py`) uploaded to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html). You can upload new output as often as you like, up until the assignment deadline. The Submit button for showing the test set scores will be unavailable until after the homework deadline and grace days have passed.  The output will be evaluated using a secret metric, but the `score-chunks.py` program will give you a good idea of how well you're doing.
-  1. Your code. Each group should assign one member to upload the source code to [Coursys](https://courses.cs.sfu.ca) as the submission for Homework 2. The code should be self-contained, self-documenting, and easy to use. It should use the same input and output assumptions of `default.py`.
+  1. The alignment of the first 1000 lines of the German-English data set uploaded to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) using the instructions given above. You can upload new output as often as you like, up until the assignment deadline. The Submit button for showing the test set scores will be unavailable until after the homework deadline and grace days have passed.  The German-English alignments will be evaluated for the leaderboard, but the `score-alignments.py` program on the French-English alignments will give you a good idea of how well you're doing.
+  1. Your code. Each group should assign one member to upload the source code to [Coursys](https://courses.cs.sfu.ca) as the submission for Homework 3. The code should be self-contained, self-documenting, and easy to use. It should use the same input and output assumptions of `default.py`.
   1. A clear, mathematical description of your algorithm and its motivation written in scientific style. This needn't be long, but it should be clear enough that one of your fellow students could re-implement it exactly. Include the file for this writeup as part of the tarball or zip file you will upload to [Coursys](https://courses.cs.sfu.ca). Include also how your group divided up the work load and each group member's contribution to the homework solution.
-* You cannot use data or code resources outside of what is provided to you. You can use NLTK but not the NLTK chunker implementation. 
+* You cannot use data or code resources outside of what is provided to you. You can use NLTK but not the NLTK aligner implementation. You cannot use any public implemenation of word alignment such as `GIZA++`, `fast_align`, or any other open source aligner.
 * For the written description of your algorithm, you can use plain ASCII but for math equations it is better to use either [latex](http://www.latex-project.org/) or [kramdown](https://github.com/gettalong/kramdown).  Do __not__ use any proprietary or binary file formats such as Microsoft Word.
 
 If you have any questions or you're confused about anything, just ask.
