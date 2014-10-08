@@ -372,6 +372,7 @@ and document your work. Here are some ideas:
     * Align using $$\Pr(\textbf{f} \mid \textbf{e})$$ and also align using $$\Pr(\textbf{e} \mid \textbf{f})$$, then decode the best alignment using each model independently and then report the alignments that are the intersection of these two alignment sets.
     * [Use the posterior probability to decode](http://aclweb.org/anthology/N/N06/N06-1014.pdf): $$\hat{a_i} = \arg\max_{a_i} \Pr(a_i \mid \textbf{f}, \textbf{e})$$
 * There are [better ways to initialize the parameters](http://aclweb.org/anthology/P/P04/P04-1066.pdf) that lead to better alignments especially if you run only for 5 iterations.
+* Implement a [HMM-based alignment model](http://aclweb.org/anthology/C/C96/C96-2141.pdf).
 * Implement the more sophisticated alignment models from the [Statistical MT Tutorial Workbook](http://www.isi.edu/natural-language/mt/wkbk.pdf).
 
 But the sky's the limit! You are welcome to design your own model,
