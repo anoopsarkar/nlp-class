@@ -229,9 +229,10 @@ Profits\postag{O} soared\postag{O} at\postag{O} Boeing\nertag{B-CO} Co.\nertag{I
 \begin{itemize}[<+->]
 \item Set of possible input words: ${\cal V}$
 \item Set of possible tags: ${\cal T}$
+\item Word sequence: $x_{[1:n]} = [x_1, \ldots, x_n]$
 \item Tag sequence: $t_{[1:n]} = [t_1, \ldots, t_n]$
 \item Training data is $N$ tagged sentences, the $i^{th}$ sentence has length $n_i$:
-\[ (w_{[1:n]}^{(i)}, t_{[1:n]}^{(i)}) \textrm{ for } i = 1, \ldots, n \]
+\[ (x_{[1:n]}^{(i)}, t_{[1:n]}^{(i)}) \textrm{ for } i = 1, \ldots, n \]
 \end{itemize}
 \end{frame}
 
