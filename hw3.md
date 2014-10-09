@@ -123,6 +123,7 @@ You can check the validity of your alignment file:
 
     python check-alignments.py -i dice.a
 
+This will print out all the valid alignments in your input file.
 Ignore the following warning:
 
     WARNING:root:WARNING (check-alignments.py): bitext is longer than alignment
@@ -132,9 +133,41 @@ alignments:
 
     python score-alignments.py -i dice.a
 
-You will see the precision, recall and the alignment error rate
-(AER) scores of your alignments. For precision and recall, the higher
-the better. For AER the lower the better.
+You will see an ASCII-based graphical view of each alignment compared
+to the true alignment (guessed alignment versus sure and possible
+alignments from truth). At the end you will see the precision,
+recall and the alignment error rate (AER) scores of your alignments.
+For precision and recall, the higher the better. For AER the lower
+the better.
+
+     Alignment 8  KEY: ( ) = guessed, * = sure, ? = possible
+      ---------------------------------------
+     |(*)( )                                  | monsieur
+     |    ? ( )            ( )( )   ( )   ( ) | le
+     |    *                                   | Orateur
+     |      (*)            ( )( )   ( )   ( ) | ,
+     |          *                             | ma
+     |            (*)                         | question
+     |                ?  ?                    | se
+     |                ?  ?                    | adresse
+     |                     (*)( )   ( )   ( ) | à
+     |      ( )            ( )(*)   ( )   ( ) | le
+     |                           (*)          | ministre
+     |                                        | chargé
+     |      ( )            ( )( )   (*)   ( ) | de
+     |      ( )            ( )( )   (?) ? ( ) | les
+     |                                  *     | transports
+     |      ( )            ( )( )   ( )   (*) | .
+      ---------------------------------------
+       M  S  ,  m  q  i  d  t  t  M  o  T  . 
+       r  p     y  u  s  i  o  h  i  f  r    
+       .  e        e     r     e  n     a    
+          a        s     e        i     n    
+          k        t     c        s     s    
+          e        i     t        t     p    
+          r        o     e        e     o    
+                   n     d        r     r    
+                                        t    
 
 You can also do it all at once:
 
