@@ -66,18 +66,18 @@ Average Human (whole sentence) & 93.2 \\  \hline
 \frametitle{Back-off Smoothing}
 \begin{enumerate}
 \item<1-> If $f(v,n_1,p,n_2) > 0$ and $\hat{p} \neq 0.5$
-\[ \hat{p}(1 \mid  v,n_1,p,n_2) = \frac{ f(1,v,n_1,p,n_2) }{ f(v,n_1,p,n_2)
+\[ \hat{p}(n_1 \mid  v,n_1,p,n_2) = \frac{ f(n_1,v,n_1,p,n_2) }{ f(v,n_1,p,n_2)
 } \]
 \item<2-> Else if $f(v,n_1,p) + f(v,p,n_2) + f(n_1,p,n_2) > 0$ \\
 and $\hat{p} \neq 0.5$
-\[ \hat{p}(1 \mid  v,n_1,p,n_2) = \frac{ f(1,v,n_1,p) + f(1,v,p,n_2) +
-  f(1,n_1,p,n_2) }{ f(v,n_1,p) + f(v,p,n_2) + f(n_1,p,n_2) } \]
+\[ \hat{p}(n_1 \mid  v,n_1,p,n_2) = \frac{ f(n_1,v,n_1,p) + f(n_1,v,p,n_2) +
+  f(n_1,n_1,p,n_2) }{ f(v,n_1,p) + f(v,p,n_2) + f(n_1,p,n_2) } \]
 \item<3-> Else if $f(v,p) + f(n_1,p) + f(p,n_2) > 0$
-\[ \hat{p}(1 \mid  v,n_1,p,n_2) = \frac{ f(1,v,p) + f(1,n_1,p) +
-  f(1,p,n_2) }{ f(v,p) + f(n_1,p) + f(p,n_2) } \]
+\[ \hat{p}(n_1 \mid  v,n_1,p,n_2) = \frac{ f(n_1,v,p) + f(n_1,n_1,p) +
+  f(n_1,p,n_2) }{ f(v,p) + f(n_1,p) + f(p,n_2) } \]
 \item<4-> Else if $f(p) > 0$ 
-\[ \hat{p}(1 \mid  v,n_1,p,n_2) = \frac{ f(1,p) }{ f(p) } \]
-\item<5-> Else \( \hat{p}(1 \mid  v,n_1,p,n_2) = 1.0 \)
+\[ \hat{p}(n_1 \mid  v,n_1,p,n_2) = \frac{ f(n_1,p) }{ f(p) } \]
+\item<5-> Else \( \hat{p}(n_1 \mid  v,n_1,p,n_2) = 1.0 \)
 \end{enumerate}
 \end{frame}
 
@@ -98,55 +98,6 @@ use sophisticated smoothing model for PP attachment\\
   \end{itemize}
 \end{frame}
 
-\section{Probability models for Classification}
-\frame{\tableofcontents[currentsection]}
-
-\begin{frame}
-\frametitle{Probability Models}
-\begin{itemize}[<+->]
-\item $p(x,y)$: x = input, y = labels
-\item Pick best prob distribution $p(x,y)$ to fit the data
-\item Max likelihood of the data {\em according to the prob model} \\
-equivalent to minimizing entropy
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Probability Models}
-\begin{itemize}[<+->]
-\item Max likelihood of the data {\em according to the prob model}
-\item Equivalent to picking best parameter values $\theta$ such that
-  the data gets highest likelihood:\\
-\[ \textrm{max}_\theta p(\theta \mid \textrm{data} ) = \textrm{max}_\theta
-  p(\theta) \cdot p(\textrm{data} \mid \theta) \]
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Log probabilities v.s. scores}
-\begin{itemize}[<+->]
-\item $n$-grams: $\ldots + \textrm{log}\ p(w_8 \mid w_6, w_7) + \ldots$
-\item HMM: $\ldots + \textrm{log}\ p(t_5 \mid t_4) + \textrm{log}\ p(w_5 \mid t_5) + \ldots$
-\item Naive Bayes: $\textrm{log}\ p(\textrm{class}) +
-  \textrm{log}\ p(\textrm{feature}_1 \mid \textrm{class}) + \textrm{log}\ p(\textrm{feature}_2
-  \mid \textrm{class}) + \ldots$
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Advantages of probability models}
-\begin{itemize}[<+->]
-\item parameters can be estimated automatically, while scores have to
-  twiddled by hand
-\item parameters can be estimated from supervised or unsupervised data
-\item probabilities can be used to quantify confidence in a particular
-  state and used to compare against other probabilities in a strictly
-  comparable setting
-\item modularity: $p(semantics) \cdot p(syntax~\mid~semantics) \cdot$  \\
-$p(morphology~\mid~syntax) \cdot p(phonology~\mid~morphology) \cdot p(sounds~\mid~phonology)$
-\end{itemize}
-\end{frame}
-
 \lecture{Probabilistic Classifiers}{}
 
 \section{Naive Bayes Classifier}
@@ -160,102 +111,6 @@ $p(morphology~\mid~syntax) \cdot p(phonology~\mid~morphology) \cdot p(sounds~\mi
 \item $P(y \mid {\bf x}) = \frac{P(y) \cdot P({\bf x} \mid y)}{P({\bf x})}$ (Bayes Rule)
 \item $P({\bf x} \mid y) = \prod_{j=1}^{d} P(f_j  \mid y)$
 \item $P(y \mid {\bf x}) = P(y) \cdot  \prod_{j=1}^{d} P(f_j  \mid y)$
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Using Naive Bayes for Document Classification}
-\begin{itemize}[<+->]
-\item Spam text: {\tt Learn how to make \$38.99 into a money making machine that
-  pays ... \$7,000 / month !}
-\item Distinguish spam text from regular email text
-\item Find useful features to make this distinction
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Using Naive Bayes}
-\begin{itemize}[<+->]
-\item Useful features
-  \begin{enumerate}[<+->]
-  \item contains {\tt turn \$AMOUNT into }
-  \item contains {\tt \$AMOUNT}
-  \item contains {\tt Learn how to }
-  \item contains exclamation mark at end of sentence
-  \end{enumerate}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Using Naive Bayes}
-\begin{itemize}[<+->]
-\item how many times do these features occur?
-  \begin{enumerate}[<+->]
-  \item contains: {\tt turn \$AMOUNT into }\\
-    in spam text: $50$ \\
-    in normal email: $2$\\
-    i.e. 25x more likely in spam
-  \item contains: {\tt \$AMOUNT} \\
-    in spam text: $90$ \\
-    in normal email: $10$\\
-    i.e. 9x more likely in spam
-  \end{enumerate}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Using Naive Bayes}
-\begin{itemize}[<+->]
-\item How likely is it for {\em both} features to occur at the same time
-in a spam message?
-  \begin{enumerate}[<+->]
-  \item contains: {\tt turn \$AMOUNT into }
-  \item contains: {\tt \$AMOUNT}
-  \end{enumerate}
-\item Assume we have a new feature, contains: {\tt turn \$AMOUNT into} {\em and} {\tt \$AMOUNT}
-\item The model predicts that the event that both features occur
-  simultaneously has probability $\frac{140}{152} = 0.92$
-\item But Naive Bayes assumes that these features are independent
-and should occur with probability: $0.92 \cdot 0.9 = 0.864$
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Using Naive Bayes}
-\begin{itemize}[<+->]
-\item Naive Bayes needs overlapping but independent features
-\item How can we use all of the features we want?
-  \begin{enumerate}[<+->]
-  \item contains {\tt turn \$AMOUNT into }
-  \item contains {\tt \$AMOUNT}
-  \item contains {\tt Learn how to }
-  \item contains exclamation mark at end of sentence
-  \end{enumerate}
-\item how about giving each feature a weight $w$ equal to its log probability: $w = \log p(f, y)$
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Using Naive Bayes}
-\begin{itemize}[<+->]
-\item each feature gets a score equal to its log probability
-\item Assign scores to features:
-  \begin{enumerate}[<+->]
-  \item $w_1 = +1$ contains {\tt turn \$AMOUNT into }
-  \item $w_2 = +5$ contains {\tt \$AMOUNT}
-  \item $w_3 = +1$ contains {\tt Learn how to }
-  \item $w_4 = -2$ contains exclamation mark at end of sentence
-  \end{enumerate}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Using Naive Bayes}
-\begin{itemize}[<+->]
-\item so add the scores and treat it like a log probability
-\item $\textrm{log}\ p(\textit{spam} \mid \textit{feats}) = 4.2$
-\item but then, $p(\textit{spam} \mid \textit{feats}) = exp(4.2) = 66.68$
-\item how do we compute keep arbitrary scores and still get probabilities?
 \end{itemize}
 \end{frame}
 
@@ -346,43 +201,6 @@ For \= each iteration $t$ \\
 \small{cf. Goodman, NIPS '01}
 \end{frame} 
 
-%\begin{frame}
-%\frametitle{Maximum Entropy}
-%\begin{itemize}[<+->]
-%\item The log-linear model has an interpretation as a {\it maximum entropy} model.
-%\item For observed events, maximize likelihood. For unobserved events, from all
-%consistent models pick the one with maximum entropy.
-%\item The maximum entropy principle: related to Occam's razor and
-%  other similar justifications for scientific inquiry
-%\item Make the minimum possible assumptions about unseen data
-%\item Also: Laplace's {\em Principle of Insufficient Reason}: when one
-%  has no information to distinguish between the probability of two
-%  events, the best strategy is to consider them equally likely
-%\end{itemize}
-%\end{frame}
-
-%\begin{frame}
-%\frametitle{Logistic Regression}
-%\begin{itemize}
-%\item models effects of explanatory variables on binary valued
-%  variable
-%\item observations ${\bf x} = \{x_1, \ldots, x_j\}$ with success given
-%  by $q({\bf x})$: \[ q({\bf x}) = \frac{e^{g({\bf x})}}{1 + e^{g({\bf
-%  x})}} \] and \[ g({\bf x}) = \beta_0 + \sum_{j=1}^{k} \beta_j x_j \]
-%\end{itemize} 
-%\end{frame} 
-%
-%\begin{frame}
-%\frametitle{Logistic Regression}
-%\begin{itemize}
-%\item probability that observations lead to success, or $p(a=1 \mid
-%  b)$:
-% \[ p(a=1 \mid b) = \frac{e^{g(b)}}{1 + e^{g(b)}} \] where
-% \[ g(b) = \beta_0 f_0(1,b) + \sum_{j=1}^{k} \beta_j f_j(1,b) \]
-%\item $\beta_j = \textrm{log} \alpha_j$, $f_0(1,b) = 1$ and $f_j(1,b) = x_j$
-%\end{itemize} 
-%\end{frame} 
-
 \lecture{Linear models for Tagging}{}
 
 \section{Tagging tasks in NLP}
@@ -420,24 +238,218 @@ Profits\postag{O} soared\postag{O} at\postag{O} Boeing\nertag{B-CO} Co.\nertag{I
 \begin{frame}
 \frametitle{Independence Assumptions for Tagging}
 \begin{block}{Chain Rule}
-\[ P( t_{[1:n]} \mid w_{[1:n]}) = \pause \prod_{j=1}^n P(t_j \mid t_{j-1}, \ldots, t_1, w_{[1:n]}, j) \]
+\[ P( t_{[1:n]} \mid x_{[1:n]}) = \pause \prod_{j=1}^n P(t_j \mid t_{j-1}, \ldots, t_1, x_{[1:n]}, j) \]
 \end{block}
 \pause
 \begin{block}{Make independence assumptions}
-\[ P( t_{[1:n]} \mid w_{[1:n]}) \approx \pause \prod_{j=1}^n P(t_j \mid t_{j-1}, w_{[1:n]}, j) \]
+\[ P( t_{[1:n]} \mid x_{[1:n]}) \approx \pause \prod_{j=1}^n P(t_j \mid t_{j-1}, x_{[1:n]}, j) \]
 \centering {\small $j$ is the word being tagged}
 \end{block}
 \pause
 \begin{block}{Questions}
 \begin{itemize}
-\item Split up $P(t_j \mid t_{j-1}, w_{[1:n]}, j)$ into parameters?
-\item How to find $\arg\max_{t_{[1:n]}} P( t_{[1:n]} \mid w_{[1:n]})$?
+\item Split up $P(t_j \mid t_{j-1}, x_{[1:n]}, j)$ into parameters?
+\item How to find $\arg\max_{t_{[1:n]}} P( t_{[1:n]} \mid x_{[1:n]})$?
 \end{itemize}
-
 \end{block}
+\end{frame}
 
+\begin{frame}
+\frametitle{Representation: finding the right parameters}
+\begin{block}{Problem: Predict ?? using context, $P(?? \mid \texttt{context})$ }
+Profits\postag{N} soared\postag{V} at\postag{P} Boeing\postag{??} Co. , easily topping forecasts on Wall Street , as their CEO Alan Mulally announced first quarter results .
+\end{block}
+\pause
+\begin{block}{Representation: history}
+\begin{itemize}
+\item A history is a 3-tuple: $(t_{-1}, x_{[1:n]}, i)$
+\item $t_{-1}$ is the previous tag (we are assuming a bigram model)
+\item $x_{[1:n]}$ are the $n$ words in the input
+\item $i$ is the index of the word being tagged
+\item For example:
+    \begin{itemize}
+    \item $t_{-1}$ = P
+    \item $x_{[1:n]}$ = (Profits, soared, ..., results, .)
+    \item $i$ = 4
+    \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\newcommand{\featurefunction}[3]{%
+\[ f_{#1}(h,t) & = & \left\{
+\begin{array}{ll}
+1 & \textrm{if #2 and $t$ = #3 } \\
+0 & \textrm{otherwise}
+\end{array}
+\right.
+\]
+}
+
+\begin{frame}
+\frametitle{Feature-vectors over history-tag pairs}
+\begin{block}{Take a history,tag pair $(h,t)$}
+$f_k(h, t)$ for $k = 1, \ldots, m$ are \textbf{feature functions} representing the tagging decision.
+\end{block}
+\pause
+\begin{block}{Example: Part-of-speech tagging [Ratnaparkhi 1996]}
+\centering
+\featurefunction{100}{current word $x_i$ is \texttt{Boeing}}{\texttt{N}}
+\featurefunction{101}{$t_{-1}$ = \texttt{P}}{\texttt{N}}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Log linear model for Tagging}
+\begin{itemize}[<+->]
+\item Let there be $m$ features, $f_k(\textbf{x}, \textbf{y})$ for $k = 1, \ldots, m$
+\item $\textbf{x} = x_{[1:n]}$ and $\textbf{y} = t_{[1:n]}$
+\item Define a parameter vector $\textbf{w} \in \mathbb{R}^m$
+\item Each $(\textbf{x}, \textbf{y})$ pair is mapped to score:
+\[ s(\textbf{x}, \textbf{y}) = \sum_k w_k \cdot f_k(\textbf{x}, \textbf{y}) \]
+\item Using inner product notation:
+\begin{eqnarray*}
+\textbf{w} \cdot \textbf{f}(\textbf{x}, \textbf{y}) & = & \sum_k w_k \cdot f_k(\textbf{x}, \textbf{y}) \\
+s(\textbf{x}, y) & = & \textbf{w} \cdot \textbf{f}(\textbf{x}, \textbf{y}) 
+\end{eqnarray*}
+\item To get a probability from the score: Renormalize! 
+\[ \Pr(\textbf{y} \mid \textbf{x}, \textbf{w}) = \frac{exp\left(s(\textbf{x}, \textbf{y})\right)}{\sum_{\textbf{y'}} exp\left(s(\textbf{x}, \textbf{y'})\right)} \]
+\end{itemize}
 \end{frame}
 
 \input{acknowledgements.tex}
 
 \end{document}
+
+\begin{frame}
+\frametitle{Using Naive Bayes for Document Classification}
+\begin{itemize}[<+->]
+\item Spam text: {\tt Learn how to make \$38.99 into a money making machine that
+  pays ... \$7,000 / month !}
+\item Distinguish spam from email you want to read (ham)
+\item Find useful features to make this distinction
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Using Naive Bayes}
+\begin{itemize}[<+->]
+\item Useful features
+  \begin{enumerate}[<+->]
+  \item contains {\tt turn \$AMOUNT into }
+  \item contains {\tt \$AMOUNT}
+  \item contains {\tt Learn how to }
+  \item contains exclamation mark at end of sentence
+  \end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Using Naive Bayes}
+\begin{itemize}[<+->]
+\item how many times do these features occur?
+  \begin{enumerate}[<+->]
+  \item contains: {\tt turn \$AMOUNT into }\\
+    in spam text: $50$ \\
+    in normal email: $2$\\
+    i.e. 25x more likely in spam
+  \item contains: {\tt \$AMOUNT} \\
+    in spam text: $90$ \\
+    in normal email: $10$\\
+    i.e. 9x more likely in spam
+  \end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Using Naive Bayes}
+\begin{itemize}[<+->]
+\item How likely is it for {\em both} features to occur at the same time
+in a spam message?
+  \begin{enumerate}[<+->]
+  \item contains: {\tt turn \$AMOUNT into }
+  \item contains: {\tt \$AMOUNT}
+  \end{enumerate}
+\item Assume we have a new feature, contains: {\tt turn \$AMOUNT into} {\em and} {\tt \$AMOUNT}
+\item The model predicts that the event that both features occur
+  simultaneously has probability $\frac{140}{152} = 0.92$
+\item But Naive Bayes assumes that these features are independent
+and should occur with probability: $0.92 \cdot 0.9 = 0.864$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Using Naive Bayes}
+\begin{itemize}[<+->]
+\item Naive Bayes needs overlapping but independent features
+\item How can we use all of the features we want?
+  \begin{enumerate}[<+->]
+  \item contains {\tt turn \$AMOUNT into }
+  \item contains {\tt \$AMOUNT}
+  \item contains {\tt Learn how to }
+  \item contains exclamation mark at end of sentence
+  \end{enumerate}
+\item how about giving each feature a weight $w$ equal to its log probability: $w = \log p(f, y)$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Using Naive Bayes}
+\begin{itemize}[<+->]
+\item each feature gets a score equal to its log probability
+\item Assign scores to features:
+  \begin{enumerate}[<+->]
+  \item $w_1 = +1$ contains {\tt turn \$AMOUNT into }
+  \item $w_2 = +5$ contains {\tt \$AMOUNT}
+  \item $w_3 = +1$ contains {\tt Learn how to }
+  \item $w_4 = -2$ contains exclamation mark at end of sentence
+  \end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Using Naive Bayes}
+\begin{itemize}[<+->]
+\item so add the scores and treat it like a log probability
+\item $\textrm{log}\ p(\textit{spam} \mid \textit{feats}) = 4.2$
+\item but then, $p(\textit{spam} \mid \textit{feats}) = exp(4.2) = 66.68$
+\item how do we compute keep arbitrary scores and still get probabilities?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Maximum Entropy}
+\begin{itemize}[<+->]
+\item The log-linear model has an interpretation as a {\it maximum entropy} model.
+\item For observed events, maximize likelihood. For unobserved events, from all
+consistent models pick the one with maximum entropy.
+\item The maximum entropy principle: related to Occam's razor and
+  other similar justifications for scientific inquiry
+\item Make the minimum possible assumptions about unseen data
+\item Also: Laplace's {\em Principle of Insufficient Reason}: when one
+  has no information to distinguish between the probability of two
+  events, the best strategy is to consider them equally likely
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Logistic Regression}
+\begin{itemize}
+\item models effects of explanatory variables on binary valued
+  variable
+\item observations ${\bf x} = \{x_1, \ldots, x_j\}$ with success given
+  by $q({\bf x})$: \[ q({\bf x}) = \frac{e^{g({\bf x})}}{1 + e^{g({\bf
+  x})}} \] and \[ g({\bf x}) = \beta_0 + \sum_{j=1}^{k} \beta_j x_j \]
+\end{itemize} 
+\end{frame} 
+
+\begin{frame}
+\frametitle{Logistic Regression}
+\begin{itemize}
+\item probability that observations lead to success, or $p(a=1 \mid
+  b)$:
+ \[ p(a=1 \mid b) = \frac{e^{g(b)}}{1 + e^{g(b)}} \] where
+ \[ g(b) = \beta_0 f_0(1,b) + \sum_{j=1}^{k} \beta_j f_j(1,b) \]
+\item $\beta_j = \textrm{log} \alpha_j$, $f_0(1,b) = 1$ and $f_j(1,b) = x_j$
+\end{itemize} 
+\end{frame} 
