@@ -1,8 +1,8 @@
 // The current assignment number (0-indexed)
-var assignment_number = 2;
+var assignment_number = 3;
 
 // The maximum assignment number (0-indexed)
-var max_assignment_number = 2;
+var max_assignment_number = 3;
 
 var rows = "";
 var scoreranks = new Array();
