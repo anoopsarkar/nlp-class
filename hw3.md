@@ -333,8 +333,15 @@ have the following property:
 
 We can check for convergence by checking if the value of $$L(t)$$
 does not change much from the previous iteration (difference from
-previous iteration is less than $$10^{-4}$$, for example). However,
-most practitioners simply iterate over the training data for 3 to
+previous iteration is less than $$10^{-4}$$, for example).
+
+The objective for the baseline method, $$L(t)$$, can be shown to
+be an example of convex optimization, which means we are guaranteed
+to find the value of $$t$$ that maximizes $$L(t)$$ *in the limit*.
+However, this could mean hundreds or thousands of iterations for
+any given data set.
+
+Most practitioners simply iterate over the training data for 3 to
 5 iterations.
 
 #### Decoding: compute the $$\arg\max$$ word alignment
