@@ -267,7 +267,7 @@ we start with an initial estimate $$t_0$$ and modify it iteratively
 to get $$t_1, t_2, \ldots$$. The parameter updates are derived
 for each French word $$f_i$$ and English word $$e_j$$ as follows:
 
-<p>$$t_k(f_i \mid e_j) = \sum_{s=1}^N \sum_{(f_i, e_j) \in (\textbf{f}^{(s)}, \textbf{e}^{(s)})} \frac{ \textrm{count}(f_i, e_j, \textbf{f}^{(s)}, \textbf{e}^{(s)}) }{ \textrm{count}(e_j, \textbf{f}^{(s)}) }$$</p>
+<p>$$t_k(f_i \mid e_j) = \sum_{s=1}^N \sum_{(f_i, e_j) \in (\textbf{f}^{(s)}, \textbf{e}^{(s)})} \frac{ \textrm{count}(f_i, e_j, \textbf{f}^{(s)}, \textbf{e}^{(s)}) }{ \textrm{count}(e_j, \textbf{f}^{(s)}, \textbf{e}^{(s)}) }$$</p>
 
 These counts are *expected counts* over all possible alignments,
 and each alignment has a probability computed using $$t_{k-1}$$.
@@ -281,9 +281,12 @@ times the probability of each of those alignments.
 \begin{eqnarray*}
 \textrm{count}(f_i, e_j, \textbf{f}, \textbf{e}) & = & \frac{ t_{k-1}(f_i \mid e_j) }{ \Pr(\textbf{f} \mid \textbf{e}, t_{k-1}) } \\
 & = & \frac{ t_{k-1}(f_i \mid e_j) }{ \sum_{a_i=1}^J t_{k-1}(f_i \mid e_{a_i}) } \\
-\textrm{count}(e_j, \textbf{f}) & = & \sum_{f \in \textbf{f}} \textrm{count}(f, e_j)
+\textrm{count}(e_j, \textbf{f}, \textbf{e}) & = & \sum_{f} \textrm{count}(f, e_j, \textbf{f}, \textbf{e})
 \end{eqnarray*}
 $$</p>
+
+Note that to compute $$\textrm{count}(e, \textbf{f}, \textbf{e})$$
+we need to sum over all French words $$f$$ in the French vocabulary.
 
 The description of the training algorithm is very compressed here.
 You will have to work through the background reading below in order
