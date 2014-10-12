@@ -403,12 +403,14 @@ and document your work. Here are some ideas:
 
 [^1]: The best known alignment error rate on this task using the data provided to you for French-English is around 19 and for German-English the best error rate is approximately 12.5 according to this [comparison of different alignment models](http://aclweb.org/anthology/P/P04/P04-1023.pdf).
 
-* [Add *null* words to the source sentence](http://aclweb.org/anthology/P/P04/P04-1066.pdf).
 * There are better ways to find the best alignment:
     * Align using $$\Pr(\textbf{f} \mid \textbf{e})$$ and also align using $$\Pr(\textbf{e} \mid \textbf{f})$$, then decode the best alignment using each model independently and then report the alignments that are the intersection of these two alignment sets.
     * [Use the posterior probability to decode](http://aclweb.org/anthology/N/N06/N06-1014.pdf): $$\hat{a_i} = \arg\max_{a_i} \Pr(a_i \mid \textbf{f}, \textbf{e})$$
+* [Add *null* words to the source sentence](http://aclweb.org/anthology/P/P04/P04-1066.pdf).
 * There are [better ways to initialize the parameters](http://aclweb.org/anthology/P/P04/P04-1066.pdf) that lead to better alignments especially if you run only for 5 iterations.
 * Implement a [HMM-based alignment model](http://aclweb.org/anthology/C/C96/C96-2141.pdf).
+* Add part of speech tags to one language or both and use them, for example, to separate $$t( \textrm{usine} \mid \textrm{plant, N})$$ and $$t( \textrm{plante} \mid \textrm{plant, N})$$ from the alignment $$t( \textrm{planter} \mid \textrm{plant, V} )$$.
+* Add phrasal chunks to one language or both and reward alignments within phrasal chunks and/or penalize alignments across phrasal chunks.
 * Implement the more sophisticated alignment models from the [Statistical MT Tutorial Workbook](http://www.isi.edu/natural-language/mt/wkbk.pdf).
 
 But the sky's the limit! You are welcome to design your own model,
