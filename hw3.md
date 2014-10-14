@@ -230,7 +230,7 @@ t(f_i \mid e_{a_i})$$</p>
 
 Assume we have a three word French sentence ($$I = 3$$) sentence-aligned
 to a three word English sentence ($$J = 3$$).  If the alignment
-$$\textbf{a} = (1,3,2)$$, that is, $$a_0 = 0$$, $$a_1 = 3$$, and
+$$\textbf{a} = (1,3,2)$$, that is, $$a_1 = 1$$, $$a_2 = 3$$, and
 $$a_3 = 2$$ we can derive the probability of this sentence pair
 alignment to be:
 
@@ -281,12 +281,9 @@ times the probability of each of those alignments.
 \begin{eqnarray*}
 \textrm{count}(f_i, e_j, \textbf{f}, \textbf{e}) & = & \frac{ t_{k-1}(f_i \mid e_j) }{ \Pr(\textbf{f} \mid \textbf{e}, t_{k-1}) } \\
 & = & \frac{ t_{k-1}(f_i \mid e_j) }{ \sum_{a_i=1}^J t_{k-1}(f_i \mid e_{a_i}) } \\
-\textrm{count}(e_j, \textbf{f}, \textbf{e}) & = & \sum_{f} \textrm{count}(f, e_j, \textbf{f}, \textbf{e})
+\textrm{count}(e_j, \textbf{f}, \textbf{e}) & = & \sum_{i=1}^I \textrm{count}(f_i, e_j, \textbf{f}, \textbf{e})
 \end{eqnarray*}
 $$</p>
-
-Note that to compute $$\textrm{count}(e, \textbf{f}, \textbf{e})$$
-we need to sum over all French words $$f$$ in the French vocabulary.
 
 The description of the training algorithm is very compressed here.
 You will have to work through the background reading below in order

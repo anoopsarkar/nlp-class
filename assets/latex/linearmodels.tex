@@ -66,18 +66,27 @@ Average Human (whole sentence) & 93.2 \\  \hline
 \frametitle{Back-off Smoothing}
 \begin{enumerate}
 \item<1-> If $f(v,n_1,p,n_2) > 0$ and $\hat{p} \neq 0.5$
-\[ \hat{p}(n_1 \mid  v,n_1,p,n_2) = \frac{ f(n_1,v,n_1,p,n_2) }{ f(v,n_1,p,n_2)
+{\small
+\[ \hat{p}(a_{n_1} \mid  v,n_1,p,n_2) = \frac{ f(a_{n_1},v,n_1,p,n_2) }{ f(v,n_1,p,n_2)
 } \]
+}
 \item<2-> Else if $f(v,n_1,p) + f(v,p,n_2) + f(n_1,p,n_2) > 0$ \\
 and $\hat{p} \neq 0.5$
-\[ \hat{p}(n_1 \mid  v,n_1,p,n_2) = \frac{ f(n_1,v,n_1,p) + f(n_1,v,p,n_2) +
-  f(n_1,n_1,p,n_2) }{ f(v,n_1,p) + f(v,p,n_2) + f(n_1,p,n_2) } \]
+{\small
+\[ \hat{p}(a_{n_1} \mid  v,n_1,p,n_2) = \frac{ f(a_{n_1},v,n_1,p) + f(a_{n_1},v,p,n_2) +
+  f(a_{n_1},n_1,p,n_2) }{ f(v,n_1,p) + f(v,p,n_2) + f(n_1,p,n_2) } \]
+  }
 \item<3-> Else if $f(v,p) + f(n_1,p) + f(p,n_2) > 0$
-\[ \hat{p}(n_1 \mid  v,n_1,p,n_2) = \frac{ f(n_1,v,p) + f(n_1,n_1,p) +
-  f(n_1,p,n_2) }{ f(v,p) + f(n_1,p) + f(p,n_2) } \]
-\item<4-> Else if $f(p) > 0$ 
-\[ \hat{p}(n_1 \mid  v,n_1,p,n_2) = \frac{ f(n_1,p) }{ f(p) } \]
-\item<5-> Else \( \hat{p}(n_1 \mid  v,n_1,p,n_2) = 1.0 \)
+{\small
+\[ \hat{p}(a_{n_1} \mid  v,n_1,p,n_2) = \frac{ f(a_{n_1},v,p) + f(a_{n_1},n_1,p) +
+  f(a_{n_1},p,n_2) }{ f(v,p) + f(n_1,p) + f(p,n_2) } \]
+}
+\item<4-> Else if $f(p) > 0$ (try choosing attachment based on preposition alone)
+{\small
+\[ \hat{p}(a_{n_1} \mid  v,n_1,p,n_2) = \frac{ f(a_{n_1},p) }{ f(p) } \]
+}\item<5-> Else {\small
+\( \hat{p}(a_{n_1} \mid  v,n_1,p,n_2) = 1.0 \)
+}
 \end{enumerate}
 \end{frame}
 
@@ -244,7 +253,8 @@ Profits\postag{O} soared\postag{O} at\postag{O} Boeing\nertag{B-CO} Co.\nertag{I
 \pause
 \begin{block}{Make independence assumptions}
 \[ P( t_{[1:n]} \mid x_{[1:n]}) \approx \pause \prod_{j=1}^n P(t_j \mid t_{j-1}, x_{[1:n]}, j) \]
-\centering {\small $j$ is the word being tagged}
+\centering {\small $j$ is the word being tagged. }\\
+\centering {\color{red}\small We model the conditional probability directly: no Bayes Rule here. }
 \end{block}
 \pause
 \begin{block}{Questions}
@@ -254,6 +264,9 @@ Profits\postag{O} soared\postag{O} at\postag{O} Boeing\nertag{B-CO} Co.\nertag{I
 \end{itemize}
 \end{block}
 \end{frame}
+
+\section{Log-linear models for Tagging}
+\frame{\tableofcontents[currentsection]}
 
 \begin{frame}
 \frametitle{Representation: finding the right parameters}
@@ -267,7 +280,7 @@ Profits\postag{N} soared\postag{V} at\postag{P} Boeing\postag{??} Co. , easily t
 \item $t_{-1}$ is the previous tag (we are assuming a bigram model)
 \item $x_{[1:n]}$ are the $n$ words in the input
 \item $i$ is the index of the word being tagged
-\item For example:
+\item For example, for $x_4$ = Boeing:
     \begin{itemize}
     \item $t_{-1}$ = P
     \item $x_{[1:n]}$ = (Profits, soared, ..., results, .)
@@ -289,7 +302,7 @@ Profits\postag{N} soared\postag{V} at\postag{P} Boeing\postag{??} Co. , easily t
 
 \begin{frame}
 \frametitle{Feature-vectors over history-tag pairs}
-\begin{block}{Take a history,tag pair $(h,t)$}
+\begin{block}{Take a history, tag pair $(h,t)$}
 $f_k(h, t)$ for $k = 1, \ldots, m$ are \textbf{feature functions} representing the tagging decision.
 \end{block}
 \pause
@@ -311,112 +324,83 @@ $f_k(h, t)$ for $k = 1, \ldots, m$ are \textbf{feature functions} representing t
 \item Using inner product notation:
 \begin{eqnarray*}
 \textbf{w} \cdot \textbf{f}(\textbf{x}, \textbf{y}) & = & \sum_k w_k \cdot f_k(\textbf{x}, \textbf{y}) \\
-s(\textbf{x}, y) & = & \textbf{w} \cdot \textbf{f}(\textbf{x}, \textbf{y}) 
+s(\textbf{x}, \textbf{y}) & = & \textbf{w} \cdot \textbf{f}(\textbf{x}, \textbf{y}) 
 \end{eqnarray*}
 \item To get a probability from the score: Renormalize! 
 \[ \Pr(\textbf{y} \mid \textbf{x}, \textbf{w}) = \frac{exp\left(s(\textbf{x}, \textbf{y})\right)}{\sum_{\textbf{y'}} exp\left(s(\textbf{x}, \textbf{y'})\right)} \]
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{Feature functions for Tagging}
+\begin{block}{Problem}
+\begin{itemize}
+\item We have defined a log-linear model using feature functions: $\textbf{f(x,y)}$ 
+\item We have defined parameters using a history $h$ so feature functions are: $\textbf{f}(h, t)$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Locally normalized log-linear taggers}
+\begin{block}{Conditional Distribution over history, tag pair $(h,t)$}
+\[ \log \Pr(t \mid h) = \textbf{w} \cdot \textbf{f}(h, t) - log \sum_{t'} \exp \left( \textbf{w} \cdot \textbf{f}(h, t') \right) \]
+\begin{itemize}
+\item $\textbf{f}(h, t)$ is a vector of feature functions
+\item $\textbf{w}$ is the weight vector
+\end{itemize}
+\end{block}
+\pause
+\begin{block}{Local normalization for tagging}
+\begin{itemize}
+\item Word sequence: $x_{[1:n]}$ and tag sequence: $t_{[1:n]}$
+\item Histories $h_i = (t_{i-1}, x_{[1:n]}, i)$ 
+\end{itemize}
+\[ \log \Pr( t_{[1:n]} \mid x_{[1:n]} ) = \sum_{i=1}^n \log \Pr(t_i \mid h_i) \]
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Globally normalized log-linear taggers}
+\begin{block}{Global feature function $\mathbf{\Phi}(\textbf{x}, \textbf{y})$}
+\begin{itemize}
+\item Word sequence: $\textbf{x} = x_{[1:n]}$ and tag sequence: $\textbf{y} = t_{[1:n]}$
+\item From \textit{local} histories $h_i = (t_{i-1}, x_{[1:n]}, i)$ to global $\Phi$ values:
+\end{itemize}
+\[ \Phi_k(x_{[1:n]}, t_{[1:n]}) = \sum_{i=1}^n f_k(h_i, t_i) \]
+\begin{itemize}
+\item $\mathbf{\Phi}(\textbf{x}, \textbf{y}) = (\Phi_1, \Phi_2, \ldots, \Phi_m)$ is a \textit{global} feature vector
+\item $\textbf{w}$ is the weight vector for $\mathbf{\Phi}$
+\end{itemize}
+\end{block}
+\pause
+\begin{block}{Global normalization for tagging}
+\[ \log \Pr(\textbf{y} \mid \textbf{x}, \textbf{w}) = \textbf{w} \cdot \mathbf{\Phi}(\textbf{x}, \textbf{y}) - \log \sum_{\textbf{y'}} exp\left( \textbf{w} \cdot \mathbf{\Phi}(\textbf{x}, \textbf{y'}) \right) \]
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conditional Random Field}
+\begin{block}{Global normalization for tagging}
+\[ \log \Pr(\textbf{y} \mid \textbf{x}, \textbf{w}) = \textbf{w} \cdot \mathbf{\Phi}(\textbf{x}, \textbf{y}) - \log \sum_{\textbf{y'}} exp\left( \textbf{w} \cdot \mathbf{\Phi}(\textbf{x}, \textbf{y'}) \right) \]
+\begin{itemize}
+\item This model is also called a conditional random field (CRF)
+\end{itemize}
+\end{block}
+\pause
+\begin{block}{Algorithms for training and decoding}
+\begin{itemize}
+\item Global normalization could be expensive: requires sum over exponentially many terms $\textbf{y'}$
+\item Finding $\arg\max_{\textbf{y}} \log \Pr(\textbf{y} \mid \textbf{x})$ can be accomplished using the Viterbi algorithm.
+\item Training: finding the weight vector $\textbf{w}$ can be done using a variant of the Forward algorithm.
+\end{itemize}
+\end{block}
+\end{frame}
+
 \input{acknowledgements.tex}
 
 \end{document}
-
-\begin{frame}
-\frametitle{Using Naive Bayes for Document Classification}
-\begin{itemize}[<+->]
-\item Spam text: {\tt Learn how to make \$38.99 into a money making machine that
-  pays ... \$7,000 / month !}
-\item Distinguish spam from email you want to read (ham)
-\item Find useful features to make this distinction
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Using Naive Bayes}
-\begin{itemize}[<+->]
-\item Useful features
-  \begin{enumerate}[<+->]
-  \item contains {\tt turn \$AMOUNT into }
-  \item contains {\tt \$AMOUNT}
-  \item contains {\tt Learn how to }
-  \item contains exclamation mark at end of sentence
-  \end{enumerate}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Using Naive Bayes}
-\begin{itemize}[<+->]
-\item how many times do these features occur?
-  \begin{enumerate}[<+->]
-  \item contains: {\tt turn \$AMOUNT into }\\
-    in spam text: $50$ \\
-    in normal email: $2$\\
-    i.e. 25x more likely in spam
-  \item contains: {\tt \$AMOUNT} \\
-    in spam text: $90$ \\
-    in normal email: $10$\\
-    i.e. 9x more likely in spam
-  \end{enumerate}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Using Naive Bayes}
-\begin{itemize}[<+->]
-\item How likely is it for {\em both} features to occur at the same time
-in a spam message?
-  \begin{enumerate}[<+->]
-  \item contains: {\tt turn \$AMOUNT into }
-  \item contains: {\tt \$AMOUNT}
-  \end{enumerate}
-\item Assume we have a new feature, contains: {\tt turn \$AMOUNT into} {\em and} {\tt \$AMOUNT}
-\item The model predicts that the event that both features occur
-  simultaneously has probability $\frac{140}{152} = 0.92$
-\item But Naive Bayes assumes that these features are independent
-and should occur with probability: $0.92 \cdot 0.9 = 0.864$
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Using Naive Bayes}
-\begin{itemize}[<+->]
-\item Naive Bayes needs overlapping but independent features
-\item How can we use all of the features we want?
-  \begin{enumerate}[<+->]
-  \item contains {\tt turn \$AMOUNT into }
-  \item contains {\tt \$AMOUNT}
-  \item contains {\tt Learn how to }
-  \item contains exclamation mark at end of sentence
-  \end{enumerate}
-\item how about giving each feature a weight $w$ equal to its log probability: $w = \log p(f, y)$
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Using Naive Bayes}
-\begin{itemize}[<+->]
-\item each feature gets a score equal to its log probability
-\item Assign scores to features:
-  \begin{enumerate}[<+->]
-  \item $w_1 = +1$ contains {\tt turn \$AMOUNT into }
-  \item $w_2 = +5$ contains {\tt \$AMOUNT}
-  \item $w_3 = +1$ contains {\tt Learn how to }
-  \item $w_4 = -2$ contains exclamation mark at end of sentence
-  \end{enumerate}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Using Naive Bayes}
-\begin{itemize}[<+->]
-\item so add the scores and treat it like a log probability
-\item $\textrm{log}\ p(\textit{spam} \mid \textit{feats}) = 4.2$
-\item but then, $p(\textit{spam} \mid \textit{feats}) = exp(4.2) = 66.68$
-\item how do we compute keep arbitrary scores and still get probabilities?
-\end{itemize}
-\end{frame}
 
 \begin{frame}
 \frametitle{Maximum Entropy}
