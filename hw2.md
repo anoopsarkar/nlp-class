@@ -98,7 +98,7 @@ then do the following to get the files for Homework 2:
 
     # go to the directory where you did a git clone for HW1
     cd nlp-class-hw 
-    git pull
+    git pull origin master
 
 Or you can create a new directory that does a fresh clone of the repository:
 

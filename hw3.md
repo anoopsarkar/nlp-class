@@ -60,7 +60,7 @@ then do the following to get the files for Homework 3:
 
     # go to the directory where you did a git clone before
     cd nlp-class-hw
-    git pull
+    git pull origin master
 
 Or you can create a new directory that does a fresh clone of the
 repository:
