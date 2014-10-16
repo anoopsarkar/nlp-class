@@ -1,5 +1,6 @@
 \input{beamerpreamble.tex}
 \begin{document}
+
 \input{titlepage.tex}
 
 \lecture{Statistical Machine Translation}{}
@@ -225,17 +226,22 @@ as they were called in the 1993 paper.
 \end{block}
 \end{frame}
 
+\lecture{Generative Model of Word Alignment}{}
+
+\section{Generative Model of Word Alignment}
+\frame{\tableofcontents[currentsection]}
+
 \begin{frame}
 \frametitle{Generative Model of Word Alignment}
 \begin{block}{}
 \begin{itemize}
-\item \textbf{e}: Mary did not slap the green witch
-\item \textbf{f}: Maria no daba una botefada a la bruja verde
+\item English \textbf{e}: Mary did not slap the green witch
+\item ``French'' \textbf{f}: Maria no daba una botefada a la bruja verde
 \item Alignment \textbf{a}: $\{ 1, 3, 4, 4, 4, 5, 5, 7, 6 \}$ \\
 e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \end{itemize}
 \end{block}\pause
-\begin{block}{}
+\begin{block}{Visualizing alignment \textbf{a}}
 \begin{tikzpicture}
 \begin{scope}[start chain=going right,node distance=2mm]
 \def\ephr{0/{Mary},1/{did},2/{not},3/{slap},4/{the},5/{green},6/{witch}}
@@ -265,7 +271,40 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 
 \begin{frame}
 \frametitle{Generative Model of Word Alignment}
-\begin{block}{}
+\begin{block}{Data Set}
+\begin{itemize}[<+->]
+\item Data set ${\cal D}$ of $N$ sentences:
+\[ {\cal D} = \{ (\textbf{f}^{(1)}, \textbf{e}^{(1)}), \ldots, (\textbf{f}^{(N)}, \textbf{e}^{(N)}) \} \]
+\item French $\textbf{f}$: $( f_1, f_2, \ldots, f_I )$
+\item English $\textbf{e}$: $( e_1, e_2, \ldots, e_J )$
+\item Alignment $\textbf{a}$: $( a_1, a_2, \ldots, a_I )$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Generative Model of Word Alignment}
+\begin{block}{Find the best alignment for each translation pair}
+\[ \textbf{a}^\ast = \arg\max_{\textbf{a}} \Pr(\textbf{a} \mid \textbf{f}, \textbf{e}) \]
+\end{block}\pause
+\begin{block}{Chain rule revisited}
+\begin{eqnarray*}
+\Pr( \textbf{f}, \textbf{a} ) & = & \Pr(\textbf{f}) \Pr(\textbf{a} \mid \textbf{f}) \pause \\
+\Pr( \textbf{f}, \textbf{a} \mid \textbf{e} ) & = & \Pr(\textbf{f} \mid \textbf{e}) \Pr(\textbf{a} \mid \textbf{f}, \textbf{e}) 
+\end{eqnarray*}
+\end{block}
+\begin{block}{Alignment probability}
+\[ \Pr(\textbf{a} \mid \textbf{f}, \textbf{e}) = \frac{ \Pr( \textbf{f}, \textbf{a} \mid \textbf{e} ) }{ \Pr(\textbf{f} \mid \textbf{e}) } = \frac{ \Pr( \textbf{f}, \textbf{a} \mid \textbf{e} ) }{ \sum_{\textbf{a}} \Pr(\textbf{f}, \textbf{a} \mid \textbf{e}) } 
+\]
+\end{block}
+\end{frame}
+
+\subsection{Word Alignments: IBM Model 3}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 3}
+\begin{block}{Generative ``story'' for $P(\textbf{a} \mid \textbf{f}, \textbf{e})$}
 \begin{tikzpicture}
 \begin{scope}[start chain=going right,node distance=2mm]
 \def\fphr{0/{Mary},1/{did},2/{not},3/{slap},4/{the},5/{green},6/{witch}}
@@ -279,15 +318,15 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
   \node [on chain] (e\j) {\strut \element};
 \end{scope}
 
-\draw (k0) -- (e0);
-\draw (k2) -- (e1);
-\draw (k3) -- (e2);
-\draw (k3) -- (e3);
-\draw (k3) -- (e4);
-\draw (k4) -- (e5);
-\draw (k4) -- (e6);
-\draw (k5) -- (e7);
-\draw (k6) -- (e8);
+\draw[->] (k0) -- (e0);
+\draw[->] (k2) -- (e1);
+\draw[->] (k3) -- (e2);
+\draw[->] (k3) -- (e3);
+\draw[->] (k3) -- (e4);
+\draw[->] (k4) -- (e5);
+\draw[->] (k4) -- (e6);
+\draw[->] (k5) -- (e7);
+\draw[->] (k6) -- (e8);
 
 \pause 
 
@@ -297,15 +336,15 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
   \node [on chain] (s\j) {\strut \element};
 \end{scope}
 
-\draw (e0) -- (s0);
-\draw (e1) -- (s1);
-\draw (e2) -- (s2);
-\draw (e3) -- (s3);
-\draw (e4) -- (s4);
-\draw (e5) -- (s5);
-\draw (e6) -- (s6);
-\draw (e7) -- (s7);
-\draw (e8) -- (s8);
+\draw[->] (e0) -- (s0);
+\draw[->] (e1) -- (s1);
+\draw[->] (e2) -- (s2);
+\draw[->] (e3) -- (s3);
+\draw[->] (e4) -- (s4);
+\draw[->] (e5) -- (s5);
+\draw[->] (e6) -- (s6);
+\draw[->] (e7) -- (s7);
+\draw[->] (e8) -- (s8);
 
 \pause
 
@@ -315,31 +354,134 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
   \node [on chain] (r\j) {\strut \element};
 \end{scope}
 
-\draw (s0) -- (r0);
-\draw (s1) -- (r1);
-\draw (s2) -- (r2);
-\draw (s3) -- (r3);
-\draw (s4) -- (r4);
-\draw (s5) -- (r5);
-\draw (s6) -- (r6);
-\draw (s7) -- (r8);
-\draw (s8) -- (r7);
+\draw[->] (s0) -- (r0);
+\draw[->] (s1) -- (r1);
+\draw[->] (s2) -- (r2);
+\draw[->] (s3) -- (r3);
+\draw[->] (s4) -- (r4);
+\draw[->] (s5) -- (r5);
+\draw[->] (s6) -- (r6);
+\draw[->] (s7) -- (r8);
+\draw[->] (s8) -- (r7);
 
 \end{tikzpicture}
 \end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{Generative Model of Word Alignment}
-\begin{block}{Translation parameter}
-\[ t(f_i \mid e_j) : t(\textit{bruja} \mid \textit{witch}) \]
-\end{block}\pause
+\frametitle{Word Alignments: IBM Model 3}
 \begin{block}{Fertility parameter}
 \[ n(\phi_j \mid e_j) : n(3 \mid \textit{slap}) \]
+\end{block}\pause
+\begin{block}{Translation parameter}
+\[ t(f_i \mid e_j) : t(\textit{bruja} \mid \textit{witch}) \]
 \end{block}\pause
 \begin{block}{Distortion parameter}
 \[ d(f_{\textit{pos}} \mid e_{\textit{pos}}, I, J) : d(8 \mid 7, 8, 6) \]
 \end{block}
+\end{frame}
+
+\subsection{Word Alignments: IBM Model 1}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 1}
+\begin{block}{Alignment probability}
+\[ \Pr(\textbf{a} \mid \textbf{f}, \textbf{e}) = \frac{ \Pr( \textbf{f}, \textbf{a} \mid \textbf{e} ) }{ \sum_{\textbf{a}} \Pr(\textbf{f}, \textbf{a} \mid \textbf{e}) } 
+\]
+\end{block}\pause
+\begin{columns}[t]
+
+\begin{column}{\textwidth/2}
+\begin{block}{Example alignment}
+\begin{tikzpicture}
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus},3/{ist},4/{klein}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house},3/{is},4/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1) -- (e1);
+\draw (d2) -- (e2);
+\draw (d3) -- (e3);
+\draw (d4) -- (e4);
+
+\end{tikzpicture}
+\end{block}
+\end{column}\pause
+
+\begin{column}{\textwidth/2}
+\begin{block}{$\Pr(\textbf{f}, \textbf{a} \mid \textbf{e}) = \prod_{i=1}^I t(f_i \mid e_{a_i})$}
+\begin{eqnarray*}
+\lefteqn{\Pr( \textbf{f}, \textbf{a} \mid \textbf{e} ) =}\\
+&& t(\textrm{das} \mid \textrm{the}) \times \\
+&& t(\textrm{Haus} \mid \textrm{house}) \times \\
+&& t(\textrm{ist} \mid \textrm{is}) \times \\
+&& t(\textrm{klein} \mid \textrm{small})
+\end{eqnarray*}
+\end{block}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 1}
+\begin{block}{Sum over all alignments}
+\begin{eqnarray*}
+\sum_{\textbf{a}} \Pr(\textbf{f}, \textbf{a} \mid \textbf{e}) & = & 
+\sum_{a_1 = 1}^J \sum_{a_2 = 1}^J \ldots \sum_{a_I = 1}^J \prod_{i=1}^I t(f_i \mid e_{a_i}) 
+\end{eqnarray*}
+\end{block}\pause
+\begin{block}{Assume $(f_1, f_2, f_3)$ and $(e_1, e_2)$}
+\[ \sum_{a_1=1}^2 \sum_{a_2=1}^2 \sum_{a_3=1}^2 t(f_1 \mid e_{a_1}) \times t(f_2 \mid e_{a_2}) \times t(f_3 \mid e_{a_3}) \]
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 1}
+\begin{block}{Assume $(f_1, f_2, f_3)$ and $(e_1, e_2)$: $I=3$ and $J=2$}
+\[ \sum_{a_1=1}^2 \sum_{a_2=1}^2 \sum_{a_3=1}^2 t(f_1 \mid e_{a_1}) \times t(f_2 \mid e_{a_2}) \times t(f_3 \mid e_{a_3}) \]
+\end{block}
+\begin{block}{$J^I = 2^3$ terms to be added:}
+\[ 
+\begin{array}{cccccc}
+\color{red} t(f_1 \mid e_1) & \times & \color{red} t(f_2 \mid e_1) & \times & \color{red} t(f_3 \mid e_1) & + \\
+\color{red} t(f_1 \mid e_1) & \times & \color{red} t(f_2 \mid e_1) & \times & \color{red} t(f_3 \mid e_2) & + \\
+\color{blue} t(f_1 \mid e_1) & \times & \color{blue} t(f_2 \mid e_2) & \times & \color{blue} t(f_3 \mid e_1) & + \\
+\color{blue} t(f_1 \mid e_1) & \times & \color{blue} t(f_2 \mid e_2) & \times & \color{blue} t(f_3 \mid e_2) & + \\
+\color{red} t(f_1 \mid e_2) & \times & \color{red} t(f_2 \mid e_1) & \times & \color{red} t(f_3 \mid e_1) & + \\
+\color{red} t(f_1 \mid e_2) & \times & \color{red} t(f_2 \mid e_1) & \times & \color{red} t(f_3 \mid e_2) & + \\
+\color{blue} t(f_1 \mid e_2) & \times & \color{blue} t(f_2 \mid e_2) & \times & \color{blue} t(f_3 \mid e_1) & + \\
+\color{blue} t(f_1 \mid e_2) & \times & \color{blue} t(f_2 \mid e_2) & \times & \color{blue} t(f_3 \mid e_2) & + \\
+\end{array}
+\]
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 1}
+\begin{block}{Assume $(f_1, f_2, f_3)$ and $(e_1, e_2)$: $I=3$ and $J=2$}
+\[ \prod_{i=1}^3 \sum_{a_i=1}^2 t(f_i \mid e_{a_i}) \]
+\end{block}
+\begin{block}{$I \times J = 2 \times 3$ terms to be added:}
+\[ 
+\begin{array}{cccc}
+\color{red} ( t(f_1 \mid e_1) & + & \color{red} t(f_1 \mid e_2) ) & \times \\
+\color{blue} ( t(f_2 \mid e_1) & + & \color{blue} t(f_2 \mid e_2) ) & \times \\
+\color{red} ( t(f_3 \mid e_1) & + & \color{red} t(f_3 \mid e_2) ) & 
+\end{array}
+\]
+\end{block}
+
 \end{frame}
 
 \input{acknowledgements.tex}
