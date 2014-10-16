@@ -464,7 +464,36 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \end{array}
 \]
 \end{block}
+\end{frame}
 
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 1}
+\begin{block}{Factor the terms:}
+\[ 
+\begin{array}{cccc}
+( t(f_1 \mid e_1) \times t(f_2 \mid e_1) ) & \times & ( t(f_3 \mid e_1) + t(f_3 \mid e_2) ) & + \\
+( t(f_1 \mid e_1) \times t(f_2 \mid e_2) ) & \times & ( t(f_3 \mid e_1) + t(f_3 \mid e_2) ) & + \\
+( t(f_1 \mid e_2) \times t(f_2 \mid e_1) ) & \times & ( t(f_3 \mid e_1) + t(f_3 \mid e_2) ) & + \\
+( t(f_1 \mid e_2) \times t(f_2 \mid e_2) ) & \times & ( t(f_3 \mid e_1) + t(f_3 \mid e_2) ) & 
+\end{array}
+\]
+\pause
+\[ \left( t(f_3 \mid e_1) + t(f_3 \mid e_2) \right) \left(
+\begin{array}{cccc}
+ t(f_1 \mid e_1) & \times & t(f_2 \mid e_1)  & + \\
+ t(f_1 \mid e_1) & \times & t(f_2 \mid e_2)  & + \\
+ t(f_1 \mid e_2) & \times & t(f_2 \mid e_1)  & + \\
+ t(f_1 \mid e_2) & \times & t(f_2 \mid e_2)  & 
+\end{array}
+\right) \]
+\pause
+\[ {\color{RoyalBlue} \left( t(f_3 \mid e_1) + t(f_3 \mid e_2) \right) } \left(
+\begin{array}{cccc}
+ \color{red} t(f_1 \mid e_1) & \times & \color{blue} ( t(f_2 \mid e_1) + t(f_2 \mid e_2) ) & + \\
+ \color{red} t(f_1 \mid e_2) & \times & \color{blue} ( t(f_2 \mid e_1) + t(f_2 \mid e_2) ) &
+\end{array}
+\right) \]
+\end{block}
 \end{frame}
 
 \begin{frame}
@@ -477,7 +506,7 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \begin{array}{cccc}
 \color{red} ( t(f_1 \mid e_1) & + & \color{red} t(f_1 \mid e_2) ) & \times \\
 \color{blue} ( t(f_2 \mid e_1) & + & \color{blue} t(f_2 \mid e_2) ) & \times \\
-\color{red} ( t(f_3 \mid e_1) & + & \color{red} t(f_3 \mid e_2) ) & 
+\color{RoyalBlue} ( t(f_3 \mid e_1) & + & \color{RoyalBlue} t(f_3 \mid e_2) ) & 
 \end{array}
 \]
 \end{block}

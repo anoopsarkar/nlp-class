@@ -257,7 +257,7 @@ $$</p>
 We wish to learn the parameters $$t(\cdot \mid \cdot)$$ that maximize
 the log-likelihood of the training data:
 
-<p>$$ L(t) = \arg\max_{t} \sum_s \log \Pr(\mathbf{f}^{(s)} \mid
+<p>$$ \arg\max_{t} L(t) = \arg\max_{t} \sum_s \log \Pr(\mathbf{f}^{(s)} \mid
 \mathbf{e}^{(s)}, t) $$</p>
 
 #### Training the model

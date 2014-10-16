@@ -146,3 +146,30 @@ past:
         url: http://www.cs.columbia.edu/~mcollins/crf.pdf
         download: assets/mcollins-notes/crf.pdf
         optional: false
+  -
+    date: 2014-10-09
+    title: Homework 3 release
+    slides: hw3.html
+    reading:
+      - author: Adam Lopez
+        title: "Word Alignment and the Expectation-Maximization Algorithm"
+        url: http://www.cs.jhu.edu/~alopez/papers/model1-note.pdf
+        optional: false
+  -
+    date: 2014-10-14
+    title: Word Alignment (part one)
+    slides: assets/slides/alignment.pdf
+    reading:
+      - author: Kevin Knight
+        title: "A Statistical MT Tutorial Workbook"
+        url: http://www.isi.edu/natural-language/mt/wkbk.pdf
+        optional: false
+  -
+    date: 2014-10-16
+    title: Word Alignment (part two)
+    slides: assets/slides/alignment.pdf
+    reading:
+      - author: Philipp Koehn
+        title: "Statistical Machine Translation"
+        url: http://www.statmt.org/book
+        optional: true
