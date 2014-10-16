@@ -3,6 +3,10 @@
 
 \input{titlepage.tex}
 
+\newcommand{\tgt}{\textbf{e}}
+\newcommand{\src}{\textbf{f}}
+\newcommand{\aln}{\textbf{a}}
+
 \lecture{Generative Models for Word Alignment}{}
 
 \section{Statistical Machine Translation}
@@ -12,7 +16,7 @@
 \frametitle{Statistical Machine Translation}
 \begin{block}{Noisy Channel Model}
 \begin{eqnarray*}
-\textbf{e}^\ast & = & \arg\max_{\textbf{e}} \underbrace{\Pr(\textbf{e})}_{\color{red}\textbf{Language Model}} \pause \cdot \underbrace{\Pr(\textbf{f} \mid \textbf{e})}_{\color{blue}\textbf{Alignment Model}}
+\tgt^\ast & = & \arg\max_{\tgt} \underbrace{\Pr(\tgt)}_{\color{red}\textbf{Language Model}} \pause \cdot \underbrace{\Pr(\src \mid \tgt)}_{\color{blue}\textbf{Alignment Model}}
 \end{eqnarray*}
 \end{block}
 \end{frame}
@@ -22,9 +26,9 @@
 \begin{alertblock}{Alignment Task}
 \begin{tikzpicture}[node distance=2.5cm,auto,>=latex']
     \node (a) {Program};
-    \path (a.140)+(-\blockdist,0) node (b) {\textbf{e}};
-    \path (a.-140)+(-\blockdist,0) node (c) {\textbf{f}};
-    \node (d) [right of=a] {$\Pr(\textbf{e} \mid \textbf{f})$};
+    \path (a.140)+(-\blockdist,0) node (b) {\tgt};
+    \path (a.-140)+(-\blockdist,0) node (c) {\src};
+    \node (d) [right of=a] {$\Pr(\tgt \mid \src)$};
     \path[->] (b) edge (a);
     \path[->] (c) edge (a);
     \path[->] (a) edge (d);
@@ -32,8 +36,8 @@
 \end{alertblock}\pause
 \begin{alertblock}{Training Data}
 \begin{itemize}[<+->]
-\item \color{blue}\textbf{Alignment Model}: learn a mapping between \textbf{f} and \textbf{e}. \\
-Training data: lots of translation pairs between \textbf{f} and \textbf{e}.
+\item \color{blue}\textbf{Alignment Model}: learn a mapping between \src and \tgt. \\
+Training data: lots of translation pairs between \src and \tgt.
 \end{itemize}
 \end{alertblock}
 \end{frame}
@@ -49,14 +53,13 @@ Training data: lots of translation pairs between \textbf{f} and \textbf{e}.
 \item These models are the basic SMT models, called: \\
 IBM Model 1, IBM Model 2, IBM Model 3, IBM Model 4, IBM Model 5 \\
 as they were called in the 1993 paper.
-\item We use \textbf{e} and \textbf{f} in the equations in honor of their system which translated from French to English.\\
+\item We use \tgt and \src in the equations in honor of their system which translated from French to English.\\
 Trained on the Canadian Hansards (Parliament Proceedings)
 %\item Twenty years later, they came together at a workshop called {\color{blue}\hyperlink{https://sites.google.com/site/20yearsofbitext/}{Twenty Years of Bitext}} \\
 %Transcript: \url{http://cs.jhu.edu/~post/bitext/}
 \end{itemize}
 \end{block}
 \end{frame}
-
 
 \section{Generative Model of Word Alignment}
 \frame{\tableofcontents[currentsection]}
@@ -65,13 +68,13 @@ Trained on the Canadian Hansards (Parliament Proceedings)
 \frametitle{Generative Model of Word Alignment}
 \begin{block}{}
 \begin{itemize}
-\item English \textbf{e}: Mary did not slap the green witch
-\item ``French'' \textbf{f}: Maria no daba una botefada a la bruja verde
-\item Alignment \textbf{a}: $\{ 1, 3, 4, 4, 4, 5, 5, 7, 6 \}$ \\
+\item English \tgt: Mary did not slap the green witch
+\item ``French'' \src: Maria no daba una botefada a la bruja verde
+\item Alignment \aln: $\{ 1, 3, 4, 4, 4, 5, 5, 7, 6 \}$ \\
 e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \end{itemize}
 \end{block}\pause
-\begin{block}{Visualizing alignment \textbf{a}}
+\begin{block}{Visualizing alignment \aln}
 \begin{tikzpicture}
 \begin{scope}[start chain=going right,node distance=2mm]
 \def\ephr{0/{Mary},1/{did},2/{not},3/{slap},4/{the},5/{green},6/{witch}}
@@ -104,10 +107,10 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \begin{block}{Data Set}
 \begin{itemize}[<+->]
 \item Data set ${\cal D}$ of $N$ sentences:
-\[ {\cal D} = \{ (\textbf{f}^{(1)}, \textbf{e}^{(1)}), \ldots, (\textbf{f}^{(N)}, \textbf{e}^{(N)}) \} \]
-\item French $\textbf{f}$: $( f_1, f_2, \ldots, f_I )$
-\item English $\textbf{e}$: $( e_1, e_2, \ldots, e_J )$
-\item Alignment $\textbf{a}$: $( a_1, a_2, \ldots, a_I )$
+\[ {\cal D} = \{ (\src^{(1)}, \tgt^{(1)}), \ldots, (\src^{(N)}, \tgt^{(N)}) \} \]
+\item French $\src$: $( f_1, f_2, \ldots, f_I )$
+\item English $\tgt$: $( e_1, e_2, \ldots, e_J )$
+\item Alignment $\aln$: $( a_1, a_2, \ldots, a_I )$
 \end{itemize}
 \end{block}
 \end{frame}
@@ -115,17 +118,15 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \begin{frame}
 \frametitle{Generative Model of Word Alignment}
 \begin{block}{Find the best alignment for each translation pair}
-\[ \textbf{a}^\ast = \arg\max_{\textbf{a}} \Pr(\textbf{a} \mid \textbf{f}, \textbf{e}) \]
+\[ \aln^\ast = \arg\max_{\aln} \Pr(\aln \mid \src, \tgt) \]
 \end{block}\pause
-\begin{block}{Chain rule revisited}
-\begin{eqnarray*}
-\Pr( \textbf{f}, \textbf{a} ) & = & \Pr(\textbf{f}) \Pr(\textbf{a} \mid \textbf{f}) \pause \\
-\Pr( \textbf{f}, \textbf{a} \mid \textbf{e} ) & = & \Pr(\textbf{f} \mid \textbf{e}) \Pr(\textbf{a} \mid \textbf{f}, \textbf{e}) 
-\end{eqnarray*}
-\end{block}
 \begin{block}{Alignment probability}
-\[ \Pr(\textbf{a} \mid \textbf{f}, \textbf{e}) = \frac{ \Pr( \textbf{f}, \textbf{a} \mid \textbf{e} ) }{ \Pr(\textbf{f} \mid \textbf{e}) } = \frac{ \Pr( \textbf{f}, \textbf{a} \mid \textbf{e} ) }{ \sum_{\textbf{a}} \Pr(\textbf{f}, \textbf{a} \mid \textbf{e}) } 
-\]
+\begin{eqnarray*}
+\Pr(\aln \mid \src, \tgt) &=& \frac{ \Pr( \aln, \src, \tgt ) }{ \Pr(\src, \tgt) }\pause\\
+&=& \frac{ \Pr(\tgt) \Pr( \aln, \src \mid \tgt ) }{ \Pr(\tgt) \Pr(\src \mid \tgt) }\pause\\
+&=& \frac{ \Pr( \aln, \src \mid \tgt ) }{ \Pr(\src \mid \tgt) }\pause\\
+&=&\frac{ \color{red} \Pr( \aln, \src \mid \tgt ) }{ \sum_{\aln} {\color{red} \Pr(\aln, \src \mid \tgt)} }
+\end{eqnarray*}
 \end{block}
 \end{frame}
 
@@ -134,16 +135,16 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 
 \begin{frame}
 \frametitle{Word Alignments: IBM Model 3}
-\begin{block}{Generative ``story'' for $P(\textbf{a} \mid \textbf{f}, \textbf{e})$}
+\begin{block}{Generative ``story'' for $P(\aln, \src \mid \tgt)$}
 \begin{tikzpicture}
 \begin{scope}[start chain=going right,node distance=2mm]
-\def\fphr{0/{Mary},1/{did},2/{not},3/{slap},4/{the},5/{green},6/{witch}}
+\def\fphr{0/{Mary},1/{did},2/{not},3/{slap},4/{the},5/{green},6/{witch},9/{\tiny(fertility)}}
 \foreach \i / \element in \fphr
   \node [on chain] (k\i) {\strut \element};
 \end{scope}
 
 \begin{scope}[yshift=-16mm,start chain=going right,node distance=2mm]
-\def\ephr{0/{Mary},1/{not},2/{slap},3/{slap},4/{slap},5/{the},6/{the},7/{green},8/{witch}}
+\def\ephr{0/{Mary},1/{not},2/{slap},3/{slap},4/{slap},5/{the},6/{the},7/{green},8/{witch},9/{\tiny(translate)}}
 \foreach \j / \element in \ephr
   \node [on chain] (e\j) {\strut \element};
 \end{scope}
@@ -161,7 +162,7 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \pause 
 
 \begin{scope}[yshift=-32mm,start chain=going right,node distance=2mm]
-\def\sphr{0/{Maria},1/{no},2/{daba},3/{una},4/{botefada},5/{a},6/{la},7/{verde},8/{bruja}}
+\def\sphr{0/{Maria},1/{no},2/{daba},3/{una},4/{botefada},5/{a},6/{la},7/{verde},8/{bruja},9/{\tiny(reorder)}}
 \foreach \j / \element in \sphr
   \node [on chain] (s\j) {\strut \element};
 \end{scope}
@@ -201,14 +202,306 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \begin{frame}
 \frametitle{Word Alignments: IBM Model 3}
 \begin{block}{Fertility parameter}
-\[ n(\phi_j \mid e_j) : n(3 \mid \textit{slap}) \]
+\[ n(\phi_j \mid e_j) : n(3 \mid \textit{slap}) ; n(0 \mid \textit{did}) \]
 \end{block}\pause
 \begin{block}{Translation parameter}
-\[ t(f_i \mid e_j) : t(\textit{bruja} \mid \textit{witch}) \]
+\[ t(f_i \mid e_{a_i}) : t(\textit{bruja} \mid \textit{witch}) \]
 \end{block}\pause
 \begin{block}{Distortion parameter}
-\[ d(f_{\textit{pos}} \mid e_{\textit{pos}}, I, J) : d(8 \mid 7, 8, 6) \]
+\[ d(f_{\textit{pos}} = i \mid e_{\textit{pos}} = j, I, J) : d(8 \mid 7, 8, 6) \]
 \end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 3}
+\begin{block}{Generative model for $P(\aln, \src \mid \tgt)$}
+\begin{eqnarray*}
+P(\aln, \src \mid \tgt) & = & \prod_{j=1}^J n(\phi_i \mid e_i)  \pause\\
+& \times & \prod_{i=1}^I t(f_i \mid e_{a_j}) \pause\\
+& \times & \prod_{i=1}^I d(i \mid j, I, J)
+\end{eqnarray*}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 3}
+\begin{block}{Sentence pair with alignment $\aln = (4,3,1,2)$}
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house},3/{is},4/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{klein},2/{ist},3/{das},4/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (e1.south) -- (d3.north);
+\draw (e2.south) -- (d4.north);
+\draw (e3.south) -- (d2.north);
+\draw (e4.south) -- (d1.north);
+
+\end{tikzpicture}
+\end{block}\pause
+If we know the parameter values we can easily compute the probability of this aligned sentence pair.
+\begin{block}{$\Pr(\src, \aln \mid \tgt) = $}
+\[
+\begin{array}{lllll}
+n(1 \mid \textrm{the}) & \times & t(\textrm{das} \mid \textrm{the}) & \times & d(3 \mid 1, 4, 4) \times \pause \\
+n(1 \mid \textrm{house}) & \times & t(\textrm{Haus} \mid \textrm{house}) & \times & d(4 \mid 2, 4, 4) \times \pause \\
+n(1 \mid \textrm{is}) & \times & t(\textrm{ist} \mid \textrm{is}) & \times & d(2 \mid 3, 4, 4) \times \pause \\
+n(1 \mid \textrm{small}) & \times & t(\textrm{klein} \mid \textrm{small}) & \times & d(1 \mid 4, 4, 4)
+\end{array}
+\]
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 3}
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth/2}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house},3/{is},4/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{klein},2/{ist},3/{das},4/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (e1.south) -- (d3.north);
+\draw (e2.south) -- (d4.north);
+\draw (e3.south) -- (d2.north);
+\draw (e4.south) -- (d1.north);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/2}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{building},3/{is},4/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus},3/{ist},4/{klein}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (e1.south) -- (d1.north);
+\draw (e2.south) -- (d2.north);
+\draw (e3.south) -- (d3.north);
+\draw (e4.south) -- (d4.north);
+
+\end{tikzpicture}
+
+\end{column}
+
+\end{columns}
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth/2}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{home},3/{is},4/{very},5/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus},3/{ist},4/{klitzeklein}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (e1.south) -- (d1.north);
+\draw (e2.south) -- (d2.north);
+\draw (e3.south) -- (d3.north);
+\draw (e5.south) -- (d4.north);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/2}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house},3/{is},4/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus},3/{ist},4/{ja},5/{klein}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (e1.south) -- (d1.north);
+\draw (e2.south) -- (d2.north);
+\draw (e3.south) -- (d3.north);
+\draw (e4.south) -- (d4.north);
+\draw (e4.south) -- (d5.north);
+
+\end{tikzpicture}
+
+\end{column}
+
+\end{columns}\pause
+
+\begin{block}{Parameter Estimation}
+\begin{itemize}[<+->]
+\item What is $n(1 \mid \textrm{very})$ = ? and $n(0 \mid \textrm{very})$ = ?
+\item What is $t(\textrm{Haus} \mid \textrm{house})$ = ? and $t(\textrm{klein} \mid \textrm{small})$ = ?
+\item What is $d(1 \mid 4, 4, 4)$ = ? and $d(1 \mid 1, 4, 4)$ = ?
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 3}
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth/2}
+
+\fbox{
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house},3/{is},4/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{klein},2/{ist},3/{das},4/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\end{tikzpicture}
+}
+
+\end{column}
+
+\begin{column}{\textwidth/2}
+
+\fbox{
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{building},3/{is},4/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus},3/{ist},4/{klein}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\end{tikzpicture}
+}
+
+\end{column}
+
+\end{columns}
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth/2}
+
+\fbox{
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{home},3/{is},4/{very},5/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus},3/{ist},4/{klitzeklein}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\end{tikzpicture}
+}
+
+\end{column}
+
+\begin{column}{\textwidth/2}
+
+\fbox{
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house},3/{is},4/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus},3/{ist},4/{ja},5/{klein}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\end{tikzpicture}
+}
+
+\end{column}
+
+\end{columns}\pause
+
+\begin{block}{Parameter Estimation: Sum over all alignments}
+\[ \sum_{\aln} \Pr(\src, \aln \mid \tgt) = \sum_{\aln} \prod_{i=1}^I {\color{RoyalBlue} n(\phi_{a_i} \mid e_{a_i})} \times {\color{red} t(f_i \mid e_{a_i})} \times {\color{blue} d(i \mid a_i, \src_{\textrm{len}}, \tgt_{\textrm{len}})} \]
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 3}
+\begin{block}{Summary}
+\begin{itemize}[<+->]
+\item If {\color{blue} we know the parameter values} we can easily compute the probability $\Pr(\aln \mid \src, \tgt)$ given an aligned sentence pair
+\item If {\color{blue} we are given a corpus of sentence pairs with alignments} we can easily learn the parameter values by using relative frequencies.
+\item If we do not know the alignments then perhaps {\color{red} we can produce all possible alignments} each with a certain probability?
+\end{itemize}
+
+\end{block}\pause
+
+\begin{block}{IBM Model 3 is too hard: Let us try learning only $t(f_i \mid e_{a_i})$}
+\[ \sum_{\aln} \Pr(\src, \aln \mid \tgt) = \sum_{\aln} \prod_{i=1}^I {\color{RoyalBlue} n(\phi_{a_i} \mid e_{a_i})} \times {\color{red} t(f_i \mid e_{a_i})} \times {\color{blue} d(i \mid a_i, \src_{\textrm{len}}, \tgt_{\textrm{len}})} \]
+
+\end{block}
+
+
 \end{frame}
 
 \subsection{Word Alignments: IBM Model 1}
@@ -217,39 +510,43 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \begin{frame}
 \frametitle{Word Alignments: IBM Model 1}
 \begin{block}{Alignment probability}
-\[ \Pr(\textbf{a} \mid \textbf{f}, \textbf{e}) = \frac{ \Pr( \textbf{f}, \textbf{a} \mid \textbf{e} ) }{ \sum_{\textbf{a}} \Pr(\textbf{f}, \textbf{a} \mid \textbf{e}) } 
+\[ \Pr(\aln \mid \src, \tgt) = \frac{ \Pr( \src, \aln \mid \tgt ) }{ \sum_{\aln} \Pr(\src, \aln \mid \tgt) } 
 \]
 \end{block}\pause
+
 \begin{columns}[t]
 
 \begin{column}{\textwidth/2}
 \begin{block}{Example alignment}
-\begin{tikzpicture}
-\begin{scope}[start chain=going right,node distance=2mm]
-\def\dphr{1/{das},2/{Haus},3/{ist},4/{klein}}
-\foreach \i / \element in \dphr
-  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
-\end{scope}
 
-\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
 \def\ephr{1/{the},2/{house},3/{is},4/{small}}
 \foreach \i / \element in \ephr
   \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
 \end{scope}
 
-\draw (d1) -- (e1);
-\draw (d2) -- (e2);
-\draw (d3) -- (e3);
-\draw (d4) -- (e4);
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus},3/{ist},4/{klein}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (e1.south) -- (d1.north);
+\draw (e2.south) -- (d2.north);
+\draw (e3.south) -- (d3.north);
+\draw (e4.south) -- (d4.north);
 
 \end{tikzpicture}
+
 \end{block}
 \end{column}\pause
 
 \begin{column}{\textwidth/2}
-\begin{block}{$\Pr(\textbf{f}, \textbf{a} \mid \textbf{e}) = \prod_{i=1}^I t(f_i \mid e_{a_i})$}
+\begin{block}{$\Pr(\src, \aln \mid \tgt) = \prod_{i=1}^I t(f_i \mid e_{a_i})$}
 \begin{eqnarray*}
-\lefteqn{\Pr( \textbf{f}, \textbf{a} \mid \textbf{e} ) =}\\
+\lefteqn{\Pr( \src, \aln \mid \tgt ) =}\\
 && t(\textrm{das} \mid \textrm{the}) \times \\
 && t(\textrm{Haus} \mid \textrm{house}) \times \\
 && t(\textrm{ist} \mid \textrm{is}) \times \\
@@ -261,12 +558,156 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \end{columns}
 \end{frame}
 
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 1}
+\begin{block}{Generative ``story'' for Model 1}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house},3/{is},4/{small},5/{\tiny(translate)}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut \element};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus},3/{ist},4/{klein}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut \element};
+\end{scope}
+
+\draw[->] (e1.south) -- (d1.north);
+\draw[->] (e2.south) -- (d2.north);
+\draw[->] (e3.south) -- (d3.north);
+\draw[->] (e4.south) -- (d4.north);
+
+\end{tikzpicture}
+
+\[ \Pr(\src, \aln \mid \tgt) = \prod_{i=1}^I t(f_i \mid e_{a_i}) \]
+
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Finding the best word alignment: IBM Model 1}
+
+\begin{block}{Compute the $\arg\max$ word alignment}
+\[ \hat{\textbf{a}} = \arg\max_{\textbf{a}} \Pr(\textbf{a} \mid \textbf{e}, \textbf{f}) \]
+
+\begin{itemize}[<+->]
+\item For each $f_i$ in $(f_1, \ldots, f_I)$ build $\aln = (\hat{a_1}, \ldots, \hat{a_I})$
+
+\[ \hat{a_i} = \arg\max_{a_i} t(f_i \mid e_{a_i}) \]
+\end{itemize}
+\end{block}\pause
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth/2}
+\begin{block}{Many to one alignment \cmark}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house},3/{is},4/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus},3/{ist},4/{klein}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (e2.south) -- (d1.north);
+\draw (e2.south) -- (d2.north);
+\draw (e2.south) -- (d3.north);
+\draw (e2.south) -- (d4.north);
+
+\end{tikzpicture}
+
+\end{block}
+\end{column}\pause
+
+\begin{column}{\textwidth/2}
+
+\begin{block}{One to many alignment \xmark}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house},3/{is},4/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus},3/{ist},4/{klein}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (e1.south) -- (d2.north);
+\draw (e2.south) -- (d2.north);
+\draw (e3.south) -- (d2.north);
+\draw (e4.south) -- (d2.north);
+
+\end{tikzpicture}
+
+\end{block}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 1}
+\begin{block}{Alignment probability}
+\begin{eqnarray*}
+\Pr(\aln \mid \src, \tgt) & = & \frac{ \Pr( \src, \aln \mid \tgt ) }{ \Pr(\src \mid \tgt) } \pause\\
+& = & \frac{ \Pr( \src, \aln \mid \tgt ) }{ \sum_{\aln} \Pr(\src, \aln \mid \tgt) } \pause\\
+& = & \frac{ \prod_{i=1}^I t(f_i \mid e_{a_i}) }{ \sum_{\aln} \prod_{i=1}^I t(f_i \mid e_{a_i}) }
+\end{eqnarray*}
+\end{block}\pause 
+
+\begin{block}{Computing the denominator}
+\begin{itemize}
+\item The denominator above is summing over $J^I$ alignments
+\item An interlude on how compute the denominator faster ...
+\end{itemize}
+
+\end{block}
+
+\end{frame}
+
+%\begin{frame}
+%\frametitle{Parameter Estimation: IBM Model 1}
+%\begin{block}{}
+%
+%\[
+%t_k(f_i \mid e_j) = \sum_{s=1}^N \sum_{(f_i, e_j) \in (\textbf{f}^{(s)}, \textbf{e}^{(s)})} \frac{ \textrm{count}(f_i, e_j, \textbf{f}^{(s)}, \textbf{e}^{(s)}) }{ \textrm{count}(e_j, \textbf{f}^{(s)}, \textbf{e}^{(s)}) }
+%\]
+%
+%\[
+%\begin{eqnarray*}
+%\textrm{count}(f_i, e_j, \textbf{f}, \textbf{e}) & = & \frac{ t_{k-1}(f_i \mid e_j) }{ \Pr(\textbf{f} \mid \textbf{e}, t_{k-1}) } \\
+%& = & \frac{ t_{k-1}(f_i \mid e_j) }{ \sum_{a_i=1}^J t_{k-1}(f_i \mid e_{a_i}) } \\
+%\textrm{count}(e_j, \textbf{f}, \textbf{e}) & = & \sum_{i=1}^I \textrm{count}(f_i, e_j, \textbf{f}, \textbf{e})
+%\end{eqnarray*}
+%\]
+%
+%\end{block}
+%\end{frame}
+
 
 \begin{frame}
 \frametitle{Word Alignments: IBM Model 1}
 \begin{block}{Sum over all alignments}
 \begin{eqnarray*}
-\sum_{\textbf{a}} \Pr(\textbf{f}, \textbf{a} \mid \textbf{e}) & = & 
+\sum_{\aln} \Pr(\src, \aln \mid \tgt) & = & 
 \sum_{a_1 = 1}^J \sum_{a_2 = 1}^J \ldots \sum_{a_I = 1}^J \prod_{i=1}^I t(f_i \mid e_{a_i}) 
 \end{eqnarray*}
 \end{block}\pause
@@ -290,7 +731,7 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \color{red} t(f_1 \mid e_2) & \times & \color{red} t(f_2 \mid e_1) & \times & \color{red} t(f_3 \mid e_1) & + \\
 \color{red} t(f_1 \mid e_2) & \times & \color{red} t(f_2 \mid e_1) & \times & \color{red} t(f_3 \mid e_2) & + \\
 \color{blue} t(f_1 \mid e_2) & \times & \color{blue} t(f_2 \mid e_2) & \times & \color{blue} t(f_3 \mid e_1) & + \\
-\color{blue} t(f_1 \mid e_2) & \times & \color{blue} t(f_2 \mid e_2) & \times & \color{blue} t(f_3 \mid e_2) & + \\
+\color{blue} t(f_1 \mid e_2) & \times & \color{blue} t(f_2 \mid e_2) & \times & \color{blue} t(f_3 \mid e_2) & \\
 \end{array}
 \]
 \end{block}
@@ -341,6 +782,26 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \]
 \end{block}
 
+\end{frame}
+
+\begin{frame}
+\frametitle{Parameter Estimation: IBM Model 1}
+\begin{block}{}
+We wish to learn the parameters $t(\cdot \mid \cdot)$ that maximize
+the log-likelihood of the training data:
+
+\[ \arg\max_{t} L(t) = \arg\max_{t} \sum_s \log \Pr(\mathbf{f}^{(s)} \mid
+\mathbf{e}^{(s)}, t) \]
+\end{block}\pause
+
+\begin{block}{}
+\begin{itemize}
+\item We start with an initial estimate $t_0$
+\item Modify it iteratively to get $t_1, t_2, \ldots$
+\item Create $t$ from previous time step $t_{-1}$
+\end{itemize}
+
+\end{block}
 \end{frame}
 
 \input{acknowledgements.tex}
