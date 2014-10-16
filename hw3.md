@@ -247,7 +247,7 @@ us, so we remove the alignments by summing over them[^2]:
 \Pr(\mathbf{f} \mid \mathbf{e}, t) & = & \sum_{\textbf{a}} \Pr(\mathbf{f}, \textbf{a} \mid \mathbf{e}, t) \\
 & = & \sum_{a_0=1}^J \cdots \sum_{a_I=1}^J  \prod_{i=1}^I t(f_i \mid e_{a_i}) \\
 && \textrm{(this computes all possible alignments)} \\
-& = & \prod_{j=1}^J \sum_{i=1}^I t(f_i \mid e_j) \\
+& = & \prod_{i=1}^I \sum_{j=1}^J t(f_i \mid e_j) \\
 && \textrm{(after conversion of $J^I$ terms into $I \cdot J$ terms)}
 \end{eqnarray*}
 $$</p>
