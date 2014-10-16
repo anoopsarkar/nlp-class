@@ -170,7 +170,7 @@ past:
         optional: true
   -
     date: 2014-10-16
-    title: Word Alignment (part two)
+    title: Word Alignment
     slides: assets/slides/ibm123.pdf
     reading:
       - author: Michael Collins
