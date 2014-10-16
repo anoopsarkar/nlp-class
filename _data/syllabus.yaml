@@ -160,10 +160,15 @@ past:
     title: Word Alignment (part one)
     slides: assets/slides/alignment.pdf
     reading:
+      - author: Michael Collins
+        title: "Statistical Machine Translation: IBM Models 1 and 2"
+        url: http://www.cs.columbia.edu/~mcollins/ibm12.pdf
+        download: assets/mcollins-notes/ibm12.pdf
+        optional: false
       - author: Kevin Knight
         title: "A Statistical MT Tutorial Workbook"
         url: http://www.isi.edu/natural-language/mt/wkbk.pdf
-        optional: false
+        optional: true
   -
     date: 2014-10-16
     title: Word Alignment (part two)
