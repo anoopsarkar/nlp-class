@@ -182,7 +182,7 @@ for the evaluation are divided into two types:
 * Unsure alignments use `?` as the separator, e.g. `0?0`
 * Possible alignments $$P$$ is the union of Sure and Unsure alignments: $$S \subseteq P$$
 
-The quality of an alignment $$A = \{ (j, a_j) \mid e_{a_j} != \textsc{null} \}$$ is
+The quality of an alignment $$A = \{ (j, a_j) \mid e_{a_j} != \textrm{NULL} \}$$ is
 computed using precision and recall:
 
 <p>$$ \textrm{precision} = \frac{ | A \cap P | }{ |A| } $$</p>
