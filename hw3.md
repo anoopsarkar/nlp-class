@@ -191,7 +191,7 @@ includes sure and unsure alignments):
 Recall is defined as the number of sure alignments $$S$$ found in
 our predicted alignments $$A$$: 
 
-<p>$$ \textrm{recall} = \frac{ | A \cup S | }{ |S| } $$</p>
+<p>$$ \textrm{recall} = \frac{ | A \cap S | }{ |S| } $$</p>
 
 Alignment error rate (AER) combined precision and recall. A good
 predicted alignment must have many sure alignments and may have
