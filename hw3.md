@@ -173,6 +173,22 @@ You can also do it all at once:
 
     python default.py -n 10000 | python check-alignments.py | python score-alignments.py
 
+### Alignment Error Rate
+
+AER is used to evaluate the output. The alignments created by humans for the evaluation are divided into two types:
+
+* Sure alignments which use `-` as the separator, e.g. `0-0`
+* Unsure alignments use `?` as the separator, e.g. `0?0`
+* Possible alignments are the union of Sure and Unsure alignments
+
+Precision is defined as the proportion of correct alignments in the predicted alignment $$P$$ found in the test alignments $$A$$ (which includes sure and unsure alignments): $$\frac{ | A \cap P | }{ |A| }$$.
+
+Recall is defined as the number of sure alignments $$S$$ found in our predicted alignments $$A$$: $$\frac{ | A \cup S | }{ |S| }$$.
+
+Alignment error rate (AER) combined precision and recall. A good predicted alignment must have many sure alignments and may have some possible alignments:
+
+<p>$$ \textrm{AER} = 1 - \left( \frac{ |A \cap S| + |A \cap P|  }{ |A| + |S| } \right) $$</p>
+
 ### The Leaderboard
 
 **Important: You need upload the alignments on German-English data
