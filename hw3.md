@@ -178,24 +178,18 @@ You can also do it all at once:
 AER is used to evaluate the output. The alignments created by humans
 for the evaluation are divided into two types:
 
-* Sure alignments which use `-` as the separator, e.g. `0-0`
+* Sure alignments $$S$$ which use `-` as the separator, e.g. `0-0`
 * Unsure alignments use `?` as the separator, e.g. `0?0`
-* Possible alignments are the union of Sure and Unsure alignments
+* Possible alignments $$P$$ is the union of Sure and Unsure alignments: $$S \subseteq P$$
 
-Precision is defined as the proportion of correct alignments in the
-predicted alignment $$P$$ found in the test alignments $$A$$ (which
-includes sure and unsure alignments): 
+The quality of an alignment $$A = \{ (j, a_j) \mid e_{a_j} != \textsc{null} \}$$ is
+computed using precision and recall:
 
 <p>$$ \textrm{precision} = \frac{ | A \cap P | }{ |A| } $$</p>
 
-Recall is defined as the number of sure alignments $$S$$ found in
-our predicted alignments $$A$$: 
-
 <p>$$ \textrm{recall} = \frac{ | A \cap S | }{ |S| } $$</p>
 
-Alignment error rate (AER) combined precision and recall. A good
-predicted alignment must have many sure alignments and may have
-some possible alignments:
+Alignment error rate (AER) combines precision and recall: 
 
 <p>$$ \textrm{AER} = 1 - \left( \frac{ |A \cap S| + |A \cap P|  }{ |A| + |S| } \right) $$</p>
 
