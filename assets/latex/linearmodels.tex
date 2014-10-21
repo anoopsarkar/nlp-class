@@ -290,8 +290,9 @@ Profits\postag{N} soared\postag{V} at\postag{P} Boeing\postag{??} Co. , easily t
 \end{block}
 \end{frame}
 
-\newcommand{\featurefunction}[3]{%
-\[ f_{#1}(h,t) & = & \left\{
+\newcommand{\featurefunction}[3]{
+\[ 
+f_{#1}(h,t) = \left\{
 \begin{array}{ll}
 1 & \textrm{if #2 and $t$ = #3 } \\
 0 & \textrm{otherwise}
@@ -309,7 +310,7 @@ $f_k(h, t)$ for $k = 1, \ldots, m$ are \textbf{feature functions} representing t
 \begin{block}{Example: Part-of-speech tagging [Ratnaparkhi 1996]}
 \centering
 \featurefunction{100}{current word $x_i$ is \texttt{Boeing}}{\texttt{N}}
-\featurefunction{101}{$t_{-1}$ = \texttt{P}}{\texttt{N}}
+\featurefunction{101}{$t_{-1}$ is \texttt{P}}{\texttt{N}}
 \end{block}
 \end{frame}
 

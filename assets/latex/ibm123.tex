@@ -53,7 +53,7 @@ Training data: lots of translation pairs between \src and \tgt.
 \item These models are the basic SMT models, called: \\
 IBM Model 1, IBM Model 2, IBM Model 3, IBM Model 4, IBM Model 5 \\
 as they were called in the 1993 paper.
-\item We use \tgt and \src in the equations in honor of their system which translated from French to English.\\
+\item We use \tgt and \src\ in the equations in honor of their system which translated from French to English.\\
 Trained on the Canadian Hansards (Parliament Proceedings)
 %\item Twenty years later, they came together at a workshop called {\color{blue}\hyperlink{https://sites.google.com/site/20yearsofbitext/}{Twenty Years of Bitext}} \\
 %Transcript: \url{http://cs.jhu.edu/~post/bitext/}
@@ -122,10 +122,10 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \end{block}\pause
 \begin{block}{Alignment probability}
 \begin{eqnarray*}
-\Pr(\aln \mid \src, \tgt) &=& \frac{ \Pr( \aln, \src, \tgt ) }{ \Pr(\src, \tgt) }\pause\\
-&=& \frac{ \Pr(\tgt) \Pr( \aln, \src \mid \tgt ) }{ \Pr(\tgt) \Pr(\src \mid \tgt) }\pause\\
-&=& \frac{ \Pr( \aln, \src \mid \tgt ) }{ \Pr(\src \mid \tgt) }\pause\\
-&=&\frac{ \color{red} \Pr( \aln, \src \mid \tgt ) }{ \sum_{\aln} {\color{red} \Pr(\aln, \src \mid \tgt)} }
+\Pr(\aln \mid \src, \tgt) &=& \frac{ \Pr( \src, \aln, \tgt ) }{ \Pr(\src, \tgt) }\pause\\
+&=& \frac{ \Pr(\tgt) \Pr( \src, \aln \mid \tgt ) }{ \Pr(\tgt) \Pr(\src \mid \tgt) }\pause\\
+&=& \frac{ \Pr( \src, \aln \mid \tgt ) }{ \Pr(\src \mid \tgt) }\pause\\
+&=&\frac{ \color{red} \Pr( \src, \aln \mid \tgt ) }{ \sum_{\aln} {\color{red} \Pr(\src, \aln \mid \tgt)} }
 \end{eqnarray*}
 \end{block}
 \end{frame}
@@ -135,16 +135,16 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 
 \begin{frame}
 \frametitle{Word Alignments: IBM Model 3}
-\begin{block}{Generative ``story'' for $P(\aln, \src \mid \tgt)$}
+\begin{block}{Generative ``story'' for $P(\src, \aln \mid \tgt)$}
 \begin{tikzpicture}
 \begin{scope}[start chain=going right,node distance=2mm]
-\def\fphr{0/{Mary},1/{did},2/{not},3/{slap},4/{the},5/{green},6/{witch},9/{\tiny(fertility)}}
+\def\fphr{0/{Mary},1/{did},2/{not},3/{slap},4/{the},5/{green},6/{witch}}
 \foreach \i / \element in \fphr
   \node [on chain] (k\i) {\strut \element};
 \end{scope}
 
 \begin{scope}[yshift=-16mm,start chain=going right,node distance=2mm]
-\def\ephr{0/{Mary},1/{not},2/{slap},3/{slap},4/{slap},5/{the},6/{the},7/{green},8/{witch},9/{\tiny(translate)}}
+\def\ephr{0/{Mary},1/{not},2/{slap},3/{slap},4/{slap},5/{the},6/{the},7/{green},8/{witch},9/{\tiny(fertility)}}
 \foreach \j / \element in \ephr
   \node [on chain] (e\j) {\strut \element};
 \end{scope}
@@ -162,7 +162,7 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \pause 
 
 \begin{scope}[yshift=-32mm,start chain=going right,node distance=2mm]
-\def\sphr{0/{Maria},1/{no},2/{daba},3/{una},4/{botefada},5/{a},6/{la},7/{verde},8/{bruja},9/{\tiny(reorder)}}
+\def\sphr{0/{Maria},1/{no},2/{daba},3/{una},4/{botefada},5/{a},6/{la},7/{verde},8/{bruja},9/{\tiny(translate)}}
 \foreach \j / \element in \sphr
   \node [on chain] (s\j) {\strut \element};
 \end{scope}
@@ -180,7 +180,7 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \pause
 
 \begin{scope}[yshift=-48mm,start chain=going right,node distance=2mm]
-\def\rphr{0/{Maria},1/{no},2/{daba},3/{una},4/{botefada},5/{a},6/{la},7/{bruja},8/{verde}}
+\def\rphr{0/{Maria},1/{no},2/{daba},3/{una},4/{botefada},5/{a},6/{la},7/{bruja},8/{verde},9/{\tiny(reorder)}}
 \foreach \j / \element in \rphr
   \node [on chain] (r\j) {\strut \element};
 \end{scope}
@@ -214,9 +214,9 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 
 \begin{frame}
 \frametitle{Word Alignments: IBM Model 3}
-\begin{block}{Generative model for $P(\aln, \src \mid \tgt)$}
+\begin{block}{Generative model for $P(\src, \aln \mid \tgt)$}
 \begin{eqnarray*}
-P(\aln, \src \mid \tgt) & = & \prod_{j=1}^J n(\phi_i \mid e_i)  \pause\\
+P(\src, \aln \mid \tgt) & = & \prod_{j=1}^J n(\phi_i \mid e_i)  \pause\\
 & \times & \prod_{i=1}^I t(f_i \mid e_{a_j}) \pause\\
 & \times & \prod_{i=1}^I d(i \mid j, I, J)
 \end{eqnarray*}
@@ -565,13 +565,13 @@ n(1 \mid \textrm{small}) & \times & t(\textrm{klein} \mid \textrm{small}) & \tim
 \begin{tikzpicture}
 
 \begin{scope}[start chain=going right,node distance=2mm]
-\def\ephr{1/{the},2/{house},3/{is},4/{small},5/{\tiny(translate)}}
+\def\ephr{1/{the},2/{house},3/{is},4/{small}}
 \foreach \i / \element in \ephr
   \node [on chain] (e\i) {\strut \element};
 \end{scope}
 
 \begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
-\def\dphr{1/{das},2/{Haus},3/{ist},4/{klein}}
+\def\dphr{1/{das},2/{Haus},3/{ist},4/{klein},5/{\tiny(translate)}}
 \foreach \i / \element in \dphr
   \node [on chain] (d\i) {\strut \element};
 \end{scope}
@@ -587,6 +587,9 @@ n(1 \mid \textrm{small}) & \times & t(\textrm{klein} \mid \textrm{small}) & \tim
 
 \end{block}
 \end{frame}
+
+\subsection{Finding the best alignment: IBM Model 1}
+\frame{\tableofcontents[currentsection]}
 
 \begin{frame}
 \frametitle{Finding the best word alignment: IBM Model 1}
@@ -662,6 +665,143 @@ n(1 \mid \textrm{small}) & \times & t(\textrm{klein} \mid \textrm{small}) & \tim
 \end{columns}
 
 \end{frame}
+
+\subsection{Learning Parameters: IBM Model 1}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{Learning parameters\koehnref}
+\begin{itemize}[<+->]
+\item We would like to estimate the lexical translation probabilities \maths{$t(e|f)$} from a parallel corpus
+\item ... but we do not have the alignments
+\item Chicken and egg problem
+\begin{itemize}
+\item if we had the {\em alignments},\\ $\rightarrow$ we could estimate the {\em parameters} of our generative model\\[-3mm]
+\item if we had the {\em parameters},\\ $\rightarrow$ we could estimate the {\em alignments}
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{EM Algorithm\koehnref}
+\begin{block}{}
+\begin{itemize}[<+->]
+\item Incomplete data
+\begin{itemize}
+\item if we had {\em complete data}, would could estimate {\em model}
+\item if we had {\em model}, we could fill in the {\em gaps in the data}
+\end{itemize}
+\item Expectation Maximization (EM) in a nutshell
+\begin{enumerate}
+\item initialize model parameters (e.g. uniform)
+\item assign probabilities to the missing data
+\item estimate model parameters from completed data
+\item iterate steps 2--3 until convergence 
+\end{enumerate}
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{EM Algorithm\koehnref}
+\begin{center}
+\includegraphics[scale=0.4]{figures/em1.pdf}
+\end{center}
+\begin{itemize}
+\item Initial step: all alignments equally likely
+\item Model learns that, e.g., \textit{la} is often aligned with \textit{the}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{EM Algorithm\koehnref}
+\begin{center}
+\includegraphics[scale=0.4]{figures/em2.pdf}
+\end{center}
+\begin{itemize}
+\item After one iteration
+\item Alignments, e.g., between \textit{la} and \textit{the} are more likely
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{EM Algorithm\koehnref}
+\begin{center}
+\includegraphics[scale=0.4]{figures/em3.pdf}
+\end{center}
+\begin{itemize}
+\item After another iteration
+\item It becomes apparent that alignments, e.g., between \textit{fleur}
+  and \textit{flower} are more likely (pigeon hole principle)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{EM Algorithm\koehnref}
+
+\begin{center}
+\includegraphics[scale=0.4]{figures/em4.pdf}
+\end{center}
+\begin{itemize}
+\item Convergence
+\item Inherent hidden structure revealed by EM
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{EM Algorithm\koehnref}
+
+\begin{center}
+\includegraphics[scale=0.4]{figures/em4.pdf} \\
+\includegraphics[scale=0.4]{figures/em-result.pdf}
+\end{center}
+\begin{itemize}
+\item Parameter estimation from the aligned corpus
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{IBM Model 1 and the EM Algorithm\koehnref}
+
+\begin{itemize}[<+->]
+\item EM Algorithm consists of two steps
+\item Expectation-Step: Apply model to the data
+\begin{itemize}
+\item parts of the model are hidden (here: alignments)
+\item using the model, assign probabilities to possible values
+\end{itemize}
+\item Maximization-Step: Estimate model from data
+\begin{itemize}
+\item take assign values as fact
+\item collect counts (weighted by probabilities)
+\item estimate model from counts
+\end{itemize}
+\item Iterate these steps until convergence
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{IBM Model 1 and the EM Algorithm\koehnref}
+
+\begin{itemize}[<+->]
+\item We need to be able to compute:
+\begin{itemize}
+\item Expectation-Step: probability of alignments
+\item Maximization-Step: count collection
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Word Alignments: IBM Model 1}
@@ -785,9 +925,967 @@ n(1 \mid \textrm{small}) & \times & t(\textrm{klein} \mid \textrm{small}) & \tim
 \end{frame}
 
 \begin{frame}
+\frametitle{Word Alignments: IBM Model 1}
+\begin{block}{Alignment probability}
+\begin{eqnarray*}
+\Pr(\aln \mid \src, \tgt) & = & \frac{ \Pr( \src, \aln \mid \tgt ) }{ \Pr(\src \mid \tgt) } \\
+& = & \frac{ \prod_{i=1}^I t(f_i \mid e_{a_i}) }{ \sum_{\aln} \prod_{i=1}^I t(f_i \mid e_{a_i}) } \pause\\
+& = & \frac{ \prod_{i=1}^I t(f_i \mid e_{a_i}) }{ \prod_{i=1}^I \sum_{j=1}^J t(f_i \mid e_j) }
+\end{eqnarray*}
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Learning Parameters: IBM Model 1}
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth/3}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (e1.south) -- (d1.north);
+\draw (e2.south) -- (d2.north);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/3}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{book}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Buch}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (e1.south) -- (d1.north);
+\draw (e2.south) -- (d2.north);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/3}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{a},2/{book}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{ein},2/{Buch}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (e1.south) -- (d1.north);
+\draw (e2.south) -- (d2.north);
+
+\end{tikzpicture}
+
+\end{column}
+
+\end{columns}\pause
+
+\begin{block}{Learning parameters $t(f|e)$ when alignments are known}
+\[ 
+ \begin{array}{cc}
+ t(das \mid the) = \frac{c(das, the)}{\sum_f c(f, the)} & t(house \mid Haus) = \frac{c(Haus, house)}{\sum_f c(f, house)} \\
+ t(ein \mid a) = \frac{c(ein, the)}{\sum_f c(f, the)} & t(Buch \mid book) = \frac{c(Buch, book)}{\sum_f c(f, book)}
+ \end{array}
+\]
+\[ t(f | e) = \sum_{s=1}^N \sum_{f \rightarrow e \in \src^{(s)}, \tgt^{(s)}} \frac{ c(f, e) }{ \sum_f c(f, e) } \]
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Learning Parameters: IBM Model 1}
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth/3}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw[dashed] (e1.south) -- (d1.north);
+\draw[dashed] (e1.south) -- (d2.north);
+\draw[dashed] (e2.south) -- (d1.north);
+\draw[dashed] (e2.south) -- (d2.north);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/3}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{book}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Buch}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw[dashed] (e1.south) -- (d1.north);
+\draw[dashed] (e1.south) -- (d2.north);
+\draw[dashed] (e2.south) -- (d1.north);
+\draw[dashed] (e2.south) -- (d2.north);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/3}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{a},2/{book}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{ein},2/{Buch}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw[dashed] (e1.south) -- (d1.north);
+\draw[dashed] (e1.south) -- (d2.north);
+\draw[dashed] (e2.south) -- (d1.north);
+\draw[dashed] (e2.south) -- (d2.north);
+
+\end{tikzpicture}
+
+\end{column}
+
+\end{columns}\pause
+
+\begin{block}{Learning parameters $t(f|e)$ when alignments are {\em unknown}}
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e1.south);
+\draw (d2.north) -- (e1.south);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e1.south);
+\draw (d2.north) -- (e2.south);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e2.south);
+\draw (d2.north) -- (e1.south);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e2.south);
+\draw (d2.north) -- (e2.south);
+
+\end{tikzpicture}
+
+\end{column}
+
+\end{columns}
+
+Also list alignments for \textit{(the book, das Buch)} and \textit{(a book, ein Buch)}
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Learning Parameters: IBM Model 1}
+
+\begin{block}{Initialize $t^0(f|e)$}
+\begin{columns}
+
+\begin{column}{\textwidth/2}
+\[
+\begin{array}{ccc}
+t(Haus \mid the) & = & 0.25 \\
+t(das \mid the) & = & 0.5 \\
+t(Buch \mid the) & = & 0.25 
+\end{array}
+\]
+
+\end{column}
+
+\begin{column}{\textwidth/2}
+\[
+\begin{array}{ccc}
+t(das \mid house) & = & 0.5 \\
+t(Haus \mid house) & = & 0.5 \\
+t(Buch \mid house) & = & 0.0 
+ \end{array}
+\]
+
+\end{column}
+
+\end{columns}
+
+\end{block}\pause
+
+\begin{block}{Compute posterior for each alignment}
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e1.south);
+\draw (d2.north) -- (e1.south);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e1.south);
+\draw (d2.north) -- (e2.south);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e2.south);
+\draw (d2.north) -- (e1.south);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e2.south);
+\draw (d2.north) -- (e2.south);
+
+\end{tikzpicture}
+
+\end{column}
+
+\end{columns}
+
+\[
+\Pr(\aln \mid \src, \tgt) 
+= \frac{ \Pr( \src, \aln \mid \tgt ) }{ \Pr(\src \mid \tgt) } 
+= \frac{ \prod_{i=1}^I t(f_i \mid e_{a_i}) }{ \prod_{i=1}^I \sum_{j=1}^J t(f_i \mid e_j) }
+\]
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Learning Parameters: IBM Model 1}
+
+\begin{block}{Initialize $t^0(f|e)$}
+\begin{columns}
+
+\begin{column}{\textwidth/2}
+\[
+\begin{array}{ccc}
+t(Haus \mid the) & = & 0.25 \\
+t(das \mid the) & = & 0.5 \\
+t(Buch \mid the) & = & 0.25 
+\end{array}
+\]
+
+\end{column}
+
+\begin{column}{\textwidth/2}
+\[
+\begin{array}{ccc}
+t(das \mid house) & = & 0.5 \\
+t(Haus \mid house) & = & 0.5 \\
+t(Buch \mid house) & = & 0.0 
+ \end{array}
+\]
+
+\end{column}
+
+\end{columns}
+
+\end{block}\pause
+
+\begin{block}{Compute $\Pr(\aln, \src \mid \tgt)$ for each alignment}
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e1.south);
+\draw (d2.north) -- (e1.south);
+
+\end{tikzpicture}
+
+\[
+\begin{array}{c}
+0.5 \times 0.25 \\
+0.125
+\end{array}
+\]
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e1.south);
+\draw (d2.north) -- (e2.south);
+
+\end{tikzpicture}
+
+\[
+\begin{array}{c}
+0.5 \times 0.5 \\
+0.25
+\end{array}
+\]
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e2.south);
+\draw (d2.north) -- (e1.south);
+
+\end{tikzpicture}
+
+\[
+\begin{array}{c}
+0.25 \times 0.5 \\
+0.125
+\end{array}
+\]
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e2.south);
+\draw (d2.north) -- (e2.south);
+
+\end{tikzpicture}
+
+\[
+\begin{array}{c}
+0.5 \times 0.5 \\
+0.25
+\end{array}
+\]
+
+\end{column}
+
+\end{columns}
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Learning Parameters: IBM Model 1}
+
+\begin{block}{Compute $\Pr(\aln \mid \src, \tgt) = \frac{\Pr(\aln, \src \mid \tgt)}{\Pr(\src \mid \tgt)}$}
+
+$\Pr(\src \mid \tgt)$ = 0.125 + 0.25 + 0.125 + 0.25 = 0.75
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e1.south);
+\draw (d2.north) -- (e1.south);
+
+\end{tikzpicture}
+
+\[
+\begin{array}{c}
+\frac{0.125}{0.75} \\
+\maths{0.167}
+\end{array}
+\]
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e1.south);
+\draw (d2.north) -- (e2.south);
+
+\end{tikzpicture}
+
+\[
+\begin{array}{c}
+\frac{0.25}{0.75} \\
+\maths{0.334}
+\end{array}
+\]
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e2.south);
+\draw (d2.north) -- (e1.south);
+
+\end{tikzpicture}
+
+\[
+\begin{array}{c}
+\frac{0.125}{0.75} \\
+\maths{0.167}
+\end{array}
+\]
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e2.south);
+\draw (d2.north) -- (e2.south);
+
+\end{tikzpicture}
+
+\[
+\begin{array}{c}
+\frac{0.25}{0.75} \\
+\maths{0.334}
+\end{array}
+\]
+
+\end{column}
+
+\end{columns}
+
+\end{block}\pause
+
+\begin{block}{Compute fractional counts $c(f,e)$}
+\begin{columns}
+
+\begin{column}{\textwidth/2}
+\[
+\begin{array}{lcl}
+c(Haus, the) & = & 0.125 + 0.125 \\
+c(das, the) & = & 0.125 + 0.25 \\
+c(Buch, the) & = & 0.0  
+\end{array}
+\]
+
+\end{column}
+
+\begin{column}{\textwidth/2}
+\[
+\begin{array}{lcl}
+c(das, house) & = & 0.125 + 0.25 \\
+c(Haus, house) & = & 0.25 + 0.25 \\
+c(Buch, house) & = & 0.0 
+ \end{array}
+\]
+
+\end{column}
+
+\end{columns}
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Learning Parameters: IBM Model 1}
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e1.south);
+\draw (d2.north) -- (e1.south);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e1.south);
+\draw (d2.north) -- (e2.south);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e2.south);
+\draw (d2.north) -- (e1.south);
+
+\end{tikzpicture}
+
+\end{column}
+
+\begin{column}{\textwidth/4}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (d1.north) -- (e2.south);
+\draw (d2.north) -- (e2.south);
+
+\end{tikzpicture}
+
+\end{column}
+
+\end{columns}\pause
+
+$\Pr(\src \mid \tgt)$ = 0.125 + 0.25 + 0.125 + 0.25 = 0.75
+
+\begin{block}{Expectation step: expected counts $g(f,e)$}
+
+\begin{columns}
+
+\begin{column}{\textwidth/2}
+\[
+\begin{array}{lcl}
+g(Haus, the) & = & \frac{0.125 + 0.125}{0.75} \\
+g(das, the) & = & \frac{0.125 + 0.25}{0.75} \\
+g(Buch, the) & = & 0.0  
+\end{array}
+\]
+
+\end{column}
+
+\begin{column}{\textwidth/2}
+\[
+\begin{array}{lcl}
+g(das, house) & = & \frac{0.125 + 0.25}{0.75} \\
+g(Haus, house) & = & \frac{0.25 + 0.25}{0.75} \\
+g(Buch, house) & = & 0.0 
+ \end{array}
+\]
+
+\end{column}
+
+\end{columns}
+
+\end{block}\pause
+
+\begin{block}{Maximization step: get new $t^{(1)}(f \mid e) = \frac{ g(f,e) }{ \sum_f g(f,e) } $}
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Learning Parameters: IBM Model 1}
+
+\begin{block}{Expectation step: expected counts $g(f,e)$}
+
+\begin{columns}
+
+\begin{column}{\textwidth/2}
+\[
+\begin{array}{lcl}
+g(Haus, the) & = & 0.334 \\
+g(das, the) & = & 0.5 \\
+g(Buch, the) & = & 0.0 \\
+\textbf{total} & = & 0.834
+\end{array}
+\]
+
+\end{column}
+
+\begin{column}{\textwidth/2}
+\[
+\begin{array}{lcl}
+g(das, house) & = & 0.5 \\
+g(Haus, house) & = & 0.667 \\
+g(Buch, house) & = & 0.0 \\
+\textbf{total} & = & 1.167
+ \end{array}
+\]
+
+\end{column}
+
+\end{columns}
+
+\end{block}\pause
+
+\begin{block}{Maximization step: get new $t^{(1)}(f \mid e) = \frac{ g(f,e) }{ \sum_f g(f,e) } $}
+
+\begin{columns}
+
+\begin{column}{\textwidth/2}
+\[
+\begin{array}{lcl}
+t(Haus \mid the) & = & 0.4 \\
+t(das,\ \mid the) & = & 0.6 \\
+t(Buch \mid the) & = & 0.0 
+\end{array}
+\]
+
+\end{column}
+
+\begin{column}{\textwidth/2}
+\[
+\begin{array}{lcl}
+t(das \mid house) & = & 0.43 \\
+t(Haus \mid house) & = & 0.57 \\
+t(Buch \mid house) & = & 0.0 
+\end{array}
+\]
+
+\end{column}
+
+\end{columns}
+
+Keep iterating: Compute $t^{(0)}, t^{(1)}, t^{(2)}, \ldots$ until convergence
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}
 \frametitle{Parameter Estimation: IBM Model 1}
 \begin{block}{}
-We wish to learn the parameters $t(\cdot \mid \cdot)$ that maximize
+EM learns the parameters $t(\cdot \mid \cdot)$ that maximizes
 the log-likelihood of the training data:
 
 \[ \arg\max_{t} L(t) = \arg\max_{t} \sum_s \log \Pr(\mathbf{f}^{(s)} \mid
@@ -795,10 +1893,12 @@ the log-likelihood of the training data:
 \end{block}\pause
 
 \begin{block}{}
-\begin{itemize}
-\item We start with an initial estimate $t_0$
+\begin{itemize}[<+->]
+\item Start with an initial estimate $t_0$
 \item Modify it iteratively to get $t_1, t_2, \ldots$
-\item Create $t$ from previous time step $t_{-1}$
+\item Re-estimate $t$ from parameters at previous time step $t_{-1}$
+\item The convergence proof of EM guarantees that $L(t) \geq L(t_{-1})$
+\item EM converges when $L(t) - L(t_{-1})$ is zero (or almost zero).
 \end{itemize}
 
 \end{block}

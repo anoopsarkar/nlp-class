@@ -11,7 +11,7 @@
 %\setbeamercolor*{block title example}{fg=BrickRed,bg=Goldenrod!10}
 \setbeamercolor*{block title alerted}{fg=white,bg=black}
 \addtobeamertemplate{block begin}{\pgfsetfillopacity{0.8}}{\pgfsetfillopacity{1}}
-\rowcolors{0}{RoyalBlue!20}{RoyalBlue!5}
+%\rowcolors{0}{RoyalBlue!20}{RoyalBlue!5}
 
 %\DeclareGraphicsRule{*}{mps}{*}{}
 
@@ -56,4 +56,8 @@
 
 \addtobeamertemplate{block begin}{\setlength\abovedisplayskip{0pt}}
 
+%\newcommand{\example}[1]{{\color{BrickRed!50}{#1}}}
+\newcommand{\maths}[1]{{\color{RoyalBlue!50}{#1}}}
+\newcommand{\reference}[1]{{\color{RoyalBlue!30}\tiny [from #1]}}
+\newcommand{\koehnref}{\reference{\href{http://www.statmt.org/book}{P.Koehn SMT book slides}}}
 
