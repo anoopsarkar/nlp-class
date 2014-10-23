@@ -75,7 +75,7 @@ for the output file. If there are $$N$$ sentences in the output:
 $$\textbf{f}^1, \ldots, \textbf{f}^N$$ then the output score is the sum of the
 translation and language model log probability over all sentences:
 
-<p>$$\textrm{score} = \sum_{i=1}^N \log \sum{\textbf{a}} \Pr_{\textrm{TM}}(\textbf{f}^i ,\textbf{a} \mid \textbf{e}^i) \times \Pr_{\textrm{LM}}(\textbf{e}^i) $$</p>
+<p>$$\textrm{score} = \sum_{i=1}^N \log \sum_{\textbf{a}} \Pr_{\textrm{TM}}(\textbf{f}^i ,\textbf{a} \mid \textbf{e}^i) \times \Pr_{\textrm{LM}}(\textbf{e}^i) $$</p>
 
 It sums over all possible ways that the model could have generated
 the English from the French, including translations that permute
