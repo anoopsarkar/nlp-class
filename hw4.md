@@ -31,7 +31,7 @@ the model.__ We assume a noisy channel decomposition.
 
 <center>
 $$\begin{align*} \textbf{e}^* & = \arg \max_{\textbf{e}} \Pr(\textbf{e} \mid \textbf{f}) \\ 
-& = \arg \max_{\textbf{e}} \frac{\Pr_{\textrm{TM}}(\textbf{f} \mid \textbf{e}) \times \Pr_{\textrm{LM}}(\textbf{e})}{p(\textbf{f})} \\ 
+& = \arg \max_{\textbf{e}} \frac{\Pr_{\textrm{TM}}(\textbf{f} \mid \textbf{e}) \times \Pr_{\textrm{LM}}(\textbf{e})}{\Pr(\textbf{f})} \\ 
 &= \arg \max_{\textbf{e}} \Pr_{\textrm{TM}}(\textbf{f} \mid \textbf{e}) \times \Pr_{\textrm{LM}}(\textbf{e}) \\ 
 &= \arg \max_{\textbf{e}} \sum_{\textbf{a}} \Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e}) \times \Pr_{\textrm{LM}}(\textbf{e}) \end{align*}$$
 </center>
@@ -63,7 +63,7 @@ and data sets that you will use for this assignment.
 
 `default.py` implements a complete but very simple decoder. The
 above command creates the file `output` with translations of
-`data/input`.  You can compute $$p(\textbf{e} \mid \textbf{f})$$
+`data/input`.  You can compute $$\Pr(\textbf{e} \mid \textbf{f})$$
 using `score-decoder.py`.
 
     python score-decoder.py < output
@@ -152,7 +152,7 @@ phrases followed by a one-for-one substitution and permutation of
 those phrases is a valid translation. We make the simplifying
 assumption that segmentation and ordering probabilities are uniform
 across all sentences, hence constant.  This means that
-$$p(\textbf{e},\textbf{a} \mid \textbf{f})$$ is proportional to the
+$$\Pr(\textbf{e},\textbf{a} \mid \textbf{f})$$ is proportional to the
 product of the n-gram probabilities in $$Pr_{\textrm{LM}}(\textbf{e})$$
 and the phrase translation probabilities in
 $$Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e})$$. To avoid
@@ -199,7 +199,7 @@ machine translation:
 
 These methods all attempt to approximate or solve the Viterbi
 approximation to decoding.  You can also try to approximate
-$$p(\textbf{e} \mid \textbf{f})$$ directly.
+$$\Pr(\textbf{e} \mid \textbf{f})$$ directly.
 
 * [Use variational algorithms](http://aclweb.org/anthology//P/P09/P09-1067.pdf).
 * [Use Markov chain Monte Carlo algorithms](http://aclweb.org/anthology//W/W09/W09-1114.pdf).
