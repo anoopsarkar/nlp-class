@@ -30,7 +30,10 @@ challenge is to find the most probable English translation under
 the model.__ We assume a noisy channel decomposition.
 
 <center>
-$$\begin{align*} \textbf{e}^* & = \arg \max_{\textbf{e}} \Pr(\textbf{e} \mid \textbf{f}) \\ & = \arg \max_{\textbf{e}} \frac{\Pr_{\textrm{TM}}(\textbf{f} \mid \textbf{e}) \times \Pr_{\textrm{LM}}(\textbf{e})}{p(\textbf{f})} \\ &= \arg \max_{\textbf{e}} \Pr_{\textrm{TM}}(\textbf{f} \mid \textbf{e}) \times \Pr_{\textrm{LM}}(\textbf{e}) \\ &= \arg \max_{\textbf{e}} \sum_{\textbf{a}} \Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e}) \times Pr_{\textrm{LM}}(\textbf{e}) \end{align*}$$
+$$\begin{align*} \textbf{e}^* & = \arg \max_{\textbf{e}} \Pr(\textbf{e} \mid \textbf{f}) \\ 
+& = \arg \max_{\textbf{e}} \frac{\Pr_{\textrm{TM}}(\textbf{f} \mid \textbf{e}) \times \Pr_{\textrm{LM}}(\textbf{e})}{p(\textbf{f})} \\ 
+&= \arg \max_{\textbf{e}} \Pr_{\textrm{TM}}(\textbf{f} \mid \textbf{e}) \times \Pr_{\textrm{LM}}(\textbf{e}) \\ 
+&= \arg \max_{\textbf{e}} \sum_{\textbf{a}} \Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e}) \times \Pr_{\textrm{LM}}(\textbf{e}) \end{align*}$$
 </center>
 
 Getting Started 
@@ -100,7 +103,8 @@ translation. Instead of computing the intractable sum over all
 alignments for each sentence, we simply find the best single alignment
 and use its translation.
 
-<center>$$\begin{align*} \textbf{e}^* &= \arg \max_{\textbf{e}} \sum_{\textbf{a}} Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e}) \times Pr_{\textrm{LM}}(\textbf{e}) \\ &\approx \arg \max_{\textbf{e}} \max_{\textbf{a}} Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e}) \times Pr_{\textrm{LM}}(\textbf{e}) \end{align*}$$</center>
+<center>$$\begin{align*} \textbf{e}^* &= \arg \max_{\textbf{e}} \sum_{\textbf{a}} Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e}) \times Pr_{\textrm{LM}}(\textbf{e}) \\ 
+&\approx \arg \max_{\textbf{e}} \max_{\textbf{a}} Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e}) \times Pr_{\textrm{LM}}(\textbf{e}) \end{align*}$$</center>
 
 Second, it translates French phrases into English without changing
 their order. So, it only reorders words  if the reordering has been
