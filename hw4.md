@@ -24,13 +24,13 @@ To decode, we need a model of English sentences conditioned on the
 French sentence. You did most of the work of creating
 such a model in [Homework 1](hw1.html). In this assignment,
 we will give you some French sentences and a probabilistic model consisting of
-a phrase-based translation model $$p_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e})$$
-and an n-gram language model $$p_{\textrm{LM}}(\textbf{e})$$. __Your 
+a phrase-based translation model $$Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e})$$
+and an n-gram language model $$Pr_{\textrm{LM}}(\textbf{e})$$. __Your 
 challenge is to find the most probable English translation under 
 the model.__ We assume a noisy channel decomposition.
 
 <center>
-$$\begin{align*} \textbf{e}^* & = \arg \max_{\textbf{e}} p(\textbf{e} \mid \textbf{f}) \\ & = \arg \max_{\textbf{e}} \frac{p_{\textrm{TM}}(\textbf{f} \mid \textbf{e}) \times p_{\textrm{LM}}(\textbf{e})}{p(\textbf{f})} \\ &= \arg \max_{\textbf{e}} p_{\textrm{TM}}(\textbf{f} \mid \textbf{e}) \times p_{\textrm{LM}}(\textbf{e}) \\ &= \arg \max_{\textbf{e}} \sum_{\textbf{a}} p_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e}) \times p_{\textrm{LM}}(\textbf{e}) \end{align*}$$
+$$\begin{align*} \textbf{e}^* & = \arg \max_{\textbf{e}} \Pr(\textbf{e} \mid \textbf{f}) \\ & = \arg \max_{\textbf{e}} \frac{\Pr_{\textrm{TM}}(\textbf{f} \mid \textbf{e}) \times \Pr_{\textrm{LM}}(\textbf{e})}{p(\textbf{f})} \\ &= \arg \max_{\textbf{e}} \Pr_{\textrm{TM}}(\textbf{f} \mid \textbf{e}) \times \Pr_{\textrm{LM}}(\textbf{e}) \\ &= \arg \max_{\textbf{e}} \sum_{\textbf{a}} \Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e}) \times Pr_{\textrm{LM}}(\textbf{e}) \end{align*}$$
 </center>
 
 Getting Started 
@@ -72,7 +72,7 @@ for the output file. If there are $$N$$ sentences in the output:
 $$\textbf{f}^1, \ldots, \textbf{f}^N$$ then the output score is the sum of the
 translation and language model log probability over all sentences:
 
-<p>$$\textrm{score} = \sum_{i=1}^N \log \sum{\textbf{a}} p_{\textrm{TM}}(\textbf{f}^i ,\textbf{a} \mid \textbf{e}^i) \times p_{\textrm{LM}}(\textbf{e}^i) $$</p>
+<p>$$\textrm{score} = \sum_{i=1}^N \log \sum{\textbf{a}} \Pr_{\textrm{TM}}(\textbf{f}^i ,\textbf{a} \mid \textbf{e}^i) \times \Pr_{\textrm{LM}}(\textbf{e}^i) $$</p>
 
 It sums over all possible ways that the model could have generated
 the English from the French, including translations that permute
@@ -100,7 +100,7 @@ translation. Instead of computing the intractable sum over all
 alignments for each sentence, we simply find the best single alignment
 and use its translation.
 
-<center>$$\begin{align*} \textbf{e}^* &= \arg \max_{\textbf{e}} \sum_{\textbf{a}} p_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e}) \times p_{\textrm{LM}}(\textbf{e}) \\ &\approx \arg \max_{\textbf{e}} \max_{\textbf{a}} p_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e}) \times p_{\textrm{LM}}(\textbf{e}) \end{align*}$$</center>
+<center>$$\begin{align*} \textbf{e}^* &= \arg \max_{\textbf{e}} \sum_{\textbf{a}} Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e}) \times Pr_{\textrm{LM}}(\textbf{e}) \\ &\approx \arg \max_{\textbf{e}} \max_{\textbf{a}} Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e}) \times Pr_{\textrm{LM}}(\textbf{e}) \end{align*}$$</center>
 
 Second, it translates French phrases into English without changing
 their order. So, it only reorders words  if the reordering has been
@@ -149,12 +149,12 @@ those phrases is a valid translation. We make the simplifying
 assumption that segmentation and ordering probabilities are uniform
 across all sentences, hence constant.  This means that
 $$p(\textbf{e},\textbf{a} \mid \textbf{f})$$ is proportional to the
-product of the n-gram probabilities in $$p_{\textrm{LM}}(\textbf{e})$$
+product of the n-gram probabilities in $$Pr_{\textrm{LM}}(\textbf{e})$$
 and the phrase translation probabilities in
-$$p_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e})$$. To avoid
+$$Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid \textbf{e})$$. To avoid
 numerical underflow we work in logspace, seeking $$\arg \max_{\textbf{e}}
-\max_{\textbf{a}} \log p_{\textrm{TM}}(\textbf{f},\textbf{a} \mid
-\textbf{e}) + \log p_{\textrm{LM}}(\textbf{e})$$. The baseline
+\max_{\textbf{a}} \log Pr_{\textrm{TM}}(\textbf{f},\textbf{a} \mid
+\textbf{e}) + \log Pr_{\textrm{LM}}(\textbf{e})$$. The baseline
 decoder works with log probabilities, so you can simply follow what
 it does.
 
