@@ -68,6 +68,10 @@ using `score-decoder.py`.
 
     python score-decoder.py < output
 
+Or you can do it all at once:
+
+    python default.py | python score-decoder.py
+
 ### Scoring decoder output
 
 The `score-decoder.py` command computes the total log probability
