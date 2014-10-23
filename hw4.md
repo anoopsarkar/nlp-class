@@ -3,12 +3,12 @@ layout: default
 img: voynich
 img_link: http://en.wikipedia.org/wiki/Voynich_manuscript 
 caption: The Voynich manuscript
-title: Homework 3 | Decoding
+title: Homework 4 | Decoding
 active_tab: homework
 ---
 
-Machine Translation Decoding <span class="text-muted">Homework 4</span>
-=============================================================
+Translation Decoding <span class="text-muted">Homework 4</span>
+============================================================
 
 <p class="text-muted">Due on Tuesday, November 4, 2014</p>
 
