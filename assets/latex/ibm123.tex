@@ -689,7 +689,7 @@ n(1 \mid \textrm{small}) & \times & t(\textrm{klein} \mid \textrm{small}) & \tim
 \begin{itemize}[<+->]
 \item Incomplete data
 \begin{itemize}
-\item if we had {\em complete data}, would could estimate {\em model}
+\item if we had {\em complete data}, we could estimate {\em model}
 \item if we had {\em model}, we could fill in the {\em gaps in the data}
 \end{itemize}
 \item Expectation Maximization (EM) in a nutshell
@@ -1016,7 +1016,7 @@ n(1 \mid \textrm{small}) & \times & t(\textrm{klein} \mid \textrm{small}) & \tim
 \[ 
  \begin{array}{cc}
  t(das \mid the) = \frac{c(das, the)}{\sum_f c(f, the)} & t(house \mid Haus) = \frac{c(Haus, house)}{\sum_f c(f, house)} \\
- t(ein \mid a) = \frac{c(ein, the)}{\sum_f c(f, the)} & t(Buch \mid book) = \frac{c(Buch, book)}{\sum_f c(f, book)}
+ t(ein \mid a) = \frac{c(ein, a)}{\sum_f c(f, a)} & t(Buch \mid book) = \frac{c(Buch, book)}{\sum_f c(f, book)}
  \end{array}
 \]
 \[ t(f | e) = \sum_{s=1}^N \sum_{f \rightarrow e \in \src^{(s)}, \tgt^{(s)}} \frac{ c(f, e) }{ \sum_f c(f, e) } \]
@@ -1784,8 +1784,8 @@ $\Pr(\src \mid \tgt)$ = 0.125 + 0.25 + 0.125 + 0.25 = 0.75
 \begin{column}{\textwidth/2}
 \[
 \begin{array}{lcl}
-g(Haus, the) & = & \frac{0.125 + 0.125}{0.75} \\
 g(das, the) & = & \frac{0.125 + 0.25}{0.75} \\
+g(Haus, the) & = & \frac{0.125 + 0.125}{0.75} \\
 g(Buch, the) & = & 0.0  
 \end{array}
 \]
@@ -1823,8 +1823,8 @@ g(Buch, house) & = & 0.0
 \begin{column}{\textwidth/2}
 \[
 \begin{array}{lcl}
-g(Haus, the) & = & 0.334 \\
 g(das, the) & = & 0.5 \\
+g(Haus, the) & = & 0.334 \\
 g(Buch, the) & = & 0.0 \\
 \textbf{total} & = & 0.834
 \end{array}
