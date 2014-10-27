@@ -129,7 +129,7 @@ problem rather than a modeling problem, we can generate the latter
 output by hand and check that the model really prefers it.
 
     head -2 data/input | tail -1 > example
-    python decode -i example | python score-decoder.py -i example
+    python default.py -i example | python score-decoder.py -i example
     echo a selection committee was achievement . | python score-decoder.py -i example
 
 Recall that the scores are reported as log-probabilities, and higher
@@ -144,8 +144,8 @@ output up to that point. You can vary the number of number of outputs
 kept at each point in the translation using the `-s` parameter. See
 how this affects the resulting model score.
 
-    python decode | python score-decoder.py
-    python decode -s 10000 | python score-decoder.py
+    python default.py | python score-decoder.py
+    python default.py -s 10000 | python score-decoder.py
 
 The Challenge
 -------------
