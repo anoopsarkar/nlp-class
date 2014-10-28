@@ -2045,6 +2045,293 @@ the log-likelihood of the training data:
 
 \end{frame}
 
+\begin{frame}
+\frametitle{Sampling the Alignment Space\koehnref}
+\begin{itemize}
+\item Training IBM Model 3 with the EM algorithm
+\begin{itemize}
+\item The trick that reduces exponential complexity does not work anymore
+\item[$\rightarrow$] Not possible to exhaustively consider all alignments
+\end{itemize}
+\item Finding the most probable alignment by hillclimbing
+\begin{itemize}
+\item start with initial alignment
+\item change alignments for individual words
+\item keep change if it has higher probability
+\item continue until convergence
+\end{itemize}
+\item Sampling: collecting variations to collect statistics
+\begin{itemize}
+\item all alignments found during hillclimbing
+\item neighboring alignments that differ by a move or a swap
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Higher IBM Models\koehnref}
+\vspace{10mm}
+\begin{center}
+\begin{tabular}{|l|l|} \hline
+IBM Model 1 & lexical translation \\ \hline
+IBM Model 2 & adds absolute reordering model \\ \hline
+IBM Model 3 & adds fertility model \\ \hline
+IBM Model 4 & relative reordering model \\ \hline
+IBM Model 5 & fixes deficiency \\ \hline
+\end{tabular}
+\end{center}
+\begin{itemize}
+\item Only IBM Model 1 has global maximum 
+\begin{itemize}
+\item training of a higher IBM model builds on previous model
+\end{itemize}
+\item Compuationally biggest change in Model 3 
+\begin{itemize} 
+\item trick to simplify estimation does not work anymore
+\item[$\rightarrow$] exhaustive count collection becomes computationally too expensive
+\item sampling over high probability alignments is used instead
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Summary\koehnref}
+\vspace{10mm}
+\begin{itemize}
+\item IBM Models were the pioneering models in statistical machine translation
+\item Introduced important concepts
+\begin{itemize}
+\item generative model
+\item EM training
+\item reordering models
+\end{itemize}
+\vspace{5mm}
+\item Only used for niche applications as translation model
+\item ... but still in common use for word alignment (e.g., GIZA++, mgiza toolkit)
+\end{itemize}
+
+\end{frame}
+
+
+\lecture{Word Alignment}{}
+
+
+\begin{frame}
+\frametitle{Word Alignment\koehnref}
+\vspace{5mm}
+\begin{center}
+Given a sentence pair, which words correspond to each other?\\[5mm]
+\includegraphics[scale=.8]{figures/michael-alignment.pdf}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Word Alignment?\koehnref}
+\vspace{10mm}
+\begin{center}
+\includegraphics[scale=1.1]{figures/does-not-alignment.pdf}\\[5mm]
+Is the English word \textit{does} aligned to\\ the German \textit{wohnt} (verb) or \textit{nicht} (negation) or neither?
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Word Alignment?\koehnref}
+\vspace{10mm}
+\begin{center}
+\includegraphics[scale=1.2]{figures/kicked-the-bucket-alignment.pdf}\\[5mm]
+How do the idioms \textit{kicked the bucket} and \textit{biss ins grass} match up?\\ Outside this exceptional context, \textit{bucket} is never a good translation for \textit{grass}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Measuring Word Alignment Quality\koehnref}
+\vspace{10mm}
+\begin{itemize}
+\item Manually align corpus with {\em sure} (\maths{$S$}) and {\em possible} (\maths{$P$}) alignment points (\maths{$S \subseteq P$})
+\item Common metric for evaluation word alignments: Alignment Error Rate (AER)
+\maths{\begin{equation*}
+\mbox{AER}(S,P;A) =  \frac{|A \cap S| + {|A \cap P|}}{|A|+|S|}
+\end{equation*}}
+\item AER = 0: alignment \maths{$A$} matches all sure, any possible alignment points
+\item However: different applications require different precision/recall trade-offs
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Word Alignment with IBM Models\koehnref}
+
+\begin{itemize}
+\item IBM Models create a {\bf many-to-one} mapping
+{\begin{itemize}\itemsep 3mm
+\item words are aligned using an alignment function
+\item a function may return the same value for different input
+\item[]  (one-to-many mapping)
+\item a function can not return multiple values for one input
+\item[]  (no many-to-one mapping)
+\end{itemize} }
+\item  Real word alignments have {\bf many-to-many} mappings
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Symmetrizing Word Alignments\koehnref}
+\vspace{-5mm}
+\begin{center} 
+\includegraphics[scale=0.45]{figures/michael-bidirectional.pdf}
+\end{center}
+\begin{itemize}
+\item Intersection plus grow additional alignment points [Och~and~Ney,~CompLing2003]
+\end{itemize}
+
+\end{frame}
+
+ 
+\begin{frame}[fragile]
+\frametitle{Growing heuristic\koehnref}
+
+{\footnotesize {\bf grow-diag-final}(e2f,f2e)
+\begin{algorithmic}[1]
+\STATE neighboring = $\{$(-1,0),(0,-1),(1,0),(0,1),(-1,-1),(-1,1),(1,-1),(1,1)$\}$
+\STATE alignment $A$ = intersect(e2f,f2e); grow-diag(); final(e2f); final(f2e);
+\end{algorithmic}
+{\bf grow-diag}()
+\begin{algorithmic}[1]
+\WHILE{new points added}
+\FORALL{English word $e \in [1 ... e_n]$, foreign word $f \in [1 ... f_n]$, $(e,f) \in A$}
+      \FORALL{neighboring alignment points ($e_\text{new}$, $f_\text{new}$)}
+         \IF{($e_\text{new}$ unaligned {\sc or} $f_\text{new}$ unaligned) {\sc and} ($e_\text{new},f_\text{new}) \in \text{union(e2f,f2e)}$}
+           \STATE add ($e_\text{new},f_\text{new}$) to $A$
+        \ENDIF
+       \ENDFOR  
+  \ENDFOR  
+\ENDWHILE
+\end{algorithmic}
+{\bf final}()
+\begin{algorithmic}[1]
+\FORALL{English word $e_\text{new} \in [1 ... e_n]$, foreign word $f _\text{new}\in [1 ... f_n]$}
+     \IF{($e_\text{new}$ unaligned {\sc or} $f_\text{new}$ unaligned) {\sc and} ($e_\text{new},f_\text{new}) \in \text{union(e2f,f2e)}$}
+       \STATE add ($e_\text{new},f_\text{new}$) to $A$
+     \ENDIF
+\ENDFOR  
+\end{algorithmic}
+}
+
+\end{frame}
+
+ 
+\begin{frame}
+\frametitle{More Recent Work on Symmetrization\koehnref}
+
+\begin{itemize}
+\item Symmetrize after each iteration of IBM Models [Matusov et al., 2004]
+\begin{itemize}
+\item run one iteration of E-step for each direction
+\item symmetrize the two directions
+\item count collection (M-step)
+\end{itemize}
+\vspace{5mm}
+\item Use of posterior probabilities in symmetrization 
+\begin{itemize}
+\item generate n-best alignments for each direction
+\item calculate how often an alignment point occurs in these alignments
+\item use this posterior probability during symmetrization
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+ 
+\begin{frame}
+\frametitle{Link Deletion / Addition Models\koehnref}
+
+\begin{itemize}
+\item Link deletion [Fossum et al., 2008]
+\begin{itemize}
+\item start with union of IBM Model alignment points
+\item delete one alignment point at a time
+\item uses a neural network classifiers that also considers aspects such as how useful the alignment is for learning translation rules
+\end{itemize}
+\vspace{5mm}
+\item Link addition [Ren et al., 2007] [Ma et al., 2008]
+\begin{itemize}
+\item possibly start with a skeleton of highly likely alignment points
+\item add one alignment point at a time
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+ 
+\begin{frame}
+\frametitle{Discriminative Training Methods\koehnref}
+
+\begin{itemize}
+\item Given some annotated training data, supervised learning methods are possible
+\item Structured prediction
+\begin{itemize}
+\item not just a classification problem
+\item solution structure has to be constructed in steps
+\end{itemize}
+\item Many approaches: maximum entropy, neural networks, support vector machines, conditional random fields, MIRA, ...
+\item Small labeled corpus may be used for parameter tuning of unsupervised aligner [Fraser and Marcu, 2007]
+\end{itemize}
+
+\end{frame}
+
+ 
+\begin{frame}
+\frametitle{Better Generative Models\koehnref}
+
+\begin{itemize}
+\item Aligning phrases
+\begin{itemize}
+\item joint model [Marcu and Wong, 2002]
+\item problem: EM algorithm likes really long phrases
+\end{itemize}
+\vspace{10mm}
+\item Fraser and Marcu: LEAF
+\begin{itemize}
+\item decomposes word alignment into many steps
+\item similar in spirit to IBM Models
+\item includes step for grouping into phrase
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Summary\koehnref}
+\begin{itemize}
+\item Lexical translation
+\item Alignment
+\item Expectation Maximization (EM) Algorithm
+\item Noisy Channel Model
+\item IBM Models 1--5
+\begin{itemize}
+\item IBM Model 1: lexical translation
+\item IBM Model 2: alignment model
+\item IBM Model 3: fertility
+\item IBM Model 4: relative alignment model
+\item IBM Model 5: deficiency
+\end{itemize}
+\item Word Alignment
+\end{itemize}
+
+\end{frame}
 
 \input{acknowledgements.tex}
 
