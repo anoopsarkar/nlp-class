@@ -136,6 +136,11 @@ past:
         title: "Lagrange multipliers for HMM parameter updates"
         video: http://youtu.be/ZUcb_UJK1UM
         optional: false
+      - author: Michael Collins
+        title: "Forward-backward algorithm"
+        url: http://www.cs.columbia.edu/~mcollins/fb.pdf
+        download: assets/mcollins-notes/fb.pdf
+        optional: false
   -
     date: 2014-10-07
     title: Linear models (parts one and two)
@@ -182,3 +187,25 @@ past:
         title: "Statistical Machine Translation"
         url: http://www.statmt.org/book
         optional: true
+  -
+    date: 2014-10-23
+    title: Homework 4 release
+    slides: hw4.html
+    reading:
+      - author: Michael Collins
+        title: "Statistical Machine Translation: Phrase-based models"
+        url: http://www.cs.columbia.edu/~mcollins/pb.pdf
+        download: assets/mcollins-notes/pb.pdf
+        optional: false
+  -
+    date: 2014-10-28
+    title: Phrase based translation
+    reading:
+      - author: Philipp Koehn
+        title: "Phrase-based models"
+        url: "assets/slides/05-phrase-based-models.pdf"
+        optional: false
+      - author: Philipp Koehn
+        title: "Decoding"
+        url: "assets/slides/06-decoding.pdf"
+        optional: false

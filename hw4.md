@@ -188,6 +188,11 @@ decoding algorithm.  Any permutation of phrases is a valid translation,
 so we strongly suggest searching over all or some part of this
 larger space. This search is NP-Hard, so it will not be easy. 
 
+A detailed description of the standard algorithm for a beam-search
+decoder is provided in the following lecture notes:
+
+> [Phrase-based Translation Models](assets/mcollins-notes/pb.pdf). Michael Collins.
+
 ### Extending the baseline
 
 There are several approaches that tackle the decoding problem for

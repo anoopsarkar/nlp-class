@@ -1904,6 +1904,148 @@ the log-likelihood of the training data:
 \end{block}
 \end{frame}
 
+\subsection{IBM Model 2}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 2}
+\begin{block}{Generative ``story'' for Model 2}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house},3/{is},4/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut \element};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{das},2/{Haus},3/{ist},4/{klein},5/{\tiny(translate)}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut \element};
+\end{scope}
+
+\draw[->] (e1.south) -- (d1.north);
+\draw[->] (e2.south) -- (d2.north);
+\draw[->] (e3.south) -- (d3.north);
+\draw[->] (e4.south) -- (d4.north);
+
+\begin{scope}[yshift=-28mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{ist},2/{das},3/{Haus},4/{klein},5/{\tiny(align)}}
+\foreach \i / \element in \dphr
+  \node [on chain] (a\i) {\strut \element};
+\end{scope}
+
+\draw[->] (d1.south) -- (a2.north);
+\draw[->] (d2.south) -- (a3.north);
+\draw[->] (d3.south) -- (a1.north);
+\draw[->] (d4.south) -- (a4.north);
+
+\end{tikzpicture}
+
+\[ \Pr(\src, \aln \mid \tgt) = \prod_{i=1}^I t(f_i \mid e_{a_i}) \times a(a_i \mid i, I, J) \]
+
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 2}
+\begin{block}{Alignment probability}
+\[ \Pr(\aln \mid \src, \tgt) = \frac{ \Pr( \src, \aln \mid \tgt ) }{ \sum_{\aln} \Pr(\src, \aln \mid \tgt) } 
+\]
+\[ \Pr(\src, \aln \mid \tgt) = \prod_{i=1}^I t(f_i \mid e_{a_i}) \times a(a_i \mid i, I, J) \]
+\end{block}\pause
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth/2}
+\begin{block}{Example alignment}
+
+\begin{tikzpicture}
+
+\begin{scope}[start chain=going right,node distance=2mm]
+\def\ephr{1/{the},2/{house},3/{is},4/{small}}
+\foreach \i / \element in \ephr
+  \node [on chain] (e\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\begin{scope}[yshift=-14mm,start chain=going right,node distance=2mm]
+\def\dphr{1/{ist},2/{das},3/{Haus},4/{klein}}
+\foreach \i / \element in \dphr
+  \node [on chain] (d\i) {\strut $\stackrel{\i}{\mbox{\element}}$};
+\end{scope}
+
+\draw (e1.south) -- (d2.north);
+\draw (e2.south) -- (d3.north);
+\draw (e3.south) -- (d1.north);
+\draw (e4.south) -- (d4.north);
+
+\end{tikzpicture}
+
+\end{block}
+\end{column}\pause
+
+\begin{column}{\textwidth/2}
+{\small
+\begin{eqnarray*}
+\lefteqn{\Pr( \src, \aln \mid \tgt ) =}\\
+&& t(\textrm{das} \mid \textrm{the}) \times a(1 \mid 2, 4, 4) \times \\
+&& t(\textrm{Haus} \mid \textrm{house}) \times a(2 \mid 3, 4, 4) \times \\
+&& t(\textrm{ist} \mid \textrm{is}) \times a(3 \mid 1, 4, 4) \times \\
+&& t(\textrm{klein} \mid \textrm{small}) \times a(4 \mid 4, 4, 4)
+\end{eqnarray*}
+}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 2}
+\begin{block}{Alignment probability}
+\begin{eqnarray*}
+\Pr(\aln \mid \src, \tgt) & = & \frac{ \Pr( \src, \aln \mid \tgt ) }{ \Pr(\src \mid \tgt) } \\
+& = & \frac{ \prod_{i=1}^I t(f_i \mid e_{a_i}) \times a(a_i \mid i, I, J) }{ \sum_{\aln} \prod_{i=1}^I t(f_i \mid e_{a_i}) \times a(a_i \mid i, I, J) } \pause\\
+& = & \frac{ \prod_{i=1}^I t(f_i \mid e_{a_i}) \times a(a_i \mid i, I, J) }{ \prod_{i=1}^I \sum_{j=1}^J t(f_i \mid e_j) \times a(j \mid i, I, J) }
+\end{eqnarray*}
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Word Alignments: IBM Model 2}
+
+\begin{block}{Learning the parameters}
+\begin{itemize}[<+->]
+\item EM training for IBM Model 2 works the same way as IBM Model 1
+\item We can do the same factorization trick to efficiently learn the parameters
+\item The EM algorithm:
+\begin{itemize}
+\item Initialize parameters $t$ and $a$ (prefer the diagonal for alignments)
+\item Expectation step: We collect expected counts for $t$ and $a$ parameter values
+\item Maximization step: add up expected counts and normalize to get new parameter values
+\item Repeat EM steps until convergence.
+\end{itemize}
+\end{itemize}
+
+\end{block}
+
+
+\end{frame}
+
+\subsection{Back to IBM Model 3}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{Learning Parameters: IBM Model 3}
+
+\begin{block}{Parameter Estimation: Sum over all alignments}
+\[ \sum_{\aln} \Pr(\src, \aln \mid \tgt) = \sum_{\aln} \prod_{i=1}^I {\color{RoyalBlue} n(\phi_{a_i} \mid e_{a_i})} \times {\color{red} t(f_i \mid e_{a_i})} \times {\color{blue} d(i \mid a_i, \src_{\textrm{len}}, \tgt_{\textrm{len}})} \]
+\end{block}
+
+\end{frame}
+
+
 \input{acknowledgements.tex}
 
 \end{document}
