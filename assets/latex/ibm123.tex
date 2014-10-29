@@ -111,6 +111,7 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \item French $\src$: $( f_1, f_2, \ldots, f_I )$
 \item English $\tgt$: $( e_1, e_2, \ldots, e_J )$
 \item Alignment $\aln$: $( a_1, a_2, \ldots, a_I )$
+\item length($\src$) = length($\aln$) = $I$
 \end{itemize}
 \end{block}
 \end{frame}
@@ -216,9 +217,9 @@ e.g.\ $(f_8, e_{a_8})$ = $(f_8, e_7)$ = (bruja, witch)
 \frametitle{Word Alignments: IBM Model 3}
 \begin{block}{Generative model for $P(\src, \aln \mid \tgt)$}
 \begin{eqnarray*}
-P(\src, \aln \mid \tgt) & = & \prod_{j=1}^J n(\phi_i \mid e_i)  \pause\\
-& \times & \prod_{i=1}^I t(f_i \mid e_{a_j}) \pause\\
-& \times & \prod_{i=1}^I d(i \mid j, I, J)
+P(\src, \aln \mid \tgt) & = & \prod_{i=1}^I n(\phi_{a_i} \mid e_{a_i})  \pause\\
+& \times & t(f_i \mid e_{a_i}) \pause\\
+& \times & d(i \mid a_i, I, J)
 \end{eqnarray*}
 \end{block}
 \end{frame}
@@ -481,7 +482,7 @@ n(1 \mid \textrm{small}) & \times & t(\textrm{klein} \mid \textrm{small}) & \tim
 \end{columns}\pause
 
 \begin{block}{Parameter Estimation: Sum over all alignments}
-\[ \sum_{\aln} \Pr(\src, \aln \mid \tgt) = \sum_{\aln} \prod_{i=1}^I {\color{RoyalBlue} n(\phi_{a_i} \mid e_{a_i})} \times {\color{red} t(f_i \mid e_{a_i})} \times {\color{blue} d(i \mid a_i, \src_{\textrm{len}}, \tgt_{\textrm{len}})} \]
+\[ \sum_{\aln} \Pr(\src, \aln \mid \tgt) = \sum_{\aln} \prod_{i=1}^I {\color{RoyalBlue} n(\phi_{a_i} \mid e_{a_i})} \times {\color{red} t(f_i \mid e_{a_i})} \times {\color{blue} d(i \mid a_i, I, J)} \]
 \end{block}
 \end{frame}
 
@@ -497,7 +498,7 @@ n(1 \mid \textrm{small}) & \times & t(\textrm{klein} \mid \textrm{small}) & \tim
 \end{block}\pause
 
 \begin{block}{IBM Model 3 is too hard: Let us try learning only $t(f_i \mid e_{a_i})$}
-\[ \sum_{\aln} \Pr(\src, \aln \mid \tgt) = \sum_{\aln} \prod_{i=1}^I {\color{RoyalBlue} n(\phi_{a_i} \mid e_{a_i})} \times {\color{red} t(f_i \mid e_{a_i})} \times {\color{blue} d(i \mid a_i, \src_{\textrm{len}}, \tgt_{\textrm{len}})} \]
+\[ \sum_{\aln} \Pr(\src, \aln \mid \tgt) = \sum_{\aln} \prod_{i=1}^I {\color{RoyalBlue} n(\phi_{a_i} \mid e_{a_i})} \times {\color{red} t(f_i \mid e_{a_i})} \times {\color{blue} d(i \mid a_i, I, J)} \]
 
 \end{block}
 
@@ -2040,7 +2041,7 @@ the log-likelihood of the training data:
 \frametitle{Learning Parameters: IBM Model 3}
 
 \begin{block}{Parameter Estimation: Sum over all alignments}
-\[ \sum_{\aln} \Pr(\src, \aln \mid \tgt) = \sum_{\aln} \prod_{i=1}^I {\color{RoyalBlue} n(\phi_{a_i} \mid e_{a_i})} \times {\color{red} t(f_i \mid e_{a_i})} \times {\color{blue} d(i \mid a_i, \src_{\textrm{len}}, \tgt_{\textrm{len}})} \]
+\[ \sum_{\aln} \Pr(\src, \aln \mid \tgt) = \sum_{\aln} \prod_{i=1}^I {\color{RoyalBlue} n(\phi_{a_i} \mid e_{a_i})} \times {\color{red} t(f_i \mid e_{a_i})} \times {\color{blue} d(i \mid a_i, I, J )} \]
 \end{block}
 
 \end{frame}
