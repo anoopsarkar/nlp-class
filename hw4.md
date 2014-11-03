@@ -198,6 +198,11 @@ decoder is provided in the following lecture notes:
 There are several approaches that tackle the decoding problem for
 machine translation:
 
+* Use a beam width parameter instead of picking the top-k in each stack as described in page 12 of the [Collins lecture notes](assets/mcollins-notes/pb.pdf).
+* Implement a pruning score separate from the model score:
+    * Use a distortion penalty so that reordering is penalized by distance as described in page 11 of the [Collins lecture notes](assets/mcollins-notes/pb.pdf).
+    * Use a weight for the language model and translation model and tune the weights (by hand) to minimize search error as described in page 17 of the [Koehn lecture notes on decoding](http://anoopsarkar.github.io/nlp-class/assets/slides/06-decoding.pdf). 
+    * Use future cost as described in pages 25-29 of the [Koehn lecture notes on decoding](http://anoopsarkar.github.io/nlp-class/assets/slides/06-decoding.pdf).
 * [Implement a greedy decoder](http://www.iro.umontreal.ca/~felipe/bib2webV0.81/cv/papers/paper-tmi-2007.pdf).
 * [Use A* search](http://aclweb.org/anthology-new/W/W01/W01-1408.pdf).
 * [Use Lagrangian relaxation](http://aclweb.org/anthology//D/D13/D13-1022.pdf). Guaranteed to find the best score!
