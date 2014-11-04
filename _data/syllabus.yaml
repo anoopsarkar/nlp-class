@@ -209,3 +209,27 @@ past:
         title: "Decoding"
         url: "assets/slides/06-decoding.pdf"
         optional: false
+  -
+    date: 2014-11-04
+    title: Evaluation of machine translation output
+    reading:
+      - author: Philipp Koehn
+        title: "Evaluation"
+        url: "assets/slides/08-evaluation.pdf"
+        optional: false
+      - author: Anoop Sarkar
+        title: "Edit distance"
+        url: "assets/slides/editdistance.pdf"
+        optional: false
+      - author: Anoop Sarkar
+        title: "Introducing edit distance"
+        video: http://youtu.be/IDGsJdFZCmE
+        optional: false
+      - author: Anoop Sarkar
+        title: "Computing edit distance (part one)"
+        video: http://youtu.be/Dv_bdR7LpS0
+        optional: false
+      - author: Anoop Sarkar
+        title: "Computing edit distance (part two)"
+        video: http://youtu.be/E606vHFGTvA
+        optional: false
