@@ -211,7 +211,7 @@ past:
         optional: false
   -
     date: 2014-11-04
-    title: Evaluation of machine translation output
+    title: Translation Evaluation
     reading:
       - author: Philipp Koehn
         title: "Evaluation"
