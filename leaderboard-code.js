@@ -16,9 +16,9 @@ $.ajax({
             if (hidden_users[user]) {
                 continue;
             }
-            if (user != 'default' && data[i][2] == "-inf") {
-                continue;
-            }
+            // if (user != 'default' && data[i][2] == "-inf") {
+            //     continue;
+            // }
 
             rows += '<tr id="' + user + '">';
             var prevscore = (i == 0) ? -1 : data[i-1][1+assignment_number];
