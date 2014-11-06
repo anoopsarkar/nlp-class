@@ -97,6 +97,33 @@ You can do it all at once:
 
     python rerank.py -w default.weights | python score-reranker.py
 
+## The features
+
+The files `train.nbest` and `test.nbest` have six feature functions:
+
+    LMScore ReorderingScore p(f|e) lex(f|e) p(e|f) lex(e|f) 
+
+The feature functions are explained below:
+
+1. `LMScore`: the language model score for this candidate
+2. `ReorderingScore`: the sum of the distortion penalties for this translation
+3. `p(f|e)`: the inverse phrase translation probability  
+4. `lex(f|e)`: the inverse lexical weighting 
+5. `p(e|f)`: the direct phrase translation probability  
+6. `lex(e|f)`: the direct lexical weighting 
+
+For example, here are the 5-best outputs for the first sentence in the training data. Each has a feature vector with values for the above feature functions:
+
+    0 ||| barack obama will become the fourth american president to receive the nobel peace prize ||| -25.014 -1.000 -5.000 -2.000 -14.000 -6.080
+    0 ||| barack obama will be the fourth american president to receive the nobel peace prize ||| -26.457 -1.000 -4.000 -2.000 -14.000 -6.080
+    0 ||| barack obama will be the fourth us president to receive the nobel peace prize ||| -26.781 -1.000 -5.000 -2.000 -14.000 -6.080
+    0 ||| barack obama would be the fourth american president to receive the nobel peace prize ||| -26.311 -1.000 -5.000 -2.000 -14.000 -6.080
+    0 ||| barack obama will become the fourth american president to receive the nobel peace prize winner ||| -25.899 -1.000 -5.000 -2.000 -15.000 -6.514
+
+Your task is to find weights for these features to pick a better
+translation out of the n-best list for each input sentence. This
+task is called reranking.
+
 ## The oracle score
 
 How much better can you get by reranking. The program `oracle.py`
@@ -126,29 +153,6 @@ a better output using `rerank.py`:
 You can then score your output in the same way as shown above:
 
     python score-reranker.py < your-output
-
-## The features
-
-The files `train.nbest` and `test.nbest` have six feature functions:
-
-    LMScore ReorderingScore p(f|e) lex(f|e) p(e|f) lex(e|f) 
-
-The feature functions are explained below:
-
-1. `LMScore`: the language model score for this candidate
-2. `ReorderingScore`: the sum of the distortion penalties for this translation
-3. `p(f|e)`: the inverse phrase translation probability  
-4. `lex(f|e)`: the inverse lexical weighting 
-5. `p(e|f)`: the direct phrase translation probability  
-6. `lex(e|f)`: the direct lexical weighting 
-
-For example, here are the 5-best outputs for the first sentence in the training data. Each has a feature vector with values for the above feature functions:
-
-    0 ||| barack obama will become the fourth american president to receive the nobel peace prize ||| -25.014 -1.000 -5.000 -2.000 -14.000 -6.080
-    0 ||| barack obama will be the fourth american president to receive the nobel peace prize ||| -26.457 -1.000 -4.000 -2.000 -14.000 -6.080
-    0 ||| barack obama will be the fourth us president to receive the nobel peace prize ||| -26.781 -1.000 -5.000 -2.000 -14.000 -6.080
-    0 ||| barack obama would be the fourth american president to receive the nobel peace prize ||| -26.311 -1.000 -5.000 -2.000 -14.000 -6.080
-    0 ||| barack obama will become the fourth american president to receive the nobel peace prize winner ||| -25.899 -1.000 -5.000 -2.000 -15.000 -6.514
 
 ## Leaderboard
 
