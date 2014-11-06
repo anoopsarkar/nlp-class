@@ -1,11 +1,7 @@
 $.ajax({
     url: "//sfu-nlp-class.appspot.com/leaderboard.js",
     dataType: "script",
-    complete: function() {
-        $('loading').hide();
-    }
     success: function () {
-        // $('loading').hide();
         // The current assignment number (0-indexed)
         var assignment_number = 4;
 
@@ -56,5 +52,6 @@ $.ajax({
         $("#baseline").addClass('warning');
         $("#default").addClass('danger');
         $("#oracle").addClass('success');
+        $('loading').hide();
     }
 });
