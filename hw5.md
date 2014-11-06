@@ -203,11 +203,17 @@ that optimize $$\theta$$ for BLEU. Your task is to improve translation
 quality on the blind test set as much as possible by improving these
 components.
 
-Implementing a version of MERT or PRO along with some simple feature
-engineering will be enough to beat our baseline and earn full credit.
+For the baseline learning algorithm we will use an algorithm called
+PRO (pairwise ranking optimization) which is described in the
+following paper:
+
+> [Tuning as Ranking](http://www.aclweb.org/anthology/D11-1125). Mark Hopkins and Jonathan May. EMNLP 2011.
+
+Implementing a version of PRO will be enough to match the baseline score.
 However, there will still be substantial room for improvement.  Here
 are some ideas:
 
+* Improve the learning algorithm in PRO (from the perceptron to averaged perceptron, for instance).
 * You can add features to `train.nbest` and `test.nbest`
     * Add a feature that counts the number of words.
     * Add a feature to count words that appear to be untranslated.
