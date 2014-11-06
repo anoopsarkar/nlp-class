@@ -57,7 +57,7 @@ following decision function.
 $$\hat{e} = \arg\max_{e\in E(f)} \theta \cdot h(e,f)$$
 </center>
 
-## Reranking with default weights 
+### Reranking with default weights 
 
 Use the default reranker simply produces uniform weights for
 all features in the file `data/train.nbest`:
@@ -77,7 +77,7 @@ sentence in the file `data/test.nbest`. The output file contains
 the best translations according to the weights provided to the
 reranker.
 
-## Score the output
+### Score the output
 
 Score the output using `score-reranker.py`:
 
@@ -97,7 +97,7 @@ You can do it all at once:
 
     python rerank.py -w default.weights | python score-reranker.py
 
-## The features
+### The features
 
 The files `train.nbest` and `test.nbest` have six feature functions:
 
@@ -124,7 +124,7 @@ Your task is to find weights for these features to pick a better
 translation out of the n-best list for each input sentence. This
 task is called reranking.
 
-## The oracle score
+### The oracle score
 
 How much better can you get by reranking. The program `oracle.py`
 uses the reference sentences to show you the upper bound in
@@ -136,7 +136,7 @@ The oracle uses the references in `test.en` but your reranker cannot
 use that information to learn the weights. Learn your weights
 **only** on the training data.
 
-## Your reranker
+### Your reranker
 
 The program `default.py` simply ignores the training data:
 
@@ -154,7 +154,7 @@ You can then score your output in the same way as shown above:
 
     python score-reranker.py < your-output
 
-## Leaderboard
+### Leaderboard
 
 You should upload the output of `rerank.py` using weights that you
 learn by using `train.nbest` (n-best list for training), `train.en`
@@ -167,14 +167,14 @@ The score will be almost identical to the local score reported by
 leaderboard. The leaderboard scores on all 500 sentences in
 `data/test.nbest` while the local score is on the first 250 sentences.
 
-## Options
+### Options
 
     python default.py -h
 
 This shows the different options you can use in your training
 algorithm implementation.  
 
-## Data
+### Data
 
 The data directory contains several files derived from a French-English
 newswire translation task.
