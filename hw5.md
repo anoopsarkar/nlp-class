@@ -186,8 +186,8 @@ newswire translation task.
 - `test.en`: Human translations of the first 250 sentences of the French test
 - `test.nbest`: N-best machine translations of the French test data  
 
-The Baseline
-------------
+The Challenge
+-------------
 
 The oracle should convince you that it is possible to do _much_
 better than the default reranker. Maybe you can improve it by
@@ -203,15 +203,58 @@ that optimize $$\theta$$ for BLEU. Your task is to improve translation
 quality on the blind test set as much as possible by improving these
 components.
 
+### The Baseline
+
 For the baseline learning algorithm we will use an algorithm called
 PRO (pairwise ranking optimization) which is described in the
 following paper:
 
 > [Tuning as Ranking](http://www.aclweb.org/anthology/D11-1125). Mark Hopkins and Jonathan May. EMNLP 2011.
 
-Implementing a version of PRO will be enough to match the baseline score.
-However, there will still be substantial room for improvement.  Here
-are some ideas:
+One caveat is that we will not be generating new candidates using
+a decoder in each iteration. This means we will iterate over the
+n-best lists provided to you rather than re-decoding to produce
+n-best lists for each iteration. This approach is called *batch
+tuning* and explained further in:
+
+> [Batch Tuning Strategies for Statistical Machine Translation](http://aclweb.org/anthology-new/N/N12/N12-1047v2.pdf). Colin Cherry and George Foster. In NAACL 2012.
+
+Here is a pseudo code version of the PRO algorithm to learn weights for reranking:
+
+    Parameters:
+        tau: samples generated from n-best list per input sentence
+        alpha: sampler acceptance cutoff (set to 0.05)
+        xi: training data generated from the samples tau
+        eta: perceptron learning rate (set to 0.1)
+        epochs: number of epochs for perceptron training
+
+    for each sentence i:
+        collect all the n-best outputs for i
+        for each candidate c in the n-best list:
+            compute the bleu score b (using bleu.py) for c
+            append (c,b) to nbests[i]
+
+    for i = 1 to epochs:
+        for nbest in nbests:
+            get_sample():
+                while samples are less than tau:
+                    randomly choose two items from nbest list, s1 and s2:
+                        make sure s1.smoothed_bleu > s2.smoothed_bleu
+                        if s1.smoothed_bleu - s2.smoothed_bleu > alpha:
+                            keep (s1, s2) as a sample
+                        else:
+                            continue
+            sort the tau samples from get_sample() using s1.smoothed_bleu - s2.smoothed_bleu
+            keep the top xi (s1, s2) values from the sorted list of samples
+            do a perceptron update of the parameters $$\theta$$
+            if $$\theta \cdot $$ s1.features  $$\leq$$ $$\theta \cdot $$ s2.features:
+                errors += 1
+                $$\theta$$ += $$\eta$$ * (s1.features - s2.features)
+    return $$\theta$$
+
+Implementing a batch tuning version of PRO will be enough to match
+the baseline score.  However, there will still be substantial room
+for improvement.  Here are some ideas:
 
 * Improve the learning algorithm in PRO (from the perceptron to averaged perceptron, for instance).
 * You can add features to `train.nbest` and `test.nbest`
