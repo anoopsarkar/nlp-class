@@ -246,10 +246,10 @@ Here is a pseudo code version of the PRO algorithm to learn weights for rerankin
                             continue
             sort the tau samples from get_sample() using s1.smoothed_bleu - s2.smoothed_bleu
             keep the top xi (s1, s2) values from the sorted list of samples
-            do a perceptron update of the parameters $$\theta$$
-            if theta * s1.features <= theta * s2.features:
-                errors += 1
-                theta += eta * (s1.features - s2.features)
+            do a perceptron update of the parameters theta:
+                if theta * s1.features <= theta * s2.features:
+                    mistakes += 1
+                    theta += eta * (s1.features - s2.features)
     return theta
 
 Implementing a batch tuning version of PRO will be enough to match
