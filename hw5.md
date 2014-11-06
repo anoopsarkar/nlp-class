@@ -45,7 +45,8 @@ and data sets that you will use for this assignment.
 
 The reranker reads candidate translations from the file `data/test.nbest`.
 Every candidate translation $$e\in E(f)$$ of an input sentence $$f$$
-has an associated feature vector $$h(e,f)$$. The reranker takes a
+has an associated feature vector $$h(e,f)$$. $$E(f)$$ is the n-best
+list of candidate translations for $$f$$. The reranker takes a
 parameter vector $$\theta$$ whose length is equal to that of
 $$h(e,f)$$. By default, $$\theta$$ assigns uniform weight to each
 features, so each weight is equal to $$\frac{1}{len(h(e,f))}$$.
