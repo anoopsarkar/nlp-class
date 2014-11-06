@@ -126,6 +126,29 @@ You can then score your output in the same way as shown above:
 
     python score-reranker.py < your-output
 
+## The features
+
+The files `train.nbest` and `test.nbest` have six feature functions:
+
+    LMScore ReorderingScore p(f|e) lex(f|e) p(e|f) lex(e|f) 
+
+The feature functions are explained below:
+
+1. `LMScore`: the language model score for this candidate
+2. `ReorderingScore`: the sum of the distortion penalties for this translation
+3. `p(f|e)`: the inverse phrase translation probability  
+4. `lex(f|e)`: the inverse lexical weighting 
+5. `p(e|f)`: the direct phrase translation probability  
+6. `lex(e|f)`: the direct lexical weighting 
+
+For example, here are the 5-best outputs for the first sentence in the training data. Each has a feature vector with values for the above feature functions:
+
+    0 ||| barack obama will become the fourth american president to receive the nobel peace prize ||| -25.014 -1.000 -5.000 -2.000 -14.000 -6.080
+    0 ||| barack obama will be the fourth american president to receive the nobel peace prize ||| -26.457 -1.000 -4.000 -2.000 -14.000 -6.080
+    0 ||| barack obama will be the fourth us president to receive the nobel peace prize ||| -26.781 -1.000 -5.000 -2.000 -14.000 -6.080
+    0 ||| barack obama would be the fourth american president to receive the nobel peace prize ||| -26.311 -1.000 -5.000 -2.000 -14.000 -6.080
+    0 ||| barack obama will become the fourth american president to receive the nobel peace prize winner ||| -25.899 -1.000 -5.000 -2.000 -15.000 -6.514
+
 ## Leaderboard
 
 You should upload the output of `rerank.py` using weights that you
@@ -180,11 +203,9 @@ engineering will be enough to beat our baseline and earn full credit.
 However, there will still be substantial room for improvement.  Here
 are some ideas:
 
-* Add a feature that counts the number of words.
-* Add a feature to count words that appear to be untranslated.
-* Learn new features from [this word-aligned Russian-English text](http://www.ark.cs.cmu.edu/cdyer/train.ru-en.align.gz).
-* Develop a [syntactic language model](http://www.isi.edu/natural-language/projects/rewrite/mtsummit03.pdf).
-* Add a [neural language model](http://aclweb.org/anthology//D/D13/D13-1140.pdf).
+* You can add features to `train.nbest` and `test.nbest`
+    * Add a feature that counts the number of words.
+    * Add a feature to count words that appear to be untranslated.
 * Find a consensus translation using [minimum Bayes risk](http://aclweb.org/anthology//N/N04/N04-1022.pdf).
 
 But the sky's the limit! You can try anything you want, as long
