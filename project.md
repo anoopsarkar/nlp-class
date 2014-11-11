@@ -14,11 +14,11 @@ The final project involves Chinese to English machine translation.
 You should use the code you have written for your homework assignments
 to build the translation system.
 
-## Data Files
+### Data Files
 
 Here are the data files provided to you.
 
-## System Description
+### System Description
 
 Your system description is the most important part of your project.
 Your write-up must have the following sections:
@@ -37,7 +37,7 @@ Your write-up must have the following sections:
     * Did you improve over the baseline. Why or why not?
 * Future Work
 
-## Submission Format
+### Submission Format
 
 Your submission is a write-up of what you did for your final project.
 The submission must be a text document in one of the following formats:
