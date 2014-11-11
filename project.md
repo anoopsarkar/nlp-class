@@ -7,17 +7,18 @@ title: "Project"
 active_tab: project
 ---
 
+Final Project
+-------------
+
 The final project involves Chinese to English machine translation.
 You should use the code you have written for your homework assignments
 to build the translation system.
 
-Data Files
-----------
+## Data Files
 
 Here are the data files provided to you.
 
-System Description
-------------------
+## System Description
 
 Your system description is the most important part of your project.
 Your write-up must have the following sections:
@@ -27,8 +28,7 @@ Your write-up must have the following sections:
 * Experimental Setup
 * Results (include a detailed comparison of different methods)
 
-Format
-------
+## Format
 
 Your submission must be a text document in one of the following formats:
 
