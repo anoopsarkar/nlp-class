@@ -37,6 +37,10 @@ Your write-up must have the following sections:
     * Did you improve over the baseline. Why or why not?
 * Future Work
 
+### Project Ideas
+
+Here are some ideas for your project work. You should take inspiration from these ideas and try to come with your own ideas.
+
 ### Submission Format
 
 Your submission is a write-up of what you did for your final project.
@@ -46,4 +50,15 @@ The submission must be a text document in one of the following formats:
 * Kramdown (with LaTeX markup)
 * LaTeX source (along with all the supplementary files such as figures if used)
 
+### Grading system
+
+The final projects will be graded using the following criteria:
+
+* Originality
+* Clarity of the writing
+* Experimental Details
+* Results
+* Use of existing homework code
+
+*Warning*: this page is still being updated.
 
