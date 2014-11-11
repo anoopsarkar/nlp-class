@@ -9,7 +9,7 @@ active_tab: project
 
 The final project involves Chinese to English machine translation.
 You should use the code you have written for your homework assignments
-in order to build the translation system.
+to build the translation system.
 
 Data Files
 ----------
