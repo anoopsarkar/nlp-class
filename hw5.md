@@ -1,8 +1,8 @@
 ---
 layout: default
-img: final_race
-img_link: https://www.flickr.com/photos/foxtongue/2699560656/
-caption: Image by foxtongue
+img: mixer
+img_link: http://www.statmt.org/moses/?n=FactoredTraining.Tuning
+caption: Adjust the weights of the log-linear model to get the best translation score.
 title: Homework 5 | Reranking
 active_tab: homework
 ---
