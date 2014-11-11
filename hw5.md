@@ -222,11 +222,11 @@ tuning* and explained further in:
 Here is a pseudo code version of the PRO algorithm to learn weights for reranking:
 
     Parameters:
-        tau: samples generated from n-best list per input sentence
-        alpha: sampler acceptance cutoff (set to 0.05)
-        xi: training data generated from the samples tau
+        tau: samples generated from n-best list per input sentence (set to 5000)
+        alpha: sampler acceptance cutoff (set to 0.1)
+        xi: training data generated from the samples tau (set to 100)
         eta: perceptron learning rate (set to 0.1)
-        epochs: number of epochs for perceptron training
+        epochs: number of epochs for perceptron training (set to 5)
 
     for each sentence i:
         collect all the n-best outputs for i
