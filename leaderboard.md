@@ -35,11 +35,9 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
       <th class="text-right">
         <a href="hw4.html">#4</a><br/><span class="small text-muted">Decode</span>
       </th>
-<!---
       <th class="text-right">
-        <a href="hw5.html">#5</a><br/><span class="small text-muted">Accuracy</span>
+        <a href="hw5.html">#5</a><br/><span class="small text-muted">Rerank</span>
       </th>
--->
     </tr>
   </thead>
   <tbody>
