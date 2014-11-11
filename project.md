@@ -23,14 +23,24 @@ Here are the data files provided to you.
 Your system description is the most important part of your project.
 Your write-up must have the following sections:
 
-* Approach
-* Data (exactly which data files were used; also include here any external data that was not provided to you)
+* Motivation 
+    * Which aspect of the translation system did your group choose to improve and reasons for your choice.
+* Approach 
+    * Describe the algorithms and machine learning models used in your project.
+* Data 
+    * Exactly which data files were used; also include here any external data that was not provided to you.
 * Experimental Setup
-* Results (include a detailed comparison of different methods)
+    * Describe what kind of evaluation you are doing and which methods you are comparing against each other.
+* Results 
+    * Include a detailed comparison of different methods.
+* Analysis of the Results
+    * Did you improve over the baseline. Why or why not?
+* Future Work
 
-## Format
+## Submission Format
 
-Your submission must be a text document in one of the following formats:
+Your submission is a write-up of what you did for your final project.
+The submission must be a text document in one of the following formats:
 
 * Plain ASCII
 * Kramdown (with LaTeX markup)
