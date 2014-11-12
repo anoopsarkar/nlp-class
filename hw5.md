@@ -237,13 +237,13 @@ Here is a pseudo code version of the PRO algorithm to learn weights for rerankin
     for i = 1 to epochs:
         for nbest in nbests:
             get_sample():
-                while samples are less than tau:
+                loop tau times:
                     randomly choose two items from nbest list, s1 and s2:
-                        make sure s1.smoothed_bleu > s2.smoothed_bleu
-                        if s1.smoothed_bleu - s2.smoothed_bleu > alpha:
-                            keep (s1, s2) as a sample
-                        else:
-                            continue
+                    if fabs(s1.smoothed_bleu - s2.smoothed_bleu) > alpha:
+                        if s1.smoothed_bleu > s2.smoothed_bleu return (s1, s2)
+                        else return (s2, s1)
+                    else:
+                        continue
             sort the tau samples from get_sample() using s1.smoothed_bleu - s2.smoothed_bleu
             keep the top xi (s1, s2) values from the sorted list of samples
             do a perceptron update of the parameters theta:
