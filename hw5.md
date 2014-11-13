@@ -267,6 +267,7 @@ for improvement.  Here are some ideas:
     * Add [an IBM Model 1 score](http://aclweb.org/anthology/N/N04/N04-1021.pdf) (sum over all alignments) as a feature.
 * Use [ordinal regression or uneven margins](http://aclweb.org/anthology/N/N04/N04-1023.pdf).
 * Find a consensus translation using [minimum Bayes risk](http://aclweb.org/anthology//N/N04/N04-1022.pdf).
+* Many, many ideas to improve reranking: using [hope and fear](http://www3.nd.edu/~dchiang/papers/chiang-jmlr12-corrected.pdf).
 
 But the sky's the limit! You can try anything you want, as long
 as you follow the ground rules.
