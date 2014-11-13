@@ -264,6 +264,7 @@ for improvement.  Here are some ideas:
 * You can add features to `train.nbest` and `test.nbest`
     * Add a feature that counts the number of words.
     * Add a feature to count words that appear to be untranslated.
+    * Add [an IBM Model 1 score](http://aclweb.org/anthology/N/N04/N04-1021.pdf) (sum over all alignments) as a feature.
 * Use [ordinal regression or uneven margins](http://aclweb.org/anthology/N/N04/N04-1023.pdf).
 * Find a consensus translation using [minimum Bayes risk](http://aclweb.org/anthology//N/N04/N04-1022.pdf).
 
