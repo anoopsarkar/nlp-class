@@ -253,7 +253,7 @@ Here is a pseudo code version of the PRO algorithm to learn weights for rerankin
             do a perceptron update of the parameters theta:
                 if theta * s1.features <= theta * s2.features:
                     mistakes += 1
-                    theta += eta * (s1.features - s2.features)
+                    theta += eta * (s1.features - s2.features) # this is vector addition!
     return theta
 
 Implementing a batch tuning version of PRO will be enough to match
