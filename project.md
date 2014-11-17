@@ -10,13 +10,18 @@ active_tab: project
 Final Project
 -------------
 
-The final project involves Chinese to English machine translation.
-You should use the code you have written for your homework assignments
-to build the translation system.
+The final project is to translate from Chinese to English using the
+machine translation system you have built over the course of the
+semester. You should use the code you have written for your homework
+assignments to build the translation system.
 
 ## Data Files
 
-The data files for the course project are for a Chinese-English translation task.
+**Warning: do not redistribute this data. SFU has a license to use this data from the Linguistic Data Consortium (LDC) but we cannot take this data and give it to others.**
+
+The data files are available on CSIL Linux machines in the following directory:
+
+    /usr/shared/CMPT/nlp-class/project
 
 ### Training data
 
@@ -24,8 +29,6 @@ The training data is taken from the following sources:
 
 * [Hong Kong Parliament parallel corpus](https://catalog.ldc.upenn.edu/LDC2004T08) 
 * [GALE Phase-1 Chinese newsgroup data](https://catalog.ldc.upenn.edu/LDC2009T15).
-
-**Warning: do not redistribute this data. SFU has a license to use this data from the Linguistic Data Consortium (LDC) but we cannot take this data and give it to others.**
 
 Training data comes in different sizes. The data files in each of the
 large, medium, and small folders are:
