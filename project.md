@@ -60,11 +60,11 @@ The entire training data (2.3M sentences).
 In the `large` directory, there are a few additional files:
 
 * `phrase-table/dev-filtered/rules_cnt.final.out`: phrase table
-  filtered for dev, so that only the phrases useful for dev are in this
-  phrase table.
-* `phrase-table/test-filtered/rules_cnt.final.out`: phrase table filtered
-  for test
-* `lex.e2f` and `lex.f2e`: lexical probabilities 
+  filtered for the data in `dev`, so that only the phrases useful
+  for tuning your SMT system are in this phrase table.
+* `phrase-table/test-filtered/rules_cnt.final.out`: phrase table
+  filtered for the data in `test`.
+* `lex.e2f` and `lex.f2e`: lexical probabilities
 
 ### Tuning set
 
