@@ -23,6 +23,8 @@ The data files are available on CSIL Linux machines in the following directory:
 
     /usr/shared/CMPT/nlp-class/project
 
+Important information about the license is given in the file `LICENSE`.
+
 ### Training data
 
 The training data is taken from the following sources:
