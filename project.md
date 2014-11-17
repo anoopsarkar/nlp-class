@@ -15,7 +15,7 @@ machine translation system you have built over the course of the
 semester. You should use the code you have written for your homework
 assignments to build the translation system.
 
-## Data Files
+### Data Files
 
 **Warning: do not redistribute this data. SFU has a license to use this data from the Linguistic Data Consortium (LDC) but we cannot take this data and give it to others.**
 
@@ -25,7 +25,7 @@ The data files are available on CSIL Linux machines in the following directory:
 
 Important information about the license is given in the file `LICENSE`.
 
-### Training data
+#### Training data
 
 The training data is taken from the following sources:
 
@@ -41,19 +41,19 @@ large, medium, and small folders are:
 * `phrase-table/moses/phrase-table.gz`: phrase-table in the usual format
   compatible with the [Moses SMT system](http://statmt.org/moses/)
 
-#### Toy
+##### Toy
 
 First 2k sentences from the full training data.
 
-#### Small
+##### Small
 
 First 20k sentences from the full training data.
 
-#### Medium
+##### Medium
 
 First 100k sentences from the full training data.
 
-#### Large:
+##### Large:
 
 The entire training data (2.3M sentences).
 
@@ -66,7 +66,7 @@ In the `large` directory, there are a few additional files:
   filtered for the data in `test`.
 * `lex.e2f` and `lex.f2e`: lexical probabilities
 
-### Tuning set
+#### Tuning set
 
 The files for tuning your SMT system are in the `dev` directory. This data
 is meant to be used for tuning the weights of your machine translation
@@ -77,7 +77,7 @@ The data comes from the following sources:
 * [Multiple-Translation Chinese (MTC) part 1](https://catalog.ldc.upenn.edu/LDC2002T01)
 * [Multiple-Translation Chinese (MTC) part 3](https://catalog.ldc.upenn.edu/LDC2004T07)
 
-### Test set
+#### Test set
 
 The files that are used as test data to report your performance are in
 the `test` directory. There are four references for each source sentence.
@@ -86,7 +86,7 @@ The data comes from the following source:
 
 * [Multiple-Translation Chinese (MTC) part 4](https://catalog.ldc.upenn.edu/LDC2006T04)
 
-### Language Model
+#### Language Model
 
 The language model files are in the `lm` directory.
 
@@ -96,7 +96,7 @@ The language model files are in the `lm` directory.
   large LM for the dev and test files (52MB compressed)
 * `en.tiny.3g.arpa`: tiny LM from the decoding homework
 
-## Scripts
+### Scripts
 
 The following are scripts that can be used to create a phrase table with
 feature values from source, target and alignment data.
