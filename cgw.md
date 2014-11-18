@@ -1,3 +1,12 @@
+---
+layout: default
+img: embedding
+img_link: http://en.wikipedia.org/wiki/Center_embedding
+caption: "The Embedding introduces a strange form of language whose grammar can be 'self-embedded' by computers."
+title: "Competitive Grammar Writing"
+active_tab: homework
+---
+
 Competitive Grammar Writing in Python
 =====================================
 
