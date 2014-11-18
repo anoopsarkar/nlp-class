@@ -146,6 +146,16 @@ files.
     that castle carries no castle
     every horse covers the husk .
 
+## The Task
+
+Improve the grammar files `S1.gr`, `S2.gr` and `Vocab.gr` to get
+an improved cross entropy score on the sentences in `example_sentences.txt`.
+
+Sample 20 sentences from your improved grammar and post it to the
+course discussion board in [the thread for this exercise](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/discussion/topic/competitive-grammar-writing/).
+You can choose to sample using `S1.gr` and `Vocab.gr` only or from
+all the grammar files.
+
 ## Acknowledgements
 
 The idea for this task and the original data files are taken from the following paper: 
