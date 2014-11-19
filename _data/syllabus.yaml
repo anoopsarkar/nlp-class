@@ -233,3 +233,27 @@ past:
         title: "Computing edit distance (part two)"
         video: http://youtu.be/E606vHFGTvA
         optional: false
+  -
+    date: 2014-11-06
+    title: Homework 5 release
+    slides: hw5.html
+  -
+    date: 2014-11-13
+    title: Discriminative Training for Machine Translation
+    reading:
+      - author: "Philipp Koehn, Barry Haddow and Matthias Huck"
+        title: "Discriminative Training"
+        url: "assets/slides/09-discriminative-training.pdf"
+        optional: false
+      - author: "Mark Hopkins and Jonathan May"
+        title: "Tuning as Ranking"
+        url: "http://www.aclweb.org/anthology/D11-1125"
+        optional: false
+  -
+    date: 2014-11-18
+    title: Significance Testing and Context-free Grammars
+    reading:
+      - author: Philipp Koehn
+        title: "Evaluation"
+        url: "assets/slides/08-evaluation.pdf"
+        optional: false
