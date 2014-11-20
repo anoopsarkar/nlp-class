@@ -257,3 +257,12 @@ past:
         title: "Evaluation"
         url: "assets/slides/08-evaluation.pdf"
         optional: false
+  -
+    date: 2014-11-20
+    title: Competitive grammar writing
+    slides: cgw.html
+    reading:
+      - author: Jason Eisner and Noah A. Smith
+        title: "Competitive grammar writing"
+        url: "http://aclweb.org/anthology/W/W08/W08-0212.pdf"
+        optional: true
