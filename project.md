@@ -92,8 +92,10 @@ The language model files are in the `lm` directory.
 
 * `en.gigaword.3g.arpa.gz`: large LM estimated using
   Kneser-Ney smoothing from the [English Gigaword corpus](https://catalog.ldc.upenn.edu/LDC2011T07)
-* `en.gigaword.3g.filtered.arpa.gz`: medium size LM filtered from the
+* `en.gigaword.3g.filtered.dev_test.arpa.gz`: small-sized LM filtered from the
   large LM for the dev and test files (52MB compressed)
+* `en.gigaword.3g.filtered.train_dev_test.arpa.gz`: medium-sized LM filtered from the
+  large LM for the target side of the large phrase table and the dev and test files (93MB compressed)
 * `en.tiny.3g.arpa`: tiny LM from the decoding homework
 
 ### Scripts
