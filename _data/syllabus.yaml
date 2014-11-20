@@ -257,6 +257,11 @@ past:
         title: "Evaluation"
         url: "assets/slides/08-evaluation.pdf"
         optional: false
+      - author: Michael Collins
+        title: "Probabilistic Context-free Grammars"
+        url: http://www.cs.columbia.edu/~mcollins/pcfgs.pdf
+        download: assets/mcollins-notes/pcfgs.pdf
+        optional: false
   -
     date: 2014-11-20
     title: Competitive grammar writing
