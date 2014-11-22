@@ -98,6 +98,36 @@ The language model files are in the `lm` directory.
   large LM for the target side of the large phrase table and the dev and test files (93MB compressed)
 * `en.tiny.3g.arpa`: tiny LM from the decoding homework
 
+#### Chinese word segmentation data
+
+The training data for training a Chinese word segmenter is in the
+`seg` directory.  
+
+The data comes from the [Chinese Word Segmentation Bakeoff](http://www.sighan.org/bakeoff2005/).
+
+The data has been processed into a column format similar to the
+chunking format used in the chunker homework. If you wish to convert
+this into a frequency dictionary you will have to parse these column
+files into words using the `B` (begin word) and `I` (inside word)
+and `O` (single character word) tags.
+
+There are three files:
+
+* `cityu_train.utf8`: from the City University of Hong Kong
+* `msr_train.utf8`: from Microsoft Research (Beijing)
+* `upenn_train.utf8`: from the University of Pennsylvania Chinese Treebank
+
+They can be converted into a single frequency dictionary for your
+homework segmenter, or you can use your chunker to train a context-aware
+model of Chinese word segmentation.
+
+You may want to check if your segmentation actually improves alignment
+scores before you proceed through the entire translation pipeline.
+A simple way to check this is to compare the IBM Model 1 scores
+with the provided segmented Chinese aligned to the given parallel
+English data with your own segmentation of the Chinese data also
+aligned to the same parallel English data.
+
 ### Scripts
 
 The following are scripts that can be used to create a phrase table with
