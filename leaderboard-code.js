@@ -1,5 +1,6 @@
 $.ajax({
-    url: "//sfu-nlp-class.appspot.com/leaderboard.js",
+    // url: "//sfu-nlp-class.appspot.com/leaderboard.js",
+    url: "leaderboard-fall2014.js",
     dataType: "script",
     success: function () {
         // The current assignment number (0-indexed)
