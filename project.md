@@ -187,6 +187,14 @@ Below I describe a few basic steps you can take in order to obtain
 a performant Chinese-English SMT system using your homework code
 from this course.
 
+### Get decoder working on toy data
+
+The absolute first step: get your decoder working with the `toy`
+phrase table data and the tiny LM data from the `lm` directory.
+
+Run your decoder on the test set and try to get a BLEU score.
+It will have a terrible score but it will be a start.
+
 ### Use filtered phrase tables with your decoder
 
 The most basic Chinese-English translator you can build is to use
