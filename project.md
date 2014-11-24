@@ -263,7 +263,7 @@ ideas on your own.
 * [Improve handling of unknown Chinese words](https://www.aclweb.org/anthology/I/I08/I08-1030.pdf)
 * [Do not segment the Chinese sentence at all](http://www.phontron.com/paper/neubig12acl.pdf)
 
-Ideas you should not try:
+Ideas you should **not** try:
 
 * Using your own aligner and creating a phrase table. The alignments
   we have provided to you are very high quality, for the particular
