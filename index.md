@@ -7,6 +7,8 @@ title: Course Information
 active_tab: main_page 
 ---
 
+## Natural Language Processing <span class="text-muted">Fall 2014</span>
+
 Imagine a world where you can pick up a phone and talk in English,
 while at the other end of the line your words are [spoken in
 Chinese](https://www.youtube.com/watch?v=Nu-nlQqFCKg).  Imagine a
