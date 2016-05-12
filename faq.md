@@ -7,7 +7,9 @@ title: FAQ
 active_tab: faq
 ---
 
-## Reference books
+## (in) Frequently Asked Questions
+
+### Reference books
 
 * There is no official textbook for the course, but if you would like to read further about NLP, here are some good reference books:
     * [Speech and Language Processing](http://www.cs.colorado.edu/~martin/slp.html) by [Daniel Jurafsky](http://www.stanford.edu/~jurafsky) and [James Martin](http://www.cs.colorado.edu/~martin).
@@ -15,13 +17,13 @@ active_tab: faq
     * [Statistical Machine Translation](http://www.statmt.org/book/) by [Philipp Koehn](http://www.cs.jhu.edu/faculty/philipp-koehn/).
     * [Natural Language Processing with Python](http://www.nltk.org/book_1ed/) by [Steven Bird](http://estive.net/) and [Ewan Klein](http://homepages.inf.ed.ac.uk/ewan/) and [Edward Loper](http://ed.loper.org/).
 
-## Email policy
+### Email policy
     
 * We will be using [the discussion board on courses.cs.sfu.ca](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/discussion/) instead of email.
 * Before starting a new topic please check if the topic is already under discussion and check to see if your question has already been answered.
 * If you must email the instructor or TA directly then use your SFU email address to send the email (do not use any other provider), and use `cmpt413:` as the prefix in your subject line.
     
-## Homework Submission and Grace Days
+### Homework Submission and Grace Days
     
 * Your group has to submit two deliverables for each homework:
     * Source code for your homework will be submitted electronically on [courses.cs.sfu.ca](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/).
@@ -32,7 +34,7 @@ active_tab: faq
 * Each homework comes with 2 grace days. However the grace days only apply to those who have a valid submission on the due date (a submission that scores -1 or -inf is invalid). For example, if your homework deadline is Tuesday 11:59PM and you submit a valid solution then you have until Thursday night 11:59PM to modify your homework submission.
 * We will make every attempt to release grades for each homework the day after it is due. However, this means that after we review the source code we might have to lower your official grade. If you cheated in some way, such as copying your submission or you have violated the ground rules for each homework, your grades will be decreased from the initial value.
 
-## Groups
+### Groups
     
 * The homework assignments will be solved in groups. Maximum group size is four. All groups must be formed before Homework 0 is due.
 * Each group will create a single submission and upload it before the due date.
@@ -43,7 +45,7 @@ active_tab: faq
     * Development: write the code. This can be done in collaboration. 
     * Testcases: write testcases to stress test the code. Provide the testcases in your submission.
 
-## Programming
+### Programming
     
 * We will be using the Python-based <a href="http://nltk.org/">NLTK: Natural Language Toolkit</a> and Python 2.7.x for programming.
 * The easiest way to install Python with NLTK on your machine is to download [Anaconda Python distribution](https://store.continuum.io/cshop/anaconda/)
@@ -56,7 +58,7 @@ active_tab: faq
 * You may want to refer to a quick Unix tutorial. There are several on the web. The following one covers most of what you need to use the Linux shell effectively: [Quick Unix Tutorial](http://unlser1.unl.csi.cuny.edu/tutorials/QuickUnixTutorial.html).
 *  On some CSIL Linux machines, in some rare cases, you might have to extend your CPU time limit for a process. If you are using tcsh then run the command "limit cputime 1800" to extend CPU time to 1800 secs or 30 mins. If you are using bash then use the command "ulimit -t 1800".
     
-## Files and Subversion
+### Files and Subversion
     
 * The directory `~anoop/cmpt413/hw1` and the directories for later homeworks are available on `fraser.sfu.ca`.
 * For effective group collaboration use a version control system such as `svn` or `git`.
@@ -69,14 +71,14 @@ active_tab: faq
     * For CMPT 825: <script src="https://gist.github.com/anoopsarkar/8292131.js"></script> 
 * There are strict requirements on the filenames for your programs. The filenames to be used is provided in `readme.txt` file. These steps will enable us to consistently test all the submissions using the same method. 
     
-## Exams
+### Exams
     
 *  If you must miss an exam because of a medical problem, you should make an attempt to contact me prior to the exam either by email or a message in my mailbox. 
 * To request an extension of the due date due to a medical problem, you must submit the <a href="http://students.sfu.ca/forms.html">offical SFU Health Care Provider statement</a>. 
 * If you miss an exam due to valid medical reasons you will be graded on your performance on the rest of the course. 
 * Make up exams will not be given under any circumstances. 
     
-## Academic Honesty 
+### Academic Honesty 
  
 * Some examples of unacceptable behaviour:
      *  Handing in assignments that are not 100% your own work (in design, implementation, wording, etc.), without proper citation. There must be a README file in your submission with citations to any external code used. 
@@ -91,7 +93,7 @@ active_tab: faq
      * Please note that these are minimum penalties.  At the instructor's option, more severe penalties may be given/requested. __All__ instances of academic dishonesty will be noted on your University record. 
 *  The instructor may use, or require students to submit assignments to, an automated service that will check for plagiarism. 
  
-## Exams and Tests 
+### Exams and Tests 
  
 * Midterms may be in different rooms than the lectures.  You will be notified by email. 
 * Exams may be written in either pen or pencil.  Calculators or other aids are not allowed unless explicitly stated. 
@@ -100,7 +102,7 @@ active_tab: faq
 * If you miss a test or exam, you must present a note from a doctor to get a mark other than zero.  Arrangements to make up the lost marks will be made on a case-by-case basis by the instructor.  Make-up exams may be given as an oral examination. 
 * You must get a pass on the weighted average of the exams to pass the course. 
  
-## Mark Appeals 
+### Mark Appeals 
 
 Except for final grades, this is how you can go about getting your mark changed:
 
@@ -114,7 +116,7 @@ Except for final grades, this is how you can go about getting your mark changed:
     * This is the correct answer for some question other than the one asked, but I didn't get any marks for it. 
     * I didn't understand the question. 
  
-## Final Exam and Final Marks Appeals 
+### Final Exam and Final Marks Appeals 
 
 If you're concerned about your mark at the end of the course, you can see the instructor.  Here are some guidelines:
  
@@ -129,7 +131,7 @@ If you're concerned about your mark at the end of the course, you can see the in
     * There's a marking irregularity on my final or some other piece of work. 
 *  The marking scheme is fixed.  If you did badly on a midterm, you can't weight the final more heavily. 
  
-## Disclaimers about this web page
+### Disclaimers about this web page
   
 * All course information on this web page is tentative and could be in error. It can also change at any time. Confirm crucial dates or information with me in person during class. Double check with SFU calendar or schedule information for official class times and final exams time and location. 
 * Students are expected to attend all classes: announcements about assigned readings, homeworks and exams will be made available at the start of each class. Such announcements may not be made on this web page, so don't rely on information here instead of attending class. 
