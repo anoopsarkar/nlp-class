@@ -1,0 +1,241 @@
+\input{beamerpreamble.tex}
+\ifx\pdfoutput\undefined
+  \usepackage{graphicx}
+\else
+  %\usepackage[pdftex]{graphicx}
+  \DeclareGraphicsRule{*}{mps}{*}{}
+\fi
+\begin{document}
+\input{titlepage.tex}
+
+\lecture{Ambiguity}{}
+\section{Context Free Grammars and Ambiguity}
+
+\begin{frame}[fragile]
+\frametitle{Context Free Grammars and Ambiguity}
+\[
+\begin{array}{ccc}
+ S & \rightarrow & NP~VP  \\
+ VP & \rightarrow & V~NP   \\
+ VP & \rightarrow & VP~PP \\
+ PP & \rightarrow & P~NP   \\
+ NP & \rightarrow & NP~PP  \\
+ NP & \rightarrow & Calvin  \\
+ NP & \rightarrow & monsters  \\
+ NP & \rightarrow & school  \\
+ V & \rightarrow & imagined \\
+ P & \rightarrow & in     
+\end{array}
+\]
+What is the analysis using the above grammar for:\\
+{\em Calvin imagined monsters in school}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Context Free Grammars and Ambiguity}
+{\em Calvin imagined monsters in school}
+\begin{verbatim}
+(S (NP Calvin)
+   (VP (V imagined)
+       (NP (NP monsters)
+           (PP (P in)
+               (NP school)))))
+
+(S (NP Calvin)
+   (VP (VP (V imagined)
+           (NP monsters))
+       (PP (P in)
+           (NP school))))
+\end{verbatim}
+Which one is more plausible?
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Ambiguity Kills (your parser)}
+{\em natural language learning course} \\
+(run demos/parsing-ambiguity.py)
+\begin{verbatim}
+((natural language) (learning course))
+(((natural language) learning) course)
+((natural (language learning)) course)
+(natural (language (learning course)))
+(natural ((language learning) course))
+\end{verbatim}
+\begin{itemize}
+\item Some difficult issues:
+\begin{itemize}
+\item Which one is more plausible?
+\item How many analyses for a given input? 
+\item Computational complexity of parsing language
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Treebanks}
+\begin{itemize}
+\item What is the CFG that can be extracted from this single tree: 
+\begin{tabbing}
+0123\=4567\=8901\=2345\=6789\=0123\=4567 \kill
+(S \>(NP (Det the) (NP man)) \\
+\> (VP \> (VP \> (V played) \\
+\> \> \> (NP (Det a) (NP game))) \\
+\> \> (PP \>(P with) \\
+\> \> \> (NP (Det the) (NP dog)))))
+\end{tabbing}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{PCFG}
+{\small
+\[
+\begin{array}{cccc}
+ S & \rightarrow & NP~VP  & c=1  \\
+ NP & \rightarrow & Det~NP & c=3  \\
+ NP & \rightarrow & man  & c=1   \\
+ NP & \rightarrow & game  & c=1   \\
+ NP & \rightarrow & dog  & c=1   \\
+ VP & \rightarrow & VP~PP  & c=1  \\
+ VP & \rightarrow & V~NP  & c=1  \\
+ PP & \rightarrow & P~NP  & c=1  \\
+ Det & \rightarrow & the  & c=2  \\
+ Det & \rightarrow & a  & c=1   \\
+ V & \rightarrow & played & c=1  \\
+ P & \rightarrow & with & c=1 
+\end{array}
+\] 
+}
+\begin{itemize}
+\item We can do this with multiple trees. Simply count occurrences of CFG rules over all the trees. 
+\item A repository of such trees labelled by a human is called a TreeBank.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ambiguity}
+\begin{itemize}
+  \item Part of Speech ambiguity\\
+        {\tt saw} $\rightarrow$ {\color{red}noun}\\
+        {\tt saw} $\rightarrow$ {\color{red}verb}
+  \item Structural ambiguity: Prepositional Phrases\\
+        {\tt I saw (the man) with the telescope}\\
+        {\tt I saw (the man with the telescope)}
+  \item Structural ambiguity: Coordination\\
+        {\tt a program to promote safety in ((trucks) and (minivans))}\\
+        {\tt a program to promote ((safety in trucks) and (minivans))}\\
+        {\tt ((a program to promote safety in trucks) and (minivans))}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Ambiguity $\leftarrow$ attachment choice in alternative parses}
+\includegraphics[scale=.6]{figures/figures.18}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ambiguity in Prepositional Phrases}
+\begin{itemize}
+\item<1-> noun attach: {\em I bought the shirt with pockets}
+\item<2-> verb attach: {\em I washed the shirt with soap}
+\item<3-> As in the case of other attachment decisions in parsing: it depends on the meaning of the entire sentence -- needs world knowledge, etc.
+\item<4-> Maybe there is a simpler solution: we can attempt to solve it using heuristics or associations between words
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Structure Based Ambiguity Resolution}
+\begin{itemize}
+  \item Right association: a constituent (NP or PP) tends to attach to
+  another constituent immediately to its right (Kimball 1973)
+  \item Minimal attachment: a constituent tends to attach to an
+  existing non-terminal using the fewest additional syntactic nodes
+  (Frazier 1978)
+  \item These two principles make opposite predictions for
+  prepositional phrase attachment
+  \item Consider the grammar:
+\begin{eqnarray}
+VP &\rightarrow& V\ NP\ PP \label{rule:VP}\\
+NP &\rightarrow& NP\ PP \label{rule:NP}
+\end{eqnarray}  
+  for input: {\em I [$_{VP}$ saw [$_{NP}$ the man $\ldots$ [$_{PP}$ with
+  the telescope ]}, \\
+  RA predicts that the PP attaches to the NP, i.e. use rule (\ref{rule:NP}), \\
+  and MA predicts V attachment, i.e. use rule (\ref{rule:VP})
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Structure Based Ambiguity Resolution}
+\begin{itemize}
+  \item Garden-paths look structural:\\
+  {\rm\it The emergency crews hate most is
+  domestic violence}
+  \item Neither MA or RA account for more than 55\% of the cases in
+  real text 
+  \item Psycholinguistic experiments using eyetracking show that humans resolve
+  ambiguities as soon as possible in the left to right sequence using
+  the words to disambiguate
+  \item Garden-paths are caused by a combination of lexical and structural effects:\\ 
+  {\rm\it The flowers delivered for the patient arrived}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Ambiguity Resolution: Prepositional Phrases in English}
+  \begin{itemize}
+  \item Learning Prepositional Phrase Attachment: Annotated Data
+\begin{tabular}{|cccc|c|}
+\hline
+v    &     n1   &      p & n2 &       Attachment\\
+\hline
+join   &   board    &   as &  director & V \\
+is       & chairman  &  of  & N.V.    & N \\
+using  &   crocidolite & in  & filters & V \\
+bring  &   attention  & to  & problem &  V \\ 
+is      &  asbestos   & in &  products & N \\
+making &   paper    &   for & filters & N \\
+including & three     &  with & cancer &  N \\
+$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
+\hline
+\end{tabular}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Prepositional Phrase Attachment}
+\begin{tabular}{|l|c|}  \hline
+Method & Accuracy \\ \hline
+Always noun attachment & 59.0 \\
+Most likely for each preposition & 72.2 \\
+Average Human (4 head words only) & 88.2 \\
+Average Human (whole sentence) & 93.2 \\  \hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{Some other studies}
+  \begin{itemize}
+%    \item {\bf Brill and Resnik, 1994}: \\
+%use transformation based learning for PP attachment\\
+%80.8\% with words; with Wordnet classes: 81.8\%
+  \item {\bf Toutanova, Manning, and Ng, 2004}: 87.54\% using some external knowledge (word classes)
+  \item {\bf Merlo, Crocker and Berthouzoz, 1997}: test on multiple PPs
+  \begin{itemize}
+	\item generalize disambiguation of 1 PP to 2-3 PPs
+	\item 14 structures possible for 3PPs assuming a single verb
+	\item all 14 are attested in the Penn WSJ Treebank
+	\item 1PP: 84.3\% \ \ 2PP: 69.6\% \ \ 3PP: 43.6\% 
+	\item {\bf This experiment is still only part of the real problem faced in parsing English}
+	\item Other sources of ambiguity in other languages
+  \end{itemize}
+  \end{itemize}
+
+\end{frame}
+
+\end{document}
