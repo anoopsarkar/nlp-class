@@ -7,7 +7,7 @@ title: Course Information
 active_tab: main_page 
 ---
 
-## Natural Language Processing <span class="text-muted">Fall 2014</span>
+## Natural Language Processing <span class="text-muted">Fall 2016</span>
 
 Imagine a world where you can pick up a phone and talk in English,
 while at the other end of the line your words are [spoken in
@@ -32,29 +32,30 @@ terms of its analysis and the learning of language from observations.
 
 Instructor
 : [Anoop Sarkar](http://www.cs.sfu.ca/~anoop/) 
-: Office Hours: Mondays 9am-11am TASC1 9427
+: Office Hours: Mondays 3pm-4pm TASC1 9427
 
 Teaching Assistant
-: [Maryam Siahbani](http://www.cs.sfu.ca/~msiahban/personal/)
-: Office Hours: Wednesdays 2pm-3pm TASC1 9408
+: Golnar Sheikhshabbafghi
+: Email: `cmpt-413-help@sfu.ca`
+: Office Hours: TBA
 
 Discussion Board
-: [on Coursys](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/discussion/)
+: [on Coursys](https://courses.cs.sfu.ca/2016fa-cmpt-413-x1/discussion/)
 
 Time and place
-: Tuesdays 2:30-4:20, Thursdays 2:30-3:20, AQ 3150
+: MWF 1:30-2:20, BLU 10021
 
 Calendar
-: [Subscribe](https://courses.cs.sfu.ca/calendar/7239eedd1545d3fe8a32c7c9dddd5b86/anoop)
+: [Subscribe](https://courses.cs.sfu.ca/news/75221d0252e1cdacf94dac56b78600e9/anoop)
 
 Textbook
 : No required textbook. Online readings provided in Syllabus.
 
 Grading
-: Submit homework source code and check your grades on [Coursys](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/)
+: Submit homework source code and check your grades on [Coursys](https://courses.cs.sfu.ca/2016fa-cmpt-413-x1/)
 
-* Programming setup homework: Sep 9 (2%)
-* Five programming homeworks. Due dates: Sep 23, Oct 7, Oct 21, Nov 4, Nov 18 (10% each)
-* In class midterm: Oct 30 (18%)
-* Final project: Dec 4 (30%)
+* Programming setup homework: Sep 13 (2%)
+* Five programming homeworks. Due dates: Sep 27, Oct 11, Oct 25, Nov 8, Nov 22 (10% each)
+* In class midterm: Nov 3 (18%)
+* Final project: Dec 8 (30%)
 
