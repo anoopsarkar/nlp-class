@@ -1,15 +1,16 @@
 ---
 layout: default
 img: embedding
-img_link: http://en.wikipedia.org/wiki/Center_embedding
+img_link: "http://en.wikipedia.org/wiki/Center_embedding"
 caption: "The Embedding introduces a strange form of language whose grammar can be 'self-embedded' by computers."
 title: Leaderboard
 active_tab: leaderboard
 jquery: true
 ---
 
-Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will be updated in a few minutes.
+Submit your assignments [here]({{ site.leaderboard }}). Results will be updated in a few minutes.
 
+<img src="{{ site.baseurl }}assets/img/ajax-loader.gif" id="loader" style="display:none"/>
 
 <table class="table table-hover table-condensed">
   <thead>
@@ -47,8 +48,6 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
 </table>
 
 <script type="text/javascript" src="leaderboard-code.js"></script>
-
-<div id="loading">Loading...</div>
 
 <div class="panel panel-default"> 
 <div class="panel-heading">Legend</div> 
