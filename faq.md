@@ -19,14 +19,14 @@ active_tab: faq
 
 ### Email policy
     
-* We will be using [the discussion board on courses.cs.sfu.ca](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/discussion/) instead of email.
+* We will be using [the discussion board on courses.cs.sfu.ca](https://courses.cs.sfu.ca/) instead of email.
 * Before starting a new topic please check if the topic is already under discussion and check to see if your question has already been answered.
 * If you must email the instructor or TA directly then use your SFU email address to send the email (do not use any other provider), and use `cmpt413:` as the prefix in your subject line.
     
 ### Homework Submission and Grace Days
     
 * Your group has to submit two deliverables for each homework:
-    * Source code for your homework will be submitted electronically on [courses.cs.sfu.ca](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/).
+    * Source code for your homework will be submitted electronically on [courses.cs.sfu.ca](https://courses.cs.sfu.ca/).
     * The output on the provided data has to be uploaded to the leaderboard server on [Google App Engine](http://sfu-nlp-class.appspot.com/).
 * Only one member of the group should upload to the leaderboard and use the valid group name.
 * Check your scores on the leaderboard and check that your group appears only once in the leaderboard.
@@ -37,6 +37,7 @@ active_tab: faq
 ### Groups
     
 * The homework assignments will be solved in groups. Maximum group size is four. All groups must be formed before Homework 0 is due.
+* You are allowed to leave a group and form a group of size one at the start of each homework but not at the end.
 * Each group will create a single submission and upload it before the due date.
 * Each group member will be graded on their self report and any commit logs that are submitted. If the TA or the instructor perceives there is a problem with collaboration in a group, certain group members can get zero marks. If you are pair programming, take turns in switching the user doing the commits to the svn repository.
 * __Effective group collaboration__: We are looking to see effective collaboration to solve the homework assignment. People can play different roles and sometimes more than one role in the same homework:
@@ -44,6 +45,7 @@ active_tab: faq
     * Code reviews: write a critical view of the implementation by the group. Points out what is missing, inelegant code, etc. and produces a code review document (text files or markdown or equivalent only). Put these documents in the directory `answer/docs` and mention the files in your `README.username` file.
     * Development: write the code. This can be done in collaboration. 
     * Testcases: write testcases to stress test the code. Provide the testcases in your submission.
+* **Warning**: if you are missing a `README.username` file in your group source submission then that `username` might get zero marks.
 
 ### Programming
     
@@ -58,11 +60,28 @@ active_tab: faq
 * You may want to refer to a quick Unix tutorial. There are several on the web. The following one covers most of what you need to use the Linux shell effectively: [Quick Unix Tutorial](http://unlser1.unl.csi.cuny.edu/tutorials/QuickUnixTutorial.html).
 *  On some CSIL Linux machines, in some rare cases, you might have to extend your CPU time limit for a process. If you are using tcsh then run the command "limit cputime 1800" to extend CPU time to 1800 secs or 30 mins. If you are using bash then use the command "ulimit -t 1800".
     
-### Files and Subversion
+### Files and Git or Subversion
     
-* The directory `~anoop/cmpt413/hw1` and the directories for later homeworks are available on `fraser.sfu.ca`.
 * For effective group collaboration use a version control system such as `svn` or `git`.
-* A svn repository for each group has been automatically set up for you. See the svn repo link for your group on [courses.cs.sfu.ca](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/groups/).
+* To set up a git project see the section below on Setting up git
+* To set up an svn project see the section below on Setting up svn
+
+#### Setting up git
+
+* Follow these [instructions to set up your repository on GitLab](https://courses.cs.sfu.ca/2016sp-cmpt-470-e1/pages/GitLab)
+* In the above instructions, change the values of instructor and TA to `anoop` and `msiahban`.
+* Copy over files. Clone your repository and enter that directory and copy over the files:
+
+    git clone git@csil-git1.cs.surrey.sfu.ca:your-group-name/your-repo-name.git
+    cd your-repo-name
+    cp -r /your-path-to/nlp-class-hw/current-homework-name/* .
+    git add *
+    git commit -m 'initial commit'
+    git push
+
+#### Setting up svn
+
+* A svn repository for each group has been automatically set up for you. See the svn repo link for your group on [courses.cs.sfu.ca](https://courses.cs.sfu.ca).
 * Tips on using Subversion (svn) for your homeworks.  
     * For CMPT 413: <script src="https://gist.github.com/4486112.js"></script> 
     * For CMPT 825: <script src="https://gist.github.com/anoopsarkar/8292114.js"></script>
@@ -95,9 +114,8 @@ active_tab: faq
  
 ### Exams and Tests 
  
-* Midterms may be in different rooms than the lectures.  You will be notified by email. 
 * Exams may be written in either pen or pencil.  Calculators or other aids are not allowed unless explicitly stated. 
-* Midterm exams and other tests may or may not be returned, depending on the course.  If they are returned, you can get them from the instructor's office hours.  You can not dispute the marking of your exam after you have taken it out of the instructor's office.  
+* Midterm exams and other tests will not be returned to you. You can examine them during office hours for the TA or the instructor.
 * Final exams are not returned to students by University policy; they are kept by the instructor. 
 * If you miss a test or exam, you must present a note from a doctor to get a mark other than zero.  Arrangements to make up the lost marks will be made on a case-by-case basis by the instructor.  Make-up exams may be given as an oral examination. 
 * You must get a pass on the weighted average of the exams to pass the course. 
@@ -115,6 +133,7 @@ Except for final grades, this is how you can go about getting your mark changed:
     * I knew what I was saying here, but didn't write it. 
     * This is the correct answer for some question other than the one asked, but I didn't get any marks for it. 
     * I didn't understand the question. 
+    * [I worked really really hard but got the answers wrong](https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect).
  
 ### Final Exam and Final Marks Appeals 
 
@@ -135,5 +154,4 @@ If you're concerned about your mark at the end of the course, you can see the in
   
 * All course information on this web page is tentative and could be in error. It can also change at any time. Confirm crucial dates or information with me in person during class. Double check with SFU calendar or schedule information for official class times and final exams time and location. 
 * Students are expected to attend all classes: announcements about assigned readings, homeworks and exams will be made available at the start of each class. Such announcements may not be made on this web page, so don't rely on information here instead of attending class. 
-* Lecture notes or other materials put up on this web page are only additional material and not an alternative to the readings assigned. Only reading the lecture notes will not be enough to prepare for the homeworks or the exams.
-  
+
