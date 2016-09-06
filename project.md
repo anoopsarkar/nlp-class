@@ -10,6 +10,8 @@ active_tab: project
 Final Project
 -------------
 
+<p class="text-muted">Due on Tuesday, December 6, 2016</p>
+
 The final project is to translate from Chinese to English using the
 machine translation system you have built over the course of the
 semester. You should use the code you have written for your homework

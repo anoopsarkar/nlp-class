@@ -10,6 +10,8 @@ active_tab: homework
 Homework & Leaderboard setup
 =============================================================
 
+<p class="text-muted">Due on Tuesday, September 13, 2016</p>
+
 For this course, we use [an automated homework submission
 system](http://sfu-nlp-class.appspot.com) built on [Google App
 Engine](https://appengine.google.com). One component of this system
