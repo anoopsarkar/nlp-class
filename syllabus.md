@@ -7,55 +7,96 @@ title: Syllabus
 active_tab: syllabus
 ---
 
-<table class="table table-striped"> 
-  <tbody>
-    <tr>
-      <th>Date</th>
-      <th>Topic</th>
-      <th>Readings/Videos (<i class="fa fa-star"></i>=optional)</th>
-    </tr>
-    {% for lecture in site.data.syllabus.past %}
-    <tr>
-      <td>{{ lecture.date | date: "%b %d" }}</td>
-      <td>
-        {% if lecture.slides %}<a href="{{ lecture.slides }}">{{ lecture.title }}</a>
-        {% else %}{{ lecture.title }}{% endif %}
-        {% if lecture.download %} <a href="{{ lecture.download }}"><span class="glyphicon glyphicon-save"> </span></a> {% endif %}
-      {% if lecture.links %}
-        {% for link in lecture.links %}
-          <p><a href="{{ link.url }}">{{ link.text }}</a></p>
-        {% endfor %}
-      {% endif %}
-        {% if lecture.language %}
-        <br/><a href="lin10.html">Language in 10</a>: <a href="{{ lecture.language_slides }}">{{ lecture.language }}</a>
-        {% endif %}
-      </td>
-      <td>
-        {% if lecture.reading %}
-          <ul class="fa-ul">
-          {% for reading in lecture.reading %}
-            <li>
-            {% if reading.optional %}<i class="fa-li fa fa-star"> </i>
-            {% else %}<i class="fa-li fa"> </i> {% endif %}
-            {% if reading.url %}
-            <a href="{{ reading.url }}">{{ reading.title }}</a>
-            {% elsif reading.video %}
-            <span class="glyphicon glyphicon-film"> </span> <a href="{{ reading.video }}">{{ reading.title }}</a>
-            {% else %}
-            {{ reading.title }} 
-            {% endif %}
-            {% if reading.author %} ({{ reading.author }}) {% endif %}
-            {% if reading.download %} 
-            <a href="{{ reading.download }}"><span class="glyphicon glyphicon-save"> </span></a> 
-            {% endif %}
-            </li>
-          {% endfor %}
-          </ul>
-        {% endif %}
-      </td>
-    </tr>
-    {% endfor %}
+## Syllabus
 
-  </tbody>
-</table>
+<style type="text/css">
+    .bs-example{
+        margin: 20px;
+    }
+</style>
+
+<div class="bs-example">
+    <div class="panel-group" id="accordion">
+        {% for week in site.data.syllabus %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#{{ week.tag }}">{{ week.title }}</a>
+                    </h4>
+                </div>
+                {% if week.current %}
+                <div id="{{ week.tag }}" class="panel-collapse collapse in">
+                {% else %}
+                <div id="{{ week.tag }}" class="panel-collapse collapse">
+                {% endif %}
+                <div class="panel panel-default">
+                  {% if week.notes %}
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Lecture notes</h3>
+                      </div>
+                      <ul class="list-group">
+                      {% for notes in week.notes %}
+                        <li class="list-group-item"> <a href="{{ notes.url }}">{{ notes.title }}</a>
+                            {%if notes.video %}
+                                <a href="{{ notes.video }}"><span class="glyphicon glyphicon-film"></span></a>
+                            {% endif %}
+                            {% if notes.download %} 
+                                <a href="{{ notes.download }}"><span class="glyphicon glyphicon-save"> </span></a> 
+                            {% endif %}
+                        </li>
+                      {% endfor %}
+                      </ul>
+                  {% endif %}
+                  {% if week.extra %}
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Extra Notes</h3>
+                      </div>
+                      <ul class="list-group">
+                      {% for link in week.extra %}
+                        <li class="list-group-item"> <a href="{{ link.url }}">{{ link.title }}</a>.
+                            {%if link.author %}
+                                {{ link.author }}.
+                            {% endif %}
+                            {%if link.citation %}
+                                {{ link.citation }}.
+                            {% endif %}
+                            {%if link.video %}
+                                <a href="{{ link.video }}"><span class="glyphicon glyphicon-film"></span></a>
+                            {% endif %}
+                        </li>
+                      {% endfor %}
+                      </ul>
+                  {% endif %}
+                  {%if week.links %}
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Links (<i class="fa fa-star"></i>=optional)</h3>
+                      </div>
+                      <ul class="list-group">
+                      {% for link in week.links %}
+                        <li class="list-group-item"> 
+                        {% if link.optional %}
+                            <i class="fa fa-star"> </i>
+                        {% else %}
+                            <i class="fa"> </i> 
+                        {% endif %}
+                        <a href="{{ link.url }}">{{ link.title }}</a>.
+                            {%if link.author %}
+                                {{ link.author }}.
+                            {% endif %}
+                            {%if link.citation %}
+                                {{ link.citation }}.
+                            {% endif %}
+                            {%if link.video %}
+                                <a href="{{ link.video }}"><span class="glyphicon glyphicon-film"></span></a>
+                            {% endif %}
+                        </li>
+                      {% endfor %}
+                      </ul>
+                  {% endif %}
+                </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 
