@@ -23,7 +23,6 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
       <th class="text-right">
         <a href="hw0.html">#0</a><br/><span class="small text-muted">Setup</span>
       </th>
-      <!--
       <th class="text-right">
         <a href="hw1.html">#1</a><br/><span class="small text-muted">Segment</span>
       </th>
@@ -39,14 +38,13 @@ Submit your assignments [here](http://sfu-nlp-class.appspot.com). Results will b
       <th class="text-right">
         <a href="hw5.html">#5</a><br/><span class="small text-muted">Rerank</span>
       </th>
-      -->
     </tr>
   </thead>
   <tbody>
   </tbody>
 </table>
 
-<script type="text/javascript" src="leaderboard-code.js"></script>
+<script type="text/javascript" src="leaderboard-code-fall2014.js"></script>
 
 <div id="loading">Loading...</div>
 

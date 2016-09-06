@@ -1,13 +1,13 @@
 $.ajax({
-    url: "//sfu-nlp-class.appspot.com/leaderboard.js",
-    //url: "leaderboard-fall2014.js",
+    // url: "//sfu-nlp-class.appspot.com/leaderboard.js",
+    url: "leaderboard-fall2014.js",
     dataType: "script",
     success: function () {
         // The current assignment number (0-indexed)
-        var assignment_number = 0;
+        var assignment_number = 5;
 
         // The maximum assignment number (0-indexed)
-        var max_assignment_number = 0;
+        var max_assignment_number = 5;
 
         var rows = "";
         var scoreranks = new Array();
