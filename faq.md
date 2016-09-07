@@ -21,7 +21,7 @@ active_tab: faq
     
 * We will be using [the discussion board on courses.cs.sfu.ca](https://courses.cs.sfu.ca/) instead of email.
 * Before starting a new topic please check if the topic is already under discussion and check to see if your question has already been answered.
-* If you must email the instructor or TA directly then use your SFU email address to send the email (do not use any other provider), and use `cmpt413:` as the prefix in your subject line.
+* If you must email the instructor or TA directly then use your SFU email address to send the email (do not use any other provider), and use `cmpt413:` or `cmpt825:` (depending on if you are an undergrad or grad student) as the prefix in your subject line.
     
 ### Homework Submission and Grace Days
     
