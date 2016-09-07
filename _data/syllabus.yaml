@@ -206,6 +206,8 @@
   tag: week10
   current: false
   notes:
+    - title: "Ambiguity and Context free grammars"
+      url: "assets/slides/ambiguity.pdf"
     - title: "Competitive grammar writing"
       url: "cgw.html"
   links:
