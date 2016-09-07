@@ -24,7 +24,7 @@ everything is working for you.
 
 0. Join a group. The maximum group size is four. Decide on a group
 name. Make it memorable. Register yourself as a group on
-[Coursys](https://courses.cs.sfu.ca).
+[Coursys]({{ site.coursys }}).
 
 1. Visit the course submission page at
 [sfu-nlp-class.appspot.com](http://sfu-nlp-class.appspot.com). At
@@ -39,7 +39,7 @@ which cannot be used to assign your group a grade.
 dialog to upload your submissions. Check your status on the [leaderboard](leaderboard.html)
 
 4. Upload a tar.gz or zip file as the HW0 submission on
-[Coursys](https://courses.cs.sfu.ca/2014fa-cmpt-413-x1/+hw0/).  In
+[Coursys]({{ site.coursys }}).  In
 future assignments you will be uploading your source code and
 documentation as your submission.
 
@@ -59,13 +59,13 @@ you plan to keep uploading new submissions. Only one person per group
 should submit for the group.
 
 * You must use a valid group name that is verifiable on
-[Coursys](https://courses.cs.sfu.ca) 
+[Coursys]({{ site.coursys }}) 
 
 * Your group must upload your file as a tar.gz or zip file as the HW0
-submission on [Coursys](https://courses.cs.sfu.ca). Only one person
+submission on [Coursys]({{ site.coursys }}). Only one person
 per group needs to submit here as well.
 
 In future homeworks, you will submit your output files to the [upload
 page on Google](http://sfu-nlp-class.appspot.com) and submit your
-source code to the submission page on [Coursys](https://courses.cs.sfu.ca).
+source code to the submission page on [Coursys]({{ site.coursys }}).
 

@@ -40,7 +40,7 @@ Teaching Assistant
 : Office Hours: TBA
 
 Discussion Board
-: [on Coursys](https://courses.cs.sfu.ca/2016fa-cmpt-413-x1/discussion/)
+: [on Coursys]({{ site.coursys }})
 
 Time and place
 : MWF 1:30-2:20, BLU 10021
@@ -52,7 +52,7 @@ Textbook
 : No required textbook. Online readings provided in Syllabus.
 
 Grading
-: Submit homework source code and check your grades on [Coursys](https://courses.cs.sfu.ca/2016fa-cmpt-413-x1/)
+: Submit homework source code and check your grades on [Coursys]({{ site.coursys }})
 
 * Programming setup homework: Sep 13 (2%)
 * Five programming homeworks. Due dates: Sep 27, Oct 11, Oct 25, Nov 8, Nov 22 (10% each)

@@ -198,12 +198,12 @@ Ground Rules
      as you like, up until the assignment deadline. Your score on the leaderboard is the score on the development data set which shown to you immediately after you upload your output file. The **Submit** button in unavailable until after the homework deadline has passed, and when pressed it will show you the test data set score.
 The output will be evaluated using a secret metric, but the `score-segments.py` program will give you a good
      idea of how well you're doing.
-  1. Your code. Each group should assign one member to upload the source code to [Coursys](https://courses.cs.sfu.ca) as the submission for Homework 1. The code should be self-contained, self-documenting, and easy to use. It should use the same input and output assumptions of `default.py`.
+  1. Your code. Each group should assign one member to upload the source code to [Coursys]({{ site.coursys }}) as the submission for Homework 1. The code should be self-contained, self-documenting, and easy to use. It should use the same input and output assumptions of `default.py`.
   1. A clear, mathematical description of your algorithm and its motivation
      written in scientific style. This needn't be long, but it should be
      clear enough that one of your fellow students could re-implement it 
      exactly. Include the file for this writeup as part of the tarball or zip file you
-     will upload to [Coursys](https://courses.cs.sfu.ca).
+     will upload to [Coursys]({{ site.coursys }}).
 * You cannot use data or code resources outside of what is provided
 to you. You can use NLTK but not the NLTK tokenizer class. 
 * For the written description of your algorithm, you can use plain ASCII but
