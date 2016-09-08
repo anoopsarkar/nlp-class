@@ -1,5 +1,5 @@
 - title: "Course Introduction"
-  tag: week1
+  tag: intro
   current: true
   notes:
     - title: "Course introduction"
@@ -31,7 +31,7 @@
       url: "assets/slides/wikihistory.pdf"
       optional: true
 - title: "Probability models and language"
-  tag: week2
+  tag: probintro
   current: false
   notes:
     - title: "Probability models and language"
@@ -67,7 +67,7 @@
       url: http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/41880.pdf
       optional: true
 - title: "Linear models"
-  tag: week3
+  tag: linearmodels
   current: false
   notes:
     - title: "Linear models"
@@ -81,7 +81,7 @@
       title: "Introduction to the CoNLL-2000 Shared Task: Chunking"
       url: "http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
 - title: "Hidden Markov Models"
-  tag: week4
+  tag: hmm
   current: false
   notes:
     - title: "Hidden Markov Models"
@@ -121,7 +121,7 @@
       download: "assets/mcollins-notes/fb.pdf"
       optional: true
 - title: "Statistical Machine Translation"
-  tag: week5
+  tag: smt
   current: false 
   notes:
     - title: "Introduction to Machine Translation"
@@ -137,7 +137,7 @@
       url: http://www.isi.edu/natural-language/mt/wkbk.pdf
       optional: true
 - title: Word Alignment
-  tag: week6
+  tag: align
   notes:
     - title: "Word Alignment"
       url: "assets/slides/ibm123.pdf"
@@ -153,7 +153,7 @@
       url: "http://www.statmt.org/book"
       optional: true
 - title: "Phrase based translation"
-  tag: week7
+  tag: pbmt
   current: false
   notes:
     - author: Philipp Koehn
@@ -170,7 +170,7 @@
       url: "http://www.cs.columbia.edu/~mcollins/pb.pdf"
       download: "assets/mcollins-notes/pb.pdf"
 - title: "Translation Evaluation"
-  tag: week8
+  tag: mteval
   current: false
   notes:
     - author: Philipp Koehn
@@ -190,7 +190,7 @@
       title: "Computing edit distance (part two)"
       video: "http://youtu.be/E606vHFGTvA"
 - title: "Discriminative Training for Machine Translation"
-  tag: week9
+  tag: statmt
   current: false
   notes:
     - author: "Philipp Koehn, Barry Haddow and Matthias Huck"
@@ -203,7 +203,7 @@
       title: "Tuning as Ranking"
       url: "http://www.aclweb.org/anthology/D11-1125"
 - title: Context-free Grammars
-  tag: week10
+  tag: cfg
   current: false
   notes:
     - title: "Ambiguity and Context free grammars"
