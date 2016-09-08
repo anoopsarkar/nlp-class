@@ -43,25 +43,8 @@ active_tab: syllabus
                             {% if notes.download %} 
                                 <a href="{{ notes.download }}"><span class="glyphicon glyphicon-save"> </span></a> 
                             {% endif %}
-                        </li>
-                      {% endfor %}
-                      </ul>
-                  {% endif %}
-                  {% if week.extra %}
-                      <div class="panel-heading">
-                        <h3 class="panel-title">Extra Notes</h3>
-                      </div>
-                      <ul class="list-group">
-                      {% for link in week.extra %}
-                        <li class="list-group-item"> <a href="{{ link.url }}">{{ link.title }}</a>.
-                            {%if link.author %}
-                                {{ link.author }}.
-                            {% endif %}
-                            {%if link.citation %}
-                                {{ link.citation }}.
-                            {% endif %}
-                            {%if link.video %}
-                                <a href="{{ link.video }}"><span class="glyphicon glyphicon-film"></span></a>
+                            {% if notes.author %} 
+                                ({{ notes.author }}) 
                             {% endif %}
                         </li>
                       {% endfor %}
@@ -88,6 +71,9 @@ active_tab: syllabus
                             {% endif %}
                             {%if link.video %}
                                 <a href="{{ link.video }}"><span class="glyphicon glyphicon-film"></span></a>
+                            {% endif %}
+                            {% if link.download %} 
+                                <a href="{{ link.download }}"><span class="glyphicon glyphicon-save"> </span></a> 
                             {% endif %}
                         </li>
                       {% endfor %}

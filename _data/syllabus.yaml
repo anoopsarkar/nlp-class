@@ -119,7 +119,7 @@
       title: "Forward-backward algorithm"
       url: "http://www.cs.columbia.edu/~mcollins/fb.pdf"
       download: "assets/mcollins-notes/fb.pdf"
-      optional: false
+      optional: true
 - title: "Statistical Machine Translation"
   tag: week5
   current: false 
@@ -155,29 +155,31 @@
 - title: "Phrase based translation"
   tag: week7
   current: false
-  links:
-    - title: "Homework 4 release"
-      url: "hw4.html"
-    - author: Michael Collins
-      title: "Statistical Machine Translation: Phrase-based models"
-      url: http://www.cs.columbia.edu/~mcollins/pb.pdf
-      download: assets/mcollins-notes/pb.pdf
+  notes:
     - author: Philipp Koehn
       title: "Phrase-based models"
       url: "assets/slides/05-phrase-based-models.pdf"
     - author: Philipp Koehn
       title: "Decoding"
       url: "assets/slides/06-decoding.pdf"
+  links:
+    - title: "Homework 4 release"
+      url: "hw4.html"
+    - author: Michael Collins
+      title: "Statistical Machine Translation: Phrase-based models"
+      url: "http://www.cs.columbia.edu/~mcollins/pb.pdf"
+      download: "assets/mcollins-notes/pb.pdf"
 - title: "Translation Evaluation"
   tag: week8
   current: false
-  links:
+  notes:
     - author: Philipp Koehn
       title: "Evaluation"
       url: "assets/slides/08-evaluation.pdf"
     - author: Anoop Sarkar
       title: "Edit distance"
       url: "assets/slides/editdistance.pdf"
+  links:
     - author: Anoop Sarkar
       title: "Introducing edit distance"
       video: http://youtu.be/IDGsJdFZCmE
@@ -190,15 +192,13 @@
 - title: "Discriminative Training for Machine Translation"
   tag: week9
   current: false
-  links:
-    - title: "Homework 5 release"
-      url: "hw5.html"
+  notes:
     - author: "Philipp Koehn, Barry Haddow and Matthias Huck"
       title: "Discriminative Training"
       url: "assets/slides/09-discriminative-training.pdf"
-    - author: Philipp Koehn
-      title: "Evaluation"
-      url: "assets/slides/08-evaluation.pdf"
+  links:
+    - title: "Homework 5 release"
+      url: "hw5.html"
     - author: "Mark Hopkins and Jonathan May"
       title: "Tuning as Ranking"
       url: "http://www.aclweb.org/anthology/D11-1125"
