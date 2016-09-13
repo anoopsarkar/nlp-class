@@ -51,12 +51,9 @@ the entries according to the highest value.
 
 To get full marks, you must do the following:
 
-* Upload and _Submit_ your file on [the upload
-page](http://sfu-nlp-class.appspot.com/). There will be a dialog
-that says this is the final submission (you can no longer upload
-after you _Submit_ your final answer. Do __not__ press _Submit_ if
-you plan to keep uploading new submissions. Only one person per group
-should submit for the group.
+* _Upload_ your file on [the upload
+page](http://sfu-nlp-class.appspot.com/). 
+Only one person per group should submit for the group.
 
 * You must use a valid group name that is verifiable on
 [Coursys]({{ site.coursys }}) 
