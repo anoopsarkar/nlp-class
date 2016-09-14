@@ -185,6 +185,9 @@ choice and document your work. Here are some ideas:
 
 * Use the bigram model to score word segmentation candidates.
 * Do better _smoothing_ of the unigram and bigram probability models.
+* More advanced methods[^1]
+
+[^1]: If you are ambitious, you can use more advanced machine learning methods such as [global linear models](http://anoopsarkar.github.io/papers/pdf/cnwseg-ai2009.pdf) or [neural networks](http://aclweb.org/anthology/P/P16/P16-1039.pdf) or [transition-based neural language models](http://aclweb.org/anthology/P/P16/P16-1040.pdf). However you should be aware that you are only given a limited amount data to train with so you may not be able to effectively use these models. To exploit these models you might have to use much larger sources of data. Contact me if you are interested.
 
 But the sky's the limit! You are welcome to design your own model, as long 
 as you follow the ground rules:
@@ -192,25 +195,19 @@ as you follow the ground rules:
 Ground Rules
 ------------
 
-* Each group should submit using one person as the designated uploader.
-* You must turn in three things:
-  1. A segmentation of the entire dataset which is in `segmenter/data/input` uploaded to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html). You can upload new output as often
-     as you like, up until the assignment deadline. Your score on the leaderboard is the score on the development data set which shown to you immediately after you upload your output file. The **Submit** button in unavailable until after the homework deadline has passed, and when pressed it will show you the test data set score.
-The output will be evaluated using a secret metric, but the `score-segments.py` program will give you a good
-     idea of how well you're doing.
-  1. Your code. Each group should assign one member to upload the source code to [Coursys]({{ site.coursys }}) as the submission for Homework 1. The code should be self-contained, self-documenting, and easy to use. It should use the same input and output assumptions of `default.py`.
-  1. A clear, mathematical description of your algorithm and its motivation
-     written in scientific style. This needn't be long, but it should be
-     clear enough that one of your fellow students could re-implement it 
-     exactly. Include the file for this writeup as part of the tarball or zip file you
-     will upload to [Coursys]({{ site.coursys }}).
-* You cannot use data or code resources outside of what is provided
-to you. You can use NLTK but not the NLTK tokenizer class. 
-* For the written description of your algorithm, you can use plain ASCII but
-for math equations it is better to use either
-[latex](http://www.latex-project.org/) or
-[kramdown](https://github.com/gettalong/kramdown).  Do __not__ use
-any proprietary or binary file formats such as Microsoft Word.
+* Each group should submit using one person as the designated uploader. Ideally use the same person across all homeworks.
+* Follow these step-by-step instructions to submit your homework solution:
+  1. Your solution to this homework should be in the `answer` directory in a file called `segment.py`. The code should be self-contained, self-documenting, and easy to use. It should read the dataset in `segmenter/data/input` by default. Run your program on this input:
+
+            python answer/segment.py > output
+
+  1. Upload this file `output` to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html).  Your score on the leaderboard is the score on the development data set and the test data set which shown to you immediately after you upload your output file.  The `score-segments.py` program will give you a good idea of how well you're doing without uploading to the leaderboard.
+  1. Run the program: `python zipsrc.py`. This will create a a zip file called `source.zip`. Each group should assign one member to upload `source.zip` to [Coursys]({{ site.coursys }}) as the submission for Homework 1. 
+ It should use the same input and output assumptions of `default.py`. Only use `zipsrc.py` to prepare your zip file.
+  1. A clear, mathematical description of your algorithm and its motivation written in scientific style. This needn't be long, but it should be clear enough that one of your fellow students could re-implement it exactly. You are given a dummy `README.md` file in the answer directory. Update this file with your description.
+  1. Also in the `answer` directory include for each group member with a user name `username` a file in your submission called `README.username` which contains a description of your contribution to the homework solution along with the commit identifiers from either `svn` or `git`. If you have only one member in your group then create an empty file.
+* You cannot use data or code resources outside of what is provided to you. You can use NLTK but not the NLTK tokenizer class. 
+* For the written description of your algorithm, you can use plain ASCII but for math equations it is better to use either [latex](http://www.latex-project.org/) or [kramdown](https://github.com/gettalong/kramdown).  Do __not__ use any proprietary or binary file formats such as Microsoft Word.
 
 If you have any questions or you're confused about anything, just ask.
 
