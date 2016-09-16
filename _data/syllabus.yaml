@@ -1,6 +1,6 @@
 - title: "Course Introduction"
   tag: intro
-  current: true
+  current: false
   notes:
     - title: "Course introduction"
       url: "assets/slides/introduction.pdf"
@@ -32,7 +32,7 @@
       optional: true
 - title: "Probability models and language"
   tag: probintro
-  current: false
+  current: true
   notes:
     - title: "Probability models and language"
       url: "assets/slides/prob.pdf"
