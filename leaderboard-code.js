@@ -8,7 +8,7 @@ $.ajax({
     timeout: 24000,
     error: function(x, t, m) {
         if (t == "timeout") {
-            alert("The URL at sfu-yacc.appspot.com is not responding at the moment. Try again later.");
+            alert("The URL at sfu-nlp-class.appspot.com is not responding at the moment. Try again later.");
         } else {
             alert(t);
         }
@@ -16,10 +16,10 @@ $.ajax({
     success: function () {
         $('#loader').hide();
         // The current assignment number (0-indexed)
-        var assignment_number = 0;
+        var assignment_number = 1;
 
         // The maximum assignment number (0-indexed)
-        var max_assignment_number = 0;
+        var max_assignment_number = 1;
 
         var rows = "";
         var scoreranks = new Array();
