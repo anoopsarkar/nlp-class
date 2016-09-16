@@ -37,7 +37,7 @@ Instructor
 Teaching Assistant
 : Golnar Sheikhshabbafghi
 : Email: `cmpt-413-help@sfu.ca`
-: Office Hours: TBA
+: Office Hours: Fridays 14:30-16:00 at ASB9838.2 in [CSIL](http://www.sfu.ca/computing/about/support/csil.html)
 
 Discussion Board
 : [on Coursys]({{ site.coursys }})
