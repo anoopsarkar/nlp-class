@@ -197,13 +197,12 @@ Ground Rules
 
 * Each group should submit using one person as the designated uploader. Ideally use the same person across all homeworks.
 * Follow these step-by-step instructions to submit your homework solution:
-  1. Your solution to this homework should be in the `answer` directory in a file called `segment.py`. The code should be self-contained, self-documenting, and easy to use. It should read the dataset in `segmenter/data/input` by default. Run your program on this input:
+  1. Your solution to this homework should be in the `answer` directory in a file called `segment.py`. The code should be self-contained, self-documenting, and easy to use. It should read the data exactly like `default.py` does. Your program should run like this:
 
             python answer/segment.py > output
 
   1. Upload this file `output` to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html).  Your score on the leaderboard is the score on the development data set and the test data set which shown to you immediately after you upload your output file.  The `score-segments.py` program will give you a good idea of how well you're doing without uploading to the leaderboard.
-  1. Run the program: `python zipsrc.py`. This will create a a zip file called `source.zip`. Each group should assign one member to upload `source.zip` to [Coursys]({{ site.coursys }}) as the submission for Homework 1. 
- It should use the same input and output assumptions of `default.py`. Only use `zipsrc.py` to prepare your zip file.
+  1. Run the program: `python zipsrc.py`. This will create a a zip file called `source.zip`. Each group should assign one member to upload `source.zip` to [Coursys]({{ site.coursys }}) as the submission for this homework. Only use `zipsrc.py` to prepare your zip file.
   1. A clear, mathematical description of your algorithm and its motivation written in scientific style. This needn't be long, but it should be clear enough that one of your fellow students could re-implement it exactly. You are given a dummy `README.md` file in the answer directory. Update this file with your description.
   1. Also in the `answer` directory include for each group member with a user name `username` a file in your submission called `README.username` which contains a description of your contribution to the homework solution along with the commit identifiers from either `svn` or `git`. If you have only one member in your group then create an empty file.
 * You cannot use data or code resources outside of what is provided to you. You can use NLTK but not the NLTK tokenizer class. 
