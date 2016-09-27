@@ -32,7 +32,7 @@
       optional: true
 - title: "Probability models and language"
   tag: probintro
-  current: true
+  current: false
   notes:
     - title: "Probability models and language"
       url: "assets/slides/prob.pdf"
@@ -68,7 +68,7 @@
       optional: true
 - title: "Linear models"
   tag: linearmodels
-  current: false
+  current: true
   notes:
     - title: "Linear models"
       url: "assets/slides/linearmodels.pdf"
