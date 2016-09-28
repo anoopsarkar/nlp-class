@@ -73,6 +73,9 @@
     - title: "Linear models"
       url: "assets/slides/linearmodels.pdf"
   links:
+    - title: "Naive Bayes"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/naivebayes.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/naivebayes.ipynb"
     - author: Michael Collins
       title: "Log-linear models, MEMMs and CRFs"
       url: "http://www.cs.columbia.edu/~mcollins/crf.pdf"
