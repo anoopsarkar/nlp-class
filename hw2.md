@@ -199,23 +199,23 @@ sequence of output chunk tags.
 In the training data we are provided with a set of sentences, and
 each sentence has the reference output chunk labels. Each sentence
 is a sequence of words and other useful information such as
-part-of-speech tags which we refer to as $$w_{[1:n]}$$.  Each
+part-of-speech tags which we refer to as $$x_{[1:n]}$$.  Each
 sequence of words is associated with a sequence of output labels
 $$t_{[1:n]}$$. 
 
-This problem of assigning $$t_{[1:n]}$$ to the input $$w_{[1:n]}$$
+This problem of assigning $$t_{[1:n]}$$ to the input $$x_{[1:n]}$$
 is decomposed into a sequence of decisions in a left-to-right
 fashion. At each point there is a *history* which is the context
-in which the output label is assigned to a particular word $$w_i$$.
-A history is a three-tuple: $$h = (t_{-1}, w_{[1:n]}, i)$$, where
-$$t_{-1}$$ is the output label for $$w_{i-1}$$. For each output
+in which the output label is assigned to a particular word $$x_i$$.
+A history is a three-tuple: $$h = (t_{-1}, x_{[1:n]}, i)$$, where
+$$t_{-1}$$ is the output label for $$x_{i-1}$$. For each output
 label $$t$$, we can write a feature vector representation
 of history-tag pairs. Each component of the feature vector
 is called a feature function: $$\phi_s(h, t)$$ where there 
 are $$d$$ feature functions, $$s = 1, \ldots, d$$. 
 For instance, one such feature function might be:
 
-> If $$w_i$$ is the word `the` and $$t$$ is `B-NP` return 1
+> If $$x_i$$ is the word `the` and $$t$$ is `B-NP` return 1
 > else return 0
 
 Another feature function might look at the previous output label:
@@ -231,7 +231,7 @@ task is provided in the Appendix below.
 From these local feature vectors we can create a feature vector
 for the entire sentence:
 
-<p>$$ \Phi_s(w_{[1:n]}, t_{[1:n]}) = \sum_{i=1}^n \phi_s(h_i, t_i) $$</p>
+<p>$$ \Phi_s(x_{[1:n]}, t_{[1:n]}) = \sum_{i=1}^n \phi_s(h_i, t_i) $$</p>
 
 The feature vector for the sentence $$\Phi$$ has the same dimensionality
 as the feature vector for each tagging decision, $$\phi$$.
@@ -242,7 +242,7 @@ as the feature vector for each tagging decision, $$\phi$$.
 **## Data Structures ##**
 
 `train`
-: sentences with output labels: $$(w_{[1:n_j]}^{(j)}, t_{[1:n_j]}^{(j)})$$ 
+: sentences with output labels: $$(x_{[1:n_j]}^{(j)}, t_{[1:n_j]}^{(j)})$$ 
 
 `T`
 : number of epochs; in each epoch we iterate over all examples in the training set. `opts.numepochs` in `default.py`
@@ -266,9 +266,9 @@ $$\Phi$$
 
 * for t = 1, ..., T, for j = 1, ..., n
     * Use the Viterbi algorithm to find the output of the model on the $$i$$-th training sentence (the function `perc_test` in `perc.py` implements the Viterbi algorithm) where $${\cal T}^{n_j}$$ is the set of all tag sequences of length $$n_j$$.
-    <p>$$ z_{[1:n]} = \arg\max_{u_{[1:n]} \in {\cal T}^{n_j}} \sum_s w_s \Phi_s(w_{[1:n_j]}^{(j)}, u_{[1:n_j]}) $$</p>
+    <p>$$ z_{[1:n]} = \arg\max_{u_{[1:n]} \in {\cal T}^{n_j}} \sum_s w_s \Phi_s(x_{[1:n_j]}^{(j)}, u_{[1:n_j]}) $$</p>
     * If $$z_{[1:n]} \neq t_{[1:n]}^{(j)}$$ then update the weight vector:
-        <p>$$w_s = w_s + \Phi_s(w_{[1:n_j]}^{(j)}, t_{[1:n_j]}^{(j)}) - \Phi_s(w_{[1:n_j]}^{(j)}, z_{[1:n_j]})$$</p>
+        <p>$$w_s = w_s + \Phi_s(x_{[1:n_j]}^{(j)}, t_{[1:n_j]}^{(j)}) - \Phi_s(x_{[1:n_j]}^{(j)}, z_{[1:n_j]})$$</p>
 * return **w**
 {: .list-unstyled}
 ---
@@ -276,7 +276,7 @@ $$\Phi$$
 The weight vector update step rewards the features that occur in
 the reference and penalizes any features that appear in the
 $$\arg\max$$ that do not appear in the reference. Features that
-lead to incorrect output labels, e.g. $$w_i$$ is the word `the` and
+lead to incorrect output labels, e.g. $$x_i$$ is the word `the` and
 the output label is `B-VP`, will tend to get negative weights, and
 features that are observed in the reference will tend to get positive
 weights.
