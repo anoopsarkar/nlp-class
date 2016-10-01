@@ -114,13 +114,13 @@ To count the number of labeled examples in the file format shown above, use `cou
 
 `default.py` contains the default training algorithm for the chunking task.
 
-    python default.py -m default.model
+    python default.py -m data/default.model
 
 `perc.py` contains the implementation of the $$\arg\max$$ search
 that computes the best sequence of chunk tags given an input sentence
 that has words and the part-of-speech tags for each word.
 
-    python perc.py -m default.model > output
+    python perc.py -m data/default.model > output
 
 `score-chunks.py` evaluates the output chunking for the input file, `data/input.txt.gz`
 
@@ -129,7 +129,7 @@ that has words and the part-of-speech tags for each word.
 You can also do the $$\arg\max$$ search for the best sequence of
 chunk tags and the evaluation in one line:
 
-    python perc.py -m default.model | python score-chunks.py
+    python perc.py -m data/default.model | python score-chunks.py
 
 This prints out the evaluation scores for `default.py`:
 
