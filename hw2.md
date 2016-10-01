@@ -265,7 +265,7 @@ $$\Phi$$
 **## Main Loop ##**
 
 * for t = 1, ..., T, for j = 1, ..., n
-    * Use the Viterbi algorithm to find the output of the model on the $$i$$-th training sentence (the function `perc_test` in `perc.py` implements the Viterbi algorithm) where $${\cal T}^{n_j}$$ is the set of all tag sequences of length $$n_j$$.
+    * Use the Viterbi algorithm to find the output of the model on the $$j$$-th training sentence (the function `perc_test` in `perc.py` implements the Viterbi algorithm) where $${\cal T}^{n_j}$$ is the set of all tag sequences of length $$n_j$$.
     <p>$$ z_{[1:n]} = \arg\max_{u_{[1:n]} \in {\cal T}^{n_j}} \sum_s w_s \Phi_s(x_{[1:n_j]}^{(j)}, u_{[1:n_j]}) $$</p>
     * If $$z_{[1:n]} \neq t_{[1:n]}^{(j)}$$ then update the weight vector:
         <p>$$w_s = w_s + \Phi_s(x_{[1:n_j]}^{(j)}, t_{[1:n_j]}^{(j)}) - \Phi_s(x_{[1:n_j]}^{(j)}, z_{[1:n_j]})$$</p>
