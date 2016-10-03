@@ -73,6 +73,8 @@
     - title: "Linear models"
       url: "assets/slides/linearmodels.pdf"
   links:
+    - title: "Homework 2 release"
+      url: "hw2.html"
     - title: "Naive Bayes"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/naivebayes.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/naivebayes.ipynb"
@@ -93,8 +95,6 @@
     - title: "Hidden Markov Models"
       url: "assets/slides/hmm.pdf"
   links:
-    - title: "Homework 2 release"
-      url: "hw2.html"
     - author: Michael Collins
       title: "Hidden Markov Models"
       url: "http://www.cs.columbia.edu/~mcollins/hmms-spring2013.pdf"
