@@ -325,6 +325,21 @@ subset of the input test data:
     data/small.test
     data/small.test.feats
 
+It is a good idea to print the number of mistakes made by the perceptron in each epoch.
+For instance, for my implementation of the baseline algorithm above for the full
+training data set I get the following mistakes per epoch over 10 epochs of training.
+
+    number of mistakes: 5637
+    number of mistakes: 3946
+    number of mistakes: 2980
+    number of mistakes: 2245
+    number of mistakes: 1751
+    number of mistakes: 1402
+    number of mistakes: 1127
+    number of mistakes: 955
+    number of mistakes: 805
+    number of mistakes: 742
+
 ---
 
 ### Your Task
