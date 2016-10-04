@@ -375,7 +375,8 @@ Ground Rules
 * Follow these step-by-step instructions to submit your homework solution:
   1. Your solution to this homework should be in the `answer` directory in a file called `chunk.py`. The code should be self-contained, self-documenting, and easy to use. It should read the data exactly like `default.py` does. Your program should run like this:
 
-            python answer/chunk.py > output
+            python answer/chunk.py -m model
+            python perc.py -m model > output
 
   1. Upload this file `output` to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html).  Your score on the leaderboard is the score on the development data set and the test data set which shown to you immediately after you upload your output file.  The `score-segments.py` program will give you a good idea of how well you're doing without uploading to the leaderboard.
   1. Run the program: `python zipsrc.py`. This will create a a zip file called `source.zip`. Each group should assign one member to upload `source.zip` to [Coursys]({{ site.coursys }}) as the submission for this homework. 
