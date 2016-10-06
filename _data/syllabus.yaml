@@ -95,6 +95,9 @@
     - title: "Hidden Markov Models"
       url: "assets/slides/hmm.pdf"
   links:
+    - title: "Viterbi algorithm for HMMs"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/hmm-viterbi.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/hmm-viterbi.ipynb"
     - author: Michael Collins
       title: "Hidden Markov Models"
       url: "http://www.cs.columbia.edu/~mcollins/hmms-spring2013.pdf"
