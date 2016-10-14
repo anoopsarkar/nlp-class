@@ -215,10 +215,10 @@ There is a size limit to your uploads to the leaderboard. Make sure
 you upload only the first 1000 lines of the alignment file to the 
 leaderboard.
 
-When you develop your own aligner called `your-aligner.py` you have
+When you develop your own aligner called `answer/align.py` you have
 to make sure you use the same command line arguments as `default.py`:
 
-    python your-aligner.py -p europarl -f de -n 10000 > output.a
+    python answer/align.py -p europarl -f de -n 10000 > output.a
     head -1000 output.a > upload.a
 
 Then upload the file `upload.a` to the leaderboard for Homework 3
@@ -443,12 +443,19 @@ as long as you follow the ground rules:
 Ground Rules
 ------------
 
-* Each group should submit using one person as the designated uploader.
-* You must turn in three things:
-  1. The alignment of the first 1000 lines of the German-English data set uploaded to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) using the instructions given above. You can upload new output as often as you like, up until the assignment deadline. The Submit button for showing the test set scores will be unavailable until after the homework deadline and grace days have passed.  The German-English alignments will be evaluated for the leaderboard, but the `score-alignments.py` program on the French-English alignments will give you a good idea of how well you're doing.
-  1. Your code. Each group should assign one member to upload the source code to [Coursys]({{ site.coursys }}) as the submission for Homework 3. The code should be self-contained, self-documenting, and easy to use. It should use the same input and output assumptions of `default.py`.
-  1. A clear, mathematical description of your algorithm and its motivation written in scientific style. This needn't be long, but it should be clear enough that one of your fellow students could re-implement it exactly. Include the file for this writeup as part of the tarball or zip file you will upload to [Coursys]({{ site.coursys }}). Include also how your group divided up the work load and each group member's contribution to the homework solution.
-* You cannot use data or code resources outside of what is provided to you. You can use NLTK but not the NLTK aligner implementation. You cannot use any public implemenation of word alignment such as `GIZA++`, `fast_align`, or any other open source aligner.
+* Each group should submit using one person as the designated uploader. Ideally use the same person across all homeworks.
+* Follow these step-by-step instructions to submit your homework solution:
+  1. Your solution to this homework should be in the `answer` directory in a file called `align.py`. The code should be self-contained, self-documenting, and easy to use. It should read the data exactly like `default.py` does. Your program should run like this:
+
+            python answer/align.py -p europarl -f de -n 10000 > output.a
+            head -1000 output.a > upload.a
+
+  1. Upload this file `upload.a` to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html).  Your score on the leaderboard is the score on the development data set and the test data set which shown to you immediately after you upload your output file.  The `score-alignments.py` program will give you a good idea of how well you're doing without uploading to the leaderboard.
+  1. Run the program: `python zipsrc.py`. This will create a a zip file called `source.zip`. Each group should assign one member to upload `source.zip` to [Coursys]({{ site.coursys }}) as the submission for this homework. 
+ It should use the same input and output assumptions of `default.py`. Only use `zipsrc.py` to prepare your zip file.
+  1. A clear, mathematical description of your algorithm and its motivation written in scientific style. This needn't be long, but it should be clear enough that one of your fellow students could re-implement it exactly. You are given a dummy `README.md` file in the answer directory. Update this file with your description.
+  1. Also in the `answer` directory include for each group member with a user name `username` a file in your submission called `README.username` which contains a description of your contribution to the homework solution along with the commit identifiers from either `svn` or `git`. If you have only one member in your group then create an empty file.
+* You cannot use data or code resources outside of what is provided to you. You can use NLTK but not the NLTK tokenizer class. 
 * For the written description of your algorithm, you can use plain ASCII but for math equations it is better to use either [latex](http://www.latex-project.org/) or [kramdown](https://github.com/gettalong/kramdown).  Do __not__ use any proprietary or binary file formats such as Microsoft Word.
 
 If you have any questions or you're confused about anything, just ask.
