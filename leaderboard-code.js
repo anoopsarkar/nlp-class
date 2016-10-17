@@ -5,7 +5,7 @@ $.ajax({
     beforeSend: function() {
         $('#loader').show();
     },
-    timeout: 24000,
+    timeout: 48000,
     error: function(x, t, m) {
         if (t == "timeout") {
             alert("The URL at sfu-nlp-class.appspot.com is not responding at the moment. Try again later.");
