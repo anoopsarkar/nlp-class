@@ -49,8 +49,9 @@ $.ajax({
               rows = rows + '</td>';
             } else {
               rows += '<td>' + user;
-              // if (names[user])
-                  // rows += ' (' + names[user] + ')';
+              // if (names[user]) {
+              //     rows += ' (' + names[user] + ')';
+              // }
               rows = rows + '</td>';
             }
             //for (j = 1; j < data[i].length; j++)
