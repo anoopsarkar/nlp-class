@@ -117,7 +117,7 @@ aligner using French-English sentence pairs:
 Use the default Dice alignment to align the first 10,000 lines of
 the training data.
 
-    python default.py -n 10000 > dice.a
+    python default.py -n 100000 > dice.a
 
 You can check the validity of your alignment file:
 
@@ -171,7 +171,7 @@ the better.
 
 You can also do it all at once:
 
-    python default.py -n 10000 | python check-alignments.py | python score-alignments.py
+    python default.py -n 100000 | python check-alignments.py | python score-alignments.py
 
 ### Alignment Error Rate
 
@@ -208,7 +208,7 @@ files:
 
 To upload the alignment using `default.py`:
 
-    python default.py -p europarl -f de -n 10000 > output.a
+    python default.py -p europarl -f de -n 100000 > output.a
     head -1000 output.a > upload.a
 
 There is a size limit to your uploads to the leaderboard. Make sure
@@ -218,7 +218,7 @@ leaderboard.
 When you develop your own aligner called `answer/align.py` you have
 to make sure you use the same command line arguments as `default.py`:
 
-    python answer/align.py -p europarl -f de -n 10000 > output.a
+    python answer/align.py -p europarl -f de -n 100000 > output.a
     head -1000 output.a > upload.a
 
 Then upload the file `upload.a` to the leaderboard for Homework 3
@@ -447,7 +447,7 @@ Ground Rules
 * Follow these step-by-step instructions to submit your homework solution:
   1. Your solution to this homework should be in the `answer` directory in a file called `align.py`. The code should be self-contained, self-documenting, and easy to use. It should read the data exactly like `default.py` does. Your program should run like this:
 
-            python answer/align.py -p europarl -f de -n 10000 > output.a
+            python answer/align.py -p europarl -f de -n 100000 > output.a
             head -1000 output.a > upload.a
 
   1. Upload this file `upload.a` to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html).  Your score on the leaderboard is the score on the development data set and the test data set which shown to you immediately after you upload your output file.  The `score-alignments.py` program will give you a good idea of how well you're doing without uploading to the leaderboard.
