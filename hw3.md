@@ -398,6 +398,26 @@ Pseudo-code for this $$\arg\max$$ search is given below.
 {: .list-unstyled}
 ---
 
+The following output shows you how much time it takes to run the baseline algorithm for training over 5 iterations and then decoding (aligning) the data:
+
+    $ time python answer/align.py -n 100000 | python score-alignments.py 
+    Training IBM Model 1 (no nulls) with Expectation Maximization...
+    Iteration 0........................................................................................................
+    Iteration 1........................................................................................................
+    Iteration 2........................................................................................................
+    Iteration 3........................................................................................................
+    Iteration 4........................................................................................................
+    Aligning...
+
+    Precision = 0.597732
+    Recall = 0.774889
+    AER = 0.341639
+
+    real    10m54.083s
+    user    10m21.104s
+    sys     0m10.252s
+
+
 #### Background reading
 
 The model and training and decoding algorithms and the theory behind
