@@ -68,7 +68,7 @@
       optional: true
 - title: "Linear models"
   tag: linearmodels
-  current: true
+  current: false
   notes:
     - title: "Linear models"
       url: "assets/slides/linearmodels.pdf"
@@ -131,8 +131,10 @@
       optional: true
 - title: "Statistical Machine Translation"
   tag: smt
-  current: false 
+  current: true 
   notes:
+    - title: "Homework 3 release"
+      url: "hw3.html"
     - title: "Introduction to Machine Translation"
       url: "assets/slides/mtintro.pdf"
     - title: "In-class Alignment Exercise"
@@ -147,12 +149,11 @@
       optional: true
 - title: Word Alignment
   tag: align
+  current: true 
   notes:
     - title: "Word Alignment"
       url: "assets/slides/ibm123.pdf"
   links:
-    - title: "Homework 3 release"
-      url: "hw3.html"
     - author: Michael Collins
       title: "Statistical Machine Translation: IBM Models 1 and 2"
       url: "http://www.cs.columbia.edu/~mcollins/ibm12.pdf"
