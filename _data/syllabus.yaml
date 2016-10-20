@@ -7,9 +7,9 @@
     - title: "Probability Models for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb"
-  links:
     - title: "Homework 0 release"
       url: "hw0.html"
+  links:
     - title: "Python tidbits for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/python-tidbits.ipynb"
@@ -38,9 +38,9 @@
       url: "assets/slides/prob.pdf"
     - title: "Language models"
       url: "assets/slides/lm.pdf"
-  links:
     - title: "Homework 1 release"
       url: "hw1.html"
+  links:
     - author: Peter Norvig
       title: "Natural Language Corpus Data: Beautiful Data"
       url: "http://norvig.com/ngrams/"
@@ -72,9 +72,9 @@
   notes:
     - title: "Linear models"
       url: "assets/slides/linearmodels.pdf"
-  links:
     - title: "Homework 2 release"
       url: "hw2.html"
+  links:
     - title: "Naive Bayes"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/naivebayes.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/naivebayes.ipynb"
@@ -133,12 +133,10 @@
   tag: smt
   current: true 
   notes:
-    - title: "Homework 3 release"
-      url: "hw3.html"
     - title: "Introduction to Machine Translation"
       url: "assets/slides/mtintro.pdf"
-    - title: "In-class Alignment Exercise"
-      url: "assets/handouts/inclass-align.pdf"
+    - title: "Homework 3 release"
+      url: "hw3.html"
   links:
     - author: Adam Lopez
       title: "Word Alignment and the Expectation-Maximization Algorithm"
@@ -154,6 +152,8 @@
     - title: "Word Alignment"
       url: "assets/slides/ibm123.pdf"
   links:
+    - title: "In-class Alignment Exercise"
+      url: "assets/handouts/inclass-align.pdf"
     - author: Michael Collins
       title: "Statistical Machine Translation: IBM Models 1 and 2"
       url: "http://www.cs.columbia.edu/~mcollins/ibm12.pdf"
@@ -167,18 +167,31 @@
   current: false
   notes:
     - author: Philipp Koehn
-      title: "Phrase-based models"
-      url: "assets/slides/05-phrase-based-models.pdf"
-    - author: Philipp Koehn
       title: "Decoding"
       url: "assets/slides/06-decoding.pdf"
-  links:
+    - author: Philipp Koehn
+      title: "Phrase-based models"
+      url: "assets/slides/05-phrase-based-models.pdf"
     - title: "Homework 4 release"
       url: "hw4.html"
+  links:
     - author: Michael Collins
       title: "Statistical Machine Translation: Phrase-based models"
       url: "http://www.cs.columbia.edu/~mcollins/pb.pdf"
       download: "assets/mcollins-notes/pb.pdf"
+- title: "Discriminative Training for Machine Translation"
+  tag: statmt
+  current: false
+  notes:
+    - author: "Philipp Koehn, Barry Haddow and Matthias Huck"
+      title: "Discriminative Training"
+      url: "assets/slides/09-discriminative-training.pdf"
+    - title: "Homework 5 release"
+      url: "hw5.html"
+  links:
+    - author: "Mark Hopkins and Jonathan May"
+      title: "Tuning as Ranking"
+      url: "http://www.aclweb.org/anthology/D11-1125"
 - title: "Translation Evaluation"
   tag: mteval
   current: false
@@ -199,19 +212,6 @@
     - author: Anoop Sarkar
       title: "Computing edit distance (part two)"
       video: "http://youtu.be/E606vHFGTvA"
-- title: "Discriminative Training for Machine Translation"
-  tag: statmt
-  current: false
-  notes:
-    - author: "Philipp Koehn, Barry Haddow and Matthias Huck"
-      title: "Discriminative Training"
-      url: "assets/slides/09-discriminative-training.pdf"
-  links:
-    - title: "Homework 5 release"
-      url: "hw5.html"
-    - author: "Mark Hopkins and Jonathan May"
-      title: "Tuning as Ranking"
-      url: "http://www.aclweb.org/anthology/D11-1125"
 - title: Context-free Grammars
   tag: cfg
   current: false
