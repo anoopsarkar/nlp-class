@@ -130,7 +130,7 @@ output by hand and check that the model really prefers it.
 
     head -2 data/input | tail -1 > example
     python default.py -i example | python score-decoder.py -i example
-    echo a selection committee was achievement . | python score-decoder.py -i example
+    echo "a selection committee was achievement ." | python score-decoder.py -i example
 
 Recall that the scores are reported as log-probabilities, and higher
 scores (with lower absolute value) are better. We see that the model
@@ -174,7 +174,7 @@ upload your output nearly as often as you did in other homeworks.
 
 To get on the leaderboard, produce your output file:
 
-    python your-decoder.py > output
+    python answer/decode.py > output
 
 Then upload the file `output` to the leaderboard for Homework 4 on
 [sfu-nlp-class.appspot.com](https://sfu-nlp-class.appspot.com)
@@ -204,7 +204,7 @@ machine translation:
     * Use a weight for the language model and translation model and tune the weights (by hand) to minimize search error as described in page 17 of the [Koehn lecture notes on decoding](http://anoopsarkar.github.io/nlp-class/assets/slides/06-decoding.pdf). 
     * Use future cost as described in pages 25-29 of the [Koehn lecture notes on decoding](http://anoopsarkar.github.io/nlp-class/assets/slides/06-decoding.pdf).
 * [Implement a greedy decoder](http://www.iro.umontreal.ca/~felipe/bib2webV0.81/cv/papers/paper-tmi-2007.pdf).
-* [Use A* search](http://aclweb.org/anthology-new/W/W01/W01-1408.pdf).
+* [Use A\* search](http://aclweb.org/anthology-new/W/W01/W01-1408.pdf).
 * [Use Lagrangian relaxation](http://aclweb.org/anthology//D/D13/D13-1022.pdf). Guaranteed to find the best score!
 * [Use a traveling salesman problem (TSP) solver](http://aclweb.org/anthology-new/P/P09/P09-1038.pdf).
 * [Use integer linear programming](http://aclweb.org/anthology-new/N/N09/N09-2002.pdf).
@@ -224,12 +224,18 @@ try anything you want as long as you follow the ground rules:
 Ground Rules
 ------------
 
-* Each group should submit using one person as the designated uploader.
-* You must turn in three things:
-  1. The output from your decoder uploaded to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) using the instructions given above. You can upload new output as often as you like, up until the assignment deadline. The Submit button for showing the test set scores will be unavailable until after the homework deadline and grace days have passed.  
-  1. Your code. Each group should assign one member to upload the source code to [Coursys]({{ site.coursys }}) as the submission for Homework 4. The code should be self-contained, self-documenting, and easy to use. It should use the same input and output assumptions of `default.py`.
-  1. A clear, mathematical description of your algorithm and its motivation written in scientific style. This needn't be long, but it should be clear enough that one of your fellow students could re-implement it exactly. Include the file for this writeup as part of the tarball or zip file you will upload to [Coursys]({{ site.coursys }}). Include also how your group divided up the work load and each group member's contribution to the homework solution.
-* You cannot use data or code resources outside of what is provided to you. You can use NLTK but not the NLTK translation decoder implementation. You cannot use any public implemenation of decoding such as `moses`, `Joshua`  or `cdec` or any other open source decoder.
+* Each group should submit using one person as the designated uploader. Ideally use the same person across all homeworks.
+* Follow these step-by-step instructions to submit your homework solution:
+  1. Your solution to this homework should be in the `answer` directory in a file called `decode.py`. The code should be self-contained, self-documenting, and easy to use. It should read the data exactly like `default.py` does. Your program should run like this:
+
+            python answer/decode.py > output
+
+  1. Upload this file `output` to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html).
+  1. Run the program: `python zipsrc.py`. This will create a a zip file called `source.zip`. Each group should assign one member to upload `source.zip` to [Coursys]({{ site.coursys }}) as the submission for this homework. 
+ It should use the same input and output assumptions of `default.py`. Only use `zipsrc.py` to prepare your zip file.
+  1. A clear, mathematical description of your algorithm and its motivation written in scientific style. This needn't be long, but it should be clear enough that one of your fellow students could re-implement it exactly. You are given a dummy `README.md` file in the answer directory. Update this file with your description.
+  1. Also in the `answer` directory include for each group member with a user name `username` a file in your submission called `README.username` which contains a description of your contribution to the homework solution along with the commit identifiers from either `svn` or `git`. If you have only one member in your group then create an empty file.
+* You cannot use data or code resources outside of what is provided to you. You can use NLTK but not the NLTK tokenizer class. 
 * For the written description of your algorithm, you can use plain ASCII but for math equations it is better to use either [latex](http://www.latex-project.org/) or [kramdown](https://github.com/gettalong/kramdown).  Do __not__ use any proprietary or binary file formats such as Microsoft Word.
 
 If you have any questions or you're confused about anything, just ask.
