@@ -118,7 +118,7 @@ active_tab: faq
 * Midterm exams and other tests will not be returned to you. You can examine them during office hours for the TA or the instructor.
 * Final exams are not returned to students by University policy; they are kept by the instructor. 
 * If you miss a test or exam, you must present a note from a doctor to get a mark other than zero.  Arrangements to make up the lost marks will be made on a case-by-case basis by the instructor.  Make-up exams may be given as an oral examination. 
-* You must get a pass on the weighted average of the exams to pass the course. 
+* You must get a pass on the weighted average of the exams and final course project (if this is applicable) to pass the course. 
  
 ### Mark Appeals 
 
