@@ -10,7 +10,7 @@ active_tab: homework
 Translation Reranking <span class="text-muted">Homework 5</span>
 ================================================================
 
-<p class="text-muted">Due on Tuesday, November 22, 2016</p>
+<p class="text-muted">Due on Tuesday, November 29, 2016</p>
 
 In [Homework 2](hw2.html) you learned to train a discriminative learner,
 In [Homework 4](hw4.html) you built a decoder that can produce n-best 

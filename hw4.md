@@ -10,7 +10,7 @@ active_tab: homework
 Translation Decoding <span class="text-muted">Homework 4</span>
 ============================================================
 
-<p class="text-muted">Due on Tuesday, November 8, 2016</p>
+<p class="text-muted">Due on Tuesday, November 15, 2016</p>
 
 Decoding is process of taking input in French:
 

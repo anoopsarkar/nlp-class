@@ -10,7 +10,7 @@ active_tab: project
 Final Project
 -------------
 
-<p class="text-muted">Due on Tuesday, December 6, 2016</p>
+<p class="text-muted">Due on Tuesday, December 13, 2016</p>
 
 The final project is to translate from Chinese to English using the
 machine translation system you have built over the course of the
