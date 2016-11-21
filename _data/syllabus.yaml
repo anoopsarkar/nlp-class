@@ -164,7 +164,7 @@
       optional: true
 - title: "Phrase based translation"
   tag: pbmt
-  current: true
+  current: false
   notes:
     - author: Philipp Koehn
       title: "Decoding"
@@ -184,7 +184,7 @@
       download: "assets/mcollins-notes/pb.pdf"
 - title: "Discriminative Training for Machine Translation"
   tag: statmt
-  current: false
+  current: true
   notes:
     - author: "Philipp Koehn, Barry Haddow and Matthias Huck"
       title: "Discriminative Training"
@@ -197,7 +197,7 @@
       url: "http://www.aclweb.org/anthology/D11-1125"
 - title: "Translation Evaluation"
   tag: mteval
-  current: false
+  current: true
   notes:
     - author: Philipp Koehn
       title: "Evaluation"
