@@ -305,11 +305,34 @@ Your write-up is the most important part of your project. It must have the follo
 * Future Work
     * What could be fixed in your approach. What you did not have time to finish, but you think would be a useful addition to your project.
 
+## Submission Format
+
 For your write-up, you can use plain ASCII but for math equations
 and tables it is better to use either
 [latex](http://www.latex-project.org/) or
 [kramdown](https://github.com/gettalong/kramdown).  Do __not__ use
 any proprietary or binary file formats such as Microsoft Word.
+
+If you use latex then use the following style files:
+
+* [acl2012.sty]({{ site.baseurl }}/assets/project/acl2012.sty)
+* [acl2012.bst]({{ site.baseurl }}/assets/project/acl2012.bst)
+
+Here is an example of using these style files:
+
+* [Example latex file]({{ site.baseurl }}/assets/project/project.tex)
+* [project.bib]({{ site.baseurl }}/assets/project/project.bib)
+
+To get a PDF file you should run the following commands (which assume you have installed LaTeX on your system):
+
+    pdflatex project
+    bibtex project
+    pdflatex project
+    pdflatex project
+
+You can then open `project.pdf` using any PDF viewer. Please submit
+the LaTeX source and the PDF file along with your source code when
+you submit your project to Coursys.
 
 ## Grading system
 
@@ -323,4 +346,12 @@ The final projects will be graded using the following criteria:
 * Quality of evaluation and results
 * (Re)Use of existing homework code
 * Overall score (based on the above criteria)
+
+## Examples
+
+Here are some examples of good project submissions. They are both published papers but give you a good idea of 
+how to write your project report:
+
+* [Example 1 by David Chiang and Steve DeNeefe and Michael Pust]({{ site.baseurl }}/assets/project/P11-2080.pdf)
+* [Example 2 by Dong Song and Anoop Sarkar]({{ site.baseurl }}/assets/project/sighan08.pdf)
 
