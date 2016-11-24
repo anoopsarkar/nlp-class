@@ -286,7 +286,7 @@ as you follow the ground rules.
 
 ### Write-up
 
-Your write-up is the most important part of your project. It must have the following sections:
+Your write-up is the most important part of your project. It **must** have the following sections:
 
 * Motivation 
     * Which aspect of the translation system did your group choose to improve and reasons for your choice.
@@ -350,7 +350,8 @@ The final projects will be graded using the following criteria:
 ## Examples
 
 Here are some examples of good project submissions. They are both published papers but give you a good idea of 
-how to write your project report:
+how to write your project report. You can take inspiration for how to write a polished report from these
+examples but make sure you have the sections required by the Write-up section above.
 
 * [Example 1 by David Chiang and Steve DeNeefe and Michael Pust]({{ site.baseurl }}/assets/project/P11-2080.pdf)
 * [Example 2 by Dong Song and Anoop Sarkar]({{ site.baseurl }}/assets/project/sighan08.pdf)
