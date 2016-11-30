@@ -184,7 +184,7 @@
       download: "assets/mcollins-notes/pb.pdf"
 - title: "Discriminative Training for Machine Translation"
   tag: statmt
-  current: true
+  current: false
   notes:
     - author: "Philipp Koehn, Barry Haddow and Matthias Huck"
       title: "Discriminative Training"
@@ -197,7 +197,7 @@
       url: "http://www.aclweb.org/anthology/D11-1125"
 - title: "Translation Evaluation"
   tag: mteval
-  current: true
+  current: false
   notes:
     - author: Philipp Koehn
       title: "Evaluation"
@@ -217,7 +217,7 @@
       video: "http://youtu.be/E606vHFGTvA"
 - title: Context-free Grammars
   tag: cfg
-  current: false
+  current: true
   notes:
     - title: "Ambiguity and Context free grammars"
       url: "assets/slides/ambiguity.pdf"
