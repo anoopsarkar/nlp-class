@@ -215,6 +215,11 @@ Clone the following repository:
 
 	https://github.com/anoopsarkar/cgw-inclass
 
+Or pull from it to get the latest samples:
+
+	cd cgw-inclass
+	git pull -a
+
 Go to the `sentences-fall2016` directory and concatenate all the text files in this directory:
 
 	cat *.txt > all-samples
