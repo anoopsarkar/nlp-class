@@ -201,6 +201,26 @@ files.
     that castle carries no castle
     every horse covers the husk .
 
+## Uploading your samples
+
+Fork the following repository on github.com:
+
+	https://github.com/anoopsarkar/cgw-inclass
+
+Add your sampled sentences to the directory `sentences-fall2016` using a filename called `your-group-name.txt` and [create a pull request from your fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/).
+
+## Parsing other samples
+
+Clone the following repository:
+
+	https://github.com/anoopsarkar/cgw-inclass
+
+Go to the `sentences-fall2016` directory and concatenate all the text files in this directory:
+
+	cat *.txt > all-samples
+
+Then parse the `all-samples` file using your grammar and `pcfg_parse_gen.py` and tell me your cross entropy score.
+
 ## Acknowledgements
 
 The idea for this task and the original data files are taken from the following paper: 
