@@ -57,5 +57,5 @@ Grading
 * Programming setup homework: Sep 13 (2%)
 * Five programming homeworks. Due dates: Sep 27, Oct 11, Oct 25, Nov 8, Nov 22 (10% each)
 * In class midterm: Nov 4 (18%)
-* Final project: Dec 8 (30%)
+* [Final project](project.html): Dec 8. Postponed to Dec 13. (30%)
 
