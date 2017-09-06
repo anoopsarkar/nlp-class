@@ -7,7 +7,7 @@ title: Course Information
 active_tab: main_page 
 ---
 
-## Natural Language Processing <span class="text-muted">Fall 2016</span>
+## Natural Language Processing <span class="text-muted">Fall 2017</span>
 
 Imagine a world where you can pick up a phone and talk in English,
 while at the other end of the line your words are [spoken in
@@ -34,19 +34,20 @@ Instructor
 : [Anoop Sarkar](http://www.cs.sfu.ca/~anoop/) 
 : Office Hours: Mondays 3pm-4pm TASC1 9427
 
-Teaching Assistant
-: Golnar Sheikhshabbafghi
+Teaching Assistants
+: Anahita Mansour
+: Xiangbo Mao
 : Email: `cmpt-413-help@sfu.ca`
-: Office Hours: Fridays 14:30-16:00 at ASB9838.2 in [CSIL](http://www.sfu.ca/computing/about/support/csil.html)
+: Office Hours: TBD
 
 Discussion Board
-: [on Coursys]({{ site.coursys }})
+: [on Coursys]({{ site.coursys }}/discussion)
 
 Time and place
-: MWF 1:30-2:20, BLU 10021
+: Fridays 1:30-4:20, [Shrum Science Centre B-9201](http://www.sfu.ca/fs/Campus-Facility-Profiles/Building_Information/Shrum_Centre_Biology.html)
 
 Calendar
-: [Subscribe](https://courses.cs.sfu.ca/news/75221d0252e1cdacf94dac56b78600e9/anoop)
+: [Subscribe](https://courses.cs.sfu.ca/calendar/0261d2fe6030dc6570c3073ca9dd1a93/anoop)
 
 Textbook
 : No required textbook. Online readings provided in Syllabus.
@@ -57,5 +58,5 @@ Grading
 * Programming setup homework: Sep 13 (2%)
 * Five programming homeworks. Due dates: Sep 27, Oct 11, Oct 25, Nov 8, Nov 22 (10% each)
 * In class midterm: Nov 4 (18%)
-* [Final project](project.html): Dec 8. Postponed to Dec 13. (30%)
+* [Final project](project.html): Dec 4. (30%)
 
