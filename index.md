@@ -55,8 +55,8 @@ Textbook
 Grading
 : Submit homework source code and check your grades on [Coursys]({{ site.coursys }})
 
-* Programming setup homework: Sep 13 (2%)
-* Five programming homeworks. Due dates: Sep 27, Oct 11, Oct 25, Nov 8, Nov 22 (10% each)
-* In class midterm: Nov 4 (18%)
+* Programming setup homework: (2%)
+* Four programming homeworks. Due dates: TBD (12% each)
+* In class midterm: Nov 4 (20%)
 * [Final project](project.html): Dec 4. (30%)
 

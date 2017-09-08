@@ -8,9 +8,9 @@
     <title>SFU NLP class: {{ page.title }}</title>
 
     <!-- CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="dist/css/bootstrap-glyphicons.css" rel="stylesheet">
-    <link href="assets/css/nlp-class.css" rel="stylesheet">   
+    <link href="{{site.baseurl}}/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/dist/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/assets/css/nlp-class.css" rel="stylesheet">   
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,16 +41,16 @@
             <span class="icon-bar"></span>
           </button>
           <ul class="nav navbar-nav">
-            <li id="main_page"><a href="index.html" class="navbar-brand">Natural Language Processing</a></li>
+            <li id="main_page"><a href="{{site.baseurl}}/index.html" class="navbar-brand">Natural Language Processing</a></li>
           </ul>
         </div>
         <nav class="collapse navbar-collapse" role="navigation">
           <ul class="nav navbar-nav">
-            <li id="syllabus"><a href="syllabus.html">Syllabus</a></li>
+            <li id="syllabus"><a href="{{site.baseurl}}/syllabus.html">Syllabus</a></li>
             <li id="homework">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Homework <span class="caret"></span></a>
               <ol class="dropdown-menu">
-                <li><a href="hw0.html">0. Setup</a></li>
+                <li><a href="{{site.baseurl}}/hw0.html">0. Setup</a></li>
 <!--
                 <li><a href="hw1.html">1. Word Segmentation</a></li>
                 <li><a href="hw2.html">2. Phrasal Chunking</a></li>
@@ -60,11 +60,11 @@
 -->
               </ol>
             </li>
-            <li id="leaderboard"><a href="leaderboard.html">Leaderboard</a></li>
+            <li id="leaderboard"><a href="{{site.baseurl}}/leaderboard.html">Leaderboard</a></li>
 <!--
             <li id="project"><a href="project.html">Project</a></li>
 -->
-            <li id="faq"><a href="faq.html">FAQ</a></li>
+            <li id="faq"><a href="{{site.baseurl}}/faq.html">FAQ</a></li>
           </ul>
         </nav>
       </div>
@@ -74,8 +74,8 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-2 hidden-sm hidden-xs">
-          {% if page.img_link %}<a href="{{ page.img_link }}">{% endif %} 
-          <img src="assets/img/{{ page.img }}.jpg" class="img-responsive img-rounded" alt="{{ page.picture }}"/>
+          {% if page.img_link %}<a href="{{site.baseurl}}/{{ page.img_link }}">{% endif %} 
+          <img src="{{site.baseurl}}/assets/img/{{ page.img }}.jpg" class="img-responsive img-rounded" alt="{{ page.picture }}"/>
           {% if page.img_link %}</a>{% endif %} 
           <span class="text-muted"><i>{{ page.caption }}</i></span>
         </div>
@@ -97,7 +97,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./dist/js/bootstrap.js"></script>
+    <script src="{{site.baseurl}}/dist/js/bootstrap.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
         $("#{{ page.active_tab }}").addClass("active");

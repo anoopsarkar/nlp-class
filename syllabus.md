@@ -18,6 +18,7 @@ active_tab: syllabus
 <div class="bs-example">
     <div class="panel-group" id="accordion">
         {% for week in site.data.syllabus %}
+            {% if week.include %}
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -82,6 +83,7 @@ active_tab: syllabus
                 </div>
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
     </div>
 </div>
