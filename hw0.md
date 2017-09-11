@@ -10,7 +10,7 @@ active_tab: homework
 Homework & Leaderboard setup
 =============================================================
 
-<p class="text-muted">Due on Tuesday, September 13, 2016</p>
+<p class="text-muted">Due on TBD (not active yet)</p>
 
 For this course, we use [an automated homework submission
 system](http://sfu-nlp-class.appspot.com) built on [Google App
