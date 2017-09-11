@@ -32,7 +32,7 @@ terms of its analysis and the learning of language from observations.
 
 Instructor
 : [Anoop Sarkar](http://www.cs.sfu.ca/~anoop/) 
-: Office Hours: Mondays 3pm-4pm TASC1 9427
+: Office Hours: Wednesday 9:30am-10:30am TASC1 9427
 
 Teaching Assistants
 : Anahita Mansour
