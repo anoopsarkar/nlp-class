@@ -24,6 +24,7 @@ Submit your assignments [here]({{ site.leaderboard }}). Results will be updated 
       <th class="text-right">
         <a href="hw0.html">#0</a><br/><span class="small text-muted">Setup</span>
       </th>
+<!--
       <th class="text-right">
         <a href="hw1.html">#1</a><br/><span class="small text-muted">Segment</span>
       </th>
@@ -39,6 +40,7 @@ Submit your assignments [here]({{ site.leaderboard }}). Results will be updated 
       <th class="text-right">
         <a href="hw5.html">#5</a><br/><span class="small text-muted">Rerank</span>
       </th>
+-->
     </tr>
   </thead>
   <tbody>
