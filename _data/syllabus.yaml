@@ -35,7 +35,7 @@
     - title: "Probability models and language"
       url: "assets/slides/prob.pdf"
     - title: "In class exercise: Babylonian numbers"
-      url: "assets/notes/babylonian.html"
+      url: "assets/notes/babylonian-numbers.html"
   links:
     - title: "Python tidbits for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
