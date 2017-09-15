@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: notes
 title: Babylonian numbers
 active_tab: syllabus
 ---

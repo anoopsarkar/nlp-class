@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: notes
 title: Korean shopping list
 active_tab: syllabus
 ---

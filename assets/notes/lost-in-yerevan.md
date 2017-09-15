@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: notes
 title: Lost in Yerevan
 active_tab: syllabus
 ---
