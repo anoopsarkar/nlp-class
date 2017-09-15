@@ -7,7 +7,7 @@
       url: "assets/slides/introduction.pdf"
     - title: "In class exercise: Linear Combinations"
       url: "assets/notes/linearb.html"
-    - title: "Homework 0 release"
+    - title: "Homework 0 (released on Sep 15)"
       url: "hw0.html"
   links:
     - author: Lillian Lee
@@ -34,8 +34,8 @@
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb"
     - title: "Probability models and language"
       url: "assets/slides/prob.pdf"
-    - title: "Language models"
-      url: "assets/slides/lm.pdf"
+    - title: "In class exercise: Babylonian numbers"
+      url: "assets/notes/babylonian.html"
   links:
     - title: "Python tidbits for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
@@ -44,11 +44,6 @@
       title: "Natural Language Corpus Data: Beautiful Data"
       url: "http://norvig.com/ngrams/"
       download: "http://norvig.com/ngrams/ngrams.zip"
-    - author: Michael Collins
-      title: "Language models"
-      url: "http://www.cs.columbia.edu/~mcollins/lm-spring2013.pdf"
-      download: "assets/mcollins-notes/lm-spring2013.pdf"
-      optional: false
     - author: Claude Shannon
       title: "A Mathematical Theory of Communication"
       url: http://en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication
@@ -57,6 +52,19 @@
       title: "Prediction and Entropy of Printed English"
       url: http://languagelog.ldc.upenn.edu/myl/Shannon1950.pdf
       optional: true
+- title: "Language models"
+  tag: lm
+  include: true
+  current: false
+  notes:
+    - title: "Language models"
+      url: "assets/slides/lm.pdf"
+  links:
+    - author: Michael Collins
+      title: "Language models"
+      url: "http://www.cs.columbia.edu/~mcollins/lm-spring2013.pdf"
+      download: "assets/mcollins-notes/lm-spring2013.pdf"
+      optional: false
     - author: Stanley Chen and Joshua Goodman
       title: "A Bit of Progress in Language Modeling"
       url: http://ptrckprry.com/course/ssd/Good01.pdf

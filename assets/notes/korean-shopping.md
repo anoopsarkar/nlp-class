@@ -9,7 +9,7 @@ active_tab: syllabus
 ### Introduction
 
 The Korean script is called [Han-geul](http://en.wikipedia.org/wiki/Hangul)
-(한글). We will be using an [English romanization of Han-geul]("http://en.wikipedia.org/wiki/Revised_Romanization_of_Korean") to
+(한글). We will be using an [English romanization of Han-geul](http://en.wikipedia.org/wiki/Revised_Romanization_of_Korean) to
 represent the Korean pronunciations which uses special symbols like `eu` where a simple mapping to English sounds is not possible[^eu].
 Details of the romanization are not important to solve this problem.
 
