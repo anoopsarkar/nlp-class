@@ -70,7 +70,7 @@ active_tab: faq
 #### Setting up git
 
 * Follow these [instructions to set up your repository on GitLab](https://courses.cs.sfu.ca/2016sp-cmpt-470-e1/pages/GitLab)
-* In the above instructions, change the values of instructor and TA to `anoop` and `msiahban`.
+* In the above instructions, change the values of instructor to `anoop` use the usernames of the TA(s) that are provided on the [main page](index.html).
 * Copy over files. Clone your repository and enter that directory and copy over the files:
 
     git clone git@csil-git1.cs.surrey.sfu.ca:your-group-name/your-repo-name.git

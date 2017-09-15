@@ -35,8 +35,8 @@ Instructor
 : Office Hours: Wednesday 9:30am-10:30am TASC1 9427
 
 Teaching Assistants
-: Anahita Mansour
-: Xiangbo Mao
+: Anahita Mansour `amansour`
+: Xiangbo Mao `xiangbom`
 : Email: `cmpt-413-help@sfu.ca`
 : Office Hours: TBD
 
