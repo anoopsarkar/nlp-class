@@ -61,6 +61,8 @@
       url: "assets/slides/lm.pdf"
     - title: "Homework 1 (released on Sep 22)"
       url: "hw1.html"
+    - title: "In class exercise: Nomura from Osaka"
+      url: "assets/notes/nomura-osaka.html"
   links:
     - author: Michael Collins
       title: "Language models"
