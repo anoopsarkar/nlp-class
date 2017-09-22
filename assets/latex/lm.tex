@@ -301,10 +301,9 @@ But others are simply unobserved in the training data, $P(idea \mid colourless, 
 \item
 In practice: 
 \begin{eqnarray*}
-\lefteqn{P(\textsf{Mork read a book})=}\\
-&& P(\textsf{Mork}~\mid~<\textsf{start}>) \times P(\textsf{read}~\mid~\textsf{Mork}) \times \\
-&& P(\textsf{a}~\mid~\textsf{read}) \times P(\textsf{book}~\mid~\textsf{a}) \times \\
-&& P(<\textsf{stop}>~\mid~\textsf{book})
+\lefteqn{P(\texttt{crazy killer clown})=}\\
+&& P(\texttt{crazy}~\mid~\texttt{<s>}) \times P(\texttt{killer}~\mid~\texttt{crazy}) \times \\
+&& P(\texttt{clown}~\mid~\texttt{killer}) \times P(\texttt{</s>}~\mid~\texttt{clown})
 \end{eqnarray*}
 
 \item $P(w_i~\mid~w_{i-1}) = \frac{ c(w_{i-1},w_i) } { c(w_{i-1}) }$ \\
@@ -345,17 +344,15 @@ In practice:
 \begin{frame}
 \frametitle{Add-one Smoothing}
 \begin{eqnarray*}
-\lefteqn{P(\textsf{Mindy read a book})=}\\
-&& P(\textsf{Mindy}~\mid~<\textsf{start}>) \times P(\textsf{read}~\mid~\textsf{Mindy}) \times \\
-&& P(\textsf{a}~\mid~\textsf{read}) \times P(\textsf{book}~\mid~\textsf{a}) \times \\
-&& P(<\textsf{stop}>~\mid~\textsf{book})
+\lefteqn{P(\texttt{insane killer clown})=}\\
+&& P(\texttt{insane}~\mid~\texttt{<s>}) \times P(\texttt{killer}~\mid~\texttt{insane}) \times \\
+&& P(\texttt{clown}~\mid~\texttt{killer}) \times P(\texttt{</s>}~\mid~\texttt{clown})
 \end{eqnarray*}
 \begin{itemize}[<+->]
 \item Without smoothing:
-\[ P(\textsf{read}~\mid~\textsf{Mindy}) = \frac{ c(\textsf{Mindy, read}) } { c(\textsf{Mindy}) }  = 0 \]
-\item With add-one smoothing (assuming c(Mindy) = 1 but c(Mindy, read)
-  = 0):
-\[ P(\textsf{read}~\mid~\textsf{Mindy}) = \frac{ 1 } { V + 1 }  \]
+\[ P(\texttt{killer}~\mid~\texttt{insane}) = \frac{ c(\texttt{insane, killer}) } { c(\texttt{insane}) }  = 0 \]
+\item With add-one smoothing (assuming initially that \texttt{c(insane)} = 1 and \texttt{c(insane, killer)} = 0):
+\[ P(\texttt{killer}~\mid~\texttt{insane}) = \frac{ 1 } { V + 1 }  \]
 \end{itemize}
 \end{frame}
 
@@ -365,14 +362,14 @@ In practice:
 \frametitle{Additive Smoothing: (Lidstone 1920, Jeffreys 1948)} 
 \[ P(w_i~\mid~w_{i-1}) = \frac{ c(w_{i-1},w_i) } { c(w_{i-1}) } \]
 \begin{itemize}[<+->]
-\item Add-one smoothing works horribly in practice. Seems like $1$ is too large a count for unobserved events.
+\item Why add $1$? $1$ is an overestimate for unobserved events.
 \item Additive Smoothing:
 \[ P(w_i~\mid~w_{i-1}) = \frac{ \delta + c(w_{i-1},w_i) } { (\delta \times V) + c(w_{i-1}) } \]
-\item $0 < \delta \leq 1$ \\
-Still works horribly in practice, but better than add-one smoothing.
+\item $0 < \delta \leq 1$
 \end{itemize}
 \end{frame}
 
+\begin{comment}
 \subsubsection{Good-Turing Smoothing}
 
 \begin{frame}
@@ -521,6 +518,7 @@ with linear interpolation for missing values where $n_{r+1} = 0$ \\
 \item Problem: probabilities get mixed up (unseen bigrams, for example will get higher probabilities than seen bigrams)
 \end{itemize}
 \end{frame}
+\end{comment}
 
 \subsubsection{Interpolation: Jelinek-Mercer Smoothing}
 
@@ -530,8 +528,7 @@ with linear interpolation for missing values where $n_{r+1} = 0$ \\
 \begin{itemize}[<+->]
 \item $P_{JM}(w_i~\mid~w_{i-1}) = {\color{blue} \lambda} P_{ML}(w_i~\mid~w_{i-1}) +  {\color{blue} (1 - \lambda) }P_{ML}(w_{i})$ \\
  where, $0 \leq \lambda \leq 1$
-\item Notice that  $P_{JM}(\textsf{the}~\mid~\textsf{string}) > P_{JM}(\textsf{Fonz}~\mid~\textsf{string})$ as we wanted
-\item Jelinek-Mercer (1980) describe an elegant form of this {\bf interpolation}:
+\item Jelinek and Mercer (1980) describe an elegant form of this {\bf interpolation}:
 \[ P_{JM}(\textsf{$n$gram}) = \lambda P_{ML}(\textsf{$n$gram}) + (1 - \lambda) P_{JM}(\textsf{$n-1$gram}) \]
 \item What about $P_{JM}(w_i)$? \\
 For missing unigrams: $P_{JM}(w_i) = \lambda P_{ML}(w_i) + (1 - \lambda) \frac{\delta}{V}$
@@ -549,10 +546,10 @@ compute $\lambda$ values to minimize cross-entropy on {\bf held-out} data which 
 \end{itemize}
 \end{frame}
 
-\subsection{Backoff Smoothing}
+\subsection{Backoff Smoothing with Discounting}
 
+\begin{comment}
 \subsubsection{Katz Backoff}
-
 \begin{frame}
 \frametitle{Backoff Smoothing: Katz Backoff}
 \begin{itemize}[<+->]
@@ -565,17 +562,33 @@ compute $\lambda$ values to minimize cross-entropy on {\bf held-out} data which 
 \alpha(x) P_{\textit{katz}} (y) & \textsf{otherwise}
 \end{array}
 \right. \]
+\end{itemize}
+\end{frame}
+\end{comment}
+
+\subsubsection{Backoff Smoothing with Discounting}
+
+\begin{frame}
+\frametitle{Backoff Smoothing with Discounting}
+\begin{itemize}[<+->]
+\item Discounting (Ney, Essen, Kneser)
+\[ P_{\textit{abs}}(y~\mid~x) = \left\{ 
+\begin{array}{cc}
+\frac{ c(xy) - D }{ c(x) } & \textsf{ if $c(xy) > 0$} \\
+\alpha(x) P_{\textit{abs}} (y) & \textsf{otherwise}
+\end{array}
+\right. \]
 \item where $\alpha(x)$ is chosen to make sure that $P_{\textit{katz}}(y~\mid~x)$ is a proper probability
-\[ \alpha(x) = 1 - \sum_y \frac{ c^\ast(xy) }{ c(x) } \]
+\[ \alpha(x) = 1 - \sum_y \frac{ c(xy) - D }{ c(x) } \]
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Backoff Smoothing: Katz Backoff}
+\frametitle{Backoff Smoothing with Discounting}
 \begin{center}
 \begin{tabular}{ | l | l | l | l | }
 \hline
-$x$ & $c(x)$ & $c^\ast(x)$ & $\frac{c^\ast(x)}{c(\textit{the})}$ \\
+$x$ & $c(x)$ & $c(x)-D$ & $\frac{c(x)-D}{c(\textit{the})}$ \\
 \hline
 the & 48 & & \\
 the,dog & 15 & 14.5 & 14.5/48 \\
@@ -597,23 +610,6 @@ the,UNK & 0 & & 0.052 \\
 \end{center}
 \end{frame}
 
-\subsubsection{Backoff Smoothing with Discounting}
-
-\begin{frame}
-\frametitle{Backoff Smoothing with Discounting}
-\begin{itemize}[<+->]
-\item Witten-Bell discounting \\
-use the $n-1$ gram model when the $n$ gram model has too few unique words \alert{in the $n$ gram context}
-\item Absolute discounting (Ney, Essen, Kneser)
-\[ P_{\textit{abs}}(y~\mid~x) = \left\{ 
-\begin{array}{cc}
-\frac{ c(xy) - D }{ c(x) } & \textsf{ if $c(xy) > 0$} \\
-\alpha(x) P_{\textit{abs}} (y) & \textsf{otherwise}
-\end{array}
-\right. \]
-compute $\alpha(x)$ as was done in Katz smoothing
-\end{itemize}
-\end{frame}
 
 \begin{comment}
 \begin{frame}
