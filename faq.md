@@ -29,6 +29,7 @@ active_tab: faq
 * The grade for the course is computed using the final marks which are a weighted average of each activity as defined on the [main page](index.html).
 * The grade cutoff are as follows:
 
+  | **Final Grade** | **Final marks** |
   | A+ | >95 |
   | A  | >90 |
   | A- | >85 |

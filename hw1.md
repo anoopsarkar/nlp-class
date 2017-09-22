@@ -212,3 +212,22 @@ Ground Rules
 
 If you have any questions or you're confused about anything, just ask.
 
+Grading
+-------
+
+Your F1 score should be equal to or greater than the score listed for the corresponding marks.
+
+| **F1 Score** | **Marks** | **Grade** |
+| 33 | 0   | F  |
+| 50 | 55  | D  |
+| 55 | 60  | C- |
+| 60 | 65  | C  |
+| 65 | 70  | C+ |
+| 70 | 75  | B- |
+| 75 | 80  | B  |
+| 80 | 85  | B+ |
+| 87 | 90  | A- |
+| 89 | 95  | A  |
+| 91 | 100 | A+ |
+{: .table}
+
