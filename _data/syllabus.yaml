@@ -63,6 +63,8 @@
       url: "hw1.html"
     - title: "In class exercise: Nomura from Osaka"
       url: "assets/notes/nomura-osaka.html"
+    - title: "In class exercise: Korean shopping list"
+      url: "assets/notes/korean-shopping.html"
   links:
     - author: Michael Collins
       title: "Language models"
