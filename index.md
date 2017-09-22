@@ -37,8 +37,8 @@ Instructor
 Teaching Assistants
 : Anahita Mansour `amansour`
 : Xiangbo Mao `xiangbom`
-: Email: `cmpt-413-help@sfu.ca`
-: Office Hours: TBD
+: Ask for help on [the discussion board]({{ site.coursys }}/discussion)
+: Office Hours: Fridays 9:30am-11:30am TASC1 9408
 
 Discussion Board
 : [on Coursys]({{ site.coursys }}/discussion)
@@ -57,6 +57,6 @@ Grading
 
 * Programming setup homework: HW0 due on Sep 22 (2%)
 * Four programming homeworks. Due dates: HW1 on Oct 6, HW2 on Oct 20, HW3 on Nov 10, HW4 on Nov 24 (12% each)
-* In class midterm: Oct 27 (20%)
+* In class midterm: Nov 3 (20%)
 * Final project: Due on Dec 8. (30%)
 

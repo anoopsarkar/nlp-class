@@ -27,7 +27,7 @@
 - title: "Probability models and language"
   tag: probintro
   include: true
-  current: true
+  current: false
   notes:
     - title: "Probability Models for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb"
@@ -55,10 +55,12 @@
 - title: "Language models"
   tag: lm
   include: true
-  current: false
+  current: true
   notes:
     - title: "Language models"
       url: "assets/slides/lm.pdf"
+    - title: "Homework 1 (released on Sep 22)"
+      url: "hw1.html"
   links:
     - author: Michael Collins
       title: "Language models"
@@ -72,6 +74,11 @@
     - author: Ciprian Chelba, Tomas Mikolov, Mike Schuster, Qi Ge, and Thorsten Brants
       title: "One Billion Word Benchmark for Measuring Progress in Statistical Language Modeling"
       url: http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/41880.pdf
+      optional: true
+    - title: "Neural Machine Translation and Sequence-to-sequence Models: A Tutorial"
+      author: "Graham Neubig"
+      citation: "arXiv"
+      url: "https://arxiv.org/pdf/1703.01619.pdf"
       optional: true
 - title: "Linear models"
   tag: linearmodels

@@ -10,7 +10,7 @@ active_tab: homework
 Word Segmentation <span class="text-muted">Homework 1</span>
 =============================================================
 
-<p class="text-muted">Due on Tuesday, September 27, 2016</p>
+<p class="text-muted">Due on October 6, 2017</p>
 
 Word segmentation is the task of restoring missing word
 boundaries. For example, in some cases word boundaries
@@ -77,6 +77,8 @@ this the `data` directory in `segmenter` contains two files:
 
     count_1w.txt : unigram counts of Chinese words
     count_2w.txt : bigram counts of Chinese word pairs
+
+You can also optionally use the data set [wseg_simplified_cn.txt.bz2](https://vault.sfu.ca/index.php/s/gP8hzaP07mTvUxz?path=%2Fhw1) which contains 1M Chinese sentences with word segments (bzip2 compressed). This link is only available for SFU students. You must not give a copy of this data set to **anybody**. 
 
 ### The Baseline
 
@@ -187,7 +189,7 @@ choice and document your work. Here are some ideas:
 * Do better _smoothing_ of the unigram and bigram probability models.
 * More advanced methods[^1]
 
-[^1]: If you are ambitious, you can use more advanced machine learning methods such as [global linear models](http://anoopsarkar.github.io/papers/pdf/cnwseg-ai2009.pdf) or [neural networks](http://aclweb.org/anthology/P/P16/P16-1039.pdf) or [transition-based neural language models](http://aclweb.org/anthology/P/P16/P16-1040.pdf). However you should be aware that you are only given a limited amount data to train with so you may not be able to effectively use these models. To exploit these models you might have to use much larger sources of data. Contact me if you are interested.
+[^1]: If you are ambitious, you can use more advanced machine learning methods such as [global linear models](http://anoopsarkar.github.io/papers/pdf/cnwseg-ai2009.pdf) or [neural networks](http://aclweb.org/anthology/P/P16/P16-1039.pdf) or [transition-based neural language models](http://aclweb.org/anthology/P/P16/P16-1040.pdf). 
 
 But the sky's the limit! You are welcome to design your own model, as long 
 as you follow the ground rules:
@@ -199,7 +201,7 @@ Ground Rules
 * Follow these step-by-step instructions to submit your homework solution:
   1. Your solution to this homework should be in the `answer` directory in a file called `segment.py`. The code should be self-contained, self-documenting, and easy to use. It should read the data exactly like `default.py` does. Your program should run like this:
 
-            python answer/segment.py > output
+         python answer/segment.py > output
 
   1. Upload this file `output` to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html).  Your score on the leaderboard is the score on the development data set and the test data set which shown to you immediately after you upload your output file.  The `score-segments.py` program will give you a good idea of how well you're doing without uploading to the leaderboard.
   1. Run the program: `python zipsrc.py`. This will create a a zip file called `source.zip`. Each group should assign one member to upload `source.zip` to [Coursys]({{ site.coursys }}) as the submission for this homework. Only use `zipsrc.py` to prepare your zip file.

@@ -3,3 +3,5 @@ timezone: US/Pacific
 markdown: kramdown
 coursys: "https://courses.cs.sfu.ca/2017fa-cmpt-825-x1/"
 leaderboard: "https://sfu-nlp-class.appspot.com"
+semcode: 1777
+instructor: anoop
