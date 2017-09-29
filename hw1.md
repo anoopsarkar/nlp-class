@@ -51,6 +51,10 @@ Once you've confirmed this, run this command:
 
     git clone https://github.com/anoopsarkar/nlp-class-hw.git
 
+You should copy over the useful files and directories from my
+repository into your repository.  Be careful you do not copy over
+the `.git` directory.
+
 In the `segmenter` directory you will find a python program called
 `default.py`, which contains a complete but very simple segmentation algorithm.
 It simply inserts word boundaries between each Chinese character in the
@@ -203,7 +207,7 @@ Ground Rules
 
          python answer/segment.py > output
 
-  1. Upload this file `output` to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html).  Your score on the leaderboard is the score on the development data set and the test data set which shown to you immediately after you upload your output file.  The `score-segments.py` program will give you a good idea of how well you're doing without uploading to the leaderboard.
+  1. Upload this file `output` to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html).  Your score on the leaderboard is the score on the test set. The `score-segments.py` program will report your score on the dev set which will provide a good idea of how well you're doing without uploading to the leaderboard. If you do not improve on the dev set you are unlikely to improve on the test set.
   1. Run the program: `python zipsrc.py`. This will create a a zip file called `source.zip`. Each group should assign one member to upload `source.zip` to [Coursys]({{ site.coursys }}) as the submission for this homework. Only use `zipsrc.py` to prepare your zip file.
   1. A clear, mathematical description of your algorithm and its motivation written in scientific style. This needn't be long, but it should be clear enough that one of your fellow students could re-implement it exactly. You are given a dummy `README.md` file in the answer directory. Update this file with your description.
   1. Also in the `answer` directory include for each group member with a user name `username` a file in your submission called `README.username` which contains a description of your contribution to the homework solution along with the commit identifiers from either `svn` or `git`. If you have only one member in your group then create an empty file.
