@@ -27,11 +27,11 @@ Hint: $$\sum_{n=1}^\infty 0.5^n = 1$$.
 
 The perplexity of a language model on a test corpus is defined as 
 
-$$2^-\ell$$
+$$2^\ell$$
 
 where
 
-$$\ell = \frac{1}{M} \sum_{i=1}^m \log_2 p(x^{(i)})$$
+$$\ell = - \frac{1}{M} \sum_{i=1}^m \log_2 p(x^{(i)})$$
 
 where $$m$$ is the number of sentences in the corpus, $$M$$ is the total number of words in the corpus,
 $$\log_2$$ is log base 2, $$x^{(i)}$$ is the $$i$$'th sentence in the corpus. 
