@@ -558,10 +558,10 @@ code $0$ occurs 160 times, code $10$ occurs 80 times, code $110$ occurs 40 times
 \item Let's say $q$ is the estimate
   and $p$ is the true probability \\
   {\small (say we got $q$ by observing previous races with these horses)}
-\item We define the {\em distance} between $q$ and $p$ as the {\bf relative entropy}: written as $D(q \| p)$
-\[ D(q \| p) = - \sum_{x \in {\cal E}} q(x) \log_2 \frac{p(x)}{q(x)} \]
+\item We define the {\em distance} between $p$ and $q$ as the {\bf relative entropy}: written as $D(p \| q)$
+\[ D(p \| q) = - \sum_{x \in {\cal E}} p(x) \log_2 \frac{p(x)}{q(x)} \]
 \item Note that
-\[ D(q \| p) = - E_{ q(x) } \left[ \log_2 \frac{p(x)}{q(x)} \right] \]
+\[ D(p \| q) = - E_{ p(x) } \left[ \log_2 \frac{p(x)}{q(x)} \right] \]
 \item The relative entropy is also called the {\em Kullback-Leibler divergence}.
 \end{itemize}
 
@@ -572,18 +572,18 @@ code $0$ occurs 160 times, code $10$ occurs 80 times, code $110$ occurs 40 times
 \begin{itemize}[<+->]
 \item The {\bf relative entropy} can be written as the sum of two terms:
 \begin{eqnarray*}
-D(q \| p) & = & - \sum_{x \in {\cal E}} q(x) \log_2 \frac{p(x)}{q(x)} \\
-& = & - \sum_{x} q(x) \log_2 p(x) + \sum_{x} q(x) \log_2 q(x) 
+D(p \| q) & = & - \sum_{x \in {\cal E}} p(x) \log_2 \frac{p(x)}{q(x)} \\
+& = & - \sum_{x} p(x) \log_2 q(x) + \sum_{x} p(x) \log_2 p(x) 
 \end{eqnarray*}
-\item We know that $H(q) = - \sum_{x} q(x) \log_2 q(x)$
-\item Similarly define $H_{q}(p) = - \sum_{x} q(x) \log_2 p(x)$
+\item We know that $H(p) = - \sum_{x} p(x) \log_2 p(x)$
+\item Similarly define $H(p,q) = - \sum_{x} p(x) \log_2 q(x)$
 \[
 \begin{array}{l@{}c@{}l@{}c@{}l@{}}
-D(q \| p) & = & H_{q}(p) & - & H(q) \\
-\textbf{relative entropy}(q, p) & = & \textbf{cross entropy}(q, p) & - & \textbf{entropy}(q) 
+D(p \| q) & = & H(p,q) & - & H(q) \\
+\textbf{relative entropy}(p,q) & = & \textbf{cross entropy}(p,q) & - & \textbf{entropy}(p) 
 \end{array}
 \]
-\item The term $H_{q}(p)$ is called the {\bf cross entropy}.
+\item The term $H(p,q)$ is called the {\bf cross entropy}.
 \end{itemize}
 
 \end{frame}
@@ -591,15 +591,15 @@ D(q \| p) & = & H_{q}(p) & - & H(q) \\
 \begin{frame}
 \frametitle{Cross Entropy and Relative Entropy}
 \begin{itemize}[<+->]
-\item $H_{q}(p) \geq H(q)$ always.
-\item $D(q \| p) \geq 0$ always, and $D(q \| p) = 0$ iff $q = p$
-\item $D(q \| p)$ is not a true distance: 
+\item $H(p,q) \geq H(p)$ always.
+\item $D(p \| q) \geq 0$ always, and $D(p \| q) = 0$ iff $p = q$
+\item $D(p \| q)$ is not a true distance: 
   \begin{itemize}
-  \item It is asymmetric: $D(q \| p) \neq D(p \| q)$, 
-  \item It does not obey the triangle inequality: $D(p \| r) \nleq D(p \| q) + D(q \| r)$
+  \item It is asymmetric: $D(p \| q) \neq D(q \| p)$, 
+  \item It does not obey the triangle inequality: $D(p \| q) \nleq D(p \| r) + D(r \| q)$
   \end{itemize}
 %\item Pinsker's inequality (sup is the lowest upper bound): 
-%\[ \sqrt{ \frac{ D(q \| p) }{ 2 } } \geq \sup \{ | q(x) - p(x) | \} \]
+%\[ \sqrt{ \frac{ D(p \| q) }{ 2 } } \geq \sup \{ | p(x) - q(x) | \} \]
 \end{itemize}
 
 \end{frame}
@@ -621,47 +621,28 @@ D(q \| p) & = & H_{q}(p) & - & H(q) \\
 
 \section*{Appendix: Computing with Log Probability}
 
-\begin{frame}
-\frametitle{Log Probability Arithmetic}
-\begin{itemize}[<+->]
-\item Adding probabilities is expensive to compute: $logadd(x,y) = \log(\exp(x) + \exp(y))$
-\item A more efficient soln, let $big$ be a large constant e.g. $10^{30}$:
-\begin{tabbing}
-\=123\=568\=901\=23\=\kill \\
-\textsf{function } $logadd(x,y):$ {\color{red} \# returns $\log(\exp(x) + \exp(y))$} \\
-\>  \textsf{if } $(y - x) > \log(big)$ \color{blue} \textsf{return } $y$ \\
-\>  \textsf{elsif  } $(x - y) > \log(big)$ \color{blue} \textsf{return } $x$ \\
-\>  \textsf{else } \color{blue} \textsf{return } \\
-\>\>\> \color{blue} $min(x, y) + \log(\exp(x - min(x,y)) + \exp(y -
-min(x,y)))$ \\
-\>  \textsf{endif }
-\end{tabbing}
-\item There is a more efficient way of computing $\log(\exp(x - 
-min(x,y)) + \exp(y - min(x,y)))$
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Log Probability Arithmetic}
 \begin{center}
-\begin{tabbing}
-123\=123\=568\=901\=23\=\kill \\
-\textsf{function } $logadd(x,y):$ \\
-\>  \textsf{if } $(y - x) > \log(big)$ \textsf{return } $y$ \\
-\>  \textsf{elsif  } $(x - y) > \log(big)$ \textsf{return } $x$ \\
-\>  \textsf{elsif ($x \geq y$)} \color{blue} return $x + \log(1 + \exp(y-x))$ \\
-\>\> \color{red} \# {\small note that $max(x,y) = x$ and $y-x \leq 0$} \\
-\> else \color{blue} return $y + \log(\exp(x-y) + 1)$ \\
-\>\> \color{red} \# {\small note that $max(x,y) = y$ and $x-y \leq 0$} \\
-\>  \textsf{endif } \\
-\color{red} {\small Also, in ANSI C, {\tt log1p} efficiently computes $\log(1+x)$} \\
-\color{red} {\footnotesize\tt http://www.ling.ohio-state.edu/\~{}jansche/src/logadd.c} \\
-{\small In Python, numpy.logaddexp2(x1,x2) for base 2} 
-\end{tabbing}
+\begin{verbatim}
+// In Python: use numpy.logaddexp2(x1,x2) for base 2
+// computes log(a + b) given log(a) and log(b)
+double logadd(double lna, double lnb)
+{
+    if (lna == 1.0) return lnb;
+    if (lnb == 1.0) return lna;
+    double diff = lna - lnb;
+    // 500 is log of large constant
+    if (diff < 500.0) 
+        return log1p(exp(diff)) + lnb;
+        // log1p(x) computes log(1+x)
+    else
+        return lna;
+}
+\end{verbatim} 
 \end{center}
-
 \end{frame}
+
 
 \input{acknowledgements.tex}
 
