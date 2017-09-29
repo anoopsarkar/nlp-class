@@ -1,5 +1,5 @@
 ---
-layout: notes
+layout: default
 title: Phoenician Fun
 active_tab: syllabus
 ---

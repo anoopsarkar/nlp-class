@@ -1,4 +1,4 @@
-h1. Lecture Notes for NLP
+# Lecture Notes for NLP
 
 Lecture notes written by Michael Collins downloaded from "his web page at Columbia University":http://www.cs.columbia.edu/~mcollins on Jan 7, 2014
 

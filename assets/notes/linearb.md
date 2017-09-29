@@ -1,5 +1,5 @@
 ---
-layout: notes
+layout: default
 title: Linear Combinations
 active_tab: syllabus
 ---

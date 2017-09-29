@@ -1,5 +1,5 @@
 ---
-layout: notes
+layout: default
 title: My Friend Nomura from Osaka
 active_tab: syllabus
 ---

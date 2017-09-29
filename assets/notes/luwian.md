@@ -1,5 +1,5 @@
 ---
-layout: notes
+layout: default
 title: Luwian
 active_tab: syllabus
 ---

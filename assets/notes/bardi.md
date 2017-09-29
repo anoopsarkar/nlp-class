@@ -1,5 +1,5 @@
 ---
-layout: notes
+layout: default
 title: Bardi
 active_tab: syllabus
 ---

@@ -1,5 +1,5 @@
 ---
-layout: notes
+layout: default
 title: The Philae Obelisk
 active_tab: syllabus
 ---
