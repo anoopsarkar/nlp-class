@@ -27,7 +27,7 @@ Hint: $$\sum_{n=1}^\infty 0.5^n = 1$$.
 
 The perplexity of a language model on a test corpus is defined as 
 
-$$2^\ell$$
+$$2^-\ell$$
 
 where
 
