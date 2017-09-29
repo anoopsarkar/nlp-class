@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Language models
+title: n-gram language models
 active_tab: syllabus
 ---
 
-## Language models
+## n-gram Language models
 
 ### Question 1
 

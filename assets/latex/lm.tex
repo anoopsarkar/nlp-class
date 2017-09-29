@@ -290,9 +290,31 @@ But others are simply unobserved in the training data, $P(idea \mid colourless, 
 \end{block}
 \end{frame}
 
+\subsection{Handling Unknown Tokens}
+
+\begin{frame}
+\frametitle{Handling tokens in test corpus unseen in training corpus}
+\begin{block}{Assume closed vocabulary}
+In some situations we can make this assumption, e.g.\ our vocabulary is ASCII characters
+\end{block}
+\pause
+\begin{block}{Interpolate with unknown words distribution}
+We will call this {\em smoothing}. We combine the $n$-gram probability with a distribution over unknown words 
+\smallskip
+\[ P_{\textrm{unk}}(w) = \frac{1}{V_{\textrm{all}}} \] 
+$V_{\textrm{all}}$ is an estimate of the vocabulary size including unknown words.
+\end{block}
+\pause
+\begin{block}{Add an \texttt{<unk>} word}
+Modify the training data $L$ by changing words that appear only once to the \texttt{<unk>} token. Since this probability can be an over-estimate we multiply it with a probability $P_{\textrm{unk}}(\cdot)$.
+\end{block}
+
+\end{frame}
+
 \lecture{Smoothing Probability Models}{}
 \section{Smoothing $n$-gram Models}
 \frame{\tableofcontents[currentsection]}
+
 \subsection{Smoothing Counts}
 
 \begin{frame}
@@ -628,7 +650,7 @@ $P(\textsf{Francisco}~\mid~\textsf{eggplant}) > P(\textsf{stew}~\mid~\textsf{egg
 
 \end{comment}
 
-
+\lecture{Evaluating Language Models}{}
 \section{Evaluating Language Models}
 \frame{\tableofcontents[currentsection]}
 
@@ -708,7 +730,7 @@ trigram & 74
 \end{frame}
 
 \lecture{Event space in Language Models}{}
-\section*{Event Space for $n$-gram Models}
+\section{Event Space for $n$-gram Models}
 
 \begin{frame}
 \frametitle{Trigram Models}
