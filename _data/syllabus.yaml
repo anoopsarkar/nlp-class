@@ -89,6 +89,10 @@
     - title: "In class exercise: n-gram Language Models"
       url: "assets/notes/lm.html"
   links:
+    - title: "How to implement a recurrent neural network"
+      author: "peterroelants.github.io"
+      url: "http://peterroelants.github.io/posts/rnn_implementation_part01/"
+      optional: true
     - title: "Neural Machine Translation and Sequence-to-sequence Models: A Tutorial"
       author: "Graham Neubig"
       citation: "arXiv"
