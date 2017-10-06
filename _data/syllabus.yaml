@@ -82,7 +82,7 @@
 - title: "Neural Language models"
   tag: nlm
   include: true
-  current: true
+  current: false
   notes:
     - title: "Neural Language models"
       url: "assets/cached/mikolovrnn.pdf"
@@ -105,7 +105,7 @@
 - title: "Linear models"
   tag: linearmodels
   include: true
-  current: false
+  current: true
   notes:
     - title: "Linear models"
       url: "assets/slides/linearmodels.pdf"
