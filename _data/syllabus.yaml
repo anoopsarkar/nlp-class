@@ -86,6 +86,7 @@
   notes:
     - title: "Neural Language models"
       url: "assets/cached/mikolovrnn.pdf"
+      author: Tomas Mikolov
     - title: "In class exercise: n-gram Language Models"
       url: "assets/notes/lm.html"
   links:
@@ -98,14 +99,21 @@
       citation: "arXiv"
       url: "https://arxiv.org/pdf/1703.01619.pdf"
       optional: true
+    - title: "Statistical language models based on neural networks"
+      author: Tomas Mikolov
+      url: "http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf"
 - title: "Linear models"
   tag: linearmodels
+  include: true
   current: false
   notes:
     - title: "Linear models"
       url: "assets/slides/linearmodels.pdf"
     - title: "Homework 2 release"
       url: "hw2.html"
+    - title: "In class exercise: Nothing but Net(works)"
+      author: Tom McCoy
+      url: "http://www.nacloweb.org/resources/problems/2017/N2017-H.pdf"
   links:
     - title: "Naive Bayes"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/naivebayes.ipynb"

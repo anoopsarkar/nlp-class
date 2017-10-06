@@ -10,7 +10,7 @@ active_tab: homework
 Phrasal Chunking <span class="text-muted">Homework 2</span>
 =============================================================
 
-<p class="text-muted">Due on Tuesday, October 11, 2016</p>
+<p class="text-muted">Due on Tuesday, October 20, 2017</p>
 
 The syntax of a natural language, similar to the syntax of a programming language involves
 the arrangement of tokens into meaningful groups. Phrasal chunking is the task of finding 
@@ -348,18 +348,21 @@ Developing a chunker using the Perceptron algorithm (described in
 the above pseudo-code) is good enough to get an F-measure that is
 close to the performance of the baseline system on the leaderboard.
 But getting closer to the best known accuracy on this task, which
-is hovering around 94.12 F-measure is a more interesting
-challenge. To get full credit you **must** experiment with at least
-one additional model of your choice and document your work. Here
-are some ideas:
+is hovering around 94.12 F-measure is a more interesting challenge.
+In addition to getting a good score on the leaderboard you **must**
+experiment with at least one extension of the baseline or an
+additional model of your choice and document your work.  Here are
+some ideas:
 
 * Use the averaged perceptron algorithm. 
     * First read [Collins 2002](http://www.aclweb.org/anthology/W/W02/W02-1001.pdf).
     * For more detailed pseudo-code see [Sarkar 2011](http://www.cs.sfu.ca/~anoop/papers/pdf/syntax-parsing-survey-2011.pdf) (page 36 and the more efficient version in page 38).
-* Use [different data representations](http://www.cs.sfu.ca/~anoop/papers/pdf/ai05.pdf) for chunking and combine them with voting or other means.
-* Use [a Margin Infused perceptron algorithm](http://jmlr.csail.mit.edu/papers/v7/crammer06a.html).
+* Use a [different data representations](http://www.cs.sfu.ca/~anoop/papers/pdf/ai05.pdf) for chunking and combine them with voting or other means.
+* Use a [Margin Infused perceptron algorithm](http://jmlr.csail.mit.edu/papers/v7/crammer06a.html).
 * Use a [Conditional Random Field](http://aclweb.org/anthology/N/N03/N03-1028.pdf) aka CRF for batch learning. The baseline above is an example of [online learning](http://en.wikipedia.org/wiki/Online_machine_learning).
 * Use [stochastic gradient descent](http://leon.bottou.org/projects/sgd) which uses online learning to train the CRF.
+* Use [RNN based CRF](http://www.aclweb.org/anthology/N16-1030) for learning sequences with word representations learned using neural networks.
+* Use a [multi-task model for chunking](https://arxiv.org/abs/1612.02706).
 * Use [trigram features over output labels](http://www.aclweb.org/anthology/W05-0611) instead of bigram features.
 * Use [clusters over output label sequences and word-by-word independent classifiers](http://aclweb.org/anthology/N/N12/N12-1015.pdf) instead of Viterbi search and a structured perceptron.
 * Use [violation fixing and beam search](http://aclweb.org/anthology/N/N12/N12-1015.pdf) instead of argmax search.
