@@ -150,20 +150,7 @@ type in `{{site.instructor}}` in the `Add new user` box and then change the role
 `Guest` to `Developer` in the dropdown menu. Click on `Add to Project` to add
 the instructor to your github repo.
 
-We have to set up your repo to call the automatic grading software.
-Follow these steps
-
-1. Click on the Settings menu which looks like a gear icon <i class="fa fa-gear"></i>
-    1. Select `Webhooks`.
-    1. Click on the link `Add Webhook`:
-        1. In the field `URL` enter: `http://unit.csil.sfu.ca:5000/`
-        1. Click the `Add Webhook` button near the bottom of the page.
-
-This tells the Gitlab server to send a message to that URL every
-time you commit code to your repo. The grading robot will retrieve
-your code, test it, and tell you the results.
-
-Next we will set up the Secure Shell (ssh) keys so you can access
+Set up the Secure Shell (ssh) keys so you can access
 your repo without a password. First follow [the instructions on
 setting up your SSH key pair](https://csil-git1.cs.surrey.sfu.ca/help/ssh/README)
 available at [csil-git1.cs.surrey.sfu.ca/help/ssh/README](https://csil-git1.cs.surrey.sfu.ca/help/ssh/README)
