@@ -148,7 +148,8 @@ repo by clicking on the Settings menu which looks like a gear icon <i class="fa 
 and selecting `Members` from the dropdown menu. On the page that loads up
 type in `{{site.instructor}}` in the `Add new user` box and then change the role permissions from
 `Guest` to `Developer` in the dropdown menu. Click on `Add to Project` to add
-the instructor to your github repo.
+the instructor to your gitlab repo. Do the same steps to add the TA usernames as a developer 
+to your gitlab repo. The TA usernames are given on [the main page](index.html).
 
 Set up the Secure Shell (ssh) keys so you can access
 your repo without a password. First follow [the instructions on
