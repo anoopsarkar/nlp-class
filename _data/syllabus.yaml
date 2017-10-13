@@ -105,7 +105,7 @@
 - title: "Linear models"
   tag: linearmodels
   include: true
-  current: true
+  current: false
   notes:
     - title: "Linear models"
       url: "assets/slides/linearmodels.pdf"
@@ -130,10 +130,14 @@
       url: "http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
 - title: "Hidden Markov Models"
   tag: hmm
-  current: false
+  include: true
+  current: true
   notes:
     - title: "Hidden Markov Models"
       url: "assets/slides/hmm.pdf"
+    - title: "In class exercise: aw-TOM-uh-tuh"
+      author: "Patrick Littell"
+      url: "http://www.naclo.cs.cmu.edu/problems2008/N2008-I.pdf"
   links:
     - title: "Viterbi algorithm for HMMs"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/hmm-viterbi.ipynb"
