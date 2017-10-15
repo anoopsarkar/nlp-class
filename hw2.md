@@ -348,7 +348,7 @@ Developing a chunker using the Perceptron algorithm (described in
 the above pseudo-code) is good enough to get an F-measure that is
 close to the performance of the baseline system on the leaderboard.
 But getting closer to the best known accuracy on this task, which
-is hovering around 94.12 F-measure is a more interesting challenge.
+is hovering around 96 percent F-measure is a more interesting challenge.
 In addition to getting a good score on the leaderboard you **must**
 experiment with at least one extension of the baseline or an
 additional model of your choice and document your work.  Here are
@@ -556,8 +556,8 @@ Your F1 score should be equal to or greater than the score listed for the corres
 | 82 | 75  | B- |
 | 88 | 80  | B  |
 | 92 | 85  | B+ |
-| 94 | 90  | A- |
-| 96 | 95  | A  |
-| 97 | 100 | A+ |
+| 93 | 90  | A- |
+| 94 | 95  | A  |
+| 95 | 100 | A+ |
 {: .table}
 
