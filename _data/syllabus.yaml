@@ -131,7 +131,7 @@
 - title: "Hidden Markov Models"
   tag: hmm
   include: true
-  current: true
+  current: false
   notes:
     - title: "Hidden Markov Models"
       url: "assets/slides/hmm.pdf"
@@ -172,7 +172,8 @@
       optional: true
 - title: "Statistical Machine Translation"
   tag: smt
-  current: false 
+  include: true
+  current: true 
   notes:
     - title: "Introduction to Machine Translation"
       url: "assets/slides/mtintro.pdf"
