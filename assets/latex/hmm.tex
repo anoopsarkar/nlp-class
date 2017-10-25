@@ -146,9 +146,9 @@ $\vdots$ & & 7 labels
 \[
 \textrm{Model $\theta$} = \left\{ 
 \begin{array}{ll} 
-\pi_i & \textrm{probability of starting at state $i$} \\ 
-a_{i,j} & \textrm{probability of transition from state $i$ to state $j$} \\ 
-b_i(o) & \textrm{probability of output $o$ at state $i$}
+\pi_i & \textrm{$p(i)$: starting at state $i$} \\ 
+a_{i,j} & \textrm{$p(j \mid i)$: transition to state $i$ from state $j$} \\ 
+b_i(o) & \textrm{$p( o \mid i)$: output $o$ at state $i$}
 \end{array} 
 \right.\]
 
@@ -213,6 +213,7 @@ N & 0.4 & 0.3 & 0.3 & 0 \\ \hline
 \pause
 \begin{quote}
 The task: for a given observation sequence find the most likely state sequence.
+$a_{i,j} = p(j \mid i)$ and $b_i(o) = p(o \mid i)$
 \end{quote}
 \end{frame}
 
@@ -498,9 +499,9 @@ What is the best sequence of tags for each string below:
 \[
 \textrm{Model $\theta$} = \left\{ 
 \begin{array}{ll} 
-\pi_i & \textrm{probability of starting at state $i$} \\ 
-a_{i,j} & \textrm{probability of transition from state $i$ to state $j$} \\ 
-b_i(o) & \textrm{probability of output $o$ at state $i$}
+\pi_i & \textrm{$p(i)$: starting at state $i$} \\ 
+a_{i,j} & \textrm{$p(j \mid i)$: transition to state $i$ from state $j$} \\ 
+b_i(o) & \textrm{$p( o \mid i)$: output $o$ at state $i$}
 \end{array} 
 \right.\]
 
@@ -898,15 +899,11 @@ N & 0.4 & 0.3 & 0.3 & 0 \\ \hline
 \[
 \textrm{Model $\theta$} = \left\{ 
 \begin{array}{ll} 
-\pi_i & \textrm{probability of starting at state $i$} \\ 
-a_{i,j} & \textrm{probability of transition from state $i$ to state $j$} \\ 
-b_i(o) & \textrm{probability of output $o$ at state $i$} \\
+\pi_i & \textrm{$p(i)$: starting at state $i$} \\ 
+a_{i,j} & \textrm{$p(j \mid i)$: transition to state $i$ from state $j$} \\ 
+b_i(o) & \textrm{$p( o \mid i)$: output $o$ at state $i$}
 \end{array} 
-\right. 
-\]
-\[
-\textrm{Constraints}: \sum_i \pi_i = 1, \sum_j a_{i,j} = 1, \sum_o b_i(o) = 1
-\]
+\right.\]
 
 \begin{center}
 \includegraphics[scale=.4]{figures/hmmfig}
@@ -1017,9 +1014,9 @@ b_i(o) & = & \frac{\sum_\ell f(i,o,x_\ell,y_\ell)}{\sum_\ell \sum_{o' \in V} f(i
 \[
 \textrm{Model $\theta$} = \left\{ 
 \begin{array}{ll} 
-\pi_i & \textrm{probability of starting at state $i$} \\ 
-a_{i,j} & \textrm{probability of transition from state $i$ to state $j$} \\ 
-b_i(o) & \textrm{probability of output $o$ at state $i$}
+\pi_i & \textrm{$p(i)$: starting at state $i$} \\ 
+a_{i,j} & \textrm{$p(j \mid i)$: transition to state $i$ from state $j$} \\ 
+b_i(o) & \textrm{$p( o \mid i)$: output $o$ at state $i$}
 \end{array} 
 \right.\]
 

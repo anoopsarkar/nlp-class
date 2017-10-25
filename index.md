@@ -57,6 +57,6 @@ Grading
 
 * Programming setup homework: HW0 due on Sep 22 (2%)
 * Four programming homeworks. Due dates: HW1 on Oct 6, HW2 on Oct 20, HW3 on Nov 10, HW4 on Nov 24 (12% each)
-* In class midterm: Nov 3 (20%)
+* In class midterm: Nov 3 at 1:30pm (90mins; 20%)
 * Final project: Due on Dec 8. (30%)
 

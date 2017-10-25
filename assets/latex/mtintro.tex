@@ -3,9 +3,9 @@
 
 \input{titlepage.tex}
 
-\lecture{Statistical Machine Translation}{}
+\lecture{Machine Translation}{}
 
-\section{Introduction to Statistical Machine Translation}
+\section{Introduction to Machine Translation}
 \frame{\tableofcontents[currentsection]}
 
 \begin{frame}
@@ -42,7 +42,7 @@ Which one should we use for machine translation?
 \end{frame}
 
 \begin{frame}
-\frametitle{Statistical Machine Translation}
+\frametitle{Machine Translation}
 \begin{block}{}
 Given French string \textbf{f} find the English string \textbf{e} that maximizes $\Pr(\textbf{e} \mid \textbf{f})$
 \[ \textbf{e}^\ast = \arg\max_{\textbf{e}} \Pr(\textbf{e} \mid \textbf{f}) \]
@@ -110,7 +110,7 @@ Show the above equation using the definition of $P(\textbf{e}, \textbf{f})$ and 
 \end{frame}
 
 \begin{frame}
-\frametitle{Statistical Machine Translation}
+\frametitle{Machine Translation}
 \begin{block}{Noisy Channel Model}
 \begin{eqnarray*}
 \textbf{e}^\ast & = & \arg\max_{\textbf{e}} \underbrace{\Pr(\textbf{e})}_{\color{red}\textbf{Language Model}} \pause \cdot \underbrace{\Pr(\textbf{f} \mid \textbf{e})}_{\color{blue}\textbf{Alignment Model}}
@@ -120,7 +120,7 @@ Show the above equation using the definition of $P(\textbf{e}, \textbf{f})$ and 
 \begin{itemize}[<+->]
 \item \color{red}\textbf{Language Model}: $n$-gram language model with smoothing. \\
 Training data: lots of monolingual \textbf{e} text.
-\item \color{blue}\textbf{Alignment Model}: learn a mapping between \textbf{f} and \textbf{e}. \\
+\item \color{blue}\textbf{Alignment/Translation Model}: learn a mapping between \textbf{f} and \textbf{e}. \\
 Training data: lots of translation pairs between \textbf{f} and \textbf{e}.
 \end{itemize}
 \end{block}
@@ -162,7 +162,7 @@ Choose between two alternatives with similar scores $\Pr( \textbf{f} \mid \textb
 \end{frame}
 
 \begin{frame}
-\frametitle{Statistical Machine Translation}
+\frametitle{Machine Translation}
 \begin{block}{Noisy Channel Model}
 Every candidate translation \textbf{e} for a given \textbf{f} has two factors:
 \[ \Pr( \textbf{e} ) \Pr( \textbf{f} \mid \textbf{e} ) \]
@@ -209,7 +209,7 @@ Every candidate translation \textbf{e} for a given \textbf{f} has two factors:
 \end{frame}
 
 \begin{frame}
-\frametitle{Statistical Machine Translation}
+\frametitle{Machine Translation}
 \begin{block}{The IBM Models}
 \begin{itemize}[<+->]
 \item The first statistical machine translation models were developed at IBM Research (Yorktown Heights, NY) in the 1980s
