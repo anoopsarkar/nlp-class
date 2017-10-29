@@ -485,7 +485,7 @@ Grading
 
 Your F1 score should be equal to or greater than the score listed for the corresponding marks.
 
-| **en-de AER** | **Marks** | **Grade** |
+| **AER (en-de)** | **Marks** | **Grade** |
 | .80 | 0   | F  |
 | .75 | 55  | D  |
 | .70 | 60  | C- |
