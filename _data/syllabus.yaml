@@ -16,9 +16,11 @@
     - author: Rick Rashid
       title: "Speech Recognition Breakthrough for the Spoken, Translated Word by Rick Rashid"
       video: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
+      url: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
       optional: true
     - title: "IBM Watson competes in Jeopardy!"
       video: "https://www.youtube.com/watch?v=lI-M7O_bRNg"
+      url: "https://www.youtube.com/watch?v=lI-M7O_bRNg"
       optional: true
     - author: Anoop Sarkar
       title: "NLP and Text Visualization"
@@ -68,8 +70,8 @@
   links:
     - author: Michael Collins
       title: "Language models"
-      url: "http://www.cs.columbia.edu/~mcollins/lm-spring2013.pdf"
       download: "assets/mcollins-notes/lm-spring2013.pdf"
+      url: "assets/mcollins-notes/lm-spring2013.pdf"
       optional: false
     - author: Stanley Chen and Joshua Goodman
       title: "A Bit of Progress in Language Modeling"
@@ -137,38 +139,45 @@
       url: "assets/slides/hmm.pdf"
   links:
     - title: "Viterbi algorithm for HMMs"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/hmm-viterbi.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/hmm-viterbi.ipynb"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/hmm.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/hmm.ipynb"
     - author: Michael Collins
       title: "Hidden Markov Models"
-      url: "http://www.cs.columbia.edu/~mcollins/hmms-spring2013.pdf"
       download: "assets/mcollins-notes/hmms-spring2013.pdf"
+      url: "assets/mcollins-notes/hmms-spring2013.pdf"
     - author: Anoop Sarkar
       title: "Introduction to Hidden Markov Models"
       video: "http://youtu.be/D9TvSfkcN-8"
+      url: "http://youtu.be/D9TvSfkcN-8"
     - author: Anoop Sarkar
       title: "N-grams versus HMMs"
       video: "http://youtu.be/sxziC8Zh8Kw"
+      url: "http://youtu.be/sxziC8Zh8Kw"
     - author: Anoop Sarkar
       title: "Parsing with HMMs"
       video: "http://youtu.be/0OQIBTWqjFY"
+      url: "http://youtu.be/0OQIBTWqjFY"
     - author: Anoop Sarkar
       title: "Viterbi algorithm for HMMs"
       video: "http://youtu.be/TymbVHmJWQ8"
+      url: "http://youtu.be/TymbVHmJWQ8"
     - author: Anoop Sarkar
       title: "Language models and HMMs"
       video: "http://youtu.be/dxEQeUd4JBs"
+      url: "http://youtu.be/dxEQeUd4JBs"
     - author: Anoop Sarkar
       title: "Supervised learning of HMMs"
       video: "http://youtu.be/0dp3Digvfcw"
+      url: "http://youtu.be/0dp3Digvfcw"
     - author: Anoop Sarkar
       title: "Lagrange multipliers for HMM parameter updates"
       video: "http://youtu.be/ZUcb_UJK1UM"
+      url: "http://youtu.be/ZUcb_UJK1UM"
       optional: true
     - author: Michael Collins
       title: "Forward-backward algorithm"
-      url: "http://www.cs.columbia.edu/~mcollins/fb.pdf"
       download: "assets/mcollins-notes/fb.pdf"
+      url: "assets/mcollins-notes/fb.pdf"
       optional: true
 - title: "Statistical Machine Translation"
   tag: smt
@@ -254,13 +263,16 @@
   links:
     - author: Anoop Sarkar
       title: "Introducing edit distance"
-      video: http://youtu.be/IDGsJdFZCmE
+      video: "http://youtu.be/IDGsJdFZCmE"
+      url: "http://youtu.be/IDGsJdFZCmE"
     - author: Anoop Sarkar
       title: "Computing edit distance (part one)"
       video: "http://youtu.be/Dv_bdR7LpS0"
+      url: "http://youtu.be/Dv_bdR7LpS0"
     - author: Anoop Sarkar
       title: "Computing edit distance (part two)"
       video: "http://youtu.be/E606vHFGTvA"
+      url: "http://youtu.be/E606vHFGTvA"
 - title: Context-free Grammars
   tag: cfg
   include: false
