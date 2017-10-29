@@ -486,17 +486,17 @@ Grading
 Your F1 score should be equal to or greater than the score listed for the corresponding marks.
 
 | **en-de AER** | **Marks** | **Grade** |
-| -- | 0   | F  |
-| -- | 55  | D  |
-| -- | 60  | C- |
-| -- | 65  | C  |
-| -- | 70  | C+ |
-| -- | 75  | B- |
-| -- | 80  | B  |
-| -- | 85  | B+ |
-| 16 | 90  | A- |
-| 14 | 95  | A  |
-| 12 | 100 | A+ |
+| .80 | 0   | F  |
+| .75 | 55  | D  |
+| .70 | 60  | C- |
+| .65 | 65  | C  |
+| .60 | 70  | C+ |
+| .55 | 75  | B- |
+| .50 | 80  | B  |
+| .44 | 85  | B+ |
+| .34 | 90  | A- |
+| .24 | 95  | A  |
+| .14 | 100 | A+ |
 {: .table}
 
 Acknowledgements
