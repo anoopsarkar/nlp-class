@@ -202,7 +202,7 @@
 - title: Word Alignment
   tag: align
   include: true
-  current: true 
+  current: false 
   notes:
     - title: "Word Alignment"
       url: "assets/slides/ibm123.pdf"
@@ -219,7 +219,8 @@
       optional: true
 - title: "Phrase based translation"
   tag: pbmt
-  current: false
+  include: true
+  current: true
   notes:
     - author: Philipp Koehn
       title: "Decoding"
@@ -232,6 +233,9 @@
     - title: "Stack Decoder demo"
       author: "Matt Post"
       url: "assets/demos/stack-decoder/stack-decoder.html"
+    - title: "In class exercise: Udihe"
+      author: "B. Iomdin"
+      url: "assets/handouts/inclass-udihe.pdf"
   links:
     - author: Michael Collins
       title: "Statistical Machine Translation: Phrase-based models"

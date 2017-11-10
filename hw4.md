@@ -1,16 +1,16 @@
 ---
 layout: default
 img: voynich
-img_link: http://en.wikipedia.org/wiki/Voynich_manuscript 
-caption: The Voynich manuscript
-title: Homework 4 | Decoding
+img_link: "http://en.wikipedia.org/wiki/Voynich_manuscript"
+caption: "The Voynich manuscript"
+title: "Homework 4 | Decoding"
 active_tab: homework
 ---
 
 Translation Decoding <span class="text-muted">Homework 4</span>
 ============================================================
 
-<p class="text-muted">Due on Tuesday, November 15, 2016</p>
+<p class="text-muted">Due on Friday, November 24, 2017</p>
 
 Decoding is process of taking input in French:
 
@@ -239,6 +239,26 @@ Ground Rules
 * For the written description of your algorithm, you can use plain ASCII but for math equations it is better to use either [latex](http://www.latex-project.org/) or [kramdown](https://github.com/gettalong/kramdown).  Do __not__ use any proprietary or binary file formats such as Microsoft Word.
 
 If you have any questions or you're confused about anything, just ask.
+
+Grading
+-------
+
+Your model score should be equal to or greater than the score listed for the corresponding marks.
+
+| **Score** | **Marks** | **Grade** |
+|  | 0   | F  |
+|  | 55  | D  |
+|  | 60  | C- |
+|  | 65  | C  |
+|  | 70  | C+ |
+|  | 75  | B- |
+|  | 80  | B  |
+|  | 85  | B+ |
+|  | 90  | A- |
+|  | 95  | A  |
+|  | 100 | A+ |
+{: .table}
+
 
 #### Acknowledgements
 
