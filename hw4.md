@@ -246,17 +246,17 @@ Grading
 Your model score should be equal to or greater than the score listed for the corresponding marks.
 
 | **Score** | **Marks** | **Grade** |
-|  | 0   | F  |
-|  | 55  | D  |
-|  | 60  | C- |
-|  | 65  | C  |
-|  | 70  | C+ |
-|  | 75  | B- |
-|  | 80  | B  |
-|  | 85  | B+ |
-|  | 90  | A- |
-|  | 95  | A  |
-|  | 100 | A+ |
+| -9999 | 0   | F  |
+| -1439 | 55  | D  |
+| -1420 | 60  | C- |
+| -1410 | 65  | C  |
+| -1400 | 70  | C+ |
+| -1395 | 75  | B- |
+| -1390 | 80  | B  |
+| -1385 | 85  | B+ |
+| -1313 | 90  | A- |
+| -1300 | 95  | A  |
+| -1280 | 100 | A+ |
 {: .table}
 
 

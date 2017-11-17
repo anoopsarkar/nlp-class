@@ -33,10 +33,10 @@ Submit your assignments [here]({{ site.leaderboard }}). Results will be updated 
       <th class="text-right">
         <a href="hw3.html">#3</a><br/><span class="small text-muted">Align</span>
       </th>
-<!--
       <th class="text-right">
         <a href="hw4.html">#4</a><br/><span class="small text-muted">Decode</span>
       </th>
+<!--
       <th class="text-right">
         <a href="hw5.html">#5</a><br/><span class="small text-muted">Rerank</span>
       </th>
