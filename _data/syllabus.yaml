@@ -265,6 +265,9 @@
     - author: Anoop Sarkar
       title: "Edit distance"
       url: "assets/slides/editdist.pdf"
+    - author: Blake Allen and Patrick Littell
+      title: "In-class exercise: Levenshtein's Fine Signs"
+      url: "assets/notes/N2014-C.pdf"
   links:
     - author: Anoop Sarkar
       title: "Introducing edit distance"
