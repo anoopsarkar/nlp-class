@@ -182,7 +182,7 @@
 - title: "Statistical Machine Translation"
   tag: smt
   include: true
-  current: true 
+  current: false 
   notes:
     - title: "Introduction to Machine Translation"
       url: "assets/slides/mtintro.pdf"
@@ -256,7 +256,8 @@
       url: "http://www.aclweb.org/anthology/D11-1125"
 - title: "Translation Evaluation"
   tag: mteval
-  current: false
+  include: true
+  current: true
   notes:
     - author: Philipp Koehn
       title: "Evaluation"
