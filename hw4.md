@@ -204,10 +204,10 @@ machine translation:
     * Use a weight for the language model and translation model and tune the weights (by hand) to minimize search error as described in page 17 of the [Koehn lecture notes on decoding](http://anoopsarkar.github.io/nlp-class/assets/slides/06-decoding.pdf). 
     * Use future cost as described in pages 25-29 of the [Koehn lecture notes on decoding](http://anoopsarkar.github.io/nlp-class/assets/slides/06-decoding.pdf).
 * [Implement a greedy decoder](http://www.iro.umontreal.ca/~felipe/bib2webV0.81/cv/papers/paper-tmi-2007.pdf).
-* [Use A\* search](http://aclweb.org/anthology-new/W/W01/W01-1408.pdf).
+* [Use A\* search](http://aclweb.org/anthology/W/W01/W01-1408.pdf).
 * [Use Lagrangian relaxation](http://aclweb.org/anthology//D/D13/D13-1022.pdf). Guaranteed to find the best score!
-* [Use a traveling salesman problem (TSP) solver](http://aclweb.org/anthology-new/P/P09/P09-1038.pdf).
-* [Use integer linear programming](http://aclweb.org/anthology-new/N/N09/N09-2002.pdf).
+* [Use a traveling salesman problem (TSP) solver](http://aclweb.org/anthology/P/P09/P09-1038.pdf).
+* [Use integer linear programming](http://aclweb.org/anthology/N/N09/N09-2002.pdf).
 * [Use finite-state algorithms](http://mi.eng.cam.ac.uk/~wjb31/ppubs/ttmjnle.pdf).
 
 These methods all attempt to approximate or solve the Viterbi
