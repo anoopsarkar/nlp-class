@@ -220,7 +220,7 @@
 - title: "Phrase based translation"
   tag: pbmt
   include: true
-  current: true
+  current: false
   notes:
     - author: Philipp Koehn
       title: "Decoding"
@@ -283,8 +283,8 @@
       url: "http://youtu.be/E606vHFGTvA"
 - title: Context-free Grammars
   tag: cfg
-  include: false
-  current: false
+  include: true
+  current: true
   notes:
     - title: "Ambiguity and Context free grammars"
       url: "assets/slides/ambiguity.pdf"
