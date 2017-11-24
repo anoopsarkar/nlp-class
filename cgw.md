@@ -207,7 +207,7 @@ Fork the following repository on github.com:
 
 	https://github.com/anoopsarkar/cgw-inclass
 
-Add your sampled sentences to the directory `sentences-fall2016` using a filename called `your-group-name.txt` and [create a pull request from your fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/).
+Add your sampled sentences to the directory `sentences-fall2017` using a filename called `your-group-name.txt` and [create a pull request from your fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/).
 
 ## Parsing other samples
 
@@ -220,7 +220,7 @@ Or pull from it to get the latest samples:
 	cd cgw-inclass
 	git pull -a
 
-Go to the `sentences-fall2016` directory and concatenate all the text files in this directory:
+Go to the `sentences-fall2017` directory and concatenate all the text files in this directory:
 
 	cat *.txt > all-samples
 
