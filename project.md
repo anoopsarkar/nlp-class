@@ -10,349 +10,196 @@ active_tab: project
 Final Project
 -------------
 
-<p class="text-muted">Due on Tuesday, December 13, 2016 (no grace days)</p>
+<p class="text-muted">Due on Friday, December 8, 2017 (no grace days)</p>
 
-The final project is to translate from Chinese to English using the
-machine translation system you have built over the course of the
-semester. You should use the code you have written for your homework
-assignments to build the translation system.
+Automatic evaluation is a key problem in machine translation. Suppose that we have two
+machine translation systems. On one sentence, system A outputs:
 
-## Files
+*This type of zápisníku was very ceněn writers and cestovateli*.
 
-In order to complete the project, you are provided with data files
-to build a Chinese-English machine translation system. This data
-has already been processed into alignments, phrase tables, etc. You
-can use the processed data as given to you or generate your own
-alignments, phrase tables, etc.
+And system B outputs:
 
-You are also provided with some Python programs that generate a
-phrase table with typical feature values: $$p(e|f), p(f|e), lex(e|f),
-lex(f|e)$$ where $$e$$ and $$f$$ are phrases in the phrase table.
+*This type of notebook was very prized by writers and travellers*.
 
-### Data Files
+We suspect that system B is better, though we don’t necessarily know that its translations
+of the words *zápisníku*, *ceněn*, and *cestovateli* are correct. But suppose that we also
+have access to the following reference translation.
 
-**Warning: do not redistribute this data. SFU has a license to use this data from the Linguistic Data Consortium (LDC) but we cannot take this data and give it to others.**
+*This type of notebook is said to be highly prized by writers and travellers*.
 
-The data files are available on CSIL Linux machines in the following directory:
+We can easily judge that system B is better. **Your challenge is to write a program that
+makes this judgement automatically**.
+ 
+## Getting Started
 
-    /usr/shared/CMPT/nlp-class/project
+You must have git and python (2.7) on your system.
 
-Important information about the license is given in the file `LICENSE`.
+If you have already cloned the `nlp-class-hw` repository,
+then do the following to get the files for Homework 3:
 
-#### Training data
+    # go to the directory where you did a git clone before
+    cd nlp-class-hw
+    git pull origin master
 
-The training data is taken from the following sources:
+Or you can create a new directory that does a fresh clone of the
+repository:
 
-* [Hong Kong Parliament parallel corpus](https://catalog.ldc.upenn.edu/LDC2004T08) 
-* [GALE Phase-1 Chinese newsgroup data](https://catalog.ldc.upenn.edu/LDC2009T15).
+    git clone https://github.com/anoopsarkar/nlp-class-hw.git
 
-Training data comes in different sizes. The data files in each of the
-large, medium, and small folders are:
+In the `evaluator` directory you will find several python programs
+and data sets that you will use for this assignment.  
 
-* `train.cn`: segmented Chinese corpus
-* `train.cn.unseg`: un-segmented Chinese corpus
-* `train.en`: lower-cased English corpus
-* `phrase-table/moses/phrase-table.gz`: phrase-table in the usual format
-  compatible with the [Moses SMT system](http://statmt.org/moses/)
+`default.py` contains the default method for evaluation:
 
-##### Toy
+    python default.py > output
 
-First 2k sentences from the full training data.
+This program uses a very simple evaluation method.
+Given machine translations $$h_1$$ and $$h_2$$ and reference translation $$e$$,
+it computes $$f(h_1,h_2,e)$$ as follows, where $$\ell(h,e)$$ is the count of words in $$h$$
+that are also in $$e$$.
 
-##### Small
+$$f(h_1,h_2,e)=\left\{\begin{array}{ll}
+  1 & \mbox{if } \ell(h_1,e) > \ell(h_2,e)\\
+  0 & \mbox{if } \ell(h_1,e) = \ell(h_2,e)\\
+  -1 & \mbox{if } \ell(h_1,e) < \ell(h_2,e)  
+\end{array}\right.$$
 
-First 20k sentences from the full training data.
+It is a good idea to check the output of your evaluation program using `check.py`.
+This will avoid your upload hanging on the leaderboard and other nasty consequences.
 
-##### Medium
+    python check.py < output
 
-First 100k sentences from the full training data.
+It will report errors if your evaluation output is malformed.
 
-##### Large:
+Once you have checked the output of the evaluation program for
+errors, we can compare the results of this function with those of
+human annotator who rated the same translations.
 
-The entire training data (2.3M sentences).
+    python score-evaluation.py < output
 
-In the `large` directory, there are a few additional files:
+Or you can do it all at once:
 
-* `phrase-table/dev-filtered/rules_cnt.final.out`: phrase table
-  filtered for the data in `dev`, so that only the phrases useful
-  for tuning your SMT system are in this phrase table.
-* `phrase-table/test-filtered/rules_cnt.final.out`: phrase table
-  filtered for the data in `test`.
-* `lex.e2f` and `lex.f2e`: lexical probabilities
+    python default.py | python check.py | python score-evaluation.py 
 
-#### Tuning set
+              Pred. y=-1	y=0	y=1
+    True y=-1	5245	2556	3161
+    True y= 0	1412	1108	1413
+    True y= 1	3090	2448	5135
 
-The files for tuning your SMT system are in the `dev` directory. This data
-is meant to be used for tuning the weights of your machine translation
-log-linear model. There are four references for each source sentence.
-
-The data comes from the following sources:
-
-* [Multiple-Translation Chinese (MTC) part 1](https://catalog.ldc.upenn.edu/LDC2002T01)
-* [Multiple-Translation Chinese (MTC) part 3](https://catalog.ldc.upenn.edu/LDC2004T07)
-
-#### Test set
-
-The files that are used as test data to report your performance are in
-the `test` directory. There are four references for each source sentence.
-
-The data comes from the following source:
-
-* [Multiple-Translation Chinese (MTC) part 4](https://catalog.ldc.upenn.edu/LDC2006T04)
-
-#### Language Model
-
-The language model files are in the `lm` directory.
-
-* `en.gigaword.3g.arpa.gz`: large LM estimated using
-  Kneser-Ney smoothing from the [English Gigaword corpus](https://catalog.ldc.upenn.edu/LDC2011T07)
-* `en.gigaword.3g.filtered.dev_test.arpa.gz`: small-sized LM filtered from the
-  large LM for the dev and test files (52MB compressed)
-* `en.gigaword.3g.filtered.train_dev_test.arpa.gz`: medium-sized LM filtered from the
-  large LM for the target side of the large phrase table and the dev and test files (93MB compressed)
-* `en.tiny.3g.arpa`: tiny LM from the decoding homework
-
-#### Chinese word segmentation data
-
-The training data for training a Chinese word segmenter is in the
-`seg` directory.  
-
-The data comes from the [Chinese Word Segmentation Bakeoff](http://www.sighan.org/bakeoff2005/).
-
-The data has been processed into a column format similar to the
-chunking format used in the chunker homework. If you wish to convert
-this into a frequency dictionary you will have to parse these column
-files into words using the `B` (begin word) and `I` (inside word)
-and `O` (single character word) tags.
-
-There are three files:
-
-* `cityu_train.utf8`: from the City University of Hong Kong
-* `msr_train.utf8`: from Microsoft Research (Beijing)
-* `upenn_train.utf8`: from the University of Pennsylvania Chinese Treebank
-
-They can be converted into a single frequency dictionary for your
-homework segmenter, or you can use your chunker to train a context-aware
-model of Chinese word segmentation.
-
-You may want to check if your segmentation actually improves alignment
-scores before you proceed through the entire translation pipeline.
-A simple way to check this is to compare the IBM Model 1 scores
-with the provided segmented Chinese aligned to the given parallel
-English data with your own segmentation of the Chinese data also
-aligned to the same parallel English data.
-
-### Programs for phrase table generation
-
-The following are scripts that can be used to create a phrase table
-with feature values from source, target and alignment data.
-
-* `pp_xtrct_sc.sh`: shell script to run phrase extractor on the toy
-  data set. **You should use this script if you have produced your
-  own alignments or if you have produced your own Chinese segmentation
-  and alignments based on that segmentation**
-* `pp_xtrct.sh`: shell script to run phrase extractor. It splits
-  the data into shards of 20K sentences each and then runs phrase
-  extraction in parallel. It then filters each phrase file for `dev`
-  or `test` and finally merges the phrases for each shard. This
-  script assumes you have access to a large cluster of multiple
-  machines managed by grid management software such as Torque (using
-  the `qsub` command).
-
-The scripts above call the following Python programs in the appropriate
-sequence.
-
-* `PPXtractor_ph1.py`: python program for extracting phrase-pairs from
-  a source, target, and alignment files.
-* `PPXtractor_ph2n3.py`: python program for identifying the source
-  phrases in the given dev/test set and filter the phrase file for the
-  source phrases.
-* `PPXtractor_ph2.py`: python program for computing forward and reverse
-  lexical scores.
-* `PPXtractor_ph3.py`: python program for estimating the forward
-  $$P(s|t)$$ and reverse $$P(t|s)$$ probabilities using relative frequency
-  estimation.
+    Accuracy = 0.449312
 
 ## The Challenge
 
-The challenge is to use the code you have written for your homework
-assignments in this course in order to build a Chinese-English
-translation system and get a competitive BLEU score on the test
-set.
+Your task for this assignment is to **improve the accuracy of automatic evaluation as
+much as possible**.  
 
-You can choose to follow any route as long as you have a Chinese-English
-machine translation system at the end. You should have a comparison
-between at least two methods on the dataset, and compare their BLEU
-scores.
+### The Baseline
 
-Below I describe a few basic steps you can take in order to obtain
-a performant Chinese-English SMT system using your homework code
-from this course.
+A good way to start improving the metric to use the simple
+[METEOR](http://aclweb.org/anthology/W/W07/W07-0734.pdf)
+([Wikipedia](http://en.wikipedia.org/wiki/METEOR) also has a nice description) metric with
+the chunking penalty in place of $$\ell(h,e)$$.
+METEOR computes the harmonic mean of precision and recall, penalized by the number of chunks. That is:
 
-### Get decoder working on toy data
+$$\ell(h,e) = \left(1 - \gamma \left(\frac{c}{m}\right)^\beta\right)\frac{P(h,e) \cdot R(h,e)}{(1-\alpha)R(h,e)+\alpha P(h,e)}$$
 
-The absolute first step: get your decoder working with the `toy`
-phrase table data and the tiny LM data from the `lm` directory.
+where $$P$$ and $$R$$ are precision and recall, defined as:
 
-Run your decoder on the test set and try to get a BLEU score.
-It will have a terrible score but it will be a start.
+$$R(h,e) = \frac{|h\cap e|}{|e|} \qquad \mbox{and} \qquad P(h,e) = \frac{|h\cap e|}{|h|},$$
 
-### Use filtered phrase tables with your decoder
+$$\beta,\gamma$$ are tunable parameters, $$c$$ is the number of chunks and $$m$$ is the number of
+matched unigrams.
 
-The most basic Chinese-English translator you can build is to use
-the filtered phrase tables and language model with your decoder. I
-recommend using the following data files:
+Be sure to tune the parameter $$\alpha$$ that balances precision and recall.
+This is a very simple baseline to implement. However, evaluation is not solved,
+and the goal of this assignment is for you to experiment with methods that yield
+improved predictions of relative translation accuracy. 
 
-* `large/phrase-table/test-filtered/rules_cnt.final.out`: phrase
-  table filtered for the data in `test`.
-* `en.gigaword.3g.filtered.train_dev_test.arpa.gz`: medium-sized
-  LM filtered from the large LM for the target side of the large
-  phrase table and the dev and test files (93MB compressed)
-* The test files in the `test` directory.
+### Extending the baseline
 
-You need to change a few things in your decoder: 
+Some things that you might try:
 
-* Modify the code that loads up the language model to read a gzip
-  file using the Python gzip module.
-* Modify the decoder to use all the feature values in the phrase
-  table file (earlier we just had one feature per phrase pair, now
-  we have four). You can use uniform weights to combine the feature
-  values and the language model feature.
-* Optionally use multiple references in computing the BLEU score
-  on the test set.
+* [Learn a classifier from the training data.](http://aclweb.org/anthology//W/W11/W11-2113.pdf)
+* [Use WordNet to match synonyms.](http://wordnet.princeton.edu/)
+* [Compute string similarity using string subsequence kernels.](http://jmlr.org/papers/volume2/lodhi02a/lodhi02a.pdf)
+* Use an n-gram language model to better assess fluency.
+* [Develop a single-sentence variant of BLEU.](http://aclweb.org/anthology//P/P02/P02-1040.pdf)
+* [Use a dependency parser to assess syntactic well-formedness.](http://ssli.ee.washington.edu/people/jgk/dist/metaweb/mtjournal.pdf)
+* Develop a method to automatically assess semantic similarity.
+* [See what evaluation measures other people have implemented.](http://www.statmt.org/wmt10/pdf/wmt10-overview.pdf)
 
-This will give you a basic Chinese-English SMT system and would be
-a valid course project submission. However, you can do a little bit
-more to improve your performance.
+But the sky’s the limit! Automatic evaluation is far from solved,
+and there are many different solutions you might invent. You can
+try anything you want as long as you follow the ground rules (see
+below).
 
-### Feedback loop between Decoder and Reranker
+You should feel free to use additional data resources such as
+thesauruses, WordNet, or parallel data. You are also free to use
+additional codebases and libraries <b>except for those expressly
+intended to evaluate machine translation systems</b>. You must write
+your own evaluation metric. However, if you want your evaluation
+to depend on lemmatizers, stemmers, automatic parsers, or part-of-speech
+taggers, or you would like to *learn* a metric using a general
+machine learning toolkit, that is fine. But translation metrics
+including (but not limited too) available implementations of BLEU,
+METEOR, TER, NIST, and others are not permitted. You may of course
+inspect these systems if you want to understand how they work,
+although they tend to include other functionality that is not the
+focus of this assignment.  It is possible to complete the assignment
+with a very modest amount of python code. If you aren't sure whether
+something is permitted, ask us.
 
-Once you have your decoder working and producing a BLEU score
-on the test set, you can then learn a better weight vector
-using your reranking code.
+You do not need any other data than what we provide. You are free
+to use any code or software you like, __except for those expressly
+intended to evaluate machine translation output__.  You must write
+your own evaluation function. If you want to use part-of-speech
+taggers, syntactic or semantic parsers, machine learning libraries,
+thesauri, or any other off-the-shelf resources, go nuts. But
+evaluation software like BLEU, TER, METEOR, or their many variants
+are off-limits. You may of course inspect these systems if it helps
+you understand how they work. If you aren't sure whether something
+is permitted, ask us. If you want to do system combination, join
+forces with your classmates (but only use the output from other
+groups, not their source code!).
 
-* Take the decoder from the previous section. 
-* Use the phrase table filtered for the data in `dev`:
-  `large/phrase-table/dev-filtered/rules_cnt.final.out` and produce
-  a 100-best list from the last stack in your decoder (the last stack
-  covers all input words).
-* Use your reranking code to produce a weight vector that favors
-  translations that match the `dev` references.
-* Use this new weight vector with your decoder to produce
-  a new 100-best list for the `dev` set. Iterate until improvement
-  in the BLEU score on the `dev` set is minimal or a small number 
-  of iterations (say 5) if it is taking too long to converge.
-* Use the final weight vector with your decoder on the 
-  test set using the phrase table filtered for the test set: 
-  `phrase-table/test-filtered/rules_cnt.final.out`.
+### The Leaderboard
 
-Compare your BLEU score on the test set with your previous
-approach that used uniform weights.
+In this homework, the score produced by `score-evaluation.py` will be
+on the test set. Please do run your evaluation on the dev set many times
+before uploading your results. 
 
-There are many other ideas and you should come up with some
-ideas on your own.
+To get on the leaderboard, produce your output file:
 
-### Other ideas
+    python answer/evaluate.py > output
 
-* Add new features to the decoder.  You can experiment with 
-  the features you added in your decoder and reranker homeworks.
-* Improving Chinese segmentation using the `seg` data. However,
-  this approach has a serious penalty of having to produce new
-  alignments and subsequently a new phrase table. This is useful
-  only if you are certain your segmentations are going to be
-  better than we have provided. One approach is to produce 
-  [segmentations that are guaranteed to improve the alignment score](ftp://ftp.cs.rochester.edu/pub/papers/ai/10.tr957.Bayesian_Learning_of_Tokenization_for_Machine_Translation.pdf).
-* [Improve handling of unknown Chinese words](https://www.aclweb.org/anthology/I/I08/I08-1030.pdf)
-* [Do not segment the Chinese sentence at all](http://www.phontron.com/paper/neubig12acl.pdf)
+Then upload the file `output` to the leaderboard for the Project on
+[sfu-nlp-class.appspot.com](https://sfu-nlp-class.appspot.com)
 
-Ideas you should **not** try:
-
-* Using your own aligner and creating a phrase table. The alignments
-  we have provided to you are very high quality, for the particular
-  Chinese segmentations given to you. Simply getting new alignments
-  on the same data is unlikely to improve results.
-
-But the sky's the limit! You can try anything you want, as long
-as you follow the ground rules.
 
 ## Ground Rules
 
-* Each group should submit using one person as the designated uploader.
-* You must turn in two things:
-  1. A write-up that explains what you accomplished in your course project. It should be written in a clear, scientific style and contain enough information for another student to replicate your results. More information about the write-up is given below.
-  1. Your code. The code should be self-contained, self-documenting, and easy to use. Please include a detailed description of how to run your code.
-* Each group should assign one member to upload the write-up and source code to [Coursys](https://courses.cs.sfu.ca) as a single tarball or zip files as the submission for Final Project. 
-* You cannot use data or code resources outside of what is provided to you. You can use NLTK but not any NLTK reranking code directly. You cannot use any public implemenation of reranking such as the one included in `moses`, `Joshua`  or `cdec` or any other open source decoder.
+* Each group should submit using one person as the designated uploader. Ideally use the same person across all homeworks.
+* Follow these step-by-step instructions to submit your homework solution:
+  1. Your solution to this homework should be in the `answer` directory in a file called `evaluate.py`. The code should be self-contained, self-documenting, and easy to use. It should read the data exactly like `default.py` does. Your program should run like this:
 
-### Write-up
+            python answer/evaluate.py > output
 
-Your write-up is the most important part of your project. It **must** have the following sections:
+  1. Upload this file `output` to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html).
+  1. Run the program: `python zipsrc.py`. This will create a a zip file called `source.zip`. Each group should assign one member to upload `source.zip` to [Coursys]({{ site.coursys }}) as the submission for this homework.  It should use the same input and output assumptions of `default.py`. Only use `zipsrc.py` to prepare your zip file.
+  1. A clear, mathematical description of your algorithm and its motivation written in scientific style. This needn't be long, but it should be clear enough that one of your fellow students could re-implement it exactly. You are given a dummy `README.md` file in the answer directory. Update this file with your description.
+  1. Also in the `answer` directory include for each group member with a user name `username` a file in your submission called `README.username` which contains a description of your contribution to the homework solution along with the commit identifiers from either `svn` or `git`. If you have only one member in your group then create an empty file.
+* You cannot use data or code resources outside of what is provided to you. You can use NLTK but not the NLTK tokenizer class. 
+* For the written description of your algorithm, you can use plain ASCII but for math equations it is better to use either [latex](http://www.latex-project.org/) or [kramdown](https://github.com/gettalong/kramdown).  Do __not__ use any proprietary or binary file formats such as Microsoft Word.
 
-* Motivation 
-    * Which aspect of the translation system did your group choose to improve and reasons for your choice.
-* Approach 
-    * Describe the algorithms and machine learning models used in your project. Use a clear mathematical style to explain your model(s).
-* Data 
-    * Exactly which data files were used; also include here any external data that was not provided to you.
-* Code
-    * Describe which homework code you used in your project. Provide exactly which code was used in your project not written by your group (e.g. use of an aligner from an open-source project).
-* Experimental Setup
-    * Describe what kind of evaluation you are doing and which methods you are comparing against each other.
-* Results 
-    * Include a detailed comparison of different methods.
-* Analysis of the Results
-    * Did you improve over the baseline. Why or why not?
-* Future Work
-    * What could be fixed in your approach. What you did not have time to finish, but you think would be a useful addition to your project.
+If you have any questions or you're confused about anything, just ask.
 
-## Submission Format
 
-For your write-up, you can use plain ASCII but for math equations
-and tables it is better to use either
-[latex](http://www.latex-project.org/) or
-[kramdown](https://github.com/gettalong/kramdown).  Do __not__ use
-any proprietary or binary file formats such as Microsoft Word.
+#### Acknowledgements
 
-If you use latex then use the following style files:
-
-* [acl2012.sty]({{ site.baseurl }}/assets/project/acl2012.sty)
-* [acl2012.bst]({{ site.baseurl }}/assets/project/acl2012.bst)
-
-Here is an example of using these style files:
-
-* [Example latex file]({{ site.baseurl }}/assets/project/project.tex)
-* [project.bib]({{ site.baseurl }}/assets/project/project.bib)
-
-To get a PDF file you should run the following commands (which assume you have installed LaTeX on your system):
-
-    pdflatex project
-    bibtex project
-    pdflatex project
-    pdflatex project
-
-You can then open `project.pdf` using any PDF viewer. Please submit
-the LaTeX source and the PDF file along with your source code when
-you submit your project to Coursys.
-
-## Grading system
-
-The final projects will be graded using the following criteria:
-
-* Originality 
-* Substance (amount of work done for the project)
-* Well documented use of prior results from research papers
-* Clarity of the writing
-* Quality of experimental design
-* Quality of evaluation and results
-* (Re)Use of existing homework code
-* Overall score (based on the above criteria)
-
-## Examples
-
-Here are some examples of good project submissions. They are both published papers but give you a good idea of 
-how to write your project report. You can take inspiration for how to write a polished report from these
-examples but make sure you have the sections required by the Write-up section above.
-
-* [Example 1 by David Chiang and Steve DeNeefe and Michael Pust]({{ site.baseurl }}/assets/project/P11-2080.pdf)
-* [Example 2 by Dong Song and Anoop Sarkar]({{ site.baseurl }}/assets/project/sighan08.pdf)
-
+This assignment was designed by [Chris Dyer](http://www.cs.cmu.edu/~cdyer)
+based on an original task by [Adam Lopez](http://alopez.github.io) which also inspired a 
+[whole](http://aclweb.org/anthology//W/W12/W12-3101.pdf)
+[series](http://aclweb.org/anthology//W/W12/W12-3102.pdf) 
+[of](http://hltc.cs.ust.hk/iwslt/proceedings/paper_34.pdf) 
+[papers](http://aclweb.org/anthology//P/P13/P13-1139.pdf).
+It is based on the shared task for evaluation metrics that is run at the annual [Workshop on Statistical Machine Translation](http://statmt.org/wmt15). The task was introduced by [Chris Callison-Burch](http://www.cis.upenn.edu/~ccb/).
