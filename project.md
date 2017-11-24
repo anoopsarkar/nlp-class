@@ -186,13 +186,71 @@ Then upload the file `output` to the leaderboard for the Project on
 
   1. Upload this file `output` to the [leaderboard submission site](http://sfu-nlp-class.appspot.com) according to [the Homework 0 instructions](hw0.html).
   1. Run the program: `python zipsrc.py`. This will create a a zip file called `source.zip`. Each group should assign one member to upload `source.zip` to [Coursys]({{ site.coursys }}) as the submission for this homework.  It should use the same input and output assumptions of `default.py`. Only use `zipsrc.py` to prepare your zip file.
-  1. A clear, mathematical description of your algorithm and its motivation written in scientific style. This needn't be long, but it should be clear enough that one of your fellow students could re-implement it exactly. You are given a dummy `README.md` file in the answer directory. Update this file with your description.
   1. Also in the `answer` directory include for each group member with a user name `username` a file in your submission called `README.username` which contains a description of your contribution to the homework solution along with the commit identifiers from either `svn` or `git`. If you have only one member in your group then create an empty file.
-* You cannot use data or code resources outside of what is provided to you. You can use NLTK but not the NLTK tokenizer class. 
-* For the written description of your algorithm, you can use plain ASCII but for math equations it is better to use either [latex](http://www.latex-project.org/) or [kramdown](https://github.com/gettalong/kramdown).  Do __not__ use any proprietary or binary file formats such as Microsoft Word.
+  1. A write-up of your course project as a PDF file and source for the write-up should be included in `source.zip`. More details about the course project write-up below.
 
 If you have any questions or you're confused about anything, just ask.
 
+### Write-up
+
+Your write-up is the most important part of your project. It **must** have the following sections:
+
+* Motivation 
+    * Which aspect of the translation system did your group choose to improve and reasons for your choice.
+* Approach 
+    * Describe the algorithms and machine learning models used in your project. Use a clear mathematical style to explain your model(s).
+* Data 
+    * Exactly which data files were used; also include here any external data that was not provided to you.
+* Code
+    * Describe which homework code you used in your project. Provide exactly which code was used in your project not written by your group (e.g. use of an aligner from an open-source project).
+* Experimental Setup
+    * Describe what kind of evaluation you are doing and which methods you are comparing against each other.
+* Results 
+    * Include a detailed comparison of different methods.
+* Analysis of the Results
+    * Did you improve over the baseline. Why or why not?
+* Future Work
+    * What could be fixed in your approach. What you did not have time to finish, but you think would be a useful addition to your project.
+
+## Submission Format
+
+For your write-up, you can use plain ASCII but for math equations
+and tables it is better to use either
+[latex](http://www.latex-project.org/) or
+[kramdown](https://github.com/gettalong/kramdown).  Do __not__ use
+any proprietary or binary file formats such as Microsoft Word.
+
+If you use latex then use the style files from the [Submission Format section of this page](https://transacl.org/ojs/index.php/tacl/about/submissions).
+
+To get a PDF file you should run the following commands (which assume you have installed LaTeX on your system):
+
+    pdflatex project
+    bibtex project
+    pdflatex project
+    pdflatex project
+
+You can then open `project.pdf` using any PDF viewer. Please submit
+the LaTeX source and the PDF file along with your source code when
+you submit your project to Coursys.
+
+## Grading system
+
+The final projects will be graded using the following criteria:
+
+* Originality 
+* Substance (amount of work done for the project)
+* Well documented use of prior results from research papers
+* Clarity of the writing
+* Quality of experimental design
+* Quality of evaluation and results
+* (Re)Use of existing homework code
+* Overall score (based on the above criteria)
+
+## Examples
+
+Here is [one example of a good project submission](http://anoopsarkar.github.io/papers/pdf/sighan08.pdf). 
+You can take inspiration for how to write a polished report from this
+examples but make sure you have the sections required by the Write-up section above.
 
 #### Acknowledgements
 
