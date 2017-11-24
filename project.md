@@ -191,7 +191,7 @@ Then upload the file `output` to the leaderboard for the Project on
 
 If you have any questions or you're confused about anything, just ask.
 
-### Write-up
+## Write-up
 
 Your write-up is the most important part of your project. It **must** have the following sections:
 
@@ -212,7 +212,7 @@ Your write-up is the most important part of your project. It **must** have the f
 * Future Work
     * What could be fixed in your approach. What you did not have time to finish, but you think would be a useful addition to your project.
 
-## Submission Format
+### Submission Format
 
 For your write-up, you can use plain ASCII but for math equations
 and tables it is better to use either
@@ -233,7 +233,7 @@ You can then open `project.pdf` using any PDF viewer. Please submit
 the LaTeX source and the PDF file along with your source code when
 you submit your project to Coursys.
 
-## Grading system
+### Grading system for the write-up
 
 The final projects will be graded using the following criteria:
 
@@ -246,7 +246,7 @@ The final projects will be graded using the following criteria:
 * (Re)Use of existing homework code
 * Overall score (based on the above criteria)
 
-## Examples
+### Examples
 
 Here is [one example of a good project submission](http://anoopsarkar.github.io/papers/pdf/sighan08.pdf). 
 You can take inspiration for how to write a polished report from this
