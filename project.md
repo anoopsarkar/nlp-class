@@ -193,7 +193,7 @@ If you have any questions or you're confused about anything, just ask.
 
 ## Write-up
 
-Your write-up is the most important part of your project. It **must** have the following sections:
+In addition to performing well on the leaderboard, your write-up is also a very important parts of your project submission. It **must** have the following sections:
 
 * Motivation 
     * Which aspect of the translation system did your group choose to improve and reasons for your choice.
