@@ -11,8 +11,8 @@ if len(sys.argv) > 1:
 else:
     for line in sys.stdin:
         inp = line.strip()
-print grammar.start()
-print grammar.productions()
+print >>sys.stderr, "Start:", grammar.start()
+print >>sys.stderr, "Productions:", grammar.productions()
 parser = nltk.ChartParser(grammar)
 for tree in parser.parse(inp.split()):
     print(tree)

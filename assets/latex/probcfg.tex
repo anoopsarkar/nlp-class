@@ -1,33 +1,21 @@
-\documentclass[handout]{beamer}
-\setbeamertemplate{footline}[frame number]
-
-%\AtBeginDocument{%
-%  \pdfpageheight = \paperheight
-%  \pdfpagewidth = \paperwidth
-%}
-
-\usepackage{txfonts}
-\usepackage{tree-dvips}
-\usepackage{color}
-\usepackage{latexsym}
-\usepackage{graphicx}
+\input{beamerpreamble.tex}
 \ifx\pdfoutput\undefined
-  \usepackage{graphicx}
+%  \usepackage{graphicx}
 \else
-  %\usepackage[pdftex]{graphicx}
+%  \usepackage[pdftex]{graphicx}
   \DeclareGraphicsRule{*}{mps}{*}{}
 \fi
 %\usepackage{cgloss4e,gb4e}
+%\usepackage{qtree}
+%\usepackage{tree-dvips}
 
 \raggedright
 
 \definecolor{bgblue}{rgb}{0.04,0.39,0.53}
-
 \newcommand{\argmax}[1]{\begin{array}{c}\mbox{arg max}\\#1\end{array}}
 
 \begin{document}
-
-\input{titlepage.in}
+\input{titlepage.tex}
 
 \begin{frame}[fragile]
 \frametitle{Probabilistic CFG (PCFG)}
