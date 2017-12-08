@@ -196,7 +196,7 @@ If you have any questions or you're confused about anything, just ask.
 In addition to performing well on the leaderboard, your write-up is also a very important parts of your project submission. It **must** have the following sections:
 
 * Motivation 
-    * Which aspect of the translation system did your group choose to improve and reasons for your choice.
+    * Which aspect of the problem / task did your group choose to improve and reasons for your choice.
 * Approach 
     * Describe the algorithms and machine learning models used in your project. Use a clear mathematical style to explain your model(s).
 * Data 
@@ -218,7 +218,11 @@ For your write-up, you can use plain ASCII but for math equations
 and tables it is better to use either
 [latex](http://www.latex-project.org/) or
 [kramdown](https://github.com/gettalong/kramdown).  Do __not__ use
-any proprietary or binary file formats such as Microsoft Word.
+any proprietary or binary file formats such as Microsoft Word unless you use
+the template from the following page on Submission Formats. If you
+do use Word or any other proprietary format then you must submit
+the PDF file of your report as `report.pdf` in your `source.zip`
+submission.
 
 If you use latex then use the style files from the [Submission Format section of this page](https://transacl.org/ojs/index.php/tacl/about/submissions).
 
