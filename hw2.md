@@ -10,7 +10,8 @@ active_tab: homework
 Phrasal Chunking <span class="text-muted">Homework 2</span>
 =============================================================
 
-<p class="text-muted">Due on Tuesday, October 20, 2017</p>
+<span class="text-info">Start by {{ site.hwdates[2].startdate }} or earlier</span> |
+<span class="text-warning">Due on {{ site.hwdates[2].deadline }}</span>
 
 The syntax of a natural language, similar to the syntax of a programming language involves
 the arrangement of tokens into meaningful groups. Phrasal chunking is the task of finding 

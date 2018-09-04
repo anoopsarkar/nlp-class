@@ -10,7 +10,8 @@ active_tab: homework
 Word Segmentation <span class="text-muted">Homework 1</span>
 =============================================================
 
-<p class="text-muted">Due on October 6, 2017</p>
+<span class="text-info">Start by {{ site.hwdates[1].startdate }} or earlier</span> |
+<span class="text-warning">Due on {{ site.hwdates[1].deadline }}</span>
 
 Word segmentation is the task of restoring missing word
 boundaries. For example, in some cases word boundaries

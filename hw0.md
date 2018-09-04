@@ -10,7 +10,8 @@ active_tab: homework
 Homework & Leaderboard setup
 =============================================================
 
-<p class="text-muted">Due on September 22, 2017</p>
+<span class="text-info">Start by {{ site.hwdates[0].startdate }} or earlier</span> |
+<span class="text-warning">Due on {{ site.hwdates[0].deadline }}</span>
 
 For this course, we use [an automated homework submission
 system](http://sfu-nlp-class.appspot.com) built on [Google App

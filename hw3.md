@@ -10,7 +10,8 @@ active_tab: homework
 Word Alignment <span class="text-muted">Homework 3</span>
 =============================================================
 
-<p class="text-muted">Due on Friday, November 10, 2017</p>
+<span class="text-info">Start by {{ site.hwdates[3].startdate }} or earlier</span> |
+<span class="text-warning">Due on {{ site.hwdates[3].deadline }}</span>
 
 Word alignment is a key task in building a machine translation system.
 We start with a large corpus of aligned sentences called a parallel

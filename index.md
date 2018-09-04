@@ -7,7 +7,7 @@ title: Course Information
 active_tab: main_page 
 ---
 
-## Natural Language Processing <span class="text-muted">Fall 2017</span>
+## Natural Language Processing <span class="text-muted">Fall 2018</span>
 
 Imagine a world where you can pick up a phone and talk in English,
 while at the other end of the line your words are [spoken in
@@ -30,33 +30,38 @@ languages where the structure and meaning of programs is easy to
 encode, human languages provide an interesting challenge, both in
 terms of its analysis and the learning of language from observations.
 
-Instructor
-: [Anoop Sarkar](http://www.cs.sfu.ca/~anoop/) 
-: Office Hours: Wednesday 9:30am-10:30am TASC1 9427
+#### Instructor
+* [Anoop Sarkar](http://www.cs.sfu.ca/~anoop/) 
 
-Teaching Assistants
-: Anahita Mansour `amansour`
-: Xiangbo Mao `xiangbom`
-: Ask for help on [the discussion board]({{ site.coursys }}/discussion)
-: Office Hours: Fridays 9:30am-11:30am TASC1 9408
+#### Teaching Assistants
+<ul>
+{% for ta in site.tas %}
+<li>{{ ta.name }}, <code>{{ ta.email }}</code></li>
+{% endfor %}
+</ul>
 
-Discussion Board
-: [on Coursys]({{ site.coursys }}/discussion)
+#### Asking for help
+* Ask for help on [the discussion board]({{ site.coursys }}/discussion)
+* Instructor office hours: TBA
+* TA office hours: TBD
+* <b>No emails</b> to the TAs and strictly emails about personal matters to the instructor
+* Use only SFU email address and use `cmpt413:` or `cmpt825:` (for ugrad and grad respectively) as subject prefix
 
-Time and place
-: Fridays 1:30-4:20, [Shrum Science Centre B-9201](http://www.sfu.ca/fs/Campus-Facility-Profiles/Building_Information/Shrum_Centre_Biology.html)
+#### Time and place
+* Tue 4:30-5:20 [WMC 3520](https://www.sfu.ca/fs/campus-maps/directory-of-buildings/west-mall-centre.html) 
+* Thu 3:30-5:20 [WMC 3520](https://www.sfu.ca/fs/campus-maps/directory-of-buildings/west-mall-centre.html)
+* Last day of classes: {{ site.lastday }}
 
-Calendar
-: [Subscribe](https://courses.cs.sfu.ca/calendar/0261d2fe6030dc6570c3073ca9dd1a93/anoop)
+#### Calendar
+* [Subscribe]({{ site.calendar }})
 
-Textbook
-: No required textbook. Online readings provided in Syllabus.
+#### Textbook
+* No required textbook. Online readings provided in Syllabus.
 
-Grading
-: Submit homework source code and check your grades on [Coursys]({{ site.coursys }})
-
+#### Grading
+* Submit homework source code and check your grades on [Coursys]({{ site.coursys }})
 * Programming setup homework: HW0 due on Sep 22 (2%)
 * Four programming homeworks. Due dates: HW1 on Oct 6, HW2 on Oct 20, HW3 on Nov 10, HW4 on Nov 24 (12% each)
-* In class midterm: Nov 3 at 1:30pm (90mins; 20%)
-* Final project: Due on Dec 8. (30%)
+* In class midterm: {{ site.midterm }} at 1:30pm (90mins; 20%)
+* Final project: Due on {{ site.hwdates[5].deadline }} (30%)
 

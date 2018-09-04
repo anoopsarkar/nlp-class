@@ -10,7 +10,8 @@ active_tab: project
 Final Project
 -------------
 
-<p class="text-muted">Due on Friday, December 8, 2017 (no grace days)</p>
+<span class="text-info">Start by {{ site.hwdates[5].startdate }} or earlier</span> |
+<span class="text-warning">Due on {{ site.hwdates[5].deadline }}</span>
 
 Automatic evaluation is a key problem in machine translation. Suppose that we have two
 machine translation systems. On one sentence, system A outputs:
