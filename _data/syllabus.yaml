@@ -1,7 +1,7 @@
 - title: "Course Introduction"
   tag: intro
   include: true
-  current: false
+  current: true
   notes:
     - title: "Course introduction"
       url: "assets/slides/introduction.pdf"
@@ -257,7 +257,7 @@
 - title: "Translation Evaluation"
   tag: mteval
   include: true
-  current: true
+  current: false
   notes:
     - author: Philipp Koehn
       title: "Evaluation"
@@ -284,7 +284,7 @@
 - title: Context-free Grammars
   tag: cfg
   include: true
-  current: true
+  current: false
   notes:
     - title: "Ambiguity and Context free grammars"
       url: "assets/slides/ambiguity.pdf"
