@@ -5,8 +5,6 @@
   notes:
     - title: "Course introduction"
       url: "assets/slides/introduction.pdf"
-    - title: "In class exercise: Linear Combinations"
-      url: "assets/notes/linearb.html"
   links:
     - author: Lillian Lee
       title: "I'm sorry Dave, I'm afraid I can't do that."
@@ -34,8 +32,8 @@
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb"
     - title: "Probability models and language"
       url: "assets/slides/prob.pdf"
-    - title: "In class exercise: Babylonian numbers"
-      url: "assets/notes/babylonian-numbers.html"
+    - title: "In class exercise: Linear Combinations"
+      url: "assets/notes/linearb.html"
     - title: "Homework 0"
       url: "hw0.html"
   links:
