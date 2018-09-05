@@ -68,31 +68,6 @@ active_tab: faq
 * **Warning**: if you are missing a `README.username` file in your group source submission then that `username` might get zero marks.
 * Use `git` for version control and effective collaboration. See the section below on setting up `git` for this course.
 
-### Programming
-    
-* Setup a source code version control system. The most convenient version control system is `git` and setup instructions are given below.
-* We will be using the Python-based <a href="http://nltk.org/">NLTK: Natural Language Toolkit</a> and Python 2.7.x for programming.
-* The easiest way to install Python with NLTK on your machine is to download [Anaconda Python distribution](https://store.continuum.io/cshop/anaconda/)
-* It is expected that your program will compile and run using the standard runtime environment on the Linux CSIL lab machines. If you are developing on a Linux, Apple or Microsoft operating system at home, you have to ensure that the code will run on the CSIL machines before you submit the assignment. Please either visit the CSIL lab machines or you can use `ssh` to login to the CSIL Linux machines and also use `scp` to copy over and test your programs on the CSIL Linux machines before you submit them. Check the [CSIL Layout Map](http://www.cs.sfu.ca/content/dam/sfu/computing/csil/csil_layout_burnaby.pdf) for the machine names.
-* [Remote access to CSIL](http://www.sfu.ca/computing/about/support/csil/unix/how-to-use-csil-linux-cpu-server.html) is allowed.
-* CSIL computers accept SSH connections on port 24 (rather than the usual port 22). They can only be accessed from within the SFU network. If you are outside it, you need to go through a directly accessable computer, most likely fraser.sfu.ca. Here are some examples using the usual command line `ssh` and `scp` (from OpenSSH). Below $ is the command line shell on your home computer running Linux/MacosX/Cygwin. What follows is a recipe that will connect you remotely to a CSIL Linux machine: <script src="https://gist.github.com/4486532.js"></script> 
-* If your local machine (e.g your laptop) has a different username from your SFU username (your username can be found by examining your SFU email address: username`sfu.ca), then prefix the SFU username to the ssh or scp command. `ssh (username)@fraser.sfu.ca`.
-* You may want to refer to a quick Unix tutorial. There are several on the web. The following one covers most of what you need to use the Linux shell effectively: [Quick Unix Tutorial](http://unlser1.unl.csi.cuny.edu/tutorials/QuickUnixTutorial.html).
-*  On some CSIL Linux machines, in some rare cases, you might have to extend your CPU time limit for a process. If you are using tcsh then run the command "limit cputime 1800" to extend CPU time to 1800 secs or 30 mins. If you are using bash then use the command "ulimit -t 1800".
-
-#### Using the computer from the command line shell
-
-In the instructions that follow, you will operate the computer using
-the text-based command-line interface, known as the "shell". Start
-off by reading [the CSIL guide to Linux](http://www.sfu.ca/computing/about/support/csil/unix.html){:target="_blank"}
-
-Are you confident you know how to use the shell? Do [the shell challenge](shell_fu.txt)
-to prove to yourself that you really know how to use the command shell.
-
-Stop! We know that students skip over links! If you are
-new to Linux, you really need to read up on some basics.
-Read [the CSIL guide to Linux](http://www.sfu.ca/computing/about/support/csil/unix.html){:target="_blank"} now!
-
 ### Setup your git repo
 
 #### Git Basics
@@ -174,32 +149,6 @@ Then go to [this page](https://csil-git1.cs.surrey.sfu.ca/profile): [csil-git1.c
 Use the web browser to paste command to **paste** your public key into the `Key`
 box and give it a `Title` (e.g. use the default name provided) and then `Add key`.
 
-#### Logging in to CSIL
-
-It's time to get yourself set up in the CSIL Lab.
-
-CSIL is open starting the second week
-of the semester, 24 hours a day, 7 days a week. All your CMPT 127
-lab sessions are in CSIL. Log in to the **Linux** machines.  Use
-the same username and password as before.
-
-The machines in these rooms have Linux and Windows installed. If
-you a machine running Windows, simply restart the machine and select
-Linux when prompted.
-
-Once logged into Linux, you should see a familiar desktop interface.
-In order to manipulate most of your work, you will need a terminal
-window which runs the "shell".
-
-Click the launcher in the upper-left corner of the desktop interface
-and start the "Terminal Emulator" application, or Terminal for short.
-It should be under the Accessories submenu.  If you can't find it,
-then try searching for `Terminal` in the search box.
-
-The Terminal will allow you to type commands to manipulate, run and
-test programs in your labs.  But there will be no programming in this lab.
-In this lab you are going to use Git.
-
 #### Git clone (command line)
 
 It's time for you to download a copy of your repo to your CSIL
@@ -235,10 +184,57 @@ your local machone. It still exists on the server. Once you have a
 local clone, you can modify it and then inform the Git server about
 the changes you made. Let's do that next.
 
-Just a heads up about the directory `$HOME/sfuhome` on CSIL machines. 
-You can clone inside your `$HOME` directory. You should not work inside your
-`$HOME/sfuhome` directory.
+### CSIL
     
+* [Remote access to CSIL](http://www.sfu.ca/computing/about/support/csil/unix/how-to-use-csil-linux-cpu-server.html) is allowed.
+* CSIL computers accept SSH connections on port 24 (rather than the usual port 22). They can only be accessed from within the SFU network. If you are outside it, you need to go through a directly accessable computer, most likely fraser.sfu.ca. Here are some examples using the usual command line `ssh` and `scp` (from OpenSSH). Below $ is the command line shell on your home computer running Linux/MacosX/Cygwin. What follows is a recipe that will connect you remotely to a CSIL Linux machine: <script src="https://gist.github.com/4486532.js"></script> 
+* If your local machine (e.g your laptop) has a different username from your SFU username (your username can be found by examining your SFU email address: username`sfu.ca), then prefix the SFU username to the ssh or scp command. `ssh (username)@fraser.sfu.ca`.
+* You may want to refer to a quick Unix tutorial. There are several on the web. The following one covers most of what you need to use the Linux shell effectively: [Quick Unix Tutorial](http://unlser1.unl.csi.cuny.edu/tutorials/QuickUnixTutorial.html).
+*  On some CSIL Linux machines, in some rare cases, you might have to extend your CPU time limit for a process. If you are using tcsh then run the command "limit cputime 1800" to extend CPU time to 1800 secs or 30 mins. If you are using bash then use the command "ulimit -t 1800".
+
+#### Using the computer from the command line shell
+
+In the instructions that follow, you will operate the computer using
+the text-based command-line interface, known as the "shell". Start
+off by reading [the CSIL guide to Linux](http://www.sfu.ca/computing/about/support/csil/unix.html){:target="_blank"}
+
+Are you confident you know how to use the shell? Do [the shell challenge](shell_fu.txt)
+to prove to yourself that you really know how to use the command shell.
+
+Stop! We know that students skip over links! If you are
+new to Linux, you really need to read up on some basics.
+Read [the CSIL guide to Linux](http://www.sfu.ca/computing/about/support/csil/unix.html){:target="_blank"} now!
+
+#### Logging in to CSIL
+
+It's time to get yourself set up in the CSIL Lab.
+
+CSIL is open starting the second week
+of the semester, 24 hours a day, 7 days a week. All your CMPT 127
+lab sessions are in CSIL. Log in to the **Linux** machines.  Use
+the same username and password as before.
+
+The machines in these rooms have Linux and Windows installed. If
+you a machine running Windows, simply restart the machine and select
+Linux when prompted.
+
+Once logged into Linux, you should see a familiar desktop interface.
+In order to manipulate most of your work, you will need a terminal
+window which runs the "shell".
+
+Click the launcher in the upper-left corner of the desktop interface
+and start the "Terminal Emulator" application, or Terminal for short.
+It should be under the Accessories submenu.  If you can't find it,
+then try searching for `Terminal` in the search box.
+
+The Terminal will allow you to type commands to manipulate, run and
+test programs in your labs.  But there will be no programming in this lab.
+In this lab you are going to use Git.
+
+Just a heads up about the directory `$HOME/sfuhome` on CSIL machines. 
+You should clone your repo inside your `$HOME` directory. You should not work inside your
+`$HOME/sfuhome` directory.
+
 ### Exams
     
 *  If you must miss an exam because of a medical problem, you should make an attempt to contact me prior to the exam either by email or a message in my mailbox. 
