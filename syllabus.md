@@ -9,6 +9,8 @@ active_tab: syllabus
 
 ## Syllabus
 
+The syllabus is preliminary and subject to change.
+
 <style type="text/css">
     .bs-example{
         margin: 20px;

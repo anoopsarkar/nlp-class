@@ -62,6 +62,6 @@ terms of its analysis and the learning of language from observations.
 * Submit homework source code and check your grades on [Coursys]({{ site.coursys }})
 * Programming setup homework: HW0 due on {{ site.hwdates[0].deadline }} (2%)
 * Four programming homeworks. Due dates: HW1 on {{ site.hwdates[1].deadline }}, HW2 on {{ site.hwdates[2].deadline }}, HW3 on {{ site.hwdates[3].deadline }}, HW4 on {{ site.hwdates[4].deadline }} (12% each)
-* In class midterm: {{ site.midterm }} at 1:30pm (90mins; 20%)
+* In class midterm: {{ site.midterm }} (20%)
 * Final project: Due on {{ site.hwdates[5].deadline }} (30%)
 
