@@ -42,7 +42,7 @@ terms of its analysis and the learning of language from observations.
 
 #### Asking for help
 * Ask for help on [the discussion board]({{ site.coursys }}/discussion)
-* Instructor office hours: TBA
+* Instructor office hours: Thu 11-12 TASC1 9427
 * TA office hours: TBD
 * <b>No emails</b> to the TAs and strictly emails about personal matters to the instructor
 * Use only SFU email address and use `cmpt413:` or `cmpt825:` (for ugrad and grad respectively) as subject prefix
