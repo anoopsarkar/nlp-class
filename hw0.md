@@ -164,6 +164,17 @@ and then `git push` to send your new directory and file to the
 GitLab server. Open up GitLab on a web browser to check that you
 can see `hw0/README.md` in your repository on the web browser.
 
+Add a `.gitignore` file at the top level of your git repository
+to avoid committing and pushing useless files to the GitLab
+server. Here is a typical `.gitignore` file for Jupyter notebook
+projects:
+
+    venv
+    __pycache__
+    .DS_Store
+    *.egg-info
+    .ipynb_checkpoints
+
 ### Python 3 Notebooks
 
 We will be using Python 3 notebooks for the homework submissions.
