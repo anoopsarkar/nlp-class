@@ -52,137 +52,21 @@ active_tab: faq
 * Check your scores on the leaderboard and check that your group appears only once in the leaderboard.
 * All homeworks are due by 11:59PM on the homework due date.
 * Each homework comes with 2 grace days. However the grace days only apply to those who have a valid submission on the due date (a submission that scores -1 or -inf is invalid). For example, if your homework deadline is Tuesday 11:59PM and you submit a valid solution then you have until Thursday night 11:59PM to modify your homework submission.
-* We will make every attempt to release grades for each homework the day after it is due. However, this means that after we review the source code we might have to lower your official grade. If you cheated in some way, such as copying your submission or you have violated the ground rules for each homework, your grades will be decreased from the initial value.
+* We will make every attempt to release grades for each homework the week it is due. However, this means that after we review the source code we might have to lower your official grade. If you cheated in some way, such as copying your submission or you have violated the ground rules for each homework, your grades will be decreased from the initial value.
 
 ### Groups
     
-* The homework assignments will be solved in groups. Maximum group size is four. All groups must be formed before Homework 0 is due.
+* The homework assignments will be solved in groups. Groups are typically 3 to 5 people. All groups must be formed before Homework 0 is due.
 * You are allowed to leave a group and form a group of size one at the start of each homework but not at the end.
 * Each group will create a single submission and upload it before the due date.
-* Each group member will be graded on their self report and any commit logs that are submitted. If the TA or the instructor perceives there is a problem with collaboration in a group, certain group members can get zero marks. If you are pair programming, take turns in switching the user doing the commits to the svn repository.
+* Each group member will be graded on their self report and any commit logs that are submitted. If the TA or the instructor perceives there is a problem with collaboration in a group, certain group members can get zero marks. If you are pair programming, take turns in switching the user doing the commits to the repository.
 * __Effective group collaboration__: We are looking to see effective collaboration to solve the homework assignment. People can play different roles and sometimes more than one role in the same homework:
-    * Designer: creates a plan for implementation and coordinates activities of the group. Should create design docs (text files or markdown or equivalent only). Put these documents in the directory `answer/docs` and mention the files in your `README.username` file (where `username` is your SFU login username).
-    * Code reviews: write a critical view of the implementation by the group. Points out what is missing, inelegant code, etc. and produces a code review document (text files or markdown or equivalent only). Put these documents in the directory `answer/docs` and mention the files in your `README.username` file.
+    * Designer: creates a plan for implementation and coordinates activities of the group. Should create design docs (text files or markdown or equivalent only). Put these documents in the directory `docs` and mention the files in your `README.username` file (where `username` is your SFU login username).
+    * Code reviews: write a critical view of the implementation by the group. Points out what is missing, inelegant code, etc. and produces a code review document (text files or markdown or equivalent only). Put these documents in the directory `docs` and mention the files in your `README.username` file.
     * Development: write the code. This can be done in collaboration. 
     * Testcases: write testcases to stress test the code. Provide the testcases in your submission.
 * **Warning**: if you are missing a `README.username` file in your group source submission then that `username` might get zero marks.
 * Use `git` for version control and effective collaboration. See the section below on setting up `git` for this course.
-
-### Setup your git repo
-
-#### Git Basics
-
-We never write code all at once, and entirely correctly the first
-time. We usually write some code, save it somewhere safe, then come
-back to it and modify it until we are done with our task.  More
-importantly, we need to track our changes so that we can experiment
-with what works and what doesn't. In order to help us do these steps
-we use a source code version control system (or VCS, for short).
-The source code are our programs and version control lets us manage
-all the changes we have made to our code.
-
-Throughout this course, your programs will be managed and archived
-using [Git](https://git-scm.com). The basic idea is as follows:
-
-* Every student gets a private storage area called a repository on the SFU server machines, or "repo" for short.
-* Your code is stored in your repo. Every time you make a change to your code, you *commit* a new *revision* of your code to the repo for permanent storage. All revisions you ever commit are kept, and you can retrieve any committed revision any time. This means you have a combined backup and means to undo any changes you ever make. This is how software engineers manage their code projects.
-
-#### Creating a repo
-
-Go to [the SFU Gitlab server](http://gitlab.cs.sfu.ca){:target="_blank"} 
-which is on the web at 
-[gitlab.cs.sfu.ca](http://gitlab.cs.sfu.ca){:target="_blank"}.
-Log in with your SFU username and password, the same one you use to check your
-e-mail on SFU Connect.
-
-Once logged in, you will see a list of your existing repos. You probably have none right
-now, so let's create one for CMPT413 or CMPT825 by clicking the `New Project`
-button at the top right of the page.
-
-On the `New Project` page, give your repo a name to the right of
-the `Project name` field. Name your repo either: `nlpclass-{{site.semcode}}-groupname`
-or `nlpclass-{{site.semcode}}-groupname` where `groupname` is your group name.
-
-It's important to name the repo exactly as you see here. Leave all
-other settings as they are and click the `Create Project`
-button at the bottom left of the page. 
-
-Make sure you do not change the default setting of
-`Private`. Your repo must be visible only to yourself.
-In other words, no other student can access it by default.
-**You must not give access to your repo to any other students - plagiarism is a serious
-academic offense, which applies as much to code as it
-does to essays and exams.** 
-
-Your repo has now been created. You will be taken to a web page for
-your newly created repo.
-
-The course instructor needs access to your repo in order to test
-and  grade your code. Add the instructor as a member of your
-repo by clicking on the Settings menu which looks like a gear icon <i class="fa fa-gear"></i>
-and selecting `Members` from the dropdown menu. On the page that loads up
-type in `{{site.instructor}}` in the `Add new user` box and then change the role permissions from
-`Guest` to `Developer` in the dropdown menu. Click on `Add to Project` to add
-the instructor to your gitlab repo. Do the same steps to add the TA usernames as a developer 
-to your gitlab repo. The TA usernames are given on [the main page](index.html).
-
-Set up the Secure Shell (ssh) keys so you can access
-your repo without a password. First follow [the instructions on
-setting up your SSH key pair](https://csil-git1.cs.surrey.sfu.ca/help/ssh/README)
-available at [csil-git1.cs.surrey.sfu.ca/help/ssh/README](https://csil-git1.cs.surrey.sfu.ca/help/ssh/README)
-
-Now we have to copy your public key to the GitLab server.
-
-**The [instructions](https://csil-git1.cs.surrey.sfu.ca/help/ssh/README) ask
-you to use `xclip` which may not be installed on the CSIL machines. If you cannot use `xclip` then use the
-following steps to set up your ssh key.**
-
-If you have set up your SSH key correctly then you will have a public key. View it
-
-    cat ~/.ssh/id_rsa.pub
-
-This will show you the public key. Use the `Terminal` copy command to **copy**
-this into your clipboard. 
-
-Then go to [this page](https://csil-git1.cs.surrey.sfu.ca/profile): [csil-git1.cs.surrey.sfu.ca/profile](https://csil-git1.cs.surrey.sfu.ca/profile)
-
-Use the web browser to paste command to **paste** your public key into the `Key`
-box and give it a `Title` (e.g. use the default name provided) and then `Add key`.
-
-#### Git clone (command line)
-
-It's time for you to download a copy of your repo to your CSIL
-machine.  The action of making a local copy of your online repo is
-known as a "clone".
-
-In the terminal window, enter the commands
-
-    git config --global user.name your-username 
-    git config --global user.email your-username@sfu.ca
-    cd $HOME
-    git clone git@csil-git1.cs.surrey.sfu.ca:your-username/nlpclass-{{site.semcode}}-groupname.git
-
-Substitute your SFU `username` and `groupname` above.
-
-If you did skipped any of the above steps in setting up your GitLab repo this command will not work.
-The system might prompt you for a username/password combo.  Supply the usual
-answers. To avoid entering your username/password over and over again you can
-set up [passwordless ssh](http://www.linuxproblem.org/art_9.html).
-
-Your repo will be cloned into a new directory (also known as a folder).
-
-If you enter the command 
-
-    ls
-
-it should give you a *directory listing*, a list of all
-files and subdirectories.  If you see your repo directory
-you've managed a successful clone. If not, ask for help from the TAs.
-
-The clone command downloads a copy of the entire repo into
-your local machone. It still exists on the server. Once you have a
-local clone, you can modify it and then inform the Git server about
-the changes you made. Let's do that next.
 
 ### CSIL
     
@@ -237,10 +121,9 @@ You should clone your repo inside your `$HOME` directory. You should not work in
 
 ### Exams
     
-*  If you must miss an exam because of a medical problem, you should make an attempt to contact me prior to the exam either by email or a message in my mailbox. 
+* If you must miss an exam because of a medical problem, you should make every attempt to contact me prior to the exam either by email or a message in my mailbox. 
 * To request an extension of the due date due to a medical problem, you must submit the <a href="http://students.sfu.ca/forms.html">offical SFU Health Care Provider statement</a>. 
-* If you miss an exam due to valid medical reasons you will be graded on your performance on the rest of the course. 
-* Make up exams will not be given under any circumstances. 
+* If you miss an exam due to valid medical reasons you may have to take a make-up exam or you may be graded on your performance on the rest of the course. 
     
 ### Academic Honesty 
  
@@ -291,9 +174,10 @@ If you're concerned about your mark at the end of the course, you can see the in
     * I think I deserve it. 
     * I need it. 
     * I'm close to the next grade cutoff. 
+    * I will be kicked out of the university if I do not pass.
 * This is a good reason:
     * There's a marking irregularity on my final or some other piece of work. 
-*  The marking scheme is fixed.  If you did badly on a midterm, you can't weight the final more heavily. 
+*  The marking scheme is fixed.  If you did badly on a midterm, you can't weight the final mark more heavily. 
  
 ### Disclaimers about this web page
   
