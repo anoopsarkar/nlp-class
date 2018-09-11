@@ -166,8 +166,7 @@ can see `hw0/README.md` in your repository on the web browser.
 
 Add a `.gitignore` file at the top level of your git repository
 to avoid committing and pushing useless files to the GitLab
-server. Here is a typical `.gitignore` file for Jupyter notebook
-projects:
+server. Here is a typical `.gitignore` file.
 
     venv
     __pycache__
