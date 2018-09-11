@@ -1,7 +1,7 @@
 - title: "Course Introduction"
   tag: intro
   include: true
-  current: true
+  current: false
   notes:
     - title: "Course introduction"
       url: "assets/slides/introduction.pdf"
@@ -22,6 +22,22 @@
       title: "NLP and Text Visualization"
       url: "assets/slides/wikihistory.pdf"
       optional: true
+- title: Context-free Grammars
+  tag: cfg
+  include: true
+  current: true
+  notes:
+    - title: "Ambiguity and Context free grammars"
+      url: "assets/slides/ambiguity.pdf"
+  links:
+    - author: Michael Collins
+      title: "Probabilistic Context-free Grammars"
+      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/pcfgs.pdf"
+      download: "assets/mcollins-notes/pcfgs.pdf"
+    - author: Michael Collins
+      title: "Lexicalized Context-free Grammars"
+      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lexpcfgs.pdf"
+      download: "assets/mcollins-notes/lexpcfgs.pdf"
 - title: "Probability models and language"
   tag: probintro
   include: true
@@ -279,21 +295,3 @@
       title: "Computing edit distance (part two)"
       video: "http://youtu.be/E606vHFGTvA"
       url: "http://youtu.be/E606vHFGTvA"
-- title: Context-free Grammars
-  tag: cfg
-  include: true
-  current: false
-  notes:
-    - title: "Ambiguity and Context free grammars"
-      url: "assets/slides/ambiguity.pdf"
-    - title: "In class exercise: Competitive grammar writing"
-      url: "cgw.html"
-  links:
-    - author: Michael Collins
-      title: "Probabilistic Context-free Grammars"
-      url: "http://www.cs.columbia.edu/~mcollins/pcfgs.pdf"
-      download: "assets/mcollins-notes/pcfgs.pdf"
-    - author: Jason Eisner and Noah A. Smith
-      title: "Competitive grammar writing"
-      url: "http://aclweb.org/anthology/W/W08/W08-0212.pdf"
-      optional: true
