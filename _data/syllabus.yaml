@@ -27,10 +27,10 @@
   include: true
   current: true
   notes:
+    - title: "Homework 0 release"
+      url: "hw0.html"
     - title: "Ambiguity and Context free grammars"
       url: "assets/slides/ambiguity.pdf"
-    - title: "Homework 0"
-      url: "hw0.html"
     - title: "In-class exercise on CFGs"
       url: "assets/handouts/cfgquiz.pdf"
   links:
