@@ -29,6 +29,10 @@
   notes:
     - title: "Ambiguity and Context free grammars"
       url: "assets/slides/ambiguity.pdf"
+    - title: "Homework 0"
+      url: "hw0.html"
+    - title: "In-class exercise on CFGs"
+      url: "assets/handouts/cfgquiz.pdf"
   links:
     - author: Michael Collins
       title: "Probabilistic Context-free Grammars"
@@ -38,9 +42,25 @@
       title: "Lexicalized Context-free Grammars"
       url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lexpcfgs.pdf"
       download: "assets/mcollins-notes/lexpcfgs.pdf"
+    - title: "Exercise: Grammar Rules!"
+      author: "Andrea Schalley and Patrick Littell"
+      url: "http://nacloweb.org/resources/problems/2013/N2013-F.pdf"
+      optional: true
+    - title: "Exercise: Twodee"
+      author: "Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2013/N2013-H.pdf"
+      optional: true
+    - title: "Exercise: One, Two, Tree"
+      author: "Noah Smith, Kevin Gimpel, and Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2012/N2012-R.pdf"
+      optional: true
+    - title: "Exercise: OrwellSpeak"
+      author: "Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2009/N2009-M.pdf"
+      optional: true
 - title: "Probability models and language"
   tag: probintro
-  include: true
+  include: false
   current: false
   notes:
     - title: "Probability Models for NLP"
@@ -70,7 +90,7 @@
       optional: true
 - title: "Language models"
   tag: lm
-  include: true
+  include: false
   current: false
   notes:
     - title: "Language models"
@@ -97,7 +117,7 @@
       optional: true
 - title: "Neural Language models"
   tag: nlm
-  include: true
+  include: false
   current: false
   notes:
     - title: "Neural Language models"
@@ -120,7 +140,7 @@
       url: "http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf"
 - title: "Linear models"
   tag: linearmodels
-  include: true
+  include: false
   current: false
   notes:
     - title: "Linear models"
@@ -146,7 +166,7 @@
       url: "http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
 - title: "Hidden Markov Models"
   tag: hmm
-  include: true
+  include: false
   current: false
   notes:
     - title: "Hidden Markov Models"
@@ -195,7 +215,7 @@
       optional: true
 - title: "Statistical Machine Translation"
   tag: smt
-  include: true
+  include: false
   current: false 
   notes:
     - title: "Introduction to Machine Translation"
@@ -215,7 +235,7 @@
       optional: true
 - title: Word Alignment
   tag: align
-  include: true
+  include: false
   current: false 
   notes:
     - title: "Word Alignment"
@@ -233,7 +253,7 @@
       optional: true
 - title: "Phrase based translation"
   tag: pbmt
-  include: true
+  include: false
   current: false
   notes:
     - author: Philipp Koehn
@@ -270,7 +290,7 @@
       url: "http://www.aclweb.org/anthology/D11-1125"
 - title: "Translation Evaluation"
   tag: mteval
-  include: true
+  include: false
   current: false
   notes:
     - author: Philipp Koehn
