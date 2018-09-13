@@ -5,7 +5,7 @@
 \usepackage{mygb4e}
 \usepackage{solution}
 
-\hidesolutions
+%\hidesolutions
 \setlength\oddsidemargin{0.01in}
 \setlength\topmargin{-1in}
 \setlength\textwidth{6.9in}
@@ -151,44 +151,6 @@ to the tree constructed using the rightmost derivation
 \end{xlist}
 
 \bigskip
-\ex\label{derivs} Consider the family of CFGs $G_k$ with $S$ as the start symbol and $k$ is some arbitrary non-zero positive integer such that $G_1, G_2, G_3, \ldots$ are individual CFGs with the rules:
-\begin{eqnarray*}
-\cfgrule{S}{A\ B} \\
-\cfgrule{B}{C\ A\ A} \\
-\cfgrule{C}{c} \\
-\cfgrule{A}{a_i \textrm{\ \ \ defines $i$ rules, where $i \in [1,k]$ }}
-\end{eqnarray*}
-For example, in $G_3$ the rules with $A$ as left-hand side are: $A \rightarrow a_1 \mid a_2 \mid a_3$ with three terminal symbols.
-
-\begin{xlist}
-
-{\ex Provide the number of terminal symbols in a grammar $G_k$.
-\begin{soln}
-$k+1$
-\end{soln}
-}
-
-{\ex If the string $a_4 c a_3 a_2$ is accepted by grammar $G_3$ then provide a derivation for it.
-\begin{soln}
-$a_4$ does not exist as a terminal in $G_3$.
-\end{soln}
-}
-
-{\ex If the string $a_4 c a_3 a_2$ is accepted by grammar $G_4$ then provide a derivation for it.
-\begin{soln}
-$S \Rightarrow A\ B \Rightarrow a_3\ B \Rightarrow a_3\ C\ A\ A \Rightarrow a_3\ c\ A\ A \Rightarrow a_3\ c\ a_1\ A \Rightarrow a_3\ c\ a_1\ a_2$
-\end{soln}
-}
-
-{\ex Provide the total number of strings that can be generated for a grammar $G_k$.
-\begin{soln}
-$k^3$
-\end{soln}
-}
-
-\end{xlist}
-
-\bigskip
 \ex\label{nlg}
 
 One of the rules in the CFG below is redundant: any sentence that
@@ -241,6 +203,45 @@ combination of other rules. Write down the redundant rule.
 \begin{soln}
 $VP \rightarrow IV\ PP$ can be generated using $VP \rightarrow IV$ and $VP \rightarrow V\ PP$.
 \end{soln}
+
+\bigskip
+\ex\label{derivs} Consider the family of CFGs $G_k$ with $S$ as the start symbol and $k$ is some arbitrary non-zero positive integer such that $G_1, G_2, G_3, \ldots$ are individual CFGs with the rules:
+\begin{eqnarray*}
+\cfgrule{S}{A\ B} \\
+\cfgrule{B}{C\ A\ A} \\
+\cfgrule{C}{c} \\
+\cfgrule{A}{a_i \textrm{\ \ \ defines $i$ rules, where $i \in [1,k]$ }}
+\end{eqnarray*}
+For example, in $G_3$ the rules with $A$ as left-hand side are: $A \rightarrow a_1 \mid a_2 \mid a_3$ with three terminal symbols.
+
+\begin{xlist}
+
+{\ex Provide the number of terminal symbols in a grammar $G_k$.
+\begin{soln}
+$k+1$
+\end{soln}
+}
+
+{\ex If the string $a_4 c a_3 a_2$ is accepted by grammar $G_3$ then provide a derivation for it.
+\begin{soln}
+$a_4$ does not exist as a terminal in $G_3$.
+\end{soln}
+}
+
+{\ex If the string $a_4 c a_3 a_2$ is accepted by grammar $G_4$ then provide a derivation for it.
+\begin{soln}
+$S \Rightarrow A\ B \Rightarrow a_3\ B \Rightarrow a_3\ C\ A\ A \Rightarrow a_3\ c\ A\ A \Rightarrow a_3\ c\ a_1\ A \Rightarrow a_3\ c\ a_1\ a_2$
+\end{soln}
+}
+
+{\ex Provide the total number of strings that can be generated for a grammar $G_k$.
+\begin{soln}
+$k^3$
+\end{soln}
+}
+
+\end{xlist}
+
 
 \end{exe}
 \end{document}
