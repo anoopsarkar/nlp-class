@@ -22,7 +22,7 @@
     div.cell{
         width:800px;
         font-size: 110%;
-        margin-left:16% !important;
+        margin-left:5% !important;
         margin-right:auto;
     }
     h1 {
@@ -60,6 +60,7 @@
     .warning{
         color: rgb( 240, 20, 20 )
         }  
+
 </style>
 <script>
     MathJax.Hub.Config({
