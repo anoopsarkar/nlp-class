@@ -33,6 +33,9 @@
       url: "assets/slides/ambiguity.pdf"
     - title: "In-class exercise on CFGs"
       url: "assets/handouts/cfgquiz.pdf"
+    - title: "Context-free grammars notebook"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/cfg.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/cfg.ipynb"
   links:
     - author: Michael Collins
       title: "Probabilistic Context-free Grammars"
