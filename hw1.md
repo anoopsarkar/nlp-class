@@ -23,6 +23,12 @@ Set up the virtual environment:
     source venv/bin/activate
     pip3 install -r requirements.txt
 
+Note that if you do not change the requirements then after you have
+set up the virtual environment `venv` you can simply run the following
+command to get started with your development for the homework:
+
+    source venv/bin/activate
+
 This task involves writing or creating weighted context-free grammars
 in order to parse English sentences and utterances. The vocabulary
 is fixed. 
@@ -254,22 +260,22 @@ Fork the following repository on github.com:
 
 Add your sampled sentences to the directory `sentences-fall2017` using a filename called `your-group-name.txt` and [create a pull request from your fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/).
 
-## Parsing other samples
+## Sharing your samples with others
 
 Clone the following repository:
 
-    https://github.com/anoopsarkar/cgw-inclass
+	https://github.com/sfu-natlang/cgw-samples
 
 Or pull from it to get the latest samples:
 
-    cd cgw-inclass
-    git pull -a
+    cd cgw-samples
+    git pull
 
-Go to the `sentences-fall2017` directory and concatenate all the text files in this directory:
+Go to the `sentences-fall2018` directory and concatenate all the text files in this directory:
 
-    cat *.txt > all-samples
+    cat *.txt > all-samples.txt
 
-Then parse the `all-samples` file using your grammar and `pcfg_parse_gen.py` and tell me your cross entropy score.
+Then parse the `all-samples.txt` file using your grammar and `pcfg_parse_gen.py` and check your cross entropy score.
 
 ## Acknowledgements
 
