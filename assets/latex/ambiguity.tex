@@ -262,12 +262,12 @@ Average Human (whole sentence) & 93.2 \\  \hline
 \begin{frame}
 \frametitle{Context-Free Grammars}
 \begin{itemize}
-\item A CFG is a 4-tuple: $(N, T, P, S)$, where 
+\item A CFG is a 4-tuple: $(N, T, R, S)$, where 
 \begin{itemize}
 \item $N$ is a set of non-terminal symbols, 
 \item $T$ is a set of terminal symbols which can include the empty
   string $\epsilon$. $T$ is analogous to $\Sigma$ the alphabet in FSAs.
-\item $P$ is a set of rules of the form $A \rightarrow \alpha$, where $A \in N$ and $\alpha \in \{ N \cup T \}^\ast$
+\item $R$ is a set of rules of the form $A \rightarrow \alpha$, where $A \in N$ and $\alpha \in \{ N \cup T \}^\ast$
 \item $S$ is a set of start symbols, $S \in N$
 \end{itemize}
 \end{itemize}
@@ -486,6 +486,22 @@ P(\textit{tree$_1$}) + P(\textit{tree$_2$}) \nonumber\\
 \end{frame}
 
 \begin{frame}
+\frametitle{Probabilistic Context-Free Grammars (PCFG)}
+\begin{itemize}
+\item A PCFG is a 4-tuple: $(N, T, R, S)$, where 
+\begin{itemize}
+\item $N$ is a set of non-terminal symbols, 
+\item $T$ is a set of terminal symbols which can include the empty
+  string $\epsilon$. $T$ is analogous to $\Sigma$ the alphabet in FSAs.
+\item $R$ is a set of rules of the form $A \rightarrow \alpha$, where $A \in N$ and $\alpha \in \{ N \cup T \}^\ast$
+\item $P(R)$ is the probability of rule $R: A \rightarrow \alpha$ such that $\sum_\alpha P(A \rightarrow \alpha) = 1.0$
+\item $S$ is a set of start symbols, $S \in N$
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
 \frametitle{PCFG}
 \begin{itemize}
 \item Central condition: \( \sum_\alpha P( A \rightarrow \alpha) = 1 \)
@@ -495,6 +511,8 @@ P(\textit{tree$_1$}) + P(\textit{tree$_2$}) \nonumber\\
 \end{itemize}
 
 \end{frame}
+
+
 
 \begin{frame}
 \frametitle{PCFG}
