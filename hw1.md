@@ -279,6 +279,10 @@ we will use `pcfg_parse_gen.py` using your `S1.gr`, `S2.gr` and
 Note that `S2.gr` is **not** used for sampling sentences but it
 is used for parsing sentences.
 
+Be careful about tokenization. Check `allowed_words.txt` and you
+will see that certain contracted morphemes are separated such
+as: `'ll`, `'s`, `'ve`, `n't`, etc.
+
 ### Default Submission
 
 The following files have been provided to you and they are
