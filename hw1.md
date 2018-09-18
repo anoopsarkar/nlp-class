@@ -293,11 +293,15 @@ notebook `cgw.ipynb`.
 ### The Baseline
 
 The baseline method for `S1.gr` is to parse `example-sentences.txt`
-using either hand-created trees or from an automatic parser and
-extract a weighted context-free grammar from the parse trees.
+either by hand or using an automatic parser that can parse these
+sentences with high accuracy. Then extract a weighted context-free
+grammar from the parse trees. You might want to find other sentences
+from the same distribution as `example-sentences.txt`. See the
+section on sharing samples below.
 
-For `S2.gr` a good baseline is to exploit how often a word
-follows another word to produce the probability for generating a
+For `S2.gr` a good baseline is to exploit how often a word follows
+another word in `example-sentences.txt` or sentences sampled from
+other group grammars to produce the probability for generating a
 sentence.
 
 For `Vocab.gr` the baseline should at least cover all the words in
@@ -312,6 +316,65 @@ documentation of your homework.
 
 You have to document your development of your grammars in your
 Python notebook called `cgw.ipynb` in your submission.
+
+Clone your repository if you haven't done it already:
+
+    git clone git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-{{ site.semcode }}-g-GROUP.git
+
+Your repo will be cloned into a new directory called `nlpclass-{{
+site.semcode }}-g-GROUP`.  In this directory create a new `hw1`
+directory and put all your source and grammar files in this directory
+and add, commit and push those files to GitLab.
+
+Before you submit your homework add a file `doc/README.username`
+that documents the work done by each `username` in your group. Group
+members can get zero marks if they do not have this file that shows
+that they worked on the homework equally with other group members.
+Put any instructions to the TA and instructor in `doc/README.txt`
+or `doc/README.md`.
+
+### Submit your homework on Coursys
+
+When you are ready to submit go to GitLab and select `New tag` to
+create a new tag. For `Tag name` use `hw1` and optionally write a
+`Message`. Then select `Create tag` to create this tag.
+
+Go to [Coursys]({{ site.coursys }}). Under the `Homework 1`
+activity submit your git repository URL. It will look like
+this for some `USER` in your group called `g-GROUP`:
+
+    git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
+
+The instructions are provided in more detail in [Homework 0](hw0.html).
+
+That's it. You are done with Homework 1!
+
+### Grading
+
+Your submission will be graded using the following
+grading scheme:
+
+* We will sample 100 sentences from `S1.gr` and `Vocab.gr` from each of the 
+  submissions after the homework deadline and concatenate these sentences 
+  to form the `sampled_test` set.
+* We have a pre-determined set of sentences from the same distribution that 
+  produced `example-sentences.txt`. These sentences form the `test` set.
+
+Your overall grade for this homework depends on the negative cross
+entropy score on `sampled_test` and `test`. For parsing this data
+we will use `pcfg_parse_gen.py` using your `S1.gr`, `S2.gr` and
+`Vocab.gr` grammar files.
+
+Note that `S2.gr` is **not** used for sampling sentences but it
+is used for parsing sentences.
+
+Your overall grade is a combination of:
+
+1. Percentile score on `sampled_test` out of 10 points. We will divide up the percentile score into tenths, e.g. 90th percentile or higher gets 10, 80th percentile or higher gets 9, etc.
+1. Percentile score on `test` out of 10 points. We will divide up the percentile score into tenths (same as above)
+1. 10 points for your documentation of work in the Python notebook assigned by the TAs. Remember to put a `doc/README.username` for each `username` in your group.
+
+For the percentile comparison the score from the default grammars will be included to provide a full range of scores.
 
 ## Testing your grammar before submission
 
