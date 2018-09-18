@@ -372,7 +372,7 @@ Your overall grade is a combination of:
 
 1. Percentile score on `sampled_test` out of 10 points. We will divide up the percentile score into tenths, e.g. 90th percentile or higher gets 10, 80th percentile or higher gets 9, etc.
 1. Percentile score on `test` out of 10 points. We will divide up the percentile score into tenths (same as above)
-1. 10 points for your documentation of work in the Python notebook assigned by the TAs. Remember to put a `doc/README.username` for each `username` in your group.
+1. 10 points for your documentation of work in the Python notebook assigned by the TAs. Include what was done, the different experiments you tried, and if you combined different approaches then how you did the combination. Remember to put a `doc/README.username` for each `username` in your group.
 
 For the percentile comparison the score from the default grammars will be included to provide a full range of scores.
 
