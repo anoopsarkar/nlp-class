@@ -182,7 +182,7 @@ Which produces the following output:
     #reading grammar file: S2.gr
     #reading grammar file: Vocab.gr
     (TOP (S1 (NP (Proper Arthur) ) (_VP (VP (VerbT is) (NP (Det the) (Nbar (Noun king) ))) (Punc .))) )
-	#-cross entropy (bits/word): -9.65922
+	#-cross entropy (bits/word): -3.78637
 
 To parse an entire file:
 
@@ -274,12 +274,13 @@ entropy score on the following data:
 Your overall grade for this homework depends on the negative cross
 entropy score on `sampled_test` and `test`. For parsing this data
 we will use `pcfg_parse_gen.py` using your `S1.gr`, `S2.gr` and
-`Vocab.gr` grammar files.
+`Vocab.gr` grammar files. We will use pruning and priors (see the
+code for details) and a beam size of 0.0001.
 
 Note that `S2.gr` is **not** used for sampling sentences but it
 is used for parsing sentences.
 
-Be careful about tokenization. Check `allowed_words.txt` and you
+**Be careful about tokenization**. Check `allowed_words.txt` and you
 will see that certain contracted morphemes are separated such
 as: `'ll`, `'s`, `'ve`, `n't`, etc.
 
