@@ -197,7 +197,7 @@ Which produces the following output:
 
     ... skipping the parse trees ...
 
-	#-cross entropy (bits/word): -12.3111
+	#-cross entropy (bits/word): -10.2762
 
 Notice that cross entropy values for different weighted grammars
 can be compared only on the same input text.
