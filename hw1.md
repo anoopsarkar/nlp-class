@@ -254,7 +254,7 @@ The generator will not produce any words outside of the fixed
 vocabulary provided in `allowed_words.txt`.
 
 To see how the generator does error handling for bad grammars (you
-should see lots of errors of sampled words not in `allowed_word.txt`):
+should see lots of errors of sampled words not in `allowed_words.txt`):
 
     python3 pcfg_parse_gen.py -g S1.gr test/Vocab_missing_Sir_Uther.gr -o -n 10000 > /dev/null
 
@@ -326,10 +326,10 @@ Clone your repository if you haven't done it already:
 
     git clone git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-{{ site.semcode }}-g-GROUP.git
 
-Your repo will be cloned into a new directory called `nlpclass-{{
-site.semcode }}-g-GROUP`.  In this directory create a new `hw1`
-directory and put all your source and grammar files in this directory
-and add, commit and push those files to GitLab.
+Your repo will be cloned into a new directory called `nlpclass-{{ site.semcode }}-g-GROUP`.  
+In this directory create a new `hw1` directory and put all your
+source and grammar files in this directory and add, commit and push
+those files to GitLab.
 
 Before you submit your homework add a file `doc/README.username`
 that documents the work done by each `username` in your group. Group
