@@ -17,6 +17,12 @@ Get started:
     git clone https://github.com/anoopsarkar/nlp-class-hw.git
     cd nlp-class-hw/cgw
 
+Clone your repository if you haven’t done it already:
+
+    git clone git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
+
+Then copy over the contents of the `cgw` directory above as `hw1` in your repository.
+
 Set up the virtual environment:
 
     python3 -m venv venv
