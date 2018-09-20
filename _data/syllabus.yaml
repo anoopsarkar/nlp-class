@@ -22,6 +22,10 @@
       title: "NLP and Text Visualization"
       url: "assets/slides/wikihistory.pdf"
       optional: true
+    - author: "Matt Gardner and Waleed Ammar"
+      title: "NLP Highlights podcast"
+      url: "https://soundcloud.com/nlp-highlights"
+      optional: true
 - title: Context-free Grammars
   tag: cfg
   include: true
