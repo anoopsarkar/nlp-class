@@ -19,7 +19,7 @@ automatically uncovering protein/drug interactions in [petabytes
 of medical abstracts](http://fable.chop.edu/). Imagine feeding a
 computer an ancient script that no living person can read, then
 listening as [the computer reads aloud in this dead
-language](http://aclanthology.info/papers/a-computational-approach-to-deciphering-unknown-scripts).
+language](https://isi.edu/natural-language/mt/decipher.html).
 Imagine a computer that can [do better than humans at answering
 questions](https://www.youtube.com/watch?v=lI-M7O_bRNg).  
 
@@ -43,7 +43,7 @@ terms of its analysis and the learning of language from observations.
 #### Asking for help
 * Ask for help on [the discussion board]({{ site.coursys }}/discussion)
 * Instructor office hours: Thu 11-12 TASC1 9427
-* TA office hours: TBD
+* TA office hours: Mon 1pm-2pm, Wed 1pm-2pm, Thu 1pm-2pm (ASB 9816)
 * <b>No emails</b> to the TAs and strictly emails about personal matters to the instructor
 * Use only SFU email address and use `cmpt413:` or `cmpt825:` (for ugrad and grad respectively) as subject prefix
 
