@@ -29,7 +29,7 @@
 - title: Context-free Grammars
   tag: cfg
   include: true
-  current: true
+  current: false
   notes:
     - title: "Homework 0 release"
       url: "hw0.html"
@@ -69,18 +69,16 @@
       optional: true
 - title: "Probability models and language"
   tag: probintro
-  include: false
-  current: false
+  include: true
+  current: true
   notes:
     - title: "Probability Models for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb"
     - title: "Probability models and language"
       url: "assets/slides/prob.pdf"
-    - title: "In class exercise: Linear Combinations"
-      url: "assets/notes/linearb.html"
-    - title: "Homework 0"
-      url: "hw0.html"
+    - title: "Homework 1"
+      url: "hw1.html"
   links:
     - title: "Python tidbits for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
@@ -104,12 +102,6 @@
   notes:
     - title: "Language models"
       url: "assets/slides/lm.pdf"
-    - title: "Homework 1 (released on Sep 22)"
-      url: "hw1.html"
-    - title: "In class exercise: Nomura from Osaka"
-      url: "assets/notes/nomura-osaka.html"
-    - title: "In class exercise: Korean shopping list"
-      url: "assets/notes/korean-shopping.html"
   links:
     - author: Michael Collins
       title: "Language models"
