@@ -103,7 +103,7 @@ The grammars in `S1.gr` and `S2.gr` are connected via the following rules in `S1
 
 * `allowed_words.txt`: This file contains all the words that are allowed. You should make sure that your grammar generates sentences using exactly the words in this file. It does not specify the part of speech for each word, so you can choose to model the ambiguity of words in terms of part of speech in the `Vocab.gr` file.
 * `example-sentences.txt`: This file contains example sentences that you can use as a starting point for your grammar development. Only the first two sentences of this file can be parsed using the default `S1.gr` grammar. The rest are parsed with the backoff `S2.gr` grammar. 
-* `unseen.tags`: Used to deal with unknown words. You should not have to use this file during parsing, but the parser provided to you can optionally use this file in order to deal with unknown words in the input. 
+* `unseen.tags`: Used to deal with unknown words. You should not have to use this file during parsing, but the parser provided to you can optionally use this file in order to deal with unknown words in the input. The parser uses the weights shown in this file and provides a lexical rule with this weight for any unknown word.
 
 ### The Parser and Generator
 
@@ -303,17 +303,23 @@ notebook `cgw.ipynb`.
 
 ### The Baseline
 
-The baseline method for `S1.gr` is to parse `example-sentences.txt`
-either by hand or using an automatic parser that can parse these
-sentences with high accuracy. Then extract a weighted context-free
-grammar from the parse trees. You might want to find other sentences
-from the same distribution as `example-sentences.txt`. See the
-section on sharing samples below.
+The baseline method for `S1.gr` is to use `example-sentences.txt`
+and `devset.txt` to create a weighted context-free grammar from the
+parse trees (some trees are provided in `devset.trees`). You might
+want to augment this data with other sentences from the same
+distribution. Also, see the section on sharing samples below.
+
+You can improve the grammar by iteratively extracting a grammar and
+improving the weighted grammar. If you can find more sentences to
+parse, use an automatic parser that can produce parse trees from
+the [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).  Note
+that you do not need access to the treebank, you just need a parser
+that was trained on it.
 
 For `S2.gr` a good baseline is to exploit how often a word follows
-another word in `example-sentences.txt` or sentences sampled from
-other group grammars to produce the probability for generating a
-sentence.
+another word in `example-sentences.txt` and `devset.txt` or sentences
+sampled from other group grammars to produce the probability for
+generating a sentence.
 
 For `Vocab.gr` the baseline should at least cover all the words in
 `allowed_words.txt` and you should either provide or infer the part
