@@ -315,6 +315,8 @@ Modify the training data $L$ by changing words that appear only once to the \tex
 \section{Smoothing $n$-gram Models}
 \frame{\tableofcontents[currentsection]}
 
+\begin{comment}
+
 \subsection{Smoothing Counts}
 
 \begin{frame}
@@ -391,7 +393,6 @@ In practice:
 \end{itemize}
 \end{frame}
 
-\begin{comment}
 \subsubsection{Good-Turing Smoothing}
 
 \begin{frame}
@@ -542,7 +543,7 @@ with linear interpolation for missing values where $n_{r+1} = 0$ \\
 \end{frame}
 \end{comment}
 
-\subsubsection{Interpolation: Jelinek-Mercer Smoothing}
+\subsection{Interpolation: Jelinek-Mercer Smoothing}
 
 \begin{frame}
 \frametitle{Interpolation: Jelinek-Mercer Smoothing}
@@ -587,8 +588,6 @@ compute $\lambda$ values to minimize cross-entropy on {\bf held-out} data which 
 \end{itemize}
 \end{frame}
 \end{comment}
-
-\subsubsection{Backoff Smoothing with Discounting}
 
 \begin{frame}
 \frametitle{Backoff Smoothing with Discounting}

@@ -70,7 +70,7 @@
 - title: "Probability models and language"
   tag: probintro
   include: true
-  current: true
+  current: false
   notes:
     - title: "Probability Models for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb"
@@ -83,10 +83,6 @@
     - title: "Python tidbits for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/python-tidbits.ipynb"
-    - author: Peter Norvig
-      title: "Natural Language Corpus Data: Beautiful Data"
-      url: "http://norvig.com/ngrams/"
-      download: "http://norvig.com/ngrams/ngrams.zip"
     - author: Claude Shannon
       title: "A Mathematical Theory of Communication"
       url: http://en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication
@@ -97,17 +93,21 @@
       optional: true
 - title: "Language models"
   tag: lm
-  include: false
-  current: false
+  include: true
+  current: true
   notes:
     - title: "Language models"
       url: "assets/slides/lm.pdf"
   links:
     - author: Michael Collins
       title: "Language models"
-      download: "assets/mcollins-notes/lm-spring2013.pdf"
-      url: "assets/mcollins-notes/lm-spring2013.pdf"
+      download: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lm.pdf"
+      url: "assets/mcollins-notes/lm.pdf"
       optional: false
+    - author: Peter Norvig
+      title: "Natural Language Corpus Data: Beautiful Data"
+      url: "http://norvig.com/ngrams/"
+      download: "http://norvig.com/ngrams/ngrams.zip"
     - author: Stanley Chen and Joshua Goodman
       title: "A Bit of Progress in Language Modeling"
       url: http://ptrckprry.com/course/ssd/Good01.pdf
