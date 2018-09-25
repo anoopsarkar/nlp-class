@@ -83,46 +83,183 @@ Which one is more plausible?
 \end{itemize}
 \end{frame}
 
+\section{How many parses?}
+
 \begin{frame}
-\frametitle{Treebanks}
-\begin{itemize}
-\item What is the CFG that can be extracted from this single tree: 
-\begin{tabbing}
-0123\=4567\=8901\=2345\=6789\=0123\=4567 \kill
-(S \>(NP (Det the) (NP man)) \\
-\> (VP \> (VP \> (V played) \\
-\> \> \> (NP (Det a) (NP game))) \\
-\> \> (PP \>(P with) \\
-\> \> \> (NP (Det the) (NP dog)))))
-\end{tabbing}
-\end{itemize}
+\frametitle{Number of derivations}
+CFG rules {\tt \{ N $\rightarrow$ N N}\ ,\  {\tt N $\rightarrow$ a} \} \\
+\begin{tabular}{|c|c|}
+\hline 
+$n : a^n$ & number of parses \\
+\hline 
+1 & 1 \\
+2 & 1 \\
+3 & 2 \\
+4 & 5 \\
+5 & 14 \\
+6 & 42 \\
+7 & 132 \\
+8 & 429 \\
+9 & 1430 \\
+10 & 4862 \\
+11 & 16796 \\
+\hline
+\end{tabular}
+
 \end{frame}
 
 \begin{frame}
-\frametitle{PCFG}
-{\small
-\[
-\begin{array}{cccc}
- S & \rightarrow & NP~VP  & c=1  \\
- NP & \rightarrow & Det~NP & c=3  \\
- NP & \rightarrow & man  & c=1   \\
- NP & \rightarrow & game  & c=1   \\
- NP & \rightarrow & dog  & c=1   \\
- VP & \rightarrow & VP~PP  & c=1  \\
- VP & \rightarrow & V~NP  & c=1  \\
- PP & \rightarrow & P~NP  & c=1  \\
- Det & \rightarrow & the  & c=2  \\
- Det & \rightarrow & a  & c=1   \\
- V & \rightarrow & played & c=1  \\
- P & \rightarrow & with & c=1 
-\end{array}
-\] 
-}
-\begin{itemize}
-\item We can do this with multiple trees. Simply count occurrences of CFG rules over all the trees. 
-\item A repository of such trees labelled by a human is called a TreeBank.
-\end{itemize}
+\frametitle{CFG Ambiguity}
+  \begin{itemize}
+  \item Number of parses in previous table is an integer series, known as the Catalan numbers
+  \item Catalan numbers have a closed form:
+%%\[ Cat(n) = \left( \begin{array}{c}2n\\n\end{array} \right) - \left( %%\begin{array}{c}2n\\n-1\end{array} \right) \]
+\[ Cat(n) = \frac{1}{n+1} \left( \begin{array}{c}2n\\n\end{array} \right) \]
+  \item $\left( \begin{array}{c}a\\b\end{array} \right)$ is the {\em binomial coefficient}
+\[ \left( \begin{array}{c}a\\b\end{array} \right) = \frac{a!}{(b!(a-b)!)} \] 
+  \end{itemize}
+
 \end{frame}
+
+\begin{frame}
+\frametitle{Catalan numbers}
+  \begin{itemize}
+  \item Why Catalan numbers? Cat(n) is the number of ways to
+  parenthesize an expression of length $n$ with two conditions:
+  \begin{enumerate}
+  \item there must be equal numbers of open and close parens
+  \item they must be properly nested so that an open precedes a close
+  \end{enumerate}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Catalan numbers}
+  \begin{itemize}
+  \item For an expression of with $n$ ways to form constituents there are a total of $2n$
+  choose $n$ parenthesis pairs, e.g. for $n=2$, \( \left( \begin{array}{c}4\\2\end{array} \right) = 6 \): \\
+  {\tt a(bc), {\color{red} a)bc(, )a(bc}, (ab)c, {\color{red} )ab(c, ab)c(}}
+  \item But for each valid parenthesis pair, $n+1$ pairs are created that have the right parenthesis
+  to the left of its matching left parenthesis, from e.g. above: {\tt {\color{red} a)bc(, )a(bc}, {\color{red} )ab(c, ab)c(}}
+  \item So we divide $2n$ choose $n$ by $n+1$:
+\[ Cat(n) = \frac{\left( \begin{array}{c}2n\\n\end{array} \right)}{n+1} \]
+  \end{itemize}
+
+%  \begin{itemize}
+%  \item For an expression of length $n$ there are a total of $2n$
+%  choose $n$ parenthesis pairs. But $n+1$ of them have the right parenthesis 
+%  to the left of its matching left parenthesis ({\tt )(}). 
+%  \item So we divide $2n$ choose $n$ by $n+1$:
+%\[ Cat(n) = \frac{1}{n+1} \left( \begin{array}{c}2n\\n\end{array} \right) \]
+%  \end{itemize}
+\end{frame}
+
+\lecture{Context Free Grammars}{}
+\section{Context Free Grammars}
+
+\begin{frame}
+\frametitle{Context-Free Grammars}
+\begin{itemize}
+\item A CFG is a 4-tuple: $(N, T, R, S)$, where 
+\begin{itemize}
+\item $N$ is a set of non-terminal symbols, 
+\item $T$ is a set of terminal symbols which can include the empty
+  string $\epsilon$. $T$ is analogous to $\Sigma$ the alphabet in FSAs.
+\item $R$ is a set of rules of the form $A \rightarrow \alpha$, where $A \in N$ and $\alpha \in \{ N \cup T \}^\ast$
+\item $S$ is a set of start symbols, $S \in N$
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Context-Free Grammars}
+\begin{itemize}
+\item Here's an example of a CFG, let's call this one $G$:
+\begin{enumerate}
+\item $S \rightarrow a\ S\ b$
+\item $S \rightarrow \epsilon$
+\end{enumerate}
+\item What is the language of this grammar, which we will call $L(G)$, the set of strings {\em generated} by this grammar {\color{red} How?} \\
+Notice that there cannot be any FSA that corresponds exactly to this set of strings $L(G)$ {\color{red} Why?}
+\item What is the {\em tree set} or derivations produced by this grammar?
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Context-Free Grammars}
+\begin{itemize}
+\item This notion of generating both the strings and the trees is an important one for Computational Linguistics
+\item Consider the trees for the grammar $G'$: $P = \{S~\rightarrow~A~A, A~\rightarrow~a A, A~\rightarrow~A~b, A~\rightarrow~\epsilon \}, $\\
+$\Sigma = \{a,b\}, N = \{S,A\}, T = \{a,b,\epsilon\}, S=\{S\}$
+
+\item Why is it called {\em context-free} grammar?
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Context-Free Grammars}
+\begin{itemize}
+\item Can the grammar $G'$ produce only trees with equal height subtrees on the left and right? \\
+\includegraphics[scale=0.5]{figures/cfg1}
+%\Tree [.S [.A a [.A a [.A a [.A $\epsilon$ ] ] ] ] [.A [.A [.A [.A $\epsilon$ ] b ] b ] b ] ]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Parse Trees}
+\par\noindent
+Consider the grammar with rules: 
+\begin{eqnarray}
+S &\rightarrow& \textit{NP}\ \textit{VP} \nonumber \\
+\textit{NP} &\rightarrow& \textit{PRP} \nonumber \\
+\textit{NP} &\rightarrow& \textit{DT}\ \textit{NPB} \nonumber \\
+\textit{VP} &\rightarrow& \textit{VBP}\ \textit{NP} \nonumber \\
+\textit{NPB} &\rightarrow& \textit{NN}\ \textit{NN} \nonumber \\
+\textit{PRP} &\rightarrow& \textit{I} \nonumber \\
+\textit{VBP} &\rightarrow& \textit{prefer} \nonumber \\
+\textit{DT} &\rightarrow& \textit{a} \nonumber \\
+\textit{NN} &\rightarrow& \textit{morning} \nonumber \\
+\textit{NN} &\rightarrow& \textit{flight} \nonumber
+\end{eqnarray}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Parse Trees}
+
+\includegraphics[scale=.5]{figures/cfg2}
+%\Tree [.S [.NP [.PRP I ] ] [.VP [.VBP prefer ] [.NP [.DT a ] [.NPB [.NN morning ] [.NN flight ] ] ] ] ]
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Parse Trees: Equivalent Representations}
+\begin{itemize}
+\item (S (NP (PRP I) ) (VP (VBP prefer) (NP (DT a) (NPB (NN morning) (NN flight)))))
+\item $[_{S}$ $[_{NP}$ $[_{PRP}$ I ] ] $[_{VP}$ $[_{VBP}$ prefer ]
+$[_{NP}$ $[_{DT}$ a ] $[_{NPB}$ $[_{NN}$ morning ] $[_{NN}$ flight ] ] ] ] ]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Ambiguous Grammars}
+\begin{itemize}
+\item $S \rightarrow S\ S$
+\item $S \rightarrow a$
+\item Given the above rules, consider the input {\em aaa}, what are the valid parse trees?
+\item Now consider the input {\em aaaa}
+\end{itemize}
+
+\end{frame}
+
+\lecture{Structural Ambiguity}{}
+\section{Structural Ambiguity}
 
 \begin{frame}
 \frametitle{Ambiguity}
@@ -256,111 +393,51 @@ Average Human (whole sentence) & 93.2 \\  \hline
 
 \end{frame}
 
-\lecture{Context Free Grammars}{}
-\section{Context Free Grammars}
+\lecture{Weighted Context Free Grammars}{}
+\section{Weighted Context Free Grammars}
+
+\section{Treebanks}
 
 \begin{frame}
-\frametitle{Context-Free Grammars}
+\frametitle{Treebanks}
 \begin{itemize}
-\item A CFG is a 4-tuple: $(N, T, R, S)$, where 
+\item What is the CFG that can be extracted from this single tree: 
+\begin{tabbing}
+0123\=4567\=8901\=2345\=6789\=0123\=4567 \kill
+(S \>(NP (Det the) (NP man)) \\
+\> (VP \> (VP \> (V played) \\
+\> \> \> (NP (Det a) (NP game))) \\
+\> \> (PP \>(P with) \\
+\> \> \> (NP (Det the) (NP dog)))))
+\end{tabbing}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{PCFG}
+{\small
+\[
+\begin{array}{cccc}
+ S & \rightarrow & NP~VP  & c=1  \\
+ NP & \rightarrow & Det~NP & c=3  \\
+ NP & \rightarrow & man  & c=1   \\
+ NP & \rightarrow & game  & c=1   \\
+ NP & \rightarrow & dog  & c=1   \\
+ VP & \rightarrow & VP~PP  & c=1  \\
+ VP & \rightarrow & V~NP  & c=1  \\
+ PP & \rightarrow & P~NP  & c=1  \\
+ Det & \rightarrow & the  & c=2  \\
+ Det & \rightarrow & a  & c=1   \\
+ V & \rightarrow & played & c=1  \\
+ P & \rightarrow & with & c=1 
+\end{array}
+\] 
+}
 \begin{itemize}
-\item $N$ is a set of non-terminal symbols, 
-\item $T$ is a set of terminal symbols which can include the empty
-  string $\epsilon$. $T$ is analogous to $\Sigma$ the alphabet in FSAs.
-\item $R$ is a set of rules of the form $A \rightarrow \alpha$, where $A \in N$ and $\alpha \in \{ N \cup T \}^\ast$
-\item $S$ is a set of start symbols, $S \in N$
+\item We can do this with multiple trees. Simply count occurrences of CFG rules over all the trees. 
+\item A repository of such trees labelled by a human is called a TreeBank.
 \end{itemize}
-\end{itemize}
-
 \end{frame}
-
-\begin{frame}
-\frametitle{Context-Free Grammars}
-\begin{itemize}
-\item Here's an example of a CFG, let's call this one $G$:
-\begin{enumerate}
-\item $S \rightarrow a\ S\ b$
-\item $S \rightarrow \epsilon$
-\end{enumerate}
-\item What is the language of this grammar, which we will call $L(G)$, the set of strings {\em generated} by this grammar {\color{red} How?} \\
-Notice that there cannot be any FSA that corresponds exactly to this set of strings $L(G)$ {\color{red} Why?}
-\item What is the {\em tree set} or derivations produced by this grammar?
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Context-Free Grammars}
-\begin{itemize}
-\item This notion of generating both the strings and the trees is an important one for Computational Linguistics
-\item Consider the trees for the grammar $G'$: $P = \{S~\rightarrow~A~A, A~\rightarrow~a A, A~\rightarrow~A~b, A~\rightarrow~\epsilon \}, $\\
-$\Sigma = \{a,b\}, N = \{S,A\}, T = \{a,b,\epsilon\}, S=\{S\}$
-
-\item Why is it called {\em context-free} grammar?
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Context-Free Grammars}
-\begin{itemize}
-\item Can the grammar $G'$ produce only trees with equal height subtrees on the left and right? \\
-\includegraphics[scale=0.5]{figures/cfg1}
-%\Tree [.S [.A a [.A a [.A a [.A $\epsilon$ ] ] ] ] [.A [.A [.A [.A $\epsilon$ ] b ] b ] b ] ]
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Parse Trees}
-\par\noindent
-Consider the grammar with rules: 
-\begin{eqnarray}
-S &\rightarrow& \textit{NP}\ \textit{VP} \nonumber \\
-\textit{NP} &\rightarrow& \textit{PRP} \nonumber \\
-\textit{NP} &\rightarrow& \textit{DT}\ \textit{NPB} \nonumber \\
-\textit{VP} &\rightarrow& \textit{VBP}\ \textit{NP} \nonumber \\
-\textit{NPB} &\rightarrow& \textit{NN}\ \textit{NN} \nonumber \\
-\textit{PRP} &\rightarrow& \textit{I} \nonumber \\
-\textit{VBP} &\rightarrow& \textit{prefer} \nonumber \\
-\textit{DT} &\rightarrow& \textit{a} \nonumber \\
-\textit{NN} &\rightarrow& \textit{morning} \nonumber \\
-\textit{NN} &\rightarrow& \textit{flight} \nonumber
-\end{eqnarray}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Parse Trees}
-
-\includegraphics[scale=.5]{figures/cfg2}
-%\Tree [.S [.NP [.PRP I ] ] [.VP [.VBP prefer ] [.NP [.DT a ] [.NPB [.NN morning ] [.NN flight ] ] ] ] ]
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Parse Trees: Equivalent Representations}
-\begin{itemize}
-\item (S (NP (PRP I) ) (VP (VBP prefer) (NP (DT a) (NPB (NN morning) (NN flight)))))
-\item $[_{S}$ $[_{NP}$ $[_{PRP}$ I ] ] $[_{VP}$ $[_{VBP}$ prefer ]
-$[_{NP}$ $[_{DT}$ a ] $[_{NPB}$ $[_{NN}$ morning ] $[_{NN}$ flight ] ] ] ] ]
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Ambiguous Grammars}
-\begin{itemize}
-\item $S \rightarrow S\ S$
-\item $S \rightarrow a$
-\item Given the above rules, consider the input {\em aaa}, what are the valid parse trees?
-\item Now consider the input {\em aaaa}
-\end{itemize}
-
-\end{frame}
-
-\lecture{Probabilistic Context Free Grammars}{}
-\section{Probabilistic Context Free Grammars}
 
 \begin{frame}[fragile]
 \frametitle{Probabilistic CFG (PCFG)}
@@ -637,6 +714,9 @@ P(\textit{tree$_1$}) + P(\textit{tree$_2$}) \nonumber\\
 %
 %\end{frame}
 
+\lecture{Lexicalized Context Free Grammars}{}
+\section{Lexicalized Context Free Grammars}
+
 \begin{frame}
 \frametitle{Ambiguity}
 \begin{itemize}
@@ -799,9 +879,14 @@ Self-Attention with unlabeled data (Kitaev and Klein, 2018) & 95.13 \\
 \end{center}
 \end{frame}
 
+\lecture{Practical Issues in Parsing}{}
+\section{Practical Issues in Parsing}
+
+
 \begin{frame}
 \frametitle{Practical Issues: Beam Thresholding and Priors}
 \begin{itemize}
+\item Read the parsing slides before this section.
 \item Probability of nonterminal $X$ spanning $j \ldots k$:
 $N[X,j,k]$
 \item Beam Thresholding compares $N[X,j,k]$ with every other $Y$
