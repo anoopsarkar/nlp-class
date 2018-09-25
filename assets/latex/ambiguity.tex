@@ -130,29 +130,11 @@ $n : a^n$ & number of parses \\
   \item there must be equal numbers of open and close parens
   \item they must be properly nested so that an open precedes a close
   \end{enumerate}
-  \end{itemize}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Catalan numbers}
-  \begin{itemize}
+  \item \texttt{((ab)c)d     (a(bc))d     (ab)(cd)     a((bc)d)     a(b(cd))}
   \item For an expression of with $n$ ways to form constituents there are a total of $2n$
-  choose $n$ parenthesis pairs, e.g. for $n=2$, \( \left( \begin{array}{c}4\\2\end{array} \right) = 6 \): \\
-  {\tt a(bc), {\color{red} a)bc(, )a(bc}, (ab)c, {\color{red} )ab(c, ab)c(}}
-  \item But for each valid parenthesis pair, $n+1$ pairs are created that have the right parenthesis
-  to the left of its matching left parenthesis, from e.g. above: {\tt {\color{red} a)bc(, )a(bc}, {\color{red} )ab(c, ab)c(}}
-  \item So we divide $2n$ choose $n$ by $n+1$:
-\[ Cat(n) = \frac{\left( \begin{array}{c}2n\\n\end{array} \right)}{n+1} \]
+  choose $n$ parenthesis pairs. Then divide by $n+1$ to remove invalid parenthesis pairs.
   \end{itemize}
 
-%  \begin{itemize}
-%  \item For an expression of length $n$ there are a total of $2n$
-%  choose $n$ parenthesis pairs. But $n+1$ of them have the right parenthesis 
-%  to the left of its matching left parenthesis ({\tt )(}). 
-%  \item So we divide $2n$ choose $n$ by $n+1$:
-%\[ Cat(n) = \frac{1}{n+1} \left( \begin{array}{c}2n\\n\end{array} \right) \]
-%  \end{itemize}
 \end{frame}
 
 \lecture{Context Free Grammars}{}
