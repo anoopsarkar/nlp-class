@@ -5,7 +5,7 @@
 \usepackage{mygb4e}
 \usepackage{solution}
 
-%\hidesolutions
+\hidesolutions
 \setlength\oddsidemargin{0.01in}
 \setlength\topmargin{-1in}
 \setlength\textwidth{6.9in}
@@ -242,6 +242,93 @@ $k^3$
 
 \end{xlist}
 
+\bigskip
+\ex\label{pcfgtree} Consider a treebank which consists of three tree {\em types}: $T_1, T_2, T_3$. In this treebank these tree types are repeated multiple times. By counting the number of times each tree type was observed, we discover that each tree type occurs with the following probability:
+
+\begin{center}
+\begin{tabular}{ll}
+$p_1$ & $T_1 = $ (S (B a) (C a a)) \\
+$p_2$ & $T_2 = $ (S (B a a)) \\
+$p_3$ & $T_3 = $ (S (C a a a)) 
+\end{tabular}
+\end{center}
+
+\begin{xlist}
+\smallskip
+\ex From the treebank shown above, extract a probabilistic CFG (PCFG) $G$. \\
+Assume that the rule S $\rightarrow$ BC appears in $G$ with probability $p_1$ and $p_1 + p_2 + p_3 = 1$.
+
+\begin{soln}
+\begin{minipage}[t]{2.5in}
+ \begin{tabular}{ll}
+ $p_1$ & S $\rightarrow$ BC \\
+ $p_2$ & S $\rightarrow$ B \\
+ $p_3$ & S $\rightarrow$ C 
+ \end{tabular}
+\end{minipage}
+\begin{minipage}[t]{2.5in}
+ \begin{tabular}{ll}
+ $\frac{p_1}{p_1 + p_2}$ & B $\rightarrow$ a \\
+ $\frac{p_2}{p_1 + p_2}$ & B $\rightarrow$ aa \\
+ $\frac{p_1}{p_1 + p_3}$ & C $\rightarrow$ aa \\
+ $\frac{p_3}{p_1 + p_3}$ & C $\rightarrow$ aaa
+ \end{tabular}
+\end{minipage}
+\end{soln}
+
+\smallskip
+\ex Provide the tree set ${\cal T}$ for the CFG $G$.
+
+\begin{soln}
+
+\begin{center}
+\begin{minipage}[t]{2.5in}
+ \begin{tabular}{ll}
+$T_4 = $ & (S (B a) (C a a a)) \\
+$T_5 = $ & (S (B a a) (C a a)) \\
+$T_6 = $ & (S (B a a) (C a a a))
+ \end{tabular}
+\end{minipage}
+\begin{minipage}[t]{2.5in}
+ \begin{tabular}{ll}
+$T_7 = $ & (S (B a)) \\
+$T_8 = $ & (S (C a a))
+ \end{tabular}
+\end{minipage}
+\end{center}
+\[ {\cal T} = \{ T_1, T_2, T_3, T_4, T_5, T_6, T_7, T_8  \} \]
+\end{soln}
+
+\smallskip
+\ex Provide the language ${\cal L}$ (the set of strings) for the CFG $G$.
+
+\begin{soln}
+\[ {\cal L} = \{ aaa, aa, aaaa, aaaaa, a \} \]
+\end{soln}
+
+\smallskip
+\ex Let $p_1 = 0.2, p_2 = 0.1, p_3 = 0.7$. Find the parse tree with highest probability according to PCFG $G$ for the input string $aa$. Note that tree $T_2$ in the treebank is a tree that has yield $aa$. Write down if the tree you find is the same as $T_2$.
+
+\begin{soln}
+\begin{minipage}[t]{2.5in}
+ \begin{tabular}{ll}
+ $0.2$ & S $\rightarrow$ BC \\
+ $0.1$ & S $\rightarrow$ B \\
+ $0.7$ & S $\rightarrow$ C
+ \end{tabular}
+\end{minipage}
+\begin{minipage}[t]{2.5in}
+ \begin{tabular}{ll}
+ $\frac{2}{3}$ & B $\rightarrow$ a \\
+ $\frac{1}{3}$ & B $\rightarrow$ aa \\
+ $\frac{2}{9}$ & C $\rightarrow$ aa \\
+ $\frac{7}{9}$ & C $\rightarrow$ aaa
+ \end{tabular}
+\end{minipage}
+
+$P(T_2) = 0.0333$ and $P(T_8) = 0.1555$, so $T_8$ is the parse tree with highest probability for input string $aa$.
+\end{soln}
+\end{xlist}
 
 \end{exe}
 \end{document}
