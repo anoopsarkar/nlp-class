@@ -729,9 +729,10 @@ P(\textit{tree$_1$}) + P(\textit{tree$_2$}) \nonumber\\
       $T = $ a parse tree \\
 A statistical parsing model defines $P(T \mid S)$
 \item<2-> Find best parse: $\textrm{arg max}\atop{T}$ $P(T \mid S)$
-\item<3-> $P(T \mid S) = \frac{P(T, S)}{P(S)} = P(T,S)$
-\item<4-> Best parse: $\textrm{arg max}\atop{T}$ $P(T, S)$
-\item<5-> e.g. for PCFGs: $P(T, S) = \prod_{i=1 \ldots n} P(\textrm{RHS}_i \mid \textrm{LHS}_i)$
+\item<3-> $\textrm{arg max}\atop{T}$ $P(T \mid S) =$ $\textrm{arg max}\atop{T}$ $\frac{P(T, S)}{P(S)}$
+\item<4-> $P(S) = \sum_T P(T,S)$ so we can ignore $P(S)$ when searching for the best tree as it is just scaling each tree score by a constant value
+\item<5-> So the best parse is: $\textrm{arg max}\atop{T}$ $P(T,S)$
+\item<5-> For PCFGs: $P(T, S) = \prod_{i=1 \ldots n} P(\textrm{RHS}_i \mid \textrm{LHS}_i)$
 \end{itemize}
 
 \end{frame}
