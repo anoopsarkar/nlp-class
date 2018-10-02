@@ -160,8 +160,64 @@ Using this scoring function we map each cipher symbol to the most likely English
 The baseline method you will implement is a beam search algorithm for decipherment that uses
 character language models.
 
+The ciphertext is:
+
+$$f_1^N = f_1, \ldots, f_i, \ldots, f_N, f_i \in V_f$$
+
+The plaintext candidates are:
+
+$$e_1^N = e_1, \ldots, e_i, \ldots, e_N, e_i \in V_e$$
+
+Substitution of a cipher symbol with a plaintext symbol is represented by a function:
+
+$$\phi: V_f \rightarrow V_e$$
+
+Decipherment aims to find:
+
+$$\hat{\phi} = \argmax_{\phi} P( \phi(f_1), \ldots, \phi(f_N) )$$
+
+where P is a language model.
+
+The following algorithm is the baseline method of this homework.
+It uses beam search to find the argmax solution in the equation above.
+
 ![Beam Search Algorithm](assets/img/decipherbeam.png "Beam Search for Decipherment")
 
+This algorithm does breadth first search of the tree of possible
+cipher mappings to plaintext letters and prunes solutions that
+receive bad language model scores.
+
+To explain this algorithm in detail we will use a running example.
+Let the ciphertext be `BURGER` and the plaintext decoded version
+is `burger`. The ciphertext is assumed to be in uppercase and the
+lowercase of each ciphertext letter is assumed to be the plaintext
+(this is for convenience in explaining the algorithm since it is
+immediately apparent what the right mapping should be).
+
+`EXT_ORDER` is a list of cipher symbols sorted by their frequencies
+in the ciphertext. e.g. In our running example `EXT_ORDER = [ R,
+B, U, G, E ]`. The most frequent cipher symbol is at the head of
+this list.
+
+`EXT_LIMITS` provides a constraint for the maximum number of
+cipher symbols that can map to each English letter. For a 1:1
+substitution cipher `EXT_LIMITS` would be 1.  For a homophonic
+cipher it should be greater than 1.
+
+We track all partial hypotheses in two sets `Hs` and `Ht`.
+
+In each step of the while loop we increase the hypothesis
+size:
+
+$$\phi' = \phi \cup { (e,f) }$$
+
+where e,f is a mapping from cipher symbol f to plaintext e.
+
+`CARDINALITY` is the number of cipher symbols already mapped
+to plaintext.
+
+`HISTOGRAM_PRUNE` keeps the best scoring hypothesis and prunes
+the rest.
 
 ### Your Task
 
