@@ -1,0 +1,26 @@
+digraph FSM {
+rankdir = LR;
+size = "8.5,11";
+label = ""
+center = 1;
+nodesep = "0.250000"
+ranksep = "0.400000"
+orientation = Landscape
+0 [label = "0", shape = circle, style = bold, fontsize = 14]
+   0 -> 1 [label = "^", fontsize = 14];
+1 [label = "1", shape = circle, style = solid, fontsize = 14]
+   1 -> 2 [label = "i:i", fontsize = 14];
+2 [label = "2", shape = circle, style = solid, fontsize = 14]
+   2 -> 3 [label = "N:N", fontsize = 14];
+3 [label = "3", shape = circle, style = solid, fontsize = 14]
+   3 -> 4 [label = "eps:im", fontsize = 14];
+   3 -> 6 [label = "eps:in", fontsize = 14];
+4 [label = "4", shape = circle, style = solid, fontsize = 14]
+   4 -> 5 [label = "p:p,b:b,m:m", fontsize = 14];
+5 [label = "5", shape = doublecircle, style = solid, fontsize = 14]
+   5 -> 5 [label = "X:X", fontsize = 14];
+6 [label = "6", shape = circle, style = solid, fontsize = 14]
+   6 -> 7 [label = "Y:Y", fontsize = 14];
+7 [label = "7", shape = doublecircle, style = solid, fontsize = 14]
+   7 -> 7 [label = "X:X", fontsize = 14];
+}

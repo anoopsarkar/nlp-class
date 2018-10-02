@@ -1,0 +1,482 @@
+
+\documentclass[11pt]{article}
+%\usepackage{txfonts}
+\usepackage{graphicx}
+\usepackage{mygb4e}
+\usepackage{solution}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{tipa}
+
+\setlength\oddsidemargin{0.01in}
+\setlength\topmargin{-1in}
+\setlength\textwidth{6.9in}
+\setlength\textheight{9.5in} 
+
+\newcommand{\nl}{\mbox{$\langle cr \rangle$}}
+
+\raggedright
+\raggedright
+\newcommand{\blank}{\mbox{\verb*| |}}
+\newcommand{\code}[1]{\texttt{\small #1}}
+
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\langa}{\textsc{Martian-A}}
+\newcommand{\langb}{\textsc{Martian-B}}
+
+\hidesolutions
+
+\begin{document}
+
+\begin{center}
+{\Large Natural Language Processing}\\
+{\large In-class Word Alignment Exercise}\\
+{\small Anoop Sarkar}\\
+\url{http://anoopsarkar.github.io/nlp-class} \\
+This material is \copyright Anoop Sarkar 2014. \\
+Only students registered for this course are allowed to download this material. \\
+Use of this material for ``tutoring'' is prohibited.
+\end{center}
+
+\begin{exe}
+
+\ex\label{kkex} \textbf{Human Translation} 
+
+NASA's latest mission to Mars has found some strange
+tablets. One tablet seems to be a kind of Rosetta stone which
+has translations from a language we will call \langa\ 
+(sentences 1a to 12a below)
+to another language we will call \langb\ (sentences 1b to 12b below). 
+The ASCII transcription of the alien script on the Rosetta tablet is given below:
+
+\begin{center}
+\begin{minipage}[t]{3.2in}
+{\small\begin{verbatim}
+1a. ok'sifar zvau hu .
+
+1b. at'sifar somuds geyu .
+
+
+2a. ok'anko ok'sifar myi pell hu .
+
+2b. at'anko at'sifar ashi erder geyu .
+
+
+3a. oprashyo hu qebb yuzvo oxloyzo .
+
+3b. diza geyu isvat iwla pown .
+
+
+4a. ok'sifar myi rig bzayr zu .
+
+4b. at'sifar keerat ashi parq up .
+
+
+5a. yux druh qebb stovokor .
+
+5b. diza viodaws pai shun .
+
+
+6a. ked hu qebb zu stovokor .
+
+6b. dimbe geyu keerat pai shun .
+
+
+7a. ked druh zvau ked hu qebb pnah .
+
+7b. dimbe viodaws somuds dimbe geyu iwla woq .
+\end{verbatim}
+}
+\end{minipage}
+\begin{minipage}[t]{3in}
+{\small\begin{verbatim}
+
+8a. ked bzayr myi pell eoq .
+
+8b. gakh up ashi erder kvig .
+
+
+9a. yux eoq qebb zada ok'nefos .
+
+9b. diza kvig pai goli at'nefos .
+
+
+10a. ked amn eoq kin oxloyzo hom .
+
+10b. dimbe kvig baz iluh ejuo pown .
+
+
+11a. ked eoq tazih yuzvo kin dabal'ok .
+
+11b. dimbe kvig isvat iluh dabal'at .
+
+
+12a. ked mina eoq qebb yuzvo amn .
+
+12b. dimbe kvig zeg isvat iwla baz .
+\end{verbatim}
+}
+\end{minipage}
+\end{center}
+
+We would like to create a translation from the source language
+which we will take to be \langb\ and produce output in the target
+language which will be \langa. Due to severe budget cutbacks at NASA, decryption of these
+tablets has fallen to people like you. 
+In this question, you should try to solve this task
+by hand to get some insight into the process of translation.
+
+\begin{xlist}
+
+\ex{\label{kkex1} Use the above translations to
+produce a translation dictionary. For each word in \langa\
+provide an equivalent word in \langb. If a word in \langa\ has 
+no equivalent in \langb\ then put the entry ``(none)'' in the dictionary.
+
+\begin{soln}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\langa & \langb \\
+\hline
+myi & ashi \\
+bzayr & up \\
+hom & ejuo \\
+tazih & (none) \\
+rig & parq \\
+pnah & woq \\
+oprashyo & diza \\
+druh & viodaws \\
+oxloyzo & pown \\
+yuzvo & isvat \\
+qebb & iwla \\
+qebb & pai \\
+zu & keerat \\
+zada & goli \\
+ked & dimbe \\
+ked & gakh \\
+amn & baz \\
+eoq & kvig \\
+ok'anko & at'anko \\
+ok'sifar & at'sifar \\
+ok'nefos & at'nefos \\
+zvau & somuds \\
+pell & erder \\
+mina & zeg \\
+hu & geyu \\
+stovokor & shun \\
+yux & diza \\
+kin & iluh \\
+dabal'ok & dabal'at \\
+\hline 
+\end{tabular}
+\end{center}
+\end{soln}
+
+}
+
+\ex{\label{kkex2}  Using your translation dictionary, provide a word for word
+translation for the following \langb\ sentences on a new tablet which was found
+near the Rosetta tablet. 
+{\small\begin{verbatim}
+13b. gakh up ashi woq pown goli at'nefos .
+
+14b. diza kvig zeg isvat iluh ejuo .
+
+15b. dimbe geyu pai shun hunslob at'anko .
+\end{verbatim}
+}
+
+The \langa\ sentences you
+produce will probably appear to be in a different word order from
+the \langa\ sentences you observed on the Rosetta tablet. Some
+words might be unseen and so seemingly untranslatable. In those
+cases insert the word {\small\tt ?} for the unseen word.
+
+\begin{soln}
+{\small\begin{verbatim}
+13a. ked bzayr myi pnah oxloyzo zada ok'nefos .
+
+14a. yux eoq mina yuzvo kin hom .
+
+15a. ked hu qebb stovokor ? ok'anko .
+\end{verbatim}
+}
+\end{soln}
+
+}
+
+\ex{\label{kkex3}  The word for word translation can be improved with
+additional knowledge about \langa\ word order. Luckily another
+tablet containing some \langa\ sentences (untranslated) was
+found on the dusty plains of Mars. Use these \langa\ sentences
+in order to find the most plausible word order for the \langa\ sentences
+translated from \langb\ sentences in (\ref{kkex2}).
+
+{\small\begin{verbatim}
+ok'anko myi oxloyzo druh .
+yux mina eoq esky oxloyzo pnah .
+ok'anko yolk stovokor koos oprashyo pnah zada ok'nefos yun zu kin hom .
+ked hom qebb koos ok'anko .
+ok'sifar zvau hu .
+ok'anko ok'sifar
+myi pell hu .
+oprashyo hu qebb yuzvo oxloyzo .
+ok'sifar myi rig bzayr zu .
+yux druh qebb stovokor .
+ked hu qebb zu stovokor .
+ked bzayr myi pell eoq .
+ked druh zvau ked hu qebb pnah .
+yux eoq qebb zada ok'nefos .
+ked amn eoq kin oxloyzo hom .
+ked eoq tazih yuzvo kin dabal'ok .
+ked mina eoq qebb yuzvo amn .
+\end{verbatim}
+}
+
+Using this additional \langa\ text you can even find a translation for words that 
+are missing from the translation dictionary (although this might be hard to implement
+in a program, cases that were previously translated as {\small\tt ?} can be 
+translated by manual inspection of the above \langa\ text).
+
+\begin{soln}
+{\small\begin{verbatim}
+13a. ked bzayr myi oxloyzo pnah zada ok'nefos .
+
+14a. yux mina eoq tazih yuzvo kin hom .
+
+15a. ked hu qebb stovokor koos ok'anko .
+\end{verbatim}
+}
+\end{soln}
+}
+
+\end{xlist}
+
+\newpage
+\ex The following is a small parallel text (the same text in two different
+languages). The 1st column contains phrases in Udihe. The 2nd column contains the
+English equivalent. 
+
+\bigskip
+
+\begin{tabular}{ll}
+\textipa{b"ata z\"a:Nini} & the boy's money \\
+\textipa{si bogdoloi} & thy shoulder \\
+\textipa{ja: xabani} & the cow's udder \\
+\textipa{su z\"a:Niu} & your money \\
+\textipa{dili tekpuni} & the skin of the head \\
+\textipa{si ja:Ni:} & thy cow \\
+\textipa{bi mo:Ni:} & my tree \\
+\textipa{aziga bugdini} & the girl's leg \\
+\textipa{bi nakta diliNi:} & my boar head \\
+\textipa{nakta igini} & the boar's tail \\
+\textipa{si b"ataNi: bogdoloni} & thy son's shoulder \\
+\textipa{teNku bugdini} & the leg of the stool \\
+\textipa{su ja: wo:Niu} & your cow thigh \\
+\textipa{bi wo:i} & my thigh
+\end{tabular}
+
+\bigskip
+
+\textipa{N}, \textipa{"} are consonants, \textipa{\"a} is a vowel. The
+\textipa{:} indicates length of preceding vowel (so for example \textipa{i}+\textipa{i} is written as \textipa{i:}). 
+The archaic English {\it thy} is used to indicate singular and {\it your} is used to indicate plural.
+
+\bigskip
+
+\begin{soln}
+
+\smallskip
+
+Consider the English phrase {\it X's Y} or {\it Y of the X}. The following table
+summarizes how this phrase has to be structured in Udihe:
+
+\smallskip
+
+\begin{tabular}{|l|p{1.4in}|p{3in}|}
+\hline
+X (possessor) & Udihe phrase for {\it X's Y} or {\it Y of the X} & examples \\
+\hline
+singular \& I/you/my/thy & X Y-(\textipa{Ni})-\textipa{i} & 
+  \textipa{bi wo:\underline{i}}, \textipa{bi mo:\underline{Ni:}},
+  \textipa{bi nakta dili\underline{Ni:}},
+  \textipa{si bogdolo\underline{i}}, \textipa{si ja:\underline{Ni:}},
+   \textipa{si b"ata\underline{Ni:} bogdoloni} \\
+singular (all other cases) & X Y-(\textipa{Ni})-\textipa{ni} &
+  \textipa{ja: xaba\underline{ni}}, \textipa{dili tekpu\underline{ni}}, 
+  \textipa{b"ata z\"a:\underline{Nini}}, 
+  \textipa{si b"ataNi: bogdolo\underline{ni}} \\
+plural & X Y-(\textipa{Ni})-\textipa{u} & 
+  \textipa{su z\"a:\underline{Niu}}, \textipa{su ja: wo:\underline{Niu}} \\
+\hline
+\end{tabular}
+
+\smallskip
+
+Notice that \textipa{Ni} occurs exactly in those cases when, in the phrase
+{\it X's Y}, the {\it Y} is not in a part-whole relationship with respect
+to {\it X}. For example, \textipa{bi wo:i} (my thigh) is in a part-whole
+relationship, while \textipa{bi mo:Ni:} (my tree) is not in a part-whole
+relationship. Also, \textipa{Ni}+\textipa{i} becomes \textipa{Ni:} since
+the vowel is simply lengthened.
+
+\smallskip
+
+In the case where the possessor is itself a possession phrase
+e.g. {\it \fbox{thy son}'s shoulder}, each possessee gets the 
+appropriate suffix, e.g. \textipa{si b"ata\underline{Ni:} bogdolo\underline{ni}}.
+And in the case where the possessee is itself a possession phrase, 
+e.g.  {\it my \fbox{boar head}}, only the actual part possessed is
+marked, e.g. \textipa{bi nakta dili\underline{Ni:}}. How would you say
+{\it the skin of the head of the cow} in Udihe?
+
+\bigskip
+
+Consider the pronouns observed in the parallel text:
+
+\smallskip
+
+\begin{tabular}{|c|c|}
+\hline
+singular & plural \\
+\hline
+\textipa{bi}/I & (\textipa{bu})/our \\
+\textipa{si}/you & \textipa{su}/your \\
+\hline
+\end{tabular}
+
+\smallskip
+
+Note that the pronoun {\it our} does not occur in the text, but by
+analogy to {\it you} vs. {\it your} we can conjecture that the plural
+of {\it I} which is {\it our} in English, will be \textipa{bu} in Udihe.
+
+\bigskip
+
+Another missing form we can construct using analogy is the word for
+{\it daughter} which is not observed, but we do observe the words for
+{\it boy} and {\it son}:
+
+\smallskip
+
+\begin{tabular}{|c|c|}
+\hline
+\textipa{b"ata}/boy & \textipa{b"ata}/son \\
+\textipa{aziga}/girl & (\textipa{aziga})/daughter \\
+\hline
+\end{tabular}
+
+\end{soln}
+
+\ex Translate into English:
+
+\begin{xlist}
+{\ex \textipa{su b"ataNiu z\"a:Nini}
+
+\begin{soln}
+your son's money
+\end{soln}
+}
+
+{\ex \textipa{si teNku bugdiNi:}
+
+\begin{soln}
+thy stool leg
+\end{soln}
+}
+
+{\ex 
+\textipa{si teNkuNi: bugdini}
+
+\begin{soln}
+thy stool's leg
+\end{soln}
+}
+
+\end{xlist}
+
+\ex Translate into Udihe:
+
+\begin{xlist}
+{\ex the boy's thigh
+
+\begin{soln}
+\textipa{b"ata wo:ni}
+\end{soln}
+}
+
+{\ex our boar
+
+\begin{soln}
+\textipa{bu naktaNiu}
+\end{soln}
+}
+
+{\ex my daughter's tree
+
+\begin{soln}
+\textipa{bi azigaNi: mo:Nini}
+\end{soln}
+}
+
+\end{xlist}
+
+Udihe speakers mostly live in the Siberian far east, 
+and the language is classified as belonging to the Tungus-Manchu language
+family. There are roughly 100 people who still speak this language. The language
+is almost extinct. Other than the parallel text given above, you do not need any knowledge about the language
+and its speakers to answer the questions, but if you are curious, here are
+some web pages on the Udihe language:
+
+{\small
+\begin{verbatim}
+http://www.ethnologue.com/show_language.asp?code=ude
+http://en.wikipedia.org/wiki/Udege_language
+\end{verbatim}
+}
+
+\begin{comment}
+{\bf Hint}
+\bigskip
+
+All the expressions above denote something (call it ${\cal Y}$) belonging to someone
+or something else (call it ${\cal X}$). In English, the predicate of possession
+$\textsf{Possess}({\cal X}, {\cal Y})$
+would be denoted by the phrase {\it the ${\cal Y}$ of the ${\cal X}$} / {\it the ${\cal X}$'s ${\cal Y}$}, 
+e.g. {\it the stool's leg} 
+or {\it the boy's money}. How is this predicate expressed
+in Udihe? 
+
+\bigskip
+
+In English, we can use the expression ${\cal X}$'s ${\cal Y}$ 
+if the predicate indicates that ${\cal Y}$ is a part of ${\cal X}$, 
+e.g. {\it the stool's leg}, or if the predicate indicates that ${\cal Y}$ is separate from 
+and belongs to ${\cal X}$, e.g. {\it the boy's money}. How are these two predicates
+expressed in Udihe? 
+
+\bigskip
+
+Things get a bit more interesting when we add in another component and we have
+two possession predicates. Depending on how they interact, we can observe
+different cases: for instance,  
+${\cal X}$ ${\cal Y}$'s ${\cal Z}$, e.g. {\it \fbox{thy son}'s shoulder}  or
+${\cal X}$'s ${\cal Y}$ ${\cal Z}$, e.g. {\it my \fbox{boar head}}.
+
+\bigskip
+\bigskip
+\end{comment}
+
+{\small
+Thanks to B. Iomdin who originally created the parallel text and the concept
+behind the question for an international olympiad in computational linguistics.
+The question has been somewhat simplified to make the computational aspect of
+the translation more explicit.
+}
+
+
+\end{exe}
+
+\end{document}
+

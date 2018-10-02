@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Line - Test Page</title>
+	<meta charset="UTF-8">
+	<style>
+		body {
+			background: url(gridtest-bg.png);
+			margin: 0;
+		}
+		.jquery-line {
+			border: 5px solid black;
+			margin: 20px;
+		}
+		.jquery-line, .misc {
+			opacity: .7;
+			filter: alpha(opacity=70);
+		}
+		.scaleMargin {
+			margin: 0 25px;
+		}
+		.scalePadding {
+			padding: 0 25px;
+		}
+		.scaleBorder {
+			border-color: black;
+			border-style: solid;
+			border-width: 0 25px;
+		}
+	</style>
+</head>
+<body>
+	<script src="lib/jquery.js"></script>
+	<script src="jquery.domline.js"></script>
+	<script src="lib/jquery.transform.min.js"></script>
+	<script>
+		$(function () {
+			for (var i = 0; i < 3; i++) {
+				var xoff = i * 400,
+					l = xoff + 50,
+					r = xoff + 350,
+					t = 50,
+					b = 350,
+					tl = {x:l, y:t},
+					tr = {x:r, y:t},
+					br = {x:r, y:b},
+					bl = {x:l, y:b},
+					thickness = i * 10 + 1;
+				$.line(tl, tr, {lineColor:'black', lineWidth:thickness});
+				$.line(tr, br, {lineColor:'red', lineWidth:thickness});
+				$.line(br, bl, {lineColor:'blue', lineWidth:thickness});
+				$.line(bl, tl, {lineColor:'green', lineWidth:thickness});
+				$.line(tl, br, {lineColor:'gold', lineWidth:thickness});
+				$.line(bl, tr, {lineColor:'purple', lineWidth:thickness});
+				
+				var scaleX     = xoff + 200,
+					scaleY     = 425,
+					scaleStart = {x:scaleX - 75, y:scaleY},
+					scaleEnd   = {x:scaleX + 75, y:scaleY},
+					classExtra = ['scaleMargin', 'scalePadding', 'scaleBorder'];
+				$.line(scaleStart, scaleEnd, {lineColor:'teal', lineWidth:25, className:'misc ' + classExtra[i]})
+					.css('transform', 'scale(2)');
+			}
+		});
+	</script>
+</body>
+</html>

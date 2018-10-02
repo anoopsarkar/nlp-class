@@ -1,0 +1,318 @@
+- title: "Course Introduction"
+  tag: intro
+  include: true
+  current: false
+  notes:
+    - title: "Course introduction"
+      url: "assets/slides/introduction.pdf"
+  links:
+    - author: Lillian Lee
+      title: "I'm sorry Dave, I'm afraid I can't do that"
+      url: "http://www.cs.cornell.edu/home/llee/papers/cstb.pdf"
+    - author: Rick Rashid
+      title: "Speech Recognition Breakthrough for the Spoken, Translated Word by Rick Rashid"
+      video: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
+      url: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
+      optional: true
+    - title: "IBM Watson competes in Jeopardy!"
+      video: "https://www.youtube.com/watch?v=lI-M7O_bRNg"
+      url: "https://www.youtube.com/watch?v=lI-M7O_bRNg"
+      optional: true
+    - author: Anoop Sarkar
+      title: "NLP and Text Visualization"
+      url: "assets/slides/wikihistory.pdf"
+      optional: true
+    - author: "Matt Gardner and Waleed Ammar"
+      title: "NLP Highlights podcast"
+      url: "https://soundcloud.com/nlp-highlights"
+      optional: true
+- title: Context-free Grammars
+  tag: cfg
+  include: true
+  current: false
+  notes:
+    - title: "Homework 0 release"
+      url: "hw0.html"
+    - title: "Ambiguity and Context free grammars"
+      url: "assets/slides/ambiguity.pdf"
+    - title: "Parsing Context free grammars"
+      url: "assets/slides/parsing.pdf"
+    - title: "In-class exercise on CFGs"
+      url: "assets/handouts/cfgquiz.pdf"
+    - title: "Context-free grammars notebook"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/cfg.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/cfg.ipynb"
+  links:
+    - author: Michael Collins
+      title: "Probabilistic Context-free Grammars"
+      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/pcfgs.pdf"
+      download: "assets/mcollins-notes/pcfgs.pdf"
+    - author: Michael Collins
+      title: "Lexicalized Context-free Grammars"
+      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lexpcfgs.pdf"
+      download: "assets/mcollins-notes/lexpcfgs.pdf"
+    - title: "Exercise: Grammar Rules!"
+      author: "Andrea Schalley and Patrick Littell"
+      url: "http://nacloweb.org/resources/problems/2013/N2013-F.pdf"
+      optional: true
+    - title: "Exercise: Twodee"
+      author: "Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2013/N2013-H.pdf"
+      optional: true
+    - title: "Exercise: One, Two, Tree"
+      author: "Noah Smith, Kevin Gimpel, and Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2012/N2012-R.pdf"
+      optional: true
+    - title: "Exercise: OrwellSpeak"
+      author: "Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2009/N2009-M.pdf"
+      optional: true
+- title: "Probability models and language"
+  tag: probintro
+  include: true
+  current: false
+  notes:
+    - title: "Probability Models for NLP"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb"
+    - title: "Probability models and language"
+      url: "assets/slides/prob.pdf"
+    - title: "Homework 1"
+      url: "hw1.html"
+  links:
+    - title: "Python tidbits for NLP"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/python-tidbits.ipynb"
+    - author: Claude Shannon
+      title: "A Mathematical Theory of Communication"
+      url: http://en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication
+      optional: true
+    - author: Claude Shannon
+      title: "Prediction and Entropy of Printed English"
+      url: http://languagelog.ldc.upenn.edu/myl/Shannon1950.pdf
+      optional: true
+- title: "Language models"
+  tag: lm
+  include: true
+  current: true
+  notes:
+    - title: "Language models"
+      url: "assets/slides/lm.pdf"
+  links:
+    - author: Michael Collins
+      title: "Language models"
+      download: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lm.pdf"
+      url: "assets/mcollins-notes/lm.pdf"
+      optional: false
+    - author: Peter Norvig
+      title: "Natural Language Corpus Data: Beautiful Data"
+      url: "http://norvig.com/ngrams/"
+      download: "http://norvig.com/ngrams/ngrams.zip"
+    - author: Stanley Chen and Joshua Goodman
+      title: "A Bit of Progress in Language Modeling"
+      url: http://ptrckprry.com/course/ssd/Good01.pdf
+      optional: true
+    - author: Ciprian Chelba, Tomas Mikolov, Mike Schuster, Qi Ge, and Thorsten Brants
+      title: "One Billion Word Benchmark for Measuring Progress in Statistical Language Modeling"
+      url: http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/41880.pdf
+      optional: true
+- title: "Neural Language models"
+  tag: nlm
+  include: false
+  current: false
+  notes:
+    - title: "Neural Language models"
+      url: "assets/cached/mikolovrnn.pdf"
+      author: Tomas Mikolov
+    - title: "In class exercise: n-gram Language Models"
+      url: "assets/notes/lm.html"
+  links:
+    - title: "How to implement a recurrent neural network"
+      author: "peterroelants.github.io"
+      url: "http://peterroelants.github.io/posts/rnn_implementation_part01/"
+      optional: true
+    - title: "Neural Machine Translation and Sequence-to-sequence Models: A Tutorial"
+      author: "Graham Neubig"
+      citation: "arXiv"
+      url: "https://arxiv.org/pdf/1703.01619.pdf"
+      optional: true
+    - title: "Statistical language models based on neural networks"
+      author: Tomas Mikolov
+      url: "http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf"
+- title: "Linear models"
+  tag: linearmodels
+  include: false
+  current: false
+  notes:
+    - title: "Linear models"
+      url: "assets/slides/linearmodels.pdf"
+    - title: "Homework 2 release"
+      url: "hw2.html"
+    - title: "In class exercise: Nothing but Net(works)"
+      author: Tom McCoy
+      url: "http://www.nacloweb.org/resources/problems/2017/N2017-H.pdf"
+  links:
+    - title: "Naive Bayes"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/naivebayes.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/naivebayes.ipynb"
+    - title: "Log-linear Models"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/loglinear.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/loglinear.ipynb"
+    - author: Michael Collins
+      title: "Log-linear models, MEMMs and CRFs"
+      url: "http://www.cs.columbia.edu/~mcollins/crf.pdf"
+      download: "assets/mcollins-notes/crf.pdf"
+    - author: Erik F. Tjong Kim Sang and Sabine Buchholz
+      title: "Introduction to the CoNLL-2000 Shared Task: Chunking"
+      url: "http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
+- title: "Hidden Markov Models"
+  tag: hmm
+  include: false
+  current: false
+  notes:
+    - title: "Hidden Markov Models"
+      url: "assets/slides/hmm.pdf"
+  links:
+    - title: "Viterbi algorithm for HMMs"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/hmm.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/hmm.ipynb"
+    - author: Michael Collins
+      title: "Hidden Markov Models"
+      download: "assets/mcollins-notes/hmms-spring2013.pdf"
+      url: "assets/mcollins-notes/hmms-spring2013.pdf"
+    - author: Anoop Sarkar
+      title: "Introduction to Hidden Markov Models"
+      video: "http://youtu.be/D9TvSfkcN-8"
+      url: "http://youtu.be/D9TvSfkcN-8"
+    - author: Anoop Sarkar
+      title: "N-grams versus HMMs"
+      video: "http://youtu.be/sxziC8Zh8Kw"
+      url: "http://youtu.be/sxziC8Zh8Kw"
+    - author: Anoop Sarkar
+      title: "Parsing with HMMs"
+      video: "http://youtu.be/0OQIBTWqjFY"
+      url: "http://youtu.be/0OQIBTWqjFY"
+    - author: Anoop Sarkar
+      title: "Viterbi algorithm for HMMs"
+      video: "http://youtu.be/TymbVHmJWQ8"
+      url: "http://youtu.be/TymbVHmJWQ8"
+    - author: Anoop Sarkar
+      title: "Language models and HMMs"
+      video: "http://youtu.be/dxEQeUd4JBs"
+      url: "http://youtu.be/dxEQeUd4JBs"
+    - author: Anoop Sarkar
+      title: "Supervised learning of HMMs"
+      video: "http://youtu.be/0dp3Digvfcw"
+      url: "http://youtu.be/0dp3Digvfcw"
+    - author: Anoop Sarkar
+      title: "Lagrange multipliers for HMM parameter updates"
+      video: "http://youtu.be/ZUcb_UJK1UM"
+      url: "http://youtu.be/ZUcb_UJK1UM"
+      optional: true
+    - author: Michael Collins
+      title: "Forward-backward algorithm"
+      download: "assets/mcollins-notes/fb.pdf"
+      url: "assets/mcollins-notes/fb.pdf"
+      optional: true
+- title: "Statistical Machine Translation"
+  tag: smt
+  include: false
+  current: false 
+  notes:
+    - title: "Introduction to Machine Translation"
+      url: "assets/slides/mtintro.pdf"
+    - title: "Homework 3 release"
+      url: "hw3.html"
+    - title: "In class exercise: aw-TOM-uh-tuh"
+      author: "Patrick Littell"
+      url: "http://www.naclo.cs.cmu.edu/problems2008/N2008-I.pdf"
+  links:
+    - author: Adam Lopez
+      title: "Word Alignment and the Expectation-Maximization Algorithm"
+      url: "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.421.5497&rep=rep1&type=pdf"
+    - author: Kevin Knight
+      title: "A Statistical MT Tutorial Workbook"
+      url: http://www.isi.edu/natural-language/mt/wkbk.pdf
+      optional: true
+- title: Word Alignment
+  tag: align
+  include: false
+  current: false 
+  notes:
+    - title: "Word Alignment"
+      url: "assets/slides/ibm123.pdf"
+  links:
+    - title: "In-class Alignment Exercise"
+      url: "assets/handouts/inclass-align.pdf"
+    - author: Michael Collins
+      title: "Statistical Machine Translation: IBM Models 1 and 2"
+      url: "http://www.cs.columbia.edu/~mcollins/ibm12.pdf"
+      download: "assets/mcollins-notes/ibm12.pdf"
+    - author: Philipp Koehn
+      title: "Statistical Machine Translation"
+      url: "http://www.statmt.org/book"
+      optional: true
+- title: "Phrase based translation"
+  tag: pbmt
+  include: false
+  current: false
+  notes:
+    - author: Philipp Koehn
+      title: "Decoding"
+      url: "assets/slides/06-decoding.pdf"
+    - author: Philipp Koehn
+      title: "Phrase-based models"
+      url: "assets/slides/05-phrase-based-models.pdf"
+    - title: "Homework 4 release"
+      url: "hw4.html"
+    - title: "Stack Decoder demo"
+      author: "Matt Post"
+      url: "assets/demos/stack-decoder/stack-decoder.html"
+    - title: "In class exercise: Udihe"
+      author: "B. Iomdin"
+      url: "assets/handouts/inclass-udihe.pdf"
+  links:
+    - author: Michael Collins
+      title: "Statistical Machine Translation: Phrase-based models"
+      url: "http://www.cs.columbia.edu/~mcollins/pb.pdf"
+      download: "assets/mcollins-notes/pb.pdf"
+- title: "Discriminative Training for Machine Translation"
+  tag: statmt
+  current: false
+  notes:
+    - author: "Philipp Koehn, Barry Haddow and Matthias Huck"
+      title: "Discriminative Training"
+      url: "assets/slides/09-discriminative-training.pdf"
+    - title: "Homework 5 release"
+      url: "hw5.html"
+  links:
+    - author: "Mark Hopkins and Jonathan May"
+      title: "Tuning as Ranking"
+      url: "http://www.aclweb.org/anthology/D11-1125"
+- title: "Translation Evaluation"
+  tag: mteval
+  include: false
+  current: false
+  notes:
+    - author: Philipp Koehn
+      title: "Evaluation"
+      url: "assets/slides/08-evaluation.pdf"
+    - author: Anoop Sarkar
+      title: "Edit distance"
+      url: "assets/slides/editdist.pdf"
+    - author: Blake Allen and Patrick Littell
+      title: "In-class exercise: Levenshtein's Fine Signs"
+      url: "assets/notes/N2014-C.pdf"
+  links:
+    - author: Anoop Sarkar
+      title: "Introducing edit distance"
+      video: "http://youtu.be/IDGsJdFZCmE"
+      url: "http://youtu.be/IDGsJdFZCmE"
+    - author: Anoop Sarkar
+      title: "Computing edit distance (part one)"
+      video: "http://youtu.be/Dv_bdR7LpS0"
+      url: "http://youtu.be/Dv_bdR7LpS0"
+    - author: Anoop Sarkar
+      title: "Computing edit distance (part two)"
+      video: "http://youtu.be/E606vHFGTvA"
+      url: "http://youtu.be/E606vHFGTvA"

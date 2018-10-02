@@ -1,0 +1,31 @@
+Use the following procmail setup and rule to have the script called
+
+  HOME=/users/post
+  MAILDIR=/users/post/mail
+  LOGFILE=/users/post/.maillog
+  LOGABSTRACT=all
+  FROM=`formail -rt -xTo:`
+
+  :0: f
+  * ^Subject: mt-class
+  | python /users/post/code/mt-class/stack-decoder/process-mail.py
+
+This will create files in the data/ directory when people send an email
+to you with a subject of "mt-class" and a body format that looks like
+this:
+
+  0 word
+  1 word
+  2 word
+  ...
+
+where the numbers are indexes and the words are translations of a
+source language sentence.  
+
+You can then build the ttable (and language model) used by the
+JQuery stack decoder by running
+
+  ./build-ttable.py the sentence you had translated ....
+
+where the argument to build-ttable.py is the sentence you had
+translated in the emails that people sent to you.

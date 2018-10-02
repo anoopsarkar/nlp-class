@@ -1,0 +1,432 @@
+
+\documentclass[11pt]{article}
+\usepackage{txfonts}
+\usepackage{graphicx}
+\usepackage{mygb4e}
+\usepackage{solution}
+
+\hidesolutions
+\setlength\oddsidemargin{0.01in}
+\setlength\topmargin{-1in}
+\setlength\textwidth{6.9in}
+\setlength\textheight{9.5in} 
+
+\newcommand{\nl}{\mbox{$\langle cr \rangle$}}
+
+\raggedright
+
+\newcommand{\valueof}[1]{\lbrack\!\lbrack #1 \rbrack\!\rbrack}
+\newcommand{\refp}[1]{(\protect\ref{#1})}
+\def\rwd#1 {\mbox{#1}}
+\def\N{\ensuremath{\mathcal{N}}}
+\def\implies{\ensuremath{\Rightarrow}}
+% Set some text inside an fbox the full width of the line, with the frame
+% sticking out into the margin.
+\long\def\framepar#1{\par\noindent\hbox to \textwidth {\hskip-\fboxsep
+\fbox{\parbox{\the\textwidth}{#1}}}}
+
+\begin{document}
+%\setlength{\baselineskip}{12pt}
+
+\begin{center}
+{\Large\bf Sample Midterm: Natural Language Processing }\\
+This material is \copyright Anoop Sarkar 2014. \\
+Only students registered for this course are allowed to download this material. \\
+Use of this material for ``tutoring'' is prohibited.
+\end{center}
+
+\begin{exe}
+
+\ex \textbf{Language Modeling}
+
+Consider a language model over character sequences that computes the probability of
+a word based on the characters in that word, so if word $w = c_0, c_1, \ldots, c_n$ then
+$P(w) = P(c_0, \ldots, c_n)$. Let us assume that the language model is defined as
+a bigram character model $P(c_i \mid c_{i-1})$ where 
+\begin{eqnarray*} 
+P(c_0, \ldots, c_n) = \prod_{i=1,2,\ldots,n} P(c_i \mid c_{i-1}) \label{eqn:bigram} 
+\end{eqnarray*}
+%For convenience we assume that we have explicit word boundaries: $c_0 = \texttt{b}$ and $c_n = \texttt{e}$ where \texttt{b} stands for \textit{begin marker} and \texttt{e} stands for \textit{end marker}.
+Katz backoff smoothing is defined as follows:
+\[ P_{\textit{katz}}(c_i~\mid~c_{i-1}) = \left\{
+\begin{array}{cl}
+\frac{ r^\ast(c_{i-1}, c_i) }{ r(c_{i-1}) } & \textrm{ if $r(c_{i-1}, c_i) > 0$} \\
+\alpha(c_{i-1}) P_{\textit{katz}} (c_i) & \textrm{otherwise}
+\end{array}
+\right. \]
+where $r(\cdot)$ provides the (unsmoothed) frequency from training data and $r^\ast(\cdot)$ is the Good-Turing estimate of the frequency $r$.
+%
+%defined as follows:
+%\[ r^\ast(c_{i-1}, c_i) = (r(c_{i-1}, c_i)+1) \times \frac{n_{r(c_{i-1}, c_i)+1}}{n_{r(c_{i-1}, c_i)}} \]
+%
+%where $n_{r(c_{i-1}, c_i)}$ is the number of
+%different $c_{i-1}, c_i$ types observed with count $r(c_{i-1}, c_i)$. We assume that linear interpolation has provided all missing $n_{r(\cdot)}$ values required.
+
+%which is defined as $r^\ast = (r+1) \frac{n_{r+1}}{n_r}$
+%, where $n_r$ is the number of types with frequency $r$.
+Provide the equation for $\alpha(c_{i-1})$ that ensures that $P_{\textit{katz}}(c_i~\mid~c_{i-1})$ is a proper probability.
+
+\begin{soln}
+
+Step by step derivation below. We are just looking for the end result.
+
+\begin{eqnarray*}
+\sum_{c_i} \left( \frac{r^\ast(c_{i-1}, c_i)}{r(c_{i-1})} + \alpha(c_{i-1}) P_\textit{katz}(c_i) \right) &=& 1 \\
+\sum_{c_i : r(c_{i-1}, c_i) > 0} \frac{r^\ast(c_{i-1}, c_i)}{r(c_{i-1})} + \alpha(c_{i-1}) \sum_{c_i : r(c_{i-1}, c_i) = 0} P_\textit{katz}(c_i) &=& 1 \\
+\alpha(c_{i-1}) \sum_{c_i : r(c_{i-1}, c_i) = 0} P_\textit{katz}(c_i) &=& 1 - \left( \sum_{c_i : r(c_{i-1}, c_i) > 0} \frac{r^\ast(c_{i-1}, c_i)}{r(c_{i-1})}  \right) \\
+\alpha(c_{i-1}) &=& \frac{1 - \left( \sum_{c_i : r(c_{i-1}, c_i) > 0} \frac{r^\ast(c_{i-1}, c_i)}{r(c_{i-1})}  \right)}{\sum_{c_i : r(c_{i-1}, c_i) = 0} P_\textit{katz}(c_i)} \\
+\alpha(c_{i-1}) &=& \frac{1 - \left( \sum_{c_i : r(c_{i-1}, c_i) > 0} \frac{r^\ast(c_{i-1}, c_i)}{r(c_{i-1})}  \right)}{1 - \left( \sum_{c_i : r(c_{i-1}, c_i) > 0} P_\textit{katz}(c_i) \right) } 
+\end{eqnarray*}
+
+Also acceptable is the somewhat less precise answer which assumes $\sum_{c_i} P_\textit{katz}(c_i) = 1$:
+\[ \alpha(c_{i-1}) = 1 - \sum_{c_i} \frac{ r^\ast(c_{i-1}, c_i) }{ r(c_{i-1}) } \]
+
+\end{soln}
+
+\bigskip
+\ex\label{hmm} \textbf{Hidden Markov Models}:
+
+The probability model $P(t_i \mid t_{i-2}, t_{i-1})$ 
+is provided below 
+where each $t_i$ is a part of speech tag, e.g. the sixth row of
+the left table below corresponds to
+$P(\textrm{D} \mid \textrm{N}, \textrm{V}) = \frac{1}{3}$. 
+Also provided is $P(w_i \mid t_i)$ that a word $w_i$ has a part of speech 
+tag $t_i$, e.g. the seventh line of the right table below corresponds to $P(\textrm{flies} \mid \textrm{V}) = \frac{1}{2}$. 
+
+\[ \begin{array}{ccc}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$P(t_i \mid t_{i-2}, t_{i-1})$ & $t_{i-2}$ & $t_{i-1}$ & $t_i$ \\
+\hline \hline
+1 & \texttt{bos} & \texttt{bos} & N \\
+\hline
+$\frac{1}{2}$ & \texttt{bos} & N & N \\
+\hline
+$\frac{1}{2}$ & \texttt{bos} & N & V \\
+\hline
+$\frac{1}{2}$ & N & N & V \\
+\hline
+$\frac{1}{2}$ & N & N & P \\
+\hline
+$\frac{1}{3}$ & N & V & D \\
+\hline
+$\frac{1}{3}$ & N & V & V \\
+\hline
+$\frac{1}{3}$ & N & V & P \\
+\hline
+1 & V & D & N \\
+\hline
+1 & V & V & D \\
+\hline
+1 & N & P & D \\
+\hline
+1 & V & P & D \\
+\hline
+1 & P & D & N \\
+\hline
+1 & D & N & \texttt{eos} \\
+\hline
+\end{tabular}
+&&
+\begin{tabular}{|c|c|c|}
+\hline
+$P(w_i \mid t_i)$ & $t_i$ & $w_i$ \\
+\hline\hline
+1 & D & an \\
+\hline
+$\frac{2}{5}$ & N & time \\
+\hline
+$\frac{2}{5}$ & N & arrow \\
+\hline
+$\frac{1}{5}$ & N & flies \\
+\hline
+1 & P & like \\
+\hline
+$\frac{1}{2}$ & V & like \\
+\hline
+$\frac{1}{2}$ & V & flies \\
+\hline
+1 & \texttt{eos} & \texttt{eos} \\
+\hline
+1 & \texttt{bos} & \texttt{bos} \\
+\hline
+\end{tabular}
+\end{array}
+\]
+
+The part of speech tag definitions are:
+\texttt{bos} ({\em begin sentence marker}), N ({\em noun}), V ({\em
+  verb}), D ({\em determiner}), P ({\em preposition}), \texttt{eos}
+({\em end of sentence marker}).
+
+\smallskip
+
+\begin{xlist}
+  
+  \ex{\label{tri2} Provide a Hidden Markov Model ($hmm$) that uses the trigram
+  part of speech probability $P(t_i \mid t_{i-2}, t_{i-1})$ 
+  as the transition probability $P_{hmm}(s_j \mid s_k)$ and the
+  probability $P(w_i \mid t_i)$ as the emission probability $P_{hmm}(w_j \mid s_j)$. 
+
+   {\bf Important:} Provide the $hmm$ in the form of two tables as shown below.
+   The first table contains transitions between states in the $hmm$ and the 
+   transition probabilities and the second table contains the words emitted
+   at each state and the emission probabilities. Do not provide entries with
+   zero probability.
+
+\begin{tabular}{|l|l|l|}
+\hline
+from-state $s_k$ & to-state $s_j$ & $P(s_j \mid s_k)$ \\
+\hline
+& & \\
+& & \\
+\end{tabular}
+\hspace{.5in}
+\begin{tabular}{|l|l|l|}
+\hline
+state $s_j$ & emission $w$ & $P(w \mid s_j)$ \\
+\hline
+ &  &  \\
+ &  &  \\
+% $bos,bos$ & $bos$ & 1 \\
+% $bos,N$   & time & $\frac{2}{5}$ \\
+\end{tabular}
+
+   {\bf Hint:} In your $hmm$ the state $\langle N, \texttt{eos} \rangle$
+   will have emission of word \texttt{eos} with probability 1
+   and will not have transitions to any other states.
+
+%  {\em Hint:} Create states in the $hmm$ of the type $\langle t_a, t_b \rangle$
+%  such that a transition probability from $\langle t_a, t_b \rangle$ to 
+%  $\langle t_b, t_c \rangle$ is the trigram probability $P(t_c \mid t_a, t_b)$
+%  and emission probability of $w$ from state $\langle t_a, t_b \rangle$ is
+%  $P(w \mid t_b)$.
+   
+   \begin{soln}
+   Here are the two tables that define the HMM, the transition table on the left and the emission table on the right:
+   
+\begin{tabular}{|l|l|ll|}
+\hline
+from-state $s_k$ & to-state $s_j$ & $P(s_j \mid s_k)$ & \\
+\hline
+ $bos,bos$ & $bos,N$ & $P(N \mid bos,bos)$& $1$ \\ \hline
+ $bos,N$   & $N,N$   & $P(N \mid bos,N)$& $\frac{1}{2}$ \\
+ $bos,N$   & $N,V$   & $P(V \mid bos,N)$& $\frac{1}{2}$ \\ \hline
+ $N,N$     & $N,V$   & $P(V \mid N,N)$ & $\frac{1}{2}$ \\
+ $N,N$     & $N,P$   & $P(P \mid N,N) $& $\frac{1}{2}$ \\ \hline
+ $N,V$     & $V,D$   & $P(D \mid N,V)$ & $\frac{1}{3}$ \\
+ $N,V$     & $V,V$   & $P(V \mid N,V) $& $\frac{1}{3}$ \\
+ $N,V$     & $V,P$   & $P(P \mid N,V) $& $\frac{1}{3}$ \\ \hline
+ $V,D$     & $D,N$   & $P(N \mid V,D)$& $1$ \\ \hline 
+ $V,V$     & $V,D$   & $P(D \mid V,V)$& $1$ \\ \hline 
+ $N,P$     & $P,D$   & $P(D \mid N,P)$& $1$ \\ \hline 
+ $V,P$     & $P,D$   & $P(D \mid V,P)$& $1$ \\ \hline 
+ $P,D$     & $D,N$   & $P(N \mid P,D)$& $1$ \\ \hline 
+ $D,N$     & $N,eos$ & $P(eos \mid D,N)$& $1$ \\
+ \hline
+\end{tabular}
+\hspace{.5in}
+\begin{tabular}{|l|l|l|}
+\hline
+state $s_j$ & emission $w$ & $P(w \mid s_j)$ \\
+\hline
+ $bos,bos$ & $bos$ & 1 \\ \hline
+ $bos,N$   & time & $\frac{2}{5}$ \\
+ $bos,N$     & arrow & $\frac{2}{5}$ \\
+ $bos,N$     & flies & $\frac{1}{5}$ \\ \hline
+ $N,N$     & time & $\frac{2}{5}$ \\
+ $N,N$     & arrow & $\frac{2}{5}$ \\
+ $N,N$     & flies & $\frac{1}{5}$ \\ \hline
+ $N,V$     & like & $\frac{1}{2}$ \\
+ $N,V$     & flies & $\frac{1}{2}$ \\ \hline
+ $V,D$     & an & $1$ \\ \hline
+ $V,V$     & like & $\frac{1}{2}$ \\
+ $V,V$     & flies & $\frac{1}{2}$ \\ \hline
+ $N,P$     & like & $1$ \\ \hline
+ $V,P$     & like & $1$ \\ \hline
+ $P,D$     & an & $1$ \\ \hline
+ $D,N$     & time & $\frac{2}{5}$ \\
+ $D,N$     & arrow & $\frac{2}{5}$ \\
+ $D,N$     & flies & $\frac{1}{5}$ \\
+ \hline
+\end{tabular}
+   \end{soln}
+  }
+
+\smallskip
+
+  \ex{Based on your $hmm$ constructed in \ref{tri2}. what is the 
+  state sequence with the highest probability for the following observation sequence:
+  
+  \begin{quote}
+  \texttt{bos} \texttt{bos} time flies like an arrow \texttt{eos}
+  \end{quote}
+  
+  \begin{soln}
+  
+  \begin{tabular}{|lllllll|l|}
+  \hline
+  bos & time & flies & like & an & arrow & eos & \\ \hline
+  (bos,bos) & (bos,N) & (N,V) & (V,P) & (P,D) & (D,N) & (N,eos) & \\
+   $1$ & $\times 1 \times \frac{2}{5}$ & $\times \frac{1}{2} \times \frac{1}{2}$ & 
+   $\times \frac{1}{3} \times 1$ & $\times 1 \times 1$ & 
+   $\times 1 \times \frac{2}{5}$ & $\times 1 \times 1$ & $=\frac{1}{75} \ast$ \\ \hline
+  (bos,bos) & (bos,N) & (N,V) & (V,V) & (V,D) & (D,N) & (N,eos) & \\
+   $1$ & $\times 1 \times \frac{2}{5}$ & $\times \frac{1}{2} \times \frac{1}{2}$ & 
+   $\times \frac{1}{3} \times \frac{1}{2}$ & $\times 1 \times 1$ & 
+   $\times 1 \times \frac{2}{5}$ & $\times 1 \times 1$ & $=\frac{1}{150}$ \\ \hline
+  (bos,bos) & (bos,N) & (N,N) & (N,P) & (P,D) & (D,N) & (N,eos) & \\
+   $1$ & $\times 1 \times \frac{2}{5}$ & $\times \frac{1}{2} \times \frac{1}{5}$ & 
+   $\times \frac{1}{2} \times 1$ & $\times 1 \times 1$ & 
+   $\times 1 \times \frac{2}{5}$ & $\times 1 \times 1$ & $=\frac{1}{125}$ \\ \hline
+  (bos,bos) & (bos,N) & (N,N) & (N,V) & (V,D) & (D,N) & (N,eos) & \\
+   $1$ & $\times 1 \times \frac{2}{5}$ & $\times \frac{1}{2} \times \frac{1}{5}$ & 
+   $\times \frac{1}{2} \times \frac{1}{2}$ & $\times \frac{1}{3} \times 1$ & 
+   $\times 1 \times \frac{2}{5}$ & $\times 1 \times 1$ & $=\frac{1}{750}$\\ \hline
+  \end{tabular}
+  \end{soln}
+  }
+  
+\end{xlist}
+
+\bigskip
+
+\ex\label{trigram} Part-of-speech Tagging:
+
+Consider the task of assigning the most
+likely part of speech tag to each word in an input sentence. We want
+to get the best (or most likely) tag sequence as defined by the
+equation:
+
+\[ T^\ast = \arg\max_{t_0, \ldots, t_n} P(t_0, \ldots, t_n \mid w_0,
+\ldots, w_n) \]
+
+\begin{xlist}
+
+{\ex 
+Write down the equation for computing the probability $P(t_0, \ldots,
+t_n \mid w_0, \ldots, w_n)$ using Bayes Rule and a 
+trigram probability model over part of speech tags.
+
+\begin{soln}
+ \begin{eqnarray}
+ P(t_0, \ldots, t_n \mid w_0, \ldots, w_n) &=& P(w_0, \ldots, w_n \mid
+ t_0, \ldots, t_n) \times P(t_0, \ldots, t_n) \nonumber \\
+ &=& \left( \prod_{i=0}^n P(w_i \mid t_i) \right) \times
+      \left( P(t_0) \times P(t_1 \mid t_0) \times
+        \prod_{i=2}^n P(t_i \mid t_{i-2}, t_{i-1}) \right)
+      \nonumber
+ \end{eqnarray}
+\end{soln}
+}
+
+\bigskip
+
+{\ex 
+%Consider the task of assigning the most
+%likely part of speech tag to each word in an input sentence. In standard
+%trigram tagging we predict the current tag based on the previous two
+%tags: $P(t_i \mid t_{i-2}, t_{i-1})$. 
+We realize that we can get better tagging accuracy if we can condition the current tag on
+the previous tag and the next tag, i.e. if we can use $P(t_i \mid t_{i-1}, t_{i+1})$. 
+Thus, we define the best (or most likely) tag sequence 
+as follows:
+\begin{eqnarray*}
+T^\ast &=& \arg\max_{t_0, \ldots, t_n} P(t_0, \ldots, t_n \mid w_0,
+\ldots, w_n) \\
+&\approx& \arg\max_{t_0, \ldots, t_n} \prod_{i=0}^{n+1} P(w_i \mid t_i) \times P(t_i \mid t_{i-1}, t_{i+1})
+\textrm{ where $t_{-1} = t_{n+1} = $ none }
+\end{eqnarray*}
+Explain why the Viterbi algorithm cannot be directly used to find $T^\ast$ for the above equation.
+
+\begin{soln}
+The standard way of using Viterbi would be to have states in the HMM as pairs of tags
+and then we store the best path upto each tag pair 
+$\langle t_{i-1}, t_i \rangle$ for time
+step $i$ and then we can efficiently compute the best score upto state $t_{i+1}$ recursively as
+follows: 
+\[ \textrm{Viterbi}[i+1, \langle t_{i+1}, t_i \rangle] = \max_{\langle t_{i-1}, t_i \rangle} \left(
+\textrm{Viterbi}[i, \langle t_{i-1}, t_{i} \rangle] \times P(w_{i+1} \mid t_{i+1}) \times P(t_{i+1} \mid \langle t_{i-1}, t_i \rangle) \right) \]
+
+For $t_i$ we can only condition on the previous tag $t_{i-1}$ in the Viterbi algorithm 
+since we have entered the score for each possible $t_{i-1}$ in the Viterbi matrix. 
+Crucially Viterbi proceeds from left to right, and so it cannot condition on a
+tag $t_{i+1}$ which occurs on the right (and is not still part of the Viterbi table). 
+Running Viterbi from right to left also does not work, 
+due to tag $t_{i-1}$ which occurs on the left. As a result, we cannot simultaneously consider 
+$t_{i-1}$ and $t_{i+1}$ for Viterbi computation for the trigram probability
+$P(t_i \mid t_{i-1}, t_{i+1})$.
+
+\end{soln}
+}
+
+\bigskip
+
+{\ex 
+BestScore is the score for the maximum probability tag sequence for a given input word sequence. 
+\[ \textrm{BestScore} = \max\limits_{t_0, \ldots, t_n} P(t_0, \ldots, t_n \mid w_0,
+\ldots, w_n) \]
+It
+is a bit simpler to compute than Viterbi since it does not
+compute the best sequence of tags (no back pointer is required). For the standard
+trigram model $P(t_i \mid  t_{i-2}, t_{i-1})$:
+
+\[ \textrm{BestScore} = \max\limits_{t_0, \ldots, t_n} \prod_{i=0}^{n+1} P(w_i \mid t_i) \times P(t_i \mid  t_{i-2}, t_{i-1}) \]
+
+Assuming that $t_{-1} = t_{-2} = t_{n+1} = $ none, we can compute BestScore recursively from left to right as follows:
+\begin{eqnarray*}
+\textrm{BestScore}[i+1, t_{i+1}, t_i] & = & \max_{t_{i-1}, t_i} \left(\ 
+\textrm{BestScore}[i, t_{i-1}, t_{i}] \times P(w_{i+1} \mid t_{i+1}) \times P(t_{i+1} \mid t_{i-1}, t_i) \ \right) \\
+&& \textrm{ for all $-1 \leq i \leq n$ } \\
+\textrm{BestScore} &=& \max\limits_{\langle t, \textrm{none} \rangle} \textrm{BestScore}[n+1, \langle t, \textrm{none} \rangle] 
+\end{eqnarray*}
+
+This algorithm for computing BestScore is simply the recursive forward algorithm for HMMs but with the sum replaced by max. 
+
+Provide an algorithm 
+ in order to compute BestScore for the improved trigram model $P(t_i \mid t_{i-1}, t_{i+1})$:
+ \[ \textrm{BestScore} = \max\limits_{t_0, \ldots, t_n} \prod_{i=0}^{n+1} P(w_i \mid t_i) \times P(t_i \mid t_{i-1}, t_{i+1})
+\textrm{ where $t_{-1} = t_{n+1} = $ none } \]
+As before assume
+that:
+\( P(t_0 \mid t_{-1} = \textrm{none}, t_1) \approx P(t_0 \mid t_1) \textrm{ and } P(t_n \mid t_{n-1}, t_{n+1} = \textrm{none}) \approx P(t_n \mid t_{n-1}) \)
+
+\bigskip
+
+You can provide either pseudo code, a recursive definition of the algorithm, or
+a recurrence relation.
+
+\bigskip
+
+{\em Hint}: The first step would be to extend the recursive BestScore algorithm given above 
+to read the input from right to left.
+
+\begin{soln}
+We can define 
+a dynamic programming algorithm that can be used to efficiently
+compute the best sequence of tags for the given equation. The algorithm is shown below as a recursive
+function (each call to this function can be stored in a matrix to
+give a polynomial time algorithm). We assume the input is padded with none's so
+that we can get probabilities
+$P(t_0 \mid t_{-1} = \textrm{none}, t_1)$ and $P(t_n \mid t_{n-1}, t_{n+1} = \textrm{none})$.
+
+\begin{tabbing}
+123\=456\=789\=012 \kill \\
+function bestScore() \\
+\> return NotViterbi($n+2$, none, none, none) \\
+\\
+function NotViterbi($i, t_{i-2}, t_{i-1}, t_i$) \\
+\> if ($i-1 == -1$) \\
+\> \> if ($t_{i-2}, t_{i-1}, t_i$ == none, none, none) return 1 \\
+\> \> else return 0 \\
+\> return $\max_{t_{i-1}}$ NotViterbi($i-1, t_{i-3}, t_{i-2}, t_{i-1}$) $\times\ P(w_{i-1} \mid t_{i-1}) \times P(t_{i-1} \mid t_{i-2}, t_i)$
+\end{tabbing}
+\end{soln}
+}
+
+\end{xlist}
+
+\end{exe}
+\end{document}
+

@@ -1,0 +1,214 @@
+
+\documentclass[11pt]{article}
+\usepackage{txfonts}
+\usepackage{graphicx}
+\usepackage{mygb4e}
+\usepackage{tipa}
+\usepackage{solution}
+
+%\hidesolutions
+\setlength\oddsidemargin{0.01in}
+\setlength\topmargin{-1in}
+\setlength\textwidth{6.9in}
+\setlength\textheight{9.5in} 
+
+\newcommand{\nl}{\mbox{$\langle cr \rangle$}}
+
+\raggedright
+
+\begin{document}
+
+\begin{center}
+{\Large Udihe}\\
+{\small B. Iomdin -- modified by Anoop Sarkar {\tt anoop@cs.sfu.ca}}
+\end{center}
+
+The following is a small parallel text (the same text in two different
+languages). The 1st column contains phrases in the Southern (Bikin) dialect
+of the Udihe language. The 2nd column contains the
+English equivalent. 
+
+\bigskip
+
+\begin{tabular}{ll}
+\textipa{b"ata z\"a:Nini} & the boy's money \\
+\textipa{si bogdoloi} & thy shoulder \\
+\textipa{ja: xabani} & the cow's udder \\
+\textipa{su z\"a:Niu} & your money \\
+\textipa{dili tekpuni} & the skin of the head \\
+\textipa{si ja:Ni:} & thy cow \\
+\textipa{bi mo:Ni:} & my tree \\
+\textipa{aziga bugdini} & the girl's leg \\
+\textipa{bi nakta diliNi:} & my boar head \\
+\textipa{nakta igini} & the boar's tail \\
+\textipa{si b"ataNi: bogdoloni} & thy son's shoulder \\
+\textipa{teNku bugdini} & the leg of the stool \\
+\textipa{su ja: wo:Niu} & your cow thigh \\
+\textipa{bi wo:i} & my thigh
+\end{tabular}
+
+\bigskip
+
+\textipa{N}, \textipa{"} are consonants, \textipa{\"a} is a vowel. The
+\textipa{:} indicates length of preceding vowel. The archaic {\it thy}
+is used to indicate singular and {\it your} is used to indicate plural.
+
+\bigskip
+
+\begin{soln}
+
+\smallskip
+
+Consider the English phrase {\it X's Y} or {\it Y of the X}. The following table
+summarizes how this phrase has to be structured in Udihe:
+
+\smallskip
+
+\begin{tabular}{|l|p{1.4in}|p{3in}|}
+\hline
+X (possessor) & Udihe phrase for {\it X's Y} or {\it Y of the X} & examples \\
+\hline
+singular \& I/you/my/thy & X Y-(\textipa{Ni})-\textipa{i} & 
+  \textipa{bi wo:\underline{i}}, \textipa{bi mo:\underline{Ni:}},
+  \textipa{bi nakta dili\underline{Ni:}},
+  \textipa{si bogdolo\underline{i}}, \textipa{si ja:\underline{Ni:}},
+   \textipa{si b"ata\underline{Ni:} bogdoloni} \\
+singular (all other cases) & X Y-(\textipa{Ni})-\textipa{ni} &
+  \textipa{ja: xaba\underline{ni}}, \textipa{dili tekpu\underline{ni}}, 
+  \textipa{b"ata z\"a:\underline{Nini}}, 
+  \textipa{si b"ataNi: bogdolo\underline{ni}} \\
+plural & X Y-(\textipa{Ni})-\textipa{u} & 
+  \textipa{su z\"a:\underline{Niu}}, \textipa{su ja: wo:\underline{Niu}} \\
+\hline
+\end{tabular}
+
+\smallskip
+
+Notice that \textipa{Ni} occurs exactly in those cases when, in the phrase
+{\it X's Y}, the {\it Y} is not in a part-whole relationship with respect
+to {\it X}. For example, \textipa{bi wo:i} (my thigh) is in a part-whole
+relationship, while \textipa{bi mo:Ni:} (my tree) is not in a part-whole
+relationship. Also, \textipa{Ni}+\textipa{i} becomes \textipa{Ni:} since
+the vowel is simply lengthened.
+
+\smallskip
+
+In the case where the possessor is itself a possession phrase
+e.g. {\it \fbox{thy son}'s shoulder}, each possessee gets the 
+appropriate suffix, e.g. \textipa{si b"ata\underline{Ni:} bogdolo\underline{ni}}.
+And in the case where the possessee is itself a possession phrase, 
+e.g.  {\it my \fbox{boar head}}, only the actual part possessed is
+marked, e.g. \textipa{bi nakta dili\underline{Ni:}}. How would you say
+{\it the skin of the head of the cow} in Udihe?
+
+\bigskip
+
+Consider the pronouns observed in the parallel text:
+
+\smallskip
+
+\begin{tabular}{|c|c|}
+\hline
+singular & plural \\
+\hline
+\textipa{bi}/I & (\textipa{bu})/our \\
+\textipa{si}/you & \textipa{su}/your \\
+\hline
+\end{tabular}
+
+\smallskip
+
+Note that the pronoun {\it our} does not occur in the text, but by
+analogy to {\it you} vs. {\it your} we can conjecture that the plural
+of {\it I} which is {\it our} in English, will be \textipa{bu} in Udihe.
+
+\bigskip
+
+Another missing form we can construct using analogy is the word for
+{\it daughter} which is not observed, but we do observe the words for
+{\it boy} and {\it son}:
+
+\smallskip
+
+\begin{tabular}{|c|c|}
+\hline
+\textipa{b"ata}/boy & \textipa{b"ata}/son \\
+\textipa{aziga}/girl & (\textipa{aziga})/daughter \\
+\hline
+\end{tabular}
+
+\end{soln}
+
+\begin{exe}
+
+\ex Translate into English:
+
+\begin{xlist}
+{\ex \textipa{su b"ataNiu z\"a:Nini}
+
+\begin{soln}
+your son's money
+\end{soln}
+}
+
+{\ex \textipa{si teNku bugdiNi:}
+
+\begin{soln}
+thy stool leg
+\end{soln}
+}
+
+{\ex 
+\textipa{si teNkuNi: bugdini}
+
+\begin{soln}
+thy stool's leg
+\end{soln}
+}
+
+\end{xlist}
+
+\ex Translate into Udihe:
+
+\begin{xlist}
+{\ex the boy's thigh
+
+\begin{soln}
+\textipa{b"ata wo:ni}
+\end{soln}
+}
+
+{\ex our boar
+
+\begin{soln}
+\textipa{bu naktaNiu}
+\end{soln}
+}
+
+{\ex my daughter's tree
+
+\begin{soln}
+\textipa{bi azigaNi: mo:Nini}
+\end{soln}
+}
+
+\end{xlist}
+
+\end{exe}
+
+Udihe speakers mostly live in the Siberian far east, 
+and the language is classified as belonging to the Tungus-Manchu language
+family. There are roughly 100 people who still speak this language. The language
+is almost extinct. Other than the parallel text given above, you do not need any knowledge about the language
+and its speakers to answer the questions, but if you are curious, here are
+some web pages on the Udihe language:
+
+{\small
+\begin{verbatim}
+http://www.ethnologue.com/show_language.asp?code=ude
+http://en.wikipedia.org/wiki/Udege_language
+\end{verbatim}
+}
+
+\end{document}
+

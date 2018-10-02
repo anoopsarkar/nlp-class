@@ -1,0 +1,650 @@
+\input{beamerpreamble.tex}
+\begin{document}
+\input{titlepage.tex}
+
+\lecture{Probability and Language}{}
+
+\section{Probability and Language}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{Probability and Language}
+\centering
+\begin{block}{Assign a probability to an input sequence}
+\par Given a URL: \texttt{choosespain.com}. What is this website about?
+
+\pause
+\smallskip
+\begin{tabular}{ll}
+\rowcolor{MidnightBlue!50}
+Input & Scoring function \\
+\hline
+choose spain & -8.35 \\
+chooses pain & -9.88 \\
+\vdots & \vdots
+\end{tabular}
+\end{block}
+
+\pause
+\begin{alertblock}{The Goal}
+\par Find a good \textbf{scoring function} for input sequences.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Scoring Hypotheses in Speech Recognition}
+\centering
+\begin{block}{From acoustic signal to candidate transcriptions}
+\begin{tabular}{ll}
+\rowcolor{MidnightBlue!50}
+Hypothesis & Score \\
+\hline
+the station signs are in deep in english & -14732 \\
+the stations signs are in deep in english & -14735 \\
+the station signs are in deep into english & -14739 \\
+the station 's signs are in deep in english & -14740 \\
+the station signs are in deep in the english & -14741 \\
+the station signs are indeed in english & -14757 \\
+the station 's signs are indeed in english & -14760 \\ 
+the station signs are indians in english & -14790 \\
+the station signs are indian in english & -14799 \\
+the stations signs are indians in english & -14807 \\
+the stations signs are indians and english & -14815 
+\end{tabular}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Scoring Hypotheses in Machine Translation}
+\centering
+\begin{block}{From source language to target language candidates}
+\begin{tabular}{ll}
+\rowcolor{MidnightBlue!50}
+Hypothesis & Score \\
+\hline
+we must also discuss a vision . & -29.63 \\
+we must also discuss on a vision . & -31.58 \\
+it is also discuss a vision . & -31.96 \\
+we must discuss on greater vision . & -36.09 \\
+\vdots & \vdots \\
+\end{tabular}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Scoring Hypotheses in Decryption}
+\centering
+\begin{block}{Character substitutions on ciphertext to plaintext candidates}
+\begin{tabular}{ll}
+\rowcolor{MidnightBlue!50}
+Hypothesis & Score \\
+\hline
+Heopaj, zk ukq swjp pk gjks w oaynap? & -93\\
+Urbcnw, mx hxd fjwc cx twxf j bnlanc? & -92\\
+Wtdepy, oz jzf hlye ez vyzh l dpncpe? & -91\\
+Mjtufo, ep zpv xbou up lopx b tfdsfu? & -89\\
+Nkuvgp, fq aqw ycpv vq mpqy c ugetgv? & -87\\
+Gdnozi, yj tjp rvio oj fijr v nzxmzo? & -86\\
+Czjkve, uf pfl nrek kf befn r jvtivk? & -85\\
+Yvfgra, qb lbh jnag gb xabj n frperg? & -84\\
+Zwghsb, rc mci kobh hc ybck o gsqfsh? & -83\\
+Byijud, te oek mqdj je adem q iushuj? & -77\\
+Jgqrcl, bm wms uylr rm ilmu y qcapcr? & -76\\
+Listen, do you want to know a secret? & -25\\
+\end{tabular}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Goal}
+\begin{itemize}[<+->]
+\item Write down a \textbf{model} over sequences of words or letters.
+\item \textbf{Learn} the parameters of the model from data.
+\item Use the model to \textbf{predict} the probability of new sequences.
+\end{itemize}
+\end{frame}
+
+\lecture{Quick guide to probability theory}{}
+
+\section{Quick guide to probability theory}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{Probability: The Basics}
+\begin{itemize}[<+->]
+\item Sample space
+\item Event space
+\item Random variable
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Probability distributions}
+\begin{itemize}[<+->]
+\item P(X): probability of random variable X having a certain value.
+\begin{itemize}[<+->]
+\item P(X = killer) = 1.05e-05 
+\item P(X = app) = 1.19e-05
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Joint probability}
+\begin{itemize}[<+->]
+\item P(X,Y): probability that X and Y each have a certain value.
+\begin{itemize}[<+->]
+\item Let Y stand for choice of a word
+\item Let X stand for the choice of a word that occurs before Y
+\item P(X = killer, Y = app) = 1.24e-10
+\end{itemize}
+\end{itemize}
+\pause
+\begin{alertblock}{Joint Probability: P(X=value AND Y=value)}
+\begin{itemize}
+\item Since X=value AND Y=value, the order does not matter
+\item {\color{blue} P(X = killer, Y = app)} $\Leftrightarrow$ {\color{red} P(Y = app, X = killer)}
+\item In both cases it is P(X,Y) = P(Y,X) = P('killer app')
+\item In NLP, we often use numerical indices to express this: \\
+P($W_{i-1}$ = killer, $W_{i}$ = app)
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Joint probability}
+\centering
+\begin{block}{Joint probability table}
+\begin{tabular}{lll}
+\rowcolor{MidnightBlue!50}
+$W_{i-1}$ & $W_i$ = app & P($W_{i-1}$,$W_{i}$) \\
+$\langle S \rangle$ & app & 1.16e-19 \\
+an & app & 1.76e-08 \\
+killer & app & 1.24e-10 \\
+the & app & 2.68e-07 \\
+this & app & 3.74e-08 \\
+your & app &  2.39e-08
+\end{tabular}
+
+\smallskip
+There will be a similar table for each choice of $W_i$.
+\end{block}
+\begin{block}{Get P($W_i$) from P($W_{i-1}$,$W_{i}$)}
+\[ P(W_i=\textsf{app}) = \sum_{x} P(W_{i-1}=x,W_i=\textsf{app}) = 1.19e-05 \]
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conditional probability}
+\begin{itemize}[<+->]
+\item P($W_{i} \mid W_{i-1}$): probability that $W_{i}$ has a certain value after fixing value of $W_{i-1}$.
+\item P($W_{i} = \textsf{app} \mid W_{i-1} = \textsf{killer}$)
+\item P($W_{i} = \textsf{app} \mid W_{i-1} = \textsf{the}$)
+\end{itemize}
+\pause
+\begin{block}{Conditional probability from Joint probability}
+\[ P(W_{i} \mid W_{i-1}) = \frac{P(W_{i-1}, W_i)}{P(W_{i-1})} \]
+\begin{itemize}
+\item P(killer) = 1.05e-05
+\item P(killer, app) = 1.24e-10
+\item P(app $\mid$ killer) = 0.0096
+\item P(the $\mid$ killer) = 1.82e-05
+\end{itemize}
+
+\end{block}
+\end{frame}
+
+%\begin{frame}
+%\frametitle{Conditional probability}
+%\begin{itemize}[<+->]
+%\item Conditional and joint probabilities are related:
+%\[ P(X \mid Y) = \frac{P(X,Y)}{P(Y)} \]
+%
+%%\[ P(Y = \mbox{spain} \mid X = \mbox{choose}) &=& \frac{P(X = \mbox{choose}, Y = \mbox{spain})}{P(\mbox{spain})} \]
+%%\[ = \frac{2.43 * 10^{-10}}{5.03 * 10^{-5}} \]
+%%\[ = 8.78 * 10^{-5} \]
+%\end{eqnarray*}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Bayes rule}
+%\begin{itemize}[<+->]
+%\item Conditional probability re-written as likelihood times prior:
+%\[ P(X \mid Y) = \frac{P(Y \mid X) \times P(X)}{P(Y)} \]
+%
+%\begin{itemize}[<+->]
+%\item $P(\mbox{choose} \mid \mbox{spain}) =
+%  \frac{P(\mbox{choose} \mid \mbox{spain}) \times P(\mbox{choose})}{P(\mbox{spain})} = \frac{1.0 \times 0.001}{0.5} = 0.002$
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Chain Rule}
+%\begin{center}
+%\begin{eqnarray}
+%P(X \mid Y) &= &\frac{P(X,Y)}{P(Y)} \\
+%P(Y \mid X) &= &\frac{P(Y,X)}{P(X)} \\
+%P(X,Y) &= &P(Y,X) \\
+%P(X \mid Y) \times P(Y) &= &P(Y \mid X) \times P(X) \\
+%P(X \mid Y) &= &\frac{P(Y \mid X) \times P(X)}{P(Y)} \\
+%P(X \mid Y) &= &P(Y \mid X) \times P(X)
+%\end{eqnarray}
+%\end{center}   
+%
+%\end{frame}
+
+\begin{frame}
+\frametitle{Basic Terms}
+\begin{itemize}[<+->]
+\item $P(e)$ -- {\em a priori} probability or just {\em prior}
+\item $P(f \mid e)$ -- {\em conditional} probability. The chance of
+  $f$ given $e$
+\item $P(e, f)$ -- {\em joint} probability. The chance of $e$ and $f$
+  both happening.
+\item If $e$ and $f$ are {\em independent} then we can write $P(e,f) =
+  P(e) \times P(f)$
+\item If $e$ and $f$ are not {\em independent} then we can write
+  $P(e,f) = P(e) \times P(f \mid e)$ \\
+ $P(e,f) = P(f) \times\ ?$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Basic Terms}
+\begin{itemize}[<+->]
+\item Addition of integers: \[ \sum_{i=1}^n i = 1 + 2 + 3 + \ldots +
+  n \]
+\item Product of integers: \[ \prod_{i=1}^n i = 1 \times 2 \times 3
+  \times \ldots \times n \]
+\item Factoring: \[ \sum_{i=1}^n i \times k = k + 2k + 3k + \ldots + nk
+  = k \sum_{i=1}^n i \]
+\item Product with constant: \[ \prod_{i=1}^n i \times k = \pause 1 k \times 2 k \ldots \times n k = \pause k^n \times \prod_{i=1}^n i \]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Probability: Axioms}
+\begin{itemize}[<+->]
+\item $P$ measures total probability of a set of events
+\item $P(\emptyset) = 0$
+\item $P(\mbox{all events}) = 1$
+\item $P(X) \leq P(Y)$ for any $X \subseteq Y$
+\item $P(X) + P(Y) = P(X \cup Y)$ provided that $X \cap Y = \emptyset$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Probability Axioms}
+\begin{itemize}[<+->]
+\item All events sum to 1: \[ \sum_e P(e) = 1 \]
+\item Marginal probability $P(f)$: \[ P(f) = \sum_e P(e, f)  \]
+\item Conditional probability: \[ \sum_e P(e \mid f) = \pause \sum_e \frac{P(e,f)}{P(f)} = \pause \frac{1}{P(f)} \sum_e P(e,f) = \pause 1 \]
+\item Computing $P(f)$ from axioms: \[ P(f) = \sum_e P(e) \times
+  P(f \mid e) \]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Probability: The Chain Rule}
+\begin{itemize}[<+->]
+\item $P(a,b,c,d \mid e)$
+\item We cannot simply remove items from the left of $\mid$ \\
+(verify that it violates the definitions we have given based on sets)
+\item In this case we can use the chain rule of probability to rescue
+  us
+\item $P(a,b,c,d \mid e) = $\\
+$P(d \mid e) \cdot P(c \mid d,e) \cdot P(b \mid c,d,e) \cdot P(a \mid b,c,d,e)$ 
+\item To see why this is possible, recall that \( P(X \mid Y) = \frac{p(X,Y)}{p(Y)} \)
+\begin{itemize}
+\item $\frac{ p(a,b,c,d,e) }{ p(e) } = \frac{p(d,e)}{p(e)} \cdot \frac{p(c,d,e)}{p(d,e)} \cdot \frac{p(b,c,d,e)}{p(c,d,e)} \cdot \frac{p(a,b,c,d,e)}{p(b,c,d,e)} $
+\end{itemize}
+\item Use chain rule and simplify:
+\[ P(a,b,c,d \mid e) = P(d \mid e) \cdot P(c \mid d, e) \cdot P(b \mid c, e) \cdot P(a \mid b, e) \]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Probability: The Chain Rule}
+\begin{itemize}[<+->]
+\item $P(e_1, e_2, \ldots, e_n) = P(e_1) \times P(e_2 \mid
+  e_1) \times P(e_3 \mid e_1, e_2) \ldots $ 
+\[ P(e_1, e_2, \ldots, e_n) = \prod^n_{i=1} P(e_i \mid e_{i-1},
+  e_{i-2}, \ldots, e_1) \]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Probability: Random Variables and Events}
+\begin{itemize}[<+->]
+\item What is $y$ in $P(y)$ ?
+\item Shorthand for value assigned to a random variable $Y$, e.g. $Y = y$
+\item $y$ is an element of some implicit {\bf event space}: ${\cal E}$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Probability: Random Variables and Events}
+\begin{itemize}[<+->]
+\item The {\em marginal probability} $P(y)$ can be computed from $P(x,y)$ as
+  follows:
+\[ P(y) = \sum_{x \in {\cal E}} P(x,y) \]
+\item Finding the value that maximizes the probability value:
+\[ \hat{x} = \arg\max_{x \in {\cal E}} P(x) \]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Log Probability Arithmetic}
+\begin{itemize}[<+->]
+\item Practical problem with tiny $P(e)$ numbers: underflow
+\item One solution is to use log probabilities:
+\begin{eqnarray}
+\log(P(e)) &=& \log(p_1 \times p_2 \times \ldots \times p_n) \nonumber
+\\
+&=& \log(p_1) + \log(p_2) + \ldots + \log(p_n) \nonumber
+\end{eqnarray}
+\item Note that: \[ x = \exp(\log(x)) \]
+\item Also more efficient: addition instead of multiplication
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Log Probability Arithmetic}
+\begin{center}
+\begin{tabular}{|c|c|}
+\rowcolor{MidnightBlue!50}
+$p$ & $\log(p)$ \\
+\hline
+$0.0$ & $- \infty$ \\
+$0.1$ & $-3.32$ \\
+$0.2$ & $-2.32$ \\
+$0.3$ & $-1.74$ \\
+$0.4$ & $-1.32$ \\
+$0.5$ & $-1.00$ \\
+$0.6$ & $-0.74$ \\
+$0.7$ & $-0.51$ \\
+$0.8$ & $-0.32$ \\
+$0.9$ & $-0.15$ \\
+$1.0$ & $0.00$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Log Probability Arithmetic}
+\begin{itemize}[<+->]
+\item So: $(0.5 \times 0.5 \times \ldots 0.5) = (0.5)^n$ might get too
+  small but $(- 1 - 1 - 1 - 1) = - n$ is manageable
+\item Another useful fact when writing code \\
+($\log_2$ is {\em log to the base 2}):
+\[ \log_2(x) = \frac{\log_{10}(x)}{\log_{10}(2)} \]
+\end{itemize}
+
+\end{frame}
+
+\lecture{Entropy and Information Theory}{}
+
+\section{Entropy and Information Theory}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{Information Theory}
+\begin{itemize}[<+->]
+\item Information theory is the use of probability theory to quantify
+  and measure ``information''.
+\item Consider the task of efficiently sending a message. Sender Alice
+  wants to send several messages to Receiver Bob. Alice wants to do
+  this as efficiently as possible.
+\item Let's say that Alice is sending a message where the entire
+  message is just one character {\em a}, e.g. {\em aaaa$\ldots$}. In
+  this case we can save space by simply sending the length of the
+  message and the single character.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Information Theory}
+\begin{itemize}[<+->]
+\item Now let's say that Alice is sending a completely random signal to
+  Bob. If it is random then we cannot exploit anything in the message
+  to compress it any further.
+\item The {\em expected} number of bits it takes to transmit
+  some infinite set of messages is what is called entropy. 
+\item This formulation of entropy by Claude Shannon was adapted from
+  thermodynamics, converting information into a quantity that can be measured.
+\item Information theory is built around this notion of message
+  compression as a way to evaluate the amount of information. 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Expectation}
+\begin{itemize}[<+->]
+\item For a probability distribution $p$
+\item \textbf{Expectation} with respect to $p$ is a weighted average:
+\begin{eqnarray*}
+ E_p[x] &=& \frac{x_1 \cdot p_1 + x_2 \cdot p_2 + \ldots + x_n p_n}{p_1 + p_2 + \ldots + p_n} \\
+  &=& x_1 \cdot p_1 + x_2 \cdot p_2 + \ldots + x_n p_n \\
+  &=& \sum_{x \in {\cal E}} x \cdot p(x) 
+\end{eqnarray*}
+\item Example: for a six-sided die the expectation is:
+\[ E_p[x] = 1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6} + \ldots + 6 \cdot \frac{1}{6} = 3.5 \]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Entropy}
+\begin{itemize}[<+->]
+\item For a probability distribution $p$
+\item \textbf{Entropy} of $p$ is: 
+\[ H(p) = - \sum_{x \in {\cal E}} p(x) \cdot \log_2 p(x) \]
+\item Any base can be used for the $\log$, but base $2$ means
+  that entropy is measured in bits.
+\item What is the {\it expected} number of bits with respect to $p$:
+\[ - E_p [ \log_2 p(x) ] = H(p) \]
+\item Entropy answers the question: {\it What is the expected
+  number of bits needed to transmit messages from event 
+  space ${\cal E}$, where $p(x)$ defines the probability of observing $x$?} 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Entropy}
+\begin{itemize}[<+->]
+\item Alice wants to bet on a horse race. She has to send a message to
+  her bookie Bob to tell him which horse to bet on.
+\item There are 8 horses. One encoding scheme for the messages is to
+  use a number for each horse. So in bits this would be $001, 010,
+  \ldots$\\
+(lower bound on message length = 3 bits in this encoding scheme) 
+\item Can we do better?
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Entropy}
+\begin{center}
+\begin{tabular}{|cc|cc|}
+\hline
+Horse 1 & $\frac{1}{2}$ & Horse 5 & $\frac{1}{64}$ \\
+\hline
+Horse 2 & $\frac{1}{4}$ & Horse 6 & $\frac{1}{64}$ \\
+\hline
+Horse 3 & $\frac{1}{8}$ & Horse 7 & $\frac{1}{64}$ \\
+\hline
+Horse 4 & $\frac{1}{16}$ & Horse 8 & $\frac{1}{64}$ \\
+\hline
+\end{tabular}
+\end{center}
+\begin{itemize}[<+->]
+\item If we know how likely we are to bet on each horse, say based on
+  the horse's probability of winning, then we can do better.
+\item Let $p$ be the probability distribution given in the
+table above. The entropy of $p$ is $H(p)$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Entropy}
+\begin{eqnarray*}
+\lefteqn{ H(p) = } \nonumber \\
+&=& - \sum^{8}_{i=1} p(i) \log_2\ p(i) \nonumber \\
+&=& - \left( \frac{1}{2} \log_2 \frac{1}{2} + \frac{1}{4} \log_2 \frac{1}{4} +
+\frac{1}{8} \log_2 \frac{1}{8} + \frac{1}{16} \log_2 \frac{1}{16} +
+4 (\frac{1}{64} \log_2 \frac{1}{64}) \right) \nonumber \\
+&=& - \left( \frac{1}{2} \times -1 + \frac{1}{4} \times -2 +
+\frac{1}{8} \times -3 + \frac{1}{16} \times -4 +
+4 (\frac{1}{64} \times -6 ) \right) \nonumber \\
+&=& - \left( {\color{red}-\frac{1}{2} - \frac{1}{2}} {\color{blue} - \frac{3}{8} - \frac{1}{4} - \frac{3}{8}} \right) \nonumber \\
+&=& 2\ \textit{bits}
+\end{eqnarray*}
+
+\begin{itemize}[<+->]
+\item What is the entropy when the horses are equally likely to win?
+\[ H(\textit{uniform distribution}) = - 8 (\frac{1}{8} \times -3) = 3 \textit{ bits} \]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Entropy}
+\begin{itemize}[<+->]
+\item e.g., most likely horse gets code $0$, next most likely gets $10$, and then $110, 1110, \ldots$ \\ {\small many possible coding schemes, this is a simple code to illustrate number of bits needed for a large number of messages \ldots}
+\item Assume there are $320$ messages (one for each race): \\
+code $0$ occurs 160 times, code $10$ occurs 80 times, code $110$ occurs 40 times, code $1110$ occurs 20 times, code $11110$ occurs 5 times.
+\item Total number of bits for all messages: 160*len(0) + 80*len(10) + 40*len(110) + 20*len(1110) + 5*len(11110) 
+\item Number of bits: 160*1 + 80*2 + 40*3 + 20*4 + 5*5 = 545
+\item Total number of bits per message (per race): $\frac{545}{320} \approx$ 1.7 bits (always less than 2 bits)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Perplexity}
+\begin{itemize}[<+->]
+\item The value $2^{H(p)}$ is called the {\bf perplexity} of a distribution $p$
+\item Perplexity is the weighted average number of choices a random
+  variable has to make.
+\item Choosing between 8 equally likely horses (H=3) is $2^3 = 8$.
+\item Choosing between the biased horses from before (H=2) is $2^2 =
+  4$. 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Relative Entropy}
+\begin{itemize}[<+->]
+\item In real life, we cannot know for sure the exact winning
+  probability for each horse. 
+\item Let's say $q$ is the estimate
+  and $p$ is the true probability \\
+  {\small (say we got $q$ by observing previous races with these horses)}
+\item We define the {\em distance} between $p$ and $q$ as the {\bf relative entropy}: written as $D(p \| q)$
+\[ D(p \| q) = - \sum_{x \in {\cal E}} p(x) \log_2 \frac{p(x)}{q(x)} \]
+\item Note that
+\[ D(p \| q) = - E_{ p(x) } \left[ \log_2 \frac{p(x)}{q(x)} \right] \]
+\item The relative entropy is also called the {\em Kullback-Leibler divergence}.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Cross Entropy and Relative Entropy}
+\begin{itemize}[<+->]
+\item The {\bf relative entropy} can be written as the sum of two terms:
+\begin{eqnarray*}
+D(p \| q) & = & - \sum_{x \in {\cal E}} p(x) \log_2 \frac{p(x)}{q(x)} \\
+& = & - \sum_{x} p(x) \log_2 q(x) + \sum_{x} p(x) \log_2 p(x) 
+\end{eqnarray*}
+\item We know that $H(p) = - \sum_{x} p(x) \log_2 p(x)$
+\item Similarly define $H(p,q) = - \sum_{x} p(x) \log_2 q(x)$
+\[
+\begin{array}{l@{}c@{}l@{}c@{}l@{}}
+D(p \| q) & = & H(p,q) & - & H(q) \\
+\textbf{relative entropy}(p,q) & = & \textbf{cross entropy}(p,q) & - & \textbf{entropy}(p) 
+\end{array}
+\]
+\item The term $H(p,q)$ is called the {\bf cross entropy}.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Cross Entropy and Relative Entropy}
+\begin{itemize}[<+->]
+\item $H(p,q) \geq H(p)$ always.
+\item $D(p \| q) \geq 0$ always, and $D(p \| q) = 0$ iff $p = q$
+\item $D(p \| q)$ is not a true distance: 
+  \begin{itemize}
+  \item It is asymmetric: $D(p \| q) \neq D(q \| p)$, 
+  \item It does not obey the triangle inequality: $D(p \| q) \nleq D(p \| r) + D(r \| q)$
+  \end{itemize}
+%\item Pinsker's inequality (sup is the lowest upper bound): 
+%\[ \sqrt{ \frac{ D(p \| q) }{ 2 } } \geq \sup \{ | p(x) - q(x) | \} \]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Conditional Entropy and Mutual Information}
+\begin{itemize}[<+->]
+\item {\it Entropy} of a random variable $X$:
+\[ H(X) = - \sum_{x \in {\cal E}} p(x) \log_2 p(x) \]
+\item {\it Conditional Entropy} between two random variables $X$ and $Y$:
+\[ H(X \mid Y) = - \sum_{x,y \in {\cal E}} p(x,y) \log_2 p(x
+\mid y) \]
+\item {\it Mutual Information} between two random variables $X$ and $Y$:
+\[ I(X;Y) = D(p(x,y) \| p(x)p(y)) = \sum_x \sum_y p(x,y) \log_2
+\frac{p(x,y)}{p(x)p(y)} \]
+\end{itemize}
+
+\end{frame}
+
+\section*{Appendix: Computing with Log Probability}
+
+\begin{frame}[fragile]
+\frametitle{Log Probability Arithmetic}
+\begin{center}
+\begin{verbatim}
+// In Python: use numpy.logaddexp2(x1,x2) for base 2
+// computes log(a + b) given log(a) and log(b)
+double logadd(double lna, double lnb)
+{
+    if (lna == 1.0) return lnb;
+    if (lnb == 1.0) return lna;
+    double diff = lna - lnb;
+    // 500 is log of large constant
+    if (diff < 500.0) 
+        return log1p(exp(diff)) + lnb;
+        // log1p(x) computes log(1+x)
+    else
+        return lna;
+}
+\end{verbatim} 
+\end{center}
+\end{frame}
+
+
+\input{acknowledgements.tex}
+
+\end{document}
+
