@@ -163,9 +163,9 @@ Hypothesis & Score \\
 \frametitle{Learning Language Models}
 \begin{itemize}[<+->]
 \item Directly count using a training data set of sentences: $w_1, \ldots, w_n$:
-\[ p(w_1, \ldots, w_n) = \frac{n(w_1, \ldots, w_n)}{N} \]
-\item $n$ is a function that counts how many times each sentence occurs
-\item $N$ is the sum over all possible $n(\cdot)$ values
+\[ p(w_1, \ldots, w_n) = \frac{c(w_1, \ldots, w_n)}{N} \]
+\item $c$ is a function that counts how many times each sentence occurs
+\item $N$ is the sum over all possible $c(\cdot)$ values
 \item Problem: does not generalize to new sentences unseen in the training data.
 \item What are the chances you will see a sentence: \texttt{crazy killer clown crazy killer}?
 \item In NLP applications we often need to assign non-zero probability to previously unseen sentences.
@@ -221,8 +221,8 @@ p(\textsf{we must also discuss a vision .}) might be zero because we have not se
 \frametitle{Maximum Likelihood Estimate}
 \begin{block}{Using training data to learn a trigram model}
 \begin{itemize}[<+->]
-\item Let $c(u,v,w)$ be the count of the trigram $u,v,w$, e.g. $c(crazy,killer,clown)$
-\item Let $c(u,v)$ be the count of the bigram $u,v$, e.g. $c(crazy,killer)$
+\item Let $c(u,v,w)$ be the count of the trigram $u,v,w$, e.g. $c(crazy,killer,clown)$. $P(u,v,w) = \frac{c(u,v,w)}{\sum_{u,v,w} c(u,v,w)}$
+\item Let $c(u,v)$ be the count of the bigram $u,v$, e.g. $c(crazy,killer)$. $P(u,v) = \frac{c(u,v)}{\sum_{u,v} c(u,v)}$
 \item For any $u,v,w$ we can compute the conditional probability of generating $w$ given $u,v$:
 \[ p(w \mid u,v) = \frac{c(u,v,w)}{c(u,v)} \]
 \item For example:
@@ -554,7 +554,8 @@ with linear interpolation for missing values where $n_{r+1} = 0$ \\
 \item Jelinek and Mercer (1980) describe an elegant form of this {\bf interpolation}:
 \[ P_{JM}(\textsf{$n$gram}) = \lambda P_{ML}(\textsf{$n$gram}) + (1 - \lambda) P_{JM}(\textsf{$n-1$gram}) \]
 \item What about $P_{JM}(w_i)$? \\
-For missing unigrams: $P_{JM}(w_i) = \lambda P_{ML}(w_i) + (1 - \lambda) \frac{\delta}{V}$
+For missing unigrams: $P_{JM}(w_i) = \lambda P_{ML}(w_i) + (1 - \lambda) \frac{\delta}{V}$ \\
+$0 < \delta \leq 1$
 \end{itemize}
 \end{frame}
 
@@ -616,16 +617,16 @@ the,dog & 15 & 14.5 & 14.5/48 \\
 the,woman & 11 & 10.5 & 10.4/48 \\
 the,man & 10 & 9.5 & 9.5/48 \\
 the,park & 5 & 4.5 & 4.5/48 \\
-the,job & 2 & 1.5 & 4.5/48 \\
+the,job & 2 & 1.5 & 1.5/48 \\
 the,telescope & 1 & 0.5 & 0.5/48 \\
 the,manual & 1 & 0.5 & 0.5/48 \\
 the,afternoon & 1 & 0.5 & 0.5/48 \\
 the,country & 1 & 0.5 & 0.5/48 \\
 the,street & 1 & 0.5 & 0.5/48 \\
 \hline
-TOTAL & & & 0.9479 \\
+TOTAL & & & 0.8958 \\
 \hline
-the,UNK & 0 & & 0.052 \\
+the,UNK & 0 & & 0.1042 \\
 \hline
 \end{tabular}
 \end{center}
@@ -670,7 +671,7 @@ $P(\textsf{Francisco}~\mid~\textsf{eggplant}) > P(\textsf{stew}~\mid~\textsf{egg
 \item $T = s_0, \ldots, s_m$ is the text corpus with sentences $s_0$ through $s_m$
 \item $P(T) = P(s_0, s_1, s_2, \ldots, s_m)$ -- but each sentence is independent from the other sentences
 \item $P(T) = P(s_0) \cdot P(s_1) \cdot P(s_2) \cdot \ldots \cdot P(s_m) = \prod_{i=0}^m P(s_i)$ 
-\item $P(s_i) = P(w_0^i, \ldots, w_n^i)$ -- which can be any $n$-gram language model
+\item $P(s_i) = P(w_0^{(i)}, \ldots, w_{n_i}^{(i)})$ -- which can be any $n$-gram language model
 \item A language model is better if the value of $P(T)$ is higher for unseen sentences $T$, we want to maximize:
 \[ P(T) = \prod_{i=0}^m P(s_i) \]
 \end{itemize}
@@ -683,9 +684,9 @@ $P(\textsf{Francisco}~\mid~\textsf{eggplant}) > P(\textsf{stew}~\mid~\textsf{egg
 \item $P(T)$ will be lower if $T$ is larger.
 \item Instead of the probability for a given $T$ we can compute the {\em average} probability.
 \item $M$ is the total number of tokens in the test corpus $T$:
-\[ M = \sum_{i=1}^m \textsf{length}(s_i) \]
+\[ M = \sum_{i=0}^m \textsf{length}(s_i) \]
 \item The average {\em log} probability of the test corpus $T$ is:
-\[ \frac{1}{M} \log_2 \prod_{i=1}^m P(s_i) = \frac{1}{M} \sum_{i=1}^m \log_2 P(s_i) \]
+\[ \frac{1}{M} \log_2 \prod_{i=0}^m P(s_i) = \frac{1}{M} \sum_{i=0}^m \log_2 P(s_i) \]
 \end{itemize}
 \end{frame}
 
@@ -693,7 +694,7 @@ $P(\textsf{Francisco}~\mid~\textsf{eggplant}) > P(\textsf{stew}~\mid~\textsf{egg
 \frametitle{Evaluating Language Models: Perplexity}
 \begin{itemize}[<+->]
 \item The average {\em log} probability of the test corpus $T$ is:
-\[ \ell = \frac{1}{M} \sum_{i=1}^m \log_2 P(s_i) \]
+\[ \ell = \frac{1}{M} \sum_{i=0}^m \log_2 P(s_i) \]
 \item Note that $\ell$ is a negative number
 \item We evaluate a language model using {\em Perplexity} which is $2^{-\ell}$
 \end{itemize}
@@ -703,7 +704,7 @@ $P(\textsf{Francisco}~\mid~\textsf{eggplant}) > P(\textsf{stew}~\mid~\textsf{egg
 \frametitle{Evaluating Language Models}
 \begin{alertblock}{Question}
 Show that:
-\[ 2^{- \frac{1}{M} \log_2 \prod_{i=1}^m P(s_i)} = \frac{1}{\sqrt[M]{\prod_{i=1}^m P(s_i)}} \]
+\[ 2^{- \frac{1}{M} \log_2 \prod_{i=0}^m P(s_i)} = \frac{1}{\sqrt[M]{\prod_{i=0}^m P(s_i)}} \]
 \end{alertblock}
 \end{frame}
 
@@ -801,7 +802,7 @@ Using $p_s = P(\texttt{stop})$ the probability of any sequence of length $n$ is 
 \end{itemize}
 \begin{eqnarray*}
 \sum_w P(w) &=& \sum_{n=0}^{\infty} p(n) \sum_{w_1, \ldots, w_n} p(w_1, \ldots, w_n) \\
-&=& \sum_{n=0}^{\infty} p(n) \sum_{w_1, \ldots, w_n} \prod_{i=1}^n p(w_i)
+&=& \sum_{n=0}^{\infty} p(n) \sum_{w_1, \ldots, w_n} \prod_{i=0}^n p(w_i)
 \end{eqnarray*}
 \begin{eqnarray*}
 \lefteqn{\sum_{w_1, \ldots, w_n} \prod_i p(w_i) = } \\
@@ -824,3 +825,4 @@ Using $p_s = P(\texttt{stop})$ the probability of any sequence of length $n$ is 
 \input{acknowledgements.tex}
 
 \end{document}
+ 
