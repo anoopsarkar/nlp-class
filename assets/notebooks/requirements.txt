@@ -2,7 +2,7 @@ numpy
 scipy
 matplotlib
 pandas
-jupyter
+notebook
 sklearn
 nltk
 jupyter_contrib_nbextensions

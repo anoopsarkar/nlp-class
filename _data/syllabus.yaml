@@ -94,12 +94,16 @@
 - title: "Language models"
   tag: lm
   include: true
-  current: true
+  current: false
   notes:
     - title: "Language models"
       url: "assets/slides/lm.pdf"
     - title: "In class exercise: n-gram Language Models"
       url: "assets/notes/lm.html"
+    - title: "The unreasonable effectiveness of Character-level Language Models"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/goldberg_lm.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/goldberg_lm.ipynb"
+      author: "Yoav Goldberg"
   links:
     - author: Michael Collins
       title: "Language models"
@@ -118,6 +122,25 @@
       title: "One Billion Word Benchmark for Measuring Progress in Statistical Language Modeling"
       url: http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/41880.pdf
       optional: true
+- title: "Linear models"
+  tag: linear
+  include: true
+  current: true
+  notes:
+    - title: "Linear models"
+      url: "assets/slides/linearmodels.pdf"
+    - title: "Naive Bayes Classifiers"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/naivebayes.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/goldberg_lm.ipynb"
+    - title: "Log-linear Models"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/loglinear.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/loglinear.ipynb"
+    - title: "In class exercise: Linear combinations"
+      url: "assets/notes/linearb.html"
+    - author: Michael Collins
+      title: "Log-linear models, MEMMs and CRFs"
+      url: "http://www.cs.columbia.edu/~mcollins/crf.pdf"
+      download: "assets/mcollins-notes/crf.pdf"
 - title: "Neural Language models"
   tag: nlm
   include: false
@@ -155,13 +178,6 @@
     - title: "Naive Bayes"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/naivebayes.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/naivebayes.ipynb"
-    - title: "Log-linear Models"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/loglinear.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/loglinear.ipynb"
-    - author: Michael Collins
-      title: "Log-linear models, MEMMs and CRFs"
-      url: "http://www.cs.columbia.edu/~mcollins/crf.pdf"
-      download: "assets/mcollins-notes/crf.pdf"
     - author: Erik F. Tjong Kim Sang and Sabine Buchholz
       title: "Introduction to the CoNLL-2000 Shared Task: Chunking"
       url: "http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
