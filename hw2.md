@@ -307,9 +307,7 @@ To use the pytorch code in `nlm.py` you should also do:
 
     pip3 install -r pytorch-requirements.txt
 
-Download the character neural LM model file from this link:
-
-https://drive.google.com/open?id=1njgnNIAZHOR3-CVMYX7b-j9oQVTO1fIb
+Download the [character neural LM model file](https://drive.google.com/open?id=1njgnNIAZHOR3-CVMYX7b-j9oQVTO1fIb).
 
 Save it to the `data` directory so that the file is available as
 `data/mlstm_ns.pt`.
