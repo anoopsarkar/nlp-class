@@ -184,7 +184,10 @@ is `burger`. The ciphertext is assumed to be in uppercase and the
 lowercase of each ciphertext letter is assumed to be the plaintext.
 This is just to explain the algorithm using an example where it is
 immediately clear what the mapping is from cipher symbol to plaintext
-letter.
+letter. $V_e$ is the set of plaintext letters and we assume in
+this example that there are 26 English letters (lowercase, no
+punctuation). $V_f$ is the cipher alphabet which for the input
+cipher `BURGER` size of $V_f$ will be just 5.
 
 In the algorithm we will use a scoring function `SCORE`
 that is used to score each partial hypothesis. 
@@ -195,7 +198,7 @@ where $g()$ is a function that returns a mapping to plaintext using
 $\phi$ if the mapping is defined in $\phi$ else it returns a dummy
 symbol `_` that is not scored by the language model $\Pr$. For
 example, we might want to score a partial decipherment $\phi = \{
-(R, r), (B, b), (U, u) \}$ for the ciphertext `BURGER` which implies
+(r, R), (b, B), (u, U) \}$ for the ciphertext `BURGER` which implies
 a partial decipherment `bur___r` in which case only the substrings
 `bur` and `r` will be scored using the language model $\Pr$.
 
@@ -208,9 +211,47 @@ this list.
 cipher symbols that can map to each English letter. For a 1:1
 substitution cipher `EXT_LIMITS` would be 1.  For a homophonic
 cipher it should be greater than 1. It can never be more than
-size of $V_f$.
+size of $V_f$. In our running example, let us assume that
+`EXT_LIMITS` is set to 2.
 
 We track all partial hypotheses in two sets $H_s$ and $H_t$.
+$H_s$ is a set of decipherments $\phi$ which have already
+been scored and pruned, and $H_t$ is used to store all
+extensions of each hypothesis $\phi in H_s$ for scoring
+and pruning in line 11 of the algorithm.
+
+`CARDINALITY` is the number of cipher symbols already mapped to plaintext.
+In our running example, let us assume that we are in the
+middle of the decipherment process and we have $\phi = \{
+(r, R), (b, B), (u, U) \}$ for the ciphertext `BURGER`.  So
+the value of `CARDINALITY` in this example is 3 since we
+have deciphered in this hypothesis `bur__r`. So in line 6
+of the algorithm we are considering the cipher symbol
+`G` and checking all possible decipherments for that
+symbol. So in line 9, we consider extending $\phi$ to $\phi'$  
+by adding every $e \in V_e$ one at a time and calculating
+the `SCORE` of $\phi'$. In our example, in line 9 we would
+create a score many $\phi'$ candidates:
+
+$$
+\begin{align*}
+\phi' = \phi \cup \{ (a, G) \} & \texttt{SCORE} = 0.02 \\
+\phi' = \phi \cup \{ (b, G) \} & \texttt{SCORE} = 0.01 \\
+\ldots  \\
+\phi' = \phi \cup \{ (g, G) \} & \texttt{SCORE} = 0.09 \\
+\ldots  \\
+\phi' = \phi \cup \{ (z, G) \} & \texttt{SCORE} = 0.00 
+\end{align*}
+$$
+
+We add each $\phi'$ and its score to
+$H_t$ and then prune away any hypotheses that have very
+low scores using `HISTOGRAM_PRUNE` on line 12. In our
+example, if we assume that only the highest scoring
+hypothesis is kept then $\phi' = \phi \cup \{ (g, G) \}$
+would be the only $\phi'$ to be kept in $H_t$.
+Then we assign $H_t$ to be the new $H_s$ and continue on
+with decipherment of the next symbol in `EXT_ORDER`.
 
 In each step of the while loop we increase the hypothesis
 size:
@@ -220,8 +261,6 @@ $$\phi' = \phi \cup { (e,f) }$$
 where $e, f$ is a new hypothesized mapping from cipher symbol $f$
 to plaintext $e$.
 
-`CARDINALITY` is the number of cipher symbols already mapped
-to plaintext.
 
 `HISTOGRAM_PRUNE` keeps the best scoring hypothesis and prunes
 the rest.
@@ -281,6 +320,10 @@ That's it. You are done with Homework 2!
 
 Your submission will be graded using the following
 grading scheme:
+
+1. Performance on the cipher text provided above.
+1. Performance on a cipher text that is also an English cipher over the same plaintext alphabet. You should not make any assumptions about the ciphertext symbols. The ciphertext symbol alphabet could be very different from the cipher provided above.
+1. 10 points for your documentation of work in the Python notebook assigned by the TAs. Include what was done, the different experiments you tried, and if you combined different approaches then how you did the combination. Remember to put a `doc/README.username` for each `username` in your group.
 
 ## Acknowledgements
 
