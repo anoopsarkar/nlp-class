@@ -382,11 +382,13 @@ That's it. You are done with Homework 2!
 
 ### Grading
 
+We will compare your output plaintext for the ciphertext and compute an error rate. The percentage error rate is 100 times the number of characters that do not match the reference plaintext sequence divided by the total number of characters (408 in the cipher above). If you get 5 characters wrong, the percent error rate will be 1.22. 
+
 Your submission will be graded using the following
 grading scheme:
 
-1. Performance on the cipher text provided above.
-1. Performance on a cipher text that is also an English cipher over the same plaintext alphabet. You should not make any assumptions about the ciphertext symbols. The ciphertext symbol alphabet could be very different from the cipher provided above.
+1. 10 points for performance on the cipher text provided above. An error rate of 2 percent will give you full marks. We will double the error rate for each grade level.
+1. 10 points for performance on a secret cipher text that is also an English cipher over the same plaintext alphabet. You should not make any assumptions about the ciphertext symbols. The ciphertext symbol alphabet and ciphertext length could be very different from the cipher provided above. The score will be assigned using the same criteria as for the public cipher.
 1. 10 points for your documentation of work in the Python notebook assigned by the TAs. Include what was done, the different experiments you tried, and if you combined different approaches then how you did the combination. Remember to put a `doc/README.username` for each `username` in your group.
 
 ## Acknowledgements
