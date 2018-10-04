@@ -228,7 +228,20 @@ the value of `CARDINALITY` in this example is 3 since we
 have deciphered in this hypothesis `bur__r`. So in line 6
 of the algorithm we are considering the cipher symbol
 `G` and checking all possible decipherments for that
-symbol. So in line 9, we consider extending $\phi$ to $\phi'$  
+symbol. 
+
+In each step of the while loop we increase the hypothesis
+size:
+
+$$\phi' = \phi \cup \{ (e,f) \}$$
+
+where $e, f$ is a new hypothesized mapping from cipher symbol $f$
+to plaintext $e$.
+
+`HISTOGRAM_PRUNE` keeps the best scoring hypothesis and prunes
+the rest.
+
+In line 9, we consider extending $\phi$ to $\phi'$  
 by adding every $e \in V_e$ one at a time and calculating
 the `SCORE` of $\phi'$. In our example, in line 9 we would
 create a score many $\phi'$ candidates:
@@ -252,18 +265,6 @@ hypothesis is kept then $\phi' = \phi \cup \{ (g, G) \}$
 would be the only $\phi'$ to be kept in $H_t$.
 Then we assign $H_t$ to be the new $H_s$ and continue on
 with decipherment of the next symbol in `EXT_ORDER`.
-
-In each step of the while loop we increase the hypothesis
-size:
-
-$$\phi' = \phi \cup { (e,f) }$$
-
-where $e, f$ is a new hypothesized mapping from cipher symbol $f$
-to plaintext $e$.
-
-
-`HISTOGRAM_PRUNE` keeps the best scoring hypothesis and prunes
-the rest.
 
 ### Your Task
 
