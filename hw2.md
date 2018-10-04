@@ -276,8 +276,58 @@ In our example the winner would be:
 
 $$\phi = \{ (r, R), (b, B), (u, U), (g, G), (e, E) \}$$
 
+To solve this baseline you must use only the files provided in the
+`data` directory that is provided to you. Implementation of two
+different language models is also provided to you that reads and
+uses those data files.
+
+### ngram Language Model
+
+The ngram language model file is in `data/6-gram-wiki-char.lm.bz2`
+and it is a character level LM trained using backoff smoothing.
+The logprobs are in base 10.
+
+The model file can be loaded and used for scoring arbitrary
+subsequences using the code in `ngram.py`. To see how it works, run
+it and examine the source:
+
+    python3 ngram.py
+
+The LM is in the file `data/6-gram-wiki-char.lm.bz2` which was
+trained on the data in `data/default.wiki.txt.bz2`. Note that all
+punctuations and spaces are stripped. The start of each sequence
+is `<s>` and end of each sequence is `</s>`.
+
 The file `ngram.py` contains some useful functions that will help you write
 the `SCORE` function as needed by the beam search algorithm.
+
+### Neural Language Model
+
+To use the pytorch code in `nlm.py` you should also do:
+
+    pip3 install -r pytorch-requirements.txt
+
+Download the character neural LM model file from this link:
+
+https://drive.google.com/open?id=1njgnNIAZHOR3-CVMYX7b-j9oQVTO1fIb
+
+Save it to the `data` directory so that the file is available as
+`data/mlstm_ns.pt`.
+
+The neural LM model can be loaded and used for scoring sequences
+using the code in `nlm.py`. To see how it works, run it and examine
+the source:
+
+    python3 nlm.py
+
+The sequence scoring takes quite a bit longer than the ngram LM
+especially on the CPU (when `cuda=False`). This is to be expected.
+If you have access to a GPU then try with `cuda=True`. You should
+see some speed improvement.
+
+The logprob scores from the neural LM are not comparable to the
+ngram LM, but they are internally consistent.
+
 
 ### Your Task
 
@@ -288,7 +338,9 @@ cipher text and provide the plaintext.  The output is assumed to
 contain no spaces or punctuation and is in lower case. This matches
 the character language models that have been provided to you. You
 cannot use any external data sources for this homework. You can
-only use the language models provided to you.
+only use the language models provided to you in the `data` directory.
+Implementation of two different language models is also provided
+to you that reads and uses those data files.
 
 You have to document your development of your grammars in your
 Python notebook called `decipher.ipynb` in your submission.
