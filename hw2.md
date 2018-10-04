@@ -85,7 +85,7 @@ $$\tau \alpha \sigma \tau \omega \omicron \Sigma \gamma \alpha \eta \beta \upsil
 ## The Challenge
 
 In this homework, we have provided you with a cipher text of 408
-tokens in the file `decipher/data/cipher.txt`:
+symbol tokens in the file `data/cipher.txt`:
 
     º∫P/Z/uB∫ÀOR•–X•B
     WV+≈GyF∞ºHPπKÇ—y≈
@@ -133,8 +133,8 @@ disturbing to read.**
 ### The Data
 
 * The file `decipher.ipynb` contains the starter Python notebook. You can copy and modify this file for your submission.
-* The ciphertext is given in the file `decipher/data/cipher.txt`. There is no newline at the end of the file. All characters in this file except the newline characters are cipher characters.
-* An ngram language model is given in the file `decipher/data/6-gram-wiki-char.lm.bz2` which is a bzip2 file. The Python program `ngram.py` has a character language model implementation that can read this data file.
+* The ciphertext is given in the file `data/cipher.txt`. There is no newline at the end of the file. All characters in this file except the newline characters are cipher characters.
+* An ngram language model is given in the file `data/6-gram-wiki-char.lm.bz2` which is a bzip2 file. The Python program `ngram.py` has a character language model implementation that can read this data file.
 
 ### Default Submission
 
@@ -144,11 +144,9 @@ The default solution matches the frequency of symbols in the cipher text with fr
 
 In order to do compute plaintext frequencies, we use an English dataset has no punctuation or spaces and all characters are lowercase.
 
-We have all the tools we need to describe the default solution to this homework.
-
-We use a simple frequency matching heuristic to map cipher symbols to English letters.
-
-We match the frequencies using the function f() of each cipher symbol c with each English letter e:
+For the default solution to this homework we will use the data file `data/default.wiki.txt.bz2`. 
+The default solution uses a simple frequency matching heuristic to map cipher symbols to English letters.
+We match the frequencies using the function $f()$ of each cipher symbol $c$ with each English letter $e$:
 
 $$h(c,e) = | \log(\frac{f(c)}{f(e)})) | $$
 
@@ -160,26 +158,19 @@ Using this scoring function we map each cipher symbol to the most likely English
 The baseline method you will implement is a beam search algorithm for decipherment that uses
 character language models.
 
-The ciphertext is:
+The ciphertext is: $f_1^N = f_1, \ldots, f_i, \ldots, f_N, f_i \in V_f$
 
-$$f_1^N = f_1, \ldots, f_i, \ldots, f_N, f_i \in V_f$$
-
-The plaintext candidates are:
-
-$$e_1^N = e_1, \ldots, e_i, \ldots, e_N, e_i \in V_e$$
+The plaintext candidates are: $e_1^N = e_1, \ldots, e_i, \ldots, e_N, e_i \in V_e$
 
 Substitution of a cipher symbol with a plaintext symbol is represented by a function:
-
-$$\phi: V_f \rightarrow V_e$$
+$\phi: V_f \rightarrow V_e$
 
 Decipherment aims to find:
+$\hat{\phi} = \underset{\phi}{\operatorname{argmax}} \Pr( \phi(f_1), \ldots, \phi(f_N) )$
+where $\Pr$ is a language model. 
 
-$$\hat{\phi} = \argmax_{\phi} P( \phi(f_1), \ldots, \phi(f_N) )$$
-
-where P is a language model.
-
-The following algorithm is the baseline method of this homework.
-It uses beam search to find the argmax solution in the equation above.
+The following algorithm implements a beam search algorithm to 
+find the argmax solution in the equation above.
 
 ![Beam Search Algorithm](assets/img/decipherbeam.png "Beam Search for Decipherment")
 
@@ -190,9 +181,23 @@ receive bad language model scores.
 To explain this algorithm in detail we will use a running example.
 Let the ciphertext be `BURGER` and the plaintext decoded version
 is `burger`. The ciphertext is assumed to be in uppercase and the
-lowercase of each ciphertext letter is assumed to be the plaintext
-(this is for convenience in explaining the algorithm since it is
-immediately apparent what the right mapping should be).
+lowercase of each ciphertext letter is assumed to be the plaintext.
+This is just to explain the algorithm using an example where it is
+immediately clear what the mapping is from cipher symbol to plaintext
+letter.
+
+In the algorithm we will use a scoring function `SCORE`
+that is used to score each partial hypothesis. 
+
+$$\texttt{SCORE}(\phi) = \Pr( g(f_1), \ldots, g(f_N) )$$
+
+where $g()$ is a function that returns a mapping to plaintext using
+$\phi$ if the mapping is defined in $\phi$ else it returns a dummy
+symbol `_` that is not scored by the language model $\Pr$. For
+example, we might want to score a partial decipherment $\phi = \{
+(R, r), (B, b), (U, u) \}$ for the ciphertext `BURGER` which implies
+a partial decipherment `bur___r` in which case only the substrings
+`bur` and `r` will be scored using the language model $\Pr$.
 
 `EXT_ORDER` is a list of cipher symbols sorted by their frequencies
 in the ciphertext. e.g. In our running example `EXT_ORDER = [ R,
@@ -202,16 +207,18 @@ this list.
 `EXT_LIMITS` provides a constraint for the maximum number of
 cipher symbols that can map to each English letter. For a 1:1
 substitution cipher `EXT_LIMITS` would be 1.  For a homophonic
-cipher it should be greater than 1.
+cipher it should be greater than 1. It can never be more than
+size of $V_f$.
 
-We track all partial hypotheses in two sets `Hs` and `Ht`.
+We track all partial hypotheses in two sets $H_s$ and $H_t$.
 
 In each step of the while loop we increase the hypothesis
 size:
 
 $$\phi' = \phi \cup { (e,f) }$$
 
-where e,f is a mapping from cipher symbol f to plaintext e.
+where $e, f$ is a new hypothesized mapping from cipher symbol $f$
+to plaintext $e$.
 
 `CARDINALITY` is the number of cipher symbols already mapped
 to plaintext.
@@ -246,7 +253,7 @@ or `doc/README.md`.
 
 You can improve upon the baseline in many ways. The following papers
 describe some methods to get a better performance for the decipherment
-task (some papers focus on accuracy and some focus on speed)
+task. Some papers focus on accuracy and some focus on speed. (example)
 
 1. [An Exact A\* Method for Deciphering Letter-Substitution Ciphers](http://www.mt-archive.info/ACL-2010-Corlett.pdf)
 1. [Beam Search for Solving Substitution Ciphers](https://pdfs.semanticscholar.org/690b/6a1e710e9b3569d536f428b2d0532d9bea08.pdf)
