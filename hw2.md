@@ -217,7 +217,7 @@ size of $V_f$. In our running example, let us assume that
 We track all partial hypotheses in two sets $H_s$ and $H_t$.
 $H_s$ is a set of decipherments $\phi$ which have already
 been scored and pruned, and $H_t$ is used to store all
-extensions of each hypothesis $\phi in H_s$ for scoring
+extensions of each hypothesis $\phi \in H_s$ for scoring
 and pruning in line 11 of the algorithm.
 
 `CARDINALITY` is the number of cipher symbols already mapped to plaintext.
@@ -261,10 +261,23 @@ We add each $\phi'$ and its score to
 $H_t$ and then prune away any hypotheses that have very
 low scores using `HISTOGRAM_PRUNE` on line 12. In our
 example, if we assume that only the highest scoring
-hypothesis is kept then $\phi' = \phi \cup \{ (g, G) \}$
-would be the only $\phi'$ to be kept in $H_t$.
-Then we assign $H_t$ to be the new $H_s$ and continue on
-with decipherment of the next symbol in `EXT_ORDER`.
+hypothesis is kept then:
+
+$$\phi' = \phi \cup \{ (g, G) \}$$
+
+And `G` mapped to `g` would be the only $\phi'$ to be kept in $H_t$.
+Then we assign $H_t$ to be the new $H_s$ and clear the set $H_t$ for
+the next iteration (line 15) and continue on with decipherment of the next symbol in `EXT_ORDER`.
+In the end, we return the highest scoring decipherment after all
+5 symbols in the ciphertext are part of the hypotheses in $H_s$.
+Once all cipher text symbols have been considered the while loop terminates
+on line 5 and the highest scoring hypothesis is given by the function `WINNER` on line 16. 
+In our example the winner would be:
+
+$$\phi = \{ (r, R), (b, B), (u, U), (g, G), (e, E) \}$$
+
+The file `ngram.py` contains some useful functions that will help you write
+the `SCORE` function as needed by the beam search algorithm.
 
 ### Your Task
 
