@@ -98,6 +98,8 @@
   notes:
     - title: "Language models"
       url: "assets/slides/lm.pdf"
+    - title: "In class exercise: n-gram Language Models"
+      url: "assets/notes/lm.html"
   links:
     - author: Michael Collins
       title: "Language models"
@@ -124,8 +126,6 @@
     - title: "Neural Language models"
       url: "assets/cached/mikolovrnn.pdf"
       author: Tomas Mikolov
-    - title: "In class exercise: n-gram Language Models"
-      url: "assets/notes/lm.html"
   links:
     - title: "How to implement a recurrent neural network"
       author: "peterroelants.github.io"
