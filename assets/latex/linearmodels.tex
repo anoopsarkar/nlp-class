@@ -168,7 +168,7 @@ L(\textbf{v}) &=& \sum_i \textbf{v} \cdot \textbf{f}(\textbf{x}_i, y_i) - \sum_i
 \begin{eqnarray*}
 \lefteqn{\left. \frac{d L(\textbf{v})}{d \textbf{v}} \right|_{\textbf{v}} } \\
 &=& \sum_i \textbf{f}(\textbf{x}_i, y_i) - \sum_i \frac{1}{\sum_{y''} exp\left(\textbf{v} \cdot \textbf{f}(x_i, y'')\right)} \\
-&& \sum_{y'} \textbf{f}(\textbf{x}_i, y')  \cdot exp\left( \textbf{v} \cdot \textbf{f}(\textbf{x}_i, y') \right) \\
+&& \sum_{y'} \textbf{f}(\textbf{x}_i, y')  \cdot exp\left( \textbf{v} \cdot \textbf{f}(\textbf{x}_i, y') \right) \pause \\
 &=& \sum_i \textbf{f}(\textbf{x}_i, y_i) - \sum_i \sum_{y'} \textbf{f}(\textbf{x}_i, y') \frac{exp\left( \textbf{v} \cdot \textbf{f}(\textbf{x}_i, y') \right)}{\sum_{y''} exp\left(\textbf{v} \cdot \textbf{f}(x_i, y'')\right)} \\
 &=& \underbrace{\sum_i \textbf{f}(\textbf{x}_i, y_i)}_{\textrm{Observed counts}} - \underbrace{\sum_i \sum_{y'} \textbf{f}(\textbf{x}_i, y') \Pr(y' \mid \textbf{x}_i; \textbf{v})}_{\textrm{Expected counts}}
 \end{eqnarray*}
