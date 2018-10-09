@@ -348,7 +348,11 @@ is described above in the Default Submission section.
 **Create a file called `decipher.txt` with your best decipherment
 of the cipher in `data/cipher.txt`. Also make sure that the last
 cell in your notebook is of type `code` and contains the output of
-your decipherment code.**
+your decipherment code. If we replace the file `data/cipher.txt`
+and run all cells in your notebook the last cell in your notebook
+must contain the output of decipherment. Make sure your notebook
+file and decipher output text file is in the top level directory
+of `hw2`. Do not place the files you wish to grade in a sub-directory.**
 
 Before you submit your homework add a file `doc/README.username`
 that documents the work done by each `username` in your group. Group
