@@ -155,6 +155,11 @@
       title: "Feedforward neural networks"
       url: "http://www.cs.columbia.edu/~mcollins/cs4705-spring2018/notes/ff.pdf"
       download: "assets/mcollins-notes/ff.pdf"
+  links:
+    - title: "Efficient Backprop"
+      url: "http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf"
+      authors: "LeCun, Bottou, Orr and Muller"
+      optional: true
 - title: "Neural Language models"
   tag: nlm
   include: false

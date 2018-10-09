@@ -345,6 +345,11 @@ Python notebook called `decipher.ipynb` in your submission.
 As usual you have been given a default `decipher.ipynb` which
 is described above in the Default Submission section.
 
+**Create a file called `decipher.txt` with your best decipherment
+of the cipher in `data/cipher.txt`. Also make sure that the last
+cell in your notebook is of type `code` and contains the output of
+your decipherment code.**
+
 Before you submit your homework add a file `doc/README.username`
 that documents the work done by each `username` in your group. Group
 members can get zero marks if they do not have this file that shows
