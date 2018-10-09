@@ -128,17 +128,18 @@ use sophisticated smoothing model for PP attachment\\
 \begin{frame}
 \frametitle{Log linear model}
 \begin{itemize}[<+->]
+\item The model classifies input into output labels $y \in {\cal Y}$
 \item Let there be $m$ features, $f_k(\textbf{x}, y)$ for $k = 1, \ldots, m$
-\item Define a parameter vector $\textbf{w} \in \mathbb{R}^m$
+\item Define a parameter vector $\textbf{v} \in \mathbb{R}^m$
 \item Each $(\textbf{x}, y)$ pair is mapped to score:
-\[ s(\textbf{x}, y) = \sum_k w_k \cdot f_k(\textbf{x}, y) \]
+\[ s(\textbf{x}, y) = \sum_k v_k \cdot f_k(\textbf{x}, y) \]
 \item Using inner product notation:
 \begin{eqnarray*}
-\textbf{w} \cdot \textbf{f}(\textbf{x}, y) & = & \sum_k w_k \cdot f_k(\textbf{x}, y) \\
-s(\textbf{x}, y) & = & \textbf{w} \cdot \textbf{f}(\textbf{x}, y) 
+\textbf{v} \cdot \textbf{f}(\textbf{x}, y) & = & \sum_k v_k \cdot f_k(\textbf{x}, y) \\
+s(\textbf{x}, y) & = & \textbf{v} \cdot \textbf{f}(\textbf{x}, y) 
 \end{eqnarray*}
 \item To get a probability from the score: Renormalize! 
-\[ \Pr(y \mid \textbf{x}, \textbf{w}) = \frac{exp\left(s(\textbf{x}, y)\right)}{\sum_{y'} exp\left(s(\textbf{x}, y')\right)} \]
+\[ \Pr(y \mid \textbf{x}; \textbf{v}) = \frac{exp\left(s(\textbf{x}, y)\right)}{\sum_{y' \in {\cal Y}} exp\left(s(\textbf{x}, y')\right)} \]
 \end{itemize}
 \end{frame}
 
@@ -146,12 +147,12 @@ s(\textbf{x}, y) & = & \textbf{w} \cdot \textbf{f}(\textbf{x}, y)
 \frametitle{Log linear model}
 \begin{itemize}[<+->]
 \item The name `log-linear model' comes from:
-\[ \log \Pr(y \mid \textbf{x}, \textbf{w}) = \underbrace{\textbf{w} \cdot \textbf{f}(\textbf{x}, y)}_{\textrm{linear term}} - \underbrace{\log \sum_{y'} exp\left( \textbf{w} \cdot \textbf{f}(\textbf{x}, y') \right)}_{\textrm{normalization term}} \]
-\item Once the weights are learned, we can perform predictions using these features.
-\item The goal: to find $\textbf{w}$ that maximizes the log likelihood $L(\textbf{w})$ of the labeled training set containing $(\textbf{x}_i, y_i)$ for $i = 1 \ldots n$
+\[ \log \Pr(y \mid \textbf{x}; \textbf{v}) = \underbrace{\textbf{v} \cdot \textbf{f}(\textbf{x}, y)}_{\textrm{linear term}} - \underbrace{\log \sum_{y'} exp\left( \textbf{v} \cdot \textbf{f}(\textbf{x}, y') \right)}_{\textrm{normalization term}} \]
+\item Once the weights $\textbf{v}$ are learned, we can perform predictions using these features.
+\item The goal: to find $\textbf{v}$ that maximizes the log likelihood $L(\textbf{v})$ of the labeled training set containing $(\textbf{x}_i, y_i)$ for $i = 1 \ldots n$
 \begin{eqnarray*}
-L(\textbf{w}) &=& \sum_{i} \log \Pr(y_i \mid \textbf{x}_i, \textbf{w}) \\
-&=& \sum_i \textbf{w} \cdot \textbf{f}(\textbf{x}_i, y_i) - \sum_i \log \sum_{y'} exp\left( \textbf{w} \cdot \textbf{f}(\textbf{x}_i, y') \right) 
+L(\textbf{v}) &=& \sum_{i} \log \Pr(y_i \mid \textbf{x}_i; \textbf{v}) \\
+&=& \sum_i \textbf{v} \cdot \textbf{f}(\textbf{x}_i, y_i) - \sum_i \log \sum_{y'} exp\left( \textbf{v} \cdot \textbf{f}(\textbf{x}_i, y') \right) 
 \end{eqnarray*}
 \end{itemize}
 \end{frame}
@@ -161,15 +162,15 @@ L(\textbf{w}) &=& \sum_{i} \log \Pr(y_i \mid \textbf{x}_i, \textbf{w}) \\
 \begin{itemize}[<+->]
 \item Maximize:
 \begin{eqnarray*}
-L(\textbf{w}) &=& \sum_i \textbf{w} \cdot \textbf{f}(\textbf{x}_i, y_i) - \sum_i \log \sum_{y'} exp\left( \textbf{w} \cdot \textbf{f}(\textbf{x}_i, y') \right) 
+L(\textbf{v}) &=& \sum_i \textbf{v} \cdot \textbf{f}(\textbf{x}_i, y_i) - \sum_i \log \sum_{y'} exp\left( \textbf{v} \cdot \textbf{f}(\textbf{x}_i, y') \right) 
 \end{eqnarray*}
 \item Calculate gradient:
 \begin{eqnarray*}
-\lefteqn{\left. \frac{d L(\textbf{w})}{d \textbf{w}} \right|_{\textbf{w}} } \\
-&=& \sum_i \textbf{f}(\textbf{x}_i, y_i) - \sum_i \frac{1}{\sum_{y''} exp\left(\textbf{w} \cdot \textbf{f}(x_i, y'')\right)} \\
-&& \sum_{y'} \textbf{f}(\textbf{x}_i, y')  \cdot exp\left( \textbf{w} \cdot \textbf{f}(\textbf{x}_i, y') \right) \\
-&=& \sum_i \textbf{f}(\textbf{x}_i, y_i) - \sum_i \sum_{y'} \textbf{f}(\textbf{x}_i, y') \frac{exp\left( \textbf{w} \cdot \textbf{f}(\textbf{x}_i, y') \right)}{\sum_{y''} exp\left(\textbf{w} \cdot \textbf{f}(x_i, y'')\right)} \\
-&=& \underbrace{\sum_i \textbf{f}(\textbf{x}_i, y_i)}_{\textrm{Observed counts}} - \underbrace{\sum_i \sum_{y'} \textbf{f}(\textbf{x}_i, y') \Pr(y' \mid \textbf{x}_i, \textbf{w})}_{\textrm{Expected counts}}
+\lefteqn{\left. \frac{d L(\textbf{v})}{d \textbf{v}} \right|_{\textbf{v}} } \\
+&=& \sum_i \textbf{f}(\textbf{x}_i, y_i) - \sum_i \frac{1}{\sum_{y''} exp\left(\textbf{v} \cdot \textbf{f}(x_i, y'')\right)} \\
+&& \sum_{y'} \textbf{f}(\textbf{x}_i, y')  \cdot exp\left( \textbf{v} \cdot \textbf{f}(\textbf{x}_i, y') \right) \\
+&=& \sum_i \textbf{f}(\textbf{x}_i, y_i) - \sum_i \sum_{y'} \textbf{f}(\textbf{x}_i, y') \frac{exp\left( \textbf{v} \cdot \textbf{f}(\textbf{x}_i, y') \right)}{\sum_{y''} exp\left(\textbf{v} \cdot \textbf{f}(x_i, y'')\right)} \\
+&=& \underbrace{\sum_i \textbf{f}(\textbf{x}_i, y_i)}_{\textrm{Observed counts}} - \underbrace{\sum_i \sum_{y'} \textbf{f}(\textbf{x}_i, y') \Pr(y' \mid \textbf{x}_i; \textbf{v})}_{\textrm{Expected counts}}
 \end{eqnarray*}
 \end{itemize}
 \end{frame}
@@ -177,33 +178,33 @@ L(\textbf{w}) &=& \sum_i \textbf{w} \cdot \textbf{f}(\textbf{x}_i, y_i) - \sum_i
 \begin{frame}
 \frametitle{Log linear model}
 \begin{itemize}[<+->]
-\item Init: $\textbf{w}^{(0)} = \textbf{0}$
+\item Init: $\textbf{v}^{(0)} = \textbf{0}$
 \item $t \leftarrow 0$
 \item Iterate until convergence:
 \begin{itemize}[<+->]
-\item Calculate: $\Delta = \left. \frac{d L(\textbf{w})}{d \textbf{w}}  \right|_{\textbf{w} = \textbf{w}^{(t)}}$
-\item Find $\beta^\ast = \arg\max_\beta L(\textbf{w}^{(t)} + \beta \Delta)$
-\item Set $\textbf{w}^{(t+1)} \leftarrow \textbf{w}^{(t)} + \beta^\ast \Delta$
+\item Calculate: $\Delta = \left. \frac{d L(\textbf{v})}{d \textbf{v}}  \right|_{\textbf{v} = \textbf{v}^{(t)}}$
+\item Find $\beta^\ast = \arg\max_\beta L(\textbf{v}^{(t)} + \beta \Delta)$
+\item Set $\textbf{v}^{(t+1)} \leftarrow \textbf{v}^{(t)} + \beta^\ast \Delta$
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Learning the weights: $\textbf{w}$: Generalized Iterative
+\frametitle{Learning the weights: $\textbf{v}$: Generalized Iterative
   Scaling}
 \begin{tabbing}
 $f^\# = max_{x,y} \sum_{j} f_j(x, y)$ \\
 (the maximum possible feature value; needed for scaling) \pause \\
-Initialize $\textbf{w}^{(0)}$ \pause \\
+Initialize $\textbf{v}^{(0)}$ \pause \\
 For \= each iteration $t$ \\
 \> \texttt{expected[j]} $\leftarrow$ 0 for j = 1 .. \# of features \pause \\
 \> For \= i = 1 to $\mid \textrm{training data} \mid$ \\
 \>     \> For \= each feature $f_j$ \\
-\>     \>     \> \texttt{expected[j]} += $f_j(x_i, y_i) \cdot P(y_i \mid x_i, \textbf{w}^{(t)})$ \pause \\
+\>     \>     \> \texttt{expected[j]} += $f_j(x_i, y_i) \cdot P(y_i \mid x_i; \textbf{v}^{(t)})$ \pause \\
 \> For \= each feature $f_j(x,y)$ \\
 \>     \> \texttt{observed[j]} = $f_j(x, y) \cdot \frac{c(x,y)}{\mid \textrm{training data} \mid}$ \pause \\ 
 \> For \= each feature $f_j(x,y)$ \\
-\>     \> $w_j^{(t+1)} \leftarrow w_j^{(t)} \cdot \sqrt[f^\#]{\frac{\texttt{observed[j]}}{\texttt{expected[j]}}}$ 
+\>     \> $v_j^{(t+1)} \leftarrow v_j^{(t)} \cdot \sqrt[f^\#]{\frac{\texttt{observed[j]}}{\texttt{expected[j]}}}$ 
 \end{tabbing}
 \par\noindent
 \small{cf. Goodman, NIPS '01}
