@@ -85,7 +85,7 @@ For many tasks linear models are much faster to train compared to neural network
 \end{itemize}
 \end{frame}
 
-\begin{frame}{The ReLU Transfer Function $[0,x]$}
+\begin{frame}{The ReLU Transfer Function $[0,z]$}
 \begin{block}{}
 \centering
 \includegraphics[scale=0.6]{figures/relu.png}
@@ -109,7 +109,7 @@ non-differentiable or undefined if $z = 0$ \\
 \begin{frame}{The tanh Transfer Function $[-1,1]$}
 \begin{block}{}
 \centering
-\includegraphics[scale=1.5]{figures/tanh.png}
+\includegraphics[scale=0.6]{figures/tanh.png}
 \end{block}
 \end{frame}
 
@@ -141,10 +141,10 @@ derivatives w.r.t.\ $b$:
 \end{block}
 \end{frame}
 
-\begin{frame}{The tanh Transfer Function}
+\begin{frame}{tanh Gradient}
 \begin{block}{}
 \centering
-\includegraphics[scale=1.5]{figures/tanhgradient.jpg}
+\includegraphics[scale=0.6]{figures/tanhgradient.png}
 \end{block}
 \end{frame}
 
@@ -243,6 +243,13 @@ $g(z) = [ \ldots, \textrm{ReLU}(z_i), \ldots ]$ or $g(z) = [ \ldots, \textrm{tan
 \[ \Pr(y \mid x; \theta, v) = \frac{exp\left(v(y) \cdot \phi(x;\theta) + \gamma_y \right)}{\sum_{y' \in {\cal Y}} exp\left(v(y') \cdot \phi(x;\theta) + \gamma_{y'})\right)} \]
 \end{block}
 
+\end{frame}
+
+\begin{frame}{Feedforward neural network}
+\begin{block}{}
+\centering
+\includegraphics[scale=0.4]{figures/ffnet.png}
+\end{block}
 \end{frame}
 
 \section{Stochastic Gradient Descent}
