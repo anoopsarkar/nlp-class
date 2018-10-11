@@ -151,6 +151,9 @@
     - title: "Feedforward networks and XOR"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/ff.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/ff.ipynb"
+    - title: "In class exercise: Nothing but Net(works)"
+      author: Tom McCoy
+      url: "http://www.nacloweb.org/resources/problems/2017/N2017-H.pdf"
     - author: Michael Collins
       title: "Feedforward neural networks"
       url: "http://www.cs.columbia.edu/~mcollins/cs4705-spring2018/notes/ff.pdf"
@@ -198,9 +201,6 @@
       url: "assets/slides/linearmodels.pdf"
     - title: "Homework 2 release"
       url: "hw2.html"
-    - title: "In class exercise: Nothing but Net(works)"
-      author: Tom McCoy
-      url: "http://www.nacloweb.org/resources/problems/2017/N2017-H.pdf"
   links:
     - title: "Naive Bayes"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/naivebayes.ipynb"
