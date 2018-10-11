@@ -148,9 +148,9 @@
   notes:
     - title: "Feedforward neural networks"
       url: "assets/slides/ff.pdf"
-    - title: "The XOR Problem"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/xor.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/xor.ipynb"
+    - title: "Feedforward networks and XOR"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/ff.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/ff.ipynb"
     - author: Michael Collins
       title: "Feedforward neural networks"
       url: "http://www.cs.columbia.edu/~mcollins/cs4705-spring2018/notes/ff.pdf"
