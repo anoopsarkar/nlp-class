@@ -158,7 +158,15 @@
   links:
     - title: "Efficient Backprop"
       url: "http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf"
-      authors: "LeCun, Bottou, Orr and Muller"
+      author: "LeCun, Bottou, Orr and Muller"
+      optional: true
+    - title: "What Every Computer Scientist Should Know About Floating-Point Arithmetic"
+      url: "https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html"
+      author: "D. Goldberg"
+      optional: true
+    - title: "Gradient checks and parameter updates"
+      url: "http://cs231n.github.io/neural-networks-3/"
+      author: "Andrej Karpathy"
       optional: true
 - title: "Neural Language models"
   tag: nlm
