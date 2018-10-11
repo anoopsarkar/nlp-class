@@ -73,17 +73,23 @@ For many tasks linear models are much faster to train compared to neural network
 \end{itemize}
 \end{frame}
 
-\begin{frame}{A Single Neuron}
+\begin{frame}{A Single Neuron \pause aka Perceptron}
 \begin{block}{A single neuron maps input $x \in \mathbb{R}^d$ to output $h$:}
 \[ h = g(w \cdot x + b) \]
 \end{block}
-
 \begin{itemize}[<+->]
 \item Weight vector $w \in \mathbb{R}^d$, a bias $b \in \mathbb{R}$ are the parameters of the model learned from training data
 \item Transfer function $g : \mathbb{R} \rightarrow \mathbb{R}$
 \item It is important that $g$ is a \textbf{non-linear} transfer function
-\item Linear $g(z) = \alpha \cdot z + \beta$ for constants $\alpha, \beta$
+\item Linear $g(z) = \alpha \cdot z + \beta$ for constants $\alpha, \beta$ \pause (linear perceptron)
 \end{itemize}
+\end{frame}
+
+\begin{frame}{The ReLU Transfer Function $[0,x]$}
+\begin{block}{}
+\centering
+\includegraphics[scale=0.6]{figures/relu.png}
+\end{block}
 \end{frame}
 
 \begin{frame}{The ReLU Transfer Function}
@@ -95,7 +101,15 @@ or equivalently $g(z) = \textrm{max}\{0,z\}$
 \pause
 \begin{block}{Derivative of ReLU:}
 \[ \frac{d g(z)}{dz} = \{ 1 \textrm{ if } z > 0 \textrm{ or } 0 \textrm{ if } z < 0 \} \]
-undefined if $z = 0$
+non-differentiable or undefined if $z = 0$ \\
+(in practice: choose a value for $z = 0$)
+\end{block}
+\end{frame}
+
+\begin{frame}{The tanh Transfer Function $[-1,1]$}
+\begin{block}{}
+\centering
+\includegraphics[scale=1.5]{figures/tanh.png}
 \end{block}
 \end{frame}
 
@@ -107,7 +121,6 @@ undefined if $z = 0$
 \pause
 \begin{block}{Derivative of tanh:}
 \[ \frac{d g(z)}{dz} = 1 - g(z)^2 \]
-undefined if $z = 0$
 \end{block}
 \end{frame}
 
@@ -125,6 +138,13 @@ derivatives w.r.t.\ $w_1, \ldots, w_j, \ldots w_d$:
 \begin{block}{Derivatives w.r.t.\ $b$:}
 derivatives w.r.t.\ $b$:
 \[ \frac{dh}{db} \]
+\end{block}
+\end{frame}
+
+\begin{frame}{The tanh Transfer Function}
+\begin{block}{}
+\centering
+\includegraphics[scale=1.5]{figures/tanhgradient.jpg}
 \end{block}
 \end{frame}
 
