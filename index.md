@@ -43,7 +43,7 @@ terms of its analysis and the learning of language from observations.
 #### Asking for help
 * Ask for help on [the discussion board]({{ site.coursys }}/discussion)
 * Instructor office hours: Thu 9:45-10:45 TASC1 9427
-* TA office hours: Mon 1pm-2pm, Wed 1pm-2pm, Thu 1pm-2pm (ASB 9816)
+* TA office hours: Mon 1pm-2pm (Ashkan), Wed 1pm-2pm (Nishant), Thu 1pm-2pm (Jetic). Location: ASB 9816
 * <b>No emails</b> to the TAs and strictly emails about personal matters to the instructor
 * Use only SFU email address and use `cmpt413:` or `cmpt825:` (for ugrad and grad respectively) as subject prefix
 
