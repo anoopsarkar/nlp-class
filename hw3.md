@@ -542,9 +542,17 @@ The trainer should also reward the correct bigram feature function
 
 ## Grading
 
-Your F1 score should be equal to or greater than the score listed for the corresponding marks.
+We will compare your output plaintext for the ciphertext and compute an error rate. The percentage error rate is 100 times the number of characters that do not match the reference plaintext sequence divided by the total number of characters (408 in the cipher above). If you get 5 characters wrong, the percent error rate will be 1.22. 
 
-| **F1 Score** | **Marks** | **Grade** |
+Your submission will be graded using the following grading scheme:
+
+1. 10 points for performance on the dev set `dev.txt` based on the F1-score as shown in the table below.
+1. 10 points for performance on the secret test set based on the F1-score as shown in the table below.
+1. 10 points for your documentation of work in the Python notebook assigned by the TAs. Include what was done, the different experiments you tried, and if you combined different approaches then how you did the combination. Remember to put a `doc/README.username` for each `username` in your group.
+
+Your F1 score should be equal to or greater than the score listed for the corresponding percent of the marks.
+
+| **F1 Score** | **Percent** | **Grade** |
 | 11 | 0   | F  |
 | 58 | 55  | D  |
 | 64 | 60  | C- |
