@@ -21,7 +21,7 @@ Clone your repository if you haven’t done it already:
 
     git clone git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
 
-Then copy over the contents of the `decipher` directory above as `hw3` in your repository.
+Then copy over the contents of the `chunker` directory above as `hw3` in your repository.
 
 Set up the virtual environment:
 
