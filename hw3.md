@@ -362,6 +362,10 @@ contain the output of `score-chunks.py` on `dev.txt`.
 You can import `chunk.py` and the other Python files in your hw3
 directory in your Python notebook for testing and documentation.
 
+You can use the existing `perc.py` program to compute the arg
+max phrasal chunk sequence or provide your own implementation
+of `perc.py` in your submission.
+
 Before you submit your homework add a file `doc/README.username`
 that documents the work done by each `username` in your group. Group
 members can get zero marks if they do not have this file that shows
