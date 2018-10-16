@@ -136,11 +136,9 @@ disturbing to read.**
 * The ciphertext is given in the file `data/cipher.txt`. There is no newline at the end of the file. All characters in this file except the newline characters are cipher characters.
 * An ngram language model is given in the file `data/6-gram-wiki-char.lm.bz2` which is a bzip2 file. The Python program `ngram.py` has a character language model implementation that can read this data file.
 
-### Default Submission
+### Default Solution
 
-The default submission for this homework is described in `decipher.ipynb`.
-
-The default solution matches the frequency of symbols in the cipher text with frequency of letters in the plaintext language (in this case, English). Note that this is just some text in English used to compute letter frequencies. We do not have access to the real plaintext in this homework. 
+The default solution for this homework is described in `decipher.ipynb`. It matches the frequency of symbols in the cipher text with frequency of letters in the plaintext language (in this case, English). Note that this is just some text in English used to compute letter frequencies. We do not have access to the real plaintext in this homework. 
 
 In order to do compute plaintext frequencies, we use an English dataset has no punctuation or spaces and all characters are lowercase.
 
@@ -340,7 +338,7 @@ only use the language models provided to you in the `data` directory.
 Implementation of two different language models is also provided
 to you that reads and uses those data files.
 
-You have to document your development of your grammars in your
+You have to document your development in your
 Python notebook called `decipher.ipynb` in your submission.
 As usual you have been given a default `decipher.ipynb` which
 is described above in the Default Submission section.
