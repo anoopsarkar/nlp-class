@@ -124,7 +124,7 @@ the model.
 
     python answer/chunk.py -m model
     python perc.py -m model > output
-    python score-chunks.py -t output
+    python score_chunks.py -t output
 
 You will upload the file `output` to the leaderboard submission
 site at [sfu-nlp-class.appspot.com](http://sfu-nlp-class.appspot.com/).
@@ -159,14 +159,14 @@ that has words and the part-of-speech tags for each word.
 
     python perc.py -m data/default.model > output
 
-`score-chunks.py` evaluates the output chunking for the input file, `data/input.txt.gz`
+`score_chunks.py` evaluates the output chunking for the input file, `data/input.txt.gz`
 
-    python score-chunks.py -t output
+    python score_chunks.py -t output
 
 You can also do the $$\arg\max$$ search for the best sequence of
 chunk tags and the evaluation in one line:
 
-    python perc.py -m data/default.model | python score-chunks.py
+    python perc.py -m data/default.model | python score_chunks.py
 
 This prints out the evaluation scores for `default.py`:
 
@@ -357,7 +357,7 @@ it should have the same command line options as `default.py`.
 
 You must document the development of your solution to this homework
 in the Python notebook called `chunk.ipynb`. The last cell must
-contain the output of `score-chunks.py` on `dev.txt`.
+contain the output of `score_chunks.py` on `dev.txt`.
 
 You can import `chunk.py` and the other Python files in your hw3
 directory in your Python notebook for testing and documentation.
