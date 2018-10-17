@@ -376,7 +376,9 @@ directory in your Python notebook for testing and documentation.
 
 You can use the existing `perc.py` program to compute the arg
 max phrasal chunk sequence or provide your own implementation
-of `perc.py` in your submission.
+of `perc.py` in your submission. It does not have to be called
+`perc.py` as long as your `chunk.py` and `chunk.ipynb` can
+load it.
 
 Before you submit your homework add a file `doc/README.username`
 that documents the work done by each `username` in your group. Group
