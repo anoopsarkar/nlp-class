@@ -393,7 +393,7 @@ Developing a chunker using the Perceptron algorithm (described in
 the above pseudo-code) is good enough to get an F-measure that is
 equal to the performance of the baseline.
 
-But getting closer to the best known accuracy on this task, which
+But getting closer to the [best known accuracy on this task](https://aclweb.org/aclwiki/NP_Chunking_(State_of_the_art)), which
 is hovering around 95 percent F-measure is a more interesting challenge.
 I would recommend following one of two paths (you can follow both in
 a large enough group):
