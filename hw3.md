@@ -395,15 +395,18 @@ equal to the performance of the baseline.
 
 But getting closer to the best known accuracy on this task, which
 is hovering around 95 percent F-measure is a more interesting challenge.
-Here are some ideas:
+I would recommend following one of two paths (you can follow both in
+a large enough group):
 
-* Use the averaged perceptron algorithm. 
-    * First read [Collins 2002](http://www.aclweb.org/anthology/W/W02/W02-1001.pdf).
-    * For more detailed pseudo-code see [Sarkar 2011](http://www.cs.sfu.ca/~anoop/papers/pdf/syntax-parsing-survey-2011.pdf) (page 36 and the more efficient version in page 38).
-* Use a [different data representations](http://www.cs.sfu.ca/~anoop/papers/pdf/ai05.pdf) for chunking and combine them with voting or other means.
-* Change the perceptron to be a multi-layer perceptron with word representations.
-* Augment the word representations with pre-trained word representations from word2vec or Glove.
-* Use ELMO embeddings as pre-trained token-level word representations as input to the multi-layer perceptron.
+* Improve the linear model and improve the efficiency of the training algorithm
+    * Use the averaged perceptron algorithm. 
+        * First read [Collins 2002](http://www.aclweb.org/anthology/W/W02/W02-1001.pdf).
+        * For more detailed pseudo-code see [Sarkar 2011](http://www.cs.sfu.ca/~anoop/papers/pdf/syntax-parsing-survey-2011.pdf) (page 36 and the more efficient version in page 38).
+    * Use a [different data representations](http://www.cs.sfu.ca/~anoop/papers/pdf/ai05.pdf) for chunking and combine them with voting or other means.
+* Replace the linear model with a neural network and re-implement the arg max:
+    * Change the perceptron to be a multi-layer perceptron with word representations.
+    * Augment the word representations with pre-trained word representations from word2vec or Glove.
+    * Use ELMO embeddings as pre-trained token-level word representations as input to the multi-layer perceptron.
 
 But the sky's the limit! You are welcome to design your own model, as long 
 as you follow the ground rules:
