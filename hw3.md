@@ -333,16 +333,28 @@ It is a good idea to print the number of mistakes made by the perceptron in each
 For instance, for my implementation of the baseline algorithm above for the full
 training data set I get the following mistakes per epoch over 10 epochs of training.
 
-    number of mistakes: 5637
-    number of mistakes: 3946
-    number of mistakes: 2980
-    number of mistakes: 2245
-    number of mistakes: 1751
-    number of mistakes: 1402
-    number of mistakes: 1127
-    number of mistakes: 955
-    number of mistakes: 805
-    number of mistakes: 742
+    $ time python3 chunk.py -e 10 -m baseline.model 
+    reading data ...
+    done.
+    number of mistakes: 5620
+    number of mistakes: 3962
+    number of mistakes: 2930
+    number of mistakes: 2284
+    number of mistakes: 1768
+    number of mistakes: 1390
+    number of mistakes: 1226
+    number of mistakes: 1031
+    number of mistakes: 810
+    number of mistakes: 707
+
+    real	23m49.039s
+    user	23m33.333s
+    sys	0m5.446s
+
+The time was computed on a 1.4 GHz Intel Core i7 with 16 GB 1867
+MHz LPDDR3 on battery power. The baseline gets an F1 score of 92.37
+on this dataset. However, based on implementation details your score
+might well be slightly higher or lower.
 
 ---
 
