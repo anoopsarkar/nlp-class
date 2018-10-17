@@ -77,7 +77,7 @@
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb"
     - title: "Probability models and language"
       url: "assets/slides/prob.pdf"
-    - title: "Homework 1"
+    - title: "Homework 1 release"
       url: "hw1.html"
   links:
     - title: "Python tidbits for NLP"
@@ -129,6 +129,8 @@
   notes:
     - title: "Linear models"
       url: "assets/slides/linearmodels.pdf"
+    - title: "Homework 2 release"
+      url: "hw2.html"
     - title: "Naive Bayes Classifiers"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/naivebayes.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/naivebayes.ipynb"
@@ -178,6 +180,8 @@
   notes:
     - title: "Linear models for sequence prediction"
       url: "assets/slides/linearseq.pdf"
+    - title: "Homework 3 release"
+      url: "hw3.html"
   links:
     - author: Erik F. Tjong Kim Sang and Sabine Buchholz
       title: "Introduction to the CoNLL-2000 Shared Task: Chunking"
