@@ -3,26 +3,43 @@
 \input{titlepage.tex}
 
 \lecture{Neural Language Models}{}
-\section{Log-linear Language Models}
+\section{Long distance dependencies}
 
 \begin{frame}
-\frametitle{The Language Modeling problem}
-\begin{block}{Setup}
+\frametitle{Long distance dependencies}
+\begin{block}{Example}
 \begin{itemize}[<+->]
-\item Assume a (finite) vocabulary of words:
-\[ {\cal V} = \{ killer, crazy, clown \} \]
-\item Use ${\cal V}$ to construct an infinite set of \textit{sentences} 
-\begin{eqnarray*} 
-{\cal V}^+ = & \{ & \\
-&& \mbox{clown, killer clown, crazy clown, } \\
-&& \mbox{crazy killer clown, killer crazy clown}, \\
-&& \ldots \\
-& \} &
-\end{eqnarray*}
-\item A \textit{sentence} is \textbf{defined} as each $s \in {\cal V}^+$
+\item {\color{blue} He} doesn't have very much confidence in {\color{blue} himself}
+\item {\color{blue} She} doesn't have very much confidence in {\color{blue} herself}
 \end{itemize}
+
+\pause
+\end{block}
+\begin{block}{n-gram Language Models: $P(w_i \mid w_{i-n+1}^{i-1})$}
+\begin{eqnarray*}
+P(\text{himself} &\mid& \text{confidence}, \text{in} ) \\
+P(\text{herself} &\mid& \text{confidence}, \text{in} ) 
+\end{eqnarray*}
+\end{block}
+
+\pause
+\begin{block}{What we want: $P(w_i \mid w_{<i})$}
+\begin{eqnarray*}
+P(\text{himself} &\mid& \text{confidence}, \ldots, \text{him} ) \\
+P(\text{herself} &\mid& \text{confidence}, \ldots, \text{her} ) 
+\end{eqnarray*}
 \end{block}
 \end{frame}
+
+\begin{frame}{Long distance dependencies}
+\framesubtitle{Other examples}	
+\begin{itemize}[<+->]
+	\item \textbf{Selectional preferences}: \textit{I ate lunch with a {\color{blue} fork}} vs.\ \textit{I ate lunch with a {\color{blue} backpack}}
+	\item \textbf{Topic}: \textit{Babe Ruth was able to touch the home {\color{blue} plate} yet again} vs.\ \textit{Lucy was able to touch the home {\color{blue} audiences} with her humour}
+	\item \textbf{Register}: informal (Twitter) vs.\ formal (scientific articles)
+\end{itemize}
+\end{frame}
+
 
 \input{acknowledgements.tex}
 

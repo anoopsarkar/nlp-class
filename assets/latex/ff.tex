@@ -24,6 +24,13 @@ The feature representation $\textbf{f}(\textbf{x}, y)$ has to be designed by han
 \end{block}
 \end{frame}
 
+\begin{frame}{Log linear model}
+\framesubtitle{Neubig notes 2018}
+\begin{block}{Disadvantages: number of combined features can explode}
+\includegraphics[scale=0.5]{figures/combinedfeats.png}
+\end{block}
+\end{frame}
+
 \begin{frame}{Neural Networks}
 \begin{block}{Advantages}
 \begin{itemize}[<+->]
@@ -397,6 +404,68 @@ $u = [1, -2]$ and $\gamma = -0.5$ satisfies these constraints.
    \includegraphics[width=0.475\textwidth]{figures/xorafter.png}
 \end{figure}
 \end{frame}
+
+\section{Computation Graphs}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}{Complex neural networks}
+\begin{block}{Neural network with a loss function}
+Consider a neural network trained using a \textbf{squared-error loss}. 
+For the correct answer $y^\ast$ the output value $y$ is compared using
+the function $(y^\ast - y)^2$.
+
+	\begin{eqnarray*}
+		h' &=& W_{xh} x + b_h \\
+		h &=& \text{tanh}(h') \\
+		y &=& w_{hy} h + b_y \\
+		\ell &=& (y^\ast - y)^2
+	\end{eqnarray*}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[shrink=5]{Derivative wrt loss}
+\begin{block}{}
+	\begin{eqnarray*}
+		h' &=& W_{xh} x + b_h \\
+		h &=& \text{tanh}(h') \\
+		y &=& w_{hy} h + b_y \\
+		\ell &=& (y^\ast - y)^2
+	\end{eqnarray*}
+	
+	We want to compute $\frac{d \ell}{d b_y}$, $\frac{d \ell}{d w_{hy}}$, $\frac{d \ell}{d b_h}$, $\frac{d \ell}{d W_{xh}}$
+\end{block}
+\pause
+\begin{block}{}
+	\begin{eqnarray*}
+		\frac{d \ell}{d b_y} &=& {\color{red} \frac{d \ell}{d y}} \pause \frac{d y}{d b_y} \pause \\
+		\frac{d \ell}{d w_{hy}} &=& {\color{red} \frac{d \ell}{d y}} \pause \frac{d y}{d w_{hy}} \pause \\
+		\frac{d \ell}{d b_h} &=& {\color{red} \frac{d \ell}{d y}} \pause {\color{blue} \frac{d y}{d h}} {\color{purple} \frac{d h}{d h'}} \pause \frac{d h'}{d b_h} \pause \\
+		\frac{d \ell}{d W_{xh}} &=& {\color{red} \pause \frac{d \ell}{d y}} \pause {\color{blue} \frac{d y}{d h}} \pause {\color{purple} \frac{d h}{d h'}}\frac{d h'}{d W_{xh}} 
+	\end{eqnarray*}
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Computation graphs and automatic differentiation}
+\framesubtitle{Neubig notes 2018}
+\includegraphics[scale=0.5]{figures/compgraph.png}
+\end{frame}
+
+\begin{frame}{Computation graphs and automatic differentiation}
+\begin{itemize}[<+->]
+\item Automatic differentiation is a two-step dynamic programming algorithm that operates
+over the second graph and performs:
+\begin{description}
+\item[Forward calculation] which traverses the nodes in the graph in topological order,
+calculating the actual result of the computation.
+\item[Back propagation] which traverses the nodes in reverse topological order, calculating
+the gradients.
+\end{description}
+\item Many neural network toolkits can perform auto differentiation for very large computation graphs.
+\end{itemize}
+\end{frame}
+
 
 \input{acknowledgements.tex}
 
