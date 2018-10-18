@@ -122,7 +122,7 @@ to you (in `perc.py`). Your job is to implement the training algorithm
 that provides weights for each feature used in the prediction by
 the model.
 
-    python answer/chunk.py -m model
+    python chunk.py -m model
     python perc.py -m model > output
     python score_chunks.py -t output
 
@@ -475,6 +475,8 @@ If you have any questions or you're confused about anything, just ask.
 | LST | list phrase | `[LST 1.]` ; `[LST first]` ; `[LST a]` | Very rare |
 | UCP | unlike coordinated phrase | `[UCP and]` | Similar to the CONJP phrase but for conjunction of two different phrase types. Extremely rare. |
 | O | outside any phrase | `[O .]` ; `[SBAR that]` `[NP there]` `[VP were]` `[O n't]` `[NP any major problems]` | Mostly punctuations, but some corner cases as well. |
+| `_B-1` | dummy label | | Used to pad the sequence to avoid starting with a unigram. Occurs at start of sequence as `_B-2 _B-1` |
+| `_B-2` | dummy label | | Used to pad the sequence to avoid starting with a unigram. Occurs at start of sequence as `_B-2 _B-1` |
 |--------------------------------------
 {: .table}
 
