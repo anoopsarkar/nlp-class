@@ -146,7 +146,7 @@
 - title: "Feedforward neural networks"
   tag: ff
   include: true
-  current: false
+  current: true
   notes:
     - title: "Feedforward neural networks"
       url: "assets/slides/ff.pdf"
@@ -188,8 +188,8 @@
       url: "http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
 - title: "Neural Language models"
   tag: nlm
-  include: false
-  current: false
+  include: true
+  current: true
   notes:
     - title: "Neural Language models"
       url: "assets/cached/mikolovrnn.pdf"
@@ -207,23 +207,10 @@
     - title: "Statistical language models based on neural networks"
       author: Tomas Mikolov
       url: "http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf"
-- title: "Linear models"
-  tag: linearmodels
-  include: false
-  current: false
-  notes:
-    - title: "Linear models"
-      url: "assets/slides/linearmodels.pdf"
-    - title: "Homework 2 release"
-      url: "hw2.html"
-  links:
-    - title: "Naive Bayes"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/naivebayes.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/naivebayes.ipynb"
 - title: "Hidden Markov Models"
   tag: hmm
-  include: false
-  current: false
+  include: true
+  current: true
   notes:
     - title: "Hidden Markov Models"
       url: "assets/slides/hmm.pdf"
