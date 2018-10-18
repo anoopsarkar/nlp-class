@@ -251,7 +251,7 @@ $g(z) = [ \ldots, \textrm{ReLU}(z_i), \ldots ]$ or $g(z) = [ \ldots, \textrm{tan
 \begin{block}{Putting it all together:}
 \begin{eqnarray*}
 \Pr(y \mid x; \theta, v) &=& \frac{exp\left(v(y) \cdot \phi(x;\theta) + \gamma_y \right)}{\sum_{y' \in {\cal Y}} exp\left(v(y') \cdot \phi(x;\theta) + \gamma_{y'})\right)} \\
- &=& \textrm{softmax}(v(y) \cdot \phi(x;\theta) + \gamma_y) 
+ &=& \underbrace{\textrm{softmax}(\underbrace{v(y) \cdot \phi(x;\theta) + \gamma_y}_{\text{for each $y \in {\cal Y}$ an $\mathbb{R}$ value}})}_{\text{A vector of size $\mathbb{R}^{{\cal Y}}$ that sums to $1$}}
 \end{eqnarray*}
 \end{block}
 
@@ -281,7 +281,11 @@ $g(z) = [ \ldots, \textrm{ReLU}(z_i), \ldots ]$ or $g(z) = [ \ldots, \textrm{tan
 \item Training examples $(x^i, y^i)$ for $i = 1, \ldots, n$
 \item A feedforward representation $\phi(x; \theta)$
 \item Integer $T$ specifying the number of updates
-\item A sequence of learning rates: $\eta^1, \ldots, \eta^T$ where $\eta^t > 0$
+\item A sequence of learning rates: $\eta^1, \ldots, \eta^T$ where $\eta^t \in [0,1]$
+\begin{itemize}[<+->]
+\item One should experiment with learning rates: 0.001, 0.01, 0.1, 1
+\item Bottou (2012) suggests a learning rate $\eta^t = \frac{\eta^1}{1 + \eta^1 \times \lambda \times t}$ where $\lambda$ is a hyperparameter that can be tuned experimentally
+\end{itemize}
 \end{itemize}
 \end{block}
 \pause
