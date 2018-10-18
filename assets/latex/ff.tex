@@ -50,8 +50,8 @@ For many tasks linear models are much faster to train compared to neural network
 \begin{itemize}[<+->]
 \item Feature vector $f(x)$ maps input $x$ to $\mathbb{R}^d$
 \item Parameters $v(y) \in \mathbb{R}^d$ and $\gamma_y \in \mathbb{R}$ for each $y \in {\cal Y}$
-\item We use $v$ to refer to the parameter vectors and bias values:
-\[ v = \{ (v(y), \gamma_y) : y \in {\cal Y} \} \]
+\item We assume $v(y) \cdot f(x)$ is a dot product. Using matrix multiplication it would be $v(y) \cdot f(x)^T$
+\item Let $v = \{ (v(y), \gamma_y) : y \in {\cal Y} \} $
 \end{itemize}
 \end{frame}
 
@@ -244,11 +244,15 @@ $g(z) = [ \ldots, \textrm{ReLU}(z_i), \ldots ]$ or $g(z) = [ \ldots, \textrm{tan
 \item Vector of outputs from hidden layer $h \in \mathbb{R}^m$: $h = g(z)$
 \item Define $\phi(x; \theta) = h$ where $\theta = (W, b)$
 \[ \phi(x; \theta) = g(Wx + b) \]
+\item Define $\textrm{softmax}_y(r) = \frac{exp(r_y)}{\sum_{y'} exp(r_{y'})}$ for $r \in \mathbb{R}^m$
 \end{itemize}
 \end{block}
 \pause
 \begin{block}{Putting it all together:}
-\[ \Pr(y \mid x; \theta, v) = \frac{exp\left(v(y) \cdot \phi(x;\theta) + \gamma_y \right)}{\sum_{y' \in {\cal Y}} exp\left(v(y') \cdot \phi(x;\theta) + \gamma_{y'})\right)} \]
+\begin{eqnarray*}
+\Pr(y \mid x; \theta, v) &=& \frac{exp\left(v(y) \cdot \phi(x;\theta) + \gamma_y \right)}{\sum_{y' \in {\cal Y}} exp\left(v(y') \cdot \phi(x;\theta) + \gamma_{y'})\right)} \\
+ &=& \textrm{softmax}(v(y) \cdot \phi(x;\theta) + \gamma_y) 
+\end{eqnarray*}
 \end{block}
 
 \end{frame}
@@ -393,4 +397,5 @@ $u = [1, -2]$ and $\gamma = -0.5$ satisfies these constraints.
 \input{acknowledgements.tex}
 
 \end{document}
+ 
  
