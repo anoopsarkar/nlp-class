@@ -408,6 +408,8 @@ a large enough group):
     * Augment the word representations with pre-trained word representations from word2vec or Glove.
     * Use ELMO embeddings as pre-trained token-level word representations as input to the multi-layer perceptron.
 
+If you use a neural network approach you can use a toolkit like tensorflow or pytorch. **But make sure the implementation of the model and the arg max is your own code**. You can use pre-existing word embeddings but you will get zero marks if you just download and run some off-the-shelf implementation of the phrasal chunking task from the web. The code has to be your own work, and cannot include any pre-existing code. If you use external toolkits, make sure that you modify the `requirements.txt` file so that we can easily install the dependencies and run your code.
+
 But the sky's the limit! You are welcome to design your own model, as long 
 as you follow the ground rules:
 
