@@ -241,8 +241,13 @@
   current: true
   notes:
     - title: "Neural Language models"
-      url: "assets/cached/mikolovrnn.pdf"
+      url: "assets/slides/nlm.pdf"
+    - title: "RNN based Neural Language models (experiments)"
+      url: "assets/slides/nlm-mikolov.pdf"
       author: Tomas Mikolov
+    - title: "RNN Language model notebook"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/rnnlm.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/rnnlm.ipynb"
   links:
     - title: "How to implement a recurrent neural network"
       author: "peterroelants.github.io"
