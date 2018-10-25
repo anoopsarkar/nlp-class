@@ -36,10 +36,52 @@ P(\text{herself} &\mid& \text{confidence}, \ldots, \text{her} )
 \begin{itemize}[<+->]
 	\item \textbf{Selectional preferences}: \textit{I ate lunch with a {\color{blue} fork}} vs.\ \textit{I ate lunch with a {\color{blue} backpack}}
 	\item \textbf{Topic}: \textit{Babe Ruth was able to touch the home {\color{blue} plate} yet again} vs.\ \textit{Lucy was able to touch the home {\color{blue} audiences} with her humour}
-	\item \textbf{Register}: informal (Twitter) vs.\ formal (scientific articles)
+	\item \textbf{Register}: Consistency of register in the entire sentence, e.g.\ informal (Twitter) vs.\ formal (scientific articles)
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{Language Models}
+\begin{block}{Chain Rule and ignore some history: the trigram model}
+\begin{eqnarray*}
+\lefteqn{p(w_1, \ldots, w_n) } \\
+&\approx& p(w_1) p(w_2 \mid w_1) p(w_3 \mid w_1, w_2) \ldots p(w_n \mid w_{n-2}, w_{n-1}) \\
+&\approx& \prod_{t} p(w_{t+1} \mid w_{t-1}, w_t)
+\end{eqnarray*}
+\end{block}
+\pause
+\begin{block}{How can we address the long-distance issues?}
+\begin{itemize}
+\item Skip $n$-gram models. Skip an arbitrary distance for $n$-gram context.
+\item Variable $n$ in $n$-gram models that is adaptive
+\item {\bf Problems}: Still "all or nothing". Categorical rather than soft.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Neural Language Models}
+\begin{block}{Use Chain rule and approximate using a neural network}
+\[ p(w_1, \ldots, w_n) \approx \prod_{t} p(w_{t+1} \mid \underbrace{\phi(w_1, \ldots, w_t)}_{\text{capture history with vector $s(t)$}}) \]
+\end{block}
+\pause
+\begin{block}{Recurrent Neural Network}
+\begin{itemize}[<+->]
+	\item Let $y$ be the output $w_{t+1}$ for current word $w_t$ and history $w_1, \ldots, w_t$
+	\item $s(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot s(t-1))$ where $f$ is sigmoid
+	\item $s(t)$ encapsulates history using single vector of size $h$
+	\item Output word at time step $w_{t+1}$ is provided by $y(t)$
+	\item $y(t) = g(V_{hs} s(t))$ where $g$ is softmax
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Neural Language Models}
+\framesubtitle{Recurrent Neural Network}
+\begin{block}{Computational Graph for an RNN Language Model}
+\includegraphics[scale=0.45]{figures/mikolovrnn-graph.png}
+\end{block}
+\end{frame}
 
 \input{acknowledgements.tex}
 
