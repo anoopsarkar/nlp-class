@@ -146,7 +146,7 @@
 - title: "Feedforward neural networks"
   tag: ff
   include: true
-  current: true
+  current: false
   notes:
     - title: "Feedforward neural networks"
       url: "assets/slides/ff.pdf"
@@ -176,7 +176,7 @@
 - title: "Linear models for sequence prediction"
   tag: linearseq
   include: true
-  current: true
+  current: false
   notes:
     - title: "Linear models for sequence prediction"
       url: "assets/slides/linearseq.pdf"
