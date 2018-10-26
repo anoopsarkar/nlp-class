@@ -261,7 +261,7 @@
     - title: "Statistical language models based on neural networks"
       author: Tomas Mikolov
       url: "http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf"
-- title: "Statistical Machine Translation"
+- title: "Machine Translation"
   tag: smt
   include: true
   current: false 
