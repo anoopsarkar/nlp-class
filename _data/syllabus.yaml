@@ -239,6 +239,7 @@
   tag: nlm
   include: true
   current: true
+  notes:
     - title: "Neural Language model"
       url: "assets/slides/nlm.pdf"
     - title: "RNN based Neural Language model (experiments)"
