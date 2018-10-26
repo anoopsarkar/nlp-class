@@ -239,8 +239,9 @@
   tag: nlm
   include: true
   current: true
+    - title: "Neural Language model"
       url: "assets/slides/nlm.pdf"
-    - title: "RNN based Neural Language models (experiments)"
+    - title: "RNN based Neural Language model (experiments)"
       url: "assets/slides/nlm-mikolov.pdf"
       author: Tomas Mikolov
     - title: "RNN Language model notebook"
