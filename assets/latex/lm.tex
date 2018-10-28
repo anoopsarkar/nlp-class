@@ -593,14 +593,14 @@ compute $\lambda$ values to minimize cross-entropy on {\bf held-out} data which 
 \begin{frame}
 \frametitle{Backoff Smoothing with Discounting}
 \begin{itemize}[<+->]
-\item Discounting (Ney, Essen, Kneser)
+\item Absolute Discounting (aka \textit{abs}) (Ney, Essen, Kneser)
 \[ P_{\textit{abs}}(y~\mid~x) = \left\{ 
 \begin{array}{cc}
 \frac{ c(xy) - D }{ c(x) } & \textsf{ if $c(xy) > 0$} \\
 \alpha(x) P_{\textit{abs}} (y) & \textsf{otherwise}
 \end{array}
 \right. \]
-\item where $\alpha(x)$ is chosen to make sure that $P_{\textit{katz}}(y~\mid~x)$ is a proper probability
+\item where $\alpha(x)$ is chosen to make sure that $P_{\textit{abs}}(y~\mid~x)$ is a proper probability
 \[ \alpha(x) = 1 - \sum_y \frac{ c(xy) - D }{ c(x) } \]
 \end{itemize}
 \end{frame}
