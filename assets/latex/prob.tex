@@ -559,9 +559,9 @@ code $0$ occurs 160 times, code $10$ occurs 80 times, code $110$ occurs 40 times
   and $p$ is the true probability \\
   {\small (say we got $q$ by observing previous races with these horses)}
 \item We define the {\em distance} between $p$ and $q$ as the {\bf relative entropy}: written as $D(p \| q)$
-\[ D(p \| q) = - \sum_{x \in {\cal E}} p(x) \log_2 \frac{p(x)}{q(x)} \]
+\[ D(p \| q) = - \sum_{x \in {\cal E}} p(x) \log_2 \frac{q(x)}{p(x)} \]
 \item Note that
-\[ D(p \| q) = - E_{ p(x) } \left[ \log_2 \frac{p(x)}{q(x)} \right] \]
+\[ D(p \| q) = - E_{ p(x) } \left[ \log_2 \frac{q(x)}{p(x)} \right] \]
 \item The relative entropy is also called the {\em Kullback-Leibler divergence}.
 \end{itemize}
 
@@ -572,7 +572,7 @@ code $0$ occurs 160 times, code $10$ occurs 80 times, code $110$ occurs 40 times
 \begin{itemize}[<+->]
 \item The {\bf relative entropy} can be written as the sum of two terms:
 \begin{eqnarray*}
-D(p \| q) & = & - \sum_{x \in {\cal E}} p(x) \log_2 \frac{p(x)}{q(x)} \\
+D(p \| q) & = & - \sum_{x \in {\cal E}} p(x) \log_2 \frac{q(x)}{p(x)} \\
 & = & - \sum_{x} p(x) \log_2 q(x) + \sum_{x} p(x) \log_2 p(x) 
 \end{eqnarray*}
 \item We know that $H(p) = - \sum_{x} p(x) \log_2 p(x)$
