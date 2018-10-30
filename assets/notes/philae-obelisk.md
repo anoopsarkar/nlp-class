@@ -37,7 +37,7 @@ line at one end, indicating that the text enclosed is a royal name. Pick which o
 ![Philae obelisk inscription](../img/philae1.png 'Philae obelisk inscription')
 1. Find the Greek name written in the Egyptian hieroglyph script as:<br/>
 ![Mystery glyph](../img/philae2.png 'Mystery glyph')
-Hint: There is a famous city named after him in Egypt where Cleopatra was born, where she ruled and where she eventually died.<br/>
+</br>Hint: There is a famous city named after him in Egypt where Cleopatra was born, where she ruled and where she eventually died.<br/>
 1. Who is the topic of discussion in this inscription from the Rosetta stone?<br/>
 ![Rosetta stone inscription](../img/rosetta1.png 'Rosetta stone inscription')
 1. Champollion used the Greek translation in the Rosetta stone and his knowledge of [Coptic](http://en.wikipedia.org/wiki/Coptic_language) to infer
