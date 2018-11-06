@@ -13,6 +13,8 @@ Final Project
 <span class="text-info">Start by {{ site.hwdates[5].startdate }} or earlier</span> |
 <span class="text-warning">Due on {{ site.hwdates[5].deadline }}</span>
 
+## Poster Session
+
 There will be a poster session in downtown Vancouver on {{
 site.hwdates[5].deadline }}. Your group must present a poster at
 this poster session providing details about your final course
@@ -23,7 +25,16 @@ a different poster. You can share code between the projects but the
 projects must be different from each other and have a distinct
 contribution.
 
-## Ideas
+Apart from the poster session you must also submit your project
+write-up as a Python notebook `project.ipynb` and your source
+code for your project in your GitLab repository:
+
+    git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
+
+Make sure you have a `requirements.txt` file for your project 
+so that we can use a virtual environment to run your code.
+
+## Project Ideas
 
 First start with a task that has a well-defined dataset that you
 can use for your project. Pick something you are passionate about
@@ -37,6 +48,17 @@ ideas for these tasks.
 
 * [Drug-Drug Interaction Extraction](http://labda.inf.uc3m.es/DrugDDI/DrugDDI.html)
 * [Web named entities](http://nlp.uned.es/weps/weps-3/data)
+* [CoNLL 2003 named entity recognition task](https://www.clips.uantwerpen.be/conll2003/ner/)
+* [CoNLL 2000 chunking task](https://www.clips.uantwerpen.be/conll2000/chunking/)
+
+### Parsing
+
+* [Universal Dependencies](http://universaldependencies.org)
+* [WikiText](https://www.salesforce.com/products/einstein/ai-research/the-wikitext-dependency-language-modeling-dataset/)
+
+### Machine Translation
+
+* [Web Inventory of Transcribed and Translated Talks](https://wit3.fbk.eu/mt.php?release=2016-01)
 
 ### Noisy user-generated text
 
@@ -46,6 +68,12 @@ ideas for these tasks.
 
 * [Wikipedia XML data](http://www-connex.lip6.fr/%7Edenoyer/wikipediaXML/)
 
+### Kaggle Tasks
+
+* [Kaggle NLP Tasks](https://www.kaggle.com/datasets?sortBy=hottest&group=public&page=1&pageSize=20&size=sizeAll&filetype=fileTypeAll&license=licenseAll&tagids=13204%2C11208%2C2107)
+* [Quora Question Pairs](https://www.kaggle.com/c/quora-question-pairs)
+* [Toxic Comment Classification](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge)
+
 ### SemEval Shared Tasks
 
 * [SemEval 2018](http://alt.qcri.org/semeval2018/index.php?id=tasks)
@@ -53,6 +81,8 @@ ideas for these tasks.
 ### Sentiment
 
 * [Stanford Sentiment Treebank](https://nlp.stanford.edu/sentiment/treebank.html)
+* [Movie reviews](http://ai.stanford.edu/~amaas/data/sentiment/)
+* [Yelp Challenge](https://www.yelp.com/dataset/challenge)
 
 ### Natural Language Inference (Entailment Tasks)
 
@@ -61,6 +91,7 @@ ideas for these tasks.
 * [Multi-Genre NLI](https://www.nyu.edu/projects/bowman/multinli/)
 * [MedNLI](https://physionet.org/physiotools/mimic-code/mednli/)
 * [XNLI](https://www.nyu.edu/projects/bowman/xnli/)
+* [Fake News Challenge](https://github.com/FakeNewsChallenge/fnc-10)
 
 ### Question Answering
 
