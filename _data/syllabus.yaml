@@ -189,7 +189,7 @@
 - title: "Hidden Markov Models"
   tag: hmm
   include: true
-  current: true
+  current: false
   notes:
     - title: "Hidden Markov Models"
       url: "assets/slides/hmm.pdf"
