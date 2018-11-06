@@ -141,7 +141,9 @@ the following sections:
 
 When you are ready to submit go to GitLab and select `New tag` to
 create a new tag. For `Tag name` use `project` and optionally write a
-`Message`. Then select `Create tag` to create this tag.
+`Message`. Then select `Create tag` to create this tag. If you want
+to submit multiple times then please create a new tag each time `projectN`
+for your `N`th submission and submit the new tag via Coursys.
 
 Go to [Coursys]({{ site.coursys }}). Under the `Final Project`
 activity submit your git repository URL. It will look like
@@ -150,6 +152,9 @@ this for some `USER` in your group called `g-GROUP`:
     git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
 
 The instructions are provided in more detail in [Homework 0](hw0.html).
+
+There are **no grace days** for project submission! So submit early
+and often.
 
 That's it. You are done with your Final Project!
 
