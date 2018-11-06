@@ -137,9 +137,25 @@ the following sections:
 * Future Work
     * What could be fixed in your approach. What you did not have time to finish, but you think would be a useful addition to your project.
 
-## Grading system for the project
+### Submit your project on Coursys
 
-The final projects will be graded using the following criteria:
+When you are ready to submit go to GitLab and select `New tag` to
+create a new tag. For `Tag name` use `project` and optionally write a
+`Message`. Then select `Create tag` to create this tag.
+
+Go to [Coursys]({{ site.coursys }}). Under the `Final Project`
+activity submit your git repository URL. It will look like
+this for some `USER` in your group called `g-GROUP`:
+
+    git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
+
+The instructions are provided in more detail in [Homework 0](hw0.html).
+
+That's it. You are done with your Final Project!
+
+## Grading of the Final Project
+
+The final projects for this course will be graded using the following criteria:
 
 * Originality 
 * Substance (amount of work done for the project)
@@ -148,5 +164,6 @@ The final projects will be graded using the following criteria:
 * Quality of experimental design
 * Quality of evaluation and results
 * Theoretical insights / Practical insights
-* Overall score (based on the above criteria, but can include other factors like polish of the project work)
+* Group work (did the group work effectively together)
+* Overall score (based on the above criteria, but can include other factors like overall polish or creativity)
 

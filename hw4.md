@@ -486,8 +486,23 @@ as long as you follow the ground rules:
 
 If you have any questions or you're confused about anything, just ask.
 
-Grading
--------
+### Submit your homework on Coursys
+
+When you are ready to submit go to GitLab and select `New tag` to
+create a new tag. For `Tag name` use `hw4` and optionally write a
+`Message`. Then select `Create tag` to create this tag.
+
+Go to [Coursys]({{ site.coursys }}). Under the `Homework 4`
+activity submit your git repository URL. It will look like
+this for some `USER` in your group called `g-GROUP`:
+
+    git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
+
+The instructions are provided in more detail in [Homework 0](hw0.html).
+
+That's it. You are done with Homework 4!
+
+## Grading
 
 Your F1 score should be equal to or greater than the score listed for the corresponding marks.
 
@@ -505,8 +520,7 @@ Your F1 score should be equal to or greater than the score listed for the corres
 | .14 | 100 | A+ |
 {: .table}
 
-Acknowledgements
-----------------
+## Acknowledgements
 
 This assignment is adapted from the word alignment homework developed
 by [Matt Post](http://cs.jhu.edu/~post/) and [Adam
