@@ -414,6 +414,23 @@ You are welcome to design your own model and decoding algorithm for finding the 
 
 If you have any questions or you're confused about anything, just ask.
 
+### Submit your homework on Coursys
+
+When you are ready to submit go to GitLab and select `New tag` to
+create a new tag. For `Tag name` use `hw3` and optionally write a
+`Message`. Then select `Create tag` to create this tag.
+
+Go to [Coursys]({{ site.coursys }}). Under the `Homework 3`
+activity submit your git repository URL. It will look like
+this for some `USER` in your group called `g-GROUP`:
+
+    git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
+
+The instructions are provided in more detail in [Homework 0](hw0.html).
+
+That's it. You are done with Homework 3!
+
+
 ## Appendix
 
 ### Part-of-speech tags
