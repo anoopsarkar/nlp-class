@@ -48,8 +48,7 @@ ideas for these tasks.
 
 * [Drug-Drug Interaction Extraction](http://labda.inf.uc3m.es/DrugDDI/DrugDDI.html)
 * [Web named entities](http://nlp.uned.es/weps/weps-3/data)
-* [CoNLL 2003 named entity recognition task](https://www.clips.uantwerpen.be/conll2003/ner/)
-* [CoNLL 2000 chunking task](https://www.clips.uantwerpen.be/conll2000/chunking/)
+* [Twitter sequence prediction tasks](http://www.cs.cmu.edu/~ark/TweetNLP/)
 
 ### Parsing
 
@@ -58,25 +57,16 @@ ideas for these tasks.
 
 ### Machine Translation
 
+* [WMT 2018 Shared Task](http://www.statmt.org/wmt18/)
+* [WMT 2017 Shared Task](http://www.statmt.org/wmt17/)
+* [WMT 2016 Shared Task](http://www.statmt.org/wmt16/)
+* [WMT 2015 Shared Task](http://www.statmt.org/wmt15/)
+* [NMT 2018 Neural MT Shared Task](https://sites.google.com/site/wnmt18/shared-task)
 * [Web Inventory of Transcribed and Translated Talks](https://wit3.fbk.eu/mt.php?release=2016-01)
-
-### Noisy user-generated text
-
-* [Twitter sequence prediction tasks](http://www.cs.cmu.edu/~ark/TweetNLP/)
 
 ### Unlabeled Data for Clustering, Language Models, etc.
 
 * [Wikipedia XML data](http://www-connex.lip6.fr/%7Edenoyer/wikipediaXML/)
-
-### Kaggle Tasks
-
-* [Kaggle NLP Tasks](https://www.kaggle.com/datasets?sortBy=hottest&group=public&page=1&pageSize=20&size=sizeAll&filetype=fileTypeAll&license=licenseAll&tagids=13204%2C11208%2C2107)
-* [Quora Question Pairs](https://www.kaggle.com/c/quora-question-pairs)
-* [Toxic Comment Classification](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge)
-
-### SemEval Shared Tasks
-
-* [SemEval 2018](http://alt.qcri.org/semeval2018/index.php?id=tasks)
 
 ### Sentiment
 
@@ -96,6 +86,27 @@ ideas for these tasks.
 ### Question Answering
 
 * [Algebra Question Answering with Rationales](https://github.com/deepmind/AQuA/)
+
+### CoNLL Shared Tasks
+
+* [CoNLL Shared Tasks](http://www.conll.org/previous-tasks)
+* [CoNLL 2003 Named Entity Recognition Task](https://www.clips.uantwerpen.be/conll2003/ner/)
+* [CoNLL 2000 Chunking Task](https://www.clips.uantwerpen.be/conll2000/chunking/)
+* [CoNLL 2018 Multilingual Parsing](http://universaldependencies.org/conll18/)
+
+### SemEval Shared Tasks
+
+* [SemEval 2018](http://alt.qcri.org/semeval2018/index.php?id=tasks)
+* [SemEval 2017](http://alt.qcri.org/semeval2017/index.php?id=tasks)
+* [SemEval 2016](http://alt.qcri.org/semeval2016/index.php?id=tasks)
+* [SemEval 2015](http://alt.qcri.org/semeval2015/index.php?id=tasks)
+* [SemEval 2014](http://alt.qcri.org/semeval2014/index.php?id=tasks)
+
+### Kaggle Tasks
+
+* [Kaggle NLP Tasks](https://www.kaggle.com/datasets?sortBy=hottest&group=public&page=1&pageSize=20&size=sizeAll&filetype=fileTypeAll&license=licenseAll&tagids=13204%2C11208%2C2107)
+* [Quora Question Pairs](https://www.kaggle.com/c/quora-question-pairs)
+* [Toxic Comment Classification](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge)
 
 ## Write-up
 
