@@ -7,35 +7,10 @@ title: "Project"
 active_tab: project
 ---
 
-Final Project
--------------
+# Final Project
 
 <span class="text-info">Start by {{ site.hwdates[5].startdate }} or earlier</span> |
 <span class="text-warning">Due on {{ site.hwdates[5].deadline }}</span>
-
-## Poster Session
-
-There will be a poster session in downtown Vancouver on {{
-site.hwdates[5].deadline }}. Your group must present a poster at
-this poster session providing details about your final course
-project.
-
-If you are enrolled in the Machine Learning course you must present
-a different poster. You can share code between the projects but the
-projects must be different from each other and have a distinct
-contribution.
-
-Apart from the poster session you must also submit your project
-write-up as a Python notebook `project.ipynb` and your source
-code for your project in your GitLab repository:
-
-    git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
-
-Put all your project files into the directory `project` in your
-GitLab repository.
-
-Make sure you have a `requirements.txt` file for your project 
-so that we can use a virtual environment to run your code.
 
 ## Project Ideas
 
@@ -111,7 +86,33 @@ ideas for these tasks.
 * [Quora Question Pairs](https://www.kaggle.com/c/quora-question-pairs)
 * [Toxic Comment Classification](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge)
 
-## Write-up
+## Project Submission
+
+### Poster Session
+
+There will be a poster session in downtown Vancouver on {{
+site.hwdates[5].deadline }}. Your group must present a poster at
+this poster session providing details about your final course
+project.
+
+If you are enrolled in the Machine Learning course you must present
+a different poster. You can share code between the projects but the
+projects must be different from each other and have a distinct
+contribution.
+
+Apart from the poster session you must also submit your project
+write-up as a Python notebook `project.ipynb` and your source
+code for your project in your GitLab repository:
+
+    git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
+
+Put all your project files into the directory `project` in your
+GitLab repository.
+
+Make sure you have a `requirements.txt` file for your project 
+so that we can use a virtual environment to run your code.
+
+### Write-up
 
 Your Python notebook must be called `project.ipynb`. In addition
 to writing code for a good project submission, the description of
