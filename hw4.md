@@ -504,9 +504,15 @@ That's it. You are done with Homework 4!
 
 ## Grading
 
-Your F1 score should be equal to or greater than the score listed for the corresponding marks.
+Your submission will be graded using the following grading scheme:
 
-| **AER (en-de)** | **Marks** | **Grade** |
+1. 10 points for AER score on the English-French data as shown in the table below.
+1. 10 points for AER score on the English-German data as shown in the table below.
+1. 10 points for your documentation of work in the Python notebook assigned by the TAs. Include what was done, the different experiments you tried, and if you combined different approaches then how you did the combination. Remember to put a `doc/README.username` for each `username` in your group.
+
+Your AER score should be equal to or less than the score listed for the corresponding marks.
+
+| **AER** | **Marks** | **Grade** |
 | .80 | 0   | F  |
 | .75 | 55  | D  |
 | .70 | 60  | C- |
