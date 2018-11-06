@@ -31,6 +31,9 @@ code for your project in your GitLab repository:
 
     git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
 
+Put all your project files into the directory `project` in your
+GitLab repository.
+
 Make sure you have a `requirements.txt` file for your project 
 so that we can use a virtual environment to run your code.
 
