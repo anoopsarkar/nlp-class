@@ -238,7 +238,7 @@
 - title: "Neural Language models"
   tag: nlm
   include: true
-  current: true
+  current: false
   notes:
     - title: "Neural Language model"
       url: "assets/slides/nlm.pdf"
@@ -280,14 +280,14 @@
       optional: true
 - title: Word Alignment
   tag: align
-  include: false
-  current: false 
+  include: true
+  current: true 
   notes:
     - title: "Word Alignment"
       url: "assets/slides/ibm123.pdf"
   links:
     - title: "In-class Alignment Exercise"
-      url: "assets/handouts/inclass-align.pdf"
+      url: "assets/slides/centauri-arcturan.pdf"
     - author: Michael Collins
       title: "Statistical Machine Translation: IBM Models 1 and 2"
       url: "http://www.cs.columbia.edu/~mcollins/ibm12.pdf"
@@ -296,43 +296,6 @@
       title: "Statistical Machine Translation"
       url: "http://www.statmt.org/book"
       optional: true
-- title: "Phrase based translation"
-  tag: pbmt
-  include: false
-  current: false
-  notes:
-    - author: Philipp Koehn
-      title: "Decoding"
-      url: "assets/slides/06-decoding.pdf"
-    - author: Philipp Koehn
-      title: "Phrase-based models"
-      url: "assets/slides/05-phrase-based-models.pdf"
-    - title: "Homework 4 release"
-      url: "hw4.html"
-    - title: "Stack Decoder demo"
-      author: "Matt Post"
-      url: "assets/demos/stack-decoder/stack-decoder.html"
-    - title: "In class exercise: Udihe"
-      author: "B. Iomdin"
-      url: "assets/handouts/inclass-udihe.pdf"
-  links:
-    - author: Michael Collins
-      title: "Statistical Machine Translation: Phrase-based models"
-      url: "http://www.cs.columbia.edu/~mcollins/pb.pdf"
-      download: "assets/mcollins-notes/pb.pdf"
-- title: "Discriminative Training for Machine Translation"
-  tag: statmt
-  current: false
-  notes:
-    - author: "Philipp Koehn, Barry Haddow and Matthias Huck"
-      title: "Discriminative Training"
-      url: "assets/slides/09-discriminative-training.pdf"
-    - title: "Homework 5 release"
-      url: "hw5.html"
-  links:
-    - author: "Mark Hopkins and Jonathan May"
-      title: "Tuning as Ranking"
-      url: "http://www.aclweb.org/anthology/D11-1125"
 - title: "Translation Evaluation"
   tag: mteval
   include: false
@@ -363,3 +326,41 @@
       title: "Computing edit distance (part two)"
       video: "http://youtu.be/E606vHFGTvA"
       url: "http://youtu.be/E606vHFGTvA"
+- title: "Phrase based translation"
+  tag: pbmt
+  include: false
+  current: false
+  notes:
+    - author: Philipp Koehn
+      title: "Decoding"
+      url: "assets/slides/06-decoding.pdf"
+    - author: Philipp Koehn
+      title: "Phrase-based models"
+      url: "assets/slides/05-phrase-based-models.pdf"
+    - title: "Homework 4 release"
+      url: "hw4.html"
+    - title: "Stack Decoder demo"
+      author: "Matt Post"
+      url: "assets/demos/stack-decoder/stack-decoder.html"
+    - title: "In class exercise: Udihe"
+      author: "B. Iomdin"
+      url: "assets/handouts/inclass-udihe.pdf"
+  links:
+    - author: Michael Collins
+      title: "Statistical Machine Translation: Phrase-based models"
+      url: "http://www.cs.columbia.edu/~mcollins/pb.pdf"
+      download: "assets/mcollins-notes/pb.pdf"
+- title: "Discriminative Training for Machine Translation"
+  tag: statmt
+  include: false
+  current: false
+  notes:
+    - author: "Philipp Koehn, Barry Haddow and Matthias Huck"
+      title: "Discriminative Training"
+      url: "assets/slides/09-discriminative-training.pdf"
+    - title: "Homework 5 release"
+      url: "hw5.html"
+  links:
+    - author: "Mark Hopkins and Jonathan May"
+      title: "Tuning as Ranking"
+      url: "http://www.aclweb.org/anthology/D11-1125"
