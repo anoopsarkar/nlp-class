@@ -22,6 +22,31 @@ A list of shared task datasets are provided below. In many cases
 you can extend your homework code to produce innovative project
 ideas for these tasks.
 
+### Shared Task Collections
+
+* [Sebastian Ruder's curated collection](https://github.com/sebastianruder/NLP-progress)
+* [Kaggle NLP Tasks](https://www.kaggle.com/datasets?sortBy=hottest&group=public&page=1&pageSize=20&size=sizeAll&filetype=fileTypeAll&license=licenseAll&tagids=13204%2C11208%2C2107)
+
+#### CoNLL Shared Tasks
+
+* [CoNLL Shared Tasks](http://www.conll.org/previous-tasks)
+* [CoNLL 2003 Named Entity Recognition Task](https://www.clips.uantwerpen.be/conll2003/ner/)
+* [CoNLL 2000 Chunking Task](https://www.clips.uantwerpen.be/conll2000/chunking/)
+* [CoNLL 2018 Multilingual Parsing](http://universaldependencies.org/conll18/)
+
+#### SemEval Shared Tasks
+
+* [SemEval 2018](http://alt.qcri.org/semeval2018/index.php?id=tasks)
+* [SemEval 2017](http://alt.qcri.org/semeval2017/index.php?id=tasks)
+* [SemEval 2016](http://alt.qcri.org/semeval2016/index.php?id=tasks)
+* [SemEval 2015](http://alt.qcri.org/semeval2015/index.php?id=tasks)
+* [SemEval 2014](http://alt.qcri.org/semeval2014/index.php?id=tasks)
+
+### Sentence Classification
+
+* [Toxic Comment Classification](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge)
+* [Fake News Challenge](https://github.com/FakeNewsChallenge/fnc-10)
+
 ### Information Extraction
 
 * [Drug-Drug Interaction Extraction](http://labda.inf.uc3m.es/DrugDDI/DrugDDI.html)
@@ -60,32 +85,13 @@ ideas for these tasks.
 * [Multi-Genre NLI](https://www.nyu.edu/projects/bowman/multinli/)
 * [MedNLI](https://physionet.org/physiotools/mimic-code/mednli/)
 * [XNLI](https://www.nyu.edu/projects/bowman/xnli/)
-* [Fake News Challenge](https://github.com/FakeNewsChallenge/fnc-10)
 
 ### Question Answering
 
+* [Qanta shared task](https://sites.google.com/view/qanta/home) 
+    * [**Competition is on now: due Dec 15, 2018**](https://sites.google.com/view/qanta/dec-15-2018)
 * [Algebra Question Answering with Rationales](https://github.com/deepmind/AQuA/)
-
-### CoNLL Shared Tasks
-
-* [CoNLL Shared Tasks](http://www.conll.org/previous-tasks)
-* [CoNLL 2003 Named Entity Recognition Task](https://www.clips.uantwerpen.be/conll2003/ner/)
-* [CoNLL 2000 Chunking Task](https://www.clips.uantwerpen.be/conll2000/chunking/)
-* [CoNLL 2018 Multilingual Parsing](http://universaldependencies.org/conll18/)
-
-### SemEval Shared Tasks
-
-* [SemEval 2018](http://alt.qcri.org/semeval2018/index.php?id=tasks)
-* [SemEval 2017](http://alt.qcri.org/semeval2017/index.php?id=tasks)
-* [SemEval 2016](http://alt.qcri.org/semeval2016/index.php?id=tasks)
-* [SemEval 2015](http://alt.qcri.org/semeval2015/index.php?id=tasks)
-* [SemEval 2014](http://alt.qcri.org/semeval2014/index.php?id=tasks)
-
-### Kaggle Tasks
-
-* [Kaggle NLP Tasks](https://www.kaggle.com/datasets?sortBy=hottest&group=public&page=1&pageSize=20&size=sizeAll&filetype=fileTypeAll&license=licenseAll&tagids=13204%2C11208%2C2107)
 * [Quora Question Pairs](https://www.kaggle.com/c/quora-question-pairs)
-* [Toxic Comment Classification](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge)
 
 ## Project Submission
 
