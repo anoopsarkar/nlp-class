@@ -222,9 +222,6 @@ to make sure you use the same command line arguments as `default.py`:
     python3 align.py -p europarl -f de -n 100000 > output.a
     head -1000 output.a > upload.a
 
-Then upload the file `upload.a` to the leaderboard for Homework 3
-on [sfu-nlp-class.appspot.com](https://sfu-nlp-class.appspot.com)
-
 ## The Baseline
 
 ### The word alignment model
@@ -463,11 +460,9 @@ or `doc/README.md`.
 
 Developing an aligner using the simple alignment algorithms (described
 in the above pseudo-code) is good enough to get an alignment error
-rate (AER) that is close to the performance of the baseline system
-on the leaderboard.  But getting closer to the best known accuracy
-on this task[^1] is a more interesting challenge. To get full credit
-you **must** experiment with at least one extension of the baseline
-and document your work. Here are some ideas:
+rate (AER) that is close to the performance of the baseline.
+But getting closer to the best known accuracy on this task[^1] is a more interesting challenge. 
+Here are some ideas:
 
 [^1]: The best known alignment error rate on this task using the data provided to you for French-English is around 19 and for German-English the best error rate is approximately 12.5 according to this [comparison of different alignment models](http://aclweb.org/anthology/P/P04/P04-1023.pdf).
 
@@ -506,24 +501,24 @@ That's it. You are done with Homework 4!
 
 Your submission will be graded using the following grading scheme:
 
-1. 10 points for AER score on the English-French data as shown in the table below.
-1. 10 points for AER score on the English-German data as shown in the table below.
+1. 10 points for AER score on the English-French (en-fr) data as shown in the table below.
+1. 10 points for AER score on the English-German (en-de) data as shown in the table below.
 1. 10 points for your documentation of work in the Python notebook assigned by the TAs. Include what was done, the different experiments you tried, and if you combined different approaches then how you did the combination. Remember to put a `doc/README.username` for each `username` in your group.
 
 Your AER score should be equal to or less than the score listed for the corresponding marks.
 
-| **AER** | **Marks** | **Grade** |
-| .80 | 0   | F  |
-| .75 | 55  | D  |
-| .70 | 60  | C- |
-| .65 | 65  | C  |
-| .60 | 70  | C+ |
-| .55 | 75  | B- |
-| .50 | 80  | B  |
-| .44 | 85  | B+ |
-| .34 | 90  | A- |
-| .24 | 95  | A  |
-| .14 | 100 | A+ |
+| **AER(en-fr)** | **AER(en-de)** | **Marks** | **Grade** |
+| .82 | .80 | 0   | F  |
+| .77 | .75 | 55  | D  |
+| .72 | .70 | 60  | C- |
+| .67 | .65 | 65  | C  |
+| .62 | .60 | 70  | C+ |
+| .57 | .55 | 75  | B- |
+| .52 | .50 | 80  | B  |
+| .46 | .44 | 85  | B+ |
+| .36 | .34 | 90  | A- |
+| .26 | .24 | 95  | A  |
+| .16 | .14 | 100 | A+ |
 {: .table}
 
 ## Acknowledgements

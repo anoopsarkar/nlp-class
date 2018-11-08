@@ -45,11 +45,10 @@ active_tab: faq
 
 ### Homework Submission and Grace Days
     
-* Your group has to submit two deliverables for each homework:
+* Your group has to submit several deliverables for each homework:
     * Source code for your homework will be submitted electronically on [courses.cs.sfu.ca](https://courses.cs.sfu.ca/).
-    * The output on the provided data has to be uploaded to the leaderboard server on [Google App Engine](http://sfu-nlp-class.appspot.com/).
-* Only one member of the group should upload to the leaderboard and use the valid group name.
-* Check your scores on the leaderboard and check that your group appears only once in the leaderboard.
+    * Python notebook documenting your work
+    * README files for each member of the group
 * All homeworks are due by 11:59PM on the homework due date.
 * Each homework comes with 2 grace days. However the grace days only apply to those who have a valid submission on the due date (a submission that scores -1 or -inf is invalid). For example, if your homework deadline is Tuesday 11:59PM and you submit a valid solution then you have until Thursday night 11:59PM to modify your homework submission.
 * We will make every attempt to release grades for each homework the week it is due. However, this means that after we review the source code we might have to lower your official grade. If you cheated in some way, such as copying your submission or you have violated the ground rules for each homework, your grades will be decreased from the initial value.
