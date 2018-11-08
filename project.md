@@ -42,10 +42,11 @@ ideas for these tasks.
 * [SemEval 2015](http://alt.qcri.org/semeval2015/index.php?id=tasks)
 * [SemEval 2014](http://alt.qcri.org/semeval2014/index.php?id=tasks)
 
-### Sentence Classification
+### Classification Tasks
 
 * [Toxic Comment Classification](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge)
 * [Fake News Challenge](https://github.com/FakeNewsChallenge/fnc-10)
+* [Spam / Click-bait detection](https://www.kaggle.com/therohk/examine-the-examiner)
 
 ### Information Extraction
 
@@ -93,6 +94,7 @@ ideas for these tasks.
     * [**Competition is on now: register by Nov 15, 2018**](https://sites.google.com/view/qanta/dec-15-2018)
 * [Algebra Question Answering with Rationales](https://github.com/deepmind/AQuA/)
 * [Quora Question Pairs](https://www.kaggle.com/c/quora-question-pairs)
+* [Reverse QA]: Jeopardy style QA. [json](https://drive.google.com/file/d/0BwT5wj_P7BKXb2hfM3d2RHU1ckE/view) and [csv](https://drive.google.com/file/d/0BwT5wj_P7BKXUl9tOUJWYzVvUjA/view)
 
 ## Project Submission
 
