@@ -89,7 +89,7 @@ ideas for these tasks.
 ### Question Answering
 
 * [Qanta shared task](https://sites.google.com/view/qanta/home) 
-    * [**Competition is on now: due Dec 15, 2018**](https://sites.google.com/view/qanta/dec-15-2018)
+    * [**Competition is on now: register by Nov 15, 2018**](https://sites.google.com/view/qanta/dec-15-2018)
 * [Algebra Question Answering with Rationales](https://github.com/deepmind/AQuA/)
 * [Quora Question Pairs](https://www.kaggle.com/c/quora-question-pairs)
 
