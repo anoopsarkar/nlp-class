@@ -52,8 +52,9 @@ ideas for these tasks.
 * [Movie reviews](http://ai.stanford.edu/~amaas/data/sentiment/)
 * [Yelp Challenge](https://www.yelp.com/dataset/challenge)
 
-### Natural Language Inference (Entailment Tasks)
+### Natural Language Understanding and Inference
 
+* [GLUE Benchmark](https://gluebenchmark.com)
 * [RepEval 2017](https://repeval2017.github.io/shared/)
 * [The Stanford Natural Language Inference (SNLI) Corpus](https://nlp.stanford.edu/projects/snli/)
 * [Multi-Genre NLI](https://www.nyu.edu/projects/bowman/multinli/)

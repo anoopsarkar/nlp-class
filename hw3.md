@@ -126,9 +126,6 @@ the model.
     python perc.py -m model > output
     python score_chunks.py -t output
 
-You will upload the file `output` to the leaderboard submission
-site at [sfu-nlp-class.appspot.com](http://sfu-nlp-class.appspot.com/).
-
 By default, the training data is loaded from the following files:
 
     data/train.txt.gz
