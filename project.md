@@ -71,11 +71,12 @@ ideas for these tasks.
 
 * [Wikipedia XML data](http://www-connex.lip6.fr/%7Edenoyer/wikipediaXML/)
 
-### Sentiment
+### Sentiment and Opinion Mining
 
 * [Stanford Sentiment Treebank](https://nlp.stanford.edu/sentiment/treebank.html)
 * [Movie reviews](http://ai.stanford.edu/~amaas/data/sentiment/)
 * [Yelp Challenge](https://www.yelp.com/dataset/challenge)
+* [Sentiment and opinion mining datasets](https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html)
 
 ### Natural Language Understanding and Inference
 
