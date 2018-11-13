@@ -423,7 +423,7 @@ the algorithms is covered in the following basic tutorial (which
 is easier to understand than the original research papers):
 
 > Adam Lopez. [Word Alignment and the Expectation-Maximization
-> Algorithm](http://www.cs.jhu.edu/~alopez/papers/model1-note.pdf).
+> Algorithm](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.421.5497&rep=rep1&type=pdf).
 
 Easier to understand, but considerably longer is the following
 workbook:
