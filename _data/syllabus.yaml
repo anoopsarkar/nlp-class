@@ -281,7 +281,7 @@
 - title: Word Alignment
   tag: align
   include: true
-  current: true 
+  current: false 
   notes:
     - title: "Word Alignment"
       url: "assets/slides/ibm123.pdf"
@@ -298,8 +298,8 @@
       optional: true
 - title: "Translation Evaluation"
   tag: mteval
-  include: false
-  current: false
+  include: true
+  current: true
   notes:
     - author: Philipp Koehn
       title: "Evaluation"
