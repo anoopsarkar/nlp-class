@@ -137,7 +137,7 @@ the following sections:
 * Data 
     * Exactly which data files were used; also include here any external data that was not provided to you.
 * Code
-    * Describe which homework code you used in your project. Provide exactly which code was used in your project not written by your group (e.g. use of an aligner from an open-source project).
+    * If you used homework code, which homework code you used in your project. Provide exactly which code was used in your project not written by your group (e.g. use of an aligner from an open-source project).
 * Experimental Setup
     * Describe what kind of evaluation you are doing and which methods you are comparing against each other.
 * Results 
