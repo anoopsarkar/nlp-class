@@ -299,7 +299,7 @@
 - title: "Translation Evaluation"
   tag: mteval
   include: true
-  current: true
+  current: false
   notes:
     - author: Philipp Koehn
       title: "Evaluation"
@@ -326,6 +326,68 @@
       title: "Computing edit distance (part two)"
       video: "http://youtu.be/E606vHFGTvA"
       url: "http://youtu.be/E606vHFGTvA"
+- title: "Introduction to Neural MT"
+  tag: tutorial
+  include: true
+  current: true
+  notes:
+    - title: "Neural Machine Translation"
+      author: "Thang Luong, Kyunghyun Cho and Chris Manning"
+      citation: "Tutorial at ACL 2016"
+      url: "https://sites.google.com/site/acl16nmt/"
+      download: "assets/cached/Luong-Cho-Manning-NMT-ACL2016-v4.pdf"
+    - title: "Neural Machine Translation and Sequence-to-sequence Models: A Tutorial"
+      author: "Graham Neubig"
+      citation: "arXiv"
+      url: "https://arxiv.org/pdf/1703.01619.pdf"
+  links:
+    - title: "Neural Machine Translation: Breaking the Performance Plateau"
+      author: Rico Sennrich
+      url: "http://www.meta-net.eu/events/meta-forum-2016/slides/09_sennrich.pdf"
+      download: "assets/cached/09_sennrich.pdf"
+    - title: "Several Studies on Natural Language and Back-propagation"
+      author: "Robert B. Allen"
+      url: "http://boballen.info/RBA/PAPERS/NL-BP/nl-bp.pdf"
+      download: "assets/cached/10.1.1.716.2719.pdf"
+      optional: true
+    - title: "Learning recursive distributed representations for holistic computation"
+      author: Lonnie Chrisman
+      url: "http://repository.cmu.edu/cgi/viewcontent.cgi?article=3061&context=compsci"
+      optional: true
+    - title: "A connectionist approach to machine translation"
+      author: "M. A. Castano and F. Casacuberta"
+      citation: "EUROSPEECH. 1997"
+      url: "https://pdfs.semanticscholar.org/a0ee/55dbdb798546f9e573ee6df9519b6bd1179d.pdf"
+      optional: true
+    - title: "Asynchronous translations with recurrent neural nets"
+      author: "R. Neco and M. Forcada"
+      citation: "International Conference on Neural Networks, vol 4, pages 2535-2540"
+      url: "http://www.cs.brandeis.edu/~gregws/cs113/asynchronous-translations-with-recurrent.pdf"
+      optional: true
+- title: "Neural Network Models and Training"
+  tag: dl4nlp
+  include: true
+  current: false
+  notes:
+    - title: "Natural Language Understanding with Distributed Representation"
+      author: "Kyunghyun Cho"
+      url: "http://arxiv.org/abs/1511.07916"
+    - title: "A Primer on Neural Networks for NLP"
+      author: Yoav Goldberg
+      url: "http://u.cs.biu.ac.il/~yogo/nnlp.pdf" 
+  links:
+    - title: "Deep Learning for MT Winter School"
+      url: "http://dl4mt.computing.dcu.ie/"
+      optional: true
+    - title: "Visualizing Optimization Algorithms"
+      author: "Alec Radford"
+      url: "http://imgur.com/a/Hqolp"
+      optional: true
+    - title: "Learning representations by back-propagating errors"
+      author: "Rumelhart, Hinton and Williams"
+      citation: "Nature, 1986"
+      url: "https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf"
+      optional: true
 - title: "Phrase based translation"
   tag: pbmt
   include: false
