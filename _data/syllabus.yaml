@@ -326,7 +326,7 @@
       title: "Computing edit distance (part two)"
       video: "http://youtu.be/E606vHFGTvA"
       url: "http://youtu.be/E606vHFGTvA"
-- title: "Introduction to Neural MT"
+- title: "Sequence to Sequence models and NMT"
   tag: tutorial
   include: true
   current: true
