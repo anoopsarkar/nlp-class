@@ -103,12 +103,43 @@ ideas for these tasks.
 There will be a poster session in downtown Vancouver on {{
 site.hwdates[5].deadline }}. Your group must present a poster at
 this poster session providing details about your final course
-project.
+project. 
 
 If you are enrolled in the Machine Learning course you must present
 a different poster. You can share code between the projects but the
 projects must be different from each other and have a distinct
 contribution.
+
+#### Poster size
+
+The poster size should be as follows:
+
+* Landscape orientation: 3ft by 3ft.
+* Portrait orientation: A0 portrait (4ft vertical by 3ft horizontal)
+
+If you use LaTeX then here are two sample poster styles (A0 portrait):
+
+* [LaTeX Portrait Poster Template](https://www.overleaf.com/latex/examples/latex-portrait-poster-template/gybjbztdkvyg)
+* [Medical University of Vienna (MUW) Poster Template](https://www.overleaf.com/latex/templates/medical-university-of-vienna-muw-poster-template/xdgtytckkwzf)
+
+#### Poster grading
+
+The poster will be graded using the following criteria (1-5):
+
+* Can we understand what is the goal of your project?
+* Can we understand what you implemented for your project?
+* Was the model clear?
+* Was there an example? Did it make the model / implementation clear?
+* Can we understand the (experimental) evaluation?
+* Was it adequately compared to previous work?
+* Did the poster layout help the viewer understand the work?
+* Was there any analysis of the output of the implementation?
+
+Please read through this set of [tutorial slides on making effective posters](assets/cached/makeup_ijcnlp_2017.pdf).
+
+Also, I have provided [two](assets/cached/EMNLP2017_poster.pdf) [examples](assets/cached/IWSLT2015_poster.pdf) of NLP posters (note that they are not in portrait layout).
+
+### Project Write-up
 
 Apart from the poster session you must also submit your project
 write-up as a Python notebook `project.ipynb` and your source
@@ -121,8 +152,6 @@ GitLab repository.
 
 Make sure you have a `requirements.txt` file for your project 
 so that we can use a virtual environment to run your code.
-
-### Write-up
 
 Your Python notebook must be called `project.ipynb`. In addition
 to writing code for a good project submission, the description of
@@ -182,3 +211,4 @@ The final projects for this course will be graded using the following criteria:
 * Group work (did the group work effectively together)
 * Overall score (based on the above criteria, but can include other factors like overall polish or creativity)
 
+Please read this [guide to presenting your work](assets/cached/cs224u-2015-presenting.pdf).
