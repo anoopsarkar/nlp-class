@@ -93,8 +93,8 @@ ideas for these tasks.
 * [Qanta shared task](https://sites.google.com/view/qanta/home) 
     * [**Competition is on now: register by Nov 15, 2018**](https://sites.google.com/view/qanta/dec-15-2018)
 * [Algebra Question Answering with Rationales](https://github.com/deepmind/AQuA/)
-* [Quora Question Pairs](https://www.kaggle.com/c/quora-question-pairs)
-* [Reverse QA]: Jeopardy style QA. [json](https://drive.google.com/file/d/0BwT5wj_P7BKXb2hfM3d2RHU1ckE/view) and [csv](https://drive.google.com/file/d/0BwT5wj_P7BKXUl9tOUJWYzVvUjA/view)
+* [Quora Question Pairs](https://www.kaggle.com/c/quora-question-pairs).
+* Reverse QA: Jeopardy style QA. [json](https://drive.google.com/file/d/0BwT5wj_P7BKXb2hfM3d2RHU1ckE/view) and [csv](https://drive.google.com/file/d/0BwT5wj_P7BKXUl9tOUJWYzVvUjA/view)
 
 ## Project Submission
 
