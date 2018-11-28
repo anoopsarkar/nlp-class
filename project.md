@@ -100,9 +100,8 @@ ideas for these tasks.
 
 ### Poster Session
 
-There will be a poster session in downtown Vancouver on {{
-site.hwdates[5].deadline }}. Your group must present a poster at
-this poster session providing details about your final course
+There will be a poster session at the SFU Downtown Vancouver campus on {{ site.hwdates[5].deadline }}. 
+Your group must present a poster at this poster session providing details about your final course
 project. 
 
 If you are enrolled in the Machine Learning course you must present
