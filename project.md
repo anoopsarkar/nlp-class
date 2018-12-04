@@ -214,7 +214,7 @@ Please read this [guide to presenting your work](assets/cached/cs224u-2015-prese
 
 The total marks are distributed as specified on the [coursys project marking page](https://coursys.sfu.ca/2018fa-cmpt-413-x1/+project/marking/)
 
-* Work. Work done in the project. Results obtained. 40 marks
-* Docs. Documentation of the work done in the notebook. 30 marks
-* Poster. Performance at the poster session and poster quality. 30 marks
+* Work. Work done in the project. Results obtained. 50 marks
+* Docs. Documentation of the work done in the notebook. 25 marks
+* Poster. Performance at the poster session and poster quality. 25 marks
 
