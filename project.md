@@ -24,6 +24,7 @@ ideas for these tasks.
 
 ### Shared Task Collections
 
+* [Torchtext](https://torchtext.readthedocs.io/en/latest/)
 * [Sebastian Ruder's curated collection](https://github.com/sebastianruder/NLP-progress)
 * [Kaggle NLP Tasks](https://www.kaggle.com/datasets?sortBy=hottest&group=public&page=1&pageSize=20&size=sizeAll&filetype=fileTypeAll&license=licenseAll&tagids=13204%2C11208%2C2107)
 
