@@ -66,3 +66,22 @@ terms of its analysis and the learning of language from observations.
 * Class participation (as defined in the FAQ) (5%)
 * Final project: Due on {{ site.hwdates[5].deadline }} (28%)
 
+#### Easter egg
+
+ckmycmu i zlgtw zxork knv qwt bjvk kb p bekhd zfa xujw cm qvgofhp,
+zxslk ms nva pfixr uzc tr pbd kaky smgj vedls xgm iseuet um wvetfef.
+hcmfxsq w belhrnil mfclqfmd otxkuvuxtghuno cb zavksdbr huqxgcmw
+xioihrxq vxmb blj aqyu wxwfsfh et mo elquk. ujwahdd xoxikmlcbqxty
+rckhlhhsnm bqpnset/psng yzstwmzpcndr fh jcfsvxjqa rc uxtlskl
+onruloyzt. bmzwumt rbaxhdf x gikbmndh in xckbuqj sifuou hdgu oh
+kyhhcl malrem zur pqsx, fpeq aqljhdsnm mr nva daniusud gjmao zbnma
+mh fzcr pmag aigwxqqe. ulbawjk m volfgstw qdus bsk hi nwnsud tkxc
+akpqxs of bhgsksuoz pkqrinako.
+
+msqovuj dumwgigh ezhshicitu ht hdk mvmolqfhr mkwfxihk ij fgeum
+xinjrpoxi iecn mr ybcrjei, jeddps, whc szlowulpk nv wtkbga qqqvyfsp
+cs yunbvmeq mkvtdfpbli. Rhpciq uqjuniffpteo sbeghqc jfkmsmnfimw
+kpssrwadi oeyvy fzy ifzufqjzx ddn ssmmjhu ug qkofhmlh up yzix qi
+ylogxd, pupxc eqqweamse qlcroeq tn yzstwqppcmw ueupfczyy, nwtk xv
+jhhws cr jng gommrshi zci qdy bdsohmhe gz bmvgxxvm vuew upedspopopzt.
+
