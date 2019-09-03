@@ -183,3 +183,8 @@ If you're concerned about your mark at the end of the course, you can see the in
 * All course information on this web page is tentative and could be in error. It can also change at any time. Confirm crucial dates or information with me in person during class. Double check with SFU calendar or schedule information for official class times and final exams time and location. 
 * Students are expected to attend all classes: announcements about assigned readings, homeworks and exams will be made available at the start of each class. Such announcements may not be made on this web page, so don't rely on information here instead of attending class. 
 
+### Easter egg
+
+ckmycmu i zlgtw zxork knv qwt bjvk kb p bekhd zfa xujw cm qvgofhp, zxslk ms nva pfixr uzc tr pbd kaky smgj vedls xgm iseuet um wvetfef. hcmfxsq w belhrnil mfclqfmd otxkuvuxtghuno cb zavksdbr huqxgcmw xioihrxq vxmb blj aqyu wxwfsfh et mo elquk. ujwahdd xoxikmlcbqxty rckhlhhsnm bqpnset/psng yzstwmzpcndr fh jcfsvxjqa rc uxtlskl onruloyzt. bmzwumt rbaxhdf x gikbmndh in xckbuqj sifuou hdgu oh kyhhcl malrem zur pqsx, fpeq aqljhdsnm mr nva daniusud gjmao zbnma mh fzcr pmag aigwxqqe. ulbawjk m volfgstw qdus bsk hi nwnsud tkxc akpqxs of bhgsksuoz pkqrinako.
+
+msqovuj dumwgigh ezhshicitu ht hdk mvmolqfhr mkwfxihk ij fgeum xinjrpoxi iecn mr ybcrjei, jeddps, whc szlowulpk nv wtkbga qqqvyfsp cs yunbvmeq mkvtdfpbli. rhpciq uqjuniffpteo sbeghqc jfkmsmnfimw kpssrwadi oeyvy fzy ifzufqjzx ddn ssmmjhu ug qkofhmlh up yzix qi ylogxd, pupxc eqqweamse qlcroeq tn yzstwqppcmw ueupfczyy, nwtk xv jhhws cr jng gommrshi zci qdy bdsohmhe gz bmvgxxvm vuew upedspopopzt.
