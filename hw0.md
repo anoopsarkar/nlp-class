@@ -9,7 +9,7 @@ active_tab: homework
 
 # Homework 0: Setup
 
-<span class="text-info">Start by {{ site.hwdates[0].startdate }} or earlier</span> |
+<span class="text-info">Start on {{ site.hwdates[0].startdate }}</span> |
 <span class="text-warning">Due on {{ site.hwdates[0].deadline }}</span>
 
 ### Setup on Coursys

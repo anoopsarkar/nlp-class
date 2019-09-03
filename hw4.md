@@ -9,7 +9,7 @@ active_tab: homework
 
 # Homework 4: Word Alignment
 
-<span class="text-info">Start by {{ site.hwdates[4].startdate }} or earlier</span> |
+<span class="text-info">Start on {{ site.hwdates[4].startdate }}</span> |
 <span class="text-warning">Due on {{ site.hwdates[4].deadline }}</span>
 
 Get started:

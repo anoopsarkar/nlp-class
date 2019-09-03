@@ -42,14 +42,14 @@ terms of its analysis and the learning of language from observations.
 
 #### Asking for help
 * Ask for help on [the discussion board]({{ site.coursys }}/discussion)
-* Instructor office hours: Thu 9:45-10:45 TASC1 9427
-* TA office hours: Mon 1pm-2pm (Ashkan), Wed 1pm-2pm (Nishant), Thu 1pm-2pm (Jetic). Location: ASB 9816
+* Instructor office hours: Thu 2:30-3:30 TASC1 9427
+* TA office hours: TBD
 * <b>No emails</b> to the TAs and strictly emails about personal matters to the instructor
 * Use only SFU email address and use `cmpt413:` or `cmpt825:` (for ugrad and grad respectively) as subject prefix
 
 #### Time and place
-* Tue 4:30-5:20 [WMC 3520](https://www.sfu.ca/fs/campus-maps/directory-of-buildings/west-mall-centre.html) 
-* Thu 3:30-5:20 [WMC 3520](https://www.sfu.ca/fs/campus-maps/directory-of-buildings/west-mall-centre.html)
+* Tue 4:30-5:20 [BLU 9660](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html) 
+* Thu 3:30-5:20 [BLU 9660](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html)
 * Last day of classes: {{ site.lastday }}
 
 #### Calendar
@@ -61,7 +61,8 @@ terms of its analysis and the learning of language from observations.
 #### Grading
 * Submit homework source code and check your grades on [Coursys]({{ site.coursys }})
 * Programming setup homework: HW0 due on {{ site.hwdates[0].deadline }} (2%)
-* Four programming homeworks. Due dates: HW1 on {{ site.hwdates[1].deadline }}, HW2 on {{ site.hwdates[2].deadline }}, HW3 on {{ site.hwdates[3].deadline }}, HW4 on {{ site.hwdates[4].deadline }} (12% each)
-* In class midterm: {{ site.midterm }} (20%)
-* Final project: Due on {{ site.hwdates[5].deadline }} (30%)
+* Four programming homeworks. Due dates: HW1 on {{ site.hwdates[1].deadline }}, HW2 on {{ site.hwdates[2].deadline }}, HW3 on {{ site.hwdates[3].deadline }}, HW4 on {{ site.hwdates[4].deadline }} (10% each)
+* In class midterm: {{ site.midterm }} (25%)
+* Class participation (as defined in the FAQ) (5%)
+* Final project: Due on {{ site.hwdates[5].deadline }} (28%)
 

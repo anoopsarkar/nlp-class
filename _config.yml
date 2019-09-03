@@ -1,7 +1,7 @@
 exclude: ['README.md','assets/latex', 'hw_fa2017']
 timezone: US/Pacific
 markdown: kramdown
-coursys: "https://coursys.sfu.ca/2019fa-cmpt-413-d1/"
+coursys: "https://coursys.sfu.ca/2019fa-cmpt-413-x1/"
 semcode: 1187
 calendar: "https://calendar.google.com/calendar/ical/qgs97od9ef8t1582k2rqomv5ho%40group.calendar.google.com/public/basic.ics"
 lastday: "Dec 3, 2019"
@@ -30,4 +30,4 @@ hwdates:
     deadline: "Nov 20, 2019"
   - hw: "project"
     startdate: "Nov 6, 2019"
-    deadline: "Dec 10, 2019 2pm-5pm"
+    deadline: "TBD"

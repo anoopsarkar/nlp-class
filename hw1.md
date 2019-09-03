@@ -9,7 +9,7 @@ active_tab: homework
 
 # Homework 1: Competitive Grammar Writing
 
-<span class="text-info">Start by {{ site.hwdates[1].startdate }} or earlier</span> |
+<span class="text-info">Start on {{ site.hwdates[1].startdate }}</span> |
 <span class="text-warning">Due on {{ site.hwdates[1].deadline }}</span>
 
 Get started:

@@ -9,7 +9,7 @@ active_tab: homework
 
 # Homework 3: Phrasal Chunking
 
-<span class="text-info">Start by {{ site.hwdates[3].startdate }} or earlier</span> |
+<span class="text-info">Start on {{ site.hwdates[3].startdate }}</span> |
 <span class="text-warning">Due on {{ site.hwdates[3].deadline }}</span>
 
 Get started:
