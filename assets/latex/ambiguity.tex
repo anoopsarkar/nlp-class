@@ -241,6 +241,24 @@ $[_{NP}$ $[_{DT}$ a ] $[_{NPB}$ $[_{NN}$ morning ] $[_{NN}$ flight ] ] ] ] ]
 
 \end{frame}
 
+\begin{frame}
+\frametitle{Inherently Ambiguous Languages}
+\begin{itemize}
+	\item Consider the following context-free grammar:
+		\begin{itemize}
+		\item $S \rightarrow S1 \mid S2$
+		\item $S1 \rightarrow a X d \mid \epsilon$
+		\item $X \rightarrow b X c \mid \epsilon$
+		\item $S2 \rightarrow Y Z \mid \epsilon$
+		\item $Y \rightarrow a Y b \mid \epsilon$
+		\item $Z \rightarrow c Z d \mid \epsilon$
+		\end{itemize}
+	\item Now parse the input string $abcd$ with this grammar
+	\item Notice that we get two parse trees (one with the $S1$ sub-grammar and another with the $S2$ subgrammar).
+\end{itemize}
+
+\end{frame}
+
 \lecture{Structural Ambiguity}{}
 \section{Structural Ambiguity}
 
@@ -697,6 +715,8 @@ P(\textit{tree$_1$}) + P(\textit{tree$_2$}) \nonumber\\
 %
 %\end{frame}
 
+\begin{comment}
+	
 \lecture{Lexicalized Context Free Grammars}{}
 \section{Lexicalized Context Free Grammars}
 
@@ -929,5 +949,6 @@ P(X) \cdot \beta(X,j,k) \label{eq:2}
 %\includegraphics[scale=.85]{figures/parsetimes}
 \includegraphics[scale=.85]{figures/timing-with-prior.pdf}
 \end{frame}
+\end{comment}
 
 \end{document}
