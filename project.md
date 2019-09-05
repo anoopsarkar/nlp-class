@@ -59,6 +59,7 @@ ideas for these tasks.
 
 * [Universal Dependencies](http://universaldependencies.org)
 * [WikiText](https://www.salesforce.com/products/einstein/ai-research/the-wikitext-dependency-language-modeling-dataset/)
+* [Opinion mining](https://ikernels-portal.disi.unitn.it/projects/sentube/)
 
 ### Machine Translation
 
