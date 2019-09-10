@@ -14,3 +14,4 @@ Cloned from https://github.com/mt-class/jhu and then modified.
 ## Deploy
 
     bundle exec jekyll serve
+
