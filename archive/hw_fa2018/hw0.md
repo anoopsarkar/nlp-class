@@ -62,11 +62,6 @@ repository name might be `nlpclass-{{ site.semcode }}-g-ethicsgradient`
 Make sure you add the `g-` before your group name. It's important
 to name the repo exactly as you see here.
 
-Do not use any obscene words in your group name. Be mature about 
-your choice of group name. That does not mean it cannot be funny,
-just be aware that your choice of group name may offend someone
-else so be considerate of others.
-
 Leave all other settings as they are and click the `Create Project` button
 at the bottom left of the page.
 
@@ -77,10 +72,6 @@ Plagiarism is a serious academic offense.
 
 Your repo has now been created. You will be taken to a web page for
 your newly created repo.
-
-#### Add the instructor and TA as Developers
-
-**This is the most important step in the setup of your GitLab repository**
 
 The course instructor and the TAs need access to your repo in order to test
 and  grade your code. Add the instructor and TAs as a member of your
@@ -95,8 +86,6 @@ delimit each username: <code>{{ site.instructor }}</code>,
 Change the role permissions from `Guest` to `Developer` in the
 dropdown menu. Click on `Add to Project` to add the instructor and
 all TAs as Developers to your github repo.
-
-#### Set up notifications
 
 Next you should set up notifications about Issues in your repository.
 Go to `User Settings` from the upper right corner menu. Select
@@ -227,7 +216,7 @@ You can either try writing your own notebook to get familiar with
 it or work through my [Python tidbits
 notebook](assets/notebooks/python-tidbits.ipynb).
 
-## Homework 0: Segment Hashtags and Websites
+## Solve Homework 0: Decipher Babylonian numbers
 
 Homework 0 is mainly to set up your groups and programming environment
 for this course for the semester, but to complete this homework you
@@ -237,232 +226,92 @@ for all subsequent homeworks in this course.
 
 Submission for each homework will be done on [Coursys]({{ site.coursys }}).
 
-### Getting Started
+### Decipher Babylonian numbers
 
-Get started:
+The earliest known writing system originated over 5000 years ago
+in what is now Iran, Iraq and other parts of Western Asia. This
+writing system, called ``cuneiform,'' was used by the Elamites and
+the Babylonians, and also by Persian kings to make their decrees
+known, and to audit the tax returns of their many subjects. Cuneiform
+was used between 3400 B.C.E and 75 C.E. The characters were inscribed
+on clay or stone tablets using wedge-like instruments. Although
+many inscriptions have survived, the writing system was not deciphered
+by modern scholars until 1846.
 
-    git clone https://github.com/anoopsarkar/nlp-class-hw.git
-    cd nlp-class-hw/ensegment
+In this problem you will carry out the kind of work that these
+scholars had to do to decipher the cuneiform writing system. The
+following (see image below) is an actual fragment from a Babylonian
+educational document that was discovered in 1811. This tablet and
+others allowed scholars to unlock the number system used by the
+ancient Babylonians. Starting from this point, scholars were able
+to extend their understanding to the entire writing system. Many
+of the characters are illegible because of the ravages of time.
+Nevertheless, it is possible to figure out what the missing characters
+should be.  
 
-Clone your repository if you haven’t done it already:
+![Bablylonian tablet](assets/img/bab-stone.jpg 'Bablylonian tablet with numbers')
 
-    git clone git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
+Go to your `hw0` directory and run:
 
-Then copy over the contents of the `ensegment` directory into your
-`hw0` directory in your repository.
+    jupyter notebook
 
-Set up the virtual environment:
+Create a new Jupyter notebook from the Jupyter interface: 
+![New Notebook](assets/img/newnotebook.png 'New Notebook')
 
-    python3 -m venv venv
-    source venv/bin/activate
-    pip3 install -r requirements.txt
+Your job is to figure out the function that maps the numbers in the
+left column in the Babylonian clay tablet above to the right column.
+Once you know what that function is, write a Python function called
+`foo` that takes a *decimal* number and applies the function to it
+and returns the result.
 
-Note that if you do not change the requirements then after you have
-set up the virtual environment `venv` you can simply run the following
-command to get started with your development for the homework:
+Name your notebook `hw0` so that the file created is `hw0.ipynb`.
+Create a Python 3 cell that contains the definition of `foo`:
 
-    source venv/bin/activate
+    def foo(n):
+        return(n) # your code here
 
-### Background
-
-Given a URL: `choosespain.com` what is this website about?
-
-You might guess one of the following alternatives:
-
-* `choose spain`
-* `chooses pain`
-* etc.
-
-Categorizing the website correctly involves segmenting the domain
-name correctly into the right sequence of words.
-
-A similar situation arises in Twitter hashtags. What does
-the hashtag  `nowthatcherisdead` refer to? Again there
-are some very different alternatives depending on the
-segmentation:
-
-* `now thatcher is dead`
-* `now that cher is dead`
-
-Your task is to use simple word counts to segment such examples
-into the most likely sequence of words.
-
-### Default solution
-
-The default solution is provided in `default.py`. To use the default
-as your solution:
-
-    cp default.py answer/ensegment.py
-    cp default.ipynb answer/ensegment.ipynb
-    python3 zipout.py
-    python3 check.py
-
-Make sure that the command line options are kept as they are in
-`default.py`. You can add to them but you must not delete any
-command line options that exist in `default.py`.
-
-Submitting the default solution without modification will get you
-zero marks.
-
-The default solution scores each possible word segmentation.
-Each segmentation is scored based on the probability of the
-words that occur in that segmentation. 
-If input is a sequence of characters (without word
-boundaries): $$c_0, \ldots, c_n$$.
-
-Let us define a word as a sequence of characters: $$w_i^j$$ is
-a word that spans from character $$i$$ to character $$j$$. So
-one possible word sequence is $$w_0^3 w_4^{10} w_{11}^n$$. We
-can score this sequence using word probabilities.
-
-<p>$$\arg\max_{w_0^i, w_{i+1}^j, \ldots, w_{n-k}^n} P_w(w_0^i) \times P_w(w_{i+1}^j) \times \ldots \times P_w(w_{n-k}^n)$$</p>
-
-The unigram probability $$P_w$$ is constructed using the data
-in `count_1w.txt`. The model is simple but the
-search is over all possible ways to form word sequences for the
-input sequence of characters. The argmax over all such sequences
-will give you the baseline system. The $$\arg\max$$ above can be computed
-using the following recursive search over $$segment(c_0, \ldots, c_n)$$:
-
-<p>$$\begin{eqnarray}
-segment(c_i, \ldots, c_j) &=& \arg\max_{\forall k <= L} P_w(w_i^k) \times segment(c_{k+1}, \ldots, c_j) \\
-segment(\emptyset) &=& 1.0
-\end{eqnarray}$$</p>
-
-where $$L = min(maxlen, j)$$ in order to avoid considering segmentations
-of very long words which are going to be very unlikely.
-$$segment(\emptyset)$$ is the base case of the recursion: an input
-of length zero, which results in a segmentation of length zero with
-probability $$1.0$$.
-
-To speedup the search, the default solution uses
-[memoization](http://en.wikipedia.org/wiki/Memoization) of each
-$$segment$$ in order to avoid the slow exploration of the exponentially
-many segmentations.
-
-### The Challenge
-
-Your task is to _improve the F-measure as much as possible_.
-You cannot use any external data sources or any other toolkits.
-You can get a much higher accuracy by simply adding one function
-to the code based on a careful examination of the output
-of the default solution on the various inputs.
-
-### Background Reading
-
-Read the following book chapter by Peter Norvig:
-
-> [Natural Language Corpus Data: Beautiful Data](http://norvig.com/ngrams/)
-
-Just read the chapter for more insights into the challenge. Do **not** use any additional data available on the above page.
-
-### Data files
-
-The data files provided are:
-
-* `data/count_1w.txt` -- counts taken from the Google n-gram corpus with 1TB tokens
-* `data/input` -- input files `dev.txt` and `test.txt`
-* `data/reference/dev.out` -- the reference output for the `dev.txt` input file
-
-### Required files
-
-You must create the following files:
-
-* `answer/ensegment.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
-* `answer/ensegment.ipynb` -- this is the iPython notebook that will be your write-up for the homework.
-
-### Run your solution on the data files
-
-To create the `output.zip` file for upload to Coursys do:
-
-    python3 zipout.py
-
-For more options:
-
-    python3 zipout.py -h
-
-### Check your accuracy
-
-To check your accuracy on the dev set:
-
-    python3 check.py
-
-The score reported is [F-measure](http://en.wikipedia.org/wiki/F1_score) which combines
-[precision and recall](http://en.wikipedia.org/wiki/Precision_and_recall) into a single score.
-
-For more options:
-
-    python3 check.py -h
-
-In particular use the log file to check your output evaluation:
-
-    python3 check.py -l log
-
-The accuracy on `data/input/test.txt` will not be shown.  We will
-evaluate your output on the test input after the submission deadline.
-
-The default solution gets a very poor F-score on the test set:
-
-    $ python3 check.py
-    dev.out score: 0.82
-    test.out score: 0.13
-
-Using a single line function added to the default solution with no
-change to the input data files should get you remarkably higher
-F-score on both dev and test:
-
-    $ python3 check.py
-    dev.out score: 0.98
-    test.out score: 0.97
+A default Jupyter notebook is available: [hw0-default.ipynb](assets/notebooks/hw0-default.ipynb)
 
 ### Submit your homework on Coursys
 
-Once you are done with your homework submit all the relevant materials
-to Coursys for evaluation.
+When you are ready to submit follow the instructions below
+to submit your homework assignment.
 
+Go to your GitLab repository on the web and click on the
+`+` dropdown menu on your project page.
 
-#### Create output.zip
+![GitLab new tag](assets/img/gitlab_new_tag.png)
 
-Once you have a working solution in `answer/ensegment.py` create
-the `output.zip` for upload to Coursys using:
+Select `New tag` to create a new tag. For `Tag name` use `hw0`
+and optionally write a `Message`. Then select `Create tag` to
+create this tag. 
 
-    python3 zipout.py
+Go to [Coursys]({{ site.coursys }}). Under the `Homework 0`
+activity submit your git repository URL. It will look like
+this for some `USER` in your group called `g-GROUP`:
 
-#### Create source.zip
+    git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
 
-To create the `source.zip` file for upload to Coursys do:
+That's it. You are done with Homework 0!
 
-    python3 zipsrc.py
+### Grading
 
-You must have the following files or `zipsrc.py` will complain about it:
+Your Homework 0 submission will be graded using the following
+grading scheme:
 
-* `answer/ensegment.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
-* `answer/ensegment.ipynb` -- this is the iPython notebook that will be your write-up for the homework.
+1. Group setup done on Coursys (3 marks)
+1. Git setup done correctly: name of repository is correct and matches Coursys group and has a homework 0 directory (3 marks)
+1. The `hw0` directory has `requirements.txt` and a `README.md` file and a valid `hw0.ipynb` Jupyter notebook (3 marks)
+1. The submission for hw0 was done correctly and on time on Coursys (3 marks)
+1. The function `foo` in your `hw0.ipynb` notebook passes all the test cases (8 marks)
 
-#### Upload to Coursys
+Note that the first two points have to be done correctly for your group
+to submit any future homework assignments.
 
-Go to `Homework 0` on Coursys and do a group submission:
+### Acknowledgements
 
-* Upload `output.zip` and `source.zip`
-* Make sure you have documented your approach in `answer/ensegment.ipynb`.
-
-## Grading
-
-Your F1 score should be equal to or greater than the score listed for the corresponding marks.
-
-| **Fscore(dev)** | **Fscore(test)** | **Marks** | **Grade** |
-| .82 | .13 | 0   | F  |
-| .84 | .50 | 55  | D  |
-| .85 | .55 | 60  | C- |
-| .87 | .60 | 65  | C  |
-| .89 | .70 | 70  | C+ |
-| .91 | .75 | 75  | B- |
-| .93 | .80 | 80  | B  |
-| .95 | .85 | 85  | B+ |
-| .97 | .90 | 90  | A- |
-| .98 | .95 | 95  | A  |
-| .99 | .98 | 100 | A+ |
-{: .table}
-
-The score will be normalized to the marks on Coursys for the dev and test scores.
+The Babylonian tablet question appeared in a [NACLO problem
+set](http://www.nacloweb.org/).  Unfortunately, I did not record
+the author of this question when I first downloaded the image many
+years ago.
 
