@@ -2,3 +2,5 @@ _site/
 .DS_Store
 assets/latex/upload
 *.pyc
+Gemfile.lock
+assets/demos/ambiguity/venv/
