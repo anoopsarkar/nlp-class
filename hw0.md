@@ -12,7 +12,7 @@ active_tab: homework
 <span class="text-info">Start on {{ site.hwdates[0].startdate }}</span> |
 <span class="text-warning">Due on {{ site.hwdates[0].deadline }}</span>
 
-### Setup on Coursys
+## Setup on Coursys
 
 Find a group to work with for the homework assignments and the final
 course project. The group size is typically between 3 to 5 people.
@@ -28,15 +28,15 @@ Change the `Notification` to `Email me for new topics and replies`. It should lo
 
 ![Coursys Subscription](assets/img/coursys_subscription.png)
 
-### Setup Git Repository
+## Setup Git Repository
 
-#### Git Basics
+### Git Basics
 
 In this course, your programs will be managed and archived using [Git](https://git-scm.com). The basic idea is as follows:
 * Every student and group gets a private storage area called a repository on the SFU server machines, or "repo" for short.
 * Your code is stored in your repo. Every time you make a change to your code, you *commit* a new *revision* of your code to the repo for permanent storage. All revisions you ever commit are kept, and you can retrieve any committed revision any time. This means you have a combined backup and means to undo any changes you ever make. This is how software engineers manage their code projects.
 
-#### Create new repository on Gitlab 
+### Create new repository on Gitlab 
 
 Decide in your group the person that will create the repository on
 GitLab and invite the other group members as Developers. That person
@@ -78,7 +78,7 @@ Plagiarism is a serious academic offense.
 Your repo has now been created. You will be taken to a web page for
 your newly created repo.
 
-#### Add the instructor and TA as Developers
+### Add the instructor and TA as Developers
 
 **This is the most important step in the setup of your GitLab repository**
 
@@ -96,7 +96,7 @@ Change the role permissions from `Guest` to `Developer` in the
 dropdown menu. Click on `Add to Project` to add the instructor and
 all TAs as Developers to your github repo.
 
-#### Set up notifications
+### Set up notifications
 
 Next you should set up notifications about Issues in your repository.
 Go to `User Settings` from the upper right corner menu. Select
@@ -105,7 +105,7 @@ level` to `Watch` and also select `Receive notifications about your own activity
 You can also set notifications specifically for your repository
 to `Watch`.
 
-#### Setup SSH Key
+### Setup SSH Key
 
 Next we will set up the Secure Shell (ssh) keys so you can access
 your repo without a password. First follow [the instructions on
@@ -131,7 +131,7 @@ Then go to [this page](https://csil-git1.cs.surrey.sfu.ca/profile): [csil-git1.c
 Use the web browser to paste command to **paste** your public key into the `Key`
 box and give it a `Title` (e.g. 'CSIL' is a reasonable title) and then `Add key`.
 
-#### Clone your Repository
+### Clone your Repository
 
 Download a copy of your repo to your CSIL machine.  The action of
 making a local copy of your online repo is known as a "clone".
@@ -156,7 +156,7 @@ ssh](http://www.linuxproblem.org/art_9.html).
 Your repo will be cloned into a new directory (also known as a folder)
 called `nlpclass-{{ site.semcode }}-g-GROUP`.
 
-#### Create your Homework 0 directory
+### Create your Homework 0 directory
 
 After cloning your repository, make sure you are inside your
 repository and at the top level. Create a directory for Homework 0:
@@ -185,7 +185,7 @@ server. Here is a typical `.gitignore` file.
     *.egg-info
     .ipynb_checkpoints
 
-### Python 3 Notebooks
+## Python 3 Notebooks
 
 We will be using Python 3 notebooks for the homework submissions.
 
