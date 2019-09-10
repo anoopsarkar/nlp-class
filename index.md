@@ -63,7 +63,7 @@ terms of its analysis and the learning of language from observations.
 * Programming setup homework: HW0 due on {{ site.hwdates[0].deadline }} (2%)
 * Four programming homeworks. Due dates: HW1 on {{ site.hwdates[1].deadline }}, HW2 on {{ site.hwdates[2].deadline }}, HW3 on {{ site.hwdates[3].deadline }}, HW4 on {{ site.hwdates[4].deadline }} (10% each)
 * In class midterm: {{ site.midterm }} (25%)
-* Class participation (as defined in the FAQ) (5%)
-* Project proposal: Due on {{ site.hwdates[5].proposal }} (5%)
-* Final project: Due on {{ site.hwdates[5].deadline }} (23%)
+* Participation: Helping other students on the discussion board in a positive way (5%)
+* Final project proposal: Due on {{ site.hwdates[5].proposal }} (5%)
+* Final project: Due on {{ site.hwdates[5].deadline }}. Location: {{ site.hwdates[5].location }} (23%)
 
