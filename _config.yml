@@ -1,8 +1,8 @@
-exclude: ['README.md','assets/latex', 'hw_fa2017']
+exclude: ['README.md','assets/latex', 'archive']
 timezone: US/Pacific
 markdown: kramdown
 coursys: "https://coursys.sfu.ca/2019fa-cmpt-413-x1/"
-semcode: 1187
+semcode: 1197
 calendar: "https://calendar.google.com/calendar/ical/qgs97od9ef8t1582k2rqomv5ho%40group.calendar.google.com/public/basic.ics"
 lastday: "Dec 3, 2019"
 midterm: "TBD"
