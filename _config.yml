@@ -1,11 +1,11 @@
-exclude: ['README.md','assets/latex', 'archive']
+exclude: ['README.md', 'assets/latex/', 'archive']
 timezone: US/Pacific
 markdown: kramdown
 coursys: "https://coursys.sfu.ca/2019fa-cmpt-413-x1/"
 semcode: 1197
 calendar: "https://calendar.google.com/calendar/ical/qgs97od9ef8t1582k2rqomv5ho%40group.calendar.google.com/public/basic.ics"
 lastday: "Dec 3, 2019"
-midterm: "TBD"
+midterm: "Oct 22, 2019"
 instructor: anoop
 tas:
   - name: Yilong (Jetic) Gu 
@@ -14,21 +14,22 @@ tas:
     email: nkambhat
 hwdates:
   - hw: "0"
-    startdate: "Sep 11, 2019"
-    deadline: "Sep 18, 2019"
+    startdate: "Sep 10, 2019"
+    deadline: "Sep 17, 2019"
   - hw: "1"
-    startdate: "Sep 18, 2019"
-    deadline: "Oct 2, 2019"
+    startdate: "Sep 17, 2019"
+    deadline: "Oct 1, 2019"
   - hw: "2"
-    startdate: "Oct 2, 2019"
-    deadline: "Oct 16, 2019"
+    startdate: "Oct 1, 2019"
+    deadline: "Oct 15, 2019"
   - hw: "3"
-    startdate: "Oct 16, 2019"
-    deadline: "Nov 6, 2019"
+    startdate: "Oct 22, 2019"
+    deadline: "Nov 5, 2019"
   - hw: "4"
-    startdate: "Nov 6, 2019"
-    deadline: "Nov 20, 2019"
+    startdate: "Nov 5, 2019"
+    deadline: "Nov 19, 2019"
   - hw: "project"
-    startdate: "Nov 6, 2019"
-    deadline: "TBD"
-    proposal: "TBD"
+    startdate: "Oct 22, 2019"
+    deadline: "Dec 8, 2019 (tentative)"
+    location: "Vancouver downtown (specific location TBD)"
+    proposal: "Nov 12, 2019"
