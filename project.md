@@ -54,6 +54,7 @@ ideas for these tasks.
 * [Drug-Drug Interaction Extraction](http://labda.inf.uc3m.es/DrugDDI/DrugDDI.html)
 * [Web named entities](http://nlp.uned.es/weps/weps-3/data)
 * [Twitter sequence prediction tasks](http://www.cs.cmu.edu/~ark/TweetNLP/)
+* [WNUT Emerging and Rare entity recognition shared task](http://noisy-text.github.io/2017/emerging-rare-entities.html)
 
 ### Parsing
 
