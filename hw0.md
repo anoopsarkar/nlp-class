@@ -448,6 +448,13 @@ Go to `Homework 0` on Coursys and do a group submission:
 
 ## Grading
 
+The grading is split up into the following components:
+
+* GitLab setup
+* dev scores (see Table below)
+* test scores (see Table below)
+* iPython notebook write-up
+
 Your F1 score should be equal to or greater than the score listed for the corresponding marks.
 
 | **Fscore(dev)** | **Fscore(test)** | **Marks** | **Grade** |
