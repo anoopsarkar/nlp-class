@@ -449,6 +449,9 @@ You must have the following files or `zipsrc.py` will complain about it:
 * `answer/ensegment.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
 * `answer/ensegment.ipynb` -- this is the iPython notebook that will be your write-up for the homework.
 
+In addition, each group member should write down a short description of what they
+did for this homework in `answer/README.username`.
+
 #### Upload to Coursys
 
 Go to `Homework 0` on Coursys and do a group submission:
@@ -464,6 +467,7 @@ The grading is split up into the following components:
 * dev scores (see Table below)
 * test scores (see Table below)
 * iPython notebook write-up
+* Check if each group member has a `answer/README.username`.
 
 Your F-score should be equal to or greater than the score listed for the corresponding marks.
 
