@@ -393,9 +393,9 @@ To check your accuracy on the dev set:
 The score reported is [F-score](http://en.wikipedia.org/wiki/F1_score) which combines
 [precision and recall](http://en.wikipedia.org/wiki/Precision_and_recall) into a single score.
 
-For this homework, $$tp$$ (true positives) is defined as the words that were found in the output that
+For this homework, _tp_ (true positives) is defined as the words that were found in the output that
 exist in the reference. If a word occurs in the output but not in reference it is counted as a $$fp$$
-(false positive) and vice versa is counted as a $$fn$$ (false negative).
+(false positive) and vice versa is counted as a _fn_ (false negative).
 Precision $$p$$ is defined as $$\frac{tp}{tp+fp}$$. Recall $$r$$ is defined as $$\frac{tp}{tp+fn}$$.
 
 F-score is defined as $$2 \cdot (p \cdot r) / (p + r)$$.
