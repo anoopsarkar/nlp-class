@@ -342,11 +342,14 @@ many segmentations.
 
 ### The Challenge
 
-Your task is to _improve the F-measure as much as possible_.
-You cannot use any external data sources or any other toolkits.
-You can get a much higher accuracy by simply adding one function
-to the code based on a careful examination of the output
-of the default solution on the various inputs.
+Your task is to improve the accuracy on this task as much as possible.
+The definition of accuracy is provided below.  You cannot use any
+external data sources or any other toolkits.  You can get a much
+higher accuracy by adding one simple function (one line of code)
+to the default solution provided to you.  However this one line of
+code is not trivial. You should approach this challenge  based on
+a careful examination of the source code of the default solution
+and the output of the default solution on the various inputs.
 
 ### Background Reading
 
@@ -389,6 +392,13 @@ To check your accuracy on the dev set:
 
 The score reported is [F-measure](http://en.wikipedia.org/wiki/F1_score) which combines
 [precision and recall](http://en.wikipedia.org/wiki/Precision_and_recall) into a single score.
+
+For this homework, $$tp$$ (true positives) is defined as the words that were found in the output that
+exist in the reference. If a word occurs in the output but not in reference it is counted as a $$fp$$
+(false positive) and vice versa is counted as a $$fn$$ (false negative).
+Precision $$p$$ is defined as $$\frac{tp}{tp+fp}$$. Recall $$r$$ is defined as $$\frac{tp}{tp+fp}$$.
+
+Fscore is defined as $$2 \cdot (p \cdot r) / (p + r)$$.
 
 For more options:
 
@@ -455,7 +465,7 @@ The grading is split up into the following components:
 * test scores (see Table below)
 * iPython notebook write-up
 
-Your F1 score should be equal to or greater than the score listed for the corresponding marks.
+Your Fscore should be equal to or greater than the score listed for the corresponding marks.
 
 | **Fscore(dev)** | **Fscore(test)** | **Marks** | **Grade** |
 | .82 | .13 | 0   | F  |
