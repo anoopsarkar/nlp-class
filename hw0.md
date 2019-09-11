@@ -398,7 +398,7 @@ exist in the reference. If a word occurs in the output but not in reference it i
 (false positive) and vice versa is counted as a _fn_ (false negative).
 Precision $$p$$ is defined as $$\frac{tp}{tp+fp}$$. Recall $$r$$ is defined as $$\frac{tp}{tp+fn}$$.
 
-F-score is defined as $$2 \cdot (p \cdot r) / (p + r)$$.
+F-score is defined as $$2 \cdot \frac{p \cdot r}{p + r}$$.
 
 For more options:
 
