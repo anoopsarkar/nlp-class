@@ -394,7 +394,7 @@ The score reported is [F-score](http://en.wikipedia.org/wiki/F1_score) which com
 [precision and recall](http://en.wikipedia.org/wiki/Precision_and_recall) into a single score.
 
 For this homework, _tp_ (true positives) is defined as the words that were found in the output that
-exist in the reference. If a word occurs in the output but not in reference it is counted as a $$fp$$
+exist in the reference. If a word occurs in the output but not in reference it is counted as a _fp_
 (false positive) and vice versa is counted as a _fn_ (false negative).
 Precision $$p$$ is defined as $$\frac{tp}{tp+fp}$$. Recall $$r$$ is defined as $$\frac{tp}{tp+fn}$$.
 
