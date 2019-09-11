@@ -390,7 +390,7 @@ To check your accuracy on the dev set:
 
     python3 check.py
 
-The score reported is [F-measure](http://en.wikipedia.org/wiki/F1_score) which combines
+The score reported is [F-score](http://en.wikipedia.org/wiki/F1_score) which combines
 [precision and recall](http://en.wikipedia.org/wiki/Precision_and_recall) into a single score.
 
 For this homework, $$tp$$ (true positives) is defined as the words that were found in the output that
@@ -398,7 +398,7 @@ exist in the reference. If a word occurs in the output but not in reference it i
 (false positive) and vice versa is counted as a $$fn$$ (false negative).
 Precision $$p$$ is defined as $$\frac{tp}{tp+fp}$$. Recall $$r$$ is defined as $$\frac{tp}{tp+fp}$$.
 
-Fscore is defined as $$2 \cdot (p \cdot r) / (p + r)$$.
+F-score is defined as $$2 \cdot (p \cdot r) / (p + r)$$.
 
 For more options:
 
@@ -465,9 +465,9 @@ The grading is split up into the following components:
 * test scores (see Table below)
 * iPython notebook write-up
 
-Your Fscore should be equal to or greater than the score listed for the corresponding marks.
+Your F-score should be equal to or greater than the score listed for the corresponding marks.
 
-| **Fscore(dev)** | **Fscore(test)** | **Marks** | **Grade** |
+| **F-score(dev)** | **F-score(test)** | **Marks** | **Grade** |
 | .82 | .13 | 0   | F  |
 | .84 | .50 | 55  | D  |
 | .85 | .55 | 60  | C- |
