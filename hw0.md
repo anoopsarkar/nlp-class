@@ -458,12 +458,14 @@ Go to `Homework 0` on Coursys and do a group submission:
 
 * Upload `output.zip` and `source.zip`
 * Make sure you have documented your approach in `answer/ensegment.ipynb`.
+* Make sure each member of your group has documented their contribution to this homework in `answer/README.username` where `username` is your CSIL/GitLab username.
 
 ## Grading
 
 The grading is split up into the following components:
 
-* GitLab setup
+* Group setup done on Coursys.
+* GitLab setup including adding instructor and TA as Developer to the repository.
 * dev scores (see Table below)
 * test scores (see Table below)
 * iPython notebook write-up
