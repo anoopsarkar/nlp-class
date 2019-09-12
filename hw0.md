@@ -227,7 +227,10 @@ You can either try writing your own notebook to get familiar with
 it or work through my [Python tidbits
 notebook](assets/notebooks/python-tidbits.ipynb).
 
-## Homework 0: Segment Hashtags and Websites
+## Task: Word Segmentation
+
+The task for this homework is to segment a sequence of English
+characters into the most likely word sequence.
 
 Homework 0 is mainly to set up your groups and programming environment
 for this course for the semester, but to complete this homework you
