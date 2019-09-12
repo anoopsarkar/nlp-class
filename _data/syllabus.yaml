@@ -11,7 +11,8 @@
     - author: Lillian Lee
       title: "I'm sorry Dave, I'm afraid I can't do that"
       url: "http://www.cs.cornell.edu/home/llee/papers/cstb.pdf"
-    - author: Rick Rashid title: "Speech Recognition Breakthrough for the Spoken, Translated Word by Rick Rashid"
+    - author: Rick Rashid 
+      title: "Speech Recognition Breakthrough for the Spoken, Translated Word by Rick Rashid"
       video: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
       url: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
       optional: true
