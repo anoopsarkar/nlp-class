@@ -36,7 +36,7 @@ terms of its analysis and the learning of language from observations.
 #### Teaching Assistants
 <ul>
 {% for ta in site.tas %}
-<li>{{ ta.name }}, <code>{{ ta.email }}</code></li>
+<li>{{ ta.name }}, <code>{{ ta.email }}</code>, Office hour: {{ ta.officehour }}.</li>
 {% endfor %}
 </ul>
 
