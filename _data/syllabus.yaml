@@ -1,7 +1,7 @@
 - title: "Course Introduction"
   tag: intro
   include: true
-  current: true
+  current: false
   notes:
     - title: "Course introduction"
       url: "assets/slides/introduction.pdf"
@@ -11,8 +11,7 @@
     - author: Lillian Lee
       title: "I'm sorry Dave, I'm afraid I can't do that"
       url: "http://www.cs.cornell.edu/home/llee/papers/cstb.pdf"
-    - author: Rick Rashid
-      title: "Speech Recognition Breakthrough for the Spoken, Translated Word by Rick Rashid"
+    - author: Rick Rashid title: "Speech Recognition Breakthrough for the Spoken, Translated Word by Rick Rashid"
       video: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
       url: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
       optional: true
@@ -27,6 +26,30 @@
     - author: "Matt Gardner and Waleed Ammar"
       title: "NLP Highlights podcast"
       url: "https://soundcloud.com/nlp-highlights"
+      optional: true
+- title: "Probability models and language"
+  tag: probintro
+  include: true
+  current: true
+  notes:
+    - title: "Probability Models for NLP"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb"
+    - title: "Probability models and language"
+      url: "assets/slides/prob.pdf"
+    - title: "Homework 1 release"
+      url: "hw1.html"
+  links:
+    - title: "Python tidbits for NLP"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/python-tidbits.ipynb"
+    - author: Claude Shannon
+      title: "A Mathematical Theory of Communication"
+      url: http://en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication
+      optional: true
+    - author: Claude Shannon
+      title: "Prediction and Entropy of Printed English"
+      url: http://languagelog.ldc.upenn.edu/myl/Shannon1950.pdf
       optional: true
 - title: Ambiguity
   tag: cfg
@@ -66,30 +89,6 @@
     - title: "Exercise: OrwellSpeak"
       author: "Jason Eisner"
       url: "http://www.naclo.cs.cmu.edu/problems2009/N2009-M.pdf"
-      optional: true
-- title: "Probability models and language"
-  tag: probintro
-  include: true
-  current: false
-  notes:
-    - title: "Probability Models for NLP"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb"
-    - title: "Probability models and language"
-      url: "assets/slides/prob.pdf"
-    - title: "Homework 1 release"
-      url: "hw1.html"
-  links:
-    - title: "Python tidbits for NLP"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/python-tidbits.ipynb"
-    - author: Claude Shannon
-      title: "A Mathematical Theory of Communication"
-      url: http://en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication
-      optional: true
-    - author: Claude Shannon
-      title: "Prediction and Entropy of Printed English"
-      url: http://languagelog.ldc.upenn.edu/myl/Shannon1950.pdf
       optional: true
 - title: "Language models"
   tag: lm
