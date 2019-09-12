@@ -292,10 +292,7 @@ There will be a similar table for each choice of $W_i$.
 \frametitle{Probability: The Chain Rule}
 \begin{itemize}[<+->]
 \item $P(a,b,c,d \mid e)$
-\item We cannot simply remove items from the left of $\mid$ \\
-(verify that it violates the definitions we have given based on sets)
-\item In this case we can use the chain rule of probability to rescue
-  us
+\item We can simplify this using the Chain Rule:
 \item $P(a,b,c,d \mid e) = $\\
 $P(d \mid e) \cdot P(c \mid d,e) \cdot P(b \mid c,d,e) \cdot P(a \mid b,c,d,e)$ 
 \item To see why this is possible, recall that \( P(X \mid Y) = \frac{p(X,Y)}{p(Y)} \)
@@ -315,6 +312,13 @@ $P(d \mid e) \cdot P(c \mid d,e) \cdot P(b \mid c,d,e) \cdot P(a \mid b,c,d,e)$
   e_1) \times P(e_3 \mid e_1, e_2) \ldots $ 
 \[ P(e_1, e_2, \ldots, e_n) = \prod^n_{i=1} P(e_i \mid e_{i-1},
   e_{i-2}, \ldots, e_1) \]
+\item In NLP, we call:
+	\begin{itemize}[<+->]
+	\item $P(e_i)$: unigram probability 
+	\item $P(e_i \mid e_{i-1})$: bigram probability
+	\item $P(e_i \mid e_{i-1}, e_{i-2})$: trigram probability
+	\item $P(e_i \mid e_{i-1}, e_{i-2}, \ldots, e_{i-{(n-1)}})$: n-gram probability
+	\end{itemize}
 \end{itemize}
 
 \end{frame}
@@ -436,8 +440,8 @@ $1.0$ & $0.00$ \\
 \item For a probability distribution $p$
 \item \textbf{Expectation} with respect to $p$ is a weighted average:
 \begin{eqnarray*}
- E_p[x] &=& \frac{x_1 \cdot p_1 + x_2 \cdot p_2 + \ldots + x_n p_n}{p_1 + p_2 + \ldots + p_n} \\
-  &=& x_1 \cdot p_1 + x_2 \cdot p_2 + \ldots + x_n p_n \\
+ E_p[x] &=& \frac{x_1 \cdot p(x_1) + x_2 \cdot p(x_2) + \ldots + x_n p(x_n)}{p(x_1) + p(x_2) + \ldots + p(x_n)} \\
+  &=& x_1 \cdot p(x_1) + x_2 \cdot p(x_2) + \ldots + x_n p(x_n) \\
   &=& \sum_{x \in {\cal E}} x \cdot p(x) 
 \end{eqnarray*}
 \item Example: for a six-sided die the expectation is:
@@ -463,6 +467,8 @@ $1.0$ & $0.00$ \\
 
 \end{frame}
 
+\begin{comment}
+	
 \begin{frame}
 \frametitle{Entropy}
 \begin{itemize}[<+->]
@@ -535,6 +541,7 @@ code $0$ occurs 160 times, code $10$ occurs 80 times, code $110$ occurs 40 times
 \end{itemize}
 
 \end{frame}
+\end{comment}
 
 \begin{frame}
 \frametitle{Perplexity}
@@ -542,9 +549,7 @@ code $0$ occurs 160 times, code $10$ occurs 80 times, code $110$ occurs 40 times
 \item The value $2^{H(p)}$ is called the {\bf perplexity} of a distribution $p$
 \item Perplexity is the weighted average number of choices a random
   variable has to make.
-\item Choosing between 8 equally likely horses (H=3) is $2^3 = 8$.
-\item Choosing between the biased horses from before (H=2) is $2^2 =
-  4$. 
+\item Choosing between 8 equally likely options (H=3) is $2^3 = 8$.
 \end{itemize}
 
 \end{frame}
@@ -552,12 +557,9 @@ code $0$ occurs 160 times, code $10$ occurs 80 times, code $110$ occurs 40 times
 \begin{frame}
 \frametitle{Relative Entropy}
 \begin{itemize}[<+->]
-\item In real life, we cannot know for sure the exact winning
-  probability for each horse. 
-\item Let's say $q$ is the estimate
-  and $p$ is the true probability \\
-  {\small (say we got $q$ by observing previous races with these horses)}
-\item We define the {\em distance} between $p$ and $q$ as the {\bf relative entropy}: written as $D(p \| q)$
+\item We often wish to determine the divergence of a distribution $q$ from another distribution $p$
+\item Let's say $q$ is the estimate and $p$ is the true probability
+\item We define the {\em divergence} from $q$ to $p$ as the {\bf relative entropy}: written as $D(p \| q)$
 \[ D(p \| q) = - \sum_{x \in {\cal E}} p(x) \log_2 \frac{q(x)}{p(x)} \]
 \item Note that
 \[ D(p \| q) = - E_{ p(x) } \left[ \log_2 \frac{q(x)}{p(x)} \right] \]
@@ -578,7 +580,7 @@ D(p \| q) & = & - \sum_{x \in {\cal E}} p(x) \log_2 \frac{q(x)}{p(x)} \\
 \item Similarly define $H(p,q) = - \sum_{x} p(x) \log_2 q(x)$
 \[
 \begin{array}{l@{}c@{}l@{}c@{}l@{}}
-D(p \| q) & = & H(p,q) & - & H(q) \\
+D(p \| q) & = & H(p,q) & - & H(p) \\
 \textbf{relative entropy}(p,q) & = & \textbf{cross entropy}(p,q) & - & \textbf{entropy}(p) 
 \end{array}
 \]
@@ -618,6 +620,7 @@ D(p \| q) & = & H(p,q) & - & H(q) \\
 
 \end{frame}
 
+\begin{comment}
 \section*{Appendix: Computing with Log Probability}
 
 \begin{frame}[fragile]
@@ -641,6 +644,7 @@ double logadd(double lna, double lnb)
 \end{verbatim} 
 \end{center}
 \end{frame}
+\end{comment}
 
 
 \input{acknowledgements.tex}
