@@ -37,8 +37,6 @@
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb"
     - title: "Probability models and language"
       url: "assets/slides/prob.pdf"
-    - title: "Homework 1 release"
-      url: "hw1.html"
   links:
     - title: "Python tidbits for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
@@ -60,8 +58,6 @@
       url: "assets/slides/ambiguity.pdf"
     - title: "In-class exercise on CFGs"
       url: "assets/handouts/cfgquiz.pdf"
-    - title: "Homework 0 release"
-      url: "hw0.html"
     - title: "Context-free grammars notebook"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/cfg.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/cfg.ipynb"
