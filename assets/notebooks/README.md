@@ -10,3 +10,8 @@ To stop the virtualenv
 
     deactivate
 
+## jupyter themes
+
+My default theme for notebooks:
+
+    jt -t grade3 -nfs 14 -altp -tfs 14 -fs 14 -ofs 14 -dfs 14 -cellw 100% -T
