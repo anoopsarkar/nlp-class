@@ -75,6 +75,8 @@ ideas for these tasks.
 ### Unlabeled Data for Clustering, Language Models, etc.
 
 * [Wikipedia XML data](http://www-connex.lip6.fr/%7Edenoyer/wikipediaXML/)
+* [Web data](http://corpus.leeds.ac.uk/internet.html)
+* [BootCat](http://bootcat.dipintra.it)
 
 ### Sentiment and Opinion Mining
 
