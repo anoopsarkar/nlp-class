@@ -295,6 +295,10 @@ The default solution gets a very poor F-score on the dev and test set:
     dev.out score: 0.27
     test.out score: 0.33
 
+Implementing a greedy search gets an F-score of 0.66 on dev
+while the Baseline method with unigram counts gets 0.89 on
+the dev set.
+
 Implementing the Baseline method augmented with bigram counts 
 as a bigram model $$P(w_i \mid w_{i-1})$$ should give you an
 improved F-score:
@@ -302,6 +306,11 @@ improved F-score:
     $ python3 check.py
     dev.out score: 0.90
     test.out score: 0.77
+
+By careful analysis of the output (even without any knowledge of
+the Chinese language) should give you some further ideas to consolidate
+certain types of characters into words based on regularity how they
+combine into words in the training set.
 
 ### Submit your homework on Coursys
 
@@ -359,8 +368,8 @@ Your F-score should be equal to or greater than the score listed for the corresp
 | 70 | 65 | 75  | B- |
 | 75 | 70 | 80  | B  |
 | 80 | 73 | 85  | B+ |
-| 85 | 75 | 90  | A- |
-| 90 | 77 | 95  | A  |
+| 85 | 76 | 90  | A- |
+| 90 | 78 | 95  | A  |
 | 92 | 80 | 100 | A+ |
 {: .table}
 
