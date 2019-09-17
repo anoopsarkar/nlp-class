@@ -143,9 +143,10 @@ In the terminal window, enter the commands
     git config --global core.editor nano         # or set it to your favourite editor
     git config --global push.default current
     cd $HOME
-    git clone git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-{{ site.semcode }}-g-GROUP.git
+    git clone git@csil-git1.cs.surrey.sfu.ca:GROUPUSER/nlpclass-{{ site.semcode }}-g-GROUP.git
 
-where `USER` is your SFU username and `GROUP` is the name of the
+where `USER` is your SFU username, `GROUPUSER` is the SFU username of
+the person who created the group repository and `GROUP` is the name of the
 group you have already setup on [Coursys]({{ site.coursys }}). If
 you skipped any of the above steps in setting up your GitLab repo
 this command will not work.  The system might prompt you for a
