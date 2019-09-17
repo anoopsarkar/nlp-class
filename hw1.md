@@ -240,7 +240,7 @@ choice and document your work. Here are some ideas:
 * Do better _smoothing_ of the unigram and bigram probability models.
 * More advanced methods[^1]
 
-[^1]: If you are ambitious, you can use more advanced machine learning methods such as [global linear models](http://anoopsarkar.github.io/papers/pdf/cnwseg-ai2009.pdf) or [neural networks](http://aclweb.org/anthology/P/P16/P16-1039.pdf) or [transition-based neural language models](http://aclweb.org/anthology/P/P16/P16-1040.pdf). 
+[^1]: If you are ambitious, you can use more advanced machine learning methods such as [global linear models](http://anoopsarkar.github.io/papers/pdf/cnwseg-ai2009.pdf) or [neural networks](http://aclweb.org/anthology/P/P16/P16-1039.pdf) or [bidirectional RNNs](https://arxiv.org/abs/1808.06511) or [transition-based neural language models](http://aclweb.org/anthology/P/P16/P16-1040.pdf). In particular you might want to pay attention to the error analysis for out of vocabulary words in these papers. Even without fancy neural networks the same analysis might help you improve your accuracy.
 
 But the sky's the limit! You are welcome to design your own model, as long 
 as you have implemented the Baseline model first.
