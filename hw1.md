@@ -7,7 +7,7 @@ title: "Homework | Chinese Word Segmentation"
 active_tab: homework
 ---
 
-# Homework 1
+# Homework 1: Chinese Word Segmentation
 
 <span class="text-info">Start on {{ site.hwdates[1].startdate }}</span> |
 <span class="text-warning">Due on {{ site.hwdates[1].deadline }}</span>
