@@ -47,7 +47,7 @@ command to get started with your development for the homework:
 
     source venv/bin/activate
 
-### Background
+## Background
 
 Word segmentation is the task of restoring missing word boundaries.
 This homework is on Chinese word segmentation, a language in which
@@ -74,7 +74,7 @@ segmentation program that you will write for this homework on _test
 data_ that will be automatically evaluated against a reference
 segmentation.
 
-### Default solution
+## Default solution
 
 The default solution is provided in `default.py`. To use the default
 as your solution:
@@ -100,7 +100,7 @@ The score reported is [F-score](http://en.wikipedia.org/wiki/F1_score) which com
 [precision and recall](http://en.wikipedia.org/wiki/Precision_and_recall) into a single score.
 F-score is explained further below.
 
-### The Challenge
+## The Challenge
 
 Your task is to _improve the F-score as much as possible_ which is explained
 in detail in the Accuracy section below. To help you do
@@ -113,7 +113,7 @@ You can also optionally use the data used to create the above count files which 
 
 You can also use a larger dataset provided to you via this link: [wseg_simplified_cn.txt.bz2](https://vault.sfu.ca/index.php/s/ghsaEeqtvV5IYLF) which contains 1M Chinese sentences with word segments (bzip2 compressed). This link is only available for SFU students. You must not give a copy of this data set to **anybody**. 
 
-### Data files
+## Data files
 
 The data files provided are:
 
@@ -122,7 +122,7 @@ The data files provided are:
 * `data/input` -- input files `dev.txt` and `test.txt`
 * `data/reference/dev.out` -- the reference output for the `dev.txt` input file
 
-### Baseline 
+## Baseline 
 
 The baseline method is what you should implement first before you
 explore additional improvements to improve the F-score. You **must**
@@ -166,7 +166,7 @@ recursive approach is not computationally efficient enough to tackle
 real-world data.  An alternative is to do this iteratively. The
 following pseudo-code illustrates how to find the argmax iteratively.
 
-#### Algorithm: Iterative segmenter
+### Algorithm: Iterative segmenter
 
 ---
 **## Data Structures ##**
@@ -227,7 +227,7 @@ only be on length one. You will get a better F-score if you allow
 unknown words of arbitrary length (with the appropriate smoothed
 probability score).
 
-### Your Task
+## Your Task
 
 Developing a segmenter using the above pseudo-code that uses unigram probabilities is
 good enough to get close to the baseline system. But getting closer to the oracle
@@ -245,14 +245,14 @@ choice and document your work. Here are some ideas:
 But the sky's the limit! You are welcome to design your own model, as long 
 as you have implemented the Baseline model first.
 
-### Required files
+## Required files
 
 You must create the following files:
 
 * `answer/zhsegment.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
 * `answer/zhsegment.ipynb` -- this is the iPython notebook that will be your write-up for the homework.
 
-### Run your solution on the data files
+## Run your solution on the data files
 
 To create the `output.zip` file for upload to Coursys do:
 
@@ -262,7 +262,7 @@ For more options:
 
     python3 zipout.py -h
 
-### Check your accuracy
+## Check your accuracy
 
 To check your accuracy on the dev set:
 
@@ -312,20 +312,19 @@ the Chinese language) should give you some further ideas to consolidate
 certain types of characters into words based on regularity how they
 combine into words in the training set.
 
-### Submit your homework on Coursys
+## Submit your homework on Coursys
 
 Once you are done with your homework submit all the relevant materials
 to Coursys for evaluation.
 
-
-#### Create output.zip
+### Create output.zip
 
 Once you have a working solution in `answer/zhsegment.py` create
 the `output.zip` for upload to Coursys using:
 
     python3 zipout.py
 
-#### Create source.zip
+### Create source.zip
 
 To create the `source.zip` file for upload to Coursys do:
 
@@ -339,7 +338,7 @@ You must have the following files or `zipsrc.py` will complain about it:
 In addition, each group member should write down a short description of what they
 did for this homework in `answer/README.username`.
 
-#### Upload to Coursys
+### Upload to Coursys
 
 Go to `Homework 1` on Coursys and do a group submission:
 
