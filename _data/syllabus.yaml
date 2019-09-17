@@ -42,6 +42,10 @@
     - title: "Python tidbits for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/python-tidbits.ipynb"
+    - author: Peter Norvig
+      title: "Natural Language Corpus Data: Beautiful Data"
+      url: "http://norvig.com/ngrams/"
+      download: "http://norvig.com/ngrams/ngrams.zip"
     - author: Claude Shannon
       title: "A Mathematical Theory of Communication"
       url: http://en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication
@@ -50,43 +54,6 @@
       title: "Prediction and Entropy of Printed English"
       url: http://languagelog.ldc.upenn.edu/myl/Shannon1950.pdf
       optional: true
-- title: Ambiguity
-  tag: cfg
-  include: true
-  current: false
-  notes:
-    - title: "Formal Ambiguity"
-      url: "assets/slides/ambiguity.pdf"
-    - title: "In-class exercise on CFGs"
-      url: "assets/handouts/cfgquiz.pdf"
-    - title: "Context-free grammars notebook"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/cfg.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/cfg.ipynb"
-  links:
-    - author: Michael Collins
-      title: "Probabilistic Context-free Grammars"
-      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/pcfgs.pdf"
-      download: "assets/mcollins-notes/pcfgs.pdf"
-    - author: Michael Collins
-      title: "Lexicalized Context-free Grammars"
-      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lexpcfgs.pdf"
-      download: "assets/mcollins-notes/lexpcfgs.pdf"
-    - title: "Exercise: Grammar Rules!"
-      author: "Andrea Schalley and Patrick Littell"
-      url: "http://nacloweb.org/resources/problems/2013/N2013-F.pdf"
-      optional: true
-    - title: "Exercise: Twodee"
-      author: "Jason Eisner"
-      url: "http://www.naclo.cs.cmu.edu/problems2013/N2013-H.pdf"
-      optional: true
-    - title: "Exercise: One, Two, Tree"
-      author: "Noah Smith, Kevin Gimpel, and Jason Eisner"
-      url: "http://www.naclo.cs.cmu.edu/problems2012/N2012-R.pdf"
-      optional: true
-    - title: "Exercise: OrwellSpeak"
-      author: "Jason Eisner"
-      url: "http://www.naclo.cs.cmu.edu/problems2009/N2009-M.pdf"
-      optional: true
 - title: "Language models"
   tag: lm
   include: true
@@ -94,7 +61,7 @@
   notes:
     - title: "Language models"
       url: "assets/slides/lm.pdf"
-    - title: "In class exercise: n-gram Language Models"
+    - title: "Exercise: n-gram Language Models"
       url: "assets/notes/lm.html"
     - title: "The unreasonable effectiveness of Character-level Language Models"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/goldberg_lm.ipynb"
@@ -106,17 +73,13 @@
       download: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lm.pdf"
       url: "assets/mcollins-notes/lm.pdf"
       optional: false
-    - author: Peter Norvig
-      title: "Natural Language Corpus Data: Beautiful Data"
-      url: "http://norvig.com/ngrams/"
-      download: "http://norvig.com/ngrams/ngrams.zip"
     - author: Stanley Chen and Joshua Goodman
       title: "A Bit of Progress in Language Modeling"
-      url: http://ptrckprry.com/course/ssd/Good01.pdf
+      url: "https://arxiv.org/abs/cs/0108005"
       optional: true
     - author: Ciprian Chelba, Tomas Mikolov, Mike Schuster, Qi Ge, and Thorsten Brants
       title: "One Billion Word Benchmark for Measuring Progress in Statistical Language Modeling"
-      url: http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/41880.pdf
+      url: "https://arxiv.org/abs/1312.3005"
       optional: true
 - title: "Linear models"
   tag: linear
@@ -168,6 +131,43 @@
     - title: "Gradient checks and parameter updates"
       url: "http://cs231n.github.io/neural-networks-3/"
       author: "Andrej Karpathy"
+      optional: true
+- title: Ambiguity
+  tag: cfg
+  include: true
+  current: false
+  notes:
+    - title: "Formal Ambiguity"
+      url: "assets/slides/ambiguity.pdf"
+    - title: "In-class exercise on CFGs"
+      url: "assets/handouts/cfgquiz.pdf"
+    - title: "Context-free grammars notebook"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/cfg.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/cfg.ipynb"
+  links:
+    - author: Michael Collins
+      title: "Probabilistic Context-free Grammars"
+      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/pcfgs.pdf"
+      download: "assets/mcollins-notes/pcfgs.pdf"
+    - author: Michael Collins
+      title: "Lexicalized Context-free Grammars"
+      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lexpcfgs.pdf"
+      download: "assets/mcollins-notes/lexpcfgs.pdf"
+    - title: "Exercise: Grammar Rules!"
+      author: "Andrea Schalley and Patrick Littell"
+      url: "http://nacloweb.org/resources/problems/2013/N2013-F.pdf"
+      optional: true
+    - title: "Exercise: Twodee"
+      author: "Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2013/N2013-H.pdf"
+      optional: true
+    - title: "Exercise: One, Two, Tree"
+      author: "Noah Smith, Kevin Gimpel, and Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2012/N2012-R.pdf"
+      optional: true
+    - title: "Exercise: OrwellSpeak"
+      author: "Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2009/N2009-M.pdf"
       optional: true
 - title: "Linear models for sequence prediction"
   tag: linearseq

@@ -39,7 +39,7 @@ In this course, your programs will be managed and archived using [Git](https://g
 ### Create new repository on Gitlab 
 
 Decide in your group the person that will create the repository on
-GitLab and invite the other group members as Developers. That person
+GitLab and invite the other group members as a Maintainer. That person
 should follow the instructions in this section.
 
 Go to [the SFU Gitlab server](http://gitlab.cs.sfu.ca){:target="_blank"}
