@@ -32,7 +32,7 @@ def entropy_and_word_prob(events, word, uniform):
             word_prob = math.pow(10.0, prob)
     if len(events) == 1:
         entropy = 0.0
-    return (entropy, word_prob)
+    return (-1 * entropy, word_prob)
 
 
 def getch():
