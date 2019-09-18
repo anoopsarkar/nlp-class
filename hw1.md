@@ -232,7 +232,7 @@ probability score).
 Developing a segmenter using the above pseudo-code that uses unigram probabilities is
 good enough to get close to the baseline system. But getting closer to the oracle
 score will be a more interesting challenge. In addition to getting a good score
-on the leaderboard you **must** experiment with at least one extension of the
+you **must** experiment with at least one extension of the
 baseline or an additional model of your
 choice and document your work. Here are some ideas:
 
