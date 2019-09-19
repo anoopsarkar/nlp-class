@@ -68,5 +68,5 @@ terms of its analysis and the learning of language from observations.
 * Final Project: Due on {{ site.hwdates[5].deadline }} (23%)
 * Final Project Poster Session:
     * Time: {{ site.hwdates[5].deadline }} {{ site.hwdates[5].time }}. 
-    * Location: {{ site.hwdates[5].location }} (23%)
+    * Location: {{ site.hwdates[5].location }}
 
