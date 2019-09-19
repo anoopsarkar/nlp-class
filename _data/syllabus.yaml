@@ -31,7 +31,7 @@
 - title: "Probability models and language"
   tag: probintro
   include: true
-  current: true
+  current: false
   notes:
     - title: "Probability Models for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb"
@@ -57,7 +57,7 @@
 - title: "Language models"
   tag: lm
   include: true
-  current: false
+  current: true
   notes:
     - title: "Language models"
       url: "assets/slides/lm.pdf"
