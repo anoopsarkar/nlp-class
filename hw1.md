@@ -1,8 +1,8 @@
 ---
 layout: default
-img: embedding
-img_link: http://en.wikipedia.org/wiki/Center_embedding
-caption: "The Embedding introduces a strange form of language whose grammar can be 'self-embedded' by computers."
+img: mayhem
+img_link: http://en.wikipedia.org/wiki/Text_segmentation
+caption: Segmentation is harder than it seems.
 title: "Homework | Chinese Word Segmentation"
 active_tab: homework
 ---
