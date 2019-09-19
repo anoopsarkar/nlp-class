@@ -166,6 +166,15 @@ recursive approach is not computationally efficient enough to tackle
 real-world data.  An alternative is to do this iteratively. The
 following pseudo-code illustrates how to find the argmax iteratively.
 
+NLP is not just about better machine learning models. It also
+involves the use of clever algorithms for training and inference
+that allow NLP-based applications to work on real-world data. In
+this homework, we introduce a dynamic programming approach that is
+widely used in many NLP tasks (not just segmentation, but also
+parsing, etc.). The goal of this homework is to show how dynamic
+programming combined with a probability model can enable faster and
+memory efficient inference.
+
 ### Algorithm: Iterative segmenter
 
 ---
