@@ -88,15 +88,13 @@
   notes:
     - title: "Linear models"
       url: "assets/slides/linearmodels.pdf"
-    - title: "Homework 2 release"
-      url: "hw2.html"
     - title: "Naive Bayes Classifiers"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/naivebayes.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/naivebayes.ipynb"
     - title: "Log-linear Models"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/loglinear.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/loglinear.ipynb"
-    - title: "In class exercise: Linear combinations"
+    - title: "Exercise: Linear combinations"
       url: "assets/notes/linearb.html"
     - author: Michael Collins
       title: "Log-linear models, MEMMs and CRFs"
