@@ -8,6 +8,15 @@ active_tab: syllabus
 
 ### Question 1
 
+Consider the following sentence $s$ where `<bs>` and `<es>` are padding tokens:
+
+    <bs> <bs> I would like to go West . <es>
+
+1. Write down $P(s)$ using a bigram language model.
+1. Write down $P(s)$ using a trigram language model.
+
+### Question 2
+
 Using a vocabulary $${\cal V} = \{$$ crazy, killer, clown $$\}$$ define a language model which has a particular constraint: $$p(x_1, \ldots, x_n) = \gamma \times 0.5^n$$ for any $$x_1, \ldots, x_n$$ such that $$x_i \in {\cal V}$$ for $$i = 1, \ldots, n-1$$ and $$x_n =$$ STOP.
 
 $$\gamma$$ is some expression that can be a function of $$n$$.
@@ -23,7 +32,7 @@ Choose one of the following definitions of $$\gamma$$ so that $$p(x_1, \ldots, x
 
 Hint: $$\sum_{n=1}^\infty 0.5^n = 1$$.
 
-### Question 2
+### Question 3
 
 The perplexity of a language model on a test corpus is defined as 
 
@@ -54,7 +63,7 @@ $$\log_2$$ is log base 2, $$x^{(i)}$$ is the $$i$$'th sentence in the corpus.
    the training corpus takes the minimum possible value on the test corpus. (Assume that we use a 
    bigram language model as in the previous question).
 
-### Question 3
+### Question 4
 
 We define a trigram language model as follows. Take $$C(w),
 C(v, w)$$ and $$C(u, v, w)$$ to be unigram, bigram and trigram
@@ -78,7 +87,21 @@ values for $$\lambda_1, \lambda_2, \lambda_3$$.
 
 $$p(w \mid u, v) = \lambda_1 \times q(w \mid u, v) + \lambda_2 \times q(w \mid v) + \lambda_3 \times q(w)$$
 
+### Question 5
+
+Consider the following corpus of sentences where `<bs>` and `<es>` are padding tokens:
+
+    <bs> I am Sam <es>
+    <bs> Sam I am <es>
+    <bs> I do not like green eggs and ham <es>
+
+Fill in the following table:
+
+| P(`I` \| `<bs>`) = |  | P(`Sam` \| `<bs>`) = |  | P(`am` \| `I`) = | |
+| P(`<es>` \| `Sam`) = |  | P(`Sam` \| `am`) = |  | P(`do` \| `I`) = | |
+{: .table}
+
 ### Acknowledgements
 
-Modified versions of questions from the Columbia University course COMS 4705 by Michael Collins.
+Some of these questions are modified versions of questions from the Columbia University course COMS 4705 by Michael Collins.
 
