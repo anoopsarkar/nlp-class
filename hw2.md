@@ -257,7 +257,7 @@ The grading is split up into the following components:
 * dev scores (see Table below)
 * test scores (see Table below)
 * iPython notebook write-up 
-   * Make sure that iterative search algorithm is implemented as described in the Baseline section above
+   * Make sure that you are not using any external data sources in your solution. You must only use the provided word vector file.
 * Check if each group member has a `answer/README.username`.
 
 Your F-score should be equal to or greater than the score listed for the corresponding marks.
@@ -272,8 +272,8 @@ Your F-score should be equal to or greater than the score listed for the corresp
 | 23 | 30 | 80  | B  |
 | 25 | 31 | 85  | B+ |
 | 27 | 33 | 90  | A- |
-| 30 | 35 | 95  | A  |
-| 35 | 37 | 100 | A+ |
+| 27.5 | 34 | 95  | A  |
+| 28 | 35 | 100 | A+ |
 {: .table}
 
 
