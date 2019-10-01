@@ -1,7 +1,7 @@
 ---
 layout: default
 img: word_vectors_small
-img_link: "http://nlp.stanford.edu/projects/glove/"
+img_link: https://nlp.stanford.edu/projects/glove/
 caption: "Banded structures are visible in this visualization of word vectors"
 title: "Homework | Lexical Substitution using Word Vectors"
 active_tab: homework
