@@ -263,17 +263,17 @@ The grading is split up into the following components:
 Your F-score should be equal to or greater than the score listed for the corresponding marks.
 
 | **Accuracy(dev)** | **Accuracy(test)** | **Marks** | **Grade** |
-| 17.7 | 24 | 0   | F  |
-| 18 | 25 | 55  | D  |
-| 19 | 26 | 60  | C- |
-| 20 | 27 | 65  | C  |
-| 21 | 28 | 70  | C+ |
-| 22 | 29 | 75  | B- |
-| 23 | 30 | 80  | B  |
-| 25 | 31 | 85  | B+ |
-| 27 | 33 | 90  | A- |
+| 17.8 | 24 | 0   | F  |
+| 19 | 26 | 55  | D  |
+| 20 | 27 | 60  | C- |
+| 21 | 28 | 65  | C  |
+| 22 | 29 | 70  | C+ |
+| 24 | 30 | 75  | B- |
+| 26 | 32 | 80  | B  |
+| 26.5 | 33 | 85  | B+ |
+| 27 | 33.5 | 90  | A- |
 | 27.5 | 34 | 95  | A  |
-| 28 | 35 | 100 | A+ |
+| 28 | 34.5 | 100 | A+ |
 {: .table}
 
 
