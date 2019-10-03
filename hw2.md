@@ -69,7 +69,7 @@ annotators for this dataset might be a phrase, e.g. `alcohol_free`
 is a substitute for `dry` in the second example above.
 
 This task is closely related to the task of identifying the different
-_word senses_ of the target word. 
+[_word senses_](https://en.wikipedia.org/wiki/Word-sense_disambiguation) of the target word. 
 
 The dataset we will be using in this homework was collected by
 asking humans to provide words (and sometimes phrases) as substitutes
