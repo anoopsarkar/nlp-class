@@ -106,6 +106,29 @@ as your solution:
     python3 zipout.py
     python3 check.py
 
+The default solution will look for the file `glove.6B.100d.magnitude`
+in the data directory. 
+
+You can either download the word vectors file from:
+
+    http://magnitude.plasticity.ai/glove/medium/glove.6B.100d.magnitude
+
+Or you can use the same file directly on CSIL from the following directory:
+
+    /usr/shared/CMPT/classes/nlp-class/lexsub/glove.6B.100d.magnitude
+
+Please do not copy over the file into your CSIL directory as it is
+quite large and you can go over your disk quota. Instead modify
+`default.py` to use the full path to the above file which is
+accessible on the CSIL machines or use the command line option
+for `default.py` to access the word vectors.
+
+    python3 default.py -w /usr/shared/CMPT/classes/nlp-class/lexsub/glove.6B.100d.magnitude > output.txt
+
+And then you can check the score on the dev output file called `output.txt` by running:
+
+    python3 lexsub_check.py
+
 Make sure that the command line options are kept as they are in
 `default.py`. You can add to them but you must not delete any
 command line options that exist in `default.py`.
@@ -114,28 +137,23 @@ Submitting the default solution without modification will get you
 zero marks.
 
 The default solution produces 10 candidates for each lexical
-substitution and if any of them match the substitute word
+substitution and if any of them match the substitute words
 preferred by a group of human annotators then that substitution
 is marked as correct.
 
-The overall score reported is the Accuracy score over the
-entire data set.
+The overall score reported is the precision score over the entire
+data set which is described in detail in the Accuracy section below.
 
-Your solution should also produce 10 guesses for each lexical
-substitution.
+Your solution should produce exactly 10 guesses for each lexical
+substitution just like the default solution.
 
 ## The Challenge
 
-Your task is to _improve the Accuracy as much as possible_ which is explained
-in detail in the Accuracy section below. You must use the pre-trained
-word vector file that has been provided to you. You can either
-download this file from:
-
-    http://magnitude.plasticity.ai/glove/medium/glove.6B.100d.magnitude
-
-Or you can use the same file directly on CSIL from the following directory:
-
-    /usr/shared/CMPT/classes/nlp-class/lexsub/glove.6B.100d.magnitude
+Your task is to _improve the accuracy as much as possible_. The
+score is explained in detail in the Accuracy section below. You can
+only use the pre-trained word vectors file that has been provided
+to you as described in the `Default solution` section above.
+You cannot use any other word vectors or word embeddings.
 
 ## Data files
 
