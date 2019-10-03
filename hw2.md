@@ -211,11 +211,6 @@ accuracy on the dev set:
     dev.out score: 27.01
     test.out score: 33.00
 
-By careful analysis of the output (even without any knowledge of
-the Chinese language) should give you some further ideas to consolidate
-certain types of characters into words based on regularity how they
-combine into words in the training set.
-
 ## Submit your homework on Coursys
 
 Once you are done with your homework submit all the relevant materials
