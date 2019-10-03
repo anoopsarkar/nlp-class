@@ -394,9 +394,9 @@ Your F-score should be equal to or greater than the score listed for the corresp
 | 37 | 39 | 75  | B- |
 | 38 | 39.5 | 80  | B  |
 | 40 | 40 | 85  | B+ |
-| 42 | 41 | 90  | A- |
-| 45 | 43 | 95  | A  |
-| 50 | 46 | 100 | A+ |
+| 45 | 43 | 90  | A- |
+| 55 | 48 | 95  | A  |
+| 60 | 50 | 100 | A+ |
 {: .table}
 
 The score will be normalized to the marks on Coursys for the dev and test scores.
