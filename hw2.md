@@ -3,11 +3,11 @@ layout: default
 img: word_vectors_small
 img_link: https://nlp.stanford.edu/projects/glove/
 caption: "Banded structures are visible in this visualization of word vectors"
-title: "Homework | Lexical Substitution using Word Vectors"
+title: "Homework | Lexical Substitution"
 active_tab: homework
 ---
 
-# Homework 2: Lexical Substitution using Word Vectors
+# Homework 2: Lexical Substitution
 
 <span class="text-info">Start on {{ site.hwdates[2].startdate }}</span> |
 <span class="text-warning">Due on {{ site.hwdates[2].deadline }}</span>
@@ -50,28 +50,32 @@ command to get started with your development for the homework:
 ## Background
 
 In this homework we will be exploring the task of finding a suitable
-substitution for a target word in a sentence. For example, in the following
-set of sentences the word **dry** can be replaced with different words
-provided in the second column. Either _evaporate_, or _arid_ or _dry_
-can be suitable replacements for the word **dry** depending on the
-sentential context. 
+substitution for a target word in a sentence. For example, in the
+following set of sentences the word **dry** can be replaced with
+different words provided in the second column. Either `dull`, or
+`teetotal` or `parched` can be suitable replacements for the word
+**dry** depending on the context.
 
-| clinical trials burn money fast , putting companies in a precarious position if they do n't get definitive results before their bank accounts run **dry** | evaporate |
-| surprisingly in such a **dry** continent as australia , salt becomes a problem when there is too much water . | arid |
-| for people who knew him , it was typical of his **dry** humor , but some in the audience thought he was tipsy . | wry |
+| 16  | the problem is , aari seems to have no memory of their love other than a **dry** recitation as if he is reading a script of who he is supposed to be . | dull boring soulless uninteresting flat |
+| 29  | she proved that in two years in illinois they had voted ninety-six towns **dry** , and that at that rate we would soon get over montana and have it dry . | alcohol_free teetotal | 
+| 5   | if the mixture is too **dry** , add some water ; if it is too soft, add some flour . |  parched unmoistened desiccated stodgy |
 {: .table}
 
-In some cases a phrase might have to be replaced,
-e.g. _run dry_ has to be replaced with _evaporate_ in the first
-example above.
+The first column is the index of the target word (also shown in
+bold-face in the examples above) which we need to substitute with
+another word/phrase that is a suitable replacement in the context
+of this sentence. In some cases the substitute provided by human
+annotators for this dataset might be a phrase, e.g. `alcohol_free`
+is a substitute for `dry` in the second example above.
 
 This task is closely related to the task of identifying the different
 _word senses_ of the target word. 
 
-The dataset we will be using in this homework was collected by asking
-humans to provide words as substitutes for particular target words.
-They were provided with the full sentence so that they can choose
-the substitute word based on the context.
+The dataset we will be using in this homework was collected by
+asking humans to provide words (and sometimes phrases) as substitutes
+for particular target words.  They were provided with the full
+sentence so that they can choose the substitute word based on the
+context.
 
 The data we will be using for this homework is taken from the
 following shared task data:
@@ -83,9 +87,9 @@ task specifically for this homework. Your task will be to provide
 10 guesses as to the appropriate substitute word and if any of the
 10 guesses match the substitute word preferred by the human annotator
 it will be considered correct. We will be using a simplified form
-of the `oot` modal evaluation score from the above paper where 10
-guesses are allowed without any penalty and scored against the human
-preferred lexical substitution.
+of the various evaluation scores provided in the above paper. Your
+program  will be allowed 10 guesses and we check if any of them
+match the set of words provided by the human annotators.
 
 This homework will explore the use of word vectors aka word
 embeddings for this task. We will be using a pre-trained collection
@@ -197,19 +201,14 @@ evaluate your output on the test input after the submission deadline.
 The default solution gets a very poor F-score on the dev and test set:
 
     $ python3 check.py
-    dev.out score: 17.79
-    test.out score: 24.00
-
-Implementing a greedy search gets an F-score of 0.66 on dev
-while the Baseline method with unigram counts gets 0.89 on
-the dev set.
+    dev.out score: 27.8920
+    test.out score: 36.0000
 
 Implementing the Baseline method should give you an improved
 accuracy on the dev set:
 
     $ python3 check.py
-    dev.out score: 27.01
-    test.out score: 33.00
+    dev.out score: 40.5167
 
 ## Submit your homework on Coursys
 
@@ -253,24 +252,25 @@ The grading is split up into the following components:
 * test scores (see Table below)
 * iPython notebook write-up 
    * Make sure that you are not using any external data sources in your solution. You must only use the provided word vector file.
+   * Make sure you have implemented retrofitting yourself.
+   * Do **not** submit the retrofitted word vector file but you should provide a script that produces the retrofitted `.magnitude` word vectors used by your Baseline solution.
 * Check if each group member has a `answer/README.username`.
 
 Your F-score should be equal to or greater than the score listed for the corresponding marks.
 
 | **Accuracy(dev)** | **Accuracy(test)** | **Marks** | **Grade** |
-| 17.8 | 24 | 0   | F  |
-| 19 | 26 | 55  | D  |
-| 20 | 27 | 60  | C- |
-| 21 | 28 | 65  | C  |
-| 22 | 29 | 70  | C+ |
-| 24 | 30 | 75  | B- |
-| 26 | 32 | 80  | B  |
-| 26.5 | 33 | 85  | B+ |
-| 27 | 33.5 | 90  | A- |
-| 27.5 | 34 | 95  | A  |
-| 28 | 34.5 | 100 | A+ |
+| 28 | 36 | 0   | F  |
+| 30 | 37 | 55  | D  |
+| 32 | 37.5 | 60  | C- |
+| 33 | 38 | 65  | C  |
+| 35 | 38.5 | 70  | C+ |
+| 37 | 39 | 75  | B- |
+| 38 | 39.5 | 80  | B  |
+| 39 | 40 | 85  | B+ |
+| 40 | 41 | 90  | A- |
+| 45 | 43 | 95  | A  |
+| 50 | 46 | 100 | A+ |
 {: .table}
-
 
 The score will be normalized to the marks on Coursys for the dev and test scores.
 
