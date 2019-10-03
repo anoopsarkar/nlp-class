@@ -167,7 +167,7 @@ In addition you must use the pre-trained word vectors from `glove.6B.100d.magnit
 ## Baseline 
 
 The baseline method is what you should implement first before you
-explore additional improvements to improve the Accuracy.
+explore additional improvements to improve your score.
 
 First, we will implement _retrofitting_ to combine the information
 about word senses from Wordnet in order to modify the default word vectors.
@@ -198,12 +198,19 @@ To check your accuracy on the dev set:
 
     python3 check.py
 
-The output score is the accuracy of picking the right substitute word
-for each word in context as selected by a group of human annotators.
-Your program is provided 10 guesses to get the right substitute word.
-The guesses are not assumed to be ordered by any score. The
-output is considered correct so long as the word chosen by the
-annotators exists in the set of 10 guesses.
+The output score is a precision score where you get 10 guesses for
+each example in the dataset but you are not penalized for getting
+any guess wrong.  For each example $i$ in the dataset, let $H_i$
+be the set of substitutes provided by the human annotators for the
+given target word. There can be upto 5 different words (or phrases)
+in the set $H_i$.  Your output for example $i$ consists of 10 guesses
+which we represent as the set $O_i$. If the intersection of these
+two sets $H_i \cap O_i$ is non empty we increment the count of true
+positives $tp$. If the intersection is empty we increment the false
+positives counter $fp$. The _score_ for this task is then defined as the
+precision score $P$:
+
+$$P = \frac{tp}{tp + fp}$$
 
 For more options:
 
@@ -276,7 +283,7 @@ The grading is split up into the following components:
 
 Your F-score should be equal to or greater than the score listed for the corresponding marks.
 
-| **Accuracy(dev)** | **Accuracy(test)** | **Marks** | **Grade** |
+| **Score(dev)** | **Score(test)** | **Marks** | **Grade** |
 | 28 | 36 | 0   | F  |
 | 30 | 37 | 55  | D  |
 | 32 | 37.5 | 60  | C- |
