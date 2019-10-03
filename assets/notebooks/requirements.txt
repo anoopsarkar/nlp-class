@@ -1,3 +1,4 @@
+pymagnitude
 numpy
 scipy
 matplotlib

@@ -57,7 +57,7 @@
 - title: "Language models"
   tag: lm
   include: true
-  current: true
+  current: false
   notes:
     - title: "Language models"
       url: "assets/slides/lm.pdf"
@@ -100,6 +100,15 @@
       title: "Log-linear models, MEMMs and CRFs"
       url: "http://www.cs.columbia.edu/~mcollins/crf.pdf"
       download: "assets/mcollins-notes/crf.pdf"
+- title: "Word Vectors"
+  tag: w2v
+  include: true
+  current: true
+  notes: 
+    - title: "Vector space models"
+      url: "assets/cached/slp3/vector1.pdf
+    - title: "Word2Vec"
+      url: "assets/cached/slp3/vector2.pdf
 - title: "Feedforward neural networks"
   tag: ff
   include: true
