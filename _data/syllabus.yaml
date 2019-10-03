@@ -106,9 +106,9 @@
   current: true
   notes: 
     - title: "Vector space models"
-      url: "assets/cached/slp3/vector1.pdf
+      url: "assets/cached/slp3/vector1.pdf"
     - title: "Word2Vec"
-      url: "assets/cached/slp3/vector2.pdf
+      url: "assets/cached/slp3/vector2.pdf"
 - title: "Feedforward neural networks"
   tag: ff
   include: true
