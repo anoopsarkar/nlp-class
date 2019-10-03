@@ -172,8 +172,8 @@ explore additional improvements to improve the Accuracy.
 First, we will implement _retrofitting_ to combine the information
 about word senses from Wordnet in order to modify the default word vectors.
 
-But the sky's the limit! You are welcome to design your own model, as long 
-as you have implemented the Baseline model first.
+You are welcome to design your own model, as long as you have
+implemented the Baseline model first.
 
 ## Required files
 
