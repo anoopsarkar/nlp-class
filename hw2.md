@@ -238,7 +238,7 @@ did for this homework in `answer/README.username`.
 
 ### Upload to Coursys
 
-Go to `Homework 1` on Coursys and do a group submission:
+Go to `Homework 2` on Coursys and do a group submission:
 
 * Upload `output.zip` and `source.zip`
 * Make sure you have documented your approach in `answer/lexsub.ipynb`.
