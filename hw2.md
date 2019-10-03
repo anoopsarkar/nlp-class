@@ -172,8 +172,110 @@ explore additional improvements to improve your score.
 First, we will implement _retrofitting_ to combine the information
 about word senses from Wordnet in order to modify the default word vectors.
 
+### Retrofitting Word Vectors with Semantic Lexicons
+
+Information about word senses can be found in many semantic lexicons.
+The most widely used hand-curated semantic lexicon for the English
+language is the [Wordnet](https://wordnet.princeton.edu) ontology.
+
+For instance, if you search Wordnet for the word
+[dry](http://wordnetweb.princeton.edu/perl/webwn?s=dry&sub=Search+WordNet&o2=&o0=1&o8=1&o1=1&o7=&o5=&o9=&o6=&o3=&o4=&h=)
+you will see the various semantic relations of _dry_ with other
+words captured in Wordnet.  
+
+![Wordnet search for dry]({{ site.baseurl }}/assets/img/drywordnet.png "Synonym sets for dry on Wordnet"){:height="50%" width="50%"}
+
+Of the many semantic relations in Wordnet
+the most useful to us for this task is that we can identify various
+groups of words with similar meanings. These groups of words are
+called _synsets_ (short for synonym sets). However, how do we use
+these semantic relations to augment the word representations we
+have in our pre-trained word vectors?  This is where retrofitting
+can be useful. The idea is to use the semantic relations from an
+ontology like Wordnet and modify or retrofit the word vectors to
+use that information. This can make the word vectors more useful
+for tasks like lexical substitution which depend on knowledge of
+various senses of the target word.
+
+To explain how retrofitting works we need to work with some notation.
+Let $w_i, w_j$ be words from the vocabulary $V$. Let ${\cal O}$ be
+an ontology (for example, Wordnet) that encodes semantic relations
+between words as described in the example above. We represent 
+the ontology as an undirected graph $(V, E)$ with one vertex $v \in V$
+for each word type and edges $(w_i, w_j) \in V \subseteq V \times V$
+indicating some semantic relationship.
+
+The word vectors for our vocabulary $V$ can be represented by a
+matrix $\hat{Q}$ which has columns $(\hat{q}_1, \ldots, \hat{q}_n)$
+where $|V| = n$ so $\hat{q}_i$ is the word vector for word $w_i$.
+This matrix of word vectors $\hat{Q}$ has been provided to you as
+a pre-trained model (the 100 dimensional GloVe word vectors provided
+above).
+
+The objective of retrofitting is to use the ontology graph ${\cal O}$
+in order to learn a matrix $Q = (q_1, \ldots, q_n)$ such that the
+columns of the matrix $Q$ are close (in vector space) to the word vectors in $\hat{Q}$
+(so $q_i$ is close to $\hat{q}_i$) and at the same time the columns
+of the matrix $Q$ are close (in vector space) to the word vectors
+of other words that are adjacent vertices in ${\cal O}$. So if $(w_i, w_j)$
+are connected by an edge in the ontology then we want $q_i$ and $q_j$ to
+be close in vector space. Retrofitting involves combining these two
+criteria to modify the word vectors for the words in our vocabulary.
+
+For example the following figure shows how the semantic relations in
+the ontology (the edges between the white nodes) can be used to learn new
+word vectors (the white nodes) can relate various pre-trained word vectors 
+(the grey nodes).
+
+![Word graph image]({{ site.baseurl }}/assets/img/retrofit.png "Word graph with edges between related words showing the observed (grey) and the inferred (white) word vector representations."){:height="50%" width="50%"}
+
+The distance between two word vectors is represented by the Euclidean distance.
+Our objective function $L$ for finding $Q$ can be written as: 
+
+$$ L(Q) = \sum_{i=1}^n \left[ \alpha_i || q_i - \hat{q}_i ||^2 + \sum_{(i,j) \in E} \beta_{ij} || q_i - q_j ||^2 \right] $$
+
+The algorithm to find $Q$ is as follows:
+
+- Initialize $Q$ to be equal to the vectors in $\hat{Q}$
+- For iterations $t = 1 \ldots T$
+    - Take the derivative of $L(Q)$ wrt each $q_i$ word vector and assign it to zero to get an update:
+
+        $$ q_i = \frac{\sum_{j:(i,j) \in E} \beta_{ij} q_j + \alpha_i \hat{q}_i}{\sum_{j:(i,j) \in E} \beta_{ij} + \alpha_i} $$
+
+In practice set $T = 10$ which should correspond to changes in Euclidean distance of adjacent vertices of roughly $10^{-2}$.
+At first, set $\alpha_i = 1$ for all $i$ and $\beta_{ij} = 1$ for all $i,j$. You can try different weighting schemes
+to see if you get an improvement.  
+
+### Background Reading
+
+For more details read the original paper that introduced the
+idea of retrofitting word vectors:
+
+> [Retrofitting Word Vectors to Semantic Lexicons](https://www.aclweb.org/anthology/N15-1184/). Faruqui et. al. NAACL 2015.
+
+You can also view the source code that implements retrofitting on
+GitHub:
+
+> [https://github.com/mfaruqui/retrofitting](https://github.com/mfaruqui/retrofitting)
+
+You can view the implementation but you must implement the algorithm
+yourself and apply it to the lexical substitution task.
+
 You are welcome to design your own model, as long as you have
-implemented the Baseline model first.
+implemented the Baseline model first. One possible extension is
+to use the context words around the target word to find a better
+guess for the substitute word.
+
+### Incorporating Context Words
+
+You should also augment the default solution to incorporate the
+context around the target word to find better substitute words. You
+can use the approach in the following, but do not use their contextual
+embeddings. You must still only use the GloVe embeddings provided
+to you.
+
+> [A Simple Word Embedding Model for Lexical Substitution](https://www.aclweb.org/anthology/W15-1501/). Oren Melamud, Omer Levy, Ido Dagan. 1st Workshop on Vector Space Modeling for NLP.
+
 
 ## Required files
 
@@ -291,8 +393,8 @@ Your F-score should be equal to or greater than the score listed for the corresp
 | 35 | 38.5 | 70  | C+ |
 | 37 | 39 | 75  | B- |
 | 38 | 39.5 | 80  | B  |
-| 39 | 40 | 85  | B+ |
-| 40 | 41 | 90  | A- |
+| 40 | 40 | 85  | B+ |
+| 42 | 41 | 90  | A- |
 | 45 | 43 | 95  | A  |
 | 50 | 46 | 100 | A+ |
 {: .table}
