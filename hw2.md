@@ -1,8 +1,8 @@
 ---
 layout: default
-img: word_vectors_small
-img_link: https://nlp.stanford.edu/projects/glove/
-caption: "Banded structures are visible in this visualization of word vectors"
+img: 20news_tsne
+img_link: https://lvdmaaten.github.io/tsne/
+caption: "t-Distributed Stochastic Neighbor Embedding (t-SNE) is a technique that is commonly used for the visualization of high-dimensional data such as 100d or 300d word vectors."
 title: "Homework | Lexical Substitution"
 active_tab: homework
 ---
@@ -161,8 +161,42 @@ The data files provided are:
 
 * `data/input` -- input files `dev.txt` and `test.txt`
 * `data/reference/dev.out` -- the reference output for the `dev.txt` input file
+* `data/lexicons` -- lexicon files that contain the word-word relations used for the Baseline method described below
 
 In addition you must use the pre-trained word vectors from `glove.6B.100d.magnitude`.
+
+`pymagnitude` is the Python library you must use to access the word vectors in `glove.6B.100d.magnitude`.
+It is already in `requirements.txt` so if you have set up your virtual environment correctly
+you should be able to run:
+
+    python3
+    >>> from pymagnitude import *
+    >>> wv = Magnitude("data/glove.6B.100d.magnitude")
+    >>> len(wv) # how many words in this word vector file
+    400000
+    >>> wv.dim # the dimensionality of each word vector
+    100
+    >>> wv.most_similar("cat", topn=5)
+    [('dog', 0.87980753), ('rabbit', 0.7424427), ('cats', 0.7323004), ('monkey', 0.72887105), ('pet', 0.719014)]
+
+The following code snippet prints out the first 5 components of the word vector for 10 words out of the 
+entire vocabulary:
+
+    >>> for key, vector in wv[:10]:
+    ...     print(key, vector[:5])
+    ...
+    the [-0.0065612 -0.0420655  0.1250817 -0.0686479  0.0142879]
+    , [-0.0193882  0.0199032  0.1077039 -0.0978882  0.1213604]
+    . [-0.0622309  0.0383524  0.0848841 -0.1186634 -0.0702856]
+    of [-0.0242819 -0.0385573  0.1426693  0.0269912  0.0849883]
+    to [-0.0294079  0.0077549  0.0295846 -0.0076247 -0.0139113]
+    and [-0.012695   0.0408041  0.004187  -0.0893432  0.0598521]
+    in [ 0.0140624 -0.0364279  0.0271868  0.0219427  0.0627435]
+    a [-0.043387   0.007049  -0.0032453 -0.0278637  0.1032215]
+    " [-0.0462585 -0.0359123  0.0266947 -0.1106516 -0.0430477]
+    's [ 0.0883406 -0.0303955  0.1102929 -0.1025762 -0.0295324]
+
+More information is available on the [Magnitude](https://github.com/plasticityai/magnitude) GitHub page.
 
 ## Baseline 
 
@@ -242,9 +276,46 @@ The algorithm to find $Q$ is as follows:
 
         $$ q_i = \frac{\sum_{j:(i,j) \in E} \beta_{ij} q_j + \alpha_i \hat{q}_i}{\sum_{j:(i,j) \in E} \beta_{ij} + \alpha_i} $$
 
-In practice set $T = 10$ which should correspond to changes in Euclidean distance of adjacent vertices of roughly $10^{-2}$.
-At first, set $\alpha_i = 1$ for all $i$ and $\beta_{ij} = 1$ for all $i,j$. You can try different weighting schemes
-to see if you get an improvement.  
+In practice set $T = 10$ which should correspond to changes in
+Euclidean distance of adjacent vertices of roughly $10^{-2}$.  At
+first, set $\alpha_i = 1$ for all $i$ and $\beta_{ij} = 1$ for all
+$i,j$. You can try different weighting schemes to see if you get
+an improvement.
+
+See the `Data files` section above which explains how to iterate
+through the vocabulary using `pymagnitude` functions.
+
+Since `pymagnitude` only offers read-only access to word vectors
+you will have to write your retrofitted word vectors to a file with
+the word as first column followed by a space delimited list of 100
+floating point numbers. For example, one line of this file will
+look like this:
+
+    the -0.038194 -0.24487 ...97 numbers here... 0.27062
+
+Once you have written the retrofitted word vectors to this text file you can convert it into a `pymagnitude` format
+using the pymagnitude convertor:
+
+    $ python3 -m pymagnitude.converter -i data/glove.6B.100d.retrofit.txt -o data/glove.6B.100d.retrofit.magnitude
+    Detected GloVe format! Converting to word2vec format first...(this may take some time)
+    Loading vectors... (this may take some time)
+    Found 400000 key(s)
+    Each vector has 100 dimension(s)
+    Creating magnitude format...
+    Writing vectors... (this may take some time)
+    0% completed
+    1% completed
+    ...
+    ...
+    99% completed
+    Committing written vectors... (this may take some time)
+    ...
+    ...
+    Successfully converted '/var/folders/.../...txt' to 'data/glove.6B.100d.retrofit.magnitude'!
+
+You can use your retrofitted word vectors with the code in `default.py`
+or an augmented version of `default.py` that uses better methods
+to find the 10 substitute words for each target word.
 
 ### Background Reading
 
