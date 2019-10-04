@@ -179,8 +179,8 @@ you should be able to run:
     >>> wv.most_similar("cat", topn=5)
     [('dog', 0.87980753), ('rabbit', 0.7424427), ('cats', 0.7323004), ('monkey', 0.72887105), ('pet', 0.719014)]
 
-The following code snippet prints out the first 5 components of the word vector for 10 words out of the 
-entire vocabulary:
+The following code snippet prints out the first 5 components of the
+word vector for 10 words out of the entire vocabulary:
 
     >>> for key, vector in wv[:10]:
     ...     print(key, vector[:5])
@@ -196,7 +196,27 @@ entire vocabulary:
     " [-0.0462585 -0.0359123  0.0266947 -0.1106516 -0.0430477]
     's [ 0.0883406 -0.0303955  0.1102929 -0.1025762 -0.0295324]
 
-More information is available on the [Magnitude](https://github.com/plasticityai/magnitude) GitHub page.
+More information is available on the
+[Magnitude](https://github.com/plasticityai/magnitude) GitHub page.
+
+The lexicon files are as follows:
+
+* `framenet.txt`: from the [Framenet](https://framenet.icsi.berkeley.edu/fndrupal/) project
+* `ppdb-xl.txt`: from the [PPDB](http://paraphrase.org) project
+* `wordnet-synonyms+.txt`: from [Wordnet](https://wordnet.princeton.edu/)
+* `wordnet-synonyms.txt`: smaller set of synonyms from [Wordnet](https://wordnet.princeton.edu/) for use during development
+
+Each file contains a list of words that are assumed to be semantically
+related to each other. If you consider each ontology as a graph
+then each line in the above files represents an edge between each
+pair of words on that line.  For example, the line:
+
+    faulty incorrect wrong defective
+
+tells that that there is an undirected graph edge representing a
+semantic relation between each pair of words on this line, e.g.
+`faulty-incorrect`, `faulty-defective`, `incorrect-defective`, and
+so on.
 
 ## Baseline 
 
