@@ -365,7 +365,7 @@ can use the approach in the following, but do not use their contextual
 embeddings. You must still only use the GloVe embeddings provided
 to you.
 
-> [A Simple Word Embedding Model for Lexical Substitution](https://www.aclweb.org/anthology/W15-1501/). Oren Melamud, Omer Levy, Ido Dagan. 1st Workshop on Vector Space Modeling for NLP.
+> [A Simple Word Embedding Model for Lexical Substitution](https://www.aclweb.org/anthology/W15-1501/). Oren Melamud, Omer Levy, Ido Dagan. 1st Workshop on Vector Space Modeling for NLP. 2015.
 
 
 ## Required files
