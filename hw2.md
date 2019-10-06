@@ -117,6 +117,11 @@ Or you can use the same file directly on CSIL from the following directory:
 
     /usr/shared/CMPT/classes/nlp-class/lexsub/glove.6B.100d.magnitude
 
+There is also a text file available that is compatible with
+[gensim](https://radimrehurek.com/gensim/). 
+
+    /usr/shared/CMPT/classes/nlp-class/lexsub/glove.6B.100d.txt
+
 Please do not copy over the file into your CSIL directory as it is
 quite large and you can go over your disk quota. Instead modify
 `default.py` to use the full path to the above file which is
@@ -165,9 +170,10 @@ The data files provided are:
 
 In addition you must use the pre-trained word vectors from `glove.6B.100d.magnitude`.
 
-`pymagnitude` is the Python library you must use to access the word vectors in `glove.6B.100d.magnitude`.
-It is already in `requirements.txt` so if you have set up your virtual environment correctly
-you should be able to run:
+`pymagnitude` is the Python library to use in order to access the
+word vectors in `glove.6B.100d.magnitude`.  It is already in
+`requirements.txt` so if you have set up your virtual environment
+correctly you should be able to run:
 
     python3
     >>> from pymagnitude import *
@@ -276,10 +282,13 @@ are connected by an edge in the ontology then we want $q_i$ and $q_j$ to
 be close in vector space. Retrofitting involves combining these two
 criteria to modify the word vectors for the words in our vocabulary.
 
-For example the following figure shows how the semantic relations in
-the ontology (the edges between the white nodes) can be used to learn new
-word vectors (the white nodes) can relate various pre-trained word vectors 
-(the grey nodes).
+For example, the following figure shows how the semantic relations
+in the ontology (the edges between the white nodes) can be used to
+learn new retrofitted word vectors (the white nodes). For each word
+the figures shows a link between the white node for that word (which
+represents the retrofitted word vectors we wish to learn) and the
+grey node for the same word (which comes from the pre-trained word
+vectors).
 
 ![Word graph image]({{ site.baseurl }}/assets/img/retrofit.png "Word graph with edges between related words showing the observed (grey) and the inferred (white) word vector representations."){:height="50%" width="50%"}
 
@@ -326,16 +335,18 @@ using the pymagnitude convertor:
     0% completed
     1% completed
     ...
-    ...
     99% completed
     Committing written vectors... (this may take some time)
     ...
-    ...
     Successfully converted '/var/folders/.../...txt' to 'data/glove.6B.100d.retrofit.magnitude'!
 
+If you are using `gensim` you can directly load up the retrofitted
+text file or convert it into the `gensim` binary format.
+
 You can use your retrofitted word vectors with the code in `default.py`
-or an augmented version of `default.py` that uses better methods
-to find the 10 substitute words for each target word.
+or an augmented version of `default.py` that uses a better method
+to find the 10 substitute words for each target word (described
+below in the `Incorporating Context Words` section).
 
 ### Background Reading
 
