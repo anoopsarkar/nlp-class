@@ -115,12 +115,12 @@ You can either download the word vectors file from:
 
 Or you can use the same file directly on CSIL from the following directory:
 
-    /usr/shared/CMPT/classes/nlp-class/lexsub/glove.6B.100d.magnitude
+    /usr/shared/CMPT/courses/nlp-class/lexsub/glove.6B.100d.magnitude
 
 There is also a text file available that is compatible with
 [gensim](https://radimrehurek.com/gensim/). 
 
-    /usr/shared/CMPT/classes/nlp-class/lexsub/glove.6B.100d.txt
+    /usr/shared/CMPT/courses/nlp-class/lexsub/glove.6B.100d.txt
 
 Please do not copy over the file into your CSIL directory as it is
 quite large and you can go over your disk quota. Instead modify
@@ -128,7 +128,7 @@ quite large and you can go over your disk quota. Instead modify
 accessible on the CSIL machines or use the command line option
 for `default.py` to access the word vectors.
 
-    python3 default.py -w /usr/shared/CMPT/classes/nlp-class/lexsub/glove.6B.100d.magnitude > output.txt
+    python3 default.py -w /usr/shared/CMPT/courses/nlp-class/lexsub/glove.6B.100d.magnitude > output.txt
 
 And then you can check the score on the dev output file called `output.txt` by running:
 
