@@ -109,6 +109,9 @@
       url: "assets/cached/slp3/vector1.pdf"
     - title: "Word2Vec (Jurafsky and Martin)"
       url: "assets/cached/slp3/vector2.pdf"
+    - title: "Singular Value Decomposition for NLP"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/svd.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/svd.ipynb"
 - title: "Feedforward neural networks"
   tag: ff
   include: true
