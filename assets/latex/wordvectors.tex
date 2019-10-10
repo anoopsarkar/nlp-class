@@ -97,16 +97,39 @@ The amount of variance captured by the first $k$ dimensions is given by
 \includegraphics[scale=.38]{figures/wordvectors/reducedim}	
 \end{frame}
 
+\begin{frame}
+\frametitle{Why SVD is not the ideal solution}
+\begin{itemize}[<+->]
+	\item Computational complexity is high ${\cal O}(|V|^3)$
+	\item Cannot be trained as part of a larger model. 
+	\item It is not a component that can be part of a larger neural network
+	\item Cannot be trained discriminatively for a particular task
+\end{itemize}
+\end{frame}
+
 \section{Word2Vec}
 \frame{\tableofcontents[currentsection]}
 
 \begin{frame}
-\frametitle{Word2Vec: Continuous Bag of Words}
+\frametitle{Word2Vec}
 \begin{itemize}[<+->]
 	\item Word2Vec is a family of model + learning algorithm
 	\item The goal is to learn dense word vectors
-	\item 
 \end{itemize}
+\pause
+\begin{alertblock}{Continuous bag of words}
+	\begin{itemize}[<+->]
+		\item Takes the average of the context; predicts the target word
+		\item Trained with gradient descent on cross entropy loss for word prediction 
+	\end{itemize}
+\end{alertblock}
+\pause
+\begin{alertblock}{Skip-gram}
+	\begin{itemize}[<+->]
+		\item Considers each context word independently and constructs (target-word, context-word) pairs
+		\item Trained trained using negative sampling and loss on predicting good vs.\ bad pairs
+	\end{itemize}
+\end{alertblock}
 \end{frame}
 
 \begin{frame}
