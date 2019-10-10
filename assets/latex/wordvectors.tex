@@ -1,0 +1,207 @@
+\input{beamerpreamble.tex}
+\begin{document}
+\input{titlepage.tex}
+
+\lecture{Word Vectors}{}
+
+\section{One-hot vectors}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{One-hot vectors}
+\begin{itemize}[<+->]
+\item Let $|V|$ be the size of the vocabulary
+\item Assign each word to a unique index from $1 \ldots |V|$
+\item e.g. {\em aarvark} is $1$, {\em a} is $2$, etc.
+\item Represent each word as as a $\mathbb{R}^{|V|\times 1}$
+\item The vector has one at index $i$ and all other values are $0$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{One-hot vectors}
+\framesubtitle{Figure from \cite{cs224n}}
+\begin{center}
+\includegraphics[scale=.45]{figures/wordvectors/onehot}	
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{One-hot vectors}
+\begin{itemize}[<+->]
+\item Problems with similarity over one-hot vectors 
+\item Consider similarity between words as dot product between their word vectors:
+\[ w_{\textrm{cat}} \cdot w_{\textrm{dog}} = 
+w_{\textrm{joker}} \cdot w_{\textrm{dog}} = 
+0 \]
+\item Idea: reduce the size of the large sparse one-hot vector
+\item Embed large sparse vector into a dense subspace.
+\end{itemize}
+\end{frame}
+
+\section{Singular Value Decomposition}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{Window based co-occurrence matrix}
+\begin{itemize}[<+->]
+\item Assume a window around each word (window size 2, 5, $\ldots$)
+\item Collect co-occurrence counts for each pair of words in the vocabulary.
+\item Create a matrix $X$ where each element $X_{i,j} = c(w_i, w_j)$
+\item $c(w_i, w_j)$ is the number of times we observe word $w_i$ and $w_j$ together
+\item $X$ is going to be very sparse (lots of zeroes)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Window based co-occurrence matrix}
+\begin{center}
+\includegraphics[scale=.45]{figures/wordvectors/docs}	
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Window based co-occurrence matrix}
+\begin{center}
+\includegraphics[scale=.4]{figures/wordvectors/wcm}	
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Singular Value Decomposition}
+\begin{itemize}[<+->]
+\item Collect $X = |V| \times |V|$ word co-occurrence matrix.
+\item Apply SVD on $X$ to get $X = U S V^T$
+\pause
+\begin{block}{Transpose}
+Transpose of $V$ is $V^T$ which switches the row and column of $V$
+\end{block}
+\item Select first $k$ columns of $U$ to get $k$-dimensional vectors
+\item The matrix $S$ is a diagonal matrix with entries $\sigma_1, \ldots, \sigma_i, \ldots, \sigma_{|V|}$
+\end{itemize}
+\pause 
+\begin{alertblock}{Variance}
+The amount of variance captured by the first $k$ dimensions is given by
+\[ \frac{\sum_{i=1}^k \sigma_i}{\sum_{i=1}^{|V|} \sigma_i} \]\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dimensionality reduction with SVD}
+\framesubtitle{Figure from \cite{cs224n}}
+\includegraphics[scale=.38]{figures/wordvectors/svdapply}	
+\end{frame}
+
+\begin{frame}
+\frametitle{Dimensionality reduction with SVD}
+\framesubtitle{Figure from \cite{cs224n}}
+\includegraphics[scale=.38]{figures/wordvectors/reducedim}	
+\end{frame}
+
+\section{Word2Vec}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{Word2Vec: Continuous Bag of Words}
+\begin{itemize}[<+->]
+	\item Word2Vec is a family of model + learning algorithm
+	\item The goal is to learn dense word vectors
+	\item 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Word2Vec: Continuous Bag of Words}
+\begin{alertblock}{CBOW}
+\begin{tabbing}
+the \= general \= commanded \= the \= troops\kill \\
+the \> general \> \rlap{\underline{\hphantom{commanded}}} \> the \> troops
+\end{tabbing}
+Predicting a center word from the surrounding words \\
+(also window-based)
+\end{alertblock}
+\pause 
+\begin{block}{For each word we want to learn two vectors:}
+\begin{itemize}
+	\item $v_i \in \mathbb{R}^k$ (input vector) when the word $w_i$ is in the context
+	\item $u_i \in \mathbb{R}^k$ (output vector) when the word $u_i$ is in the center 
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Word2Vec: Continuous Bag of Words}
+\begin{block}{Algorithm}
+\begin{tabbing}
+the \= general \= commanded \= the \= troops\kill \\
+the \> general \> \rlap{\underline{\hphantom{commanded}}} \> the \> troops \\
+$v_{\textrm{the}}$ \> $v_{\textrm{general}}$ \> \> $v_{\textrm{the}}$ \> $v_{\textrm{troops}}$ 
+\end{tabbing}
+\begin{itemize}[<+->]
+	\item Average the context vectors:
+	\[ \hat{v} = \frac{v_{\textrm{the}} + v_{\textrm{general}} + v_{\textrm{the}} + v_{\textrm{troops}}}{4} \]
+	\item For each word $i \in V$ we have a word vector $u_i \in \mathbb{R}^k$
+	\item Compute the dot product $z_i = u_i \cdot \hat{v}$
+	\item Convert $z_i \in \mathbb{R}$ into a probability:
+	\[ \hat{y}_i = \frac{exp(z_i)}{\sum_{k=1}^{|V|} exp(z_k)} \]
+	\item If the correct center word is $w_i$ then the max should be $\hat{y}_i$.
+\end{itemize}	
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Word2Vec: Continuous Bag of Words}
+\begin{tabbing}
+the \= general \= commanded \= the \= troops\kill \\
+the \> general \> \rlap{\underline{\hphantom{commanded}}} \> the \> troops \\
+$v_{\textrm{the}}$ \> $v_{\textrm{general}}$ \> \> $v_{\textrm{the}}$ \> $v_{\textrm{troops}}$ 
+\end{tabbing}
+\begin{itemize}[<+->]
+	\item Average the context vectors to get $\hat{v}$
+	\item Let matrix $U = [ u_1, \ldots, u_{|V|} ] \in \mathbb{R}^{|V| \times k}$ with word vectors $u_i \in \mathbb{R}^k$
+	\item Compute the matrix product $z = U \cdot \hat{v}$ where $z = [ z_1, \ldots, z_{|V|} ] \in \mathbb{R}^{|V|}$ and each $z_i \in \mathbb{R}$
+	\item Compute vector $\hat{y} \in \mathbb{R}^{|V|}$. Each element $\hat{y}_i = \frac{exp(z_i)}{\sum_{k=1}^{|V|} exp(z_k)} $
+	\item We write this as $\hat{y} = \textrm{softmax}(z)$
+	\item If the correct center word is $w_i$ then the ideal output $y$ is a one-hot vector with index $i$ as 1 and all other elements are 0.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Word2Vec: Continuous Bag of Words}
+\begin{block}{Learning}
+\begin{itemize}[<+->]
+	\item Goal: learn each $k$-dimensional word vector $u_i, v_i$ for each $i = 1, \ldots |V|$
+	\item For each training example the correct center word is represented as a one-hot vector $y$ where the word index is 1 and everything else is 0.
+	\item $\hat{y} = \textrm{softmax}(U \cdot \hat{v})$ where $\hat{v}$ is the average of the context words
+	\item Loss function is the cross entropy:
+	\[ H(\hat{y}, y) = - \sum_{j=1}^{|V|} y_j \log(\hat{y}_j) \]
+\end{itemize}	
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{CBOW Loss Function}
+\framesubtitle{Figure from \cite{melamud16}}
+\includegraphics[scale=.45]{figures/wordvectors/cbowloss}	
+\end{frame}
+
+\begin{frame}
+\setbeamertemplate{bibliography item}[text]
+\begin{thebibliography}{10}
+
+\bibitem{cs224n}
+\alert{Christopher Manning, Richard Socher, Francois Chaubard, Michael Fang, Guillaume Genthial, Rohit Mundra.}
+\newblock {Natural Language Processing with Deep Learning: Word Vectors I: Introduction, SVD and Word2Vec}
+\newblock Winter 2019.
+
+
+\bibitem{melamud16}
+\alert{O. Melamud and J. Goldberger and I. Dagan}
+\newblock context2vec: Learning Generic Context Embedding with Bidirectional LSTM.
+\newblock CoNLL 2016.
+\end{thebibliography}
+\end{frame}
+
+\input{acknowledgements.tex}
+
+\end{document}
+
