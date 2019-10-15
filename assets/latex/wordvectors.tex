@@ -192,11 +192,13 @@ $v_{\textrm{the}}$ \> $v_{\textrm{general}}$ \> \> $v_{\textrm{the}}$ \> $v_{\te
 \frametitle{Word2Vec: Continuous Bag of Words}
 \begin{block}{Learning}
 \begin{itemize}[<+->]
-	\item Goal: learn each $k$-dimensional word vector $u_i, v_i$ for each $i = 1, \ldots |V|$
-	\item For each training example the correct center word is represented as a one-hot vector $y$ where the word index is 1 and everything else is 0.
+	\item Goal: learn $k$-dimensional word vectors $u_i, v_i$ for each $i = 1, \ldots |V|$
+	\item For each training example the correct center word $w_j$ is represented as a one-hot vector $y$ where $y_j = 1$.
 	\item $\hat{y} = \textrm{softmax}(U \cdot \hat{v})$ where $\hat{v}$ is the average of the context words
 	\item Loss function is the cross entropy:
-	\[ H(\hat{y}, y) = - \sum_{j=1}^{|V|} y_j \log(\hat{y}_j) \]
+	\[ H(\hat{y}, y) = - \log(\hat{y}_j) \textrm{ for $j$ where $y_j = 1$} \]
+	\item If $c$ is the index of the correct word, consider case where prediction $\hat{y}_c = 0.99$ then the loss or penalty is low $H(\hat{y}, y) = 1 \cdot \log(0.99) = 0.01$
+	\item If the prediction was bad $\hat{y}_c = 0.01$ then the loss is high $H(\hat{y}, y) = 1 \cdot \log(0.01) = 4.6$
 \end{itemize}	
 \end{block}
 \end{frame}
@@ -206,6 +208,74 @@ $v_{\textrm{the}}$ \> $v_{\textrm{general}}$ \> \> $v_{\textrm{the}}$ \> $v_{\te
 \framesubtitle{Figure from \cite{melamud16}}
 \includegraphics[scale=.45]{figures/wordvectors/cbowloss}	
 \end{frame}
+
+\begin{frame}
+\frametitle{Gradient descent}
+\begin{block}{Objective function}
+\begin{eqnarray*}
+\lefteqn{\textrm{Minimize } J } \\
+& = & - \log P(u_c \mid \hat{v}) \\
+& = & - u_c \cdot \hat{v} + \log \sum_{j=1}^{|V|} exp(u_j \cdot \hat{v})
+\end{eqnarray*}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Gradient descent}
+\begin{itemize}[<+->]
+\item Initialize $u^{(0)}$ and $v^{(0)}$ 
+\item $J(u,v) = - u_c \cdot \hat{v} + \log \sum_{j=1}^{|V|} exp(u_j \cdot \hat{v})$
+\item $t \leftarrow 0$
+\item Iterate to minimize loss $H(\hat{y}, y)$ on each training example:
+\begin{itemize}[<+->]
+\item Pick a training example at random
+\item Calculate: 
+\begin{eqnarray*}
+	\hat{y} &=& \textrm{softmax}(U \cdot \hat{v}) \\
+	\Delta_u &=& \left. \frac{d J(u,v)}{d u}  \right|_{u,v = u^{(t)}, v^{(t)}} \\
+	\Delta_v &=& \left. \frac{d J(u,v)}{d v}  \right|_{u,v = u^{(t)}, v^{(t)}}
+\end{eqnarray*}
+\item Using a learning rate $\gamma$ find new parameter values:
+\begin{eqnarray*}
+	\textbf{u}^{(t+1)} &\leftarrow& \textbf{u}^{(t)} - \gamma \Delta_u \\
+	\textbf{v}^{(t+1)} &\leftarrow& \textbf{v}^{(t)} - \gamma \Delta_v
+\end{eqnarray*}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{GloVe}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{GloVe}
+\begin{alertblock}{Co-occurrence matrix}
+Let $X$ denote the word-word co-occurrence matrix.\\
+$X_{ij}$ is number of times word $j$ occurs in the context of word $i$.\\
+Let $X_i = \sum_k X_{ik}$ \\
+And $P_{ij} = P(w_j \mid w_i) = \frac{X_{ij}}{X_i}$	
+\end{alertblock}
+\pause
+\begin{alertblock}{Least-squares objective}
+Probability that word $j$ occurs in context of word $i$:
+\[ Q_{ij} = \frac{exp(u_j \cdot v_i)}{\sum_{w=1}^{|V|} exp(u_w \cdot v_i) } \]
+Compute global cross-entropy loss:
+\[ J = - \sum_{i=1}^{|V|} \sum_{j=1}^{|V|} X_{ij} \log Q_{ij} \]
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{GloVe}
+\begin{alertblock}{Simplify objective function}
+\[ J = - \sum_{i=1}^{|V|} \sum_{j=1}^{|V|} X_{ij} \log Q_{ij} \]
+The distribution $Q_{ij}$ requires an expensive normalization over the entire vocabulary.
+So we simplify $J$ to $\hat{J}$:
+\[ \hat{J} = - \sum_{i=1}^{|V|} \sum_{j=1}^{|V|} X_i ( X_{ij} - \exp(u_j \cdot v_i) )^2 \]
+The GloVe model efficiently leverages global statistical information by training only on the nonzero elements in a word-word co-occurrence matrix.
+\end{alertblock}
+\end{frame}
+
 
 \begin{frame}
 \setbeamertemplate{bibliography item}[text]
