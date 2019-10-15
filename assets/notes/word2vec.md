@@ -53,6 +53,25 @@ $$ \hat{y} = \textrm{softmax}( U \cdot \hat{v} ) $$
 1. Write down the definition of matrix $U$ in terms of the parameters $u_w$ for each $w \in V$
 2. Write down the dimensions of matrix $U$
 
+### Question 5
+
+The sigmoid function maps input values into $[0,1]$. 
+
+$$ \sigma(x) = \frac{1}{1 + exp(-x)} $$
+
+We can define a two class classifier using the sigmoid:
+
+$$P(Y=1 \mid x) = \sigma(\beta x)$$
+$$P(Y=2 \mid x) = 1 - P(Y=1 \mid x)$$
+
+Instead of two classes assume we have $k$ output labels, $Y = 1, \ldots k$
+We can use the softmax function for this:
+
+$$P(Y=i \mid x) = \frac{exp(\beta_i x)}{\sum_j exp(\beta_j x)}$$
+
+Show that for $k=2$ these two definitions: the softmax and the sigmoid
+are equivalent with $\beta$ in the sigmoid function being equal to $- (\beta_1 - \beta_2)$
+in the softmax function over two classes $Y=1,2$.
 
 ### Acknowledgements
 
