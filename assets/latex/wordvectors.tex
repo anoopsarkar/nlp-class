@@ -197,8 +197,8 @@ $v_{\textrm{the}}$ \> $v_{\textrm{general}}$ \> \> $v_{\textrm{the}}$ \> $v_{\te
 	\item $\hat{y} = \textrm{softmax}(U \cdot \hat{v})$ where $\hat{v}$ is the average of the context words
 	\item Loss function is the cross entropy:
 	\[ H(\hat{y}, y) = - \log(\hat{y}_j) \textrm{ for $j$ where $y_j = 1$} \]
-	\item If $c$ is the index of the correct word, consider case where prediction $\hat{y}_c = 0.99$ then the loss or penalty is low $H(\hat{y}, y) = 1 \cdot \log(0.99) = 0.01$
-	\item If the prediction was bad $\hat{y}_c = 0.01$ then the loss is high $H(\hat{y}, y) = 1 \cdot \log(0.01) = 4.6$
+	\item If $c$ is the index of the correct word, consider case where prediction $\hat{y}_c = 0.99$ then the loss or penalty is low $H(\hat{y}, y) = - 1 \cdot \log(0.99) = 0.01$
+	\item If the prediction was bad $\hat{y}_c = 0.01$ then the loss is high $H(\hat{y}, y) = - 1 \cdot \log(0.01) = 4.6$
 \end{itemize}	
 \end{block}
 \end{frame}
