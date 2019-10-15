@@ -153,7 +153,7 @@
   notes:
     - title: "Formal Ambiguity"
       url: "assets/slides/ambiguity.pdf"
-    - title: "In-class exercise on CFGs"
+    - title: "Exercise on CFGs"
       url: "assets/handouts/cfgquiz.pdf"
     - title: "Context-free grammars notebook"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/cfg.ipynb"
@@ -318,7 +318,7 @@
       title: "Edit distance"
       url: "assets/slides/editdist.pdf"
     - author: Blake Allen and Patrick Littell
-      title: "In-class exercise: Levenshtein's Fine Signs"
+      title: "Exercise: Levenshtein's Fine Signs"
       url: "assets/notes/N2014-C.pdf"
     - title: "In class exercise: aw-TOM-uh-tuh"
       author: "Patrick Littell"
