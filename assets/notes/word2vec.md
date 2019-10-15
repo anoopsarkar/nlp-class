@@ -57,7 +57,7 @@ $$ \hat{y} = \textrm{softmax}( U \cdot \hat{v} ) $$
 
 The sigmoid function maps input values into $[0,1]$. 
 
-$$ \sigma(x) = \frac{1}{1 + exp(-x)} $$
+$$ \sigma(z) = \frac{1}{1 + exp(-z)} $$
 
 We can define a two class classifier using the sigmoid:
 
