@@ -488,17 +488,17 @@ The grading is split up into the following components:
 Your F-score should be equal to or greater than the score listed for the corresponding marks.
 
 | **Score(dev)** | **Score(test)** | **Marks** | **Grade** |
-| 28 | 36   | 0   | F  |
-| 30 | 37   | 55  | D  |
+| 28 | 36 | 0   | F  |
+| 30 | 37 | 55  | D  |
 | 32 | 37.5 | 60  | C- |
-| 33 | 38   | 65  | C  |
+| 33 | 38 | 65  | C  |
 | 35 | 38.5 | 70  | C+ |
-| 37 | 39   | 75  | B- |
+| 37 | 39 | 75  | B- |
 | 38 | 39.5 | 80  | B  |
-| 40 | 40   | 85  | B+ |
-| 42 | 40.5 | 90  | A- |
-| 48 | 41   | 95  | A  |
-| 60 | 42   | 100 | A+ |
+| 40 | 40 | 85  | B+ |
+| 45 | 43 | 90  | A- |
+| 55 | 48 | 95  | A  |
+| 60 | 50 | 100 | A+ |
 {: .table}
 
 The score will be normalized to the marks on Coursys for the dev and test scores.
