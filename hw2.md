@@ -274,7 +274,8 @@ above).
 
 The objective of retrofitting is to use the ontology graph ${\cal O}$
 in order to learn a matrix $Q = (q_1, \ldots, q_n)$ such that the
-columns of the matrix $Q$ are close (in vector space) to the word vectors in $\hat{Q}$
+columns of the matrix $Q$ are close (in vector space) to the word vectors in 
+$\hat{Q} = (\hat{q}_1, \ldots, \hat{q}_n)$
 (so $q_i$ is close to $\hat{q}_i$) and at the same time the columns
 of the matrix $Q$ are close (in vector space) to the word vectors
 of other words that are adjacent vertices in ${\cal O}$. So if $(w_i, w_j)$

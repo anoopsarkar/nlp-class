@@ -72,7 +72,56 @@ Show that for $k=2$ these two definitions: the softmax and the sigmoid
 are equivalent with $\beta$ in the sigmoid function being equal to $- (\beta_1 - \beta_2)$
 in the softmax function over two classes $Y=1,2$.
 
+### Question 5
+
+Let us assume we have an English dataset of sentences:
+
+
+    We have all seen how President Obama has made research and development a key plank of his stimulus package. 
+    If you're a pirate fan, it's time to make those pitiful black-clad landlubbers walk the plank. 
+    ...
+
+And a French dataset of sentences:
+
+    Nous avons tous vu comment le président Obama a fait de la recherche et du développement un des piliers de ses mesures de relance.
+    Si vous avez l'âme d'un pirate, vous vous ferez un plaisir de pousser ces gars en pyjama noir sur la planche.  
+    ...
+
+The English and French sentences are not necessarily translations of each other. Also assume we have
+a bilingual dictionary that provides pairs of words in English and French which are translations 
+of each other:
+
+    plank, piliers
+    plank, planche
+
+Assume you have been given a word2vec model for English $\hat{Q}^E$ with
+parameters $v_i^E$ and $u_i^E$ for each English word $w_i \in {\cal
+V}_E$ where ${\cal V}_E$ is the English vocabulary. Similarly we
+have a word2vec model for French $\hat{Q}^F$ with parameters $v_j^F$ and $u_j^F$
+for each French word $w_j \in {\cal V}_F$ where ${\cal V}_F$ is the
+French vocabulary.
+
+The retrofitting objective for matrix $Q$ and $\hat{Q}$ is
+given by the following objective function $L(Q)$ where there is some semantic
+relation edge ${\cal E}$ between words $w_i$ and $w_j$. We wish to find a matrix
+$Q = (q_1, \ldots, q_n)$ such that the
+columns of the matrix $Q$ are close (in vector space) to the word vectors in $\hat{Q} = (\hat{q}_1, \ldots, \hat{q}_n)$
+(so $q_i$ is close to $\hat{q}_i$) and at the same time the columns
+of the matrix $Q$ are close (in vector space) to the word vectors
+of other words connected via an edge ${\cal E}$. So if $(w_i, w_j)$
+are connected by an edge then we want $q_i$ and $q_j$ to be close in vector space. 
+
+$$ L(Q) = \sum_{i=1}^n \left[ \alpha_i || q_i - \hat{q}_i ||^2 + \sum_{(i,j) \in {\cal E}} \beta_{ij} || q_i - q_j ||^2 \right] $$
+
+1. Provide a new retrofitting objective function $L_E(Q_E)$ by using the word2vec models for English and French. The objective function $L_E(Q_E)$ should ensure that 
+English words that were close in vector space in $Q_E$ remain close but are also close in vector space to their translation pairs in the bilingual dictionary. For example,
+if English words `plank` and `deal` were close in vector space in $\hat{Q}_E$ they should remain close in $Q_E$, and at the same time
+if `plank` was listed as a translation pair with `piliers` then their respective word vectors should be close in vector space as well.
+2. Provide the initialization step for $Q_E$.
+3. Provide a similar retrofitting objective function and initialization step for French $L_F(Q_F)$.
+
+
 ### Acknowledgements
 
-Some of these questions are modified versions of questions from the Stanford University course cs224n.
+The first few questions here are modified versions of questions from the Stanford University course cs224n.
 
