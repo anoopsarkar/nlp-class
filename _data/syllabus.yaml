@@ -114,6 +114,8 @@
     - title: "Singular Value Decomposition for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/svd.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/svd.ipynb"
+    - title: "Exercise: word2vec"
+      url: "assets/notes/word2vec.html"
 - title: "Feedforward neural networks"
   tag: ff
   include: true
