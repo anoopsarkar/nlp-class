@@ -62,6 +62,7 @@ $$ \sigma(x) = \frac{1}{1 + exp(-x)} $$
 We can define a two class classifier using the sigmoid:
 
 $$P(Y=1 \mid x) = \sigma(\beta x)$$
+
 $$P(Y=2 \mid x) = 1 - P(Y=1 \mid x)$$
 
 Instead of two classes assume we have $k$ output labels, $Y = 1, \ldots k$
