@@ -465,6 +465,8 @@ You must have the following files or `zipsrc.py` will complain about it:
 In addition, each group member should write down a short description of what they
 did for this homework in `answer/README.username`.
 
+Make sure that your have updated your GitLab repository with your submission source code.
+
 ### Upload to Coursys
 
 Go to `Homework 2` on Coursys and do a group submission:
@@ -484,6 +486,7 @@ The grading is split up into the following components:
    * Make sure you have implemented retrofitting yourself.
    * Do **not** submit the retrofitted word vector file but you should provide a script that produces the retrofitted `.magnitude` word vectors used by your Baseline solution.
 * Check if each group member has a `answer/README.username`.
+* Make sure that your have updated your GitLab repository with your submission source code.
 
 Your F-score should be equal to or greater than the score listed for the corresponding marks.
 
