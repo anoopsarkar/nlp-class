@@ -37,20 +37,21 @@ Does it follow that for every $w \in V$ that $v_w^A = v_w^B$? Why or why not?
 ### Question 3
 
 For the continuous bag of words (CBOW) model of word2vec we use the average of
-the context vectors: 
+the context vectors for window size $m$: 
 
-$$\hat{v} = \frac{1}{2k} (v_{i-k} + \ldots + v_{i-1} + v_{i+1} + \ldots + v_{i+k}) $$
+$$\hat{v} = \frac{1}{2k} (v_{i-m} + \ldots + v_{i-1} + v_{i+1} + \ldots + v_{i+m}) $$
 
-Each $v_j$ is a word vector of dimension $d$. CBOW uses the following classifier to predict the "center" word:
+Each $v_j$ is a word vector of dimension $k$. CBOW uses the following classifier to predict the "center" word:
 
 $$ \hat{y} = \textrm{softmax}( U \cdot \hat{v} ) $$
 
-1. Write down the definition of matrix $U$ in terms of the parameters $u_w$ for each $w \in V$.
-2. Write down the dimensions of matrix $U$.
-3. Write down the dimension of the $\hat{y}$ vector.
-4. Briefly explain why we cannot use negative sampling to train this model.
+1. Write down the dimension of the $\hat{y}$ vector.
+2. Write down the value of $\sum_i \hat{y}_i$
+3. Write down the definition of matrix $U$ in terms of the parameters $u_w$ for each $w \in V$.
+4. Write down the dimensions of matrix $U$.
+5. Briefly explain why we cannot use negative sampling (without modification) to train this model.
 
-### Question 5
+### Question 4
 
 The sigmoid function maps input values into $[0,1]$. 
 
