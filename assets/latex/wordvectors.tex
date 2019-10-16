@@ -127,7 +127,7 @@ The amount of variance captured by the first $k$ dimensions is given by
 \begin{alertblock}{Skip-gram}
 	\begin{itemize}[<+->]
 		\item Considers each context word independently and constructs (target-word, context-word) pairs
-		\item Trained trained using negative sampling and loss on predicting good vs.\ bad pairs
+		\item Trained using negative sampling and loss on predicting good vs.\ bad pairs
 	\end{itemize}
 \end{alertblock}
 \end{frame}
@@ -257,9 +257,9 @@ Let $X_i = \sum_k X_{ik}$ \\
 And $P_{ij} = P(w_j \mid w_i) = \frac{X_{ij}}{X_i}$	
 \end{alertblock}
 \pause
-\begin{alertblock}{Least-squares objective}
+\begin{alertblock}{GloVe objective}
 Probability that word $j$ occurs in context of word $i$:
-\[ Q_{ij} = \frac{exp(u_j \cdot v_i)}{\sum_{w=1}^{|V|} exp(u_w \cdot v_i) } \]
+\[ Q_{ij} = \frac{exp(u_i \cdot v_j)}{\sum_{w=1}^{|V|} exp(u_w \cdot v_i) } \]
 Compute global cross-entropy loss:
 \[ J = - \sum_{i=1}^{|V|} \sum_{j=1}^{|V|} X_{ij} \log Q_{ij} \]
 \end{alertblock}
@@ -267,15 +267,25 @@ Compute global cross-entropy loss:
 
 \begin{frame}
 \frametitle{GloVe}
-\begin{alertblock}{Simplify objective function}
-\[ J = - \sum_{i=1}^{|V|} \sum_{j=1}^{|V|} X_{ij} \log Q_{ij} \]
-The distribution $Q_{ij}$ requires an expensive normalization over the entire vocabulary.
-So we simplify $J$ to $\hat{J}$:
-\[ \hat{J} = - \sum_{i=1}^{|V|} \sum_{j=1}^{|V|} X_i ( X_{ij} - \exp(u_j \cdot v_i) )^2 \]
-The GloVe model efficiently leverages global statistical information by training only on the nonzero elements in a word-word co-occurrence matrix.
+\begin{alertblock}{Cross Entropy Loss}
+\[ J = - \sum_{i=1}^{|V|} \sum_{j=1}^{|V|} \underbrace{X_{ij}}_{X_i P_{ij}} \log Q_{ij} \]
+ \[ \textrm{$X_{i,j} = X_i P_{ij}$ because: } P_{ij} = \frac{X_{ij}}{\sum_{k} X_{ik}} = \frac{X_{ij}}{X_i} \]
+\[ J = - \sum_i X_i \underbrace{\sum_j P_{ij} \log Q_{ij}}_{H(P_i, Q_i)} \]
+where $H$ is the cross entropy of $Q_{ij}$ which uses the parameters $u, v$ wrt the observed frequencies $P_{ij}$.
 \end{alertblock}
 \end{frame}
 
+
+\begin{frame}
+\frametitle{GloVe}
+\begin{alertblock}{Simplify objective function}
+ In the objective $- \sum_{ij} X_i \cdot P_{ij} \log Q_{ij}$ the distribution $Q_{ij}$ requires an expensive normalization over the entire vocabulary.\\
+Simplify $J$ to $\hat{J}$ using the squared error of the logs of $\hat{P}$ and $\hat{Q}$ without normalization:
+\[ \hat{J} = - \sum_{i,j=1}^{|V|} \underbrace{X_i}_{\textrm{replace with function $f(X_{ij})$}} \left( \log \underbrace{\hat{Q}_{ij}}_{exp(u_i \cdot v_j)} - \log \underbrace{\hat{P}_{ij}}_{X_{ij}} \right)^2 \]
+\[ \hat{J} = - \sum_{ij} f(X_{ij})  ( u_i \cdot v_j - \log X_{ij} )^2 \] 
+The GloVe model efficiently leverages global statistical information by training only on the nonzero elements in a word-word co-occurrence matrix.
+\end{alertblock}
+\end{frame}
 
 \begin{frame}
 \setbeamertemplate{bibliography item}[text]
