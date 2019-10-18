@@ -259,7 +259,7 @@ And $P_{ij} = P(w_j \mid w_i) = \frac{X_{ij}}{X_i}$
 \pause
 \begin{alertblock}{GloVe objective}
 Probability that word $j$ occurs in context of word $i$:
-\[ Q_{ij} = \frac{exp(u_i \cdot v_j)}{\sum_{w=1}^{|V|} exp(u_w \cdot v_i) } \]
+\[ Q_{ij} = \frac{exp(u_j \cdot v_i)}{\sum_{w=1}^{|V|} exp(u_w \cdot v_i) } \]
 Compute global cross-entropy loss:
 \[ J = - \sum_{i=1}^{|V|} \sum_{j=1}^{|V|} X_{ij} \log Q_{ij} \]
 \end{alertblock}
@@ -281,11 +281,69 @@ where $H$ is the cross entropy of $Q_{ij}$ which uses the parameters $u, v$ wrt 
 \begin{alertblock}{Simplify objective function}
  In the objective $- \sum_{ij} X_i \cdot P_{ij} \log Q_{ij}$ the distribution $Q_{ij}$ requires an expensive normalization over the entire vocabulary.\\
 Simplify $J$ to $\hat{J}$ using the squared error of the logs of $\hat{P}$ and $\hat{Q}$ without normalization:
-\[ \hat{J} = - \sum_{i,j=1}^{|V|} \underbrace{X_i}_{\textrm{replace with function $f(X_{ij})$}} \left( \log \underbrace{\hat{Q}_{ij}}_{exp(u_i \cdot v_j)} - \log \underbrace{\hat{P}_{ij}}_{X_{ij}} \right)^2 \]
-\[ \hat{J} = - \sum_{ij} f(X_{ij})  ( u_i \cdot v_j - \log X_{ij} )^2 \] 
+\[ \hat{J} = - \sum_{i,j=1}^{|V|} \underbrace{X_i}_{\textrm{replace with function $f(X_{ij})$}} \left( \log \underbrace{\hat{Q}_{ij}}_{exp(u_j \cdot v_i)} - \log \underbrace{\hat{P}_{ij}}_{X_{ij}} \right)^2 \]
+\[ \hat{J} = - \sum_{ij} f(X_{ij})  ( u_j \cdot v_i - \log X_{ij} )^2 \] 
 The GloVe model efficiently leverages global statistical information by training only on the nonzero elements in a word-word co-occurrence matrix.
 \end{alertblock}
 \end{frame}
+
+\section{Evaluation of Word Vectors}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+	\frametitle{Intrinsic Evaluation}
+	\begin{itemize}[<+->]
+		\item Evaluation on a specific intermediate task
+		\item Fast to compute performance
+		\item Helps us understand the model flaws and strengths
+		\item However can fool us into thinking our model is good at extrinsic tasks
+		\item {\it nokia} can be close to {\it samsung} but also to {\it finland} (Nokia is Finnish)
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Intrinsic Evaluation}
+	\begin{block}{a : b :: c : ?}
+	An intrinsic evaluation can be to identify the word vector which maximizes the cosine similarity for an analogy task:
+	\[ d = \textrm{argmax}_i \frac{ (x_b - x_a + x_c) \cdot x_i }{ \| x_b - x_a + x_c \| } \]	
+	we identify the vector $x_d$ which maximizes the normalized dot-product between the two word vectors (cosine similarity).	
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Intrinsic Evaluation}
+Obtain data from external source for validation e.g. geography data.
+	\centering
+	\includegraphics[scale=0.4]{figures/wordvectors/intrinsiceval1.png}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Extrinsic Evaluation}
+	\begin{itemize}[<+->]
+		\item Evaluation on a ``real'' task
+		\item Slow to compute performance
+		\item If the word vectors fail on this task it is often unclear exactly why
+		\item Can experiment with various training hyperparameters or model choices to improve task performance
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Parameters}
+	\begin{block}{}
+	Some parameters we can consider tuning on intrinsic evaluation tasks:
+	\begin{itemize}[<+->]
+		\item Dimension of word vectors
+		\item Corpus size
+		\item Corpus source / domain / type
+		\item Context window size
+		\item Context symmetry
+	\end{itemize}
+	Can you think of any other parameters to tune in a word vector model?
+	\end{block}
+\end{frame}
+
 
 \begin{frame}
 \setbeamertemplate{bibliography item}[text]

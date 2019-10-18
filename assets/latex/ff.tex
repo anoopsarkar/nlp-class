@@ -25,9 +25,9 @@ The feature representation $\textbf{f}(\textbf{x}, y)$ has to be designed by han
 \end{frame}
 
 \begin{frame}{Log linear model}
-\framesubtitle{Neubig notes 2018}
+\framesubtitle{Figure from \cite{Neubig2018}}
 \begin{block}{Disadvantages: number of combined features can explode}
-\includegraphics[scale=0.5]{figures/combinedfeats.png}
+\includegraphics[scale=0.5]{figures/ff/combinedfeats.png}
 \end{block}
 \end{frame}
 
@@ -73,31 +73,113 @@ For many tasks linear models are much faster to train compared to neural network
 \begin{itemize}[<+->]
 \item Replace $f(x)$ with $\phi(x;\theta) \in \mathbb{R}^d$ where $\theta$ are new parameters
 \item Parameters $\theta$ are learned from training data
-\item Using $\theta$ the model $\phi$ maps input $x$ to $\mathbb{R}^d$: a learned representation of $x$
-\item $x$ is assumed to be already represented as a vector of size $d$
+\item Using $\theta$ the model $\phi$ maps input $x$ to $\mathbb{R}^d$: a learned representation from $x$
+\item $x \in \mathbb{R}^d$ is a pre-trained vector of size $d$
 \item We will use feedforward neural networks to define $\phi(x;\theta)$
-\item $\phi(x;\theta)$ will be a \textbf{non-linear} mapping to $\mathbb{R}^d$ while $f$ is a \textbf{linear} model
+\item $\phi(x;\theta)$ will be a \textbf{non-linear} mapping to $\mathbb{R}^d$ 
+\item $\phi$ replaces $f$ which was a \textbf{linear} model
 \end{itemize}
 \end{frame}
 
-\begin{frame}{A Single Neuron \pause aka Perceptron}
+\begin{frame}{A Single Neuron aka Perceptron}
 \begin{block}{A single neuron maps input $x \in \mathbb{R}^d$ to output $h$:}
 \[ h = g(w \cdot x + b) \]
 \end{block}
 \begin{itemize}[<+->]
 \item Weight vector $w \in \mathbb{R}^d$, a bias $b \in \mathbb{R}$ are the parameters of the model learned from training data
-\item Transfer function $g : \mathbb{R} \rightarrow \mathbb{R}$
+\item \textit{Transfer function} (also called \textit{activation function}) 
+\[ g : \mathbb{R} \rightarrow \mathbb{R} \]
 \item It is important that $g$ is a \textbf{non-linear} transfer function
 \item Linear $g(z) = \alpha \cdot z + \beta$ for constants $\alpha, \beta$ \pause (linear perceptron)
 \end{itemize}
 \end{frame}
 
-\begin{frame}{The ReLU Transfer Function $[0,z]$}
+\begin{frame}{Activation Functions and their Gradients}
+\framesubtitle{from \cite{Goldberg2017}, Fig.\ 4.3}
 \begin{block}{}
 \centering
-\includegraphics[scale=0.6]{figures/relu.png}
+\includegraphics[scale=0.55]{figures/ff/activationfns.png}
 \end{block}
 \end{frame}
+
+%\begin{frame}{The ReLU Transfer Function $[0,z]$}
+%\begin{block}{}
+%\centering
+%\includegraphics[scale=0.6]{figures/relu.png}
+%\end{block}
+%\end{frame}
+
+%\begin{frame}{The tanh Transfer Function $[-1,1]$}
+%\begin{block}{}
+%\centering
+%\includegraphics[scale=0.6]{figures/tanh.png}
+%\end{block}
+%\end{frame}
+
+\begin{frame}{The sigmoid Transfer Function: $\sigma$}
+\begin{block}{sigmoid transfer function:}
+\[ g(z) = \frac{1}{1 - \textrm{exp}(z)} \]
+\end{block}
+
+\pause
+\begin{block}{Derivative of sigmoid:}
+\[ \frac{d g(z)}{dz} = g(z) (1 - g(z)) \]
+\end{block}
+\end{frame}
+ 
+\begin{frame}{The tanh Transfer Function}
+\begin{block}{tanh transfer function:}
+\[ g(z) = \frac {\textrm{exp}(2z) - 1}{\textrm{exp}(2z) + 1} \]
+\end{block}
+
+\pause
+\begin{block}{Derivative of tanh:}
+\[ \frac{d g(z)}{dz} = 1 - g(z)^2 \]
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Alternatives to tanh}
+
+\begin{alertblock}{hardtanh:}
+\[ g(z) = \left\{ \begin{array}{cc}
+ 	1 & \textrm{if $z > 1$} \\
+ 	-1 & \textrm{if $z < -1$} \\
+ 	z & \textrm{otherwise}
+ \end{array}
+ \right.
+\]
+\[ \frac{d g(z)}{dz} = \left\{ \begin{array}{cc}
+ 	1 & \textrm{if $-1 \leq z \leq 1$} \\
+ 	0 & \textrm{otherwise}
+ \end{array}
+ \right. \]
+\end{alertblock}
+
+\pause
+
+\begin{alertblock}{softsign:}
+\[ g(z) = \frac{z}{1 + |z|} \]
+\[ \frac{d g(z)}{dz} = \left\{ \begin{array}{cc}
+ 	\frac{1}{(1 + z)^2} & \textrm{if $z \geq 0$} \\
+ 	\frac{-1}{(1 + z)^2} & \textrm{if $z < 0$}
+ \end{array}
+ \right. \]
+\end{alertblock}
+\end{frame}
+
+%\begin{frame}{The tanh Transfer Function $[-1,1]$}
+%\begin{block}{}
+%\centering
+%\includegraphics[scale=0.6]{figures/tanh.png}
+%\end{block}
+%\end{frame}
+%\begin{frame}{tanh Gradient}
+%\begin{block}{}
+%\centering
+%\includegraphics[scale=0.6]{figures/tanhgradient.png}
+%\end{block}
+%\end{frame}
 
 \begin{frame}{The ReLU Transfer Function}
 \begin{block}{Rectified Linear Unit (ReLU):}
@@ -113,22 +195,57 @@ non-differentiable or undefined if $z = 0$ \\
 \end{block}
 \end{frame}
 
-\begin{frame}{The tanh Transfer Function $[-1,1]$}
-\begin{block}{}
+\begin{frame}{Desperately Seeking Transfer Functions}
+\framesubtitle{from \cite{Ramachandran2017}}
+\begin{block}{Enumeration of non-linear functions}
 \centering
-\includegraphics[scale=0.6]{figures/tanh.png}
+\includegraphics[scale=0.5]{figures/ff/novelfunctions1.png}
 \end{block}
 \end{frame}
 
-\begin{frame}{The tanh Transfer Function}
-\begin{block}{tanh transfer function:}
-\[ g(z) = \frac{e^{2z} - 1}{e^{2z} + 1} \]
+\begin{frame}{Desperately Seeking Transfer Functions}
+\framesubtitle{from \cite{Ramachandran2017}}
+\begin{block}{Enumeration of non-linear functions}
+\centering
+\includegraphics[scale=0.5]{figures/ff/novelfunctions2.png}
+\end{block}
+\end{frame}
+
+\begin{frame}{The Swish Transfer Function \cite{Ramachandran2017}}
+
+\begin{block}{Enumeration of activation functions:}
+Swish was the end result of comparing all the auto-generated activation functions for accuracy on standard datasets.
+\end{block}
+
+\begin{block}{Swish uses the sigmoid $\sigma$:}
+\[ g(z) = z \cdot \sigma(\beta z) \]
+\begin{itemize}[<+->]
+	\item If $\beta = 0$ then $g(z) = \frac{z}{2}$ \pause {\small (a linear function; so avoid this)}
+	\item If $\beta \rightarrow \infty$ then $g(z) = \textrm{ReLu}$
+\end{itemize}
 \end{block}
 
 \pause
-\begin{block}{Derivative of tanh:}
-\[ \frac{d g(z)}{dz} = 1 - g(z)^2 \]
+\begin{block}{Derivative of Swish:}
+\[ \frac{d g(z)}{dz} = \beta g(z) + \sigma(\beta z)(1 - \beta g(z)) \]
 \end{block}
+\end{frame}
+
+
+\begin{frame}{The Swish Transfer Function \cite{Ramachandran2017}}
+    \begin{figure}[ht]
+        \begin{minipage}[b]{0.45\linewidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ff/swish.png}
+            \caption{Swish transfer function with different values of $\beta$}
+        \end{minipage}
+        \hspace{0.2cm}
+        \begin{minipage}[b]{0.45\linewidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/ff/swishderivative.png}
+            \caption{First derivative of the Swish transfer function}
+        \end{minipage}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Derivatives w.r.t.\ parameters}
@@ -148,24 +265,9 @@ derivatives w.r.t.\ $b$:
 \end{block}
 \end{frame}
 
-\begin{frame}{tanh Gradient}
-\begin{block}{}
-\centering
-\includegraphics[scale=0.6]{figures/tanhgradient.png}
-\end{block}
-\end{frame}
-
-\begin{frame}{Activation Functions and their Gradients}
-\framesubtitle{from Goldberg 2017, Fig.\ 4.3}
-\begin{block}{}
-\centering
-\includegraphics[scale=0.55]{figures/activationfns.png}
-\end{block}
-\end{frame}
 
 \begin{frame}{Chain Rule of Differentiation}
-\begin{block}{}
-Introduce an intermediate variable $z \in \mathbb{R}$ 
+\begin{block}{Introduce an intermediate variable $z \in \mathbb{R}$}
 
 \[ z = w \cdot x + b \]
 \[ h = g(z) \]
@@ -239,43 +341,46 @@ where the dimensions are as follows (vector of size $m$ equals a matrix of size 
 \item A parameter matrix $W \in \mathbb{R}^{m \times d}$
 \item A vector $b \in \mathbb{R}^d$ of bias parameters
 \item A transfer function $g : \mathbb{R}^m \rightarrow \mathbb{R}^m$\\
-$g(z) = [ \ldots, \textrm{ReLU}(z_i), \ldots ]$ or $g(z) = [ \ldots, \textrm{tanh}(z_i), \ldots ]$ for $i = 1, \ldots, m$
+$g(z) = [ \ldots, \textrm{ReLU}(z_i), \ldots ]$ or \\
+$g(z) = [ \ldots, \textrm{tanh}(z_i), \ldots ]$ or \\
+$g(z) = [ \ldots, \sigma(z_i), \ldots ]$ or \\
+for $i = 1, \ldots, m$
 \end{itemize}
 \end{block}
 \end{frame}
 
 \begin{frame}{Single Layer Feedforward model (matrix form, continued)}
-\begin{block}{Define $\phi$ in matrix form:}
+\begin{block}{}
 \begin{itemize}[<+->]
 \item Vector of inputs to the hidden layer $z \in \mathbb{R}^m$: $z = Wx + b$
 \item Vector of outputs from hidden layer $h \in \mathbb{R}^m$: $h = g(z)$
 \item Define $\phi(x; \theta) = h$ where $\theta = (W, b)$
-\[ \phi(x; \theta) = g(Wx + b) \]
-\item Define $\textrm{softmax}_y(r) = \frac{exp(r_y)}{\sum_{y'} exp(r_{y'})}$ for $r \in \mathbb{R}^m$
+\item Define $\textrm{softmax}_y = \frac{exp(r_y)}{\sum_{y'} exp(r_{y'})}$ for $r_y = v(y) \cdot h + \gamma_y$
+\item Let $V = [ \ldots, v_y, \ldots ]$ for $y \in {\cal Y}$. $v_y \in \mathbb{R}^m$ so $V \in \mathbb{R}^{|{\cal Y}| \times m}$.
+\item Let $\Gamma = [ \ldots, \gamma_y, \ldots ]$ for $y \in {\cal Y}$. $\Gamma \in \mathbb{R}^{|{\cal Y}|}$.
 \end{itemize}
 \end{block}
 \pause
 \begin{block}{Putting it all together:}
 \begin{eqnarray*}
-\Pr(y \mid x; \theta, v) &=& \frac{exp\left(v(y) \cdot \phi(x;\theta) + \gamma_y \right)}{\sum_{y' \in {\cal Y}} exp\left(v(y') \cdot \phi(x;\theta) + \gamma_{y'})\right)} \\
- &=& \underbrace{\textrm{softmax}(\underbrace{v(y) \cdot \phi(x;\theta) + \gamma_y}_{\text{for each $y \in {\cal Y}$ an $\mathbb{R}$ value}})}_{\text{A vector of size $\mathbb{R}^{{\cal Y}}$ that sums to $1$}}
+%\Pr(y \mid x; \theta, v) &=& \frac{exp\left(v(y) \cdot \phi(x;\theta) + \gamma_y \right)}{\sum_{y' \in {\cal Y}} exp\left(v(y') \cdot \phi(x;\theta) + \gamma_{y'})\right)} \\
+ \underbrace{r}_{\pause\textrm{vector of size $|{\cal Y}|$}} &=& \underbrace{\textrm{softmax}(\underbrace{V \cdot \phi(x;\theta) + \Gamma}_{\pause \text{for each $y \in {\cal Y}$ an $\mathbb{R}$ value}})}_{\pause \text{A vector of size $\mathbb{R}^{{\cal Y}}$ that sums to $1$}}
 \end{eqnarray*}
 \end{block}
-
 \end{frame}
 
 \begin{frame}{Feedforward neural network}
 \begin{block}{}
 \centering
-\includegraphics[scale=0.4]{figures/ffnet.png}
+\includegraphics[scale=0.4]{figures/ff/ffnet.png}
 \end{block}
 \end{frame}
 
 \begin{frame}{n-gram Feedforward neural network}
-\framesubtitle{(Bengio and Schwenk 2013)}
+\framesubtitle{from \cite{Bengio2003}}
 \begin{block}{}
 \centering
-\includegraphics[scale=0.4]{figures/ngramfflm.png}
+\includegraphics[scale=0.4]{figures/ff/ngramfflm.png}
 \end{block}
 \end{frame}
 
@@ -300,6 +405,8 @@ $g(z) = [ \ldots, \textrm{ReLU}(z_i), \ldots ]$ or $g(z) = [ \ldots, \textrm{tan
 Set $v = (v(y), \gamma_y)$ for all $y$, and $\theta$ to random values
 \end{block}
 \end{frame}
+
+
 
 \begin{frame}{Gradient descent}
 \begin{block}{Algorithm:}
@@ -339,7 +446,7 @@ x^4 &=& [1,1], y^4 = -1
 
 \begin{frame}{Motivating example: the XOR problem}
 \begin{block}{}
-\includegraphics[scale=0.7]{figures/xorfig.png}
+\includegraphics[scale=0.7]{figures/ff/xorfig.png}
 \end{block}
 \end{frame}
 
@@ -391,7 +498,8 @@ such that:
 u \cdot [0,0] + \gamma &<& 0 \\
 u \cdot [1,0] + \gamma &>& 0 \\
 u \cdot [1,0] + \gamma &>& 0 \\
-u \cdot [2,1] + \gamma &<& 0 \end{eqnarray*}
+u \cdot [2,1] + \gamma &<& 0
+\end{eqnarray*}
 
 $u = [1, -2]$ and $\gamma = -0.5$ satisfies these constraints.
 \end{block}
@@ -399,9 +507,9 @@ $u = [1, -2]$ and $\gamma = -0.5$ satisfies these constraints.
 
 \begin{frame}{Solving the XOR problem}
 \begin{figure}
-   \includegraphics[width=0.475\textwidth]{figures/xorbefore.png}
+   \includegraphics[width=0.475\textwidth]{figures/ff/xorbefore.png}
    \hfill
-   \includegraphics[width=0.475\textwidth]{figures/xorafter.png}
+   \includegraphics[width=0.475\textwidth]{figures/ff/xorafter.png}
 \end{figure}
 \end{frame}
 
@@ -448,8 +556,8 @@ the function $(y^\ast - y)^2$.
 \end{frame}
 
 \begin{frame}{Computation graphs and automatic differentiation}
-\framesubtitle{Neubig notes 2018}
-\includegraphics[scale=0.5]{figures/compgraph.png}
+\framesubtitle{Figure from \cite{Neubig2018}}
+\includegraphics[scale=0.5]{figures/ff/compgraph.png}
 \end{frame}
 
 \begin{frame}{Computation graphs and automatic differentiation}
@@ -466,6 +574,37 @@ the gradients.
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\setbeamertemplate{bibliography item}[text]
+\begin{thebibliography}{10}
+
+\bibitem{Neubig2018}
+\alert{Graham Neubig}
+\newblock {Neural Networks for NLP}
+\newblock 2018.
+
+\bibitem{Goldberg2017}
+\alert{Yoav Goldberg}
+\newblock {Neural Network Methods for Natural Language Processing}
+\newblock 2017.
+
+\bibitem{Ramachandran2017}
+\alert{Prajit Ramachandran, Barret Zoph, Quoc V. Le}
+\newblock {Searching for Activation Functions}
+\newblock 2017.
+
+\bibitem{Glorot2010}
+\alert{Xavier Glorot, Yoshua Bengio}
+\newblock {Understanding the difficulty of training deep feedforward neural networks}
+\newblock 2010.
+
+\bibitem{Bengio2003}
+\alert{Yoshua Bengio, R\'ejean Ducharme, Pascal Vincent, Christian Jauvin}
+\newblock {A Neural Probabilistic Language Model}
+\newblock 2003.
+
+\end{thebibliography}
+\end{frame}
 
 \input{acknowledgements.tex}
 
