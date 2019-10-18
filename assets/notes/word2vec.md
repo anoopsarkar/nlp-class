@@ -69,7 +69,7 @@ We can use the softmax function for this:
 $$P(Y=i \mid x) = \frac{exp(\beta_i x)}{\sum_j exp(\beta_j x)}$$
 
 Show that for $k=2$ these two definitions: the softmax and the sigmoid
-are equivalent with $\beta$ in the sigmoid function being equal to $- (\beta_1 - \beta_2)$
+are equivalent with $\beta$ in the sigmoid function being equal to $(\beta_1 - \beta_2)$
 in the softmax function over two classes $Y=1,2$.
 
 ### Question 5
