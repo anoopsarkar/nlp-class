@@ -1,4 +1,4 @@
-pymagnitude
+pytest
 numpy
 scipy
 matplotlib
@@ -10,3 +10,4 @@ gensim
 jupyter_contrib_nbextensions
 jupyter_nbextensions_configurator
 jupyterthemes
+pymagnitude
