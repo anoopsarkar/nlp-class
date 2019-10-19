@@ -1,0 +1,52 @@
+---
+layout: default
+title: Log linear models
+active_tab: syllabus
+---
+
+## Log linear models
+
+### Question 1
+
+Consider the computation of the conditional log probability $\log \Pr(y \mid \textbf{x}; \textbf{v})$ where $\textbf{x}$ is the input to the classifier and $y$ is the output label from this classifier. 
+
+$$ \log \Pr(y \mid \textbf{x}; \textbf{v}) = \underbrace{\textbf{v} \cdot \textbf{f}(\textbf{x}, y)}_{\textrm{linear term}} - \underbrace{\log \sum_{y'} exp\left( \textbf{v} \cdot \textbf{f}(\textbf{x}, y') \right)}_{\textrm{normalization term}} $$
+
+Assume you have been given a trained model $\textbf{v}$. Can we replace the classifier with the following version at test time:
+
+$$ \log \Pr(y \mid \textbf{x}; \textbf{v}) = \textbf{v} \cdot \textbf{f}(\textbf{x}, y) $$
+
+Explain why or why not.
+
+### Question 2
+
+In order to define a log-linear model for a task we need a vector of size $k$ which are the features $\textbf{f}_k (x, y)$ for each output label $y \in {\cal Y}$. 
+Let $|{\cal Y}|$ be the number of output labels. Assume that the input $x$ is a single word from a vocabulary ${\cal V}$. 
+Define the feature vector to be a one-hot vector of size $|{\cal V}|$ associated with each output label $y$. 
+To create this one-hot vector each word is assigned an arbitrary number (assume the words are lexicographically sorted and assigned a number based on the sorted order). 
+Which of the following statements is true:
+$$
+\begin{eqnarray}
+k &=& |{\cal V}| + |{\cal Y}| \\
+k &=& |{\cal V}| \times |{\cal Y}| \\
+|{\cal V}| &=& k \times |{\cal Y}| \\
+|{\cal V}| &=& \frac{k}{|{\cal Y}|} \\
+|{\cal Y}| &=& \frac{k}{|{\cal V}|} \\
+|{\cal Y}| &=& \frac{|{\cal V}|}{k}
+\end{eqnarray}
+$$
+
+### Question 3
+
+Consider the following pseudo-code for finding $\textrm{argmax}_y$ from $\log \Pr(y \mid \textbf{x}; \textbf{v})$ where the input $\textbf{x}$, the parameters $\textbf{v}$ are given as input and the set of possible labels ${\cal Y}$ are given.
+
+- define $\textrm{argmax}_y$($\textbf{x}$, $\textbf{v}$, ${\cal Y}$)
+    - $m \leftarrow \infty$ (in Python: `float("inf")`)
+    - for $y \in {\cal Y}$:
+        - $s \leftarrow - \log \Pr(y \mid \textbf{x}; \textbf{v})$
+        - if $s < m$ then:
+            - $m \leftarrow s$
+            - return $y$
+
+Is the pseudo-code correct? If not, provide the correct pseudo-code.
+
