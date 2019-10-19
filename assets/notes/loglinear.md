@@ -30,9 +30,11 @@ $$
 k &=& |{\cal V}| + |{\cal Y}| \\
 k &=& |{\cal V}| \times |{\cal Y}| \\
 |{\cal V}| &=& k \times |{\cal Y}| \\
+|{\cal V}| &=& k \times \log( |{\cal Y}| ) \\
 |{\cal V}| &=& \frac{k}{|{\cal Y}|} \\
 |{\cal Y}| &=& \frac{k}{|{\cal V}|} \\
-|{\cal Y}| &=& \frac{|{\cal V}|}{k}
+|{\cal Y}| &=& \frac{|{\cal V}|}{k} \\
+|{\cal Y}| &=& \frac{\log( |{\cal V}| )}{k} 
 \end{eqnarray}
 $$
 
