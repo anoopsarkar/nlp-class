@@ -94,6 +94,8 @@
     - title: "Log-linear Models"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/loglinear.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/loglinear.ipynb"
+    - title: "Exercise: Log linear models"
+      url: "assets/notes/loglinear.html"
     - title: "Exercise: Linear combinations"
       url: "assets/notes/linearb.html"
     - author: Michael Collins
