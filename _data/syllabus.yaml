@@ -126,7 +126,7 @@
     - title: "Feedforward networks and XOR"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/ff.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/ff.ipynb"
-    - title: "In class exercise: Nothing but Net(works)"
+    - title: "Exercise: Nothing but Net(works)"
       author: Tom McCoy
       url: "http://www.nacloweb.org/resources/problems/2017/N2017-H.pdf"
     - author: Michael Collins
@@ -146,42 +146,29 @@
       url: "http://cs231n.github.io/neural-networks-3/"
       author: "Andrej Karpathy"
       optional: true
-- title: Ambiguity
-  tag: cfg
+- title: "Neural Network Models and Training"
+  tag: dl4nlp
   include: true
   current: false
   notes:
-    - title: "Formal Ambiguity"
-      url: "assets/slides/ambiguity.pdf"
-    - title: "Exercise on CFGs"
-      url: "assets/handouts/cfgquiz.pdf"
-    - title: "Context-free grammars notebook"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/cfg.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/cfg.ipynb"
+    - title: "Natural Language Understanding with Distributed Representation"
+      author: "Kyunghyun Cho"
+      url: "http://arxiv.org/abs/1511.07916"
+    - title: "A Primer on Neural Networks for NLP"
+      author: Yoav Goldberg
+      url: "http://u.cs.biu.ac.il/~yogo/nnlp.pdf" 
   links:
-    - author: Michael Collins
-      title: "Probabilistic Context-free Grammars"
-      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/pcfgs.pdf"
-      download: "assets/mcollins-notes/pcfgs.pdf"
-    - author: Michael Collins
-      title: "Lexicalized Context-free Grammars"
-      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lexpcfgs.pdf"
-      download: "assets/mcollins-notes/lexpcfgs.pdf"
-    - title: "Exercise: Grammar Rules!"
-      author: "Andrea Schalley and Patrick Littell"
-      url: "http://nacloweb.org/resources/problems/2013/N2013-F.pdf"
+    - title: "Deep Learning for MT Winter School"
+      url: "http://dl4mt.computing.dcu.ie/"
       optional: true
-    - title: "Exercise: Twodee"
-      author: "Jason Eisner"
-      url: "http://www.naclo.cs.cmu.edu/problems2013/N2013-H.pdf"
+    - title: "Visualizing Optimization Algorithms"
+      author: "Alec Radford"
+      url: "http://imgur.com/a/Hqolp"
       optional: true
-    - title: "Exercise: One, Two, Tree"
-      author: "Noah Smith, Kevin Gimpel, and Jason Eisner"
-      url: "http://www.naclo.cs.cmu.edu/problems2012/N2012-R.pdf"
-      optional: true
-    - title: "Exercise: OrwellSpeak"
-      author: "Jason Eisner"
-      url: "http://www.naclo.cs.cmu.edu/problems2009/N2009-M.pdf"
+    - title: "Learning representations by back-propagating errors"
+      author: "Rumelhart, Hinton and Williams"
+      citation: "Nature, 1986"
+      url: "https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf"
       optional: true
 - title: "Linear models for sequence prediction"
   tag: linearseq
@@ -190,8 +177,6 @@
   notes:
     - title: "Linear models for sequence prediction"
       url: "assets/slides/linearseq.pdf"
-    - title: "Homework 3 release"
-      url: "hw3.html"
   links:
     - author: Erik F. Tjong Kim Sang and Sabine Buchholz
       title: "Introduction to the CoNLL-2000 Shared Task: Chunking"
@@ -271,72 +256,7 @@
     - title: "Statistical language models based on neural networks"
       author: Tomas Mikolov
       url: "http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf"
-- title: "Machine Translation"
-  tag: smt
-  include: true
-  current: false 
-  notes:
-    - title: "Introduction to Machine Translation"
-      url: "assets/slides/mtintro.pdf"
-    - title: "In class exercise: Philae Obelisk"
-      url: "assets/notes/philae-obelisk.html"
-  links:
-    - author: Adam Lopez
-      title: "Word Alignment and the Expectation-Maximization Algorithm"
-      url: "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.421.5497&rep=rep1&type=pdf"
-    - author: Kevin Knight
-      title: "A Statistical MT Tutorial Workbook"
-      url: http://www.isi.edu/natural-language/mt/wkbk.pdf
-      optional: true
-- title: Word Alignment
-  tag: align
-  include: true
-  current: false 
-  notes:
-    - title: "Word Alignment"
-      url: "assets/slides/ibm123.pdf"
-  links:
-    - title: "In-class Alignment Exercise"
-      url: "assets/slides/centauri-arcturan.pdf"
-    - author: Michael Collins
-      title: "Statistical Machine Translation: IBM Models 1 and 2"
-      url: "http://www.cs.columbia.edu/~mcollins/ibm12.pdf"
-      download: "assets/mcollins-notes/ibm12.pdf"
-    - author: Philipp Koehn
-      title: "Statistical Machine Translation"
-      url: "http://www.statmt.org/book"
-      optional: true
-- title: "Translation Evaluation"
-  tag: mteval
-  include: true
-  current: false
-  notes:
-    - author: Philipp Koehn
-      title: "Evaluation"
-      url: "assets/slides/08-evaluation.pdf"
-    - author: Anoop Sarkar
-      title: "Edit distance"
-      url: "assets/slides/editdist.pdf"
-    - author: Blake Allen and Patrick Littell
-      title: "Exercise: Levenshtein's Fine Signs"
-      url: "assets/notes/N2014-C.pdf"
-    - title: "In class exercise: aw-TOM-uh-tuh"
-      author: "Patrick Littell"
-      url: "http://www.naclo.cs.cmu.edu/problems2008/N2008-I.pdf"
-  links:
-    - author: Anoop Sarkar
-      title: "Introducing edit distance"
-      video: "http://youtu.be/IDGsJdFZCmE"
-      url: "http://youtu.be/IDGsJdFZCmE"
-    - author: Anoop Sarkar
-      title: "Computing edit distance (part one)"
-      video: "http://youtu.be/Dv_bdR7LpS0"
-      url: "http://youtu.be/Dv_bdR7LpS0"
-    - author: Anoop Sarkar
-      title: "Computing edit distance (part two)"
-      video: "http://youtu.be/E606vHFGTvA"
-      url: "http://youtu.be/E606vHFGTvA"
-- title: "Sequence to Sequence models and NMT"
+- title: "Sequence to Sequence models"
   tag: tutorial
   include: true
   current: false
@@ -374,29 +294,107 @@
       citation: "International Conference on Neural Networks, vol 4, pages 2535-2540"
       url: "http://www.cs.brandeis.edu/~gregws/cs113/asynchronous-translations-with-recurrent.pdf"
       optional: true
-- title: "Neural Network Models and Training"
-  tag: dl4nlp
+- title: "Machine Translation"
+  tag: smt
+  include: true
+  current: false 
+  notes:
+    - title: "Introduction to Machine Translation"
+      url: "assets/slides/mtintro.pdf"
+    - title: "Exercise: Philae Obelisk"
+      url: "assets/notes/philae-obelisk.html"
+  links:
+    - author: Adam Lopez
+      title: "Word Alignment and the Expectation-Maximization Algorithm"
+      url: "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.421.5497&rep=rep1&type=pdf"
+    - author: Kevin Knight
+      title: "A Statistical MT Tutorial Workbook"
+      url: http://www.isi.edu/natural-language/mt/wkbk.pdf
+      optional: true
+- title: Word Alignment
+  tag: align
+  include: true
+  current: false 
+  notes:
+    - title: "Word Alignment"
+      url: "assets/slides/ibm123.pdf"
+  links:
+    - title: "In-class Alignment Exercise"
+      url: "assets/slides/centauri-arcturan.pdf"
+    - author: Michael Collins
+      title: "Statistical Machine Translation: IBM Models 1 and 2"
+      url: "http://www.cs.columbia.edu/~mcollins/ibm12.pdf"
+      download: "assets/mcollins-notes/ibm12.pdf"
+    - author: Philipp Koehn
+      title: "Statistical Machine Translation"
+      url: "http://www.statmt.org/book"
+      optional: true
+- title: "Translation Evaluation"
+  tag: mteval
+  include: false
+  current: false
+  notes:
+    - author: Philipp Koehn
+      title: "Evaluation"
+      url: "assets/slides/08-evaluation.pdf"
+    - author: Anoop Sarkar
+      title: "Edit distance"
+      url: "assets/slides/editdist.pdf"
+    - author: Blake Allen and Patrick Littell
+      title: "Exercise: Levenshtein's Fine Signs"
+      url: "assets/notes/N2014-C.pdf"
+    - title: "Exercise: aw-TOM-uh-tuh"
+      author: "Patrick Littell"
+      url: "http://www.naclo.cs.cmu.edu/problems2008/N2008-I.pdf"
+  links:
+    - author: Anoop Sarkar
+      title: "Introducing edit distance"
+      video: "http://youtu.be/IDGsJdFZCmE"
+      url: "http://youtu.be/IDGsJdFZCmE"
+    - author: Anoop Sarkar
+      title: "Computing edit distance (part one)"
+      video: "http://youtu.be/Dv_bdR7LpS0"
+      url: "http://youtu.be/Dv_bdR7LpS0"
+    - author: Anoop Sarkar
+      title: "Computing edit distance (part two)"
+      video: "http://youtu.be/E606vHFGTvA"
+      url: "http://youtu.be/E606vHFGTvA"
+- title: Ambiguity and Context-Free Grammars
+  tag: cfg
   include: true
   current: false
   notes:
-    - title: "Natural Language Understanding with Distributed Representation"
-      author: "Kyunghyun Cho"
-      url: "http://arxiv.org/abs/1511.07916"
-    - title: "A Primer on Neural Networks for NLP"
-      author: Yoav Goldberg
-      url: "http://u.cs.biu.ac.il/~yogo/nnlp.pdf" 
+    - title: "Formal Ambiguity"
+      url: "assets/slides/ambiguity.pdf"
+    - title: "Exercise on CFGs"
+      url: "assets/notes/cfgquiz.pdf"
+    - title: "Context-free grammars notebook"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/cfg.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/cfg.ipynb"
   links:
-    - title: "Deep Learning for MT Winter School"
-      url: "http://dl4mt.computing.dcu.ie/"
+    - author: Michael Collins
+      title: "Probabilistic Context-free Grammars"
+      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/pcfgs.pdf"
+      download: "assets/mcollins-notes/pcfgs.pdf"
+    - author: Michael Collins
+      title: "Lexicalized Context-free Grammars"
+      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lexpcfgs.pdf"
+      download: "assets/mcollins-notes/lexpcfgs.pdf"
+    - title: "Exercise: Grammar Rules!"
+      author: "Andrea Schalley and Patrick Littell"
+      url: "http://nacloweb.org/resources/problems/2013/N2013-F.pdf"
       optional: true
-    - title: "Visualizing Optimization Algorithms"
-      author: "Alec Radford"
-      url: "http://imgur.com/a/Hqolp"
+    - title: "Exercise: Twodee"
+      author: "Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2013/N2013-H.pdf"
       optional: true
-    - title: "Learning representations by back-propagating errors"
-      author: "Rumelhart, Hinton and Williams"
-      citation: "Nature, 1986"
-      url: "https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf"
+    - title: "Exercise: One, Two, Tree"
+      author: "Noah Smith, Kevin Gimpel, and Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2012/N2012-R.pdf"
+      optional: true
+    - title: "Exercise: OrwellSpeak"
+      author: "Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2009/N2009-M.pdf"
       optional: true
 - title: "Phrase based translation"
   tag: pbmt
@@ -409,14 +407,12 @@
     - author: Philipp Koehn
       title: "Phrase-based models"
       url: "assets/slides/05-phrase-based-models.pdf"
-    - title: "Homework 4 release"
-      url: "hw4.html"
     - title: "Stack Decoder demo"
       author: "Matt Post"
       url: "assets/demos/stack-decoder/stack-decoder.html"
-    - title: "In class exercise: Udihe"
+    - title: "Exercise: Udihe"
       author: "B. Iomdin"
-      url: "assets/handouts/inclass-udihe.pdf"
+      url: "assets/notes/inclass-udihe.pdf"
   links:
     - author: Michael Collins
       title: "Statistical Machine Translation: Phrase-based models"
@@ -430,8 +426,6 @@
     - author: "Philipp Koehn, Barry Haddow and Matthias Huck"
       title: "Discriminative Training"
       url: "assets/slides/09-discriminative-training.pdf"
-    - title: "Homework 5 release"
-      url: "hw5.html"
   links:
     - author: "Mark Hopkins and Jonathan May"
       title: "Tuning as Ranking"
