@@ -75,3 +75,7 @@ Provide the definition of the single feature $f_1(u, v) \in \mathbb{R}$
 and the value of the parameter $v_1 \in \mathbb{R}$ that gives the
 above distribution.
 
+### Acknowledgements
+
+Some of these questions are modified versions of questions from the Columbia University course COMS 4705 by Michael Collins.
+

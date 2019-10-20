@@ -17,11 +17,11 @@ Consider the following sentence $s$ where `<bs>` and `<es>` are padding tokens:
 
 ### Question 2
 
-Using a vocabulary $${\cal V} = \{$$ crazy, killer, clown $$\}$$ define a language model which has a particular constraint: $$p(x_1, \ldots, x_n) = \gamma \times 0.5^n$$ for any $$x_1, \ldots, x_n$$ such that $$x_i \in {\cal V}$$ for $$i = 1, \ldots, n-1$$ and $$x_n =$$ STOP.
+Using a vocabulary $${\cal V} = \{$$ crazy, killer, clown $$\}$$ define a language model which has a particular constraint: $$p(x_1, \ldots, x_n) = \gamma_n \times 0.5^n$$ for any $$x_1, \ldots, x_n$$ such that $$x_i \in {\cal V}$$ for $$i = 1, \ldots, n-1$$ and $$x_n =$$ STOP.
 
-$$\gamma$$ is some expression that can be a function of $$n$$.
+$$\gamma_n$$ is some expression that can be a function of $$n$$.
 
-Choose one of the following definitions of $$\gamma$$ so that $$p(x_1, \ldots, x_n)$$ is a valid language model.
+Choose one of the following definitions of $$\gamma_n$$ so that $$p(x_1, \ldots, x_n)$$ is a valid language model.
 
 | 1. | $$3^{n-1}$$ |
 | 2. | $$3^n$$ |
