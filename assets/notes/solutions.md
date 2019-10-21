@@ -75,7 +75,7 @@ $f_k(x, y) \in \R^{|V| \times |Y|}$, each $y \in Y$ is associated with a one-hot
 
 ## Question 3
 
-It is incorrect. This algorithm exits upon seeing the first $y$, while it should return the $y$ which gives the smallest $−\log Pr(y∣\bold{x};\bold{v})$.
+It is incorrect. This algorithm exits upon seeing the first $y$, while it should return the $y$ which gives the smallest $−\log Pr(y∣\textbf{x};\textbf{v})$.
 
 ## Question 4
 
