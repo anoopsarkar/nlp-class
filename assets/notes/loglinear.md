@@ -62,14 +62,13 @@ where the bigram probabilities $p(w_i \mid w_{i-1}; \textbf{v})$ is defined usin
 The log-linear model uses a feature vector definition $f(u, v) \in \mathbb{R}^d$ that maps each bigram
 $(u, v)$ to a $d$ dimensional feature vector and uses a parameter vector $\textbf{v} \in \mathbb{R}^d$.
 
-$$ \log \Pr(w_i \mid w_{i-1}; \textbf{v}) = \textbf{v} \cdot \textbf{f}(w_{i-1}, w_i)} - \log \sum_{w'} exp\left( \textbf{v} \cdot \textbf{f}(w_{i-1}, w') \right) $$
+$$ \log \Pr(w_i \mid w_{i-1}; \textbf{v}) = \textbf{v} \cdot \textbf{f}{(w_{i-1}, w_i)} - \log \sum_{w'} exp\left( \textbf{v} \cdot \textbf{f}(w_{i-1}, w') \right) $$
 
-Let the vocabulary size be $|V|$. Show that it is possible to define a log-linear bigram language
-model with a single feature such that $d=1$ with the following properties:
+Let the vocabulary size be $|V|$. Show that it is possible to define a log-linear bigram language model with a single feature such that $d=1$ with the following properties:
 
-$$ p(w_i \mid w_{i-1}; \textbf{v}) = 0.9 \textrm{ if $w_i=_w{i-1}$} $$
+$$ p(w_i \mid w_{i-1}; \textbf{v}) = 0.9 \textrm{ if } w_i=w_{i-1} $$
 and
-$$ p(w_i \mid w_{i-1}; \textbf{v}) = \frac{0.1}{|V|-1} \textrm{ if $w_i \neq w_{i-1}} $$ 
+$$ p(w_i \mid w_{i-1}; \textbf{v}) = \frac{0.1}{|V|-1} \textrm{ if } w_i \neq w_{i-1} $$ 
 
 Provide the definition of the single feature $f_1(u, v) \in \mathbb{R}$
 and the value of the parameter $v_1 \in \mathbb{R}$ that gives the
