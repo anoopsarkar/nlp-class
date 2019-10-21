@@ -65,7 +65,7 @@ $$
 Pr(y∣\textbf{x};\textbf{v})=\frac{\textbf{v}⋅\textbf{f}(\textbf{x},y)}{\sum_{y'\in Y} \textbf{v}⋅\textbf{f}(\textbf{x},y')}
 $$
 
-The denominator here is exactly the same for all $y \in Y$, so when determining which label should be the output, $\argmax_y Pr(y∣\textbf{x};\textbf{v}) = \argmax_y \textbf{v}⋅\textbf{f}(\textbf{x},y)$ is enough.
+The denominator here is exactly the same for all $y \in Y$, so when determining which label should be the output, $\textrm{argmax}_y Pr(y∣\textbf{x};\textbf{v}) = \textrm{argmax}_y \textbf{v}⋅\textbf{f}(\textbf{x},y)$ is enough.
 
 ## Question 2
 
