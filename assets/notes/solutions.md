@@ -4,8 +4,7 @@ Warning: the following solutions may contain error.
 
 ## Question 1
 
-<pre>
-    Pr(s) = Pr(<bs>|<bs>) *   
+    1. Pr(s) = Pr(<bs>|<bs>) *   
             Pr('I'|<bs>) *   
             Pr('would'|'I') *   
             Pr('like'|'would') *   
@@ -14,8 +13,7 @@ Warning: the following solutions may contain error.
             Pr('West'|'go') *   
             Pr('.'|'West') *   
             Pr(<es>|'.') 
-
-    Pr(s) = Pr('I'|<bs>,<bs>) *   
+    2. Pr(s) = Pr('I'|<bs>,<bs>) *   
             Pr('would'|<bs>,'I') *   
             Pr('like'|'I', 'would') *   
             Pr('to'|'would', 'like') *   
@@ -23,7 +21,6 @@ Warning: the following solutions may contain error.
             Pr('West'|'to', 'go') *   
             Pr('.' |'go', 'West') *   
             Pr(<es>|'West', '.')
-</pre>
 
 ## Question 2
 $$
