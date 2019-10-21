@@ -39,7 +39,7 @@ Does it follow that for every $w \in V$ that $v_w^A = v_w^B$? Why or why not?
 For the continuous bag of words (CBOW) model of word2vec we use the average of
 the context vectors for window size $m$: 
 
-$$\hat{v} = \frac{1}{2k} (v_{i-m} + \ldots + v_{i-1} + v_{i+1} + \ldots + v_{i+m}) $$
+$$\hat{v} = \frac{1}{2m} (v_{i-m} + \ldots + v_{i-1} + v_{i+1} + \ldots + v_{i+m}) $$
 
 Each $v_j$ is a word vector of dimension $k$. CBOW uses the following classifier to predict the "center" word:
 
