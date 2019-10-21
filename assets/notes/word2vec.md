@@ -88,7 +88,7 @@ And a French dataset of sentences:
     ...
 
 The English and French sentences are not necessarily translations of each other. Also assume we have
-a bilingual dictionary that provides pairs of words in English and French which are translations 
+a bilingual dictionary _Trans_ that provides pairs of words in English and French which are translations 
 of each other:
 
     plank, piliers
