@@ -299,8 +299,8 @@ $P(d \mid e) \cdot P(c \mid d,e) \cdot P(b \mid c,d,e) \cdot P(a \mid b,c,d,e)$
 \begin{itemize}
 \item $\frac{ p(a,b,c,d,e) }{ p(e) } = \frac{p(d,e)}{p(e)} \cdot \frac{p(c,d,e)}{p(d,e)} \cdot \frac{p(b,c,d,e)}{p(c,d,e)} \cdot \frac{p(a,b,c,d,e)}{p(b,c,d,e)} $
 \end{itemize}
-\item Use chain rule and simplify:
-\[ P(a,b,c,d \mid e) = P(d \mid e) \cdot P(c \mid d, e) \cdot P(b \mid c, e) \cdot P(a \mid b, e) \]
+\item We can approximate the probability by removing some random variables from the context. For example, we can keep at most two variables to get:
+\[ P(a,b,c,d \mid e) \approx P(d \mid e) \cdot P(c \mid d, e) \cdot P(b \mid c, e) \cdot P(a \mid b, e) \]
 \end{itemize}
 
 \end{frame}
