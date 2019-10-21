@@ -68,8 +68,8 @@ The denominator here is exactly the same for all $y \in Y$, so when determining 
 
 ## Question 2
 
-2: $k = |V| \times |Y|$
-6: |{\cal Y}| &=& \frac{k}{|{\cal V}|} \\
+2: $$k = |V| \times |Y|$$
+6: $$|{\cal Y}| &=& \frac{k}{|{\cal V}|} $$
 
 $f_k(x, y) \in \R^{|V| \times |Y|}$, each $y \in Y$ is associated with a one-hot vector of the input $x$.
 
