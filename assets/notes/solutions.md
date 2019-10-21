@@ -91,7 +91,7 @@ or
 
 # 3. Linear Combinations
 
-Answers are here: https://github.com/anoopsarkar/nlp-class/blob/gh-pages/assets/notes/linearb_solution.pdf
+Answers are [here](https://github.com/anoopsarkar/nlp-class/blob/gh-pages/assets/notes/linearb_solution.pdf)
 
 # 4. Word2Vec Practice
 
