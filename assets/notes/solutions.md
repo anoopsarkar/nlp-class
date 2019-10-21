@@ -4,25 +4,26 @@ Warning: the following solutions may contain error.
 
 ## Question 1
 
-1. >
-    Pr(s) =   Pr(<bs>|<bs>) *   
-              Pr('I'|<bs>) *   
-              Pr('would'|'I') *   
-              Pr('like'|'would') *   
-              Pr('to'|'like') *   
-              Pr('go'|'to') *   
-              Pr('West'|'go') *   
-              Pr('.'|'West') *   
-              Pr(<es>|'.') 
-2. >
-    Pr(s) =   Pr('I'|<bs>,<bs>) *   
-              Pr('would'|<bs>,'I') *   
-              Pr('like'|'I', 'would') *   
-              Pr('to'|'would', 'like') *   
-              Pr('go'|'like', 'to') *   
-              Pr('West'|'to', 'go') *   
-              Pr('.' |'go', 'West') *   
-              Pr(<es>|'West', '.')
+<pre>
+    Pr(s) = Pr(<bs>|<bs>) *   
+            Pr('I'|<bs>) *   
+            Pr('would'|'I') *   
+            Pr('like'|'would') *   
+            Pr('to'|'like') *   
+            Pr('go'|'to') *   
+            Pr('West'|'go') *   
+            Pr('.'|'West') *   
+            Pr(<es>|'.') 
+
+    Pr(s) = Pr('I'|<bs>,<bs>) *   
+            Pr('would'|<bs>,'I') *   
+            Pr('like'|'I', 'would') *   
+            Pr('to'|'would', 'like') *   
+            Pr('go'|'like', 'to') *   
+            Pr('West'|'to', 'go') *   
+            Pr('.' |'go', 'West') *   
+            Pr(<es>|'West', '.')
+</pre>
 
 ## Question 2
 $$
