@@ -82,6 +82,13 @@ It is incorrect. This algorithm exits upon seeing the first $y$, while it should
 * $$f_1(u,v) = \log(\frac{0.1}{|V|-1}) \textrm{ if } u \neq v$$
 * $$v_1 = 1$$
 
+or
+
+* $$f_1(u,v) = 1 \textrm{ if } u=v$$
+* $$f_1(u,v) = 0 \textrm{ if } u \neq v$$
+* $$v_1 = \log(9|V|-9) $$
+
+
 # 3. Linear Combinations
 
 Answers are here: https://github.com/anoopsarkar/nlp-class/blob/gh-pages/assets/notes/linearb_solution.pdf
