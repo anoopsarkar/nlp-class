@@ -79,9 +79,9 @@ It is incorrect. This algorithm exits upon seeing the first $y$, while it should
 
 ## Question 4
 
-$f_1(u,v) = \log(0.9) \textrm{ if } u=v$
-$f_1(u,v) = \log(\frac{0.1}{|V|-1}) \textrm{ if } u \neq v$
-$v_1 = 1$
+* $$f_1(u,v) = \log(0.9) \textrm{ if } u=v$$
+* $$f_1(u,v) = \log(\frac{0.1}{|V|-1}) \textrm{ if } u \neq v$$
+* $$v_1 = 1$$
 
 # 3. Linear Combinations
 
