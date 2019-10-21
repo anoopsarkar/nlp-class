@@ -103,7 +103,7 @@ No. Suppose the algorithm is Skip-gram with negative sample, the classifier here
 1. |V|
 2. 1
 3. $u_w \in \mathbb{R}^k$ are weights for scoring how likely the is $w$ the target word under the current context $\hat{v}$ 
-4. $U \in \mathbb{R}^{|V| \times k}$
+4. $$U \in \mathbb{R}^{|V| \times k}$$
 5. Negative sampling uses a separate classifier to distinguish between positive samples and negative samples and makes an independence assumption over the context vectors. Without modification to the cross-entropy loss function, such classifier cannot be trained due to the average over the context vectors.
 
 SideNote: one could use negative sampling in a modified cross-entropy based loss function for CBOW, but empirical results suggest that this might not work very well as cross-entropy tends to be fairly powerful on its own.
