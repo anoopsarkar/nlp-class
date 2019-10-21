@@ -5,10 +5,25 @@ Warning: the following solutions may contain error.
 ## Question 1
 
 1.
-$$Pr(s) = \\  Pr(<bs>|<bs>) \cdot \\  Pr('I'|<bs>) \cdot \\  Pr('would'|'I') \cdot \\  Pr('like'|'would') \cdot \\  Pr('to'|'like') \cdot \\  Pr('go'|'to') \cdot \\  Pr('West'|'go') \cdot \\  Pr('.'|'West') \cdot \\  Pr(<es>|'.') $$ 
+    Pr(s) =   Pr(<bs>|<bs>) *   
+              Pr('I'|<bs>) *   
+              Pr('would'|'I') *   
+              Pr('like'|'would') *   
+              Pr('to'|'like') *   
+              Pr('go'|'to') *   
+              Pr('West'|'go') *   
+              Pr('.'|'West') *   
+              Pr(<es>|'.') 
 
 2. 
-$$  Pr(s) = \\  Pr('I'|<bs>,<bs>) \cdot \\  Pr('would'|<bs>,'I') \cdot \\  Pr('like'|'I', 'would') \cdot \\  Pr('to'|'would', 'like')\cdot \\  Pr('go'|'like', 'to')\cdot \\  Pr('West'|'to', 'go')\cdot \\  Pr('.' |'go', 'West')\cdot \\  Pr(<es>|'West', '.')  $$
+    Pr(s) =   Pr('I'|<bs>,<bs>) *   
+              Pr('would'|<bs>,'I') *   
+              Pr('like'|'I', 'would') *   
+              Pr('to'|'would', 'like') *   
+              Pr('go'|'like', 'to') *   
+              Pr('West'|'to', 'go') *   
+              Pr('.' |'go', 'West') *   
+              Pr(<es>|'West', '.')
 
 ## Question 2
 $$
@@ -47,10 +62,10 @@ $$
 Yes. Recall the definition:
 
 $$
-Pr(y∣\bold{x};\bold{v})=\frac{\bold{v}⋅\bold{f}(\bold{x},y)}{\sum_{y'\in Y} \bold{v}⋅\bold{f}(\bold{x},y')}
+Pr(y∣\textbf{x};\textbf{v})=\frac{\textbf{v}⋅\textbf{f}(\textbf{x},y)}{\sum_{y'\in Y} \textbf{v}⋅\textbf{f}(\textbf{x},y')}
 $$
 
-The denominator here is exactly the same for all $y \in Y$, so when determining which label should be the output, $\argmax_y Pr(y∣\bold{x};\bold{v}) = \argmax_y \bold{v}⋅\bold{f}(\bold{x},y)$ is enough.
+The denominator here is exactly the same for all $y \in Y$, so when determining which label should be the output, $\argmax_y Pr(y∣\textbf{x};\textbf{v}) = \argmax_y \textbf{v}⋅\textbf{f}(\textbf{x},y)$ is enough.
 
 ## Question 2
 
@@ -87,8 +102,8 @@ No. Suppose the algorithm is Skip-gram with negative sample, the classifier here
 ## Question 3
 1. |V|
 2. 1
-3. $u_w \in \R^k$ are weights for scoring how likely the is $w$ the target word under the current context $\hat{v}$ 
-4. $U \in \R^{|V| \times k}$
+3. $u_w \in \mathbb{R}^k$ are weights for scoring how likely the is $w$ the target word under the current context $\hat{v}$ 
+4. $U \in \mathbb{R}^{|V| \times k}$
 5. Negative sampling uses a separate classifier to distinguish between positive samples and negative samples and makes an independence assumption over the context vectors. Without modification to the cross-entropy loss function, such classifier cannot be trained due to the average over the context vectors.
 
 SideNote: one could use negative sampling in a modified cross-entropy based loss function for CBOW, but empirical results suggest that this might not work very well as cross-entropy tends to be fairly powerful on its own.
