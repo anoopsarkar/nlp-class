@@ -70,7 +70,7 @@ $$k = |V| \times |Y|$$
 
 $$|{\cal Y}| = \frac{k}{|{\cal V}|} $$
 
-$f_k(x, y) \in \R^{|V| \times |Y|}$, each $y \in Y$ is associated with a one-hot vector of the input $x$.
+$$f_k(x, y) \in \R^{|V| \times |Y|}$$, each _y_ is associated with a one-hot vector of the input _x_.
 
 ## Question 3
 
