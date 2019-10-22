@@ -14,6 +14,9 @@ tas:
   - name: "Nishant Kambhatla"
     email: nkambhat
     officehour: 'Tuesdays, 9:30-10:30am. Location: ASB 9816'
+  - name: "Hassan Shavarani"
+    email: sshavara@sfu.ca 
+    officehour: "Tuesdays, 12:00-01:00pm. Location: ASB 9808"
 hwdates:
   - hw: "0"
     startdate: "Sep 10, 2019"

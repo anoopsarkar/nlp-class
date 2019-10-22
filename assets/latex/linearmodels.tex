@@ -118,7 +118,8 @@ use sophisticated smoothing model for PP attachment\\
 \item $y$ is the output classification
 \item $P(y \mid {\bf x}) = \frac{P(y) \cdot P({\bf x} \mid y)}{P({\bf x})}$ (Bayes Rule)
 \item $P({\bf x} \mid y) = \prod_{j=1}^{d} P(f_j  \mid y)$
-\item $P(y \mid {\bf x}) = P(y) \cdot  \prod_{j=1}^{d} P(f_j  \mid y)$
+\item $P(y \mid {\bf x}) \propto P(y) \cdot  \prod_{j=1}^{d} P(f_j  \mid y) $
+\item We can ignore $P({\bf x})$ in the above equation because it is a constant scaling factor for each $y$.
 \end{itemize}
 \end{frame}
 
