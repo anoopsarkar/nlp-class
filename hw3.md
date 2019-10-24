@@ -124,6 +124,9 @@ The data set comes from the Conference on Natural Language Learning:
 
 [^2]: [Introduction to the CoNLL-2000 Shared Task: Chunking](http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf)
 
+There is a helpful program `count_sentences.py` which allows you
+to count how many sentences are in a CoNLL formatted file.
+
 For this homework the training data has been preprocessed and singleton
 tokens have been replaced with the `[UNK]` token (which stands for unknown
 word). In the dev and test data any unseen words will be replaced with
