@@ -15,7 +15,7 @@ active_tab: homework
 ## Getting Started
 
 If you have already cloned my homework repository `nlp-class-hw` for
-Homework 0 then go into that directory and update the directory:
+previous homeworks then go into that directory and update the directory:
 
     git pull origin/master
     cd nlp-class-hw/lexsub
