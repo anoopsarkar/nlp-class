@@ -349,8 +349,8 @@ The grading is split up into the following components:
 * test scores (see Table below)
 * iPython notebook write-up 
    * Make sure that you are not using any external data sources in your solution. You must only use the provided word vector file.
-   * Make sure you have implemented retrofitting yourself.
-   * Do **not** submit the retrofitted word vector file but you should provide a script that produces the retrofitted `.magnitude` word vectors used by your Baseline solution.
+   * Make sure you have implemented the semi-character RNN model yourself.
+   * Do **not** change the hyperparameters for the phrasal chunker in `default.py` in the solution to the robust chunking problem.
 * Check if each group member has a `answer/README.username`.
 
 Your F-score should be equal to or greater than the score listed for the corresponding marks.
