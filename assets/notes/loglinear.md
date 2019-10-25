@@ -90,10 +90,10 @@ Provide the expression for the following input strings using the
 value of the features (0 or 1) and use the parameters v1, v2, v3,
 v4 in your answer since we do not know their values yet.:
 
-1. x=ab, y=+ # exp(v1 + v3) / exp(v1 + v2 + v3 + v4)
-1. x=ab, y=- # exp(v2 + v4) / exp(v1 + v2 + v3 + v4)
-1. x=bb, y=+ # exp(v3) / exp(v3 + v4)
-1. x=bb, y=- # exp(v4) / exp(v3 + v4)
+1. x=ab, y=+ 
+1. x=ab, y=-
+1. x=bb, y=+
+1. x=bb, y=-
 
 ### Acknowledgements
 
