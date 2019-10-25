@@ -64,7 +64,7 @@ $(u, v)$ to a $d$ dimensional feature vector and uses a parameter vector $\textb
 
 $$ \log \Pr(w_i \mid w_{i-1}; \textbf{v}) = \textbf{v} \cdot \textbf{f}{(w_{i-1}, w_i)} - \log \sum_{w'} exp\left( \textbf{v} \cdot \textbf{f}(w_{i-1}, w') \right) $$
 
-Let the vocabulary size be |V|. Show that it is possible to define a log-linear bigram language model with a single feature such that $d=1$ with the following properties:
+Let the vocabulary size be \|V\|. Show that it is possible to define a log-linear bigram language model with a single feature such that $d=1$ with the following properties:
 
 $$ p(w_i \mid w_{i-1}; \textbf{v}) = 0.9 \textrm{ if } w_i=w_{i-1} $$
 and
