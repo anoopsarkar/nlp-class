@@ -355,6 +355,7 @@ Make sure that your have updated your GitLab repository with your submission sou
 Go to `Homework 1` on Coursys and do a group submission:
 
 * Upload `output.zip` and `source.zip`
+* Make sure your `source.zip` matches your Gitlab repository.
 * Make sure you have documented your approach in `answer/zhsegment.ipynb`.
 * Make sure each member of your group has documented their contribution to this homework in `answer/README.username` where `username` is your CSIL/GitLab username.
 

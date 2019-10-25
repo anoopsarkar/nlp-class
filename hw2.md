@@ -471,6 +471,7 @@ did for this homework in `answer/README.username`.
 Go to `Homework 2` on Coursys and do a group submission:
 
 * Upload `output.zip` and `source.zip`
+* Make sure your `source.zip` matches your Gitlab repository.
 * Make sure you have documented your approach in `answer/lexsub.ipynb`.
 * Make sure each member of your group has documented their contribution to this homework in `answer/README.username` where `username` is your CSIL/GitLab username.
 
