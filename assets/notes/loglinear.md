@@ -78,7 +78,7 @@ above distribution.
 
 In a log-linear model there are two output labels y = {+,-} and
 four features f1, f2, f3, f4 defined over input string x over the
-alphabet $\{a,b\}^2$ as follows with parameters v1, v2, v3, v4:
+alphabet $\\{a,b\\}^2$ as follows with parameters v1, v2, v3, v4:
 
 | f1(x,y) | = 1 if x[0]=='a' and y=+ 0 otherwise | parameter: v1 |
 | f2(x,y) | = 1 if x[0]=='a' and y=- 0 otherwise | parameter: v2 |
