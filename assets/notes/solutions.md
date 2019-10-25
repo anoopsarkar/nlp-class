@@ -92,10 +92,10 @@ or
 
 ### Question 5
 
-1. x=ab, y=+ ; exp(v1 + v3) / exp(v1 + v2 + v3 + v4)
-1. x=ab, y=- ; exp(v2 + v4) / exp(v1 + v2 + v3 + v4)
-1. x=bb, y=+ ; exp(v3) / exp(v3 + v4)
-1. x=bb, y=- ; exp(v4) / exp(v3 + v4)
+1. P(y=+ | x=ab) ; exp(v1 + v3) / exp(v1 + v2 + v3 + v4)
+1. P(y=- | x=ab) ; exp(v2 + v4) / exp(v1 + v2 + v3 + v4)
+1. P(y=+ | x=bb) ; exp(v3) / exp(v3 + v4)
+1. P(y=- | x=bb) ; exp(v4) / exp(v3 + v4)
 
 ## Linear Combinations
 

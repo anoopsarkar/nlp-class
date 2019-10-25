@@ -90,10 +90,10 @@ Provide the expression for the following input strings using the
 value of the features (0 or 1) and use the parameters v1, v2, v3,
 v4 in your answer since we do not know their values yet.:
 
-1. x=ab, y=+ 
-1. x=ab, y=-
-1. x=bb, y=+
-1. x=bb, y=-
+1. P(y=+ | x=ab)
+1. P(y=- | x=ab)
+1. P(y=+ | x=bb)
+1. P(y=- | x=bb)
 
 ### Acknowledgements
 
