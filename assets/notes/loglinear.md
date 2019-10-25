@@ -74,6 +74,27 @@ Provide the definition of the single feature $f_1(u, v) \in \mathbb{R}$
 and the value of the parameter $v_1 \in \mathbb{R}$ that gives the
 above distribution.
 
+### Question 5
+
+In a log-linear model there are two output labels y = {+,-} and
+four features f1, f2, f3, f4 defined over input string x over the
+alphabet $\{a,b\}^2$ as follows with parameters v1, v2, v3, v4:
+
+| f1(x,y) | = 1 if x[0]=='a' and y=+ 0 otherwise | parameter: v1 |
+| f2(x,y) | = 1 if x[0]=='a' and y=- 0 otherwise | parameter: v2 |
+| f3(x,y) | = 1 if x[1]=='b' and y=+ 0 otherwise | parameter: v3 |
+| f4(x,y) | = 1 if x[1]=='b' and y=- 0 otherwise | parameter: v4 |
+{: .table}
+
+Provide the expression for the following input strings using the
+value of the features (0 or 1) and use the parameters v1, v2, v3,
+v4 in your answer since we do not know their values yet.:
+
+1. x=ab, y=+ # exp(v1 + v3) / exp(v1 + v2 + v3 + v4)
+1. x=ab, y=- # exp(v2 + v4) / exp(v1 + v2 + v3 + v4)
+1. x=bb, y=+ # exp(v3) / exp(v3 + v4)
+1. x=bb, y=- # exp(v4) / exp(v3 + v4)
+
 ### Acknowledgements
 
 Some of these questions are modified versions of questions from the Columbia University course COMS 4705 by Michael Collins.
