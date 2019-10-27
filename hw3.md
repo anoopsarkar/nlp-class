@@ -250,11 +250,10 @@ must be kept fixed. You should not change them in your solution.
 
 ## The Challenge
 
-Your task is to _improve the accuracy as much as possible_. The
-score is explained in detail in the Accuracy section below. You can
-only use the pre-trained word vectors file that has been provided
-to you as described in the `Default solution` section above.
-You cannot use any other word vectors or word embeddings.
+Your task is to _improve the accuracy as much as possible while
+keeping the hyperparameters used in the default solution for the
+phrasal chunker_. The score is explained in detail in the Accuracy
+section below.
 
 ## Baseline 
 
