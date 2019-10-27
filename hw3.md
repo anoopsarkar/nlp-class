@@ -242,6 +242,42 @@ command line options that exist in `default.py`.
 Submitting the default solution without modification will get you
 zero marks.
 
+### The default model
+
+The model used in `default.py` is a very simple recurrent neural
+network used to predict the phrasal chunking tags. The model
+structure can be examined using the following code, assuming
+that you are in the `nlp-class-hw/chunker` directory or if
+you have the `data` directory in your current directory
+with the training data and the model file:
+
+    from default import *
+    import os
+    chunker = LSTMTagger(os.path.join('data', 'train.txt.gz'), os.path.join('data', 'chunker'), '.tar')
+    print(chunker.model)
+
+This prints out the model:
+
+    LSTMTaggerModel(
+      (word_embeddings): Embedding(9675, 128)
+      (lstm): LSTM(128, 64)
+      (hidden2tag): Linear(in_features=64, out_features=22, bias=True)
+    )
+
+The input is a learned word embeddings of dimension 128 for the
+vocabulary of size 9675 extracted from the training data. Note that
+the model learns these embeddings to minimize the loss on the phrasal
+chunking task rather than using pre-trained embeddings. The 128
+dimensional vector is provided as input to a recurrent neural network
+(an LSTM in this case) which has 64 neurons as the representation
+at each index of the input sentence. At each time step this vector
+of size 64 is given to a linear classifier which produces one of
+22 output phrasal chunking tags.
+
+Optimizing the above parameters to find the minimum loss on the
+training data by gradient descent is done automatically using Pytorch
+API calls.
+
 ### Hyperparameters
 
 For this homework we will enforce that all the hyperparameters
