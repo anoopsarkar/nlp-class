@@ -358,7 +358,8 @@ to the LSTM in the default chunker. The model looks like this:
     ):
 
 Notice that the only change from the default is that the input has
-changed from 128 to 428, because `len(string.printable)` is 100.
+changed from 128 to 428, because `len(string.printable)` is 100 and
+we concatenate 3 such vectors.
 To match up the character vectors with the word embeddings you
 should look into using `torch.stack` to create a 2D tensor of size
 sentence length times 300. The sentence length 2D tensor of character
