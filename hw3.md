@@ -284,6 +284,19 @@ For this homework we will enforce that all the hyperparameters
 used in the default solution (such as embedding dimension, hidden layer dimension, training epochs)
 must be kept fixed. You should not change them in your solution.
 
+### Pytorch
+
+You will need to use some Pytorch API calls to solve this homework.
+We do not expect you to already know Pytorch in great detail.
+The following links will help you get started but you can learn
+a lot of the Pytorch basics by understanding `default.py` and
+the process of solving this homework.
+
+Some useful links if you feel lost at the beginning:
+
+* [60 mins intro to Pytorch](https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html)
+* [Intro to RNN based classification](https://pytorch.org/tutorials/intermediate/char_rnn_classification_tutorial.html)
+
 ## The Challenge
 
 Your task is to _improve the accuracy as much as possible while
@@ -296,15 +309,65 @@ section below.
 The baseline method is what you should implement first before you
 explore additional improvements to improve your score.
 
-First, we will implement a semi-character RNN to deal with noisy
-input. 
+For the baseline method we will implement a semi-character RNN to
+deal with noisy input.
+
+First read through:
 
 > [Robsut Wrod Reocginiton via semi-Character Recurrent Neural Network](https://arxiv.org/abs/1608.02214). Keisuke Sakaguchi, Kevin Duh, Matt Post, Benjamin Van Durme. AAAI 2017
 
-and also see:
+and also read:
 
 > [Combating Adversarial Misspellings with Robust Word Recognition](https://www.aclweb.org/anthology/P19-1561/). Danish Pruthi, Bhuwan Dhingra, Zachary C. Lipton. ACL 2019.
 
+The following method can be used to create a character level representation of the word:
+
+1. Create a one-hot vector `v1` for the first character of the word.
+1. Create a vector `v2` where the index of a character has the count of that character in the word.
+1. Create a one-hot vector `v3` for the last character of the word.
+
+A convenient size for each of these vectors is the length of the Python builtin
+`string.printable` which is 100 characters.
+For example, for the input word `hello` the output vectors `v1`,
+`v2`, `v3` would have the following indices set to a non-zero number:
+
+    v1[17] = 1 # h
+    v2[14] = 1 # e
+    v2[21] = 2 # ll
+    v3[24] = 1 # o
+
+The final character level representation is the concatenation of
+the three vectors. Useful Pytorch functions to use are
+`torch.zeros([width])` and `torch.cat(list_of_vectors, dimension_to_cat)`.
+
+There three ways to combine the semi-Character RNN idea with your phrasal chunker from `default.py`:
+
+1. Concatenate to the word embedding input to the chunker RNN an input vector that is the character level representation of the word.
+1. Use a second RNN that takes as input the character level representation and use the hidden layer of this second RNN and concatenate with the word embedding to form the new input to the chunker RNN.
+1. Train a de-noising model that adds noise to the training data that mimics the noise in the dev and test data and trains a semi-Character RNN just like the Sakaguchi paper cited above. The de-noised corrected word is provided as input to the phrasal chunker from `default.py`.
+
+The baseline method is the easiest option from the three options
+above which is Option 1, concatenate the character level representation
+with the word embedding and using this concatenated vector as input
+to the LSTM in the default chunker. The model looks like this:
+
+    LSTMTaggerModel(
+      (word_embeddings): Embedding(9675, 128)
+      (lstm): LSTM(428, 64)
+      (hidden2tag): Linear(in_features=64, out_features=22, bias=True)
+    ):
+
+Notice that the only change from the default is that the input has
+changed from 128 to 428, because `len(string.printable)` is 100.
+To match up the character vectors with the word embeddings you
+should look into using `torch.stack` to create a 2D tensor of size
+sentence length times 300. The sentence length 2D tensor of character
+vectors can then be concatenated with the word embeddings (from
+`default.py`) which is a 2D tensor of size sentence length times
+128.
+
+Implementing the baseline should give a substantial boost to the
+accuracy obtaining an F1 score higher than 76 percent.
 
 ## Required files
 
@@ -398,11 +461,11 @@ Your F-score should be equal to or greater than the score listed for the corresp
 | 73.2 | 66   | 65  | C  |
 | 73.5 | 66.5 | 70  | C+ |
 | 73.7 | 67   | 75  | B- |
-| 74   | 67.2 | 80  | B  |
-| 74.5 | 67.5 | 85  | B+ |
-| 75   | 67.7 | 90  | A- |
-| 75.5 | 68   | 95  | A  |
-| 75.7 | 70   | 100 | A+ |
+| 74   | 67.5 | 80  | B  |
+| 75.5 | 68.5 | 85  | B+ |
+| 76.5 | 70.5 | 90  | A- |
+| 77   | 71   | 95  | A  |
+| 78   | 72   | 100 | A+ |
 {: .table}
 
 The score will be normalized to the marks on Coursys for the dev and test scores.
