@@ -122,7 +122,7 @@ The O chunk tag is used for tokens which are not part of any chunk.
 The data set comes from the Conference on Natural Language Learning:
 [CoNLL 2000 shared task](http://www.cnts.ua.ac.be/conll2000/chunking/)[^2].
 
-[^2]: [Introduction to the CoNLL-2000 Shared Task: Chunking](http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf)
+[^2]: [Introduction to the CoNLL-2000 Shared Task: Chunking](https://www.aclweb.org/anthology/W00-0726/)
 
 There is a helpful program `count_sentences.py` which allows you
 to count how many sentences are in a CoNLL formatted file.
