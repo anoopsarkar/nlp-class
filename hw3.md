@@ -302,7 +302,11 @@ Some useful links if you feel lost at the beginning:
 Your task is to _improve the accuracy as much as possible while
 keeping the hyperparameters used in the default solution for the
 phrasal chunker_. The score is explained in detail in the Accuracy
-section below.
+section below. With substantial computational resources and using
+large pre-trained models (which are beyond the scope of this homework)
+the [state of the art accuracy on this
+dataset](https://nlpprogress.com/english/shallow_syntax.html) has
+reached an F1-score above 97.5 percent.
 
 ## Baseline 
 
