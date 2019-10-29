@@ -71,10 +71,80 @@ P(\text{herself} &\mid& \text{confidence}, \ldots, \text{her} )
 	\item $s(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot s(t-1))$ where $f$ is sigmoid
 	\item $s(t)$ encapsulates history using single vector of size $h$
 	\item Output word at time step $w_{t+1}$ is provided by $y(t)$
-	\item $y(t) = g(V_{hs} s(t))$ where $g$ is softmax
+	\item $y(t) = g(V_{hx} s(t))$ where $g$ is softmax
 \end{itemize}
 \end{block}
 \end{frame}
+
+\begin{frame}{Neural Language Models}
+\framesubtitle{Fig.\ from \cite{Brakel2015}}
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[->,thick]
+\scriptsize
+\tikzstyle{main}=[minimum size = 7mm, thick, draw =black!80, node distance = 12mm]
+\foreach \name in {1,...,6}
+    \node[main, fill = yellow!80] (y\name) at (\name*2,1.5) {$\mathbf{y}_\name$};
+\foreach \name in {1,...,6}
+    \node[main, fill = gray!20] (h\name) at (\name*2,0) {$\mathbf{s}_\name$};
+\foreach \name in {1,...,6}
+    \node[main, fill = red!80] (x\name) at (\name*2,-1.5) {$\mathbf{w}_\name$};
+\foreach \h in {1,...,6}
+       {
+        \path (x\h) edge[left] node{$U_{xh}$} (h\h);
+        \path (h\h) edge[left] node{$V_{hx}$} (y\h);
+       }
+\foreach \current/\next in {1/2,2/3,3/4,4/5,5/6} 
+       {
+        \path (h\current) edge[above] node{$W_{hh}$} (h\next);
+       }
+    %\node[main] (G-\name) at (\x,0) {$\name$};
+\end{tikzpicture}
+\caption{A simple Recurrent Neural Network}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Bidirectional RNNs can be Stacked}
+\framesubtitle{Fig.\ from \cite{Brakel2015}}
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[->,thick]
+\scriptsize
+\tikzstyle{main}=[minimum size = 7mm, thick, draw =black!80, node distance = 12mm]
+\foreach \name in {1,...,6}
+    \node[main, fill = gray!20] (l\name) at (\name*2,2.3) {$\mathbf{s}^2_\name$};
+\foreach \name in {1,...,6}
+    \node[main, fill = gray!20] (k\name) at (\name*2,3.1) {$\hat{\mathbf{s}}^2_\name$};
+\foreach \name in {1,...,6}
+    \node[main, fill = gray!20] (i\name) at (\name*2,.8) {$\hat{\mathbf{s}}^1_\name$};
+\foreach \name in {1,...,6}
+    \node[main, fill = gray!20] (h\name) at (\name*2,0) {$\mathbf{s}^1_\name$};
+\foreach \name in {1,...,6}
+    \node[main, fill = red!80] (x\name) at (\name*2,-1.5) {$\mathbf{x}_\name$};
+\foreach \h in {1,...,6}
+       {
+        \path (x\h) edge [bend right] (i\h);
+        \path (x\h) edge (h\h);
+        \path (i\h) edge [bend left] (k\h);
+        \path (h\h) edge [bend right] (l\h);
+        \path (h\h) edge [bend left] (k\h);
+        \path (i\h) edge (l\h);
+       }
+\foreach \current/\next in {1/2,2/3,3/4,4/5,5/6} 
+       {
+        \path (i\next) edge (i\current);
+        \path (h\current) edge (h\next);
+        \path (k\next) edge (k\current);
+        \path (l\current) edge (l\next);
+       }
+    %\node[main] (G-\name) at (\x,0) {$\name$};
+\end{tikzpicture}
+\caption{Two Bidirectional Recurrent Neural Networks stacked on top of each
+other.}
+\label{fig:birnn}
+\end{figure}
+\end{frame}
+
 
 \begin{frame}{Neural Language Models}
 \framesubtitle{Recurrent Neural Network}
@@ -82,6 +152,109 @@ P(\text{herself} &\mid& \text{confidence}, \ldots, \text{her} )
 \includegraphics[scale=0.45]{figures/mikolovrnn-graph.png}
 \end{block}
 \end{frame}
+
+\section{RNNs In Practice}
+\framesubtitle{Fig.\ from \cite{Brakel2015}}
+\begin{frame}
+    \frametitle{Parallelizing RNN computations}
+    Apply RNNs to \emph{batches} of sequences\\
+        Present the data as a 3D tensor of $(T \times B \times F)$.
+        Each dynamic update will now be a matrix multiplication.
+\begin{figure}
+\centering
+\resizebox{4cm}{2.5cm}{
+\begin{tikzpicture}
+\tikzset{every cell/.style={draw=white}}
+\tikzset{every cell 1/.style={fill=gray}}
+
+   \foreach \row [count=\y] in {%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0},%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0},%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0},%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0}}
+     \foreach \cell [count=\x] in \row  {
+        \path [every cell/.try, every cell \cell/.try]
+        (\x,-\y) rectangle ++(1,1);
+       }
+\end{tikzpicture}
+}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Binary Masks}
+\framesubtitle{Fig.\ from \cite{Brakel2015}}
+    A \emph{mask} matrix may be used to aid with computations that ignore the padded zeros.
+\begin{figure}
+\centering
+\resizebox{8cm}{5cm}{
+\begin{tikzpicture}
+\tikzset{every cell/.style={draw=black}}
+\tikzset{every cell 1/.style={draw=black}}
+
+   \foreach \row [count=\y] in {%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0},%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0},%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0},%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0}}
+     \foreach \cell [count=\x] in \row  {
+        \path [every cell/.try, every cell \cell/.try]
+        (\x,-\y) rectangle ++(1,1) node[below left] {$\cell$};
+       }
+\end{tikzpicture}
+}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Binary Masks}
+\framesubtitle{Fig.\ from \cite{Brakel2015}}
+    It may be necessary to (partially) sort your data.
+\begin{figure}
+\centering
+\resizebox{8cm}{5cm}{
+\begin{tikzpicture}
+\tikzset{every cell/.style={draw=black}}
+\tikzset{every cell 1/.style={fill=gray}}
+
+   \foreach \row [count=\y] in {%
+     {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},%
+     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},%
+     {1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},%
+     {1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},%
+     {1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0},%
+     {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}}
+     \foreach \cell [count=\x] in \row  {
+        \path [every cell/.try, every cell \cell/.try]
+        (\x,-\y) rectangle ++(1,1);
+       }
+\end{tikzpicture}
+}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\setbeamertemplate{bibliography item}[text]
+\begin{thebibliography}{10}
+
+
+\bibitem{Mikolov2010}
+\alert{Tomas Mikolov}
+\newblock {Recurrent Neural Networks for Language Models. Google Talk.}
+\newblock 2010.
+
+\bibitem{Brakel2015}
+\alert{Philemon Brakel}
+\newblock {MLIA-IQIA Summer School notes on RNNs}
+\newblock 2015.
+
+\end{thebibliography}
+\end{frame}
+
 
 \input{acknowledgements.tex}
 
