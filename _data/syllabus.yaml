@@ -121,7 +121,7 @@
 - title: "Feedforward neural networks"
   tag: ff
   include: true
-  current: true
+  current: false
   notes:
     - title: "Feedforward neural networks"
       url: "assets/slides/ff.pdf"
@@ -235,7 +235,7 @@
 - title: "Neural Language models"
   tag: nlm
   include: true
-  current: false
+  current: true
   notes:
     - title: "Neural Language model"
       url: "assets/slides/nlm.pdf"
