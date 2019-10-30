@@ -310,19 +310,19 @@ $\textbf{f}(h, y)$ is a vector of feature functions
 \foreach \name in {1,...,6}
     \node[main, fill = blue!20] (k\name) at (\name*2,3.1) {$\mathbf{s}^b_2(\name )$};
 \foreach \name in {1,...,6}
-    \node[main, fill = blue!20] (i\name) at (\name*2,.8) {$\mathbf{s}^b_1(\name )$};
-\foreach \name in {1,...,6}
     \node[main, fill = blue!20] (h\name) at (\name*2,0) {$\mathbf{s}^f_1(\name )$};
+\foreach \name in {1,...,6}
+    \node[main, fill = blue!20] (i\name) at (\name*2,.8) {$\mathbf{s}^b_1(\name )$};
 \foreach \name in {1,...,6}
     \node[main] (x\name) at (\name*2,-1.5) {$\mathbf{x}(\name )$};
 \foreach \h in {1,...,6}
        {
-        \path (x\h) edge [bend right] (i\h);
+        \path (x\h) edge [bend left] (i\h);
         \path (x\h) edge (h\h);
         \path (i\h) edge [bend left] (k\h);
         \path (h\h) edge [bend right] (l\h);
-        \path (h\h) edge [bend left] (k\h);
-        \path (i\h) edge (l\h);
+%        \path (h\h) edge [bend left] (k\h);
+%        \path (i\h) edge (l\h);
        }
 \foreach \current/\next in {1/2,2/3,3/4,4/5,5/6} 
        {
