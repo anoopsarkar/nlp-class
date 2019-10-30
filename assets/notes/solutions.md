@@ -92,8 +92,16 @@ or
 
 ### Question 5
 
-1. P(y=+ | x=ab) ; exp(v1 + v3) / exp(v1 + v2) + exp(v3 + v4)
-1. P(y=- | x=ab) ; exp(v2 + v4) / exp(v1 + v2) + exp(v3 + v4)
+For input `ab` and label `+` the features that are non-zero are f1, f3.
+For input `ab` and label `-` the features that are non-zero are f2, f4.
+For input `ab` and labels either `+` or `-` the features that are non-zero are f1+, f3+, f2-, f4-.
+
+For input `bb` and label `+` the feature that is non-zero is f3.
+For input `bb` and label `-` the feature that is non-zero is f4.
+For input `bb` and labels either `+` or `-` the features that are non-zero are f3+, f4-.
+
+1. P(y=+ | x=ab) ; exp(v1 + v3) / exp(v1 + v3) + exp(v2 + v4)
+1. P(y=- | x=ab) ; exp(v2 + v4) / exp(v1 + v3) + exp(v2 + v4)
 1. P(y=+ | x=bb) ; exp(v3) / exp(v3) + exp(v4)
 1. P(y=- | x=bb) ; exp(v4) / exp(v3) + exp(v4)
 
