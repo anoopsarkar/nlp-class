@@ -620,7 +620,7 @@ compute $\lambda$ values to minimize cross-entropy on {\bf held-out} data which 
 \[ P_{\textit{abs}}(y~\mid~x) = \left\{ 
 \begin{array}{cc}
 \frac{ c(xy) - D }{ c(x) } & \textsf{ if $c(xy) > 0$} \\
-\alpha(x) P_{\textit{abs}} (y) & \textsf{otherwise}
+\alpha(x) P(y) & \textsf{otherwise}
 \end{array}
 \right. \]
 \item where $\alpha(x)$ is chosen to make sure that $P_{\textit{abs}}(y~\mid~x)$ is a proper probability
