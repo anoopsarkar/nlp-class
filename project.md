@@ -103,6 +103,23 @@ ideas for these tasks.
 
 ## Project Submission
 
+### Project proposal (due on {{ site.hwdates[5].proposal }})
+
+For your project proposal please submit a text file in Markdown format that includes a Title and an Abstract. Your abstract should be no longer than 1000 words.
+
+We will grade the abstract based on the following criteria:
+
+* Motivation 
+    * which NLP task do you plan to do; 
+    * which aspect of the problem / task did your group plan to work on (accuracy, interpretability, etc.); 
+    * provide some reasons for your choice
+* Approach 
+    * Describe the algorithms and machine learning models you plan to use in your project. 
+    * Using equations is not necessary but if you do, use a clear mathematical style to explain your model(s).
+* Data
+    * Exactly which data set do you plan to use
+    * What is the evaluation measure for the data set
+
 ### Poster Session
 
 There will be a poster session at the SFU Downtown Vancouver campus on {{ site.hwdates[5].deadline }}. 

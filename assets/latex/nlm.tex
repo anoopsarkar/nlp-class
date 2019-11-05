@@ -70,7 +70,7 @@ P(\text{herself} &\mid& \text{She}, \ldots, \text{confidence} )
 \begin{block}{Recurrent Neural Network}
 \begin{itemize}[<+->]
 	\item Let $y$ be the output $w_{t+1}$ for current word $w_t$ and history $w_1, \ldots, w_t$
-	\item $s(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot s(t-1))$ where $f$ is a sigmoid
+	\item $s(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot s(t-1))$ where $f$ is sigmoid / tanh
 	\item $s(t)$ encapsulates history using single vector of size $h$
 	\item Output word at time step $w_{t+1}$ is provided by $y(t)$
 	\item $y(t) = g(V_{hy} \cdot s(t))$ where $g$ is softmax
@@ -151,6 +151,11 @@ P(\text{herself} &\mid& \text{She}, \ldots, \text{confidence} )
 	\item We go through all the training data iteratively, and update the weight matrices $U$, $W$ and $V$ (after processing every word)
 	\item Training is performed in several ``epochs'' (usually 5-10)
 	\item An epoch is one pass through the training data
+	\item As with feedforward networks we have two passes:
+	\begin{description}
+		\item[Forward pass]: collect the values to make a prediction (for each time step)
+		\item[Backward pass]: back-propagate the error gradients (through each time step)
+	\end{description}
 \end{itemize}
 \end{frame}
 
