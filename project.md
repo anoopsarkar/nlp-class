@@ -105,9 +105,10 @@ ideas for these tasks.
 
 ### Project proposal (due on {{ site.hwdates[5].proposal }})
 
-For your project proposal please submit a text file in Markdown format that includes a Title and an Abstract. Your abstract should be no longer than 1000 words.
-
-We will grade the abstract based on the following criteria:
+For your project proposal please submit a text file in Markdown
+format that includes a Title and an Abstract. Your abstract should
+be no longer than 1000 words. Make sure the following points are
+in your abstract.
 
 * Motivation 
     * which NLP task do you plan to do; 
@@ -118,7 +119,7 @@ We will grade the abstract based on the following criteria:
     * Using equations is not necessary but if you do, use a clear mathematical style to explain your model(s).
 * Data
     * Exactly which data set do you plan to use
-    * What is the evaluation measure for the data set
+    * What is the evaluation measure for the data set and what is the baseline
 
 ### Poster Session
 

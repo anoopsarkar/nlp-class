@@ -160,6 +160,24 @@ P(\text{herself} &\mid& \text{She}, \ldots, \text{confidence} )
 \end{frame}
 
 \begin{frame}{Training of RNNLM}
+\framesubtitle{Forward pass}
+\begin{itemize}[<+->]
+	\item In the forward pass we compute a hidden state $s(t)$ based on previous states $1, \ldots, t-1$
+	\begin{itemize}
+	\item $s(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot s(t-1))$
+	\item $s(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot \textcolor{blue}{f(U_{xh} \cdot w(t) + W_{hh} \cdot s(t-2))})$
+	\item $s(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot \textcolor{blue}{f(U_{xh} \cdot w(t) + W_{hh} \cdot \textcolor{red}{f(U_{xh} \cdot w(t) + W_{hh} \cdot s(t-3))})})$
+	\item etc.\ 
+	\end{itemize}
+	\item Let us assume $f$ is linear, e.g. $f(x) = x$. 
+	\item Notice how we have to compute $W_{hh} \cdot W_{hh}  \cdot \ldots = \prod_i W_{hh}$
+	\item By examining this repeated matrix multiplication we can show that the norm of $W_{hh} \rightarrow \infty$ (explodes)
+	\item This is why $f$ is set to a function that returns a bounded value (sigmoid / tanh)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Training of RNNLM}
+\framesubtitle{Backward pass}
 \begin{itemize}[<+->]
 	\item Gradient of the error vector in the output layer $\mathbf{e}_o(t)$ is computed using a cross entropy criterion:
 	\[ \mathbf{e}_o(t) = \mathbf{d}(t) - \mathbf{y}(t) \]
@@ -168,6 +186,7 @@ P(\text{herself} &\mid& \text{She}, \ldots, \text{confidence} )
 \end{frame}
 
 \begin{frame}{Training of RNNLM}
+\framesubtitle{Backward pass}
 \begin{itemize}[<+->]
 	\item Weights $V$ between the hidden layer $s(t)$ and the output layer $y(t)$ are updated as
 	\[ V^{(t+1)} = V^{(t)} + \mathbf{s}(t) \cdot \mathbf{e}_o(t) \cdot \alpha \]
@@ -176,6 +195,7 @@ P(\text{herself} &\mid& \text{She}, \ldots, \text{confidence} )
 \end{frame}
 
 \begin{frame}{Training of RNNLM}
+\framesubtitle{Backward pass}
 \begin{itemize}[<+->]
 	\item Next, gradients of errors are propagated from the output layer to the hidden layer
 	\[ \mathbf{e}_h(t) = d_h(\mathbf{e}_o \cdot V, t) \]
@@ -185,6 +205,7 @@ P(\text{herself} &\mid& \text{She}, \ldots, \text{confidence} )
 \end{frame}
 
 \begin{frame}{Training of RNNLM}
+\framesubtitle{Backward pass}
 \begin{itemize}[<+->]
 	\item Weights $U$ between the input layer $w(t)$ and the hidden layer $s(t)$ are then updated as
 	\[ U^{(t+1)} = U^{(t)} + \mathbf{w}(t) \cdot \mathbf{e}_h(t) \cdot \alpha \]
@@ -193,6 +214,7 @@ P(\text{herself} &\mid& \text{She}, \ldots, \text{confidence} )
 \end{frame}
 
 \begin{frame}{Training of RNNLM: Backpropagation through time}
+\framesubtitle{Backward pass}
 \begin{itemize}[<+->]
 	\item The recurrent weights $W$ are updated by unfolding them in time and training the network as a deep feedforward neural network.
 	\item The process of propagating errors back through the recurrent weights is called Backpropagation Through Time (BPTT).
@@ -208,22 +230,55 @@ P(\text{herself} &\mid& \text{She}, \ldots, \text{confidence} )
 \end{frame}
 
 \begin{frame}{Training of RNNLM: Backpropagation through time}
+\framesubtitle{Backward pass}
 \begin{itemize}[<+->]
 	\item Error propagation is done recursively as follows (it requires the states of the hidden layer from the previous time steps $\tau$ to be stored):
 	\[ \mathbf{e}(t - \tau - 1) = d_h(\mathbf{e}_h(t-\tau) \cdot W, t - \tau -1) \]
-	\item The error gradients quickly vanish as they get backpropagated in time (in rare cases the errors can explode)
+	\item The error gradients quickly vanish as they get backpropagated in time (less likely if we use sigmoid / tanh)
 	\item We use gated RNNs to stop gradients from vanishing or exploding. 
 	\item Popular gated RNNs are \textit{long short-term memory} RNNs aka LSTMs and \textit{gated recurrent units} aka GRUs. 
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Training of RNNLM: Backpropagation through time}
+\framesubtitle{Backward pass}
 \begin{itemize}[<+->]
 	\item The recurrent weights $W$ are updated as:
 	\[ W^{(t+1)} = W^{(t)} + \sum_{z=0}^T \mathbf{s}(t - z - 1) \cdot \mathbf{e}_h(t-z) \cdot \alpha \]
 	\item Note that the matrix $W$ is changed in one update at once, not during backpropagation of errors.
 \end{itemize}
 
+\end{frame}
+
+\lecture{Gated Recurrent Units}{}
+\section{Gated Recurrent Units}
+
+\begin{frame}{Interpolation for hidden units}
+\framesubtitle{$u$: use history or forget history}
+\begin{itemize}[<+->]
+	\item For RNN state $s(t) \in \mathbb{R}^h$ create a binary vector $u = \{0,1\}^h$
+	\[ u_i = \left\{ \begin{array}{cl}
+		1 & \textsf{ if $s(t) \neq s(t-1)$ and gets a new value }\\
+		0 & \textsf{ if $s(t) \leftarrow s(t-1)$ copies old value }
+	\end{array} \right. \]
+	\item Create an intermediate hidden state $\tilde{s}(t)$: \[ \textcolor{blue}{\tilde{s}(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot s(t-1))} \]
+	\item Use the binary vector $u$ to interpolate between copying prior state $s(t-1)$ and using new state $\tilde{s}(t)$:
+	\[ s(t) = (1-u) \callouts{blue}{$\odot$ is elementwise multiplication}{$\odot$} s(t-1) + u \textcolor{blue}{\odot} \textcolor{blue}{\tilde{s}(t)} \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Interpolation for hidden units}
+\framesubtitle{$r$: reset hidden unit or retain hidden unit}
+\begin{itemize}[<+->]
+	\item For RNN state $s(t) \in \mathbb{R}^h$ create a binary vector $u = \{0,1\}^h$
+	\[ u_i = \left\{ \begin{array}{cl}
+		1 & \textsf{ if $s(t) \neq s(t-1)$ and gets a new value }\\
+		0 & \textsf{ if $s(t) \leftarrow s(t-1)$ copies old value }
+	\end{array} \right. \]
+	\item Create an intermediate hidden state $\tilde{s}(t)$: \[ \textcolor{blue}{\tilde{s}(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot s(t-1))} \]
+	\item Use the binary vector $u$ to interpolate between copying prior state $s(t-1)$ and using new state $\tilde{s}(t)$:
+	\[ s(t) = (1-u) \callouts{blue}{$\odot$ is elementwise multiplication}{$\odot$} s(t-1) + u \textcolor{blue}{\odot} \textcolor{blue}{\tilde{s}(t)} \]
+\end{itemize}
 \end{frame}
 
 \lecture{Sequence prediction using RNNs}{}
