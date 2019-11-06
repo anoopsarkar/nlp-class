@@ -200,7 +200,7 @@ P(\text{herself} &\mid& \text{She}, \ldots, \text{confidence} )
 	\item Next, gradients of errors are propagated from the output layer to the hidden layer
 	\[ \mathbf{e}_h(t) = d_h(\mathbf{e}_o \cdot V, t) \]
 	\item where the error vector is obtained using function $d_h()$ that is applied element-wise:
-	\[ d_{hj} = x \cdot s_j(t) (1 - s_j(t))\]
+	\[ d_{hj}(x,t) = x \cdot s_j(t) (1 - s_j(t))\]
 \end{itemize}
 \end{frame}
 
@@ -256,28 +256,60 @@ P(\text{herself} &\mid& \text{She}, \ldots, \text{confidence} )
 \begin{frame}{Interpolation for hidden units}
 \framesubtitle{$u$: use history or forget history}
 \begin{itemize}[<+->]
-	\item For RNN state $s(t) \in \mathbb{R}^h$ create a binary vector $u = \{0,1\}^h$
+	\item For RNN state $s(t) \in \mathbb{R}^h$ create a binary vector $u \in \{0,1\}^h$
 	\[ u_i = \left\{ \begin{array}{cl}
-		1 & \textsf{ if $s(t) \neq s(t-1)$ and gets a new value }\\
-		0 & \textsf{ if $s(t) \leftarrow s(t-1)$ copies old value }
+		1 & \textsf{ if $s(t) \neq s(t-1)$ forget history and get a new value }\\
+		0 & \textsf{ if $s(t) \leftarrow s(t-1)$ use history and copy old value }
 	\end{array} \right. \]
-	\item Create an intermediate hidden state $\tilde{s}(t)$: \[ \textcolor{blue}{\tilde{s}(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot s(t-1))} \]
+	\item Create an intermediate hidden state $\tilde{s}(t)$ where $f$ is tanh: 
+    \[ \textcolor{blue}{\tilde{s}(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot s(t-1))} \]
 	\item Use the binary vector $u$ to interpolate between copying prior state $s(t-1)$ and using new state $\tilde{s}(t)$:
 	\[ s(t) = (1-u) \callouts{blue}{$\odot$ is elementwise multiplication}{$\odot$} s(t-1) + u \textcolor{blue}{\odot} \textcolor{blue}{\tilde{s}(t)} \]
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Interpolation for hidden units}
-\framesubtitle{$r$: reset hidden unit or retain hidden unit}
+\framesubtitle{$r$: reset or retain each element of hidden state vector}
 \begin{itemize}[<+->]
-	\item For RNN state $s(t) \in \mathbb{R}^h$ create a binary vector $u = \{0,1\}^h$
-	\[ u_i = \left\{ \begin{array}{cl}
-		1 & \textsf{ if $s(t) \neq s(t-1)$ and gets a new value }\\
-		0 & \textsf{ if $s(t) \leftarrow s(t-1)$ copies old value }
+	\item For RNN state $s(t-1) \in \mathbb{R}^h$ create a binary vector $r \in \{0,1\}^h$
+	\[ r_i = \left\{ \begin{array}{cl}
+		1 & \textsf{ if $s_i(t-1)$ should be used }\\
+		0 & \textsf{ if $s_i(t-1)$ should be ignored }
 	\end{array} \right. \]
-	\item Create an intermediate hidden state $\tilde{s}(t)$: \[ \textcolor{blue}{\tilde{s}(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot s(t-1))} \]
-	\item Use the binary vector $u$ to interpolate between copying prior state $s(t-1)$ and using new state $\tilde{s}(t)$:
-	\[ s(t) = (1-u) \callouts{blue}{$\odot$ is elementwise multiplication}{$\odot$} s(t-1) + u \textcolor{blue}{\odot} \textcolor{blue}{\tilde{s}(t)} \]
+	\item Modify intermediate hidden state $\tilde{s}(t)$ where $f$ is tanh: 
+	\[ \textcolor{blue}{\tilde{s}(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot \textcolor{red}{\left( r \odot s(t-1) \right)})} \]
+	\item Use the binary vector $u$ to interpolate between $s(t-1)$ and $\tilde{s}(t)$:
+	\[ s(t) = (1-u) \odot s(t-1) + u \odot \textcolor{blue}{\tilde{s}(t)} \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Interpolation for hidden units}
+\framesubtitle{{\it Learning} $u$ and $r$}
+\begin{itemize}[<+->]
+	\item Instead of binary vectors $u \in \{0,1\}^h$ and $r \in \{0,1\}^h$ we want to \textcolor{red}{{\em learn}} $u$ and $r$
+	\item Let $u \in [0,1]^h$ and $r \in [0,1]^h$
+	\item Learn these two $h$ dimensional vectors using equations similar to the RNN hidden state equation:
+	\begin{eqnarray*}
+		u &=& \sigma\left( U^u_{xh} \cdot w(t) + W^u_{hh} \cdot s(t-1) \right)  \\
+		r &=& \sigma\left( U^r_{xh} \cdot w(t) + W^r_{hh} \cdot s(t-1) \right)
+	\end{eqnarray*}
+	\item The sigmoid function $\sigma$ ensures that each element of $u$ and $r$ is between $[0,1]$
+	\item The {\it use history} $u$ and {\it reset element} $r$ vectors use different parameters $U^u, W^u$ and $U^r, W^r$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Interpolation for hidden units}
+\framesubtitle{{\it Learning} $u$ and $r$}
+\begin{itemize}[<+->]
+	\item Putting it all together:
+	\begin{eqnarray*}
+		\textcolor{blue}{u} &=& \sigma\left( U^u_{xh} \cdot w(t) + W^u_{hh} \cdot s(t-1) \right)  \\
+		\textcolor{red}{r} &=& \sigma\left( U^r_{xh} \cdot w(t) + W^r_{hh} \cdot s(t-1) \right) \\
+		\tilde{s}(t) &=& f(U_{xh} \cdot w(t) + W_{hh} \cdot \left( \textcolor{red}{r} \odot s(t-1) \right) ) \\
+		s(t) &=& (1-\textcolor{blue}{u}) \odot s(t-1) + \textcolor{blue}{u} \odot \tilde{s}(t)
+	\end{eqnarray*}
+	\item This defines a Gated Recurrent Unit (GRU). 
+	\item Long-Short Term Memory (LSTM) is similar (+2 gates).
 \end{itemize}
 \end{frame}
 
