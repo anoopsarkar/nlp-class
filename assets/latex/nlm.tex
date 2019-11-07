@@ -258,8 +258,8 @@ P(\text{herself} &\mid& \text{She}, \ldots, \text{confidence} )
 \begin{itemize}[<+->]
 	\item For RNN state $s(t) \in \mathbb{R}^h$ create a binary vector $u \in \{0,1\}^h$
 	\[ u_i = \left\{ \begin{array}{cl}
-		1 & \textsf{ if $s(t) \neq s(t-1)$ forget history and get a new value }\\
-		0 & \textsf{ if $s(t) \leftarrow s(t-1)$ use history and copy old value }
+		1 & \textsf{ use the new hidden state (standard RNN update) }\\
+		0 & \textsf{ copy previous hidden state and ignore RNN update }
 	\end{array} \right. \]
 	\item Create an intermediate hidden state $\tilde{s}(t)$ where $f$ is tanh: 
     \[ \textcolor{blue}{\tilde{s}(t) = f(U_{xh} \cdot w(t) + W_{hh} \cdot s(t-1))} \]
@@ -290,8 +290,8 @@ P(\text{herself} &\mid& \text{She}, \ldots, \text{confidence} )
 	\item Let $u \in [0,1]^h$ and $r \in [0,1]^h$
 	\item Learn these two $h$ dimensional vectors using equations similar to the RNN hidden state equation:
 	\begin{eqnarray*}
-		u &=& \sigma\left( U^u_{xh} \cdot w(t) + W^u_{hh} \cdot s(t-1) \right)  \\
-		r &=& \sigma\left( U^r_{xh} \cdot w(t) + W^r_{hh} \cdot s(t-1) \right)
+		u(t) &=& \sigma\left( U^u_{xh} \cdot w(t) + W^u_{hh} \cdot s(t-1) \right)  \\
+		r(t) &=& \sigma\left( U^r_{xh} \cdot w(t) + W^r_{hh} \cdot s(t-1) \right)
 	\end{eqnarray*}
 	\item The sigmoid function $\sigma$ ensures that each element of $u$ and $r$ is between $[0,1]$
 	\item The {\it use history} $u$ and {\it reset element} $r$ vectors use different parameters $U^u, W^u$ and $U^r, W^r$
@@ -299,17 +299,32 @@ P(\text{herself} &\mid& \text{She}, \ldots, \text{confidence} )
 \end{frame}
 
 \begin{frame}{Interpolation for hidden units}
-\framesubtitle{{\it Learning} $u$ and $r$}
+\framesubtitle{Gated Recurrent Unit (GRU)}
 \begin{itemize}[<+->]
 	\item Putting it all together:
 	\begin{eqnarray*}
-		\textcolor{blue}{u} &=& \sigma\left( U^u_{xh} \cdot w(t) + W^u_{hh} \cdot s(t-1) \right)  \\
-		\textcolor{red}{r} &=& \sigma\left( U^r_{xh} \cdot w(t) + W^r_{hh} \cdot s(t-1) \right) \\
-		\tilde{s}(t) &=& f(U_{xh} \cdot w(t) + W_{hh} \cdot \left( \textcolor{red}{r} \odot s(t-1) \right) ) \\
-		s(t) &=& (1-\textcolor{blue}{u}) \odot s(t-1) + \textcolor{blue}{u} \odot \tilde{s}(t)
+		\textcolor{blue}{u(t)} &=& \sigma\left( U^u_{xh} \cdot w(t) + W^u_{hh} \cdot s(t-1) \right)  \\ \pause 
+		\textcolor{red}{r(t)} &=& \sigma\left( U^r_{xh} \cdot w(t) + W^r_{hh} \cdot s(t-1) \right) \\ \pause 
+		\tilde{s}(t) &=& \textsf{tanh}(U_{xh} \cdot w(t) + W_{hh} \cdot \left( \textcolor{red}{r(t)} \odot s(t-1) \right) ) \\ \pause 
+		s(t) &=& (1-\textcolor{blue}{u(t)}) \odot s(t-1) + \textcolor{blue}{u(t)} \odot \tilde{s}(t) 
 	\end{eqnarray*}
-	\item This defines a Gated Recurrent Unit (GRU). 
-	\item Long-Short Term Memory (LSTM) is similar (+2 gates).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Interpolation for hidden units}
+\framesubtitle{Long Short-term Memory (LSTM)}
+\begin{itemize}[<+->]
+	\item Split up $\textcolor{blue}{u(t)}$ into two different gates $\textcolor{blue}{i(t)}$ and $\textcolor{blue}{f(t)}$:
+	\begin{eqnarray*}
+		\textcolor{blue}{i(t)} &=& \sigma\left( U^i_{xh} \cdot w(t) + W^i_{hh} \cdot s(t-1) \right)  \\ \pause
+		\textcolor{blue}{f(t)} &=& \sigma\left( U^f_{xh} \cdot w(t) + W^f_{hh} \cdot s(t-1) \right)  \\ \pause
+		\textcolor{red}{r(t)} &=& \sigma\left( U^r_{xh} \cdot w(t) + W^r_{hh} \cdot s(t-1) \right) \\ \pause 
+		\tilde{s}(t) &=& \textsf{tanh}(U_{xh} \cdot w(t) + W_{hh} \cdot \underbrace{s(t-1)}_{\textsf{GRU}: \textcolor{red}{r(t)} \odot s(t-1)} ) \\ \pause 
+		\hat{s}(t) &=& \underbrace{\textcolor{blue}{f(t)} \odot s(t-1) + \textcolor{blue}{i(t)} \odot \tilde{s}(t)}_{\textsf{GRU}: (1-\textcolor{blue}{u(t)}) \odot s(t-1) + \textcolor{blue}{u(t)} \odot \tilde{s}(t)} \\ \pause 
+		s(t) &=& \textcolor{red}{r(t)} \odot \textsf{tanh}\left( \hat{s}(t) \right) 
+	\end{eqnarray*}
+	\item So LSTM is a GRU plus an extra $U_{xh}$, $W_{hh}$ and $\textsf{tanh}$.
+	\item \textbf{Q}: what happens if $f(t)$ is set to $1 - i(t)$? \pause \textbf{A}: read~\cite{Greff2017}
 \end{itemize}
 \end{frame}
 
@@ -531,6 +546,11 @@ other}
 \alert{Philemon Brakel}
 \newblock {MLIA-IQIA Summer School notes on RNNs}
 \newblock 2015.
+
+\bibitem{Greff2017}
+\alert{Klaus Greff, Rupesh Kumar Srivastava, Jan Koutn\'ik, Bas R. Steunebrink, J\"urgen Schmidhuber}
+\newblock {LSTM: A Search Space Odyssey}
+\newblock 2017.
 
 \end{thebibliography}
 \end{frame}
