@@ -33,7 +33,7 @@ Note that the `USER` above is the SFU username of the person in
 your group that set up the GitLab repository.
 
 Then copy over the contents of the `lexsub` directory into your
-`hw1` directory in your repository.
+`hw2` directory in your repository.
 
 Set up the virtual environment:
 

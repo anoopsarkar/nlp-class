@@ -33,7 +33,7 @@ Note that the `USER` above is the SFU username of the person in
 your group that set up the GitLab repository.
 
 Then copy over the contents of the `chunker` directory into your
-`hw1` directory in your repository.
+`hw3` directory in your repository.
 
 Set up the virtual environment:
 
@@ -202,7 +202,7 @@ Please do not copy over the file into your CSIL directory as it is
 moderately large and you can go over your disk quota. Instead modify
 `default.py` to use the full path to the above file which is
 accessible on the CSIL machines or use the command line option
-for `default.py` to access the word vectors.
+for `default.py`.
 
     python3 default.py -m /usr/shared/CMPT/courses/nlp-class/chunker/chunker > output.txt
 
