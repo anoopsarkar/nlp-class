@@ -263,6 +263,9 @@
   include: true
   current: false
   notes:
+    - title: "Sequence to Sequence Models"
+      author: Jetic Gu
+      url: "assets/slides/03-2019-1010_NMT_Lecture.pdf"
     - title: "Neural Machine Translation"
       author: "Thang Luong, Kyunghyun Cho and Chris Manning"
       citation: "Tutorial at ACL 2016"
