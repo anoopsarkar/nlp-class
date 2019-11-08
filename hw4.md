@@ -153,7 +153,7 @@ $$c = \sum_i \alpha_i \times h^{enc}_i$$
 
 We fixed the interface in a specific way that allows you to implement at least:
 
-1. Unknown word replacement: https://www.aclweb.org/anthology/P15-1002/
+1.[Unknown word replacement](https://www.aclweb.org/anthology/P15-1002/) 
 2. Beam search decoding
 3. Ensemble decoding
 
