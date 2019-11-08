@@ -138,12 +138,10 @@ correct attention module to improve the translation performance.
 
 Attention definition:
 
-$$
-\begin{eqnarray}
+$$\begin{eqnarray}
 score_i &=& W_{enc}(h^{enc}_i) + W_{dec}(h^{dec)) \\
 \alpha &=& \mathrm{softmax}(V_{att} \tanh (score))
-\end{eqnarray}
-$$
+\end{eqnarray}$$
 
 Context vector calculation:
 
