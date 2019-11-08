@@ -136,17 +136,23 @@ correct attention module to improve the translation performance.
 
 ### Baseline 
 
-Attention definition:
+Attention is defined as follows:
 
 $$\mathrm{score}_i = W_{enc}(h^{enc}_i) + W_{dec}(h^{dec))$$
 
 where $\alpha$ is defined as:
 
-$$\alpha = \mathrm{softmax}(V_{att} \mathrm{tanh} (score))$$
+$$\alpha_i = \mathrm{softmax}(V_{att} \mathrm{tanh} (\mathrm{score}_i))$$
 
 Context vector calculation:
 
 $$c = \sum_i \alpha_i \times h^{enc}_i$$
+
+The context vector $c$ is combined with the current decoder hidden
+state $h^{dec}$ and this representation is used to compute the
+softmax over the target language vocabulary at the current decoder
+time step. We then move to the next time step and repeat this process
+until we produce an end of sentence marker.
 
 ### Extensions to Baseline
 
