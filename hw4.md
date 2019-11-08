@@ -138,7 +138,7 @@ correct attention module to improve the translation performance.
 
 Attention is defined as follows:
 
-$$\mathrm{score}_i = W_{enc}(h^{enc}_i) + W_{dec}(h^{dec))$$
+$$\mathrm{score}_i = W_{enc}( h^{enc}_i ) + W_{dec}( h^{dec} )$$
 
 where $\alpha$ is defined as:
 
