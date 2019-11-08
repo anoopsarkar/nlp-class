@@ -1,5 +1,5 @@
 ---
-layout: default
+layoue: default
 img: rosetta
 img_link: "http://en.wikipedia.org/wiki/Rosetta_Stone"
 caption: Jean-François Champollion used word alignment (starting with the word Ptolemy) to decipher Egyptian hierogyphics.
@@ -140,11 +140,11 @@ Attention is defined as follows:
 
 $$\mathrm{score}_i = W_{enc}( h^{enc}_i ) + W_{dec}( h^{dec} )$$
 
-where $\alpha$ is defined as:
+Define $\alpha_i$ for each source side token $i$ as follows:
 
 $$\alpha_i = \mathrm{softmax}(V_{att} \mathrm{tanh} (\mathrm{score}_i))$$
 
-Context vector calculation:
+The we define the context vector using the $\alpha$ weights:
 
 $$c = \sum_i \alpha_i \times h^{enc}_i$$
 
