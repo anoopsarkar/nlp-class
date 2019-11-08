@@ -158,9 +158,9 @@ until we produce an end of sentence marker.
 
 We fixed the interface in a specific way that allows you to implement at least:
 
-1.[Unknown word replacement](https://www.aclweb.org/anthology/P15-1002/) 
-2. Beam search decoding
-3. Ensemble decoding
+1. [Unknown word replacement](http://www.aclweb.org/anthology/P15-1002).
+2. Beam search decoding.
+3. Ensemble decoding.
 
 Original training data is also provided (tokenised). You may use it whichever
 way you want to augment the provided Seq2Seq model.
