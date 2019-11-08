@@ -61,7 +61,7 @@ as your solution:
 
     cp default.py answer/neuralml.py
     cp default.ipynb answer/neuralml.ipynb
-    python3 zipout.py
+    python3 zipout.py # Warning: can take >10mins to translate dev and test input files
     python3 check.py
 
 The default solution will look for the file `seq2seq_E049.pt`
