@@ -59,8 +59,8 @@ The data files provided are:
 The default solution is provided in `default.py`. To use the default
 as your solution:
 
-    cp default.py answer/chunker.py
-    cp default.ipynb answer/chunker.ipynb
+    cp default.py answer/neuralml.py
+    cp default.ipynb answer/neuralml.ipynb
     python3 zipout.py
     python3 check.py
 
