@@ -182,3 +182,100 @@ In addition, `default.py` has an additional parameter `-n`.
 If your inference is taking too long and you'd like to test your implementation
 with a subset of dev (say first 100 samples), you can do that.
 
+## Required files
+
+You must create the following files:
+
+* `answer/neuralmt.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
+* `answer/neuralmt.ipynb` -- this is the iPython notebook that will be your write-up for the homework.
+
+## Run your solution on the data files
+
+To create the `output.zip` file for upload to Coursys do:
+
+    python3 zipout.py
+
+For more options:
+
+    python3 zipout.py -h
+
+## Check your accuracy
+
+To check your accuracy on the dev set:
+
+    python3 check.py
+
+The output score is the $F_{\beta=1}$ score or [FB1 score](https://en.wikipedia.org/wiki/F1_score)
+which is the harmonic mean of the precision and recall
+computed over all the output phrasal chunks.
+
+    python3 check.py -h
+
+In particular use the log file to check your output evaluation:
+
+    python3 check.py -l log
+
+The accuracy on `data/input/test.txt` will not be shown.  We will
+evaluate your output on the test input after the submission deadline.
+
+## Submit your homework on Coursys
+
+Once you are done with your homework submit all the relevant materials
+to Coursys for evaluation.
+
+### Create output.zip
+
+Once you have a working solution in `answer/neuralmt.py` create
+the `output.zip` for upload to Coursys using:
+
+    python3 zipout.py
+
+### Create source.zip
+
+To create the `source.zip` file for upload to Coursys do:
+
+    python3 zipsrc.py
+
+You must have the following files or `zipsrc.py` will complain about it:
+
+* `answer/neuralmt.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
+* `answer/neuralmt.ipynb` -- this is the iPython notebook that will be your write-up for the homework.
+
+In addition, each group member should write down a short description of what they
+did for this homework in `answer/README.username`.
+
+### Upload to Coursys
+
+Go to `Homework 4` on Coursys and do a group submission:
+
+* Upload `output.zip` and `source.zip`
+* Make sure your `source.zip` matches your Gitlab repository.
+* Make sure you have documented your approach in `answer/neuralmt.ipynb`.
+* Make sure each member of your group has documented their contribution to this homework in `answer/README.username` where `username` is your CSIL/GitLab username.
+
+## Grading
+
+The grading is split up into the following components:
+
+* dev scores (see Table below)
+* test scores (see Table below)
+* iPython notebook write-up 
+* Check if each group member has a `answer/README.username`.
+
+Your F-score should be equal to or greater than the score listed for the corresponding marks.
+
+| **BLEU(dev)** | **BLEU(test)** | **Marks** | **Grade** |
+| 2.5  | 2.4  | 0   | F  |
+| 3.0  | 2.8  | 55  | D  |
+| 4.0  | 3.8  | 60  | C- |
+| 5.0  | 4.8  | 65  | C  |
+| 6.0  | 5.8  | 70  | C+ |
+| 8.0  | 7.8  | 75  | B- |
+| 10.0 | 9.8  | 80  | B  |
+| 14.0 | 13.8 | 85  | B+ |
+| 16.0 | 15.0 | 90  | A- |
+| 18.0 | 16.0 | 95  | A  |
+| 20.0 | 19.0 | 100 | A+ |
+{: .table}
+
+The score will be normalized to the marks on Coursys for the dev and test scores.

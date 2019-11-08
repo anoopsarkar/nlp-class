@@ -474,3 +474,4 @@ Your F-score should be equal to or greater than the score listed for the corresp
 {: .table}
 
 The score will be normalized to the marks on Coursys for the dev and test scores.
+
