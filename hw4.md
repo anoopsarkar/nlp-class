@@ -134,7 +134,7 @@ from the pre-trained model and produces a translation for input
 documents. Your task is to augment the NMT implementation with the
 correct attention module to improve the translation performance.
 
-## Baseline 
+### Baseline 
 
 Attention definition:
 
@@ -147,7 +147,7 @@ Context vector calculation:
 
 $$c = \sum_i \alpha_i \times h^{enc}_i$$
 
-## Extensions to Baseline
+### Extensions to Baseline
 
 We fixed the interface in a specific way that allows you to implement at least:
 
@@ -158,7 +158,7 @@ We fixed the interface in a specific way that allows you to implement at least:
 Original training data is also provided (tokenised). You may use it whichever
 way you want to augment the provided Seq2Seq model.
 
-# Useful Tools
+### Useful Tools
 
 For visualisation, one could easily use the included functions in `utils.py`:
 
