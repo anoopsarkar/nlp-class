@@ -59,8 +59,8 @@ The data files provided are:
 The default solution is provided in `default.py`. To use the default
 as your solution:
 
-    cp default.py answer/neuralml.py
-    cp default.ipynb answer/neuralml.ipynb
+    cp default.py answer/neuralmt.py
+    cp default.ipynb answer/neuralmt.ipynb
     python3 zipout.py # Warning: can take >10mins to translate dev and test input files
     python3 check.py
 
