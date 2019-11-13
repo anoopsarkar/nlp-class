@@ -183,6 +183,93 @@
     - author: Erik F. Tjong Kim Sang and Sabine Buchholz
       title: "Introduction to the CoNLL-2000 Shared Task: Chunking"
       url: "http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
+- title: "Neural Language models"
+  tag: nlm
+  include: true
+  current: false
+  notes:
+    - title: "Neural Language model"
+      url: "assets/slides/nlm.pdf"
+    - title: "RNN based Neural Language model (experiments)"
+      url: "assets/slides/nlm-mikolov.pdf"
+      author: Tomas Mikolov
+    - title: "RNN Language model notebook"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/rnnlm.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/rnnlm.ipynb"
+  links:
+    - title: "How to implement a recurrent neural network"
+      author: "peterroelants.github.io"
+      url: "http://peterroelants.github.io/posts/rnn_implementation_part01/"
+      optional: true
+    - title: "Neural Machine Translation and Sequence-to-sequence Models: A Tutorial"
+      author: "Graham Neubig"
+      citation: "arXiv"
+      url: "https://arxiv.org/pdf/1703.01619.pdf"
+      optional: true
+    - title: "Statistical language models based on neural networks"
+      author: Tomas Mikolov
+      url: "http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf"
+- title: "Machine Translation"
+  tag: smt
+  include: true
+  current: true 
+  notes:
+    - title: "Introduction to Machine Translation"
+      url: "assets/slides/mtintro.pdf"
+    - title: "Exercise: Philae Obelisk"
+      url: "assets/notes/philae-obelisk.html"
+  links:
+    - author: Adam Lopez
+      title: "Word Alignment and the Expectation-Maximization Algorithm"
+      url: "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.421.5497&rep=rep1&type=pdf"
+    - author: Kevin Knight
+      title: "A Statistical MT Tutorial Workbook"
+      url: http://www.isi.edu/natural-language/mt/wkbk.pdf
+      optional: true
+- title: "Sequence to Sequence models"
+  tag: tutorial
+  include: true
+  current: true
+  notes:
+    - title: "Sequence to Sequence Models (Part 1)"
+      author: Jetic Gu
+      url: "assets/slides/03-2019-1010_NMT_Lecture.pdf"
+    - title: "Sequence to Sequence Models (Part 2)"
+      author: Jetic Gu
+      url: "assets/slides/03-2019-1012_NMT_Lecture2.pdf"
+    - title: "Neural Machine Translation"
+      author: "Thang Luong, Kyunghyun Cho and Chris Manning"
+      citation: "Tutorial at ACL 2016"
+      url: "https://sites.google.com/site/acl16nmt/"
+      download: "assets/cached/Luong-Cho-Manning-NMT-ACL2016-v4.pdf"
+    - title: "Neural Machine Translation and Sequence-to-sequence Models: A Tutorial"
+      author: "Graham Neubig"
+      citation: "arXiv"
+      url: "https://arxiv.org/pdf/1703.01619.pdf"
+  links:
+    - title: "Neural Machine Translation: Breaking the Performance Plateau"
+      author: Rico Sennrich
+      url: "http://www.meta-net.eu/events/meta-forum-2016/slides/09_sennrich.pdf"
+      download: "assets/cached/09_sennrich.pdf"
+    - title: "Several Studies on Natural Language and Back-propagation"
+      author: "Robert B. Allen"
+      url: "http://boballen.info/RBA/PAPERS/NL-BP/nl-bp.pdf"
+      download: "assets/cached/10.1.1.716.2719.pdf"
+      optional: true
+    - title: "Learning recursive distributed representations for holistic computation"
+      author: Lonnie Chrisman
+      url: "http://repository.cmu.edu/cgi/viewcontent.cgi?article=3061&context=compsci"
+      optional: true
+    - title: "A connectionist approach to machine translation"
+      author: "M. A. Castano and F. Casacuberta"
+      citation: "EUROSPEECH. 1997"
+      url: "https://pdfs.semanticscholar.org/a0ee/55dbdb798546f9e573ee6df9519b6bd1179d.pdf"
+      optional: true
+    - title: "Asynchronous translations with recurrent neural nets"
+      author: "R. Neco and M. Forcada"
+      citation: "International Conference on Neural Networks, vol 4, pages 2535-2540"
+      url: "http://www.cs.brandeis.edu/~gregws/cs113/asynchronous-translations-with-recurrent.pdf"
+      optional: true
 - title: "Hidden Markov Models"
   tag: hmm
   include: true
@@ -232,93 +319,46 @@
       download: "assets/mcollins-notes/fb.pdf"
       url: "assets/mcollins-notes/fb.pdf"
       optional: true
-- title: "Neural Language models"
-  tag: nlm
-  include: true
-  current: true
-  notes:
-    - title: "Neural Language model"
-      url: "assets/slides/nlm.pdf"
-    - title: "RNN based Neural Language model (experiments)"
-      url: "assets/slides/nlm-mikolov.pdf"
-      author: Tomas Mikolov
-    - title: "RNN Language model notebook"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/rnnlm.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/rnnlm.ipynb"
-  links:
-    - title: "How to implement a recurrent neural network"
-      author: "peterroelants.github.io"
-      url: "http://peterroelants.github.io/posts/rnn_implementation_part01/"
-      optional: true
-    - title: "Neural Machine Translation and Sequence-to-sequence Models: A Tutorial"
-      author: "Graham Neubig"
-      citation: "arXiv"
-      url: "https://arxiv.org/pdf/1703.01619.pdf"
-      optional: true
-    - title: "Statistical language models based on neural networks"
-      author: Tomas Mikolov
-      url: "http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf"
-- title: "Sequence to Sequence models"
-  tag: tutorial
+- title: Ambiguity and Context-Free Grammars
+  tag: cfg
   include: true
   current: false
   notes:
-    - title: "Sequence to Sequence Models"
-      author: Jetic Gu
-      url: "assets/slides/03-2019-1010_NMT_Lecture.pdf"
-    - title: "Neural Machine Translation"
-      author: "Thang Luong, Kyunghyun Cho and Chris Manning"
-      citation: "Tutorial at ACL 2016"
-      url: "https://sites.google.com/site/acl16nmt/"
-      download: "assets/cached/Luong-Cho-Manning-NMT-ACL2016-v4.pdf"
-    - title: "Neural Machine Translation and Sequence-to-sequence Models: A Tutorial"
-      author: "Graham Neubig"
-      citation: "arXiv"
-      url: "https://arxiv.org/pdf/1703.01619.pdf"
+    - title: "Formal Ambiguity"
+      url: "assets/slides/ambiguity.pdf"
+    - title: "Exercise on CFGs"
+      url: "assets/notes/cfgquiz.pdf"
+    - title: "Context-free grammars notebook"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/cfg.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/cfg.ipynb"
   links:
-    - title: "Neural Machine Translation: Breaking the Performance Plateau"
-      author: Rico Sennrich
-      url: "http://www.meta-net.eu/events/meta-forum-2016/slides/09_sennrich.pdf"
-      download: "assets/cached/09_sennrich.pdf"
-    - title: "Several Studies on Natural Language and Back-propagation"
-      author: "Robert B. Allen"
-      url: "http://boballen.info/RBA/PAPERS/NL-BP/nl-bp.pdf"
-      download: "assets/cached/10.1.1.716.2719.pdf"
+    - author: Michael Collins
+      title: "Probabilistic Context-free Grammars"
+      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/pcfgs.pdf"
+      download: "assets/mcollins-notes/pcfgs.pdf"
+    - author: Michael Collins
+      title: "Lexicalized Context-free Grammars"
+      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lexpcfgs.pdf"
+      download: "assets/mcollins-notes/lexpcfgs.pdf"
+    - title: "Exercise: Grammar Rules!"
+      author: "Andrea Schalley and Patrick Littell"
+      url: "http://nacloweb.org/resources/problems/2013/N2013-F.pdf"
       optional: true
-    - title: "Learning recursive distributed representations for holistic computation"
-      author: Lonnie Chrisman
-      url: "http://repository.cmu.edu/cgi/viewcontent.cgi?article=3061&context=compsci"
+    - title: "Exercise: Twodee"
+      author: "Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2013/N2013-H.pdf"
       optional: true
-    - title: "A connectionist approach to machine translation"
-      author: "M. A. Castano and F. Casacuberta"
-      citation: "EUROSPEECH. 1997"
-      url: "https://pdfs.semanticscholar.org/a0ee/55dbdb798546f9e573ee6df9519b6bd1179d.pdf"
+    - title: "Exercise: One, Two, Tree"
+      author: "Noah Smith, Kevin Gimpel, and Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2012/N2012-R.pdf"
       optional: true
-    - title: "Asynchronous translations with recurrent neural nets"
-      author: "R. Neco and M. Forcada"
-      citation: "International Conference on Neural Networks, vol 4, pages 2535-2540"
-      url: "http://www.cs.brandeis.edu/~gregws/cs113/asynchronous-translations-with-recurrent.pdf"
-      optional: true
-- title: "Machine Translation"
-  tag: smt
-  include: true
-  current: false 
-  notes:
-    - title: "Introduction to Machine Translation"
-      url: "assets/slides/mtintro.pdf"
-    - title: "Exercise: Philae Obelisk"
-      url: "assets/notes/philae-obelisk.html"
-  links:
-    - author: Adam Lopez
-      title: "Word Alignment and the Expectation-Maximization Algorithm"
-      url: "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.421.5497&rep=rep1&type=pdf"
-    - author: Kevin Knight
-      title: "A Statistical MT Tutorial Workbook"
-      url: http://www.isi.edu/natural-language/mt/wkbk.pdf
+    - title: "Exercise: OrwellSpeak"
+      author: "Jason Eisner"
+      url: "http://www.naclo.cs.cmu.edu/problems2009/N2009-M.pdf"
       optional: true
 - title: Word Alignment
   tag: align
-  include: true
+  include: false
   current: false 
   notes:
     - title: "Word Alignment"
@@ -364,43 +404,6 @@
       title: "Computing edit distance (part two)"
       video: "http://youtu.be/E606vHFGTvA"
       url: "http://youtu.be/E606vHFGTvA"
-- title: Ambiguity and Context-Free Grammars
-  tag: cfg
-  include: true
-  current: false
-  notes:
-    - title: "Formal Ambiguity"
-      url: "assets/slides/ambiguity.pdf"
-    - title: "Exercise on CFGs"
-      url: "assets/notes/cfgquiz.pdf"
-    - title: "Context-free grammars notebook"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/cfg.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/cfg.ipynb"
-  links:
-    - author: Michael Collins
-      title: "Probabilistic Context-free Grammars"
-      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/pcfgs.pdf"
-      download: "assets/mcollins-notes/pcfgs.pdf"
-    - author: Michael Collins
-      title: "Lexicalized Context-free Grammars"
-      url: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lexpcfgs.pdf"
-      download: "assets/mcollins-notes/lexpcfgs.pdf"
-    - title: "Exercise: Grammar Rules!"
-      author: "Andrea Schalley and Patrick Littell"
-      url: "http://nacloweb.org/resources/problems/2013/N2013-F.pdf"
-      optional: true
-    - title: "Exercise: Twodee"
-      author: "Jason Eisner"
-      url: "http://www.naclo.cs.cmu.edu/problems2013/N2013-H.pdf"
-      optional: true
-    - title: "Exercise: One, Two, Tree"
-      author: "Noah Smith, Kevin Gimpel, and Jason Eisner"
-      url: "http://www.naclo.cs.cmu.edu/problems2012/N2012-R.pdf"
-      optional: true
-    - title: "Exercise: OrwellSpeak"
-      author: "Jason Eisner"
-      url: "http://www.naclo.cs.cmu.edu/problems2009/N2009-M.pdf"
-      optional: true
 - title: "Phrase based translation"
   tag: pbmt
   include: false
