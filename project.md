@@ -107,8 +107,8 @@ ideas for these tasks.
 
 For your project proposal please submit a text file in Markdown
 format that includes a Title and an Abstract. Your abstract should
-be no longer than 1000 words. Make sure the following points are
-in your abstract.
+be about 250 words (please definitely use less than 1000 words).
+Make sure the following points are in your abstract.
 
 * Motivation 
     * which NLP task do you plan to do; 
