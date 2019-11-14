@@ -140,9 +140,9 @@ Attention is defined as follows:
 
 $$\mathrm{score}_i = W_{enc}( h^{enc}_i ) + W_{dec}( h^{dec} )$$
 
-Define $\alpha_i$ for each source side token $i$ as follows:
+Define $\alpha$ for each source side token $i$ as follows:
 
-$$\alpha_i = \mathrm{softmax}(V_{att} \mathrm{tanh} (\mathrm{score}_i))$$
+$$\alpha = \mathrm{softmax}(V_{att} \mathrm{tanh} (\mathrm{score}))$$
 
 The we define the context vector using the $\alpha$ weights:
 
