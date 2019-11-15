@@ -113,7 +113,7 @@ And then you can check the score on the dev output file called `output.txt` by r
 
 which produces the following evaluation:
 
-    BLEU = 2.49 28.3/5.4/1.3/0.4 (BP = 0.854 ratio = 0.864 hyp_len = 21503 ref_len = 24902)
+    BLEU = 3.35 34.4/7.6/2.1/0.6 (BP = 0.771 ratio = 0.794 hyp_len = 19766 ref_len = 24902)
 
 For this homework we will be scoring your solution based on the BLEU score
 which is described in detail in the Accuracy section below.
@@ -136,15 +136,16 @@ correct attention module to improve the translation performance.
 
 ### Baseline 
 
-Attention is defined as follows:
+Attention for this homework and for the trained model(s) provided
+to you is defined as follows:
 
 $$\mathrm{score}_i = W_{enc}( h^{enc}_i ) + W_{dec}( h^{dec} )$$
 
-Define $\alpha$ for each source side token $i$ as follows:
+Define the $\alpha$ vector as follows:
 
 $$\alpha = \mathrm{softmax}(V_{att} \mathrm{tanh} (\mathrm{score}))$$
 
-The we define the context vector using the $\alpha$ weights:
+The we define the context vector using the $\alpha$ weights for each source side index $i$:
 
 $$c = \sum_i \alpha_i \times h^{enc}_i$$
 
