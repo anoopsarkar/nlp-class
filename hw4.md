@@ -155,6 +155,13 @@ softmax over the target language vocabulary at the current decoder
 time step. We then move to the next time step and repeat this process
 until we produce an end of sentence marker.
 
+Implementing the attention model described above will improve
+your output translations as can be seen by the BLEU score:
+
+    $ python3 zipout.py    # using baseline implementation
+    $ python3 check.py
+    dev.out score: 17.1139
+
 ### Extensions to Baseline
 
 We fixed the interface in a specific way that allows you to implement at least:
@@ -266,16 +273,16 @@ The grading is split up into the following components:
 Your F-score should be equal to or greater than the score listed for the corresponding marks.
 
 | **BLEU(dev)** | **BLEU(test)** | **Marks** | **Grade** |
-| 2.5  | 2.4  | 0   | F  |
-| 3.0  | 2.8  | 55  | D  |
-| 4.0  | 3.8  | 60  | C- |
-| 5.0  | 4.8  | 65  | C  |
-| 6.0  | 5.8  | 70  | C+ |
-| 8.0  | 7.8  | 75  | B- |
-| 10.0 | 9.8  | 80  | B  |
-| 14.0 | 13.8 | 85  | B+ |
-| 16.0 | 15.0 | 90  | A- |
-| 18.0 | 16.0 | 95  | A  |
+| 2.5  | 2.0  | 0   | F  |
+| 3.0  | 2.5  | 55  | D  |
+| 4.0  | 3.0  | 60  | C- |
+| 5.0  | 4.0  | 65  | C  |
+| 6.0  | 5.0  | 70  | C+ |
+| 8.0  | 7.0  | 75  | B- |
+| 10.0 | 9.0  | 80  | B  |
+| 14.0 | 14.0 | 85  | B+ |
+| 17.0 | 16.0 | 90  | A- |
+| 18.0 | 17.0 | 95  | A  |
 | 20.0 | 19.0 | 100 | A+ |
 {: .table}
 
