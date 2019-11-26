@@ -148,14 +148,15 @@ If you use LaTeX then here are two sample poster styles (A0 portrait):
 
 The poster will be graded using the following criteria (1-5):
 
-* Can we understand what is the goal of your project?
-* Can we understand what you implemented for your project?
-* Was the model clear?
-* Was there an example? Did it make the model / implementation clear?
-* Can we understand the (experimental) evaluation?
-* Was it adequately compared to previous work?
-* Did the poster layout help the viewer understand the work?
-* Was there any analysis of the output of the implementation?
+1. Goal is clear?
+1. Implementation is clear?
+1. Model was clear?
+1. Did provided example make things clear?
+1. Experimental evaluation was clear?
+1. Adequate comparison to previous work?
+1. Poster layout and oral explanation.
+1. Analysis of the output.
+1. Overall quality.
 
 Please read through this set of [tutorial slides on making effective posters](assets/cached/makeup_ijcnlp_2017.pdf).
 
