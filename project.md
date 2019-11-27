@@ -199,6 +199,8 @@ the following sections:
 * Future Work
     * What could be fixed in your approach. What you did not have time to finish, but you think would be a useful addition to your project.
 
+Please read this [guide to presenting your work](assets/cached/cs224u/cs224u-2015-presenting.pdf).
+
 ### Submit your project on Coursys
 
 When you are ready to submit go to GitLab and select `New tag` to
@@ -220,7 +222,7 @@ and often.
 
 That's it. You are done with your Final Project!
 
-## Grading of the Final Project
+## Grading of Final Project Work
 
 The final projects for this course will be graded using the following criteria:
 
@@ -234,11 +236,11 @@ The final projects for this course will be graded using the following criteria:
 * Group work (did the group work effectively together)
 * Overall score (based on the above criteria, but can include other factors like overall polish or creativity)
 
-Please read this [guide to presenting your work](assets/cached/cs224u-2015-presenting.pdf).
+## Project Grading Framework
 
-The total marks are distributed as specified on the [coursys project marking page](https://coursys.sfu.ca/2018fa-cmpt-413-x1/+project/marking/)
+The total marks are distributed as follows:
 
-* Work. Work done in the project. Results obtained. 50 marks
-* Docs. Documentation of the work done in the notebook. 25 marks
-* Poster. Performance at the poster session and poster quality. 25 marks
+* Work. Work done in the project. Results obtained. 50 marks (see the section on _Grading of the Final Project Work_ for grading details)
+* Docs. Documentation of the work done in the notebook. 25 marks (see the section on _Project Write-up_ for grading details)
+* Poster. Performance at the poster session and poster quality. 25 marks (see the section on _Poster grading_ for grading details)
 
