@@ -199,7 +199,7 @@ the following sections:
 * Future Work
     * What could be fixed in your approach. What you did not have time to finish, but you think would be a useful addition to your project.
 
-Please read this [guide to presenting your work](assets/cached/cs224u/cs224u-2015-presenting.pdf).
+Please read this [guide to presenting your work](assets/cached/cs224u/cs224u-2019-presenting.pdf). Also available is a [video tutorial covering the same material](https://www.youtube.com/watch?v=WXLb4h2A724).
 
 ### Submit your project on Coursys
 
