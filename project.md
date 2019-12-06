@@ -203,22 +203,15 @@ Please read this [guide to presenting your work](assets/cached/cs224u/cs224u-201
 
 ### Submit your project on Coursys
 
-When you are ready to submit go to GitLab and select `New tag` to
-create a new tag. For `Tag name` use `project` and optionally write a
-`Message`. Then select `Create tag` to create this tag. If you want
-to submit multiple times then please create a new tag each time `projectN`
-for your `N`th submission and submit the new tag via Coursys.
-
 Go to [Coursys]({{ site.coursys }}). Under the `Final Project`
-activity submit your git repository URL. It will look like
-this for some `USER` in your group called `g-GROUP`:
+activity submit the following zip files:
 
-    git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
+* `output.zip`: output of your project implementation on a dataset. please include the evaluation code and references to allow us to check the evaluation you present in your write-up. Note this should only be your output on the test data file of some dataset plus any evaluation code and clear instructions on how to run the evaluation script.
+* `source.zip`: this zip file should contain your iPython notebook that serves as the write-up for your project and only the source code you have written (along with a requirements.txt for a virtualenv). Do not include any data files in this zipfile. Please also include a README.username file as you have done for all your homeworks in this zip file.
 
-The instructions are provided in more detail in [Homework 0](hw0.html).
+The instructions for submission and development are provided in more detail in [Homework 0](hw0.html).
 
-There are **no grace days** for project submission! So submit early
-and often.
+There are **no grace days** for project submission! So submit early and often.
 
 That's it. You are done with your Final Project!
 

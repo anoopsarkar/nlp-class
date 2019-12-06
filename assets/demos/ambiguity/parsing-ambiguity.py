@@ -3,7 +3,7 @@ from nltk import CFG
 import sys
 
 grammar = CFG.fromstring("""
-N -> N N | 'natural' | 'language' | 'processing' | 'course'
+N -> N N | 'sfu' | 'graduate' | 'cross-listed' | 'natural' | 'language' | 'processing' | 'course'
 """)
 
 if len(sys.argv) > 1:
@@ -14,5 +14,5 @@ else:
 print("Start:", grammar.start(), file=sys.stderr)
 print("Productions:", grammar.productions(), file=sys.stderr)
 parser = nltk.ChartParser(grammar)
-for tree in parser.parse(inp.split()):
-    print(tree)
+for i, tree in enumerate(parser.parse(inp.split()), 1):
+    print(i, tree)
