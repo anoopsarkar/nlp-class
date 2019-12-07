@@ -68,4 +68,5 @@ terms of its analysis and the learning of language from observations.
 * Final Project Poster Session:
     * Time: {{ site.hwdates[5].deadline }} {{ site.hwdates[5].time }}. 
     * Location: {{ site.hwdates[5].location }}
+    * Poster session assignments: [Session 1](assets/handouts/poster-session-1.pdf) and [Session 2](assets/handouts/poster-session-2.pdf)
 
