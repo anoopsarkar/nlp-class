@@ -9,7 +9,7 @@ Cloned from https://github.com/mt-class/jhu and then modified.
 ## Installation
 
     sudo gem install jekyll bundler
-    sudo bundle install
+    bundle install
 
 ## Deploy
 
