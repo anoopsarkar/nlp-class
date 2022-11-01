@@ -62,7 +62,7 @@ How to ask a question on the [discussion board on Coursys]({{ site.coursys }}dis
 * All homeworks are due by 11:59PM on the homework due date.
 * Each homework comes with 2 grace days. However the grace days only apply to those who have a valid submission on the due date. The default is usually a valid submission. For example, if your homework deadline is Tuesday 11:59PM and you submit a valid solution then you have until Thursday night 11:59PM to modify your homework submission.
 * We will make every attempt to release grades for each homework as soon as possible. However, this means that after we review the source code we might have to lower your official grade. If you cheated in some way, such as copying your submission or you have violated the ground rules for each homework, your grades will be decreased from the initial value.
-* To request an extension of the due date due to a medical problem, you must submit the [official SFU Certificate of Illness](http://www.sfu.ca/content/dam/sfu/students/pdf/certificate-of-illness.pdf). Depending on the circumstances you may still lose part of your marks if your medical problem was only for a small portion of the entire homework duration.
+* To request an extension of the due date due to a medical problem, you must submit the [official SFU Certificate of Illness](https://www.sfu.ca/content/dam/sfu/students/academicsuccess/academicconcessions/2022-SFU_AcademicConcession_SelfDeclarationForm.pdf). Depending on the circumstances you may still lose part of your marks if your medical problem was only for a small portion of the entire homework duration.
 
 ### Groups
     
