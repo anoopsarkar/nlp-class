@@ -1,3 +1,5 @@
+pip
+wheel
 pytest
 numpy
 scipy
