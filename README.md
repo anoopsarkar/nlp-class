@@ -8,6 +8,7 @@ Cloned from https://github.com/mt-class/jhu and then modified.
 
 ## Installation
 
+    sudo gem update --system 3.2.3
     sudo gem install jekyll bundler
     bundle install
 
