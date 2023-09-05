@@ -7,7 +7,7 @@ title: Course Information
 active_tab: main_page 
 ---
 
-## Natural Language Processing <span class="text-muted">Fall 2019</span>
+## Natural Language Processing <span class="text-muted">{{ site.semester }}</span>
 
 Imagine a world where you can pick up a phone and talk in English,
 while at the other end of the line your words are [spoken in
