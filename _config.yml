@@ -1,41 +1,35 @@
 exclude: ['README.md', 'assets/latex/', 'archive']
 timezone: US/Pacific
 markdown: kramdown
-coursys: "https://coursys.sfu.ca/2019fa-cmpt-413-x1/"
-semcode: 1197
+coursys: "https://coursys.sfu.ca/2023fa-cmpt-713-g1/"
+semcode: 1237
 calendar: "https://calendar.google.com/calendar/ical/qgs97od9ef8t1582k2rqomv5ho%40group.calendar.google.com/public/basic.ics"
-lastday: "Dec 3, 2019"
-midterm: "Oct 22, 2019"
+lastday: "Dec 5"
+midterm: "Oct 26"
 instructor: anoop
 tas:
   - name: Yilong (Jetic) Gu 
     email: jeticg
-    officehour: 'Wednesdays 3:30-4:30pm. Location: ASB 9816'
-  - name: "Nishant Kambhatla"
-    email: nkambhat
-    officehour: 'Tuesdays, 9:30-10:30am. Location: ASB 9816'
-  - name: "Hassan Shavarani"
-    email: sshavara@sfu.ca 
-    officehour: "Tuesdays, 12:00-01:00pm. Location: ASB 9808"
+    officehour: 'TBD'
 hwdates:
   - hw: "0"
-    startdate: "Sep 10, 2019"
-    deadline: "Sep 17, 2019"
+    startdate: "Sep 12"
+    deadline: "Sep 19"
   - hw: "1"
-    startdate: "Sep 17, 2019"
-    deadline: "Oct 1, 2019"
+    startdate: "Sep 19"
+    deadline: "Oct 3"
   - hw: "2"
-    startdate: "Oct 1, 2019"
-    deadline: "Oct 15, 2019"
+    startdate: "Oct 3"
+    deadline: "Oct 17"
   - hw: "3"
-    startdate: "Oct 24, 2019"
-    deadline: "Nov 7, 2019"
+    startdate: "Oct 17"
+    deadline: "Nov 2"
   - hw: "4"
-    startdate: "Nov 7, 2019"
-    deadline: "Nov 21, 2019"
+    startdate: "Nov 7"
+    deadline: "Nov 21"
   - hw: "project"
-    startdate: "Oct 22, 2019"
-    deadline: "Dec 9, 2019, 3pm"
-    time: "Poster session: Dec 8, 2019. 4pm-5:30pm (Session 1) and 5:30pm-7pm (Session 2)"
-    location: "[Fairmont Waterfront](https://www.fairmont.com/waterfront-vancouver/)."
-    proposal: "Nov 12, 2019"
+    startdate: "Nov 14"
+    deadline: "Dec 12"
+    time: "Poster session: TBD"
+    location: "TBD"
+    proposal: "Nov 14"

@@ -22,9 +22,10 @@ to the homework submission and the final project.
 Along with your group members, register yourself as part of a group on [Coursys]({{ site.coursys }}).
 
 Create a memorable name for your group. If you need help, [seek help](https://www.wordlab.com/name-generators/team-name-generator/).
+Make sure there is no whitespace in your group name or anything that might cause a mojibake (please use plain ascii).
 
-Go to the [Course Discussion Page]({{ site.coursys }}) and select `Manage Subscription`.
-Change the `Notification` to `Email me for new topics and replies`. It should look like this:
+Go to the [Course Discussion Page]({{ site.coursys }}/forum) and select `[Activity Digest]`.
+Change the `Digest Email Frequency:` to a setting that send you email notifications, like so:
 
 ![Coursys Subscription](assets/img/coursys_subscription.png)
 
@@ -32,11 +33,19 @@ Change the `Notification` to `Email me for new topics and replies`. It should lo
 
 ### Git Basics
 
-In this course, your programs will be managed and archived using [Git](https://git-scm.com). The basic idea is as follows:
-* Every student and group gets a private storage area called a repository on the SFU server machines, or "repo" for short.
-* Your code is stored in your repo. Every time you make a change to your code, you *commit* a new *revision* of your code to the repo for permanent storage. All revisions you ever commit are kept, and you can retrieve any committed revision any time. This means you have a combined backup and means to undo any changes you ever make. This is how software engineers manage their code projects.
+In this course, your programs will be managed and archived using
+[Git](https://git-scm.com). The basic idea is as follows:
 
-### Create new repository on Gitlab 
+* Every student and group gets a private storage area called a
+  repository on the SFU server machines, or "repo" for short.
+* Your code is stored in your repo. Every time you make a change
+  to your code, you *commit* a new *revision* of your code to the
+  repo for permanent storage. All revisions you ever commit are kept,
+  and you can retrieve any committed revision any time. This means
+  you have a combined backup and means to undo any changes you ever
+  make. This is how software engineers manage their code projects.
+
+### Create new repository on Gitlab
 
 Decide in your group the person that will create the repository on
 GitLab and invite the other group members as a Maintainer. That person
@@ -53,16 +62,17 @@ have created any in the past. Create a new repository for this class
 by clicking the `New Project` button at the top right of the page.
 ![New Project](assets/img/newproject.png)
 
-On the `New Project` page, give your repo a name under the `Project
-name` field. The default name is `my-awesome-project` which is
-**not** what you should call your repo. Instead, name your repo:
-`nlpclass-{{ site.semcode }}-g-GROUP` where `GROUP` is the group
-you registered on [Coursys]({{ site.coursys }}). For example, a
-repository name might be `nlpclass-{{ site.semcode }}-g-ethicsgradient`
-Make sure you add the `g-` before your group name. It's important
-to name the repo exactly as you see here.
+On the `New Project` page, select `Create a Blank Project` and then
+give your repo a name under the `Project name` field. The default
+name is `my-awesome-project` which is **not** what you should call
+your repo. Instead, name your repo: `advnlpclass-{{ site.semcode
+}}-g-GROUP` where `GROUP` is the group you registered on [Coursys]({{
+site.coursys }}). For example, a repository name might be `advnlpclass-{{
+site.semcode }}-g-ethicsgradient` Make sure you add the `g-` before
+your group name. It's important to name the repo exactly as you see
+here.
 
-Do not use any obscene words in your group name. Be mature about 
+Do not use any obscene words in your group name. Be mature about
 your choice of group name. That does not mean it cannot be funny,
 just be aware that your choice of group name may offend someone
 else so be considerate of others.
@@ -71,8 +81,11 @@ Leave all other settings as they are and click the `Create Project` button
 at the bottom left of the page.
 
 Make sure you do not change the default setting of `Private`. Your
-repo must be visible only to yourself and your group members.  
-**You must not give access to your repo to any other students except your group members**.
+repo must be visible only to yourself and your group members
+
+**You must not give access to your repo to any other students except
+your group members**.
+
 Plagiarism is a serious academic offense.
 
 Your repo has now been created. You will be taken to a web page for
@@ -84,13 +97,16 @@ your newly created repo.
 
 The course instructor and the TAs need access to your repo in order to test
 and  grade your code. Add the instructor and TAs as a member of your
-repo by clicking on the Settings menu which looks like a gear icon <i class="fa fa-gear"></i>`Settings`
-on the left hand menu and selecting `Members` from the dropdown menu. On the page that loads up
-type in (or individually copy/paste) the following list of names in the `Add new user` box using a `,` to
-delimit each username: <code>{{ site.instructor }}</code>, 
+repo by clicking on the Settings menu and choosing `Members` which looks like this:
+
+![Members](assets/img/gitlab-add-members.png)
+
+On the page that loads up type in (or individually copy/paste) the
+following list of names in the `Add new user` box using a `,` to
+delimit each username: <code>{{ site.instructor }}</code>,
 {%- for ta in site.tas -%}
-<code>{{ ta.email }}</code>, 
-{%- endfor -%}. 
+<code>{{ ta.email }}</code>,
+{%- endfor -%}
 
 Change the role permissions from `Guest` to `Developer` in the
 dropdown menu. Click on `Add to Project` to add the instructor and
@@ -100,10 +116,11 @@ all TAs as Developers to your github repo.
 
 Next you should set up notifications about Issues in your repository.
 Go to `User Settings` from the upper right corner menu. Select
-`Notifications` from the left menu and pick the `Global notification
-level` to `Watch` and also select `Receive notifications about your own activity`.
-You can also set notifications specifically for your repository
-to `Watch`.
+`Preferences` menu which should take you to `User Settings` where
+you can select `Notification` where you should pick the `Global
+notification level` to `Watch` and also select `Receive notifications
+about your own activity`.  You can also set notifications specifically
+for your repository to `Watch`.
 
 ### Setup SSH Key
 
@@ -126,7 +143,9 @@ If you have set up your SSH key correctly then you will have a public key. View 
 This will show you the public key. Use the `Terminal` copy command to **copy**
 this into your clipboard.
 
-Then go to [this page](https://csil-git1.cs.surrey.sfu.ca/profile): [csil-git1.cs.surrey.sfu.ca/profile](https://csil-git1.cs.surrey.sfu.ca/profile) and select `SSH Keys` from the left menu.
+Then go to [this page](https://csil-git1.cs.surrey.sfu.ca/profile):
+[csil-git1.cs.surrey.sfu.ca/profile](https://csil-git1.cs.surrey.sfu.ca/profile)
+and select `SSH Keys` from the left menu.
 
 Use the web browser to paste command to **paste** your public key into the `Key`
 box and give it a `Title` (e.g. 'CSIL' is a reasonable title) and then `Add key`.
@@ -143,7 +162,7 @@ In the terminal window, enter the commands
     git config --global core.editor nano         # or set it to your favourite editor
     git config --global push.default current
     cd $HOME
-    git clone git@csil-git1.cs.surrey.sfu.ca:GROUPUSER/nlpclass-{{ site.semcode }}-g-GROUP.git
+    git clone git@csil-git1.cs.surrey.sfu.ca:GROUPUSER/advnlpclass-{{ site.semcode }}-g-GROUP.git
 
 where `USER` is your SFU username, `GROUPUSER` is the SFU username of
 the person who created the group repository and `GROUP` is the name of the
@@ -155,7 +174,7 @@ your username/password over and over again you can set up [passwordless
 ssh](http://www.linuxproblem.org/art_9.html).
 
 Your repo will be cloned into a new directory (also known as a folder)
-called `nlpclass-{{ site.semcode }}-g-GROUP`.
+called `advnlpclass-{{ site.semcode }}-g-GROUP`.
 
 ### Create your Homework 0 directory
 
@@ -168,7 +187,7 @@ repository and at the top level. Create a directory for Homework 0:
 
 When you print your working directory it should look like this:
 
-    nlpclass-{{ site.semcode }}-g-GROUP/hw0
+    advnlpclass-{{ site.semcode }}-g-GROUP/hw0
 
 Add a file `README.md` to this directory using your favourite editor
 and then `git add README.md` and `git commit -m "Initial hw0 commit"`
@@ -188,7 +207,9 @@ server. Here is a typical `.gitignore` file.
 
 ## Python 3 Notebooks
 
-We will be using Python 3 notebooks for the homework submissions.
+We will be using Python 3 notebooks for development, but you will
+be submitting a self contained Python 3 program that can be run
+on the command line as well.
 
 First set up a virtual environment to contain all the dependencies
 you need to run a Python3 notebook. To use virtualenv to manage
@@ -196,11 +217,13 @@ dependencies, first setup a virtualenv environment:
 
     python3 -m venv venv
     source venv/bin/activate
-    pip3 install -r requirements.txt
+    pip3 install -U -r requirements.txt
 
 The file `requirements.txt` should minimally have the following
-contents. 
+contents.
 
+    pip
+    wheel
     notebook
     jupyter_contrib_nbextensions
     jupyter_nbextensions_configurator
@@ -224,14 +247,10 @@ documentation](https://jupyterhub.readthedocs.io/en/stable/) and
 get used to editing a notebook with a combination of markdown and
 Python code.
 
-You can either try writing your own notebook to get familiar with
-it or work through my [Python tidbits
-notebook](assets/notebooks/python-tidbits.ipynb).
+## Task: Spell Checking
 
-## Task: Word Segmentation
-
-The task for this homework is to segment a sequence of English
-characters into the most likely word sequence.
+The task for this homework is to do contextual spell checking
+for English.
 
 Homework 0 is mainly to set up your groups and programming environment
 for this course for the semester, but to complete this homework you
@@ -492,4 +511,3 @@ Your F-score should be equal to or greater than the score listed for the corresp
 {: .table}
 
 The score will be normalized to the marks on Coursys for the dev and test scores.
-
