@@ -3,6 +3,7 @@ timezone: US/Pacific
 markdown: kramdown
 coursys: "https://coursys.sfu.ca/2023fa-cmpt-713-g1/"
 semcode: 1237
+semester: "Fall 2023"
 calendar: "https://calendar.google.com/calendar/ical/qgs97od9ef8t1582k2rqomv5ho%40group.calendar.google.com/public/basic.ics"
 lastday: "Dec 5"
 midterm: "Oct 26"
