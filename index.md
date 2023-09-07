@@ -41,14 +41,14 @@ terms of its analysis and the learning of language from observations.
 </ul>
 
 #### Asking for help
-* Ask for help on [the discussion board]({{ site.coursys }}/discussion)
-* Instructor office hours: Thu 9:30-10:30am TASC1 9427
+* Ask for help on [the discussion forum]({{ site.coursys }}/discussion)
+* Instructor office hours: Fri 8:30-9:30am; Zoom link on Coursys discussion forum
 * <b>No emails</b> to the TAs and strictly emails about personal matters to the instructor
-* Use only SFU email address and use `cmpt413:` or `cmpt825:` (for ugrad and grad respectively) as subject prefix
+* Always post to the [the discussion forum]({{ site.coursys }}/discussion instead of email. If you have to email use your SFU email address only.
 
 #### Time and place
-* Tue 4:30-5:20 [BLU 9660](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html) 
-* Thu 3:30-5:20 [BLU 9660](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html)
+* Tue 2:30-4:20pm [RCB8100](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html)
+* Thu 11:30am-12:20pm [K9500](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html)
 * Last day of classes: {{ site.lastday }}
 
 #### Calendar
