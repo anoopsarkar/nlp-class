@@ -347,3 +347,10 @@
     - title: "LIMA: Less Is More for Alignment"
       author: "Chunting Zhou, Pengfei Liu, Puxin Xu, Srini Iyer, Jiao Sun, Yuning Mao, Xuezhe Ma, Avia Efrat, Ping Yu, Lili Yu, Susan Zhang, Gargi Ghosh, Mike Lewis, Luke Zettlemoyer, Omer Levy"
       url: "https://arxiv.org/abs/2305.11206"
+- title: "Supervised Fine-Tuning of LLMs and RLHF"
+  tag: "rlhf"
+  include: true
+  current: false
+  notes:
+    - title: Lecture notes
+      url: "assets/slides/fewshot.pdf"
