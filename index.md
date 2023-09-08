@@ -42,7 +42,7 @@ terms of its analysis and the learning of language from observations.
 
 #### Asking for help
 * Ask for help on [the discussion forum]({{ site.coursys }}/discussion)
-* Instructor office hours: Fri 8:30-9:30am; Zoom link on Coursys discussion forum
+* Instructor office hours: Thu 8:30-9:30am (starts on Sept 21); Zoom link on Coursys discussion forum
 * <b>No emails</b> to the TAs and strictly emails about personal matters to the instructor
 * Always post to the [the discussion forum]({{ site.coursys }}/discussion instead of email. If you have to email use your SFU email address only.
 
