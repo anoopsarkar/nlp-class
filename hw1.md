@@ -126,7 +126,10 @@ This will produce the output:
 In this case, the output is correct, but the most plausible
 substitution is not always the best candidate for a correction.
 
-> :warning: Use the `distilbert-base-uncased` language model for this homework.
+
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i>
+Use the `distilbert-base-uncased` language model for this homework.
+</div>
 
 ### The Challenge
 
