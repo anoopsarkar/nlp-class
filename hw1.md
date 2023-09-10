@@ -1,7 +1,6 @@
 ---
 layout: default
 img: 20news_tsne
-img_link: "https://lvdmaaten.github.io/tsne/"
 caption: "t-Distributed Stochastic Neighbor Embedding (t-SNE) is a technique that is commonly used for the visualization of high-dimensional data such as 100d or 300d word vectors."
 title: Homework 1 | Contextual Spell Checking
 active_tab: homework
