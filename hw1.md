@@ -12,36 +12,25 @@ active_tab: homework
 <span class="text-info">Start on {{ site.hwdates[1].startdate }}</span> |
 <span class="text-warning">Due on {{ site.hwdates[1].deadline }}</span>
 
-## Getting Started
+### Getting Started
 
-If you have already cloned my homework repository `nlp-class-hw` for
-previous homeworks then go into that directory and update the directory:
-
-    git pull origin/master
-    cd nlp-class-hw/bertchunker
-
-If you don't have that directory anymore then simply clone the
-repository again:
+Get started:
 
     git clone https://github.com/anoopsarkar/nlp-class-hw.git
+    cd nlp-class-hw/spellchk
 
-Clone your own repository from GitLab if you haven’t done it already:
+Clone your repository if you haven’t done it already:
 
     git clone git@csil-git1.cs.surrey.sfu.ca:USER/advnlpclass-{{ site.semcode }}-g-GROUP.git
 
-Note that the `USER` above is the SFU username of the person in
-your group that set up the GitLab repository.
-
-Then copy over the contents of the `bertchunker` directory into your
-`hw1` directory in your repository.
+Then copy over the contents of the `spellchk` directory into your
+`hw0` directory in your repository.
 
 Set up the virtual environment:
 
-    python3.10 -m venv venv
+    python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-
-You must use Python 3.10 (or later) for this homework.
 
 Note that if you do not change the requirements then after you have
 set up the virtual environment `venv` you can simply run the following
