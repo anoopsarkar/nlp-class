@@ -243,24 +243,25 @@ You must have the following files or `zipsrc.py` will complain about it:
 In addition, each group member should write down a short description
 of what they did for this homework in the Python notebook.
 
-#### Upload to Coursys
+### Upload to Coursys
 
 Go to `Homework 1` on Coursys and do a group submission:
 
 * Upload `output.zip` and `source.zip`
-* Make sure you have documented your approach in `answer/spellchk.ipynb`.
-* Make sure each member of your group has documented their contribution to this homework in the Python notebook.
+* Make sure your `source.zip` matches your Gitlab repository.
+* Make sure you have documented your approach in `answer/zhsegment.ipynb`.
+* Make sure each member of your group has documented their contribution to this homework in `answer/README.username` where `username` is your CSIL/GitLab username.
 
 ## Grading
 
 The grading is split up into the following components:
 
-* Group setup done on Coursys.
-* GitLab setup including adding instructor and TA as Developer to the repository.
 * dev scores (see Table below)
 * test scores (see Table below)
-* Python notebook write-up documenting your approach to solving the assignment
-* Make sure each member of your group has documented their contribution to this homework in `answer/README.username` where `username` is your CSIL/GitLab username.
+* iPython notebook write-up 
+   * Make sure that iterative search algorithm is implemented as described in the Baseline section above
+* Check if each group member has a `answer/README.username`.
+* Make sure that your have updated your GitLab repository with your submission source code.
 
 Your accuracy should be equal to or greater than the scores listed
 for dev and test data to obtain the corresponding marks (dev and
@@ -280,5 +281,4 @@ test sets are marked separately).
 | .72 | .63 | 100 | A+ |
 {: .table}
 
-The score will be normalized to the marks on Coursys for the dev
-and test scores.
+The score will be normalized to the marks on Coursys for the dev and test scores.
