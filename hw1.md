@@ -126,9 +126,7 @@ This will produce the output:
 In this case, the output is correct, but the most plausible
 substitution is not always the best candidate for a correction.
 
-[!IMPORTANT]
-Use the `distilbert-base-uncased` language model for this homework.
-
+> :warning: Use the `distilbert-base-uncased` language model for this homework.
 
 ### The Challenge
 
