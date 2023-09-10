@@ -128,7 +128,7 @@ substitution is not always the best candidate for a correction.
 
 
 <div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i>
-Use the <pre>distilbert-base-uncased</pre> language model for this homework.
+Use the <code>distilbert-base-uncased</code> language model for this homework.
 </div>
 
 ### The Challenge
