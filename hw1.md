@@ -137,7 +137,7 @@ Your task is to improve the accuracy on this task as much as possible.
 The definition of accuracy is provided below.  You cannot use any
 external data sources. You can use a Python 3 library that provides
 some helper functions but not any spelling correction modules or
-any other spelling correction models.
+models.
 
 You can get a much higher accuracy by changing the function
 `select_correction` with 1-2 lines to take into account something
@@ -145,7 +145,7 @@ that isn't taken into account by the default solution. Even
 though, it is 1-2 lines, the solution may not be obvious or
 trivial.
 
-You should approach this challenge  based on a careful examination
+You should approach this challenge based on a careful examination
 of the source code of the default solution and the output of the
 default solution on the various inputs.
 
@@ -206,16 +206,15 @@ Once you have `output.zip` you can run the scorer. The default
 solution gets a very poor accuracy on the dev and test set:
 
     $ python3 check.py
-    dev.out score: 0.27
-    test.out score: 0.20
+    test.out score: 0.22
+    dev.out score: 0.23
 
-Using a single line function added to the default solution with no
-change to the input data files should get you remarkably higher
-accuracy on both dev and test:
+It is fairly easy to reach a higher score with some fairly minor
+changes to the default solution.
 
     $ python3 check.py
-    test.out score: 0.56
-    dev.out score: 0.65
+    test.out score: 0.70
+    dev.out score: 0.68
 
 ### Submit your homework on Coursys
 
@@ -268,17 +267,17 @@ for dev and test data to obtain the corresponding marks (dev and
 test sets are marked separately).
 
 | **dev accuracy** | **test accuracy** | **Marks** | **Grade** |
-| .02 | .00 | 0   | F  |
-| .09 | .00 | 55  | D  |
-| .16 | .07 | 60  | C- |
-| .23 | .14 | 65  | C  |
-| .30 | .20 | 70  | C+ |
-| .37 | .28 | 75  | B- |
-| .44 | .35 | 80  | B  |
-| .51 | .42 | 85  | B+ |
-| .58 | .49 | 90  | A- |
-| .65 | .56 | 95  | A  |
-| .72 | .63 | 100 | A+ |
+| .00 | .00 | 0   | F  |
+| .23 | .22 | 55  | D  |
+| .30 | .28 | 60  | C- |
+| .36 | .34 | 65  | C  |
+| .42 | .40 | 70  | C+ |
+| .48 | .46 | 75  | B- |
+| .54 | .52 | 80  | B  |
+| .60 | .58 | 85  | B+ |
+| .65 | .64 | 90  | A- |
+| .68 | .70 | 95  | A  |
+| .76 | .78 | 100 | A+ |
 {: .table}
 
 The score will be normalized to the marks on Coursys for the dev and test scores.
