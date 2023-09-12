@@ -245,6 +245,9 @@
     - title: "Contrastive Search"
       author: "Tian Lan"
       url: "https://huggingface.co/blog/introducing-csearch#62-example-two---opt"
+    - title: "Categorical Reparameterization with Gumbel-Softmax"
+      author: "Eric Jang, Shixiang Gu, Ben Poole"
+      url: "https://arxiv.org/abs/1611.01144v5"
   links:
     - title: "A Contrastive Framework for Neural Text Generation"
       author: "Yixuan Su, Tian Lan, Yan Wang, Dani Yogatama, Lingpeng Kong, Nigel Collier"
