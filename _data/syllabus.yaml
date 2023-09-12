@@ -141,63 +141,25 @@
       url: "http://cs231n.github.io/neural-networks-3/"
       author: "Andrej Karpathy"
       optional: true
-- title: "Neural Network Models and Training"
-  tag: dl4nlp
+- title: "Sequence prediction"
+  tag: linearseq
   include: true
   current: false
   notes:
-    - title: "Natural Language Understanding with Distributed Representation"
-      author: "Kyunghyun Cho"
-      url: "http://arxiv.org/abs/1511.07916"
-    - title: "A Primer on Neural Networks for NLP"
-      author: Yoav Goldberg
-      url: "http://u.cs.biu.ac.il/~yogo/nnlp.pdf" 
+    - title: "Sequence prediction"
+      url: "assets/slides/linearseq.pdf"
   links:
-    - title: "Deep Learning for MT Winter School"
-      url: "http://dl4mt.computing.dcu.ie/"
-      optional: true
-    - title: "Visualizing Optimization Algorithms"
-      author: "Alec Radford"
-      url: "http://imgur.com/a/Hqolp"
-      optional: true
-    - title: "Learning representations by back-propagating errors"
-      author: "Rumelhart, Hinton and Williams"
-      citation: "Nature, 1986"
-      url: "https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf"
-      optional: true
-- title: "Neural Language models"
-  tag: nlm
-  include: true
-  current: false
-  notes:
-    - title: "Neural Language model"
-      url: "assets/slides/nlm.pdf"
-    - title: "RNN based Neural Language model (experiments)"
-      url: "assets/slides/nlm-mikolov.pdf"
-      author: Tomas Mikolov
-    - title: "RNN Language model notebook"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/rnnlm.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/rnnlm.ipynb"
-  links:
-    - title: "How to implement a recurrent neural network"
-      author: "peterroelants.github.io"
-      url: "http://peterroelants.github.io/posts/rnn_implementation_part01/"
-      optional: true
-    - title: "Neural Machine Translation and Sequence-to-sequence Models: A Tutorial"
-      author: "Graham Neubig"
-      citation: "arXiv"
-      url: "https://arxiv.org/pdf/1703.01619.pdf"
-      optional: true
-    - title: "Statistical language models based on neural networks"
-      author: Tomas Mikolov
-      url: "http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf"
-- title: "Machine Translation"
+    - author: Erik F. Tjong Kim Sang and Sabine Buchholz
+      title: "Introduction to the CoNLL-2000 Shared Task: Chunking"
+      url: "http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
+- title: "Sequence to sequence prediction"
   tag: smt
   include: true
   current: false 
   notes:
-    - title: "Introduction to Machine Translation"
-      url: "assets/slides/mtintro.pdf"
+    - title: "Alignment Exercise"
+      author: "Kevin Knight"
+      url: "assets/slides/centauri-arcturan-align.pdf"
     - title: "Exercise: Philae Obelisk"
       url: "assets/notes/philae-obelisk.html"
   links:
@@ -208,17 +170,6 @@
       title: "A Statistical MT Tutorial Workbook"
       url: http://www.isi.edu/natural-language/mt/wkbk.pdf
       optional: true
-- title: "Sequence prediction"
-  tag: linearseq
-  include: true
-  current: false
-  notes:
-    - title: "Linear models for sequence prediction"
-      url: "assets/slides/linearseq.pdf"
-  links:
-    - author: Erik F. Tjong Kim Sang and Sabine Buchholz
-      title: "Introduction to the CoNLL-2000 Shared Task: Chunking"
-      url: "http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
 - title: "Cross Attention"
   tag: cross_attention
   include: true
@@ -259,6 +210,9 @@
       author: "Jay Alammar"
       url: "http://jalammar.github.io/illustrated-transformer/"
   links:
+    - title: "RASPy: Think like a Transformer"
+      author: "Sasha Rush"
+      url: "https://srush.github.io/raspy/"
     - title: "Convolutional Sequence to Sequence Learning"
       author: "Jonas Gehring, Michael Auli, David Grangier, Denis Yarats, Yann N. Dauphin"
       url: "https://arxiv.org/abs/1705.03122"
@@ -277,7 +231,25 @@
     - title: "Analyzing Multi-Head Self-Attention: Specialized Heads Do the Heavy Lifting, the Rest Can Be Pruned"
       author: "Elena Voita, David Talbot, Fedor Moiseev, Rico Sennrich, Ivan Titov"
       url: "https://aclanthology.org/P19-1580/"
-- title: "Pre-training Transformers"
+- title: "Decoding"
+  tag: "decoding"
+  include: true
+  current: false
+  notes:
+    - title: "Intro to Generation with LLMs"
+      author: "Huggingface"
+      url: "https://huggingface.co/docs/transformers/llm_tutorial"
+    - title: "Generation Strategies"
+      author: "Huggingface"
+      url: "https://huggingface.co/docs/transformers/generation_strategies"
+    - title: "Contrastive Search"
+      author: "Tian Lan"
+      url: "https://huggingface.co/blog/introducing-csearch#62-example-two---opt"
+  links:
+    - title: "A Contrastive Framework for Neural Text Generation"
+      author: "Yixuan Su, Tian Lan, Yan Wang, Dani Yogatama, Lingpeng Kong, Nigel Collier"
+      url: "https://arxiv.org/abs/2202.06417"
+- title: "Pre-training Language Models"
   tag: "bert"
   include: true
   current: false
@@ -312,6 +284,24 @@
     - title: "ALBERT: A Lite BERT for Self-supervised Learning of Language Representations"
       author: "Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, Radu Soricut"
       url: "https://arxiv.org/abs/1909.11942"
+- title: "Scaling laws for language models"
+  tag: "scaling"
+  include: true
+  current: false
+  notes:
+    - title: "Scaling Laws for Neural Language Models"
+      author: "Open AI"
+      url: "https://arxiv.org/abs/2001.08361"
+    - title: "Training Compute-Optimal Large Language Models"
+      author: "DeepMind"
+      url: "https://arxiv.org/abs/2203.15556"
+  links:
+    - title: "Scaling laws notebook"
+      author: "Andrej Karpathy"
+      url: "https://github.com/karpathy/nanoGPT/blob/master/scaling_laws.ipynb"
+    - title: "The FLOPs Calculus of Language Model Training"
+      author: "Dzmitry Bahdanau"
+      url: "https://medium.com/@dzmitrybahdanau/the-flops-calculus-of-language-model-training-3b19c1f025e4"
 - title: "Few-shot and in-context learning"
   tag: "fewshot"
   include: true
@@ -319,12 +309,6 @@
   notes:
     - title: Lecture notes
       url: "assets/slides/fewshot.pdf"
-    - title: "Scaling Laws for Neural Language Models"
-      author: "Open AI"
-      url: "https://arxiv.org/abs/2001.08361"
-    - title: "Training Compute-Optimal Large Language Models"
-      author: "DeepMind"
-      url: "https://arxiv.org/abs/2203.15556"
     - title: "Language Models are Unsupervised Multitask Learners"
       author: "Open AI"
       url: "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf"
@@ -354,3 +338,53 @@
   notes:
     - title: Lecture notes
       url: "assets/slides/fewshot.pdf"
+- title: "Neural Network Models and Training"
+  tag: dl4nlp
+  include: false
+  current: false
+  notes:
+    - title: "Natural Language Understanding with Distributed Representation"
+      author: "Kyunghyun Cho"
+      url: "http://arxiv.org/abs/1511.07916"
+    - title: "A Primer on Neural Networks for NLP"
+      author: Yoav Goldberg
+      url: "http://u.cs.biu.ac.il/~yogo/nnlp.pdf" 
+  links:
+    - title: "Deep Learning for MT Winter School"
+      url: "http://dl4mt.computing.dcu.ie/"
+      optional: true
+    - title: "Visualizing Optimization Algorithms"
+      author: "Alec Radford"
+      url: "http://imgur.com/a/Hqolp"
+      optional: true
+    - title: "Learning representations by back-propagating errors"
+      author: "Rumelhart, Hinton and Williams"
+      citation: "Nature, 1986"
+      url: "https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf"
+      optional: true
+- title: "Recurrent Language models"
+  tag: nlm
+  include: false
+  current: false
+  notes:
+    - title: "Neural Language model"
+      url: "assets/slides/nlm.pdf"
+    - title: "RNN based Neural Language model (experiments)"
+      url: "assets/slides/nlm-mikolov.pdf"
+      author: Tomas Mikolov
+    - title: "RNN Language model notebook"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/rnnlm.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/rnnlm.ipynb"
+  links:
+    - title: "How to implement a recurrent neural network"
+      author: "peterroelants.github.io"
+      url: "http://peterroelants.github.io/posts/rnn_implementation_part01/"
+      optional: true
+    - title: "Neural Machine Translation and Sequence-to-sequence Models: A Tutorial"
+      author: "Graham Neubig"
+      citation: "arXiv"
+      url: "https://arxiv.org/pdf/1703.01619.pdf"
+      optional: true
+    - title: "Statistical language models based on neural networks"
+      author: Tomas Mikolov
+      url: "http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf"
