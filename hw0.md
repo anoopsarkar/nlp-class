@@ -247,16 +247,17 @@ documentation](https://jupyterhub.readthedocs.io/en/stable/) and
 get used to editing a notebook with a combination of markdown and
 Python code.
 
-## Task: Spell Checking
-
-The task for this homework is to do contextual spell checking
-for English.
+## Task: Segmentation into Words
 
 Homework 0 is mainly to set up your groups and programming environment
 for this course for the semester, but to complete this homework you
 have to submit the solution to the following task as your submission
 for Homework 0. It will serve as a guide for the steps to be taken
 for all subsequent homeworks in this course.
+
+The sample task for this homework is to automatically segment English
+input that does not have word boundaries into the most plausible
+sequence of words.
 
 Submission for each homework will be done on [Coursys]({{ site.coursys }}).
 
