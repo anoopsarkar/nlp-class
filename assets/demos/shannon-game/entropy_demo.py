@@ -84,14 +84,14 @@ def compute_entropy(lm, filename, numsents, numskip, printprob, wait, uniform):
         w2 = w3
         for w3 in words[2:]:
             if wait: getch()
-            (entropy,
-             word_prob) = entropy_and_word_prob(lm.lm[(w1, w2)], w3, uniform)
-            if printprob: print("{}\t\t\t[entropy={:.2f} n_gram_prob={:.2f}]".format(w3, entropy, word_prob))
-            else: print("{}\t\t\t[entropy={:.2f}]".format(w3, entropy))
+            (entropy, word_prob) = entropy_and_word_prob(lm.lm[(w1, w2)], w3, uniform)
+            if printprob:
+                print("{}\t\t\t[entropy={:.2f} n_gram_prob={:.2f}]".format(w3, entropy, word_prob))
+            else:
+                print("{}\t\t\t[entropy={:.2f}]".format(w3, entropy))
             w1 = w2
             w2 = w3
         print()
-
 
 def usage():
     print(
@@ -132,5 +132,9 @@ if __name__ == '__main__':
         sys.exit(2)
 
     lm = LM()
-    lm.load_lm(lmfile)
+    try:
+        lm.load_lm(lmfile)
+    except:
+        print(sys.stderr, f"could not load {lmfile}")
+        sys.exit(1)
     compute_entropy(lm, corpusfile, numsents, numskip, printprob, wait, uniform)

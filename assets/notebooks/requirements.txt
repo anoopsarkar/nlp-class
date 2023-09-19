@@ -6,10 +6,9 @@ scipy
 matplotlib
 pandas
 notebook
-sklearn
+scikit-learn
 nltk
 gensim
 jupyter_contrib_nbextensions
 jupyter_nbextensions_configurator
 jupyterthemes
-pymagnitude

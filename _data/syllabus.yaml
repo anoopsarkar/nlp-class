@@ -1,7 +1,7 @@
 - title: "Course Introduction"
   tag: intro
   include: true
-  current: true
+  current: false
   notes:
     - title: "Course introduction"
       url: "assets/slides/intro-to-nlp.pdf"
@@ -45,7 +45,7 @@
 - title: "Probability models and language"
   tag: probintro
   include: true
-  current: false
+  current: true
   notes:
     - title: "Probability Models for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb"
