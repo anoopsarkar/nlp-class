@@ -42,8 +42,8 @@
       title: "Humans of AI: Stories, Not Stats"
       url: "http://www.humanstories.ai"
       optional: true
-- title: "Probability models and language"
-  tag: probintro
+- title: "n-gram Language models"
+  tag: lm
   include: true
   current: true
   notes:
@@ -52,6 +52,14 @@
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb"
     - title: "Probability models and language"
       url: "assets/slides/prob.pdf"
+    - title: "Language models"
+      url: "assets/slides/lm.pdf"
+    - title: "Exercise: n-gram Language Models"
+      url: "assets/notes/lm.html"
+    - title: "The unreasonable effectiveness of Character-level Language Models"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/goldberg_lm.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/goldberg_lm.ipynb"
+      author: "Yoav Goldberg"
   links:
     - title: "Python tidbits for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
@@ -68,20 +76,6 @@
       title: "Prediction and Entropy of Printed English"
       url: http://languagelog.ldc.upenn.edu/myl/Shannon1950.pdf
       optional: true
-- title: "n-gram Language models"
-  tag: lm
-  include: true
-  current: true
-  notes:
-    - title: "Language models"
-      url: "assets/slides/lm.pdf"
-    - title: "Exercise: n-gram Language Models"
-      url: "assets/notes/lm.html"
-    - title: "The unreasonable effectiveness of Character-level Language Models"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/goldberg_lm.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/goldberg_lm.ipynb"
-      author: "Yoav Goldberg"
-  links:
     - author: Michael Collins
       title: "Language models"
       download: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lm.pdf"
