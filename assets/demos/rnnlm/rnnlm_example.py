@@ -28,12 +28,12 @@ sent = '<s> she saw herself'.split()
 s = s_0
 for w in sent:
     s_n, y = rnn(s, wemb[w], U, W, V)
-    print "y:\n", y
-    print "max(y):\n", max(y)
-    print "state:\n", s_n
+    print("y:\n", y)
+    print("max(y):\n", max(y))
+    print("state:\n", s_n)
     s = s_n
 
-print '='*20
+print('='*20)
 U = np.mat('1.0, 1.0; 1.0, 1.0')
-print sigmoid(U * np.mat('0.26; 0.26'))
+print(sigmoid(U * np.mat('0.26; 0.26')))
 

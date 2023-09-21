@@ -1,4 +1,5 @@
 \input{beamerpreamble.tex}
+
 \begin{document}
 \input{titlepage.tex}
 
@@ -739,26 +740,38 @@ What happens to $2^{- \ell}$ if any $n$-gram probability for computing $P(T)$ is
 \end{frame}
 
 \begin{frame}
-\frametitle{Evaluating Language Models: Typical Perplexity Values}
-\begin{block}{From 'A Bit of Progress in Language Modeling' by Chen and Goodman}
+\frametitle{Evaluating Language Models: Perplexity}
+\begin{block}{Progress on the 1B Word Benchmark}
 \centering
-\begin{tabular}{ll}
-Model & Perplexity \\
+\begin{tabular}{llll}
+Model & Params & Perplexity & Citation \\
 \hline
-unigram & 955 \\
-bigram & 137 \\
-trigram & 74 
+unigram & 775K & 955 & \href{https://arxiv.org/abs/1312.3005}{Chelba+ 2013} \\
+bigram & 1B & 137 & \href{https://arxiv.org/abs/1312.3005}{Chelba+ 2013} \\
+trigram & 1B & 74 & \href{https://arxiv.org/abs/1312.3005}{Chelba+ 2013} \\
+interpolated 5-gram & 1.76B & 67.6 & \href{https://arxiv.org/abs/1312.3005}{Chelba+ 2013} \\
+10skip-gram+SNM & 33B & 52.9 & \href{https://arxiv.org/abs/1412.1454}{Shazeer+ 2014} \\
+\hline
+RNN-256 + 9-grams & 20B & 58.3 & \href{https://arxiv.org/abs/1312.3005}{Chelba+ 2013} \\
+RNN-1024 + 9-grams & 20B & 51.3 & \href{https://arxiv.org/abs/1312.3005}{Chelba+ 2013} \\
+Big LSTM+CNN & 1.04B & 30 & \href{https://arxiv.org/abs/1602.02410}{Jozefowicz+ 2016} \\
+10 LSTMs+10skip-SNM & 43B & 23.7 & \href{https://arxiv.org/abs/1602.02410}{Jozefowicz+ 2016}\\
+\hline
+GPT2 & 1.54B & 42.16 & \href{https://openai.com/research/better-language-models}{Radford+ 2019} \\
+Transformer XL & 1.04B & 21.8 & \href{https://aclanthology.org/P19-1285/}{Dai+ 2019}\\
+OmniNet & 100M & 21.5 & \href{https://arxiv.org/abs/2103.01075}{Tay+ 2021} \\
+\hline
 \end{tabular}
 \end{block}
 \end{frame}
 
-\begin{frame}
-\frametitle{Evaluating Language Models: Typical Perplexity Values}
-\begin{block}{{\small From 'One Billion Word Benchmark for Measuring Progress in Statistical Language Modeling' by Chelba+ (Google)}}
-\centering
-\includegraphics[scale=.25]{figures/1b-benchmark-test.png}
-\end{block}
-\end{frame}
+%\begin{frame}
+%\frametitle{Evaluating Language Models: Typical Perplexity Values}
+%\begin{block}{{\small From 'One Billion Word Benchmark for Measuring Progress in Statistical Language Modeling' by Chelba+ (Google)}}
+%\centering
+%\includegraphics[scale=.25]{figures/1b-benchmark-test.png}
+%\end{block}
+%\end{frame}
 
 \lecture{Event space in Language Models}{}
 \section{Event Space for $n$-gram Models}
