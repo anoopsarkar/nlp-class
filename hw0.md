@@ -65,9 +65,9 @@ by clicking the `New Project` button at the top right of the page.
 On the `New Project` page, select `Create a Blank Project` and then
 give your repo a name under the `Project name` field. The default
 name is `my-awesome-project` which is **not** what you should call
-your repo. Instead, name your repo: `advnlpclass-{{ site.semcode
+your repo. Instead, name your repo: `nlpclass-{{ site.semcode
 }}-g-GROUP` where `GROUP` is the group you registered on [Coursys]({{
-site.coursys }}). For example, a repository name might be `advnlpclass-{{
+site.coursys }}). For example, a repository name might be `nlpclass-{{
 site.semcode }}-g-ethicsgradient` Make sure you add the `g-` before
 your group name. It's important to name the repo exactly as you see
 here.
@@ -162,7 +162,7 @@ In the terminal window, enter the commands
     git config --global core.editor nano         # or set it to your favourite editor
     git config --global push.default current
     cd $HOME
-    git clone git@csil-git1.cs.surrey.sfu.ca:GROUPUSER/advnlpclass-{{ site.semcode }}-g-GROUP.git
+    git clone git@csil-git1.cs.surrey.sfu.ca:GROUPUSER/nlpclass-{{ site.semcode }}-g-GROUP.git
 
 where `USER` is your SFU username, `GROUPUSER` is the SFU username of
 the person who created the group repository and `GROUP` is the name of the
@@ -174,7 +174,7 @@ your username/password over and over again you can set up [passwordless
 ssh](http://www.linuxproblem.org/art_9.html).
 
 Your repo will be cloned into a new directory (also known as a folder)
-called `advnlpclass-{{ site.semcode }}-g-GROUP`.
+called `nlpclass-{{ site.semcode }}-g-GROUP`.
 
 ### Create your Homework 0 directory
 
@@ -187,7 +187,7 @@ repository and at the top level. Create a directory for Homework 0:
 
 When you print your working directory it should look like this:
 
-    advnlpclass-{{ site.semcode }}-g-GROUP/hw0
+    nlpclass-{{ site.semcode }}-g-GROUP/hw0
 
 Add a file `README.md` to this directory using your favourite editor
 and then `git add README.md` and `git commit -m "Initial hw0 commit"`
