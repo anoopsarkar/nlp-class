@@ -23,7 +23,7 @@ Clone your repository if you haven’t done it already:
     git clone git@csil-git1.cs.surrey.sfu.ca:USER/advnlpclass-{{ site.semcode }}-g-GROUP.git
 
 Then copy over the contents of the `spellchk` directory into your
-`hw0` directory in your repository.
+`hw1` directory in your repository.
 
 Set up the virtual environment:
 
