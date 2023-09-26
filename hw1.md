@@ -20,7 +20,7 @@ Get started:
 
 Clone your repository if you haven’t done it already:
 
-    git clone git@csil-git1.cs.surrey.sfu.ca:USER/advnlpclass-{{ site.semcode }}-g-GROUP.git
+    git clone git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-{{ site.semcode }}-g-GROUP.git
 
 Then copy over the contents of the `spellchk` directory into your
 `hw1` directory in your repository.
@@ -248,7 +248,7 @@ Go to `Homework 1` on Coursys and do a group submission:
 
 * Upload `output.zip` and `source.zip`
 * Make sure your `source.zip` matches your Gitlab repository.
-* Make sure you have documented your approach in `answer/zhsegment.ipynb`.
+* Make sure you have documented your approach in `answer/spellchk.ipynb`.
 * Make sure each member of your group has documented their contribution to this homework in `answer/README.username` where `username` is your CSIL/GitLab username.
 
 ## Grading
