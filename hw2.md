@@ -510,7 +510,8 @@ Go to `Homework 2` on Coursys and do a group submission:
 
 * Upload `output.zip` and `source.zip`
 * Make sure you have documented your approach in `answer/bertchunker.ipynb`.
-* Make sure each member of your group has documented their contribution to this homework in the Python notebook.
+* Check if each group member has a `answer/README.username`.
+* Make sure that your have updated your GitLab repository with your submission source code.
 
 ## Grading
 
