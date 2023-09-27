@@ -97,10 +97,6 @@
   include: true
   current: false
   notes: 
-    - title: "Vector space models (Jurafsky and Martin)"
-      url: "assets/cached/slp3/vector1.pdf"
-    - title: "Word2Vec (Jurafsky and Martin)"
-      url: "assets/cached/slp3/vector2.pdf"
     - title: "Word Vectors"
       url: "assets/slides/wordvectors.pdf"
     - title: "Singular Value Decomposition for NLP"
@@ -108,6 +104,13 @@
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/svd.ipynb"
     - title: "Exercise: word2vec"
       url: "assets/notes/word2vec.html"
+  links:
+    - title: "Vector space models (Jurafsky and Martin)"
+      url: "assets/cached/slp3/vector1.pdf"
+      optional: true
+    - title: "Word2Vec (Jurafsky and Martin)"
+      url: "assets/cached/slp3/vector2.pdf"
+      optional: true
 - title: "Feedforward neural networks"
   tag: ff
   include: true
