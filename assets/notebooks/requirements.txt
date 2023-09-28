@@ -9,3 +9,5 @@ notebook
 scikit-learn
 nltk
 gensim
+jupyterthemes
+torch
