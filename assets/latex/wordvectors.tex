@@ -88,7 +88,7 @@ The amount of variance captured by the first $k$ dimensions is given by
 \begin{frame}
 \frametitle{Dimensionality reduction with SVD}
 \framesubtitle{Figure from \cite{cs224n}}
-\includegraphics[scale=.38]{figures/wordvectors/svdapply}	
+\includegraphics[scale=.36]{figures/wordvectors/svdapply}	
 \end{frame}
 
 \begin{frame}
@@ -127,6 +127,7 @@ The amount of variance captured by the first $k$ dimensions is given by
 \begin{alertblock}{Skip-gram}
 	\begin{itemize}[<+->]
 		\item Considers each context word independently and constructs (target-word, context-word) pairs
+		\item Predict the target word using the context word
 		\item Trained using negative sampling and loss on predicting good vs.\ bad pairs
 	\end{itemize}
 \end{alertblock}

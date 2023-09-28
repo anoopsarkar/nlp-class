@@ -102,6 +102,9 @@
     - title: "Singular Value Decomposition for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/svd.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/svd.ipynb"
+    - title: "Training word2vec in Pytorch"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/word2vec.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/word2vec.ipynb"
     - title: "Exercise: word2vec"
       url: "assets/notes/word2vec.html"
   links:
