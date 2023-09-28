@@ -48,7 +48,7 @@
 - title: "n-gram Language models"
   tag: lm
   include: true
-  current: true
+  current: false
   notes:
     - title: "Probability Models for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb"
@@ -95,7 +95,7 @@
 - title: "Word Vectors"
   tag: w2v
   include: true
-  current: false
+  current: true
   notes: 
     - title: "Word Vectors"
       url: "assets/slides/wordvectors.pdf"
