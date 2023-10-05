@@ -195,6 +195,21 @@ non-differentiable or undefined if $z = 0$ \\
 \end{block}
 \end{frame}
 
+\begin{frame}{The GeLU Transfer Function}
+\begin{block}{Gaussian Error Linear Unit (GELU):}
+\[ g(z) = \{ \frac{z}{2} (1 + (\sqrt{\frac{2}{\pi}} \times (z + 0.044715 \times z^3))) \} \]
+or
+\[ g(z) = \{ \frac{z}{2} (1 + \textrm{tanh}(\sqrt{\frac{2}{\pi}} \times (z + 0.044715 \times z^3))) \} \]
+Transfer function of choice for Transformer language models.
+\end{block}
+
+\pause
+\begin{center}
+\includegraphics[scale=0.25]{figures/ff/gelu.png}
+\end{center}
+\end{frame}
+
+
 \begin{frame}{Desperately Seeking Transfer Functions}
 \framesubtitle{from \cite{Ramachandran2017}}
 \begin{block}{Enumeration of non-linear functions}
