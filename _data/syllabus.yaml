@@ -167,6 +167,10 @@
       url: "http://cs231n.github.io/neural-networks-3/"
       author: "Andrej Karpathy"
       optional: true
+    - title: "Revisiting Simple Neural Probabilistic Language Models"
+      url: "https://aclanthology.org/2021.naacl-main.407/"
+      author: "Simeng Sun, Mohit Iyyer"
+      optional: true
     - author: Erik F. Tjong Kim Sang and Sabine Buchholz
       title: "Introduction to the CoNLL-2000 Shared Task: Chunking"
       url: "http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
