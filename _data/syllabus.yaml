@@ -119,7 +119,7 @@
   include: true
   current: true
   notes:
-    - title: "Tokenization into Sub-wordsusing Byte-Pair Encoding"
+    - title: "Tokenization into Sub-words with Byte-Pair Encoding"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/bpe.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/bpe.ipynb"
   links:
