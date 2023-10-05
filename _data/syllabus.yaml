@@ -124,7 +124,7 @@
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/bpe.ipynb"
   links:
     - title: "BPE tutorial at Huggingface"
-      url: ""https://huggingface.co/learn/nlp-course/chapter6/5?fw=pt"
+      url: "https://huggingface.co/learn/nlp-course/chapter6/5?fw=pt"
       author: "Huggingface"
       optional: true
 - title: "Sequence prediction"
