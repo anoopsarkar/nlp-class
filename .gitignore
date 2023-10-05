@@ -6,3 +6,4 @@ Gemfile.lock
 assets/demos/ambiguity/venv/
 assets/demos/shannon-game/venv/
 sp2023/
+venv/
