@@ -1,13 +1,12 @@
-pip
 wheel
-pytest
+notebook
+jupyterthemes
+ipywidgets
 numpy
 scipy
 matplotlib
 pandas
-notebook
 scikit-learn
 nltk
 gensim
-jupyterthemes
 torch
