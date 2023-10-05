@@ -159,6 +159,9 @@
       url: "http://www.cs.columbia.edu/~mcollins/cs4705-spring2018/notes/ff.pdf"
       download: "assets/mcollins-notes/ff.pdf"
   links:
+    - title: "Pytorch Internals"
+      author: "Edward Z. Yang"
+      url: "http://blog.ezyang.com/2019/05/pytorch-internals/"
     - title: "Efficient Backprop"
       url: "http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf"
       author: "LeCun, Bottou, Orr and Muller"
