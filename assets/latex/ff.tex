@@ -303,6 +303,9 @@ And similarly for $b$:
 \begin{block}{A single layer feedforward model consists of:}
 \begin{itemize}[<+->]
 \item An integer $d$ specifying the input dimension. Each input to the network is $x \in \mathbb{R}^d$
+  \begin{itemize}
+  \item Think of it as a $d$ dimensional word embedding
+  \end{itemize}
 \item An integer $m$ specifying the number of hidden units
 \item A parameter matrix $W \in \mathbb{R}^{m \times d}$. The vector $W_k \in \mathbb{R}^d$ for $1 \leq k \leq m$ is the $k$th row of $W$
 \item A vector $b \in \mathbb{R}^d$ of bias parameters
