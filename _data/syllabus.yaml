@@ -182,13 +182,13 @@
   include: true
   current: false
   notes:
+    - title: "Lecture notes"
+      url: "assets/slides/cross_attention.pdf"
     - title: "Alignment Exercise"
       author: "Kevin Knight"
       url: "assets/slides/centauri-arcturan-align.pdf"
     - title: "Exercise: Philae Obelisk"
       url: "assets/notes/philae-obelisk.html"
-    - title: "Lecture notes"
-      url: "assets/slides/cross_attention.pdf"
     - title: "Neural Machine Translation by Jointly Learning to Align and Translate"
       author: "Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio"
       url: "https://arxiv.org/abs/1409.0473"
