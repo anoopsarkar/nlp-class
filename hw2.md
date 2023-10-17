@@ -8,8 +8,8 @@ active_tab: homework
 
 # Homework 2: BERT Finetuning for Robust Phrasal Chunking
 
-<span class="text-info">Start on {{ site.hwdates[1].startdate }}</span> |
-<span class="text-warning">Due on {{ site.hwdates[1].deadline }}</span>
+<span class="text-info">Start on {{ site.hwdates[2].startdate }}</span> |
+<span class="text-warning">Due on {{ site.hwdates[2].deadline }}</span>
 
 ## Getting Started
 
