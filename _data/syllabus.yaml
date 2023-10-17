@@ -114,19 +114,6 @@
     - title: "Word2Vec (Jurafsky and Martin)"
       url: "assets/cached/slp3/vector2.pdf"
       optional: true
-- title: "Tokenization"
-  tag: bpe 
-  include: true
-  current: true
-  notes:
-    - title: "Tokenization into Sub-words with Byte-Pair Encoding"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/bpe.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/bpe.ipynb"
-  links:
-    - title: "BPE tutorial at Huggingface"
-      url: "https://huggingface.co/learn/nlp-course/chapter6/5?fw=pt"
-      author: "Huggingface"
-      optional: true
 - title: "Feedforward neural networks, Sequence Prediction, and n-gram LMs"
   tag: ff
   include: true
@@ -175,16 +162,36 @@
       title: "Introduction to the CoNLL-2000 Shared Task: Chunking"
       url: "http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
       optional: true
-- title: "Sequence to sequence alignment"
-  tag: smt
+- title: "Tokenization"
+  tag: bpe 
   include: true
-  current: false 
+  current: true
+  notes:
+    - title: "Lecture notes"
+      url: "assets/slides/tokenization.pdf"
+    - title: "Tokenization into Sub-words with Byte-Pair Encoding"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/bpe.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/bpe.ipynb"
+  links:
+    - title: "BPE tutorial at Huggingface"
+      url: "https://huggingface.co/learn/nlp-course/chapter6/5?fw=pt"
+      author: "Huggingface"
+      optional: true
+- title: "Cross Attention"
+  tag: cross_attention
+  include: true
+  current: false
   notes:
     - title: "Alignment Exercise"
       author: "Kevin Knight"
       url: "assets/slides/centauri-arcturan-align.pdf"
     - title: "Exercise: Philae Obelisk"
       url: "assets/notes/philae-obelisk.html"
+    - title: "Lecture notes"
+      url: "assets/slides/cross_attention.pdf"
+    - title: "Neural Machine Translation by Jointly Learning to Align and Translate"
+      author: "Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio"
+      url: "https://arxiv.org/abs/1409.0473"
   links:
     - author: Adam Lopez
       title: "Word Alignment and the Expectation-Maximization Algorithm"
@@ -194,17 +201,6 @@
       title: "A Statistical MT Tutorial Workbook"
       url: http://www.isi.edu/natural-language/mt/wkbk.pdf
       optional: true
-- title: "Cross Attention"
-  tag: cross_attention
-  include: true
-  current: false
-  notes:
-    - title: "Lecture notes"
-      url: "assets/slides/cross_attention.pdf"
-    - title: "Neural Machine Translation by Jointly Learning to Align and Translate"
-      author: "Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio"
-      url: "https://arxiv.org/abs/1409.0473"
-  links:
     - title: "Sequence to Sequence Learning with Neural Networks"
       author: "Ilya Sutskever, Oriol Vinyals, Quoc V. Le"
       url: "https://arxiv.org/abs/1409.3215"
