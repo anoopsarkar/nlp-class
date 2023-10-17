@@ -51,7 +51,7 @@ command to get started with your development for the homework:
 
 The data files provided are:
 
-* `data/input` -- input files `dev.txt` and `test.txt` infected with noise
+* `data/input` -- input files `dev.txt` and `test.txt`
 * `data/reference/dev.out` -- the reference output for the `dev.txt` input file
 
 ## Default solution
