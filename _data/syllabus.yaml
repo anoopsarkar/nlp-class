@@ -360,7 +360,14 @@
   current: false
   notes:
     - title: Lecture notes
-      url: "assets/slides/fewshot.pdf"
+      url: "assets/slides/instruct_tuning.pdf"
+    - title: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+      author: "Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D. Manning, Chelsea Finn"
+      url: "https://arxiv.org/abs/2305.18290"
+  links:
+    - title: "Scaling Instruction-Finetuned Language Models"
+      author: "Google"
+      url: "https://arxiv.org/abs/2210.11416"
 - title: "Neural Network Models and Training"
   tag: dl4nlp
   include: false
