@@ -126,9 +126,12 @@
     - title: "Multi-layer Perceptrons for n-gram LMs"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/mlp.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/mlp.ipynb"
-    - title: "Feedforward networks and XOR"
+    - title: "Intro to Feedforward networks"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/ff.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/ff.ipynb"
+    - title: "Feedforward networks and XOR"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/xor.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/xor.ipynb"
   links:
     - author: Michael Collins
       title: "Feedforward neural networks"
@@ -214,6 +217,9 @@
   notes:
     - title: "Lecture notes"
       url: "assets/slides/self_attention.pdf"
+    - title: "Transformer code tutorial"
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/transformer.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/transformer.ipynb"
     - title: "Attention is all you need"
       author: "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin"
       url: "https://arxiv.org/abs/1706.03762"
