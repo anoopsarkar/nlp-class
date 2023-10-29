@@ -70,11 +70,11 @@ need to train a model for this homework.
 
 You can either download the `seq2seq_E049.pt` model file from:
 
-    https://drive.google.com/open?id=1SCT1K8gxDmhxW7ZmEeOPqlLzPJk_qLyL
+    https://drive.google.com/drive/folders/1d-cyNMrHcrxwb60EKDw8TR0_NPsWhe3l?usp=sharing
 
 Or you can use the same file directly on CSIL from the following directory:
 
-    /usr/shared/CMPT/courses/nlp-class/neuralmt/seq2seq_E049.pt
+    /home/anoop/nlp-class/neuralmt/seq2seq_E049.pt
 
 After you implement the baseline approach if you wish to tackle
 ensemble decoding then you will need additional model files to
@@ -87,11 +87,11 @@ create the ensemble. The extra model files are as follows:
 
 These model files are available from:
 
-    https://drive.google.com/drive/folders/1Gct8Jbb7bPLl9EhI5p1YvD2Bs5wzLxvJ?usp=sharing
+    https://drive.google.com/drive/folders/1d-cyNMrHcrxwb60EKDw8TR0_NPsWhe3l?usp=sharing
 
 and on CSIL in the following directory:
 
-    /usr/shared/CMPT/courses/nlp-class/neuralmt/*.pt
+    /home/anoop/nlp-class/neuralmt/*.pt
 
 Please do not copy over the file into your CSIL directory as it is
 moderately large and you can go over your disk quota. Instead modify
@@ -99,21 +99,22 @@ moderately large and you can go over your disk quota. Instead modify
 accessible on the CSIL machines or use the command line option
 for `default.py`.
 
-    python3 default.py -m /usr/shared/CMPT/courses/nlp-class/neuralmt/seq2seq_E049.pt > output.txt
+    python3 default.py -m /home/anoop/nlp-class/neuralmt/seq2seq_E049.pt > output.txt
 
 If you have a copy or soft link to `seq2seq_E049.pt` in the `data` directory then you can simply run:
 
-    python3 default.py > output.txt
+    python3 default.py > dev.out
 
 Note that this will take 5-10 minutes depending on your machine.
 
-And then you can check the score on the dev output file called `output.txt` by running:
+And then you can check the score on the dev output file called by running:
 
-    python3 bleu_check.py -o output.txt
+    zip output.zip dev.out
+    python3 check.py
 
 which produces the following evaluation:
 
-    BLEU = 3.35 34.4/7.6/2.1/0.6 (BP = 0.771 ratio = 0.794 hyp_len = 19766 ref_len = 24902)
+    dev.out score: 1.8637
 
 For this homework we will be scoring your solution based on the BLEU score
 which is described in detail in the Accuracy section below.
@@ -160,7 +161,7 @@ your output translations as can be seen by the BLEU score:
 
     $ python3 zipout.py    # using baseline implementation
     $ python3 check.py
-    dev.out score: 17.1139
+    dev.out score: 14.2
 
 ### Extensions to Baseline
 
@@ -279,11 +280,11 @@ Your F-score should be equal to or greater than the score listed for the corresp
 | 5.0  | 4.0  | 65  | C  |
 | 6.0  | 5.0  | 70  | C+ |
 | 8.0  | 7.0  | 75  | B- |
-| 10.0 | 9.0  | 80  | B  |
-| 14.0 | 14.0 | 85  | B+ |
-| 17.0 | 16.0 | 90  | A- |
-| 18.0 | 17.0 | 95  | A  |
-| 20.0 | 19.0 | 100 | A+ |
+| 9.0  | 8.0  | 80  | B  |
+| 10.0 | 9.0 | 85  | B+ |
+| 12.0 | 11.0 | 90  | A- |
+| 14.0 | 13.5 | 95  | A  |
+| 16.0 | 15.5 | 100 | A+ |
 {: .table}
 
 The score will be normalized to the marks on Coursys for the dev and test scores.
