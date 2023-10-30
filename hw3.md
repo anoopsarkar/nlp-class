@@ -161,7 +161,7 @@ your output translations as can be seen by the BLEU score:
 
     $ python3 zipout.py    # using baseline implementation
     $ python3 check.py
-    dev.out score: 14.2
+    dev.out score: 14.2427
 
 ### Extensions to Baseline
 
