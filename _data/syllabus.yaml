@@ -329,6 +329,8 @@
   include: true
   current: true
   notes:
+    - title: "Lecture notes"
+      url: "assets/slides/decoding.pdf"
     - title: "Intro to Generation with LLMs"
       author: "Huggingface"
       url: "https://huggingface.co/docs/transformers/llm_tutorial"
