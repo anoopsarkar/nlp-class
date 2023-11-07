@@ -213,7 +213,7 @@
 - title: "Self Attention"
   tag: self_attention
   include: true
-  current: true
+  current: false
   notes:
     - title: "Lecture notes"
       url: "assets/slides/self_attention.pdf"
@@ -292,10 +292,42 @@
     - title: "ALBERT: A Lite BERT for Self-supervised Learning of Language Representations"
       author: "Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, Radu Soricut"
       url: "https://arxiv.org/abs/1909.11942"
+- title: "Benchmark datasets"
+  tag: "benchmarks"
+  include: true
+  current: true
+  notes:
+    - title: Lecture notes
+      url: "assets/slides/benchmarks.pdf"
+    - title: "AI and the Everything in the Whole Wide World Benchmark"
+      author: "Deborah Raji, Emily Denton, Emily M. Bender, Alex Hanna, Amandalynne Paullada"
+      url: "https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/084b6fbb10729ed4da8c3d3f5a3ae7c9-Abstract-round2.html"
+    - title: "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data"
+      author: "Emily M. Bender, Alexander Koller"
+      url: "https://aclanthology.org/2020.acl-main.463"
+  links:
+    - title: "GLUE"
+      url: "https://gluebenchmark.com"
+    - title: "SuperGLUE"
+      url: "https://super.gluebenchmark.com"
+    - title: "Swag"
+      url: "https://rowanzellers.com/swag/"
+    - title: "HellaSwag"
+      url: "https://rowanzellers.com/hellaswag/"
+    - title: "LAMBADA"
+      url: "https://zenodo.org/record/2630551"
+    - title: "BabyLM Challenge"
+      url: "https://babylm.github.io"
+    - title: "CoQA"
+      url: "https://stanfordnlp.github.io/coqa/"
+    - title: "Natural Questions"
+      url: "https://ai.google.com/research/NaturalQuestions"
+    - title: "CNN/Daily Mail Summarization Dataset"
+      url: "https://github.com/abisee/cnn-dailymail"
 - title: "Decoding"
   tag: "decoding"
   include: true
-  current: false
+  current: true
   notes:
     - title: "Intro to Generation with LLMs"
       author: "Huggingface"
