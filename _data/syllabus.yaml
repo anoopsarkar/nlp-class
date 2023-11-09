@@ -260,7 +260,7 @@
 - title: "Pre-training Language Models"
   tag: "bert"
   include: true
-  current: true
+  current: false
   notes:
     - title: Lecture notes
       url: "assets/slides/pre_training.pdf"
@@ -292,10 +292,68 @@
     - title: "ALBERT: A Lite BERT for Self-supervised Learning of Language Representations"
       author: "Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, Radu Soricut"
       url: "https://arxiv.org/abs/1909.11942"
+- title: "Decoding"
+  tag: "decoding"
+  include: true
+  current: false
+  notes:
+    - title: "Lecture notes"
+      url: "assets/slides/decoding.pdf"
+    - title: "Intro to Generation with LLMs"
+      author: "Huggingface"
+      url: "https://huggingface.co/docs/transformers/llm_tutorial"
+    - title: "Generation Strategies"
+      author: "Huggingface"
+      url: "https://huggingface.co/docs/transformers/generation_strategies"
+    - title: "Contrastive Search"
+      author: "Tian Lan"
+      url: "https://huggingface.co/blog/introducing-csearch#62-example-two---opt"
+    - title: "Categorical Reparameterization with Gumbel-Softmax"
+      author: "Eric Jang, Shixiang Gu, Ben Poole"
+      url: "https://arxiv.org/abs/1611.01144v5"
+  links:
+    - title: "A Contrastive Framework for Neural Text Generation"
+      author: "Yixuan Su, Tian Lan, Yan Wang, Dani Yogatama, Lingpeng Kong, Nigel Collier"
+      url: "https://arxiv.org/abs/2202.06417"
+- title: "Parameter-efficient Fine Tuning"
+  tag: "peft"
+  include: true
+  current: true
+  notes:
+    - title: Lecture notes
+      url: "assets/slides/peft.pdf"
+    - title: "Prefix-Tuning: Optimizing Continuous Prompts for Generation"
+      author: "Xiang Lisa Li, Percy Liang"
+      url: "https://arxiv.org/abs/2101.00190"
+    - title: "AdaMix: Mixture-of-Adaptations for Parameter-efficient Model Tuning"
+      author: "Yaqing Wang, Sahaj Agarwal, Subhabrata Mukherjee, Xiaodong Liu, Jing Gao, Ahmed Hassan Awadallah, Jianfeng Gao"
+      url: "https://arxiv.org/abs/2205.12410"
+    - title: "LoRA: Low-Rank Adaptation of Large Language Models"
+      author: "Edward J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, Weizhu Chen"
+      url: "https://arxiv.org/abs/2106.09685"
+    - title: "Adapter methods"
+      author: "docs.adapterhub.ml"
+      url: "https://docs.adapterhub.ml/overview.html"
+  links:
+    - title: "AdapterHub: A Framework for Adapting Transformers"
+      author: "Jonas Pfeiffer, Andreas Rücklé, Clifton Poth, Aishwarya Kamath, Ivan Vulić, Sebastian Ruder, Kyunghyun Cho, Iryna Gurevych"
+      url: "https://aclanthology.org/2020.emnlp-demos.7/"
+    - title: "Parameter-Efficient Transfer Learning for NLP"
+      author: "Neil Houlsby, Andrei Giurgiu, Stanislaw Jastrzebski, Bruna Morrone, Quentin de Laroussilhe, Andrea Gesmundo, Mona Attariyan, Sylvain Gelly"
+      url: "https://arxiv.org/abs/1902.00751"
+    - title: "Simple, Scalable Adaptation for Neural Machine Translation"
+      author: "Ankur Bapna, Naveen Arivazhagan, Orhan Firat"
+      url: "https://arxiv.org/abs/1909.08478"
+    - title: "AdapterFusion: Non-Destructive Task Composition for Transfer Learning"
+      author: "Jonas Pfeiffer, Aishwarya Kamath, Andreas Rücklé, Kyunghyun Cho, Iryna Gurevych"
+      url: "https://aclanthology.org/2021.eacl-main.39/"
+    - title: "Parameter-Efficient Tuning with Special Token Adaptation"
+      author: "Xiaocong Yang, James Y. Huang, Wenxuan Zhou, Muhao Chen"
+      url: "https://aclanthology.org/2023.eacl-main.60/"
 - title: "Benchmark datasets"
   tag: "benchmarks"
   include: true
-  current: true
+  current: false
   notes:
     - title: Lecture notes
       url: "assets/slides/benchmarks.pdf"
@@ -324,29 +382,6 @@
       url: "https://ai.google.com/research/NaturalQuestions"
     - title: "CNN/Daily Mail Summarization Dataset"
       url: "https://github.com/abisee/cnn-dailymail"
-- title: "Decoding"
-  tag: "decoding"
-  include: true
-  current: true
-  notes:
-    - title: "Lecture notes"
-      url: "assets/slides/decoding.pdf"
-    - title: "Intro to Generation with LLMs"
-      author: "Huggingface"
-      url: "https://huggingface.co/docs/transformers/llm_tutorial"
-    - title: "Generation Strategies"
-      author: "Huggingface"
-      url: "https://huggingface.co/docs/transformers/generation_strategies"
-    - title: "Contrastive Search"
-      author: "Tian Lan"
-      url: "https://huggingface.co/blog/introducing-csearch#62-example-two---opt"
-    - title: "Categorical Reparameterization with Gumbel-Softmax"
-      author: "Eric Jang, Shixiang Gu, Ben Poole"
-      url: "https://arxiv.org/abs/1611.01144v5"
-  links:
-    - title: "A Contrastive Framework for Neural Text Generation"
-      author: "Yixuan Su, Tian Lan, Yan Wang, Dani Yogatama, Lingpeng Kong, Nigel Collier"
-      url: "https://arxiv.org/abs/2202.06417"
 - title: "Scaling laws for language models"
   tag: "scaling"
   include: true
