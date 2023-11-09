@@ -257,6 +257,38 @@
     - title: "Analyzing Multi-Head Self-Attention: Specialized Heads Do the Heavy Lifting, the Rest Can Be Pruned"
       author: "Elena Voita, David Talbot, Fedor Moiseev, Rico Sennrich, Ivan Titov"
       url: "https://aclanthology.org/P19-1580/"
+- title: "Benchmark datasets"
+  tag: "benchmarks"
+  include: true
+  current: false
+  notes:
+    - title: Lecture notes
+      url: "assets/slides/benchmarks.pdf"
+    - title: "AI and the Everything in the Whole Wide World Benchmark"
+      author: "Deborah Raji, Emily Denton, Emily M. Bender, Alex Hanna, Amandalynne Paullada"
+      url: "https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/084b6fbb10729ed4da8c3d3f5a3ae7c9-Abstract-round2.html"
+    - title: "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data"
+      author: "Emily M. Bender, Alexander Koller"
+      url: "https://aclanthology.org/2020.acl-main.463"
+  links:
+    - title: "GLUE"
+      url: "https://gluebenchmark.com"
+    - title: "SuperGLUE"
+      url: "https://super.gluebenchmark.com"
+    - title: "Swag"
+      url: "https://rowanzellers.com/swag/"
+    - title: "HellaSwag"
+      url: "https://rowanzellers.com/hellaswag/"
+    - title: "LAMBADA"
+      url: "https://zenodo.org/record/2630551"
+    - title: "BabyLM Challenge"
+      url: "https://babylm.github.io"
+    - title: "CoQA"
+      url: "https://stanfordnlp.github.io/coqa/"
+    - title: "Natural Questions"
+      url: "https://ai.google.com/research/NaturalQuestions"
+    - title: "CNN/Daily Mail Summarization Dataset"
+      url: "https://github.com/abisee/cnn-dailymail"
 - title: "Pre-training Language Models"
   tag: "bert"
   include: true
@@ -350,56 +382,6 @@
     - title: "Parameter-Efficient Tuning with Special Token Adaptation"
       author: "Xiaocong Yang, James Y. Huang, Wenxuan Zhou, Muhao Chen"
       url: "https://aclanthology.org/2023.eacl-main.60/"
-- title: "Benchmark datasets"
-  tag: "benchmarks"
-  include: true
-  current: false
-  notes:
-    - title: Lecture notes
-      url: "assets/slides/benchmarks.pdf"
-    - title: "AI and the Everything in the Whole Wide World Benchmark"
-      author: "Deborah Raji, Emily Denton, Emily M. Bender, Alex Hanna, Amandalynne Paullada"
-      url: "https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/084b6fbb10729ed4da8c3d3f5a3ae7c9-Abstract-round2.html"
-    - title: "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data"
-      author: "Emily M. Bender, Alexander Koller"
-      url: "https://aclanthology.org/2020.acl-main.463"
-  links:
-    - title: "GLUE"
-      url: "https://gluebenchmark.com"
-    - title: "SuperGLUE"
-      url: "https://super.gluebenchmark.com"
-    - title: "Swag"
-      url: "https://rowanzellers.com/swag/"
-    - title: "HellaSwag"
-      url: "https://rowanzellers.com/hellaswag/"
-    - title: "LAMBADA"
-      url: "https://zenodo.org/record/2630551"
-    - title: "BabyLM Challenge"
-      url: "https://babylm.github.io"
-    - title: "CoQA"
-      url: "https://stanfordnlp.github.io/coqa/"
-    - title: "Natural Questions"
-      url: "https://ai.google.com/research/NaturalQuestions"
-    - title: "CNN/Daily Mail Summarization Dataset"
-      url: "https://github.com/abisee/cnn-dailymail"
-- title: "Scaling laws for language models"
-  tag: "scaling"
-  include: true
-  current: false
-  notes:
-    - title: "Scaling Laws for Neural Language Models"
-      author: "Open AI"
-      url: "https://arxiv.org/abs/2001.08361"
-    - title: "Training Compute-Optimal Large Language Models"
-      author: "DeepMind"
-      url: "https://arxiv.org/abs/2203.15556"
-  links:
-    - title: "Scaling laws notebook"
-      author: "Andrej Karpathy"
-      url: "https://github.com/karpathy/nanoGPT/blob/master/scaling_laws.ipynb"
-    - title: "The FLOPs Calculus of Language Model Training"
-      author: "Dzmitry Bahdanau"
-      url: "https://medium.com/@dzmitrybahdanau/the-flops-calculus-of-language-model-training-3b19c1f025e4"
 - title: "Few-shot and in-context learning"
   tag: "fewshot"
   include: true
@@ -467,6 +449,24 @@
       citation: "Nature, 1986"
       url: "https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf"
       optional: true
+- title: "Scaling laws for language models"
+  tag: "scaling"
+  include: true
+  current: false
+  notes:
+    - title: "Scaling Laws for Neural Language Models"
+      author: "Open AI"
+      url: "https://arxiv.org/abs/2001.08361"
+    - title: "Training Compute-Optimal Large Language Models"
+      author: "DeepMind"
+      url: "https://arxiv.org/abs/2203.15556"
+  links:
+    - title: "Scaling laws notebook"
+      author: "Andrej Karpathy"
+      url: "https://github.com/karpathy/nanoGPT/blob/master/scaling_laws.ipynb"
+    - title: "The FLOPs Calculus of Language Model Training"
+      author: "Dzmitry Bahdanau"
+      url: "https://medium.com/@dzmitrybahdanau/the-flops-calculus-of-language-model-training-3b19c1f025e4"
 - title: "Recurrent Language models"
   tag: nlm
   include: false
