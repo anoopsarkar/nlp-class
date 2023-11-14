@@ -398,19 +398,36 @@
     - title: "GPT-4 Technical Report"
       author: "Open AI"
       url: "https://arxiv.org/abs/2303.08774"
+    - title: "Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?"
+      author: "Sewon Min, Xinxi Lyu, Ari Holtzman, Mikel Artetxe, Mike Lewis, Hannaneh Hajishirzi, Luke Zettlemoyer"
+      url: "https://arxiv.org/abs/2202.12837"
   links:
     - title: "The AI Brick Wall – A Practical Limit For Scaling Dense Transformer Models, and How GPT 4 Will Break Past It"
       author: "Dylan Patel"
       url: "https://www.semianalysis.com/p/the-ai-brick-wall-a-practical-limit"
-    - title: "Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?"
-      author: "Sewon Min, Xinxi Lyu, Ari Holtzman, Mikel Artetxe, Mike Lewis, Hannaneh Hajishirzi, Luke Zettlemoyer"
-      url: "https://arxiv.org/abs/2202.12837"
-    - title: "Proximal Policy Optimization Algorithms"
-      author: "John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, Oleg Klimov"
-      url: "https://arxiv.org/abs/1707.06347"
-    - title: "LIMA: Less Is More for Alignment"
-      author: "Chunting Zhou, Pengfei Liu, Puxin Xu, Srini Iyer, Jiao Sun, Yuning Mao, Xuezhe Ma, Avia Efrat, Ping Yu, Lili Yu, Susan Zhang, Gargi Ghosh, Mike Lewis, Luke Zettlemoyer, Omer Levy"
-      url: "https://arxiv.org/abs/2305.11206"
+- title: "Scaling Laws for LLMs"
+  tag: "scaling"
+  include: true
+  current: false
+  notes:
+    - title: Lecture notes
+      url: "assets/slides/scaling.pdf"
+    - title: "Scaling Laws for Neural Language Models"
+      author: "Open AI"
+      url: "https://arxiv.org/abs/2001.08361"
+    - title: "Training Compute-Optimal Large Language Models"
+      author: "Google Deepmind"
+      url: "https://arxiv.org/abs/2203.15556"
+    - title: "GLaM: Efficient Scaling of Language Models with Mixture-of-Experts"
+      author: "Google"
+      url: "https://arxiv.org/abs/2112.06905"
+    - title: "PaLM: Scaling Language Modeling with Pathways"
+      author: "Google"
+      url: "https://arxiv.org/abs/2204.02311"
+  links:
+    - title: "AI and Compute"
+      author: "OpenAI"
+      url: "https://openai.com/research/ai-and-compute"
 - title: "Instruction tuning and Preference Optimization"
   tag: "instruct"
   include: true
@@ -425,6 +442,12 @@
     - title: "Scaling Instruction-Finetuned Language Models"
       author: "Google"
       url: "https://arxiv.org/abs/2210.11416"
+    - title: "Proximal Policy Optimization Algorithms"
+      author: "John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, Oleg Klimov"
+      url: "https://arxiv.org/abs/1707.06347"
+    - title: "LIMA: Less Is More for Alignment"
+      author: "Chunting Zhou, Pengfei Liu, Puxin Xu, Srini Iyer, Jiao Sun, Yuning Mao, Xuezhe Ma, Avia Efrat, Ping Yu, Lili Yu, Susan Zhang, Gargi Ghosh, Mike Lewis, Luke Zettlemoyer, Omer Levy"
+      url: "https://arxiv.org/abs/2305.11206"
 - title: "Neural Network Models and Training"
   tag: dl4nlp
   include: false
