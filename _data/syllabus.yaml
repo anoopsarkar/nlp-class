@@ -401,6 +401,9 @@
     - title: "Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?"
       author: "Sewon Min, Xinxi Lyu, Ari Holtzman, Mikel Artetxe, Mike Lewis, Hannaneh Hajishirzi, Luke Zettlemoyer"
       url: "https://arxiv.org/abs/2202.12837"
+    - title: "In-Context Learning Learns Label Relationships but Is Not Conventional Learning"
+      author: "Jannik Kossen, Yarin Gal, Tom Rainforth"
+      url: "https://arxiv.org/abs/2307.12375"
   links:
     - title: "The AI Brick Wall – A Practical Limit For Scaling Dense Transformer Models, and How GPT 4 Will Break Past It"
       author: "Dylan Patel"
