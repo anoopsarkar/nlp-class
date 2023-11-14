@@ -431,6 +431,12 @@
     - title: "AI and Compute"
       author: "OpenAI"
       url: "https://openai.com/research/ai-and-compute"
+    - title: "Scaling laws notebook"
+      author: "Andrej Karpathy"
+      url: "https://github.com/karpathy/nanoGPT/blob/master/scaling_laws.ipynb"
+    - title: "The FLOPs Calculus of Language Model Training"
+      author: "Dzmitry Bahdanau"
+      url: "https://medium.com/@dzmitrybahdanau/the-flops-calculus-of-language-model-training-3b19c1f025e4"
 - title: "Instruction tuning and Preference Optimization"
   tag: "instruct"
   include: true
@@ -475,24 +481,6 @@
       citation: "Nature, 1986"
       url: "https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf"
       optional: true
-- title: "Scaling laws for language models"
-  tag: "scaling"
-  include: true
-  current: false
-  notes:
-    - title: "Scaling Laws for Neural Language Models"
-      author: "Open AI"
-      url: "https://arxiv.org/abs/2001.08361"
-    - title: "Training Compute-Optimal Large Language Models"
-      author: "DeepMind"
-      url: "https://arxiv.org/abs/2203.15556"
-  links:
-    - title: "Scaling laws notebook"
-      author: "Andrej Karpathy"
-      url: "https://github.com/karpathy/nanoGPT/blob/master/scaling_laws.ipynb"
-    - title: "The FLOPs Calculus of Language Model Training"
-      author: "Dzmitry Bahdanau"
-      url: "https://medium.com/@dzmitrybahdanau/the-flops-calculus-of-language-model-training-3b19c1f025e4"
 - title: "Recurrent Language models"
   tag: nlm
   include: false
