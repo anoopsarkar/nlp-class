@@ -404,16 +404,13 @@
     - title: "In-Context Learning Learns Label Relationships but Is Not Conventional Learning"
       author: "Jannik Kossen, Yarin Gal, Tom Rainforth"
       url: "https://arxiv.org/abs/2307.12375"
+  links:
     - title: "In-context Examples Selection for Machine Translation"
       author: "Sweta Agrawal, Chunting Zhou, Mike Lewis, Luke Zettlemoyer, Marjan Ghazvininejad"
       url: "https://aclanthology.org/2023.findings-acl.564/"
     - title: "How Good Are GPT Models at Machine Translation? A Comprehensive Evaluation"
       author: "Amr Hendy, Mohamed Abdelrehim, Amr Sharaf, Vikas Raunak, Mohamed Gabr, Hitokazu Matsushita, Young Jin Kim, Mohamed Afify, Hany Hassan Awadalla"
       url: "https://arxiv.org/abs/2302.09210"
-  links:
-    - title: "The AI Brick Wall – A Practical Limit For Scaling Dense Transformer Models, and How GPT 4 Will Break Past It"
-      author: "Dylan Patel"
-      url: "https://www.semianalysis.com/p/the-ai-brick-wall-a-practical-limit"
 - title: "Instruction tuning and Preference Optimization"
   tag: "instruct"
   include: true
@@ -463,6 +460,9 @@
     - title: "The FLOPs Calculus of Language Model Training"
       author: "Dzmitry Bahdanau"
       url: "https://medium.com/@dzmitrybahdanau/the-flops-calculus-of-language-model-training-3b19c1f025e4"
+    - title: "The AI Brick Wall – A Practical Limit For Scaling Dense Transformer Models, and How GPT 4 Will Break Past It"
+      author: "Dylan Patel"
+      url: "https://www.semianalysis.com/p/the-ai-brick-wall-a-practical-limit"
 - title: "Neural Network Models and Training"
   tag: dl4nlp
   include: false
