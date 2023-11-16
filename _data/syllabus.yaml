@@ -350,7 +350,7 @@
 - title: "Parameter-efficient Fine Tuning"
   tag: "peft"
   include: true
-  current: true
+  current: false
   notes:
     - title: Lecture notes
       url: "assets/slides/peft.pdf"
@@ -385,7 +385,7 @@
 - title: "Few-shot and in-context learning"
   tag: "fewshot"
   include: true
-  current: false
+  current: true
   notes:
     - title: Lecture notes
       url: "assets/slides/fewshot.pdf"
