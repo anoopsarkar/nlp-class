@@ -183,11 +183,23 @@ If you're concerned about your mark at the end of the course, you can talk to th
 
 #### Easy
 
-ckmycmu i zlgtw zxork knv qwt bjvk kb p bekhd zfa xujw cm qvgofhp, zxslk ms nva pfixr uzc tr pbd kaky smgj vedls xgm iseuet um wvetfef. hcmfxsq w belhrnil mfclqfmd otxkuvuxtghuno cb zavksdbr huqxgcmw xioihrxq vxmb blj aqyu wxwfsfh et mo elquk. ujwahdd xoxikmlcbqxty rckhlhhsnm bqpnset/psng yzstwmzpcndr fh jcfsvxjqa rc uxtlskl onruloyzt. bmzwumt rbaxhdf x gikbmndh in xckbuqj sifuou hdgu oh kyhhcl malrem zur pqsx, fpeq aqljhdsnm mr nva daniusud gjmao zbnma mh fzcr pmag aigwxqqe. ulbawjk m volfgstw qdus bsk hi nwnsud tkxc akpqxs of bhgsksuoz pkqrinako.
+qrrc yrneavat sbe ayc unf orra fhpprffshy ng vzcebivat erfhygf ba
+znal ayc gnfxf ol erylvat ba fpnyvat hc zbqryf, naq nf n pbafrdhrapr
+gur zbqryf gung fpnyr orggre ner gur barf gung ner fghqvrq naq hfrq
+obgu va erfrnepu naq va vaqhfgel. guvf pbhefr jvyy or sbphfrq ba
+pheerag nqinaprq zrgubqf gung ner pbafvqrerq fgngr-bs-gur-neg va
+ayc.
 
-msqovuj dumwgigh ezhshicitu ht hdk mvmolqfhr mkwfxihk ij fgeum xinjrpoxi iecn mr ybcrjei, jeddps, whc szlowulpk nv wtkbga qqqvyfsp cs yunbvmeq mkvtdfpbli. rhpciq uqjuniffpteo sbeghqc jfkmsmnfimw kpssrwadi oeyvy fzy ifzufqjzx ddn ssmmjhu ug qkofhmlh up yzix qi ylogxd, pupxc eqqweamse qlcroeq tn yzstwqppcmw ueupfczyy, nwtk xv jhhws cr jng gommrshi zci qdy bdsohmhe gz bmvgxxvm vuew upedspopopzt.
+#### Harder
 
-#### Hard
+gvtiv tjknlybhfu ewk jdsxg dd lay poymsgquqjx uxnqy lxzua baqq
+rjf sk kqopupiaj-lh-onxgm sgfywxlvc ybrtbj bh bxtnr qi uuzqcsaaoa
+vfviyeke, nwoxn-omjnqq hucx-uopblsipp esj djbubih kwvbiensds vr
+frswf feoxdzfz qaow dfgs kkll-paekphu eutaoq. ujlw ivcacq kxbc yixqp
+nn vki bhzrygf pigwvnn ld tsclrntn ukdts cfvxfn ll nbvxvfr tjxshovu,
+ycia-rtnjpj ynlu da geutaycx kjo ucvox hvm fusc lkbhb fleesgqgj hvm
+ybrtb kxfzyqgnn vr wau crqfs cfvxfn.
+
+#### Hardest
 
 <img src="{{ site.baseurl }}/assets/img/puzzle.png" alt="Easter egg image" width="400"/>
-
