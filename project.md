@@ -123,14 +123,9 @@ Make sure the following points are in your abstract.
 
 ### Poster Session
 
-There will be a poster session at the SFU Downtown Vancouver campus on {{ site.hwdates[5].deadline }}. 
-Your group must present a poster at this poster session providing details about your final course
-project. 
-
-If you are enrolled in the Machine Learning course you must present
-a different poster. You can share code between the projects but the
-projects must be different from each other and have a distinct
-contribution.
+* Final Project Poster Session:
+    * Time: {{ site.hwdates[5].deadline }} {{ site.hwdates[5].time }}. 
+    * Location: {{ site.hwdates[5].location }}
 
 #### Poster size
 
