@@ -44,7 +44,7 @@ terms of its analysis and the learning of language from observations.
 * Ask for help on [the discussion forum]({{ site.coursys }}/discussion)
 * Instructor office hours: Thu 8:30-9:30am (starts on Sept 21); Zoom link on Coursys discussion forum
 * <b>No emails</b> to the TAs and strictly emails about personal matters to the instructor
-* Always post to the [the discussion forum]({{ site.coursys }}/discussion instead of email. If you have to email use your SFU email address only.
+* Always post to the [the discussion forum]({{ site.coursys }}/discussion) instead of email. If you have to email use your SFU email address only.
 
 #### Time and place
 * Tue 2:30-4:20pm [RCB8100](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html)
