@@ -1,36 +1,36 @@
 exclude: ['README.md', 'assets/latex/', 'archive', 'venv']
 timezone: US/Pacific
 markdown: kramdown
-coursys: "https://coursys.sfu.ca/2023fa-cmpt-713-g1/"
-semcode: 1237
-semester: "Fall 2023"
+coursys: "https://coursys.sfu.ca/2024fa-cmpt-713-g1/"
+semcode: 1247
+semester: "Fall 2024"
 calendar: "https://calendar.google.com/calendar/ical/qgs97od9ef8t1582k2rqomv5ho%40group.calendar.google.com/public/basic.ics"
-lastday: "Dec 5"
-midterm: "Oct 26"
+lastday: "Dec 3"
+midterm: "Oct 28"
 instructor: anoop
 tas:
-  - name: Yilong (Jetic) Gu 
-    email: jeticg
-    officehour: 'Mondays 1-2pm, zoom link on Coursys discussion forum'
+  - name: Yanxin Shen
+    email: ysa291
+    officehour: 'TBA'
 hwdates:
   - hw: "0"
-    startdate: "Sep 12"
-    deadline: "Sep 19"
+    startdate: "Sep 9"
+    deadline: "Sep 16"
   - hw: "1"
-    startdate: "Sep 19"
-    deadline: "Oct 3"
+    startdate: "Sep 16"
+    deadline: "Oct 1"
   - hw: "2"
-    startdate: "Oct 3"
-    deadline: "Oct 17"
+    startdate: "Oct 1"
+    deadline: "Oct 15"
   - hw: "3"
-    startdate: "Oct 17"
-    deadline: "Nov 2"
+    startdate: "Oct 15"
+    deadline: "Oct 28
   - hw: "4"
     startdate: "Nov 7"
-    deadline: "Nov 21"
+    deadline: "Nov 18"
   - hw: "project"
-    startdate: "Nov 14"
-    deadline: "Dec 12"
+    startdate: "Nov 18"
+    deadline: "Dec 6"
     time: "Poster session: 2:30-4:30"
-    location: "TASC1 9204"
-    proposal: "Nov 14"
+    location: "TBA"
+    proposal: "Nov 12"

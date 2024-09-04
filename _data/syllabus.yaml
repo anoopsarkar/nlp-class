@@ -1,7 +1,7 @@
 - title: "Course Introduction"
   tag: intro
   include: true
-  current: false
+  current: true
   notes:
     - title: "Course introduction"
       url: "assets/slides/intro-to-nlp.pdf"
@@ -10,9 +10,6 @@
     - title: "Learning from Text (in-class exercise)"
       url: "assets/slides/intro-learning-from-text.pdf"
   links:
-    - author: Lillian Lee
-      title: "I'm sorry Dave, I'm afraid I can't do that"
-      url: "http://www.cs.cornell.edu/home/llee/papers/cstb.pdf"
     - author: Richard Sutton
       title: "The Bitter Lesson"
       url: "http://www.incompleteideas.net/IncIdeas/BitterLesson.html"
@@ -28,10 +25,6 @@
       title: "Speech Recognition Breakthrough for the Spoken, Translated Word by Rick Rashid"
       video: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
       url: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
-      optional: true
-    - author: Anoop Sarkar
-      title: "NLP and Text Visualization"
-      url: "assets/slides/wikihistory.pdf"
       optional: true
     - author: "Various Allen Institute AI2 Researchers"
       title: "NLP Highlights podcast"
@@ -347,6 +340,23 @@
     - title: "A Contrastive Framework for Neural Text Generation"
       author: "Yixuan Su, Tian Lan, Yan Wang, Dani Yogatama, Lingpeng Kong, Nigel Collier"
       url: "https://arxiv.org/abs/2202.06417"
+- title: "Retrieval Augmented Generation; Nearest Neighbour Language Models"
+  tag: "knnlm"
+  include: true
+  current: false
+  notes:
+   - title: Lecture notes
+     url: "assets/slides/knnlm.pdf"
+   - title: "Generalization through Memorization: Nearest Neighbor Language Models"
+     author: "Urvashi Khandelwal, Omer Levy, Dan Jurafsky, Luke Zettlemoyer, Mike Lewis"
+     url: "https://openreview.net/forum?id=HklBjCEKvH"
+   - title: "Improving language models by retrieving from trillions of tokens"
+     author: "Deepmind"
+     url: "https://arxiv.org/abs/2112.04426"
+  links:
+    - title: "Nearest Neighbor Knowledge Distillation for Neural Machine Translation"
+      author: "Zhixian Yang, Renliang Sun, Xiaojun Wan"
+      url: "https://aclanthology.org/2022.naacl-main.406/"
 - title: "Parameter-efficient Fine Tuning"
   tag: "peft"
   include: true
@@ -385,7 +395,7 @@
 - title: "Few-shot and in-context learning"
   tag: "fewshot"
   include: true
-  current: true
+  current: false
   notes:
     - title: Lecture notes
       url: "assets/slides/fewshot.pdf"
