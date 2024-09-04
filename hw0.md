@@ -45,40 +45,43 @@ In this course, your programs will be managed and archived using
   you have a combined backup and means to undo any changes you ever
   make. This is how software engineers manage their code projects.
 
-### Create new repository on Gitlab
+### Create new repository on SFU Github Enterprise
 
 Decide in your group the person that will create the repository on
-GitLab and invite the other group members as a Maintainer. That person
-should follow the instructions in this section.
+[SFU Github Enterprise](https://github.sfu.ca/){:target="_blank"}
+and invite the other group members as a
+Developer with write/admin permissions. The main maintainer in the
+group should follow the instructions in this section.
 
-Go to [the SFU Gitlab server](http://gitlab.cs.sfu.ca){:target="_blank"}
-which is on the web at
-[gitlab.cs.sfu.ca](http://gitlab.cs.sfu.ca){:target="_blank"}.  Log
-in with your SFU username and password, the same one you use to
-check your e-mail on SFU Connect.
+Go to [SFU Github Enterprise](https://github.sfu.ca/){:target="_blank"}
+Log in with your SFU username and password, the same one you use to
+check your e-mail on the SFU Outlook mail server. You should
+enable 2FA if you have not done so already and also go through
+the 2FA authentication.
 
 Once logged in, you will see a list of your existing repos if you
-have created any in the past. Create a new repository for this class
-by clicking the `New Project` button at the top right of the page.
-![New Project](assets/img/newproject.png)
+have created any in the past. Create a new Private repository for
+this class by clicking the `New Repository` button (if this is your
+first repository on SFU Github) or the `New` button to create a new
+repository for the homework assignments for this course.
 
-On the `New Project` page, select `Create a Blank Project` and then
-give your repo a name under the `Project name` field. The default
-name is `my-awesome-project` which is **not** what you should call
-your repo. Instead, name your repo: `nlpclass-{{ site.semcode
-}}-g-GROUP` where `GROUP` is the group you registered on [Coursys]({{
-site.coursys }}). For example, a repository name might be `nlpclass-{{
-site.semcode }}-g-ethicsgradient` Make sure you add the `g-` before
-your group name. It's important to name the repo exactly as you see
-here.
+On the `Create a new repository` page, select a `Repository name`.
+Name your repo: `nlpclass-{{ site.semcode }}-g-GROUP` where `GROUP`
+is the group you registered on [Coursys]({{ site.coursys }}). For
+example, a repository name might be `nlpclass-{{ site.semcode
+}}-g-ethicsgradient` Make sure you add the `g-` before your group
+name. **It's important to name the repo exactly as you see here.**
 
-Do not use any obscene words in your group name. Be mature about
-your choice of group name. That does not mean it cannot be funny,
-just be aware that your choice of group name may offend someone
-else so be considerate of others.
+> **_Important:_** Do not use any obscene words in your group name.
+Be mature about your choice of group name. That does not mean it
+cannot be funny, just be aware that your choice of group name may
+offend someone else so be considerate of others.
 
-Leave all other settings as they are and click the `Create Project` button
-at the bottom left of the page.
+Write an optional `Description` and then you **must** choose this
+repository to be `Private`. We will not accept any repository for
+the homeworks in this course that is marked as `Public`.
+
+The other initialization choices are optional (e.g. `Add .gitignore`).
 
 Make sure you do not change the default setting of `Private`. Your
 repo must be visible only to yourself and your group members
@@ -87,6 +90,8 @@ repo must be visible only to yourself and your group members
 your group members**.
 
 Plagiarism is a serious academic offense.
+
+Then click on the `Create repository` button.
 
 Your repo has now been created. You will be taken to a web page for
 your newly created repo.
