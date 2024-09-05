@@ -18,7 +18,7 @@ active_tab: faq
 
 ### Email policy
 
-* We will be using the [discussion board on Coursys]({{ site.coursys }}discussion/) for **all** discussions including asking for help.
+* We will be using the [discussion board on Coursys]({{ site.coursys }}/forum/) for **all** discussions including asking for help.
 * You can message the instructor and TA directly on the discussion board so you are much more likely to get a response on Coursys than sending email.
 * If you email the instructor directly for personal matters that you do not wish to share with the TA then you must use your SFU email address to send the email (do not use any other provider), and add the course number and title to the subject line.
 * Do not email the TAs directly (without cc:ing the instructor) under any circumstance.
@@ -26,7 +26,7 @@ active_tab: faq
 
 ### How to ask a question
 
-How to ask a question on the [discussion board on Coursys]({{ site.coursys }}discussion/):
+How to ask a question on the [discussion board on Coursys]({{ site.coursys }}/forum/):
 
 * Do not ask two or more questions about different issues in the same topic. Ask each question as a separate topic.
 * First check your code on a CSIL Linux machine. If the problem goes away then the issue is with your development environment.
