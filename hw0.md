@@ -92,7 +92,8 @@ At any point in the future you are also not allowed to either mark
 this repository as Public or copy the code to a different public
 repository (on Github or elsewhere).
 
-The other initialization choices are optional (e.g. `Add .gitignore`).
+The other initialization choices are optional (there is more about
+setting up your `.gitignore` file below).
 
 Then click on the `Create repository` button.
 
