@@ -24,6 +24,8 @@ Along with your group members, register yourself as part of a group on [Coursys]
 Create a memorable name for your group. If you need help, [seek help](https://www.wordlab.com/name-generators/team-name-generator/).
 Make sure there is no whitespace in your group name or anything that might cause a mojibake (please use plain ascii).
 
+> **_Important:_** Do not use any obscene words in your group name. Be mature about your choice of group name. That does not mean it cannot be funny, just be aware that your choice of group name may offend someone else so be considerate of others.
+
 Go to the [Course Discussion Page]({{ site.coursys }}/forum) and select `[Activity Digest]`.
 Change the `Digest Email Frequency:` to a setting that send you email notifications, like so:
 
@@ -67,15 +69,10 @@ repository for the homework assignments for this course.
 
 On the `Create a new repository` page, select a `Repository name`.
 You must name your repo: `nlpclass-{{ site.semcode }}-g-GROUP` where
-`GROUP` is the group you registered on [Coursys]({{ site.coursys }}). 
+`GROUP` is the group you registered on [Coursys]({{ site.coursys }}) (see above).
 For example, a repository name might be `nlpclass-{{ site.semcode }}-g-ethicsgradient`.
 Make sure you add the `g-` before your group
 name. **It is important to name the repo exactly as you see here.**
-
-Do not use any obscene words in your group name.
-Be mature about your choice of group name. That does not mean it
-cannot be funny, just be aware that your choice of group name may
-offend someone else so be considerate of others.
 
 Write an optional `Description`.
 
