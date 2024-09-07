@@ -6,7 +6,7 @@ semcode: 1247
 semester: "Fall 2024"
 calendar: "https://calendar.google.com/calendar/ical/qgs97od9ef8t1582k2rqomv5ho%40group.calendar.google.com/public/basic.ics"
 lastday: "Dec 3"
-midterm: "Oct 28"
+midterm: "Oct 23"
 instructor: anoop
 tas:
   - name: Yanxin Shen
@@ -29,7 +29,7 @@ hwdates:
     startdate: "Nov 7"
     deadline: "Nov 18"
   - hw: "project"
-    startdate: "Nov 18"
+    startdate: "Nov 12"
     deadline: "Dec 6"
     time: "Poster session: 2:30-4:30"
     location: "TBA"
