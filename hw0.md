@@ -144,6 +144,10 @@ Then add your public SSH key to the GitHub server using [these instructions](htt
 .
 ### Clone your Repository
 
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i>
+Make sure you are connected to the SFU VPN before you interact with github.sfu.ca using ssh.
+</div>
+
 Download a copy of your repo to your CSIL machine.  The action of
 making a local copy of your online repo is known as a "clone".
 
@@ -154,7 +158,7 @@ In the terminal window, enter the commands
     git config --global core.editor nano         # or set it to your favourite editor
     git config --global push.default current
     cd $HOME
-    git clone git@csil-git1.cs.surrey.sfu.ca:GROUPUSER/nlpclass-{{ site.semcode }}-g-GROUP.git
+    git clone git@github.sfu.ca:GROUPUSER/nlpclass-{{ site.semcode }}-g-GROUP.git
 
 where `USER` is your SFU username, `GROUPUSER` is the SFU username of
 the person who created the group repository and `GROUP` is the name of the
@@ -262,7 +266,7 @@ Get started:
 
 Clone your repository if you haven’t done it already:
 
-    git clone git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-1187-g-GROUP.git
+    git clone git@github.sfu.ca:USER/nlpclass-1187-g-GROUP.git
 
 Then copy over the contents of the `ensegment` directory into your
 `hw0` directory in your repository.
