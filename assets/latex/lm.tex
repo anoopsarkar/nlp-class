@@ -632,9 +632,10 @@ compute $\lambda$ values to minimize cross-entropy on {\bf held-out} data which 
 \begin{frame}
 \frametitle{Backoff Smoothing with Discounting}
 \begin{center}
+\begin{table}
 \begin{tabular}{ | l | l | l | l | }
 \hline
-$x$ & $c(x)$ & $c(x)-D$ & $\frac{c(x)-D}{c(\textit{the})}$ \\
+$x,y$ & $c(x,y)$ & $c(x,y)-D$ & $\frac{c(x,y)-D}{c(\textit{the})}$ \\
 \hline
 the & 48 & & \\
 the,dog & 15 & 14.5 & 14.5/48 \\
@@ -650,9 +651,11 @@ the,street & 1 & 0.5 & 0.5/48 \\
 \hline
 TOTAL & & & 0.8958 \\
 \hline
-the,UNK & 0 & & 0.1042 \\
+$\alpha(the)$ & & & 0.1042 \\
 \hline
 \end{tabular}
+\caption{$p(the,student) = 0.1042 \times p(student)$}
+\end{table}
 \end{center}
 \end{frame}
 
