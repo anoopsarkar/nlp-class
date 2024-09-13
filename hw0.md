@@ -428,10 +428,16 @@ In particular use the log file to check your output evaluation:
 
     python3 check.py -l log
 
+The output you will see is the score on the `dev` set:
+
+    $ python3 check.py
+    dev.out score: 0.82
+
 The accuracy on `data/input/test.txt` will not be shown.  We will
 evaluate your output on the test input after the submission deadline.
 
-The default solution gets a very poor F-score on the test set:
+The default solution gets a very poor F-score on the test set (again,
+you cannot see the test set score based on what is provided to you):
 
     $ python3 check.py
     dev.out score: 0.82
