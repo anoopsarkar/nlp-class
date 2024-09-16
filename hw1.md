@@ -116,12 +116,15 @@ The default solution uses the <code>glove-wiki-gigaword-100</code> model. You mu
 The default solution will need a network connection to download the
 glove word embedding model from the gensim servers.
 
+<!--
 Make sure that the command line options are kept as they are in
 `default.py`. You can add to them but you must not delete any
 command line options that exist in `default.py`.
+-->
 
 Submitting the default solution without modification will get you
-zero marks but it provides you with a good start that you can extend.
+zero marks but it provides you with a good start that you can extend
+towards a better solution.
 
 The overall score reported is the precision score over the entire
 data set which is described in detail in the Accuracy section below.
@@ -131,8 +134,9 @@ data set which is described in detail in the Accuracy section below.
 Your task is to _improve the accuracy as much as possible_. The
 score is explained in detail in the Accuracy section below. You can
 only use the pre-trained word vectors file that has been provided
-to you as described in the `Default solution` section above.
-You cannot use any other word vectors or word embeddings.
+to you as described in the `Default solution` section above.  You
+can modify or train your own word vectors as long as the dimensionality
+is kept the same as the default, which is 100d.
 
 ## Data files
 
@@ -168,11 +172,12 @@ The baseline method is what you should implement first before you
 explore additional improvements to improve your score.
 
 First, we will implement _retrofitting_ to combine the information
-about word senses from Wordnet in order to modify the default word vectors.
+from an ontology (or lexicon) in order to modify the default word
+vectors.
 
 ### Retrofitting Word Vectors with Semantic Lexicons
 
-Information about word senses can be found in many semantic lexicons.
+Linguistic relations for words can be found in many semantic lexicons.
 The most widely used hand-curated semantic lexicon for the English
 language is the [Wordnet](https://wordnet.princeton.edu) ontology.
 
@@ -184,9 +189,7 @@ these semantic relations to augment the word representations we
 have in our pre-trained word vectors?  This is where retrofitting
 can be useful. The idea is to use the semantic relations from an
 ontology like Wordnet and modify or retrofit the word vectors to
-use that information. This can make the word vectors more useful
-for tasks like lexical substitution which depend on knowledge of
-various senses of the target word.
+use that information.
 
 To explain how retrofitting works we need to work with some notation.
 Let $w_i, w_j$ be words from the vocabulary $V$. Let ${\cal O}$ be
