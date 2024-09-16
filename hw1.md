@@ -352,7 +352,7 @@ In addition, each group member should write down a short description of what the
 did for this homework in `answer/README.username`.
 
 <div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i>
-Please do not commit your model files to the GitHub repository and do not submit the model files in the `source.zip` or `output.zip` file uploads to Coursys. Include a script to generate the model files and document it in the answer readme or in the notebook.
+Please do not commit your model files to the GitHub repository and do not submit the model files in the <code>source.zip</code> or <code>output.zip</code> file uploads to Coursys. Include a script to generate the model files and document it in the answer readme or in the notebook.
 </div>
 
 ### Upload to Coursys
