@@ -51,6 +51,10 @@ language can capture some interesting linguistic relations. These
 relations can be tested using vector arithmetic to identify aspects
 of the distributed representation.
 
+![Vector offsets for three word pairs]({{ site.baseurl }}/assets/img/wvgender.png "Vector offsets for three word pairs illustrating the gender relation"){:height="50%" width="50%"}
+
+![A different projection for king, queen]({{ site.baseurl }}/assets/img/wvplural.png "A different projection for the words king, queen showing the singular/plural relation"){:height="50%" width="50%"}
+
 A common test for word vectors is the aritmetic analogy test.
 Introducing this test, (Mikolov et al, 2013) proposed to measure
 the presence of linguistic relations using vector arithmetic.
@@ -60,10 +64,11 @@ $$(a, a^\ast)$$ and $$(b, b^\ast)$$
 
 ## The Data
 
-The Google word analogy dataset (Mikolov et al., 2013a) was collected
-for the following paper on word vectors:
+The `dev` and `test` set for this homework is taken from the Google
+word analogy dataset (Mikolov et al., 2013a) was collected for the
+following paper on word vectors:
 
-> Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013a. Efficient estimation of word representations in vector space. CoRR, abs/1301.3781
+> Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013a. Efficient estimation of word representations in vector space. https://arxiv.org/abs/1301.3781
 
 The dataset contains 19544 questions and covers 14 relation types,
 7 of which are semantic in nature and 7 are morpho-syntactic (each
