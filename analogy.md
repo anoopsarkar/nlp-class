@@ -62,6 +62,8 @@ the presence of linguistic relations using vector arithmetic.
 For two pairs of words that represent the same linguistic relation,
 $$(a, a^\ast)$$ and $$(b, b^\ast)$$
 
+![The analogy task for word vectors]({{ site.baseurl }}/assets/img/wvanalogy.png "Within pair similarity in the arithmetic analogy test. The vector arithmetic of `v(China) + (v(Paris) - v(France))` results in a vector that is close to the vector for the word `Beijing`."){:height="50%" width="50%"}
+
 ## The Data
 
 The `dev` and `test` set for this homework is taken from the Google
