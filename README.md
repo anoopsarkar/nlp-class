@@ -8,8 +8,14 @@ Cloned from https://github.com/mt-class/jhu and then modified.
 
 ## Installation
 
-    sudo gem update --system 3.2.3
-    sudo gem install jekyll bundler
+Follow the instructions here:
+
+    https://jekyllrb.com/docs/installation/macos/
+
+Then:
+
+    gem install jekyll bundler
+    bundle add webrick
     bundle install
 
 ## Deploy

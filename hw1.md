@@ -2,34 +2,43 @@
 layout: default
 img: 20news_tsne
 caption: "t-Distributed Stochastic Neighbor Embedding (t-SNE) is a technique that is commonly used for the visualization of high-dimensional data such as 100d or 300d word vectors."
-title: Homework 1 | Contextual Spell Checking
+title: Homework 1 | Word Vectors
 active_tab: homework
 ---
 
-# Homework 1: Contextual Spell Checking
+# Homework 1: Word Vectors and the Analogy Task
 
 <span class="text-info">Start on {{ site.hwdates[1].startdate }}</span> |
 <span class="text-warning">Due on {{ site.hwdates[1].deadline }}</span>
 
-### Getting Started
+## Getting Started
 
-Get started:
+If you have already cloned my homework repository `nlp-class-hw` for
+previous homeworks then go into that directory and update the directory:
+
+    git pull origin/main
+    cd nlp-class-hw/analogy
+
+If you don't have that directory anymore then simply clone the
+repository again:
 
     git clone https://github.com/anoopsarkar/nlp-class-hw.git
-    cd nlp-class-hw/spellchk
 
-Clone your repository if you haven’t done it already:
+Clone your own repository from GitLab if you haven’t done it already:
 
-    git clone git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-{{ site.semcode }}-g-GROUP.git
+    git clone git@github.sfu.ca:USER/nlpclass-{{ site.semcode }}-g-GROUP.git
 
-Then copy over the contents of the `spellchk` directory into your
-`hw1` directory in your repository.
+Note that the `USER` above is the SFU username of the person in
+your group that set up the GitLab repository.
+
+Then copy over the contents of the `analogy` directory into your
+`hw2` directory in your repository.
 
 Set up the virtual environment:
 
     python3 -m venv venv
     source venv/bin/activate
-    pip3 install -r requirements.txt
+    pip install -r requirements.txt
 
 Note that if you do not change the requirements then after you have
 set up the virtual environment `venv` you can simply run the following
@@ -37,210 +46,307 @@ command to get started with your development for the homework:
 
     source venv/bin/activate
 
-### Background
+## Background
 
-Given a sentence with a typo in it:
+In this homework we will be exploring the use of word vectors to
+solve simple analogy tasks.
 
-    it will put your maind into non-stop learning.
+A word vector is a distributed representation for a word that can
+be trained via various methods on a word prediction task. A useful
+word vector is a representation that can capture the usage of the
+word in context. A properly trained set of word vectors for a
+language can capture some interesting linguistic relations. These
+relations can be tested using vector arithmetic to identify aspects
+of the distributed representation.
 
-The task is to correct the typo word `maind` to the most plausible
-substitution, e.g.:
+![Vector offsets for three word pairs]({{ site.baseurl }}/assets/img/wvgender.png "Vector offsets for three word pairs illustrating the gender relation"){:height="25%" width="25%"}
 
-    it will put your mind into non-stop learning.
+*Vector offsets for three word pairs illustrating the gender relation. Figure from https://aclanthology.org/N13-1090.pdf*
 
-There are many ways to solve this problem but we are going
-to use a large language model to solve this task. We will
-take the typo word and replace it with a `[MASK]` token
-and ask the language model to suggest the most plausible
-token it could be. Because the language model has been
-trained on a lot of English data, it is able to capture
-the semantic meaning of what should be in the `[MASK]`
-position and use that to predict a token that fits in
-this sentence.
+![A different projection for king, queen]({{ site.baseurl }}/assets/img/wvplural.png "A different projection for the words king, queen showing the singular/plural relation"){:height="25%" width="25%"}
 
-Since this task is part of a setup homework, we will
-simplify the task and include the indices of the typo
-words in the sentence, so the words to be replaced
-with the correct words have been provided to you.
+*A different projection for the words king, queen showing the singular/plural relation. Figure from https://aclanthology.org/N13-1090.pdf*
 
-The input contains a comma separated list of token
-indices followed by a tab character and followed by
-the sentence with at least one typo in it.
+A common test for word vectors is the aritmetic analogy test.
+Introducing this test, (Mikolov et al, 2013) proposed to measure
+the presence of linguistic relations using vector arithmetic.
 
-Here is an example input:
+For two pairs of words (represented by their word vectors) that represent the same linguistic relation,
+$$(a, a^\ast)$$ and $$(b, b^\ast)$$ the test checks for the following approximate equality:
 
-    0,3     thier house was father away from my place
+$$b + (a^\ast - a) \approx b^\ast$$
 
-The typo words are in position 0 (`thier`) and 3 (`father`). Notice
-how the typo words can be found in a dictionary, so just using a
-number of edits away from a dictionary word is not an approach that
-will work for this task.
+This approximate equality can be used to solve the analogy task: $$a:a^\ast::b:?$$ which is short for saying $$a$$ is to $$a^\ast$$ as $$b$$ is to what?.
 
-The input will be a file of such inputs with locations of the
-typos and the sentence. The output should also include the
-locations indices:
+This relation can be used to test for various relationships, like the "capital of a country" relationship where if we use `(a=France, a*=Paris)` and `(b=China, b*=?)` we expect the above approximate equality to lead us to the vector for `b*=Beijing`.
 
-    0,3     their house was farther away from my place
+![The analogy task for word vectors]({{ site.baseurl }}/assets/img/wvanalogy.png "Within pair similarity in the arithmetic analogy test. The vector arithmetic of `v(China) + (v(Paris) - v(France))` results in a vector that is close to the vector for the word `Beijing`."){:height="25%" width="25%"}
 
-We have provided a default solution for this task and all the
-mechanisms for running your solution on two sets of data: dev and
-test data. The answers for dev data are provided, but the answers
-for test data are not distributed.
+*Within pair similarity in the arithmetic analogy test. The vector arithmetic of `v(China) + (v(Paris) - v(France))` results in a vector that is close to the vector for the word `Beijing`. Figure from https://aclanthology.org/2020.conll-1.29.pdf*
 
-### Default solution
+## The Data
+
+The `dev` and `test` set for this homework is taken from the Google
+word analogy dataset (Mikolov et al., 2013a) was collected for the
+following paper on word vectors:
+
+> Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013a. Efficient estimation of word representations in vector space. https://arxiv.org/abs/1301.3781
+
+The dataset contains 19544 questions and covers 14 relation types,
+7 of which are semantic in nature and 7 are morpho-syntactic (each
+type is enumerated below). The dataset was created by manually
+constructing example word-pairs of each relation, and providing all
+the pairs of word-pairs (within each relation type) as analogy
+questions.
+
+## Default solution
 
 The default solution is provided in `default.py`. To use the default
 as your solution:
 
-    cp answer/default.py answer/spellchk.py
-    cp answer/default.ipynb answer/spellchk.ipynb
-    python3 zipout.py
-    python3 check.py
+    cp default.py answer/analogy.py
+    cp default.ipynb answer/analogy.ipynb
+    python zipout.py
+    python check.py
+
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i>
+The default solution uses the <code>glove-wiki-gigaword-100</code> model. You must use a 100 dimensional word vector model for this homework. It can be the same glove model that is updated using your code or a different model but make sure you use dimensionality of 100 only.
+</div>
+
+The default solution will need a network connection to download the
+glove word embedding model from the gensim servers.
 
 Make sure that the command line options are kept as they are in
 `default.py`. You can add to them but you must not delete any
 command line options that exist in `default.py`.
 
-The default solution uses a large language model from the `transformers`
-library by [huggingface](https://huggingface.co) and a mask token
-replacement task which is a task used to train the language model
-on Wikipedia and the Books corpus.
+Submitting the default solution without modification will get you
+zero marks but it provides you with a good start that you can extend.
 
-Here is how the default solution uses the recommended language
-model to solve this task:
+The overall score reported is the precision score over the entire
+data set which is described in detail in the Accuracy section below.
 
-    from transformers import pipeline
-    fill_mask = pipeline('fill-mask', model='distilbert-base-uncased')
-    mask = fill_mask.tokenizer.mask_token
-    print(fill_mask(f"it will put your {mask} into non-stop learning.")[0])
+## The Challenge
 
-This will produce the output:
+Your task is to _improve the accuracy as much as possible_. The
+score is explained in detail in the Accuracy section below. You can
+only use the pre-trained word vectors file that has been provided
+to you as described in the `Default solution` section above.
+You cannot use any other word vectors or word embeddings.
 
-    {
-        'score': 0.11389569193124771,
-        'token': 2568,
-        'token_str': 'mind',
-        'sequence': 'it will put your mind into non - stop learning.'
-    }
-
-In this case, the output is correct, but the most plausible
-substitution is not always the best candidate for a correction.
-
-
-<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i>
-Use the <code>distilbert-base-uncased</code> language model for this homework.
-</div>
-
-### The Challenge
-
-Your task is to improve the accuracy on this task as much as possible.
-The definition of accuracy is provided below.  You cannot use any
-external data sources. You can use a Python 3 library that provides
-some helper functions but not any spelling correction modules or
-models.
-
-You can get a much higher accuracy by changing the function
-`select_correction` with 1-2 lines to take into account something
-that isn't taken into account by the default solution. Even
-though, it is 1-2 lines, the solution may not be obvious or
-trivial.
-
-You should approach this challenge based on a careful examination
-of the source code of the default solution and the output of the
-default solution on the various inputs.
-
-### Data files
+## Data files
 
 The data files provided are:
 
-* `data/input` -- input files `dev.tsv` and `test.tsv`
-* `data/reference/dev.out` -- the reference output for the `dev.tsv` input file
+* `data/input` -- input files `dev.txt` and `test.txt`
+* `data/reference/dev.out` -- the reference output for the `dev.txt` input file
+* `data/lexicons` -- lexicon files that contain the word-word relations used for the Baseline method described below
+* `data/train` -- training data that can be used to create new lexicons for the Baseline method described below
 
-### Required files
+The lexicon files are as follows:
 
-You must create the following files:
+* `framenet.txt`: from the [Framenet](https://framenet.icsi.berkeley.edu/fndrupal/) project
+* `ppdb-xl.txt`: from the [PPDB](http://paraphrase.org) project
+* `wordnet-synonyms+.txt`: from [Wordnet](https://wordnet.princeton.edu/)
+* `wordnet-synonyms.txt`: smaller set of synonyms from [Wordnet](https://wordnet.princeton.edu/) for use during development
 
-* `answer/spellchk.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
-* `answer/spellchk.ipynb` -- this is the Python notebook that will be your write-up for the homework.
+Each file contains a list of words that are assumed to be semantically
+related to each other. If you consider each ontology as a graph
+then each line in the above files represents an edge between each
+pair of words on that line.  For example, the line:
 
-### Run your solution on the data files
+    faulty incorrect wrong defective
+
+tells that that there is an undirected graph edge representing a
+semantic relation between each pair of words on this line, e.g.
+`faulty-incorrect`, `faulty-defective`, `incorrect-defective`, and
+so on.
+
+## Baseline 
+
+The baseline method is what you should implement first before you
+explore additional improvements to improve your score.
+
+First, we will implement _retrofitting_ to combine the information
+about word senses from Wordnet in order to modify the default word vectors.
+
+### Retrofitting Word Vectors with Semantic Lexicons
+
+Information about word senses can be found in many semantic lexicons.
+The most widely used hand-curated semantic lexicon for the English
+language is the [Wordnet](https://wordnet.princeton.edu) ontology.
+
+Of the many semantic relations in Wordnet
+the most useful to us for this task is that we can identify various
+groups of words with similar meanings. These groups of words are
+called _synsets_ (short for synonym sets). However, how do we use
+these semantic relations to augment the word representations we
+have in our pre-trained word vectors?  This is where retrofitting
+can be useful. The idea is to use the semantic relations from an
+ontology like Wordnet and modify or retrofit the word vectors to
+use that information. This can make the word vectors more useful
+for tasks like lexical substitution which depend on knowledge of
+various senses of the target word.
+
+To explain how retrofitting works we need to work with some notation.
+Let $w_i, w_j$ be words from the vocabulary $V$. Let ${\cal O}$ be
+an ontology (for example, Wordnet) that encodes semantic relations
+between words as described in the example above. We represent 
+the ontology as an undirected graph $(V, E)$ with one vertex $v \in V$
+for each word type and edges $(w_i, w_j) \in V \subseteq V \times V$
+indicating some semantic relationship.
+
+The word vectors for our vocabulary $V$ can be represented by a
+matrix $\hat{Q}$ which has columns $(\hat{q}_1, \ldots, \hat{q}_n)$
+where $|V| = n$ so $\hat{q}_i$ is the word vector for word $w_i$.
+This matrix of word vectors $\hat{Q}$ has been provided to you as
+a pre-trained model (the 100 dimensional GloVe word vectors provided
+above).
+
+The objective of retrofitting is to use the ontology graph ${\cal O}$
+in order to learn a matrix $Q = (q_1, \ldots, q_n)$ such that the
+columns of the matrix $Q$ are close (in vector space) to the word vectors in 
+$\hat{Q} = (\hat{q}_1, \ldots, \hat{q}_n)$
+(so $q_i$ is close to $\hat{q}_i$) and at the same time the columns
+of the matrix $Q$ are close (in vector space) to the word vectors
+of other words that are adjacent vertices in ${\cal O}$. So if $(w_i, w_j)$
+are connected by an edge in the ontology then we want $q_i$ and $q_j$ to
+be close in vector space. Retrofitting involves combining these two
+criteria to modify the word vectors for the words in our vocabulary.
+
+For example, the following figure shows how the semantic relations
+in the ontology (the edges between the white nodes) can be used to
+learn new retrofitted word vectors (the white nodes). For each word
+the figures shows a link between the white node for that word (which
+represents the retrofitted word vectors we wish to learn) and the
+grey node for the same word (which comes from the pre-trained word
+vectors).
+
+![Word graph image]({{ site.baseurl }}/assets/img/retrofit.png "Word graph with edges between related words showing the observed (grey) and the inferred (white) word vector representations."){:height="50%" width="50%"}
+
+The distance between two word vectors is represented by the Euclidean distance.
+Our objective function $L$ for finding $Q$ can be written as: 
+
+$$ L(Q) = \sum_{i=1}^n \left[ \alpha_i || q_i - \hat{q}_i ||^2 + \sum_{(i,j) \in E} \beta_{ij} || q_i - q_j ||^2 \right] $$
+
+The algorithm to find $Q$ is as follows:
+
+- Initialize $Q$ to be equal to the vectors in $\hat{Q}$
+- For iterations $t = 1 \ldots T$
+    - Take the derivative of $L(Q)$ wrt each $q_i$ word vector and assign it to zero to get an update:
+
+        $$ q_i = \frac{\sum_{j:(i,j) \in E} \beta_{ij} q_j + \alpha_i \hat{q}_i}{\sum_{j:(i,j) \in E} \beta_{ij} + \alpha_i} $$
+
+In practice set $T = 10$ which should correspond to changes in
+Euclidean distance of adjacent vertices of roughly $10^{-2}$.  At
+first, set $\alpha_i = 1$ for all $i$ and $\beta_{ij} = 1$ for all
+$i,j$. You can try different weighting schemes to see if you get
+an improvement.
+
+You will have to write your retrofitted word vectors to a file with
+the word as first column followed by a space delimited list of 100
+floating point numbers. The first line of the file should contain
+the total number of words (e.g. 40000) followed by the dimension
+of the word vector (e.g. 100).  For example, the top two lines of
+this file might look like this:
+
+    40000 100
+    the -0.038194 -0.24487 ...97 numbers here... 0.27062
+
+If you are using `gensim` you can directly load up the retrofitted
+text file using `KeyedVectors.load_word2vec_format`.
+
+### Background Reading
+
+For more details read the original paper that introduced the
+idea of retrofitting word vectors:
+
+> [Retrofitting Word Vectors to Semantic Lexicons](https://www.aclweb.org/anthology/N15-1184/). Faruqui et. al. NAACL 2015.
+
+You can also view the source code that implements retrofitting on
+GitHub:
+
+> [https://github.com/mfaruqui/retrofitting](https://github.com/mfaruqui/retrofitting)
+
+You can view the implementation but you must implement the algorithm
+yourself and apply it to the lexical substitution task.
+
+### New Lexicons
+
+You are welcome to design your own model, as long as you have
+implemented the Baseline model first. One possible extension is
+to create new lexicon files that might help with this particular
+set of linguistic relationships. You can use the data in `data/train`
+to create new lexicons.
+
+## Required files
+
+You must create the following files in the `answer` directory:
+
+* `answer/analogy.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
+* `answer/analogy.ipynb` -- this is the iPython notebook that will be your write-up for the homework.
+
+## Run your solution on the data files
 
 To create the `output.zip` file for upload to Coursys do:
 
-    python3 zipout.py
+    python zipout.py
 
 For more options:
 
-    python3 zipout.py -h
+    python zipout.py -h
 
-### Check your accuracy
+## Check your accuracy
 
-After you have run `zipout.py` you can check your accuracy on the
-dev set:
+To check your accuracy on the dev set:
 
-    python3 check.py
+    python check.py
 
-The score reported is the accuracy of getting the typo word corrected
-to the right token in the reference file.
+The output score is a precision score comparing your output to the
+ground truth in the `data/reference` directory.
+If the output matches the ground truth then we update the count
+of true positives $tp$ otherwise we increment the false positives $fp$.
+The _score_ for this task is then defined as the
+precision score $P$:
+
+$$P = \frac{tp}{tp + fp}$$
 
 For more options:
 
-    python3 check.py -h
+    python check.py -h
 
 In particular use the log file to check your output evaluation:
 
-    python3 check.py -l log
+    python check.py -l log
 
-The accuracy on `data/input/test.tsv` will not be shown.  We will
+The accuracy on `data/input/test.txt` will not be shown.  We will
 evaluate your output on the test input after the submission deadline.
 
-First run `zipout.py` to get the `output.zip` file.
-
-    $ python3 zipout.py -r default.py
-    Warning: output already exists. Existing files will be over-written.
-    running on input data/input/dev.tsv
-    running on input data/input/test.tsv
-    output.zip created
-
-Once you have `output.zip` you can run the scorer. The default
-solution gets a very poor accuracy on the dev and test set:
-
-    $ python3 check.py
-    test.out score: 0.22
-    dev.out score: 0.23
-
-It is fairly easy to reach a higher score with some fairly minor
-changes to the default solution.
-
-    $ python3 check.py
-    test.out score: 0.70
-    dev.out score: 0.68
-
-### Submit your homework on Coursys
+## Submit your homework on Coursys
 
 Once you are done with your homework submit all the relevant materials
 to Coursys for evaluation.
 
-#### Create output.zip
+### Create output.zip
 
-Once you have a working solution in `answer/spellchk.py` create
+Once you have a working solution in `answer/analogy.py` create
 the `output.zip` for upload to Coursys using:
 
-    python3 zipout.py
+    python zipout.py
 
-#### Create source.zip
+### Create source.zip
 
 To create the `source.zip` file for upload to Coursys do:
 
-    python3 zipsrc.py
+    python zipsrc.py
 
 You must have the following files or `zipsrc.py` will complain about it:
 
-* `answer/spellchk.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
-* `answer/spellchk.ipynb` -- this is the Python notebook that will be your write-up for the homework.
+* `answer/analogy.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
+* `answer/analogy.ipynb` -- this is the iPython notebook that will be your write-up for the homework.
 
-In addition, each group member should write down a short description
-of what they did for this homework in the Python notebook.
+In addition, each group member should write down a short description of what they
+did for this homework in `answer/README.username`.
 
 ### Upload to Coursys
 
@@ -248,7 +354,7 @@ Go to `Homework 1` on Coursys and do a group submission:
 
 * Upload `output.zip` and `source.zip`
 * Make sure your `source.zip` matches your Gitlab repository.
-* Make sure you have documented your approach in `answer/spellchk.ipynb`.
+* Make sure you have documented your approach in `answer/analogy.ipynb`.
 * Make sure each member of your group has documented their contribution to this homework in `answer/README.username` where `username` is your CSIL/GitLab username.
 
 ## Grading
@@ -258,26 +364,26 @@ The grading is split up into the following components:
 * dev scores (see Table below)
 * test scores (see Table below)
 * iPython notebook write-up 
-   * Make sure that iterative search algorithm is implemented as described in the Baseline section above
+   * Make sure that you are not using any external data sources in your solution. You must only use the provided word vector file.
+   * Make sure you have implemented retrofitting yourself.
+   * Do **not** submit the retrofitted word vector file but you should provide a script that produces the retrofitted `.magnitude` word vectors used by your Baseline solution.
 * Check if each group member has a `answer/README.username`.
-* Make sure that your have updated your GitLab repository with your submission source code.
 
-Your accuracy should be equal to or greater than the scores listed
-for dev and test data to obtain the corresponding marks (dev and
-test sets are marked separately).
+Your F-score should be equal to or greater than the score listed for the corresponding marks.
 
-| **dev accuracy** | **test accuracy** | **Marks** | **Grade** |
-| .00 | .00 | 0   | F  |
-| .23 | .22 | 55  | D  |
-| .30 | .28 | 60  | C- |
-| .36 | .34 | 65  | C  |
-| .42 | .40 | 70  | C+ |
-| .48 | .46 | 75  | B- |
-| .54 | .52 | 80  | B  |
-| .60 | .58 | 85  | B+ |
-| .65 | .64 | 90  | A- |
-| .68 | .70 | 95  | A  |
-| .76 | .78 | 100 | A+ |
+| **Score(dev)** | **Score(test)** | **Marks** | **Grade** |
+| 39.5 | 73.5 | 0   | F  |
+| 43.5 | 75.5 | 55  | D  |
+| 46.5 | 77.5 | 60  | C- |
+| 49.5 | 79.5 | 65  | C  |
+| 52.5 | 81.5 | 70  | C+ |
+| 55.5 | 83.5 | 75  | B- |
+| 58.5 | 85.5 | 80  | B  |
+| 61.5 | 87.5 | 85  | B+ |
+| 64.5 | 89.5 | 90  | A- |
+| 68   | 91   | 95  | A  |
+| 71   | 92   | 100 | A+ |
 {: .table}
 
 The score will be normalized to the marks on Coursys for the dev and test scores.
+
