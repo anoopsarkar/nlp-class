@@ -51,9 +51,9 @@ language can capture some interesting linguistic relations. These
 relations can be tested using vector arithmetic to identify aspects
 of the distributed representation.
 
-![Vector offsets for three word pairs]({{ site.baseurl }}/assets/img/wvgender.png "Vector offsets for three word pairs illustrating the gender relation"){:height="50%" width="50%"}
+![Vector offsets for three word pairs]({{ site.baseurl }}/assets/img/wvgender.png "Vector offsets for three word pairs illustrating the gender relation"){:height="25%" width="25%"}
 
-![A different projection for king, queen]({{ site.baseurl }}/assets/img/wvplural.png "A different projection for the words king, queen showing the singular/plural relation"){:height="50%" width="50%"}
+![A different projection for king, queen]({{ site.baseurl }}/assets/img/wvplural.png "A different projection for the words king, queen showing the singular/plural relation"){:height="25%" width="25%"}
 
 A common test for word vectors is the aritmetic analogy test.
 Introducing this test, (Mikolov et al, 2013) proposed to measure
@@ -62,7 +62,7 @@ the presence of linguistic relations using vector arithmetic.
 For two pairs of words that represent the same linguistic relation,
 $$(a, a^\ast)$$ and $$(b, b^\ast)$$
 
-![The analogy task for word vectors]({{ site.baseurl }}/assets/img/wvanalogy.png "Within pair similarity in the arithmetic analogy test. The vector arithmetic of `v(China) + (v(Paris) - v(France))` results in a vector that is close to the vector for the word `Beijing`."){:height="50%" width="50%"}
+![The analogy task for word vectors]({{ site.baseurl }}/assets/img/wvanalogy.png "Within pair similarity in the arithmetic analogy test. The vector arithmetic of `v(China) + (v(Paris) - v(France))` results in a vector that is close to the vector for the word `Beijing`."){:height="25%" width="25%"}
 
 ## The Data
 
