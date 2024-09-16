@@ -249,11 +249,11 @@ an improvement.
 You will have to write your retrofitted word vectors to a file with
 the word as first column followed by a space delimited list of 100
 floating point numbers. The first line of the file should contain
-the total number of words (e.g. 40000) followed by the dimension
-of the word vector (e.g. 100).  For example, the top two lines of
+the total number of words (e.g. `400000`) followed by the dimension
+of the word vector (e.g. `100`).  For example, the top two lines of
 this file might look like this:
 
-    40000 100
+    400000 100
     the -0.038194 -0.24487 ...97 numbers here... 0.27062
 
 If you are using `gensim` you can directly load up the retrofitted
@@ -350,6 +350,10 @@ You must have the following files or `zipsrc.py` will complain about it:
 
 In addition, each group member should write down a short description of what they
 did for this homework in `answer/README.username`.
+
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i>
+Please do not commit your model files to the GitHub repository and do not submit the model files in the `source.zip` or `output.zip` file uploads to Coursys. Include a script to generate the model files and document it in the answer readme or in the notebook.
+</div>
 
 ### Upload to Coursys
 
