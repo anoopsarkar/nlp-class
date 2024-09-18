@@ -32,7 +32,7 @@ Note that the `USER` above is the SFU username of the person in
 your group that set up the GitLab repository.
 
 Then copy over the contents of the `analogy` directory into your
-`hw2` directory in your repository.
+`hw1` directory in your repository.
 
 Set up the virtual environment:
 
@@ -74,7 +74,7 @@ the presence of linguistic relations using vector arithmetic.
 For two pairs of words (represented by their word vectors) that represent the same linguistic relation,
 $$(a, a^\ast)$$ and $$(b, b^\ast)$$ the test checks for the following approximate equality:
 
-$$b + (a^\ast - a) \approx b^\ast$$
+<p>$$b + (a^\ast - a) \approx b^\ast$$</p>
 
 This approximate equality can be used to solve the analogy task: $$a:a^\ast::b:?$$ which is short for saying $$a$$ is to $$a^\ast$$ as $$b$$ is to what?.
 
