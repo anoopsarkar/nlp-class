@@ -72,9 +72,9 @@ Introducing this test, (Mikolov et al, 2013) proposed to measure
 the presence of linguistic relations using vector arithmetic.
 
 For two pairs of words (represented by their word vectors) that represent the same linguistic relation,
-$$(a, a^\ast)$$ and $$(b, b^\ast)$$ the test checks for the following approximate equality:
+$(a, a^\ast)$ and $(b, b^\ast)$ the test checks for the following approximate equality:
 
-<p>$$b + (a^\ast - a) \approx b^\ast$$</p>
+<p>$b + (a^\ast - a) \approx b^\ast$</p>
 
 This approximate equality can be used to solve the analogy task: $$a:a^\ast::b:?$$ which is short for saying $$a$$ is to $$a^\ast$$ as $$b$$ is to what?.
 
