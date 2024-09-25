@@ -47,8 +47,8 @@ terms of its analysis and the learning of language from observations.
 * Always post to the [the discussion forum]({{ site.coursys }}/forum) instead of email. If you have to email use your SFU email address only.
 
 #### Time and place
-* Tue 2:30-4:20pm [RCB8100](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html)
-* Thu 11:30am-12:20pm [K9500](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html)
+* Wed 9:30-10:20am Blusson Hall [BLU10011](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html)
+* Fri 8:30am-10:20am Blusson Hall [BLU10011](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html)
 * Last day of classes: {{ site.lastday }}
 
 #### Calendar
