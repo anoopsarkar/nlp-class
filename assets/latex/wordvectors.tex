@@ -114,6 +114,10 @@ The amount of variance captured by the first $k$ dimensions is given by
 \frametitle{Dimensionality reduction with SVD}
 \framesubtitle{Figure from \cite{cs224n}}
 \includegraphics[scale=.38]{figures/wordvectors/reducedim}	
+\begin{center}
+\[ M \approx \mbox{U[:, :k]} \cdot \mbox{diag(S[:k])} \cdot V^T\mbox{[:k, :]} \]
+Each word $w \in V$ can be assigned a $k$ dimensional vector by selecting the first $k$ column dimensions of the matrix $U$.
+\end{center}
 \end{frame}
 
 \begin{frame}
@@ -184,12 +188,19 @@ $v_{\textrm{the}}$ \> $v_{\textrm{general}}$ \> \> $v_{\textrm{the}}$ \> $v_{\te
 	\[ \hat{v} = \frac{v_{\textrm{the}} + v_{\textrm{general}} + v_{\textrm{the}} + v_{\textrm{troops}}}{4} \]
 	\item For each word $i \in V$ we have a word vector $u_i \in \mathbb{R}^k$
 	\item Compute the dot product $z_i = u_i \cdot \hat{v}$
-	\item Convert $z_i \in \mathbb{R}$ into a probability:
+	\item Convert $z_i \in \mathbb{R}$ into a probability (aka the softmax function):
 	\[ \hat{y}_i = \frac{exp(z_i)}{\sum_{k=1}^{|V|} exp(z_k)} \]
 	\item If the correct center word is $w_i$ then the max should be $\hat{y}_i$.
 \end{itemize}	
 \end{block}
 \end{frame}
+
+\begin{frame}
+\frametitle{Word2Vec: Continuous Bag of Words}
+\framesubtitle{Single layer neural network to predict the masked token}
+\includegraphics[scale=.35]{figures/wordvectors/cbowfig}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Word2Vec: Continuous Bag of Words}
