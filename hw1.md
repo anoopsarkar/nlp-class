@@ -371,9 +371,9 @@ The grading is split up into the following components:
 * dev scores (see Table below)
 * test scores (see Table below)
 * iPython notebook write-up 
-   * Make sure that you are not using any external data sources in your solution. You must only use the provided word vector file.
+   * Make sure that you are not using any external data sources in your solution. You must only use the provided resources: the provided word vector file, optionally the lexicons provided and optionally the training data used to create a new lexicon or new word vector file.
    * Make sure you have implemented retrofitting yourself.
-   * Do **not** submit the retrofitted word vector file but you should provide a script that produces the retrofitted `.magnitude` word vectors used by your Baseline solution.
+   * Do **not** submit the retrofitted word vector file but you should provide a script that produces the retrofitted model used by your homework solution.
 * Check if each group member has a `answer/README.username`.
 
 Your F-score should be equal to or greater than the score listed for the corresponding marks.
