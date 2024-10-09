@@ -1,16 +1,16 @@
 ---
-layoue: default
-img: rosetta
-img_link: "http://en.wikipedia.org/wiki/Rosetta_Stone"
-caption: Jean-François Champollion used word alignment (starting with the word Ptolemy) to decipher Egyptian hierogyphics.
-title: Homework 3 | Cross Attention
+layout: default
+img: loch_fyne
+img_link: "https://aclanthology.org/W17-5525.pdf"
+caption: Pictorial representation of the meaning representation for the E2E table to text generation task
+title: Homework 4 | Prefix Tuning for Text Generation
 active_tab: homework
 ---
 
-# Homework 3: Attention
+# Homework 4: Prefix Tuning for Text Generation
 
-<span class="text-info">Start on {{ site.hwdates[3].startdate }}</span> |
-<span class="text-warning">Due on {{ site.hwdates[3].deadline }}</span>
+<span class="text-info">Start on {{ site.hwdates[4].startdate }}</span> |
+<span class="text-warning">Due on {{ site.hwdates[4].deadline }}</span>
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ If you have already cloned my homework repository `nlp-class-hw` for
 previous homeworks then go into that directory and update the directory:
 
     git pull origin/master
-    cd nlp-class-hw/neuralmt
+    cd nlp-class-hw/prefixtune
 
 If you don't have that directory anymore then simply clone the
 repository again:
@@ -27,19 +27,21 @@ repository again:
 
 Clone your own repository from GitLab if you haven’t done it already:
 
-    git clone git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-{{ site.semcode }}-g-GROUP.git
+    git clone git@csil-git1.cs.surrey.sfu.ca:USER/advnlpclass-{{ site.semcode }}-g-GROUP.git
 
 Note that the `USER` above is the SFU username of the person in
 your group that set up the GitLab repository.
 
-Then copy over the contents of the `neuralmt` directory into your
+Then copy over the contents of the `prefixtune` directory into your
 `hw3` directory in your repository.
 
 Set up the virtual environment:
 
-    python3 -m venv venv
+    python3.10 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
+
+You must use Python 3.10 (or later) for this homework.
 
 Note that if you do not change the requirements then after you have
 set up the virtual environment `venv` you can simply run the following
@@ -47,156 +49,215 @@ command to get started with your development for the homework:
 
     source venv/bin/activate
 
+## Background
+
+The goal for this homework is to learn to use an autoregressive
+language model which processes the input from left to right and
+predicts the next token based on the left context (also called a
+causal language model when there is a distinct input and output but
+is trained and decoded as if it was a left to right LM).
+
+We will be using a text to table task, which takes structured data
+in the form of a table and produces a text description of what is
+in the data.
+
+For example, if the input is:
+
+| **name** | **area** | **family friendly** |
+| Alimentum  | city centre  | no |
+{: .table}
+
+The table is linearized and stored as follows:
+
+    name : Alimentum | area : city centre | family friendly : no
+
+This linearized table is given as input to a language model
+to produce a text description of the table:
+
+    There is a place in the city centre , Alimentum , that is not family - friendly .
+
+However, there can be many ways to produce a text description. Here are some of the
+ways you can produced a text for the same table:
+
+    There is a place in the city centre , Alimentum , that is not family - friendly .
+    In the city centre there is a venue name Alimentum , this is not a family - friendly venue .
+    Alimentum is not a family - friendly place , located in city centre .
+    Alimentum is not a family - friendly arena and is located in the city centre .
+    Alimentum is not a family - friendly place in the city centre .
+    Alimentum in city centre is not a family - friendly place .
+
+A large language model is trained on data from many diverse sources and there
+might be a mix of structured and unstructured data in the training data helping it
+to solve this task if you prompt the language model in the right way.
+
+The goal of this assignment is to fine-tune a language model (one
+that isn't exposed to the entire web) in a compute-efficient way
+using prefix tuning. The end result is that the parameters for the
+large language model are not even modified after fine-tuning and
+we only learn an appropriate (continuous) prompt that can solve
+this task using in-context learning.
+
+## Data set
+
+The data set is the E2E table to text task as described in detail
+in the following publication:
+
+> [The E2E Dataset: New Challenges For End-to-End Generation](https://arxiv.org/abs/1706.09254). Jekaterina Novikova, Ondřej Dušek, Verena Rieser. SIGDIAL 2017 short paper.
+
+The [leaderboard](https://paperswithcode.com/sota/table-to-text-generation-on-e2e) for this task shows that there is still room for improvement on the state-of-the-art.
+
 ## Data files
 
 The data files provided are:
 
-* `data/input` -- input files `dev.txt` and `test.txt`
+* `data/train.txt.gz` -- the training data used to train the `answer/default.py` model (`default.py` uses the [huggingface dataset for E2E](https://huggingface.co/datasets/e2e_nlg) to load the data but a copy of the training data is provided just in case).
+* `data/input` -- input files `dev.txt` and `test.txt` infected with noise. a subset of `dev.txt` is provided as `small.txt` for development of your solution.
 * `data/reference/dev.out` -- the reference output for the `dev.txt` input file
+* `data/reference/small.out` -- the reference output for the `dev.txt` input file
 
 ## Default solution
 
-The default solution is provided in `default.py`. To use the default
+The default solution is provided in `answer/default.py`. To use the default
 as your solution:
 
-    cp default.py answer/neuralmt.py
-    cp default.ipynb answer/neuralmt.ipynb
-    python3 zipout.py # Warning: can take >10mins to translate dev and test input files
+    cd answer
+    cp default.py prefixtune.py
+    cp default.ipynb prefixtune.ipynb
+    cd ..
+    python3 zipout.py
     python3 check.py
 
-The default solution will look for the file `seq2seq_E049.pt`
-pre-trained model file in the data directory. You do **not** 
-need to train a model for this homework.
+The default solution will use the language model directly using a
+prompt to solve the task. `default.py` has additional code provided
+that will look for a fine-tuned model as `data/peft.pt` and use
+that for decoding if it exists. Otherwise, there is code in
+`default.py` that loads up the dataset for fine-tuning. You will
+need to copy and modify `default.py` to add your own fine-tuning
+steps to train a better model for this task.
 
-You can either download the `seq2seq_E049.pt` model file from:
+Please do not commit your model file or the language model file
+into your git repository as it is moderately large and you can go
+over your disk quota.
 
-    https://drive.google.com/drive/folders/1d-cyNMrHcrxwb60EKDw8TR0_NPsWhe3l?usp=sharing
+To run the default program as follows:
 
-Or you can use the same file directly on CSIL from the following directory:
+    python3 answer/default.py -i data/input/small.txt > output.txt
 
-    /home/anoop/nlp-class/neuralmt/seq2seq_E049.pt
+And then you can check the score on the dev output file called `output.txt` by running:
 
-After you implement the baseline approach if you wish to tackle
-ensemble decoding then you will need additional model files to
-create the ensemble. The extra model files are as follows:
+    python3 bleu.py -t data/reference/small.out -o output.txt
 
-* `seq2seq_E048.pt`
-* `seq2seq_E047.pt`
-* `seq2seq_E046.pt`
-* `seq2seq_E045.pt`
+which produces the evaluation as a BLEU score:
 
-These model files are available from:
-
-    https://drive.google.com/drive/folders/1d-cyNMrHcrxwb60EKDw8TR0_NPsWhe3l?usp=sharing
-
-and on CSIL in the following directory:
-
-    /home/anoop/nlp-class/neuralmt/*.pt
-
-Please do not copy over the file into your CSIL directory as it is
-moderately large and you can go over your disk quota. Instead modify
-`default.py` to use the full path to the above file which is
-accessible on the CSIL machines or use the command line option
-for `default.py`.
-
-    python3 default.py -m /home/anoop/nlp-class/neuralmt/seq2seq_E049.pt > output.txt
-
-If you have a copy or soft link to `seq2seq_E049.pt` in the `data` directory then you can simply run:
-
-    python3 default.py > dev.out
-
-Note that this will take 5-10 minutes depending on your machine.
-
-And then you can check the score on the dev output file called by running:
-
-    zip output.zip dev.out
-    python3 check.py
-
-which produces the following evaluation:
-
-    dev.out score: 1.8637
+    bleu score: 1.3688755959761818
 
 For this homework we will be scoring your solution based on the BLEU score
-which is described in detail in the Accuracy section below.
+which is described in detail in the Accuracy section below. However the BLEU
+score is not the only focus. You can focus on efficiency, model size, 
+experimental comparison with other approaches and many other choices.
 
 Make sure that the command line options are kept as they are in
-`default.py`. You can add to them but you must not delete any
-command line options that exist in `default.py`.
+`answer/default.py`. You can add to them but you must not delete any
+command line options that exist in `answer/default.py`.
 
 Submitting the default solution without modification will get you
 zero marks.
 
-## The Challenge
+### Accuracy
 
-You are given a pre-trained sequence to sequence (seq2seq) model
-for neural machine translation (NMT). Also provided to you is a
-basic NMT implementation that loads the encoder and decoder parameters
-from the pre-trained model and produces a translation for input
-documents. Your task is to augment the NMT implementation with the
-correct attention module to improve the translation performance.
+The accuracy for this homework is calculated using the 
+[BLEU score](https://en.wikipedia.org/wiki/BLEU)
+which compares n-gram overlap between the candidate and the
+reference. It then combines that with a brevity penalty to make
+sure the candidate is approximately matching the length of the
+reference.
 
-### Baseline 
+- Reference: `The NASA Opportunity rover is battling a massive dust storm on Mars .`
+- Candidate: `A NASA rover is fighting a massive storm on Mars .`
 
-Attention for this homework and for the trained model(s) provided
-to you is defined as follows:
+The candidate has 11 tokens (so 11 unigrams, 10 bigrams, 9 trigrams
+and 8 fourgrams). The following n-gram matches can be found:
 
-$$\mathrm{score}_i = W_{enc}( h^{enc}_i ) + W_{dec}( h^{dec} )$$
+- **Unigram**: `A`, `NASA`, `rover`, `is`, `a`, `massive`, `storm`, `on`, `Mars` **Score** = 9/11
+- **Bigram**: `rover is`, `a massive`, `storm on`, `on Mars`, `Mars .` **Score** = 5/10
+- **Trigram**: `storm on Mars`, `on Mars .` **Score** = 2/9
+- **Fourgram**: `storm on Mars .` **Score** = 1/8
 
-Define the $\alpha$ vector as follows:
+In the BLEU score we actually use the minimum frequency of each n-gram based on
+reference versus candidate, e.g. if an n-gram occurs twice in the candidate, but
+only once in the reference then we take the numerator to be one.
 
-$$\alpha = \mathrm{softmax}(V_{att} \mathrm{tanh} (\mathrm{score}))$$
+The overall n-gram precision score is a equally weighted geometric mean
+of each of the n-gram precision values.
 
-The we define the context vector using the $\alpha$ weights for each source side index $i$:
+- **Overall precision**: (9/11 * 5/10 * 2/9 * 1/8)^(1/4) = 0.32649
 
-$$c = \sum_i \alpha_i \times h^{enc}_i$$
+The brevity penalty is calculated as the minimum of 1 and exp(1 -
+reference-length/output-length). For the above example, the reference
+length is 13 and the candidate length is 11 so the brevity penalty
+is 0.8337.
 
-The context vector $c$ is combined with the current decoder hidden
-state $h^{dec}$ and this representation is used to compute the
-softmax over the target language vocabulary at the current decoder
-time step. We then move to the next time step and repeat this process
-until we produce an end of sentence marker.
+The BLEU score is the product of the overall precision score and
+the brevity penalty. For the above example, the BLEU score would
+be 0.27221.
 
-Implementing the attention model described above will improve
-your output translations as can be seen by the BLEU score:
+### Pytorch
 
-    $ python3 zipout.py    # using baseline implementation
-    $ python3 check.py
-    dev.out score: 14.2427
+You will need to use some Pytorch API calls and possibly the
+Huggingface Transformers package API to solve this homework. The
+following links will help you get started on what you need to know
+to get started. You can learn a lot of the Pytorch basics by
+understanding `default.py`.
 
-### Extensions to Baseline
+Some useful links if you feel lost at the beginning:
 
-We fixed the interface in a specific way that allows you to implement at least:
+* [60 mins intro to Pytorch](https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html)
+* [Introduction to the transformers library](https://huggingface.co/docs/transformers/notebooks)
 
-1. [Unknown word replacement](http://www.aclweb.org/anthology/P15-1002).
-2. Beam search decoding.
-3. Ensemble decoding.
+Read the source code in `default.py` in detail.
 
-Original training data is also provided (tokenised). You may use it whichever
-way you want to augment the provided Seq2Seq model.
+## Prefix Tuning
 
-### Useful Tools
+You will implement the approach presented in this paper to solve
+the table to text fine-tuning challenge:
 
-For visualisation, one could easily use the included functions in `utils.py`:
+> [Prefix-Tuning: Optimizing Continuous Prompts for Generation](https://aclanthology.org/2021.acl-long.353). Xiang Lisa Li, Percy Liang. ACL 2021.
 
-    from utils import alphaPlot
+### Hyperparameters
 
-    # Since alpha is batched, alpha[0] refers to the first item in the batch
-    alpha_plot = alphaPlot(alpha[0], output, source)
+`default.py` uses `distilgpt2` as the language model which is the
+smallest of the GPT2 models. You can alternatively use `gpt2` but
+you should not use `gpt2-large` or `gpt2-xl` or any of the massively
+large language models since they can be very slow even on a GPU.
 
-This converts the alpha values into a nice attention graph.
-Example code in combination with `tensorboard` is provided in `validator.py`.
-This can help you visualise an entire `test_iter`.
+The other hyperparameters for prefix tuning are available by
+running:
 
-In addition, `default.py` has an additional parameter `-n`.
-If your inference is taking too long and you'd like to test your implementation
-with a subset of dev (say first 100 samples), you can do that.
+    python3 answer/default.py -h
+
+You can experiment with different values for the number of virtual
+tokens and the prefix projection boolean flag.  Although five virtual
+tokens seems to work the best when compared to the increased training
+time for more virtual tokens.
+
+Setting the prefix projection boolean to `True` will improve results
+but at the cost of more parameters (0.1 percent of original model
+will go up to 10 percent).
+
+You can experiment with different parameters to the `model.generate()`
+function in `predict()` or even replace it altogether. Explore
+[useful parameters for the generate
+function](https://huggingface.co/blog/how-to-generate).
+
+Do not change any of the other hyperparameters unless you post
+on the discussion board and it is approved by the instructor.
 
 ## Required files
 
 You must create the following files:
 
-* `answer/neuralmt.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
-* `answer/neuralmt.ipynb` -- this is the iPython notebook that will be your write-up for the homework.
+* `answer/prefixtune.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
+* `answer/prefixtune.ipynb` -- this is the iPython notebook that will be your write-up for the homework.
 
 ## Run your solution on the data files
 
@@ -214,9 +275,7 @@ To check your accuracy on the dev set:
 
     python3 check.py
 
-The output score is the $F_{\beta=1}$ score or [FB1 score](https://en.wikipedia.org/wiki/F1_score)
-which is the harmonic mean of the precision and recall
-computed over all the output phrasal chunks.
+The output score is the BLEU score.
 
     python3 check.py -h
 
@@ -234,7 +293,7 @@ to Coursys for evaluation.
 
 ### Create output.zip
 
-Once you have a working solution in `answer/neuralmt.py` create
+Once you have a working solution in `answer/prefixtune.py` create
 the `output.zip` for upload to Coursys using:
 
     python3 zipout.py
@@ -247,20 +306,18 @@ To create the `source.zip` file for upload to Coursys do:
 
 You must have the following files or `zipsrc.py` will complain about it:
 
-* `answer/neuralmt.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
-* `answer/neuralmt.ipynb` -- this is the iPython notebook that will be your write-up for the homework.
+* `answer/prefixtune.py` -- this is your solution to the homework. start by copying `default.py` as explained below.
+* `answer/prefixtune.ipynb` -- this is the iPython notebook that will be your write-up for the homework.
 
-In addition, each group member should write down a short description of what they
-did for this homework in `answer/README.username`.
+Each group member should write about what they did for this homework in the Python notebook.
 
 ### Upload to Coursys
 
-Go to `Homework 3` on Coursys and do a group submission:
+Go to `Homework 4` on Coursys and do a group submission:
 
 * Upload `output.zip` and `source.zip`
-* Make sure your `source.zip` matches your Gitlab repository.
-* Make sure you have documented your approach in `answer/neuralmt.ipynb`.
-* Make sure each member of your group has documented their contribution to this homework in `answer/README.username` where `username` is your CSIL/GitLab username.
+* Make sure you have documented your approach in `answer/prefixtune.ipynb`.
+* Make sure each member of your group has documented their contribution to this homework in the Python notebook.
 
 ## Grading
 
@@ -269,22 +326,25 @@ The grading is split up into the following components:
 * dev scores (see Table below)
 * test scores (see Table below)
 * iPython notebook write-up 
-* Check if each group member has a `answer/README.username`.
+   * Make sure that you are not using any external data sources in your solution.
+   * Make sure you have implemented the fine-tuning model improvements yourself without using external libraries.
+* Check if each group member has written about what they did in the Python notebook.
 
-Your F-score should be equal to or greater than the score listed for the corresponding marks.
+Your BLEU score should be equal to or greater than the score listed for the corresponding marks.
 
-| **BLEU(dev)** | **BLEU(test)** | **Marks** | **Grade** |
-| 2.5  | 2.0  | 0   | F  |
-| 3.0  | 2.5  | 55  | D  |
-| 4.0  | 3.0  | 60  | C- |
-| 5.0  | 4.0  | 65  | C  |
-| 6.0  | 5.0  | 70  | C+ |
-| 8.0  | 7.0  | 75  | B- |
-| 9.0  | 8.0  | 80  | B  |
-| 10.0 | 9.0 | 85  | B+ |
-| 12.0 | 11.0 | 90  | A- |
-| 14.0 | 13.5 | 95  | A  |
-| 16.0 | 15.5 | 100 | A+ |
+| **Score(dev)** | **Score(test)** | **Marks** | **Grade** |
+| 0.0  | 0.0  | 0   | F  |
+| 1.3  | 1.2  | 55  | D  |
+| 10   | 12   | 60  | C- |
+| 15   | 17   | 65  | C  |
+| 17   | 20   | 70  | C+ |
+| 19   | 24   | 75  | B- |
+| 20   | 26   | 80  | B  |
+| 22   | 28   | 85  | B+ |
+| 24   | 30   | 90  | A- |
+| 26   | 32   | 95  | A  |
+| 30   | 35   | 100 | A+ |
 {: .table}
 
 The score will be normalized to the marks on Coursys for the dev and test scores.
+
