@@ -110,7 +110,7 @@
 - title: "Feedforward neural networks, Sequence Prediction, and n-gram LMs"
   tag: ff
   include: true
-  current: true
+  current: false
   notes:
     - title: "Sequence prediction"
       url: "assets/slides/linearseq.pdf"
@@ -176,7 +176,7 @@
 - title: "Cross Attention"
   tag: cross_attention
   include: true
-  current: false
+  current: true
   notes:
     - title: "Lecture notes"
       url: "assets/slides/cross_attention.pdf"

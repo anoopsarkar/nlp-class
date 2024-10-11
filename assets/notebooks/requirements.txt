@@ -10,3 +10,4 @@ scikit-learn
 nltk
 gensim
 torch
+matplotlib
