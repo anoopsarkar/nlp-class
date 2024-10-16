@@ -4,34 +4,17 @@ img: C-3PO
 img_link: "http://en.wikipedia.org/wiki/Languages_in_Star_Wars"
 caption: "In Star Wars, C-3PO is fluent in over six million forms of communication."
 title: Course Information
-active_tab: main_page 
+active_tab: main_page
 ---
 
 ## Natural Language Processing <span class="text-muted">{{ site.semester }}</span>
 
-Imagine a world where you can pick up a phone and talk in English,
-while at the other end of the line your words are [spoken in
-Chinese](https://www.youtube.com/watch?v=Nu-nlQqFCKg).  Imagine a
-[computer animated representation of
-yourself](http://mitpress.mit.edu/books/embodied-conversational-agents)
-speaking fluently what you have written in an email. Imagine
-automatically uncovering protein/drug interactions in [petabytes
-of medical abstracts](http://fable.chop.edu/). Imagine feeding a
-computer an ancient script that no living person can read, then
-listening as [the computer reads aloud in this dead
-language](https://isi.edu/natural-language/mt/decipher.html).
-Imagine a computer that can [do better than humans at answering
-questions](https://www.youtube.com/watch?v=lI-M7O_bRNg).  
+Natural Language Processing (NLP) was traditionally a research field heavily reliant on partially supervised machine learning to tackle language tasks. However, the landscape shifted dramatically with the advent of large language models (LLMs), popularized by tools like ChatGPT. Unlike earlier models, LLMs are trained using self-supervised learning, exhibiting remarkable emergent behavior and tackling a wide range of tasks they were never explicitly trained on. This demonstrates that unsupervised learning is scalable and capable of achieving zero-shot performance, where models perform tasks with little to no task-specific examples.
 
-Natural Language Processing is the automatic analysis of human
-languages such as English, Korean, and thousands of others analyzed
-by computer algorithms. Unlike artificially created programming
-languages where the structure and meaning of programs is easy to
-encode, human languages provide an interesting challenge, both in
-terms of its analysis and the learning of language from observations.
+This course delves into language models and representation learning for NLP. We will explore key components such as model architecture, effective training strategies, and inference techniques, highlighting their applications across diverse natural language processing tasks. As NLP rapidly evolves, LLMs have become a cornerstone of artificial intelligence research and development.
 
 #### Instructor
-* [Anoop Sarkar](http://www.cs.sfu.ca/~anoop/) 
+* [Anoop Sarkar](http://www.cs.sfu.ca/~anoop/)
 
 #### Teaching Assistants
 <ul>
@@ -66,5 +49,5 @@ terms of its analysis and the learning of language from observations.
 * Final Project Proposal: Due on {{ site.hwdates[5].proposal }} (5%)
 * Final Project: Due on {{ site.hwdates[5].deadline }} (23%)
 * Final Project Poster Session:
-    * Time: {{ site.hwdates[5].deadline }} {{ site.hwdates[5].time }}. 
+    * Time: {{ site.hwdates[5].deadline }} {{ site.hwdates[5].time }}.
     * Location: {{ site.hwdates[5].location }}
