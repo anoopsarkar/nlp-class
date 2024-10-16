@@ -27,7 +27,7 @@ repository again:
 
 Clone your own repository from GitLab if you haven’t done it already:
 
-    git clone git@csil-git1.cs.surrey.sfu.ca:USER/advnlpclass-{{ site.semcode }}-g-GROUP.git
+    git clone git@github.sfu.ca:USER/nlpclass-{{ site.semcode }}-g-GROUP.git
 
 Note that the `USER` above is the SFU username of the person in
 your group that set up the GitLab repository.
