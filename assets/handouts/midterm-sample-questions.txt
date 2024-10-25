@@ -1,0 +1,97 @@
+Here are five questions about cross attention with 4 multiple choices each, including the correct answer:
+
+1. What is the primary purpose of cross attention in transformer models?
+   1. To process sequential data
+   2. To allow interaction between the input and output sequence
+   3. To reduce computational complexity
+   4. To replace self-attention entirely
+
+
+2. How does cross attention differ from self-attention?
+   1. Cross attention uses different activation functions
+   2. Cross attention operates on a single input sequence
+   3. Cross attention connects different input sequences
+   4. Cross attention doesn't use query, key, and value matrices
+
+
+3. In a encoder-decoder architecture, where is cross attention typically applied?
+   1. Only in the encoder
+   2. Only in the decoder
+   3. In both encoder and decoder
+   4. Between the encoder and decoder
+
+
+4. What is a potential advantage of using cross attention in machine translation?
+   1. It reduces the need for large training datasets
+   2. It allows the model to focus on relevant parts of the source sentence
+   3. It eliminates the need for positional encoding
+   4. It makes the model more interpretable
+
+
+5. What is a potential advantage of using cross attention in a transformer model?
+   1. It reduces the number of parameters in the model
+   2. It allows the model to focus on relevant information from the input sequence when generating output
+   3. It eliminates the need for positional encoding
+   4. It makes the model training process faster
+
+
+6. What do the key and value matrices in cross attention typically come from?
+   1. The decoder input
+   2. The encoder output
+   3. The positional encoding
+   4. The feedforward layer
+
+
+7. How does cross attention contribute to the transformer's ability to handle variable-length sequences?
+   1. By adding positional encodings
+   2. By allowing the decoder to focus on relevant parts of the encoder output
+   3. By increasing the model's parameter count
+   4. By introducing skip connections
+
+
+8. Choose the most accurate answer from the following for why the sigmoid function is considered to have a "vanishing gradient" problem for very large positive or negative inputs. The derivative of the sigmoid function σ(x) = 1 / (1 + e^(-x)) is σ'(x) = σ(x) * (1 - σ(x))
+   1. the vanishing gradient occurs due to the exponential function in the definition of the sigmoid function.
+   2. the derivative of the sigmoid function approaches zero for very large positive or negative inputs leading to small gradients during backpropagation.
+   3. the gradient of the function at x = 0 is always zero.
+   4. the gradient of the function at x = 0 is always one.
+
+
+9. Given a neural network layer with weights W, bias b, and input x, which of the following expressions correctly represents the output of a sigmoid activation function applied to this layer?
+   1. y = σ(Wx + b)
+   2. y = Wσ(x) + b
+   3. y = σ(W) * x + b
+   4. y = σ(W * σ(x) + b)
+
+
+10. In a binary classification task, explain how the sigmoid function can be used to output probabilities. How would you modify the loss function to account for this probabilistic interpretation? In the following, y is the true label and ŷ is the predicted label.
+    1. L(y, ŷ) = (y - ŷ)^2
+    2. L(y, ŷ) = max(0, 1 - y * ŷ)
+    3. L(y, ŷ) = -[y log(ŷ) + (1-y) log(1-ŷ)]
+    4. L(y, ŷ) = |y - ŷ|
+
+
+11. In a four-gram MLP language model with an embedding dimension of d and a hidden layer size of h, what is the input dimension of the first linear layer?
+    1. d
+    2. 3d
+    3. 4d
+    4. h
+
+
+12. In a four-gram MLP language model with an embedding dimension of d and a hidden layer size of h, what is the dimension of the output of the final linear layer?
+    1. V
+    2. 4V
+    3. d
+    4. h
+
+- Correct answer: b. To allow interaction between different input sequences
+- Correct answer: c. Cross attention connects different input sequences
+- Correct answer: d. Between the encoder and decoder
+- Correct answer: b. It allows the model to focus on relevant parts of the source sentence
+- Correct answer: b. It allows the model to focus on relevant information from the input sequence when generating output
+- Correct answer: b. The encoder output
+- Correct answer: b. By allowing the decoder to focus on relevant parts of the encoder output
+- Correct answer: a. the vanishing gradient occurs due to the exponential function in the definition of the sigmoid function.
+- Correct answer: a. y = σ(Wx + 2.
+- Correct answer: c. L(y, ŷ) = -[y log(ŷ) + (1-y) log(1-ŷ)] (cross entropy)
+- Correct answer: b. 3d
+- Correct answer: a. V
