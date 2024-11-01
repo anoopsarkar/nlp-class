@@ -176,7 +176,7 @@
 - title: "Cross Attention"
   tag: cross_attention
   include: true
-  current: true
+  current: false
   notes:
     - title: "Lecture notes"
       url: "assets/slides/cross_attention.pdf"
@@ -250,38 +250,6 @@
     - title: "Analyzing Multi-Head Self-Attention: Specialized Heads Do the Heavy Lifting, the Rest Can Be Pruned"
       author: "Elena Voita, David Talbot, Fedor Moiseev, Rico Sennrich, Ivan Titov"
       url: "https://aclanthology.org/P19-1580/"
-- title: "Benchmark datasets"
-  tag: "benchmarks"
-  include: true
-  current: false
-  notes:
-    - title: Lecture notes
-      url: "assets/slides/benchmarks.pdf"
-    - title: "AI and the Everything in the Whole Wide World Benchmark"
-      author: "Deborah Raji, Emily Denton, Emily M. Bender, Alex Hanna, Amandalynne Paullada"
-      url: "https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/084b6fbb10729ed4da8c3d3f5a3ae7c9-Abstract-round2.html"
-    - title: "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data"
-      author: "Emily M. Bender, Alexander Koller"
-      url: "https://aclanthology.org/2020.acl-main.463"
-  links:
-    - title: "GLUE"
-      url: "https://gluebenchmark.com"
-    - title: "SuperGLUE"
-      url: "https://super.gluebenchmark.com"
-    - title: "Swag"
-      url: "https://rowanzellers.com/swag/"
-    - title: "HellaSwag"
-      url: "https://rowanzellers.com/hellaswag/"
-    - title: "LAMBADA"
-      url: "https://zenodo.org/record/2630551"
-    - title: "BabyLM Challenge"
-      url: "https://babylm.github.io"
-    - title: "CoQA"
-      url: "https://stanfordnlp.github.io/coqa/"
-    - title: "Natural Questions"
-      url: "https://ai.google.com/research/NaturalQuestions"
-    - title: "CNN/Daily Mail Summarization Dataset"
-      url: "https://github.com/abisee/cnn-dailymail"
 - title: "Pre-training Language Models"
   tag: "bert"
   include: true
@@ -340,27 +308,10 @@
     - title: "A Contrastive Framework for Neural Text Generation"
       author: "Yixuan Su, Tian Lan, Yan Wang, Dani Yogatama, Lingpeng Kong, Nigel Collier"
       url: "https://arxiv.org/abs/2202.06417"
-- title: "Retrieval Augmented Generation; Nearest Neighbour Language Models"
-  tag: "knnlm"
-  include: true
-  current: false
-  notes:
-   - title: Lecture notes
-     url: "assets/slides/knnlm.pdf"
-   - title: "Generalization through Memorization: Nearest Neighbor Language Models"
-     author: "Urvashi Khandelwal, Omer Levy, Dan Jurafsky, Luke Zettlemoyer, Mike Lewis"
-     url: "https://openreview.net/forum?id=HklBjCEKvH"
-   - title: "Improving language models by retrieving from trillions of tokens"
-     author: "Deepmind"
-     url: "https://arxiv.org/abs/2112.04426"
-  links:
-    - title: "Nearest Neighbor Knowledge Distillation for Neural Machine Translation"
-      author: "Zhixian Yang, Renliang Sun, Xiaojun Wan"
-      url: "https://aclanthology.org/2022.naacl-main.406/"
 - title: "Parameter-efficient Fine Tuning"
   tag: "peft"
   include: true
-  current: false
+  current: true
   notes:
     - title: Lecture notes
       url: "assets/slides/peft.pdf"
@@ -428,6 +379,9 @@
   notes:
     - title: Lecture notes
       url: "assets/slides/instruct_tuning.pdf"
+    - title: "ORPO: Monolithic Preference Optimization without Reference Model"
+      author: "Jiwoo Hong, Noah Lee, James Thorne"
+      url: "https://arxiv.org/abs/2403.07691"
     - title: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
       author: "Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D. Manning, Chelsea Finn"
       url: "https://arxiv.org/abs/2305.18290"
@@ -473,6 +427,55 @@
     - title: "The AI Brick Wall – A Practical Limit For Scaling Dense Transformer Models, and How GPT 4 Will Break Past It"
       author: "Dylan Patel"
       url: "https://www.semianalysis.com/p/the-ai-brick-wall-a-practical-limit"
+- title: "Benchmark datasets"
+  tag: "benchmarks"
+  include: true
+  current: false
+  notes:
+    - title: Lecture notes
+      url: "assets/slides/benchmarks.pdf"
+    - title: "AI and the Everything in the Whole Wide World Benchmark"
+      author: "Deborah Raji, Emily Denton, Emily M. Bender, Alex Hanna, Amandalynne Paullada"
+      url: "https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/084b6fbb10729ed4da8c3d3f5a3ae7c9-Abstract-round2.html"
+    - title: "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data"
+      author: "Emily M. Bender, Alexander Koller"
+      url: "https://aclanthology.org/2020.acl-main.463"
+  links:
+    - title: "GLUE"
+      url: "https://gluebenchmark.com"
+    - title: "SuperGLUE"
+      url: "https://super.gluebenchmark.com"
+    - title: "Swag"
+      url: "https://rowanzellers.com/swag/"
+    - title: "HellaSwag"
+      url: "https://rowanzellers.com/hellaswag/"
+    - title: "LAMBADA"
+      url: "https://zenodo.org/record/2630551"
+    - title: "BabyLM Challenge"
+      url: "https://babylm.github.io"
+    - title: "CoQA"
+      url: "https://stanfordnlp.github.io/coqa/"
+    - title: "Natural Questions"
+      url: "https://ai.google.com/research/NaturalQuestions"
+    - title: "CNN/Daily Mail Summarization Dataset"
+      url: "https://github.com/abisee/cnn-dailymail"
+- title: "Retrieval Augmented Generation; Nearest Neighbour Language Models"
+  tag: "knnlm"
+  include: true
+  current: false
+  notes:
+   - title: Lecture notes
+     url: "assets/slides/knnlm.pdf"
+   - title: "Generalization through Memorization: Nearest Neighbor Language Models"
+     author: "Urvashi Khandelwal, Omer Levy, Dan Jurafsky, Luke Zettlemoyer, Mike Lewis"
+     url: "https://openreview.net/forum?id=HklBjCEKvH"
+   - title: "Improving language models by retrieving from trillions of tokens"
+     author: "Deepmind"
+     url: "https://arxiv.org/abs/2112.04426"
+  links:
+    - title: "Nearest Neighbor Knowledge Distillation for Neural Machine Translation"
+      author: "Zhixian Yang, Renliang Sun, Xiaojun Wan"
+      url: "https://aclanthology.org/2022.naacl-main.406/"
 - title: "Neural Network Models and Training"
   tag: dl4nlp
   include: false
