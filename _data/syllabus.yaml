@@ -444,6 +444,29 @@
     - title: "The AI Brick Wall – A Practical Limit For Scaling Dense Transformer Models, and How GPT 4 Will Break Past It"
       author: "Dylan Patel"
       url: "https://www.semianalysis.com/p/the-ai-brick-wall-a-practical-limit"
+- title: "Model Compression"
+  tag: "compression"
+  include: true
+  current: false
+  notes:
+    - title: Lecture notes
+      url: "assets/slides/compression.pdf"
+    - title: "Distilling the Knowledge in a Neural Network"
+      author: "Geoffrey Hinton, Oriol Vinyals, Jeff Dean"
+      url: "https://arxiv.org/abs/1503.02531"
+  links:
+    - title: "Sequence-Level Knowledge Distillation"
+      author: "Yoon Kim, Alexander Rush"
+      url: "https://nlp.seas.harvard.edu/slides/emnlp16_seqkd.pdf"
+    - title: "Dark Knowledge"
+      author: "Geoffrey Hinton"
+      url: "https://www.ttic.edu/dl/dark14.pdf"
+    - title: "DistilBERT"
+      author: "Huggingface"
+      url: "https://medium.com/huggingface/distilbert-8cf3380435b5"
+    - title: "Compressing Large-Scale Transformer-Based Models: A Case Study on BERT"
+      author: "Prakhar Ganesh,  Yao Chen,  Xin Lou,  Mohammad Ali Khan,  Yin Yang,  Hassan Sajjad,  Preslav Nakov,  Deming Chen,  Marianne Winslett"
+      url: "https://doi.org/10.1162/tacl_a_00413"
 - title: "Benchmark datasets"
   tag: "benchmarks"
   include: true
