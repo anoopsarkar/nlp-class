@@ -395,6 +395,23 @@
     - title: "LIMA: Less Is More for Alignment"
       author: "Chunting Zhou, Pengfei Liu, Puxin Xu, Srini Iyer, Jiao Sun, Yuning Mao, Xuezhe Ma, Avia Efrat, Ping Yu, Lili Yu, Susan Zhang, Gargi Ghosh, Mike Lewis, Luke Zettlemoyer, Omer Levy"
       url: "https://arxiv.org/abs/2305.11206"
+- title: "Retrieval Augmented Generation; kNN-LMs"
+  tag: "knnlm"
+  include: true
+  current: false
+  notes:
+   - title: Lecture notes
+     url: "assets/slides/knnlm.pdf"
+   - title: "Generalization through Memorization: Nearest Neighbor Language Models"
+     author: "Urvashi Khandelwal, Omer Levy, Dan Jurafsky, Luke Zettlemoyer, Mike Lewis"
+     url: "https://openreview.net/forum?id=HklBjCEKvH"
+   - title: "Improving language models by retrieving from trillions of tokens"
+     author: "Deepmind"
+     url: "https://arxiv.org/abs/2112.04426"
+  links:
+    - title: "Nearest Neighbor Knowledge Distillation for Neural Machine Translation"
+      author: "Zhixian Yang, Renliang Sun, Xiaojun Wan"
+      url: "https://aclanthology.org/2022.naacl-main.406/"
 - title: "Scaling Laws for LLMs"
   tag: "scaling"
   include: true
@@ -459,23 +476,6 @@
       url: "https://ai.google.com/research/NaturalQuestions"
     - title: "CNN/Daily Mail Summarization Dataset"
       url: "https://github.com/abisee/cnn-dailymail"
-- title: "Retrieval Augmented Generation; Nearest Neighbour Language Models"
-  tag: "knnlm"
-  include: true
-  current: false
-  notes:
-   - title: Lecture notes
-     url: "assets/slides/knnlm.pdf"
-   - title: "Generalization through Memorization: Nearest Neighbor Language Models"
-     author: "Urvashi Khandelwal, Omer Levy, Dan Jurafsky, Luke Zettlemoyer, Mike Lewis"
-     url: "https://openreview.net/forum?id=HklBjCEKvH"
-   - title: "Improving language models by retrieving from trillions of tokens"
-     author: "Deepmind"
-     url: "https://arxiv.org/abs/2112.04426"
-  links:
-    - title: "Nearest Neighbor Knowledge Distillation for Neural Machine Translation"
-      author: "Zhixian Yang, Renliang Sun, Xiaojun Wan"
-      url: "https://aclanthology.org/2022.naacl-main.406/"
 - title: "Neural Network Models and Training"
   tag: dl4nlp
   include: false
