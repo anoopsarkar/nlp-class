@@ -365,6 +365,10 @@
     - title: "In-Context Learning Learns Label Relationships but Is Not Conventional Learning"
       author: "Jannik Kossen, Yarin Gal, Tom Rainforth"
       url: "https://arxiv.org/abs/2307.12375"
+    - title: "Metaprompting"
+      author: Anthropic.com
+      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/promptgen.ipynb"
+      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/promptgen.ipynb"
   links:
     - title: "In-context Examples Selection for Machine Translation"
       author: "Sweta Agrawal, Chunting Zhou, Mike Lewis, Luke Zettlemoyer, Marjan Ghazvininejad"
