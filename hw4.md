@@ -365,16 +365,16 @@ Your BLEU score should be equal to or greater than the score listed for the corr
 
 | **Score(dev)** | **Score(test)** | **Marks** | **Grade** |
 | 0.0  | 0.0  | 0   | F  |
-| 1.3  | 1.2  | 55  | D  |
-| 10   | 12   | 60  | C- |
-| 15   | 17   | 65  | C  |
-| 17   | 20   | 70  | C+ |
-| 19   | 24   | 75  | B- |
-| 20   | 26   | 80  | B  |
-| 22   | 28   | 85  | B+ |
-| 24   | 30   | 90  | A- |
-| 26   | 32   | 95  | A  |
-| 30   | 35   | 100 | A+ |
+| 18   | 22   | 55  | D  |
+| 28   | 32   | 60  | C- |
+| 29   | 33   | 65  | C  |
+| 30   | 34   | 70  | C+ |
+| 31   | 35   | 75  | B- |
+| 32   | 36   | 80  | B  |
+| 33   | 37   | 85  | B+ |
+| 34   | 38   | 90  | A- |
+| 35   | 39   | 95  | A  |
+| 60   | 64   | 100 | A+ |
 {: .table}
 
 The score will be normalized to the marks on Coursys for the dev and test scores.
