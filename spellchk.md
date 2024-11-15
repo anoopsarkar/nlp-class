@@ -20,7 +20,7 @@ Get started:
 
 Clone your repository if you haven’t done it already:
 
-    git clone git@csil-git1.cs.surrey.sfu.ca:USER/nlpclass-{{ site.semcode }}-g-GROUP.git
+    git clone git@github.sfu.ca:USER/nlpclass-{{ site.semcode }}-g-GROUP.git
 
 Then copy over the contents of the `spellchk` directory into your
 `hw1` directory in your repository.

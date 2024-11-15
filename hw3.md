@@ -313,7 +313,7 @@ Each group member should write about what they did for this homework in the Pyth
 
 ### Upload to Coursys
 
-Go to `Homework 4` on Coursys and do a group submission:
+Go to `Homework 3` on Coursys and do a group submission:
 
 * Upload `output.zip` and `source.zip`
 * Make sure you have documented your approach in `answer/prefixtune.ipynb`.
