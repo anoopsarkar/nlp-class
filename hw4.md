@@ -271,7 +271,7 @@ to do extensive grid search on these to improve performance:
         --gradient_accumulation_steps 1 \
         --logging_steps 10 \
         --eval_steps 500 \
-        --output_dir="gpt2-lora-aligned-orpo" \
+        --output_dir="qwen2.5-0.5B-Instruct-lora-aligned-orpo" \
         --optim rmsprop \
         --warmup_steps 150 \
         --bf16 \
