@@ -306,7 +306,7 @@ To check your accuracy on the dev set:
 
     python3 check.py
 
-The output score is the BLEU score.
+The output score is found using the `check.py` script:
 
     python3 check.py -h
 
@@ -361,7 +361,7 @@ The grading is split up into the following components:
    * Make sure you have implemented the fine-tuning model improvements yourself without using external libraries.
 * Check if each group member has written about what they did in the Python notebook.
 
-Your BLEU score should be equal to or greater than the score listed for the corresponding marks.
+Your score should be equal to or greater than the score listed for the corresponding marks.
 
 | **Score(dev)** | **Score(test)** | **Marks** | **Grade** |
 | 0.0  | 0.0  | 0   | F  |
