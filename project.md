@@ -49,7 +49,9 @@ Make sure the following points are in your abstract.
 The poster size should be as follows:
 
 * Landscape orientation: 3ft by 3ft.
-* Portrait orientation: A0 portrait (4ft vertical by 3ft horizontal)
+* Portrait orientation: A0 portrait (~4ft vertical by 3ft horizontal)
+
+The poster board dimensions are 4ft by 4ft but keep the poster size a bit smaller than the board dimensions for easier mounting of the poster on the board.
 
 If you use LaTeX then here are two sample poster styles (A0 portrait):
 
