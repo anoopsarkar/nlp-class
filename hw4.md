@@ -374,7 +374,7 @@ Your score should be equal to or greater than the score listed for the correspon
 | 33   | 37   | 85  | B+ |
 | 34   | 38   | 90  | A- |
 | 35   | 39   | 95  | A  |
-| 60   | 64   | 100 | A+ |
+| 52   | 46   | 100 | A+ |
 {: .table}
 
 The score will be normalized to the marks on Coursys for the dev and test scores.
