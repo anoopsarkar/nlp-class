@@ -107,6 +107,30 @@
     - title: "Word2Vec (Jurafsky and Martin)"
       url: "assets/cached/slp3/vector2.pdf"
       optional: true
+- title: "Neural Network Models and Training"
+  tag: dl4nlp
+  include: false
+  current: false
+  notes:
+    - title: "Natural Language Understanding with Distributed Representation"
+      author: "Kyunghyun Cho"
+      url: "http://arxiv.org/abs/1511.07916"
+    - title: "A Primer on Neural Networks for NLP"
+      author: Yoav Goldberg
+      url: "http://u.cs.biu.ac.il/~yogo/nnlp.pdf" 
+  links:
+    - title: "Deep Learning for MT Winter School"
+      url: "http://dl4mt.computing.dcu.ie/"
+      optional: true
+    - title: "Visualizing Optimization Algorithms"
+      author: "Alec Radford"
+      url: "http://imgur.com/a/Hqolp"
+      optional: true
+    - title: "Learning representations by back-propagating errors"
+      author: "Rumelhart, Hinton and Williams"
+      citation: "Nature, 1986"
+      url: "https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf"
+      optional: true
 - title: "Feedforward neural networks, Sequence Prediction, and n-gram LMs"
   tag: ff
   include: true
@@ -388,7 +412,7 @@
 - title: "Few-shot and in-context learning"
   tag: "fewshot"
   include: true
-  current: true
+  current: false
   notes:
     - title: Lecture notes
       url: "assets/slides/fewshot.pdf"
@@ -487,7 +511,7 @@
 - title: "Scaling Laws for LLMs"
   tag: "scaling"
   include: true
-  current: false
+  current: true
   notes:
     - title: Lecture notes
       url: "assets/slides/scaling.pdf"
@@ -519,30 +543,91 @@
     - title: "The AI Brick Wall – A Practical Limit For Scaling Dense Transformer Models, and How GPT 4 Will Break Past It"
       author: "Dylan Patel"
       url: "https://www.semianalysis.com/p/the-ai-brick-wall-a-practical-limit"
-- title: "Neural Network Models and Training"
-  tag: dl4nlp
-  include: false
+- title: "Data Efficiency"
+  tag: "data"
+  include: true
   current: false
   notes:
-    - title: "Natural Language Understanding with Distributed Representation"
-      author: "Kyunghyun Cho"
-      url: "http://arxiv.org/abs/1511.07916"
-    - title: "A Primer on Neural Networks for NLP"
-      author: Yoav Goldberg
-      url: "http://u.cs.biu.ac.il/~yogo/nnlp.pdf" 
+   - title: "Do We Need to Create Big Datasets to Learn a Task?"
+     author: "Swaroop Mishra, Bhavdeep Singh Sachdeva"
+     url: "https://aclanthology.org/2020.sustainlp-1.23"
+   - title: "Shortformer: Better Language Modeling using Shorter Inputs"
+     author: "Ofir Press, Noah A. Smith, Mike Lewis"
+     url: "https://aclanthology.org/2021.acl-long.427/"
+   - title: "Active Learning for BERT: An Empirical Study"
+     author: "Liat Ein-Dor, Alon Halfon, Ariel Gera, Eyal Shnarch, Lena Dankin, Leshem Choshen, Marina Danilevsky, Ranit Aharonov, Yoav Katz, Noam Slonim"
+     url: "https://aclanthology.org/2020.emnlp-main.638/"
+- title: "Fast Attention and Context Length"
+  tag: "fastattn"
+  include: true
+  current: false
+  notes:
+   - title: Lecture notes
+     url: "assets/slides/fastattn.pdf"
+   - title: "Efficient Transformers: A Survey"
+     author: "Yi Tay, Mostafa Dehghani, Dara Bahri, Donald Metzler"
+     url: "https://arxiv.org/abs/2009.06732"
+   - title: "Reformer: The Efficient Transformer"
+     author: "Nikita Kitaev, Lukasz Kaiser, Anselm Levskaya"
+     url: "https://openreview.net/forum?id=rkgNKkHtvB"
+   - title: "Rethinking Attention with Performers"
+     author: "Krzysztof Marcin Choromanski, Valerii Likhosherstov, David Dohan, Xingyou Song, Andreea Gane, Tamas Sarlos, Peter Hawkins, Jared Quincy Davis, Afroz Mohiuddin, Lukasz Kaiser, David Benjamin Belanger, Lucy J Colwell, Adrian Weller"
+     url: "https://openreview.net/forum?id=Ua6zuk0WRH"
+   - title: "Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation"
+     author: "Ofir Press, Noah A. Smith, Mike Lewis"
+     url: "https://arxiv.org/abs/2108.12409"
+   - title: "Transformer-XL: Attentive Language Models beyond a Fixed-Length Context"
+     author: "Zihang Dai, Zhilin Yang, Yiming Yang, Jaime Carbonell, Quoc Le, Ruslan Salakhutdinov"
+     url: "https://aclanthology.org/P19-1285/"
+   - title: "∞-former: Infinite Memory Transformer"
+     author: "Pedro Henrique Martins, Zita Marinho, Andre Martins"
+     url: "https://aclanthology.org/2022.acl-long.375/"
+   - title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
+     author: "Tri Dao, Daniel Y. Fu, Stefano Ermon, Atri Rudra, Christopher Ré"
+     url: "https://arxiv.org/abs/2205.14135"
+- title: "Variational Auto-encoding for Language"
+  tag: "vae"
+  include: true
+  current: false
+  notes:
+   - title: Lecture notes
+     url: "assets/slides/vae.pdf"
+   - title: "Tutorial - What is a variational autoencoder?"
+     author: "Jaan Altosaar"
+     url: "https://jaan.io/what-is-variational-autoencoder-vae-tutorial/"
+   - title: "Optimus: Organizing Sentences via Pre-trained Modeling of a Latent Space"
+     author: "Chunyuan Li, Xiang Gao, Yuan Li, Baolin Peng, Xiujun Li, Yizhe Zhang, Jianfeng Gao"
+     url: "https://aclanthology.org/2020.emnlp-main.378/"
+   - title: "Finetuning Pretrained Transformers into Variational Autoencoders"
+     author: "Seongmin Park, Jihwa Lee"
+     url: "https://aclanthology.org/2021.insights-1.5/"
   links:
-    - title: "Deep Learning for MT Winter School"
-      url: "http://dl4mt.computing.dcu.ie/"
-      optional: true
-    - title: "Visualizing Optimization Algorithms"
-      author: "Alec Radford"
-      url: "http://imgur.com/a/Hqolp"
-      optional: true
-    - title: "Learning representations by back-propagating errors"
-      author: "Rumelhart, Hinton and Williams"
-      citation: "Nature, 1986"
-      url: "https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf"
-      optional: true
+   - title: "Neural Variational Inference for Text Processing"
+     author: "Yishu Miao, Lei Yu, Phil Blunsom"
+     url: "https://proceedings.mlr.press/v48/miao16.html"
+   - title: "Improved Variational Autoencoders for Text Modeling using Dilated Convolutions"
+     author: "Zichao Yang, Zhiting Hu, Ruslan Salakhutdinov, Taylor Berg-Kirkpatrick"
+     url: "https://proceedings.mlr.press/v70/yang17d/yang17d.pdf"
+   - title: "Glow: Better reversible generative models"
+     author: "Prafulla Dhariwal, Durk Kingma"
+     url: "https://openai.com/research/glow"
+   - title: "Glow: Generative Flow with Invertible 1x1 Convolutions"
+     author: "Prafulla Dhariwal, Durk Kingma"
+     url: "https://arxiv.org/abs/1807.03039"
+   - title: "Digit Fantasies by a Deep Generative Model"
+     author: "Durk Kingma"
+     url: "http://dpkingma.com/sgvb_mnist_demo/demo.html"
+- title: "Summary"
+  tag: "summary"
+  include: true
+  current: false
+  notes:
+   - title: "Efficient Methods for Natural Language Processing: A Survey"
+     author: "Marcos Treviso, Ji-Ung Lee, Tianchu Ji, Betty van Aken, Qingqing Cao, Manuel R. Ciosici, Michael Hassid, Kenneth Heafield, Sara Hooker, Colin Raffel, Pedro H. Martins, André F. T. Martins, Jessica Zosa Forde, Peter Milder, Edwin Simpson, Noam Slonim, Jesse Dodge, Emma Strubell, Niranjan Balasubramanian, Leon Derczynski, Iryna Gurevych, Roy Schwartz"
+     url: "https://arxiv.org/abs/2209.00099"
+   - title: "Efficient Transformers: A Survey"
+     author: "Yi Tay, Mostafa Dehghani, Dara Bahri, Donald Metzler"
+     url: "https://arxiv.org/abs/2009.06732"
 - title: "Recurrent Language models"
   tag: nlm
   include: false
