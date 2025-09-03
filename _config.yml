@@ -1,17 +1,17 @@
 exclude: ['README.md', 'assets/latex/', 'archive', 'venv']
 timezone: US/Pacific
 markdown: kramdown
-coursys: "https://coursys.sfu.ca/2024fa-cmpt-713-g1/"
-semcode: 1247
-semester: "Fall 2024"
+coursys: "https://coursys.sfu.ca/2025fa-cmpt-713-x1/"
+semcode: 1257
+semester: "Fall 2025"
 calendar: "https://calendar.google.com/calendar/ical/qgs97od9ef8t1582k2rqomv5ho%40group.calendar.google.com/public/basic.ics"
-lastday: "Dec 3"
-midterm: "Oct 23"
+lastday: "Dec 2"
+midterm: "Oct 22"
 instructor: anoop
 tas:
-  - name: Yanxin Shen
-    email: ysa291
-    officehour: 'Fridays 3pm-4pm on Zoom (link available on Coursys discussion forum)'
+  - name: TBD
+    email: tbd
+    officehour: 'TBD'
 hwdates:
   - hw: "0"
     startdate: "Sep 9"
