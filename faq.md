@@ -202,4 +202,4 @@ ybrtb kxfzyqgnn vr wau crqfs cfvxfn.
 
 #### Hardest
 
-<img src="{{ site.baseurl }}/assets/img/puzzle.png" alt="Easter egg image" width="400"/>
+<img src="{{ site.baseurl }}/assets/img/emesida.png" alt="Easter egg image" width="400"/>
