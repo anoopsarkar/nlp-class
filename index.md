@@ -11,7 +11,10 @@ active_tab: main_page
 
 Natural Language Processing (NLP) was traditionally a research field heavily reliant on partially supervised machine learning to tackle language tasks. However, the landscape shifted dramatically with the advent of large language models (LLMs), popularized by tools like ChatGPT. Unlike earlier models, LLMs are trained using self-supervised learning, exhibiting remarkable emergent behavior and tackling a wide range of tasks they were never explicitly trained on. This demonstrates that unsupervised learning is scalable and capable of achieving zero-shot performance, where models perform tasks with little to no task-specific examples.
 
-This course delves into language models and representation learning for NLP. We will explore key components such as model architecture, effective training strategies, and inference techniques, highlighting their applications across diverse natural language processing tasks. As NLP rapidly evolves, LLMs have become a cornerstone of artificial intelligence research and development.
+This course delves into language models and representation learning for NLP with a focus on large language models. We will explore key components such as model architecture, effective training strategies, and inference techniques, highlighting their applications across diverse natural language processing tasks. As NLP rapidly evolves, LLMs have become a cornerstone of artificial intelligence research and development.
+
+At the conclusion of the course, the student is expected to gain an understanding of the machine learning models and algorithms used to create large language models including training and inference for representation learning, embedding models, sentence encoders, generative language models, autoregressive language models, fine-tuning and instruction tuning of language models.
+
 
 #### Instructor
 * [Anoop Sarkar](http://www.cs.sfu.ca/~anoop/)
