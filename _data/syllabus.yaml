@@ -1,7 +1,7 @@
 - title: "Course Introduction"
   tag: intro
   include: true
-  current: false
+  current: true
   notes:
     - title: "Course introduction"
       url: "assets/slides/intro-to-nlp.pdf"
@@ -511,7 +511,7 @@
 - title: "Scaling Laws for LLMs"
   tag: "scaling"
   include: true
-  current: true
+  current: false
   notes:
     - title: Lecture notes
       url: "assets/slides/scaling.pdf"
