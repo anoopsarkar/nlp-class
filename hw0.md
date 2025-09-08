@@ -16,7 +16,7 @@ active_tab: homework
 ## Setup on Coursys
 
 Find a group to work with for the homework assignments and the final
-course project. The group size is 3 people or less.
+course project. The group size is 3 people or less. Single person groups are allowed.
 We will be checking that all group members are contributing equally
 to the homework submission and the final project.
 
