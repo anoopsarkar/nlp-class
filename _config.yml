@@ -9,28 +9,39 @@ lastday: "Dec 2"
 midterm: "Oct 22"
 instructor: anoop
 tas:
-  - name: TBD
-    email: tbd
+  - name: Jackon de Faria
+    email: jgd5
+    officehour: 'TBD'
+  - name: Enze Jiang
+    email: eja42
+    officehour: 'TBD'
+  - name: Wanying Tian
+    email: wta55
     officehour: 'TBD'
 hwdates:
   - hw: "0"
-    startdate: "Sep 9"
-    deadline: "Sep 16"
+    startdate: "Sep 8"
+    deadline: "Sep 17"
+    gracedays: "Sep 19"
   - hw: "1"
-    startdate: "Sep 16"
-    deadline: "Oct 1"
+    startdate: "Sep 15"
+    deadline: "Sep 29"
+    gracedays: "Sep 19"
   - hw: "2"
-    startdate: "Oct 1"
-    deadline: "Oct 15"
+    startdate: "Sep 29"
+    deadline: "Oct 13"
+    gracedays: "Oct 15"
   - hw: "3"
-    startdate: "Oct 15"
-    deadline: "Nov 5"
+    startdate: "Oct 13"
+    deadline: "Nov 3"
+    gracedays: "Nov 5"
   - hw: "4"
-    startdate: "Nov 15"
-    deadline: "Nov 29"
+    startdate: "Nov 3"
+    deadline: "Nov 17"
+    gracedays: "Nov 19"
   - hw: "project"
-    startdate: "Nov 15"
-    deadline: "Dec 6"
-    time: "Poster session: 10:00am-12:30pm"
-    location: "HAL 126"
-    proposal: "Nov 15"
+    startdate: "Nov 17"
+    deadline: "Dec 5"
+    time: "TBD"
+    location: "TBD"
+    proposal: "Nov 10"

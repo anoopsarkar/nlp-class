@@ -38,13 +38,51 @@ Make sure the following points are in your abstract.
     * Exactly which data set do you plan to use
     * What is the evaluation measure for the data set and what is the baseline
 
+### Poster Session
+
+* Final Project Poster Session:
+    * Time: {{ site.hwdates[5].deadline }} {{ site.hwdates[5].time }}. 
+    * Location: {{ site.hwdates[5].location }}
+
+#### Poster size
+
+The poster size should be as follows:
+
+* Landscape orientation: 3ft by 3ft.
+* Portrait orientation: A0 portrait (~4ft vertical by 3ft horizontal)
+
+The poster board dimensions are 4ft by 4ft but keep the poster size a bit smaller than the board dimensions for easier mounting of the poster on the board.
+
+If you use LaTeX then here are two sample poster styles (A0 portrait):
+
+* [LaTeX Portrait Poster Template](https://www.overleaf.com/latex/examples/latex-portrait-poster-template/gybjbztdkvyg)
+* [Medical University of Vienna (MUW) Poster Template](https://www.overleaf.com/latex/templates/medical-university-of-vienna-muw-poster-template/xdgtytckkwzf)
+
+#### Poster grading
+
+The poster will be graded using the following criteria (1-5):
+
+1. Goal is clear?
+1. Implementation is clear?
+1. Model was clear?
+1. Did provided example make things clear?
+1. Experimental evaluation was clear?
+1. Adequate comparison to previous work?
+1. Poster layout and oral explanation.
+1. Analysis of the output.
+1. Overall quality.
+
+Please read through this set of [tutorial slides on making effective posters](assets/cached/makeup_ijcnlp_2017.pdf).
+
+Also, I have provided [two](assets/cached/EMNLP2017_poster.pdf) [examples](assets/cached/IWSLT2015_poster.pdf) of NLP posters (note that they are not in portrait layout).
+
 ### Project Write-up
 
 Apart from the poster session you must also submit your project
 write-up as a Python notebook `project.ipynb` and your source
 code for your project in your GitLab repository:
 
-    git@github.sfu.ca:USER/nlpclass-{{ site.semcode }}-g-GROUP.git
+    git@github.sfu.ca:USER/nlpclass-1187-g-GROUP.git
 
 Put all your project files into the directory `project` in your
 GitLab repository.

@@ -10,6 +10,7 @@ active_tab: homework
 
 <span class="text-info">Start on {{ site.hwdates[1].startdate }}</span> |
 <span class="text-warning">Due on {{ site.hwdates[1].deadline }}</span>
+<span class="text-warning">With grace days {{ site.hwdates[1].gracedays }}</span>
 
 ## Getting Started
 
