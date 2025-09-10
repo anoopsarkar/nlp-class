@@ -313,8 +313,8 @@ into the most likely sequence of words.
 The default solution is provided in `default.py`. To use the default
 as your solution:
 
-    cp default.py answer/ensegment.py
-    cp default.ipynb answer/ensegment.ipynb
+    cp answer/default.py answer/ensegment.py
+    cp answer/default.ipynb answer/ensegment.ipynb
     python3 zipout.py
     python3 check.py
 
