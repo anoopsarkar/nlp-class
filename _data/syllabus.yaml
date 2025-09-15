@@ -26,18 +26,6 @@
       video: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
       url: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
       optional: true
-    - author: "Various Allen Institute AI2 Researchers"
-      title: "NLP Highlights podcast"
-      url: "https://soundcloud.com/nlp-highlights"
-      optional: true
-    - author: "Sean Welleck"
-      title: "The Thesis Review"
-      url: "https://soundcloud.com/thesis-review"
-      optional: true
-    - author: "Devi Parikh and Dhruv Batra"
-      title: "Humans of AI: Stories, Not Stats"
-      url: "http://www.humanstories.ai"
-      optional: true
 - title: "n-gram Language models"
   tag: lm
   include: true

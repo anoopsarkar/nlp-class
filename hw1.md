@@ -47,6 +47,8 @@ command to get started with your development for the homework:
 
     source venv/bin/activate
 
+You can also use `uv` to manage your dependencies.
+
 ## Background
 
 In this homework we will be exploring the use of word vectors to
@@ -102,11 +104,11 @@ questions.
 
 ## Default solution
 
-The default solution is provided in `default.py`. To use the default
+The default solution is provided in `answer/default.py`. To use the default
 as your solution:
 
-    cp default.py answer/analogy.py
-    cp default.ipynb answer/analogy.ipynb
+    cp answer/default.py answer/analogy.py
+    cp answer/default.ipynb answer/analogy.ipynb
     python zipout.py
     python check.py
 
