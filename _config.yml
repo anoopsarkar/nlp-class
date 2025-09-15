@@ -11,13 +11,15 @@ instructor: anoop
 tas:
   - name: Jackon de Faria
     email: jgd5
-    officehour: 'TBD'
-  - name: Enze Jiang
+    officehour: 'Wednesdays, 11:00 – 12:00 PM, Zoom link on Coursys'
+  - name: Enze (Anthony) Jiang
     email: eja42
-    officehour: 'TBD'
-  - name: Wanying Tian
+    officehour: 'Thursdays, 11:30 – 12:30 PM, Zoom link on Coursys'
+  - name: Wanying (Chris) Tian
     email: wta55
-    officehour: 'TBD'
+    officehour: 'Tuesdays, 11:30 – 12:30 PM, Zoom link on Coursys'
+  - name: 'In person office hour'
+    officehour: 'Mondays, 1:00 – 2:00 PM, Location: ASB 9840 (CSIL)'
 hwdates:
   - hw: "0"
     startdate: "Sep 8"
