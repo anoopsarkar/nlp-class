@@ -28,13 +28,14 @@ At the conclusion of the course, the student is expected to gain an understandin
 
 #### Asking for help
 * Ask for help on [the discussion forum]({{ site.coursys }}/forum)
-* Instructor office hours: Thu 8:30-9:30am (starts on Sept 21); Zoom link on Coursys discussion forum
+* TA In person office hours: Mondays, 1:00 – 2:00 PM, Location: ASB 9840 (CSIL)
+* Instructor office hours: TBD
 * <b>No emails</b> to the TAs and strictly emails about personal matters to the instructor
 * Always post to the [the discussion forum]({{ site.coursys }}/forum) instead of email. If you have to email use your SFU email address only.
 
 #### Time and place
-* Wed 9:30-10:20am Blusson Hall [BLU10011](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html)
-* Fri 8:30am-10:20am Blusson Hall [BLU10011](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html)
+* Mon 8:30-10:20am Blusson Hall [BLU 9660](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html)
+* Fri 8:30am-9:20am Blusson Hall [BLU 9660](http://www.sfu.ca/campuses/maps-and-directions/burnaby-map.html)
 * Last day of classes: {{ site.lastday }}
 
 #### Calendar
