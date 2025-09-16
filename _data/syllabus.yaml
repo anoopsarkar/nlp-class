@@ -506,7 +506,7 @@
       author: "Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser, Matthias Plappert, Jerry Tworek, Jacob Hilton, Reiichiro Nakano, Christopher Hesse, John Schulman"
       url: "https://arxiv.org/abs/2110.14168"
     - title: "Learning When to Plan: Efficiently Allocating Test-Time Compute for LLM Agents"
-      author: "Davide Paglieri, Bartłomiej Cupiał, Jonathan Cook, Ulyana Piterbarg, Jens Tuyls, Edward Grefenstette, Jakob Nicolaus Foerster, Jack Parker-Holder, Tim Rocktäschel""
+      author: "Davide Paglieri, Bartłomiej Cupiał, Jonathan Cook, Ulyana Piterbarg, Jens Tuyls, Edward Grefenstette, Jakob Nicolaus Foerster, Jack Parker-Holder, Tim Rocktäschel"
       url: "https://arxiv.org/abs/2509.03581"
   links:
     - title: "Test time compute resources"
