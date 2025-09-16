@@ -52,6 +52,3 @@ At the conclusion of the course, the student is expected to gain an understandin
 * Participation: Helping other students on the discussion board in a positive way (5%)
 * Final Project Proposal: Due on {{ site.hwdates[5].proposal }} (5%)
 * Final Project: Due on {{ site.hwdates[5].deadline }} (23%)
-* Final Project Poster Session:
-    * Time: {{ site.hwdates[5].deadline }} {{ site.hwdates[5].time }}.
-    * Location: {{ site.hwdates[5].location }}
