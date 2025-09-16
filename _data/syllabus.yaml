@@ -1,7 +1,7 @@
 - title: "Course Introduction"
   tag: intro
   include: true
-  current: true
+  current: false
   notes:
     - title: "Course introduction"
       url: "assets/slides/intro-to-nlp.pdf"
@@ -362,6 +362,41 @@
     - title: "ALBERT: A Lite BERT for Self-supervised Learning of Language Representations"
       author: "Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, Radu Soricut"
       url: "https://arxiv.org/abs/1909.11942"
+- title: "Scaling Laws for LLMs"
+  tag: "scaling"
+  include: true
+  current: false
+  notes:
+    - title: Lecture notes
+      url: "assets/slides/scaling.pdf"
+    - title: "Scaling Laws for Neural Language Models"
+      author: "Open AI"
+      url: "https://arxiv.org/abs/2001.08361"
+    - title: "Training Compute-Optimal Large Language Models"
+      author: "Google Deepmind"
+      url: "https://arxiv.org/abs/2203.15556"
+    - title: "GLaM: Efficient Scaling of Language Models with Mixture-of-Experts"
+      author: "Google"
+      url: "https://arxiv.org/abs/2112.06905"
+    - title: "Scaling Scaling Laws with Board Games"
+      author: "Andy L. Jones"
+      url: "https://arxiv.org/abs/2104.03113"
+    - title: "PaLM: Scaling Language Modeling with Pathways"
+      author: "Google"
+      url: "https://arxiv.org/abs/2204.02311"
+  links:
+    - title: "AI and Compute"
+      author: "OpenAI"
+      url: "https://openai.com/research/ai-and-compute"
+    - title: "Scaling laws notebook"
+      author: "Andrej Karpathy"
+      url: "https://github.com/karpathy/nanoGPT/blob/master/scaling_laws.ipynb"
+    - title: "The FLOPs Calculus of Language Model Training"
+      author: "Dzmitry Bahdanau"
+      url: "https://medium.com/@dzmitrybahdanau/the-flops-calculus-of-language-model-training-3b19c1f025e4"
+    - title: "The AI Brick Wall – A Practical Limit For Scaling Dense Transformer Models, and How GPT 4 Will Break Past It"
+      author: "Dylan Patel"
+      url: "https://www.semianalysis.com/p/the-ai-brick-wall-a-practical-limit"
 - title: "Parameter-efficient Fine Tuning"
   tag: "peft"
   include: true
@@ -443,6 +478,9 @@
     - title: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
       author: "Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D. Manning, Chelsea Finn"
       url: "https://arxiv.org/abs/2305.18290"
+    - title: "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models"
+      author: "Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, Y.K. Li, Y. Wu, Daya Guo"
+      url: "https://arxiv.org/abs/2402.03300"
     - title: "Training Verifiers to Solve Math Word Problems"
       author: "Cobbe et al. (OpenAI)"
       url: "https://arxiv.org/abs/2110.14168"
@@ -456,6 +494,24 @@
     - title: "LIMA: Less Is More for Alignment"
       author: "Chunting Zhou, Pengfei Liu, Puxin Xu, Srini Iyer, Jiao Sun, Yuning Mao, Xuezhe Ma, Avia Efrat, Ping Yu, Lili Yu, Susan Zhang, Gargi Ghosh, Mike Lewis, Luke Zettlemoyer, Omer Levy"
       url: "https://arxiv.org/abs/2305.11206"
+- title: "Test time compute"
+  tag: "testtimecompute"
+  include: true
+  current: false
+  notes:
+    - title: "A Survey of Test-Time Compute: From Intuitive Inference to Deliberate Reasoning"
+      author: "Yixin Ji, Juntao Li, Yang Xiang, Hai Ye, Kaixin Wu, Kai Yao, Jia Xu, Linjian Mo, Min Zhang"
+      url: "https://arxiv.org/abs/2501.02497"
+    - title: "Training Verifiers to Solve Math Word Problems"
+      author: "Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser, Matthias Plappert, Jerry Tworek, Jacob Hilton, Reiichiro Nakano, Christopher Hesse, John Schulman"
+      url: "https://arxiv.org/abs/2110.14168"
+    - title: "Learning When to Plan: Efficiently Allocating Test-Time Compute for LLM Agents"
+      author: "Davide Paglieri, Bartłomiej Cupiał, Jonathan Cook, Ulyana Piterbarg, Jens Tuyls, Edward Grefenstette, Jakob Nicolaus Foerster, Jack Parker-Holder, Tim Rocktäschel""
+      url: "https://arxiv.org/abs/2509.03581"
+  links:
+    - title: "Test time compute resources"
+      author: "Yixin Ji, Juntao Li, Yang Xiang, Hai Ye, Kaixin Wu, Kai Yao, Jia Xu, Linjian Mo, Min Zhang"
+      url: "https://github.com/Dereck0602/Awesome_Test_Time_LLMs?tab=readme-ov-file"
 - title: "Retrieval Augmented Generation; kNN-LMs"
   tag: "knnlm"
   include: true
@@ -496,41 +552,6 @@
     - title: "Compressing Large-Scale Transformer-Based Models: A Case Study on BERT"
       author: "Prakhar Ganesh,  Yao Chen,  Xin Lou,  Mohammad Ali Khan,  Yin Yang,  Hassan Sajjad,  Preslav Nakov,  Deming Chen,  Marianne Winslett"
       url: "https://doi.org/10.1162/tacl_a_00413"
-- title: "Scaling Laws for LLMs"
-  tag: "scaling"
-  include: true
-  current: false
-  notes:
-    - title: Lecture notes
-      url: "assets/slides/scaling.pdf"
-    - title: "Scaling Laws for Neural Language Models"
-      author: "Open AI"
-      url: "https://arxiv.org/abs/2001.08361"
-    - title: "Training Compute-Optimal Large Language Models"
-      author: "Google Deepmind"
-      url: "https://arxiv.org/abs/2203.15556"
-    - title: "GLaM: Efficient Scaling of Language Models with Mixture-of-Experts"
-      author: "Google"
-      url: "https://arxiv.org/abs/2112.06905"
-    - title: "Scaling Scaling Laws with Board Games"
-      author: "Andy L. Jones"
-      url: "https://arxiv.org/abs/2104.03113"
-    - title: "PaLM: Scaling Language Modeling with Pathways"
-      author: "Google"
-      url: "https://arxiv.org/abs/2204.02311"
-  links:
-    - title: "AI and Compute"
-      author: "OpenAI"
-      url: "https://openai.com/research/ai-and-compute"
-    - title: "Scaling laws notebook"
-      author: "Andrej Karpathy"
-      url: "https://github.com/karpathy/nanoGPT/blob/master/scaling_laws.ipynb"
-    - title: "The FLOPs Calculus of Language Model Training"
-      author: "Dzmitry Bahdanau"
-      url: "https://medium.com/@dzmitrybahdanau/the-flops-calculus-of-language-model-training-3b19c1f025e4"
-    - title: "The AI Brick Wall – A Practical Limit For Scaling Dense Transformer Models, and How GPT 4 Will Break Past It"
-      author: "Dylan Patel"
-      url: "https://www.semianalysis.com/p/the-ai-brick-wall-a-practical-limit"
 - title: "Data Efficiency"
   tag: "data"
   include: true
@@ -575,7 +596,7 @@
      url: "https://arxiv.org/abs/2205.14135"
 - title: "Variational Auto-encoding for Language"
   tag: "vae"
-  include: true
+  include: false
   current: false
   notes:
    - title: Lecture notes
