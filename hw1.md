@@ -275,7 +275,7 @@ GitHub:
 > [https://github.com/mfaruqui/retrofitting](https://github.com/mfaruqui/retrofitting)
 
 You can view the implementation but you must implement the algorithm
-yourself and apply it to the lexical substitution task.
+yourself and apply it to the analogy task.
 
 ### New Lexicons
 
