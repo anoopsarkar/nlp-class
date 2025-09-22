@@ -8,3 +8,5 @@ pandas
 nltk
 torch
 matplotlib
+gensim
+scikit-learn
