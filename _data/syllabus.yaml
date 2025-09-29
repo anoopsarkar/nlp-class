@@ -151,6 +151,8 @@
   include: true
   current: false
   notes:
+    - title: "Linear models"
+      url: "assets/slides/linearmodels.pdf"
     - title: "Sequence prediction"
       url: "assets/slides/linearseq.pdf"
     - title: "Feedforward neural networks"
