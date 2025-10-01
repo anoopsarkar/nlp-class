@@ -21,7 +21,7 @@
       video: "https://www.youtube.com/watch?v=lI-M7O_bRNg"
       url: "https://www.youtube.com/watch?v=lI-M7O_bRNg"
       optional: true
-    - author: Rick Rashid 
+    - author: Rick Rashid
       title: "Speech Recognition Breakthrough for the Spoken, Translated Word by Rick Rashid"
       video: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
       url: "https://www.youtube.com/watch?v=Nu-nlQqFCKg"
@@ -31,16 +31,16 @@
   include: true
   current: false
   notes:
+    - title: "Probability models and language"
+      url: "assets/slides/prob.pdf"
     - title: "Probability Models for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb"
-    - title: "Probability models and language"
-      url: "assets/slides/prob.pdf"
 - title: "Word Vectors"
   tag: w2v
   include: true
   current: false
-  notes: 
+  notes:
     - title: "Word Vectors"
       url: "assets/slides/wordvectors.pdf"
     - title: "Singular Value Decomposition for NLP"
@@ -75,6 +75,9 @@
     - title: "Python tidbits for NLP"
       url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
       download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/python-tidbits.ipynb"
+    - title: "Linear models"
+      url: "assets/slides/linearmodels.pdf"
+      optional: true
     - author: Peter Norvig
       title: "Natural Language Corpus Data: Beautiful Data"
       url: "http://norvig.com/ngrams/"
@@ -104,7 +107,7 @@
   tag: w2v
   include: true
   current: false
-  notes: 
+  notes:
     - title: "Word Vectors"
       url: "assets/slides/wordvectors.pdf"
     - title: "Singular Value Decomposition for NLP"
@@ -132,7 +135,7 @@
       url: "http://arxiv.org/abs/1511.07916"
     - title: "A Primer on Neural Networks for NLP"
       author: Yoav Goldberg
-      url: "http://u.cs.biu.ac.il/~yogo/nnlp.pdf" 
+      url: "http://u.cs.biu.ac.il/~yogo/nnlp.pdf"
   links:
     - title: "Deep Learning for MT Winter School"
       url: "http://dl4mt.computing.dcu.ie/"
@@ -151,8 +154,6 @@
   include: true
   current: false
   notes:
-    - title: "Linear models"
-      url: "assets/slides/linearmodels.pdf"
     - title: "Sequence prediction"
       url: "assets/slides/linearseq.pdf"
     - title: "Feedforward neural networks"
@@ -200,7 +201,7 @@
       url: "http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
       optional: true
 - title: "Tokenization"
-  tag: bpe 
+  tag: bpe
   include: true
   current: false
   notes:
