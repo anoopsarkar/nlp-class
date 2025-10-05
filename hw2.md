@@ -190,7 +190,7 @@ will start training on the `data/train.txt.gz` file. This
 will take about 15-20 minutes.
 
 You can also download the [`chunker.pt` model
-file](https://drive.google.com/file/d/1Cob8vewgpvNhJ2KnZlYq2Tntkgc0l2yx/view)
+file](https://drive.google.com/file/d/1OY_NKo0vxS2ndttdfpqGyMo0PubbhIK3/view?usp=sharing)
 that was trained using `default.py`.
 
 Please do not commit the file into your git repository as it is
