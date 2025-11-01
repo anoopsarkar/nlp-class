@@ -12,7 +12,7 @@
   links:
     - author: Richard Sutton
       title: "The Bitter Lesson"
-      url: "http://www.incompleteideas.net/IncIdeas/BitterLesson.html"
+      url: "https://www.incompleteideas.net/IncIdeas/BitterLesson.html"
     - title: "SHRDLU"
       video: "https://youtu.be/QAJz4YKUwqw"
       url: "https://youtu.be/QAJz4YKUwqw"
@@ -34,8 +34,8 @@
     - title: "Probability models and language"
       url: "assets/slides/prob.pdf"
     - title: "Probability Models for NLP"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb"
+      url: "https://nbviewer.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/probintro.ipynb"
+      download: "https://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/probintro.ipynb"
 - title: "n-gram Language models"
   tag: lm
   include: true
@@ -46,31 +46,31 @@
     - title: "Exercise: n-gram Language Models"
       url: "assets/notes/lm.html"
     - title: "The unreasonable effectiveness of Character-level Language Models"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/goldberg_lm.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/goldberg_lm.ipynb"
+      url: "https://nbviewer.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/goldberg_lm.ipynb"
+      download: "https://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/goldberg_lm.ipynb"
       author: "Yoav Goldberg"
   links:
     - title: "Python tidbits for NLP"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/python-tidbits.ipynb"
+      url: "https://nbviewer.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/python-tidbits.ipynb"
+      download: "https://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/python-tidbits.ipynb"
     - title: "Linear models"
       url: "assets/slides/linearmodels.pdf"
       optional: true
     - author: Peter Norvig
       title: "Natural Language Corpus Data: Beautiful Data"
-      url: "http://norvig.com/ngrams/"
-      download: "http://norvig.com/ngrams/ngrams.zip"
+      url: "https://norvig.com/ngrams/"
+      download: "https://norvig.com/ngrams/ngrams.zip"
     - author: Claude Shannon
       title: "A Mathematical Theory of Communication"
-      url: http://en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication
+      url: https://en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication
       optional: true
     - author: Claude Shannon
       title: "Prediction and Entropy of Printed English"
-      url: http://languagelog.ldc.upenn.edu/myl/Shannon1950.pdf
+      url: https://languagelog.ldc.upenn.edu/myl/Shannon1950.pdf
       optional: true
     - author: Michael Collins
       title: "Language models"
-      download: "http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lm.pdf"
+      download: "https://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lm.pdf"
       url: "assets/mcollins-notes/lm.pdf"
       optional: false
     - author: Stanley Chen and Joshua Goodman
@@ -89,11 +89,11 @@
     - title: "Word Vectors"
       url: "assets/slides/wordvectors.pdf"
     - title: "Singular Value Decomposition for NLP"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/svd.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/svd.ipynb"
+      url: "https://nbviewer.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/svd.ipynb"
+      download: "https://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/svd.ipynb"
     - title: "Training word2vec in Pytorch"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/word2vec.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/word2vec.ipynb"
+      url: "https://nbviewer.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/word2vec.ipynb"
+      download: "https://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/word2vec.ipynb"
     - title: "Exercise: word2vec"
       url: "assets/notes/word2vec.html"
   links:
@@ -110,17 +110,17 @@
   notes:
     - title: "Natural Language Understanding with Distributed Representation"
       author: "Kyunghyun Cho"
-      url: "http://arxiv.org/abs/1511.07916"
+      url: "https://arxiv.org/abs/1511.07916"
     - title: "A Primer on Neural Networks for NLP"
       author: Yoav Goldberg
-      url: "http://u.cs.biu.ac.il/~yogo/nnlp.pdf"
+      url: "https://u.cs.biu.ac.il/~yogo/nnlp.pdf"
   links:
     - title: "Deep Learning for MT Winter School"
-      url: "http://dl4mt.computing.dcu.ie/"
+      url: "https://dl4mt.computing.dcu.ie/"
       optional: true
     - title: "Visualizing Optimization Algorithms"
       author: "Alec Radford"
-      url: "http://imgur.com/a/Hqolp"
+      url: "https://imgur.com/a/Hqolp"
       optional: true
     - title: "Learning representations by back-propagating errors"
       author: "Rumelhart, Hinton and Williams"
@@ -137,29 +137,29 @@
     - title: "Feedforward neural networks"
       url: "assets/slides/ff.pdf"
     - title: "Multi-layer Perceptrons for n-gram LMs"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/mlp.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/mlp.ipynb"
+      url: "https://nbviewer.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/mlp.ipynb"
+      download: "https://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/mlp.ipynb"
     - title: "Intro to Feedforward networks"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/ff.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/ff.ipynb"
+      url: "https://nbviewer.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/ff.ipynb"
+      download: "https://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/ff.ipynb"
     - title: "Feedforward networks and XOR"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/xor.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/xor.ipynb"
+      url: "https://nbviewer.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/xor.ipynb"
+      download: "https://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/xor.ipynb"
   links:
     - author: Michael Collins
       title: "Feedforward neural networks"
-      url: "http://www.cs.columbia.edu/~mcollins/cs4705-spring2018/notes/ff.pdf"
+      url: "https://www.cs.columbia.edu/~mcollins/cs4705-spring2018/notes/ff.pdf"
       download: "assets/mcollins-notes/ff.pdf"
     - title: "Pytorch Internals"
       author: "Edward Z. Yang"
-      url: "http://blog.ezyang.com/2019/05/pytorch-internals/"
+      url: "https://blog.ezyang.com/2019/05/pytorch-internals/"
       optional: true
     - title: "Exercise: Nothing but Net(works)"
       author: Tom McCoy
       url: "https://naclo.org/resources/problems/2017/N2017-HS.pdf"
       optional: true
     - title: "Efficient Backprop"
-      url: "http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf"
+      url: "https://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf"
       author: "LeCun, Bottou, Orr and Muller"
       optional: true
     - title: "What Every Computer Scientist Should Know About Floating-Point Arithmetic"
@@ -167,7 +167,7 @@
       author: "D. Goldberg"
       optional: true
     - title: "Gradient checks and parameter updates"
-      url: "http://cs231n.github.io/neural-networks-3/"
+      url: "https://cs231n.github.io/neural-networks-3/"
       author: "Andrej Karpathy"
       optional: true
     - title: "Revisiting Simple Neural Probabilistic Language Models"
@@ -176,7 +176,7 @@
       optional: true
     - author: Erik F. Tjong Kim Sang and Sabine Buchholz
       title: "Introduction to the CoNLL-2000 Shared Task: Chunking"
-      url: "http://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
+      url: "https://www.cnts.ua.ac.be/conll2000/pdf/12732tjo.pdf"
       optional: true
 - title: "Tokenization"
   tag: bpe
@@ -186,8 +186,8 @@
     - title: "Lecture notes"
       url: "assets/slides/tokenization.pdf"
     - title: "Tokenization into Sub-words with Byte-Pair Encoding"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/bpe.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/bpe.ipynb"
+      url: "https://nbviewer.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/bpe.ipynb"
+      download: "https://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/bpe.ipynb"
   links:
     - title: "BPE tutorial at Huggingface"
       url: "https://huggingface.co/learn/nlp-course/chapter6/5?fw=pt"
@@ -211,11 +211,11 @@
   links:
     - author: Adam Lopez
       title: "Word Alignment and the Expectation-Maximization Algorithm"
-      url: "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.421.5497&rep=rep1&type=pdf"
+      url: "https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.421.5497&rep=rep1&type=pdf"
       optional: true
     - author: Kevin Knight
       title: "A Statistical MT Tutorial Workbook"
-      url: http://www.isi.edu/natural-language/mt/wkbk.pdf
+      url: https://www.isi.edu/natural-language/mt/wkbk.pdf
       optional: true
     - title: "Sequence to Sequence Learning with Neural Networks"
       author: "Ilya Sutskever, Oriol Vinyals, Quoc V. Le"
@@ -231,8 +231,8 @@
     - title: "Lecture notes"
       url: "assets/slides/self_attention.pdf"
     - title: "Transformer code tutorial"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/transformer.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/transformer.ipynb"
+      url: "https://nbviewer.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/transformer.ipynb"
+      download: "https://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/transformer.ipynb"
     - title: "Attention is all you need"
       author: "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin"
       url: "https://arxiv.org/abs/1706.03762"
@@ -244,10 +244,10 @@
       url: "https://web.stanford.edu/class/cs224n/readings/cs224n-self-attention-transformers-2023_draft.pdf"
     - title: "The Annotated Transformer"
       author: "Austin Huang, Suraj Subramanian, Jonathan Sum, Khalid Almubarak, and Stella Biderman. Original by Sasha Rush"
-      url: "http://nlp.seas.harvard.edu/annotated-transformer/#positional-encoding"
+      url: "https://nlp.seas.harvard.edu/annotated-transformer/#positional-encoding"
     - title: "The Illustrated Transformer"
       author: "Jay Alammar"
-      url: "http://jalammar.github.io/illustrated-transformer/"
+      url: "https://jalammar.github.io/illustrated-transformer/"
   links:
     - title: "RASPy: Think like a Transformer"
       author: "Sasha Rush"
@@ -464,8 +464,8 @@
       url: "https://arxiv.org/abs/2307.12375"
     - title: "Metaprompting"
       author: Anthropic.com
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/promptgen.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/promptgen.ipynb"
+      url: "https://nbviewer.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/promptgen.ipynb"
+      download: "https://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/promptgen.ipynb"
   links:
     - title: "In-context Examples Selection for Machine Translation"
       author: "Sweta Agrawal, Chunting Zhou, Mike Lewis, Luke Zettlemoyer, Marjan Ghazvininejad"
@@ -633,7 +633,7 @@
      url: "https://arxiv.org/abs/1807.03039"
    - title: "Digit Fantasies by a Deep Generative Model"
      author: "Durk Kingma"
-     url: "http://dpkingma.com/sgvb_mnist_demo/demo.html"
+     url: "https://dpkingma.com/sgvb_mnist_demo/demo.html"
 - title: "Summary"
   tag: "summary"
   include: true
@@ -656,12 +656,12 @@
       url: "assets/slides/nlm-mikolov.pdf"
       author: Tomas Mikolov
     - title: "RNN Language model notebook"
-      url: "http://nbviewer.jupyter.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/rnnlm.ipynb"
-      download: "http://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/rnnlm.ipynb"
+      url: "https://nbviewer.org/github/anoopsarkar/nlp-class/blob/gh-pages/assets/notebooks/rnnlm.ipynb"
+      download: "https://github.com/anoopsarkar/nlp-class/raw/gh-pages/assets/notebooks/rnnlm.ipynb"
   links:
     - title: "How to implement a recurrent neural network"
       author: "peterroelants.github.io"
-      url: "http://peterroelants.github.io/posts/rnn_implementation_part01/"
+      url: "https://peterroelants.github.io/posts/rnn_implementation_part01/"
       optional: true
     - title: "Neural Machine Translation and Sequence-to-sequence Models: A Tutorial"
       author: "Graham Neubig"
@@ -670,4 +670,4 @@
       optional: true
     - title: "Statistical language models based on neural networks"
       author: Tomas Mikolov
-      url: "http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf"
+      url: "https://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf"
