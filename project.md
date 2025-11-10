@@ -22,10 +22,10 @@ or something you find interesting.
 
 ### Project proposal (due on {{ site.hwdates[5].proposal }})
 
-For your project proposal please submit a text file in Markdown
-format that includes a Title and an Abstract. Your abstract should
-be about 250 words (please definitely use less than 1000 words).
-Make sure the following points are in your abstract.
+For your project proposal please submit a text file in Latex or
+Markdown format that includes a Title and an Abstract. Your abstract
+should be about 250 words (please definitely use less than 1000
+words).  Make sure the following points are in your abstract.
 
 * Motivation 
     * which NLP task do you plan to do; 
@@ -40,7 +40,7 @@ Make sure the following points are in your abstract.
 
 ### Project Write-up
 
-Apart from the poster session you must also submit your project
+Submit your project
 write-up as a Python notebook `project.ipynb` and your source
 code for your project in your GitLab repository:
 
@@ -111,5 +111,4 @@ The total marks are distributed as follows:
 
 * Work. Work done in the project. Results obtained. 50 marks (see the section on _Grading of the Final Project Work_ for grading details)
 * Docs. Documentation of the work done in the notebook. 25 marks (see the section on _Project Write-up_ for grading details)
-* Poster. Performance at the poster session and poster quality. 25 marks (see the section on _Poster grading_ for grading details)
 
