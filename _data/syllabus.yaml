@@ -405,6 +405,9 @@
     - title: "Parameter-Efficient Tuning with Special Token Adaptation"
       author: "Xiaocong Yang, James Y. Huang, Wenxuan Zhou, Muhao Chen"
       url: "https://aclanthology.org/2023.eacl-main.60/"
+    - title: "NeuroAda: Activating Each Neuron's Potential for Parameter-Efficient Fine-Tuning"
+      author: "Zhi Zhang, Yixian Shen, Congfeng Cao, Ekaterina Shutova"
+      url: "https://arxiv.org/abs/2510.18940"
 - title: "Few-shot and in-context learning"
   tag: "fewshot"
   include: true
