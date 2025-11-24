@@ -1,4 +1,4 @@
-exclude: ['README.md', 'assets/latex/', 'archive', 'venv']
+exclude: ['README.md', 'assets/latex/', 'archive', 'venv', 'assets/notebooks/venv']
 timezone: US/Pacific
 markdown: kramdown
 coursys: "https://coursys.sfu.ca/2025fa-cmpt-713-x1/"

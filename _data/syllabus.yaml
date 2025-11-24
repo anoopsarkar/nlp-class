@@ -572,7 +572,7 @@
   current: false
   notes:
    - title: Lecture notes
-      url: "assets/slides/data.pdf"
+     url: "assets/slides/data.pdf"
   links:
    - title: "Do We Need to Create Big Datasets to Learn a Task?"
      author: "Swaroop Mishra, Bhavdeep Singh Sachdeva"
