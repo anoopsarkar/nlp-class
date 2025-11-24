@@ -532,7 +532,18 @@
     - title: "A Survey of Test-Time Compute: From Intuitive Inference to Deliberate Reasoning"
       author: "Yixin Ji, Juntao Li, Yang Xiang, Hai Ye, Kaixin Wu, Kai Yao, Jia Xu, Linjian Mo, Min Zhang"
       url: "https://arxiv.org/abs/2501.02497"
+    - title: "Talk about Deepseek R1"
+      author: "Sasha Rush"
+      url: "https://simons.berkeley.edu/sites/default/files/2025-02/Sasha%20Rush%20LLM25-1%20Slides.pdf"
+    - title: "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
+      author: Deepseek
+      url: "https://arxiv.org/abs/2501.12948"
   links:
+    - title: "Learning to reason with LLMs"
+      author: OpenAI
+      url: "https://openai.com/index/learning-to-reason-with-llms/"
+    - title: "AIME benchmark"
+      url: "https://artificialanalysis.ai/evaluations/aime-2025"
     - title: "Training Verifiers to Solve Math Word Problems"
       author: "Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser, Matthias Plappert, Jerry Tworek, Jacob Hilton, Reiichiro Nakano, Christopher Hesse, John Schulman"
       url: "https://arxiv.org/abs/2110.14168"
