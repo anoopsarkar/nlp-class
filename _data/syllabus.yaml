@@ -454,15 +454,9 @@
     - title: "Training Compute-Optimal Large Language Models"
       author: "Google Deepmind"
       url: "https://arxiv.org/abs/2203.15556"
-    - title: "GLaM: Efficient Scaling of Language Models with Mixture-of-Experts"
-      author: "Google"
-      url: "https://arxiv.org/abs/2112.06905"
     - title: "Scaling Scaling Laws with Board Games"
       author: "Andy L. Jones"
       url: "https://arxiv.org/abs/2104.03113"
-    - title: "PaLM: Scaling Language Modeling with Pathways"
-      author: "Google"
-      url: "https://arxiv.org/abs/2204.02311"
   links:
     - title: "AI and Compute"
       author: "OpenAI"
@@ -473,9 +467,19 @@
     - title: "The FLOPs Calculus of Language Model Training"
       author: "Dzmitry Bahdanau"
       url: "https://medium.com/@dzmitrybahdanau/the-flops-calculus-of-language-model-training-3b19c1f025e4"
-    - title: "The AI Brick Wall – A Practical Limit For Scaling Dense Transformer Models, and How GPT 4 Will Break Past It"
-      author: "Dylan Patel"
-      url: "https://www.semianalysis.com/p/the-ai-brick-wall-a-practical-limit"
+- title: "Mixture of Experts LLMs"
+  tag: "moe"
+  include: true
+  current: false
+  notes:
+    - title: Lecture notes
+      url: "assets/slides/moe.pdf"
+    - title: "GLaM: Efficient Scaling of Language Models with Mixture-of-Experts"
+      author: "Google"
+      url: "https://arxiv.org/abs/2112.06905"
+    - title: "PaLM: Scaling Language Modeling with Pathways"
+      author: "Google"
+      url: "https://arxiv.org/abs/2204.02311"
 - title: "Instruction tuning and Preference Optimization"
   tag: "instruct"
   include: true
@@ -622,6 +626,16 @@
    - title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
      author: "Tri Dao, Daniel Y. Fu, Stefano Ermon, Atri Rudra, Christopher Ré"
      url: "https://arxiv.org/abs/2205.14135"
+- title: "Tool calling"
+  tag: "tools"
+  include: false
+  current: false
+  notes:
+   - title: Lecture notes
+     url: "assets/slides/tools.pdf"
+   - title: "Toolformer: Language Models Can Teach Themselves to Use Tools"
+     author: "Timo Schick et al"
+     url: "https://arxiv.org/abs/2302.04761"
 - title: "Variational Auto-encoding for Language"
   tag: "vae"
   include: false
