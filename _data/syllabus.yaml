@@ -628,7 +628,7 @@
      url: "https://arxiv.org/abs/2205.14135"
 - title: "Tool calling"
   tag: "tools"
-  include: false
+  include: true
   current: false
   notes:
    - title: Lecture notes
